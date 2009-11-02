@@ -1,0 +1,53 @@
+<?php
+
+/**
+ * @category   Recurly
+ * @package    Recurly_Client_PHP
+ * @copyright  Copyright (c) 2009 {@link http://recurly.com Recurly, Inc.}
+ */
+class RecurlyPlan
+{
+	var $plan_code;
+	var $name;
+	var $description;
+	var $latest_version;
+	
+	function RecurlyPlan($plan_code = null)
+	{
+		$this->plan_code = $plan_code;
+		$this->latest_version = new RecurlyPlanVersion();
+	}
+	
+	public static function getPlans()
+	{
+		$uri = RecurlyClient::PATH_PLANS;
+		$result = RecurlyClient::__sendRequest($uri, 'GET');
+		if (preg_match("/^2..$/", $result->code)) {
+			return RecurlyClient::__parse_xml($result->response, 'plan', 'RecurlyPlan');
+		} else {
+			throw new RecurlyException("Could not get subscription plans: {$result->response} -- ({$result->code})");
+		}
+	}
+
+	public static function getPlan($planCode)
+	{
+		$uri = RecurlyClient::PATH_PLANS . urlencode($planCode);
+		$result = RecurlyClient::__sendRequest($uri, 'GET');
+		if (preg_match("/^2..$/", $result->code)) {
+			return RecurlyClient::__parse_xml($result->response, 'plan', 'RecurlyPlan');
+		} else if ($result->code == '404') {
+			return null;
+		} else {
+			throw new RecurlyException("Could not get subscription plan {$planCode}: {$result->response} -- ({$result->code})");
+		}
+	}
+}
+
+class RecurlyPlanVersion
+{
+	var $version;
+	var $unit_amount_in_cents;
+	var $plan_interval_length;
+	var $plan_interval_unit;
+	var $trial_interval_length;
+}
