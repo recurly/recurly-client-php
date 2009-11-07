@@ -26,7 +26,6 @@ class SubscriptionTestCase extends UnitTestCase {
 		$subscription = $this->buildSubscription($acct);
 		$account_info = $subscription->create();
 		
-		print_r($account_info);
 		$this->assertIsA($account_info, 'RecurlyAccount');
 	}
 	

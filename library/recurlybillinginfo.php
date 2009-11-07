@@ -44,10 +44,11 @@ class RecurlyBillingInfo
 	public function getXml()
 	{
 		$doc = new DOMDocument("1.0");
-		$billing = $this->populateXmlDoc($doc, $doc);
+		$account = $doc->appendChild($doc->createElement("account"));
+		$billing = $this->populateXmlDoc($doc, $account);
 		
 		if (isset($this->credit_card) && $this->credit_card != null)
-			$this->credit_card->populateXmlDoc($doc, $billing);
+			$this->credit_card->populateXmlDoc($doc, $account);
 		
 		return $doc->saveXML();
 	}
@@ -63,7 +64,10 @@ class RecurlyBillingInfo
 		$billing->appendChild($doc->createElement("state", $this->state));
 		$billing->appendChild($doc->createElement("zip", $this->zip));
 		$billing->appendChild($doc->createElement("country", $this->country));
-		$billing->appendChild($doc->createElement("ip_address", $this->ip_address));
+		
+		if (isset($this->ip_address) && strlen($this->ip_address) > 0)
+			$billing->appendChild($doc->createElement("ip_address", $this->ip_address));
+		
 		return $billing;
 	}
 }

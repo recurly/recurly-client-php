@@ -7,9 +7,9 @@ require_once('test_credit.php');
 require_once('test_plan.php');
 require_once('test_subscription.php');
 
-define(RECURLY_USERNAME, '');
-define(RECURLY_PASSWORD, '');
-define(RECURLY_SUBSCRIPTION_PLAN_CODE, '');
+define('RECURLY_USERNAME', '');
+define('RECURLY_PASSWORD', '');
+define('RECURLY_SUBSCRIPTION_PLAN_CODE', '');
 
 RecurlyClient::SetAuth(RECURLY_USERNAME, RECURLY_PASSWORD);
 
