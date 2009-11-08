@@ -47,7 +47,7 @@ class RecurlyAccount
 		} else if (strpos($result->response, '<errors>') > 0 && $result->code == 422) {
 			throw new RecurlyValidationException($result->code, $result->response);
 		} else {
-			throw new RecurlyException("Could not create an account for {$this->account_code}: {$result->response} -- ({$result->code}) " . $data);
+			throw new RecurlyException("Could not create an account for {$this->account_code}: {$result->response} -- ({$result->code}) ");
 		}
 	}
 	
