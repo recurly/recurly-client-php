@@ -16,8 +16,10 @@ class RecurlyValidationException extends RecurlyException {
 		$errors = RecurlyClient::__parse_xml($xml, 'error', 'RecurlyError', true);
 		$this->errors = (is_array($errors) ? $errors : array($errors));
 		
+		$messages = array();
 		foreach ($this->errors as $err)
-			$messages[] = $err->message;
+		    if ($err != null)
+			    $messages[] = $err->message;
 		$message = implode('. ', $messages) . '.';
 		
 		parent::__construct($message, intval($http_code));

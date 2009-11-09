@@ -47,9 +47,6 @@ class RecurlyBillingInfo
 		$account = $doc->appendChild($doc->createElement("account"));
 		$billing = $this->populateXmlDoc($doc, $account);
 		
-		if (isset($this->credit_card) && $this->credit_card != null)
-			$this->credit_card->populateXmlDoc($doc, $account);
-		
 		return $doc->saveXML();
 	}
 	
@@ -67,6 +64,9 @@ class RecurlyBillingInfo
 		
 		if (isset($this->ip_address) && strlen($this->ip_address) > 0)
 			$billing->appendChild($doc->createElement("ip_address", $this->ip_address));
+		
+		if (isset($this->credit_card) && $this->credit_card != null)
+			$this->credit_card->populateXmlDoc($doc, $billing);
 		
 		return $billing;
 	}

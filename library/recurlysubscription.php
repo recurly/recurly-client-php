@@ -72,9 +72,8 @@ class RecurlySubscription
 		if (isset($this->unit_amount))
 			$root->appendChild($doc->createElement("unit_amount", $this->unit_amount));
 		
-		$this->account->populateXmlDoc($doc, $root);
-		$this->billing_info->populateXmlDoc($doc, $root);
-		$this->billing_info->credit_card->populateXmlDoc($doc, $root);
+		$account_node = $this->account->populateXmlDoc($doc, $root);
+		$this->billing_info->populateXmlDoc($doc, $account_node);
 
 		return $root;
 	}
