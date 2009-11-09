@@ -1,0 +1,112 @@
+body {
+	background-color: #E5DDF4;
+	font-family: helvetica,arial,sans-serif;
+  font-size: 75%;
+  line-height: 1.5;
+}
+h1 { 
+  color: #2B1660; 
+  font-size: 3em; 
+  margin-bottom: 0.5em;
+  margin-top: 0;
+}
+.center {
+}
+.container {
+  -moz-border-radius: 16px;
+  width: 600px;
+  margin: 16px auto;
+	background-color: #fff;
+	padding: 4px 0 16px 0;
+	font-size: 1.1em;
+	padding: 16px;
+	border: 2px solid #666;
+}
+div#footer {
+	margin: 0 auto;
+	padding: 0 8px 16px;
+  text-align: center;
+}  
+
+dl.invoice {
+  border-top: 2px solid black;
+  border-bottom: 2px solid black;
+  margin: 0 auto 24px;
+  padding: 8px 0;
+  display: block;
+  font-size: 1.4em;
+  line-height: 140%;
+}
+dl.invoice dt {
+  width: 400px;
+  clear: left;
+  color: #808080;
+  float: left;
+  padding: 1px 0 3px;
+}
+dl.invoice dd {
+  color: #808080;
+  margin: 0;
+  padding: 1px 0 3px 10px;
+  text-align: right;
+}
+dl.invoice dt.planname {
+  color: #000;
+  font-size: 1.4em;
+}
+
+td.testsite {
+  padding-top: 1.4em;
+  color: #808080;
+}
+td.field {
+  text-align: right;
+  
+}
+td.field label {
+  font-weight: bold;
+}
+td.field label.optional {
+  font-weight: normal;
+}
+td input.quantity { width: 50px !important; }
+td input.amount { width: 80px !important; }
+
+th, td, caption {
+padding:4px 10px 4px 5px;
+}
+table, td, th {
+vertical-align:middle;
+}
+td img { vertical-align: middle; }
+form input.text, form select {
+  -moz-border-radius: 4px;
+  color: #666;
+  font-size: 1.2em;
+  margin: 0;
+  padding: 6px;
+  border: 1px solid #BBB;
+}
+form input[type=text] { width: 300px; }
+form input.cvv {
+  width: 60px;
+}
+input.button {
+	background-color: #87B500;
+	border-color: #DDDDDD #689300 #689300 #DDDDDD;
+	border-style: solid;
+	border-width: 0 1px 1px 0;
+	color: #FFFFFF;
+	cursor: pointer;
+	font-size: 22px;
+	height: 42px;
+	line-height: 42px;
+	margin: 0;
+	overflow: visible;
+	padding: 0 15px;
+	text-shadow: 1px 1px #719E03;
+	width: auto;
+}
+.error, .success {padding:.8em;margin-bottom:1em;border:2px solid #ddd;}
+.error {background:#FBE3E4;color:#8a1f11;border-color:#FF3596;}
+.success {background:#E8FFE8;color:#264409;border-color:#9FFDA1;}
