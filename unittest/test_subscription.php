@@ -1,5 +1,4 @@
 <?php
-//require_once('../simpletest/autorun.php');
 require_once('../library/recurly.php');
 
 
@@ -14,19 +13,28 @@ class SubscriptionTestCase extends UnitTestCase {
 	function testCreateSubscriptionNewAccount() {
 		$new_acct = new RecurlyAccount(strval(time()) . '-create-sub-new', null, 'test@test.com', 'Create New', 'Subscription'. 'Test');
 		$subscription = $this->buildSubscription($new_acct);
-		$account_info = $subscription->create();
+		$sub_response = $subscription->create();
 		
-		$this->assertIsA($account_info, 'RecurlyAccount');
+		$this->assertIsA($sub_response, 'RecurlySubscription');
 	}
-	
+
+	function testGetSubscriptionNewAccount() {
+		$new_acct = new RecurlyAccount(strval(time()) . '-create-sub-new', null, 'test@test.com', 'Create New', 'Subscription'. 'Test');
+		$subscription = $this->buildSubscription($new_acct);
+		$sub_response = $subscription->create();
+		
+		$get_subscription = RecurlySubscription::getSubscription($new_acct->account_code);
+		$this->assertIsA($get_subscription, 'RecurlySubscription');
+	}
+
 	function testCreateSubscriptionExistingAccount() {
 		$acct = new RecurlyAccount(strval(time()) . '-create-sub-existing', null, 'test@test.com', 'Create Existing', 'Subscription', 'Test');
 		$acct = $acct->create();
 		
 		$subscription = $this->buildSubscription($acct);
-		$account_info = $subscription->create();
+		$sub_response = $subscription->create();
 		
-		$this->assertIsA($account_info, 'RecurlyAccount');
+		$this->assertIsA($sub_response, 'RecurlySubscription');
 	}
 	
 	function testUpdateSubscription() {
@@ -34,10 +42,9 @@ class SubscriptionTestCase extends UnitTestCase {
 		$acct = $acct->create();
 		
 		$subscription = $this->buildSubscription($acct);
-		$account_info = $subscription->create();
+		$sub_response = $subscription->create();
 		
-		print_r($account_info);
-		$this->assertIsA($account_info, 'RecurlyAccount');
+		$this->assertIsA($sub_response, 'RecurlySubscription');
 	}
     	
 	function testCancelSubscription() {
@@ -45,8 +52,8 @@ class SubscriptionTestCase extends UnitTestCase {
 		$acct = $acct->create();
 		
 		$subscription = $this->buildSubscription($acct);
-		$account_info = $subscription->create();
-		$this->assertIsA($account_info, 'RecurlyAccount');
+		$sub_response = $subscription->create();
+		$this->assertIsA($sub_response, 'RecurlySubscription');
 		
 		$response = RecurlySubscription::cancelSubscription($acct->account_code);
 		$this->assertTrue($response);
@@ -57,10 +64,34 @@ class SubscriptionTestCase extends UnitTestCase {
 		$acct = $acct->create();
 		
 		$subscription = $this->buildSubscription($acct);
-		$account_info = $subscription->create();
-		$this->assertIsA($account_info, 'RecurlyAccount');
+		$sub_response = $subscription->create();
+		$this->assertIsA($sub_response, 'RecurlySubscription');
 		
 		$response = RecurlySubscription::refundSubscription($acct->account_code, false);
+		$this->assertTrue($response);
+	}
+
+	function testUpgradeSubscription() {
+		$acct = new RecurlyAccount(strval(time()) . '-upgrade-sub', null, 'test@test.com', 'Upgrade', 'Subscription', 'Test');
+		$acct = $acct->create();
+
+		$subscription = $this->buildSubscription($acct);
+		$sub_response = $subscription->create();
+		$this->assertIsA($sub_response, 'RecurlySubscription');
+
+		$response = RecurlySubscription::changeSubscription($acct->account_code, 'now', null, 2); // Change quantity to two
+		$this->assertTrue($response);
+	}
+	
+	function testDowngradeSubscription() {
+		$acct = new RecurlyAccount(strval(time()) . '-downgrade-sub', null, 'test@test.com', 'Downgrade', 'Subscription', 'Test');
+		$acct = $acct->create();
+
+		$subscription = $this->buildSubscription($acct);
+		$sub_response = $subscription->create();
+		$this->assertIsA($sub_response, 'RecurlySubscription');
+
+		$response = RecurlySubscription::changeSubscription($acct->account_code, 'renewal', null, null, 5.25);
 		$this->assertTrue($response);
 	}
 	
@@ -78,7 +109,7 @@ class SubscriptionTestCase extends UnitTestCase {
 		$billing_info->state = 'CA';
 		$billing_info->country = 'US';
 		$billing_info->zip = '94105';
-		$billing_info->credit_card->number = '4111111111111111';
+		$billing_info->credit_card->number = '1';
 		$billing_info->credit_card->year = intval(date('Y')) + 1;
 		$billing_info->credit_card->month = date('n');
 		$billing_info->credit_card->verification_value = '123';
