@@ -9,7 +9,7 @@
  */
 class RecurlyClient
 {
-    const API_CLIENT_VERSION = '0.1.1';
+    const API_CLIENT_VERSION = '0.1.2';
 
     const DEFAULT_ENCODING = 'UTF-8';
 
@@ -76,7 +76,7 @@ class RecurlyClient
         curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, FALSE);
         curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 2);
         curl_setopt($ch, CURLOPT_FOLLOWLOCATION, FALSE);
-        curl_setopt($ch, CURLOPT_MAXREDIRS, 0);
+        curl_setopt($ch, CURLOPT_MAXREDIRS, 1);
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
         curl_setopt($ch, CURLOPT_HTTPHEADER, array(
             'Content-Type: application/xml',
@@ -101,15 +101,20 @@ class RecurlyClient
             curl_setopt($ch, CURLOPT_CUSTOMREQUEST, $method);
         }
 
-        curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, TRUE);
+        curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 5);
         curl_setopt($ch, CURLOPT_TIMEOUT, 20);
 
         $result = new StdClass();
         $result->response = curl_exec($ch);
         $result->code = curl_getinfo($ch, CURLINFO_HTTP_CODE);
         $result->meta = curl_getinfo($ch);
+        
+        $curl_error = ($result->code > 0 ? null : curl_error($ch) . ' (' . curl_errno($ch) . ')');
 
         curl_close($ch);
+        
+        if ($result->code == 0)
+            throw new RecurlyConnectionException('An error occurred while connecting to Recurly: ' . $curl_error);
 
         return $result;
 	}

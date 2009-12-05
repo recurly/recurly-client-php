@@ -9,6 +9,8 @@
  */
 class RecurlyException extends Exception {}
 
+class RecurlyConnectionException extends RecurlyException {}
+
 class RecurlyValidationException extends RecurlyException {
 	var $errors;
 	

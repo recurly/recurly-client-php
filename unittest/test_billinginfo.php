@@ -22,7 +22,7 @@ class BillingInfoTestCase extends UnitTestCase {
 		$billing_info->state = 'CA';
 		$billing_info->country = 'US';
 		$billing_info->zip = '94105';
-		$billing_info->credit_card->number = '4111111111111111';
+		$billing_info->credit_card->number = '1';
 		$billing_info->credit_card->year = intval(date('Y')) + 1;
 		$billing_info->credit_card->month = date('n');
 		$billing_info->credit_card->verification_value = '123';
