@@ -27,6 +27,19 @@ class RecurlyBillingInfo
 		$this->credit_card = new RecurlyCreditCard();
 	}
 	
+	public static function getBillingInfo($accountCode)
+	{
+	    $uri = RecurlyClient::PATH_ACCOUNTS . urlencode($accountCode) . RecurlyClient::PATH_BILLING_INFO;
+		$result = RecurlyClient::__sendRequest($uri, 'GET');
+		if (preg_match("/^2..$/", $result->code)) {
+			return RecurlyClient::__parse_xml($result->response, 'billing_info');
+		} else if ($result->code == '404') {
+			return null;
+		} else {
+			throw new RecurlyException("Could not get billing info for {$accountCode}: {$result->response} -- ({$result->code})");
+		}
+	}
+	
 	public function update()
 	{
 		$uri = RecurlyClient::PATH_ACCOUNTS . urlencode($this->account_code) . RecurlyClient::PATH_BILLING_INFO;
