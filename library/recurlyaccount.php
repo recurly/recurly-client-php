@@ -29,7 +29,7 @@ class RecurlyAccount
 		$uri = RecurlyClient::PATH_ACCOUNTS . urlencode($accountCode);
 		$result = RecurlyClient::__sendRequest($uri, 'GET');
 		if (preg_match("/^2..$/", $result->code)) {
-			return RecurlyClient::__parse_xml($result->response, 'account', 'RecurlyAccount');
+			return RecurlyClient::__parse_xml($result->response, 'account');
 		} else if ($result->code == '404') {
 			return null;
 		} else {
@@ -43,7 +43,7 @@ class RecurlyAccount
 		$data = $this->getXml();
 		$result = RecurlyClient::__sendRequest($uri, 'POST', $data);
 		if (preg_match("/^2..$/", $result->code)) {
-			return RecurlyClient::__parse_xml($result->response, 'account', 'RecurlyAccount');
+			return RecurlyClient::__parse_xml($result->response, 'account');
 		} else if (strpos($result->response, '<errors>') > 0 && $result->code == 422) {
 			throw new RecurlyValidationException($result->code, $result->response);
 		} else {
@@ -57,7 +57,7 @@ class RecurlyAccount
 		$data = $this->getXml();
 		$result = RecurlyClient::__sendRequest($uri, 'PUT', $data);
 		if (preg_match("/^2..$/", $result->code)) {
-			return RecurlyClient::__parse_xml($result->response, 'account', 'RecurlyAccount');
+			return RecurlyClient::__parse_xml($result->response, 'account');
 		} else if (strpos($result->response, '<errors>') > 0 && $result->code == 422) {
 			throw new RecurlyValidationException($result->code, $result->response);
 		} else {
@@ -85,7 +85,7 @@ class RecurlyAccount
 		$data = $credit->getXml();
 		$result = RecurlyClient::__sendRequest($uri, 'POST', $data);
 		if (preg_match("/^2..$/", $result->code)) {
-			return RecurlyClient::__parse_xml($result->response, 'credit', 'RecurlyAccountCredit');
+			return RecurlyClient::__parse_xml($result->response, 'credit');
 		} else if (strpos($result->response, '<errors>') > 0 && $result->code == 422) {
 			throw new RecurlyValidationException($result->code, $result->response);
 		} else {
@@ -100,7 +100,7 @@ class RecurlyAccount
 		$data = $credit->getXml();
 		$result = RecurlyClient::__sendRequest($uri, 'POST', $data);
 		if (preg_match("/^2..$/", $result->code)) {
-			return RecurlyClient::__parse_xml($result->response, 'charge', 'RecurlyAccountCharge');
+			return RecurlyClient::__parse_xml($result->response, 'charge');
 		} else if (strpos($result->response, '<errors>') > 0 && $result->code == 422) {
 			throw new RecurlyValidationException($result->code, $result->response);
 		} else {
@@ -113,7 +113,8 @@ class RecurlyAccount
 		$uri = RecurlyClient::PATH_ACCOUNTS . urlencode($this->account_code) . RecurlyClient::PATH_ACCOUNT_CREDITS;
 		$result = RecurlyClient::__sendRequest($uri);
 		if (preg_match("/^2..$/", $result->code)) {
-			return RecurlyClient::__parse_xml($result->response, 'credit', 'RecurlyAccountCredit');
+			$credits = RecurlyClient::__parse_xml($result->response, 'credit');
+			return ($credits != null && !is_array($credits)) ? array($credits) : $credits;
 		} else if (strpos($result->response, '<errors>') > 0 && $result->code == 422) {
 			throw new RecurlyValidationException($result->code, $result->response);
 		} else {
@@ -126,7 +127,8 @@ class RecurlyAccount
 		$uri = RecurlyClient::PATH_ACCOUNTS . urlencode($this->account_code) . RecurlyClient::PATH_ACCOUNT_CHARGES;
 		$result = RecurlyClient::__sendRequest($uri);
 		if (preg_match("/^2..$/", $result->code)) {
-			return RecurlyClient::__parse_xml($result->response, 'charge', 'RecurlyAccountCharge');
+			$charges = RecurlyClient::__parse_xml($result->response, 'charge');
+			return ($charges != null && !is_array($charges)) ? array($charges) : $charges;
 		} else if (strpos($result->response, '<errors>') > 0 && $result->code == 422) {
 			throw new RecurlyValidationException($result->code, $result->response);
 		} else {

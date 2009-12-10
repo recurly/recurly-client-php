@@ -9,7 +9,7 @@
  */
 class RecurlyClient
 {
-    const API_CLIENT_VERSION = '0.1.2';
+    const API_CLIENT_VERSION = '0.1.3';
 
     const DEFAULT_ENCODING = 'UTF-8';
 
@@ -21,6 +21,18 @@ class RecurlyClient
 
     const PATH_PLANS = '/plans/';
     const PATH_TRANSACTIONS = '/transactions/';
+
+	static $class_map = array(
+		'account' => 'RecurlyAccount',
+		'billing_info' => 'RecurlyBillingInfo',
+		'charge' => 'RecurlyAccountCharge',
+		'credit' => 'RecurlyAccountCredit',
+		'credit_card' => 'RecurlyCreditCard',
+		'error' => 'RecurlyError',
+		'plan' => 'RecurlyPlan',
+		'plan_version' => 'RecurlyPlanVersion',
+		'latest_version' => 'RecurlyPlanVersion',
+		'subscription' => 'RecurlySubscription');
 
 
     /**
@@ -119,50 +131,20 @@ class RecurlyClient
         return $result;
 	}
 	
-	public static function __parse_xml($xml, $node_name, $node_class, $parse_attributes = false) {
+	
+
+	public static function __parse_xml($xml, $node_name, $parse_attributes = false) {
 		$dom = @DOMDocument::loadXML($xml);
 		if (!$dom) return null;
 
-		$node_list = $dom->getElementsByTagName($node_name);
+		$childNodes = $dom->getElementsByTagName($node_name);
 		$list = array();
-		for ($i=0; $i < $node_list->length; $i++) {
-			$node = $node_list->item($i)->firstChild;
-			$obj = new $node_class();
-			while ($node) {
-				if ($node->nodeType == XML_TEXT_NODE) {
-					$obj->message = $node->wholeText;
-				} else if ($node->nodeType == XML_ELEMENT_NODE) {
-					$nodeName = str_replace("-", "_", $node->nodeName);
-					if (!is_numeric($node->nodeValue) && $tmp = strtotime($node->nodeValue))
-						$obj->$nodeName = $tmp;
-					else if ($node->nodeValue == "false")
-						$obj->$nodeName = false;
-					else if ($node->nodeValue == "true")
-						$obj->$nodeName = true;
-					else
-						$obj->$nodeName = $node->nodeValue;
-
-					if ($parse_attributes) {
-						foreach ($node->attributes as $attrName => $attrNode) {
-							$nodeName = str_replace("-", "_", $attrName);
-							$nodeValue = $attrNode->nodeValue;
-							print "NODE Attribute: " . $nodeName . " - " . $attrNode->nodeValue . "\n";
-							if (!is_numeric($nodeValue) && $tmp = strtotime($nodeValue))
-								$obj->$nodeName = $tmp;
-							else if ($nodeValue == "false")
-								$obj->$nodeName = false;
-							else if ($nodeValue == "true")
-								$obj->$nodeName = true;
-							else
-								$obj->$nodeName = $nodeValue;
-						}
-					}
-				}
-				$node = $node->nextSibling;
-			}
-			$list[] = $obj;
+		for ($i=0; $i < $childNodes->length; $i++) {
+			$node = $childNodes->item($i)->firstChild;
+			$node_class = RecurlyClient::$class_map[$node_name];
+			$list[] = RecurlyClient::__parseXmlToObject($node, $node_class, $parse_attributes);
 		}
-
+		
 		if (count($list) == 0)
 			return null;
 		else if (count($list) == 1)
@@ -170,4 +152,56 @@ class RecurlyClient
 		else
 			return $list;
 	}
+
+	protected static function __parseXmlToObject($node, $node_class, $parse_attributes) {
+		if ($node_class != null)
+			$obj = new $node_class();
+		else
+			$obj = new RecurlyObject();
+			
+		while ($node) {
+			if ($node->nodeType == XML_TEXT_NODE) {
+				if ($node->wholeText != null) {
+					$text = trim($node->wholeText);
+					if (strlen($text) > 0)
+						$obj->message = $text;
+				}
+			} else if ($node->nodeType == XML_ELEMENT_NODE) {
+				$nodeName = str_replace("-", "_", $node->nodeName);
+				if (!is_numeric($node->nodeValue) && $tmp = strtotime($node->nodeValue))
+					$obj->$nodeName = $tmp;
+				else if ($node->nodeValue == "false")
+					$obj->$nodeName = false;
+				else if ($node->nodeValue == "true")
+					$obj->$nodeName = true;
+				else
+					$obj->$nodeName = $node->nodeValue;
+
+				if ($node->childNodes->length > 1) {
+					$child_node_class = RecurlyClient::$class_map[$nodeName];
+					$obj->$nodeName = RecurlyClient::__parseXmlToObject($node->childNodes->item(0), $child_node_class, $parse_attributes);
+				}
+
+				if ($parse_attributes) {
+					foreach ($node->attributes as $attrName => $attrNode) {
+						$nodeName = str_replace("-", "_", $attrName);
+						$nodeValue = $attrNode->nodeValue;
+						if (!is_numeric($nodeValue) && $tmp = strtotime($nodeValue))
+							$obj->$nodeName = $tmp;
+						else if ($nodeValue == "false")
+							$obj->$nodeName = false;
+						else if ($nodeValue == "true")
+							$obj->$nodeName = true;
+						else
+							$obj->$nodeName = $nodeValue;
+					}
+				}
+			}
+			$node = $node->nextSibling;
+		}
+		return $obj;
+	}
 }
+
+// In case node_class is not specified.
+class RecurlyObject {}

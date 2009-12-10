@@ -23,7 +23,8 @@ class RecurlyPlan
 		$uri = RecurlyClient::PATH_PLANS;
 		$result = RecurlyClient::__sendRequest($uri, 'GET');
 		if (preg_match("/^2..$/", $result->code)) {
-			return RecurlyClient::__parse_xml($result->response, 'plan', 'RecurlyPlan');
+			$plans = RecurlyClient::__parse_xml($result->response, 'plan');
+			return ($plans != null && !is_array($plans)) ? array($plans) : $plans;
 		} else {
 			throw new RecurlyException("Could not get subscription plans: {$result->response} -- ({$result->code})");
 		}
@@ -34,7 +35,7 @@ class RecurlyPlan
 		$uri = RecurlyClient::PATH_PLANS . urlencode($planCode);
 		$result = RecurlyClient::__sendRequest($uri, 'GET');
 		if (preg_match("/^2..$/", $result->code)) {
-			return RecurlyClient::__parse_xml($result->response, 'plan', 'RecurlyPlan');
+			return RecurlyClient::__parse_xml($result->response, 'plan');
 		} else if ($result->code == '404') {
 			return null;
 		} else {

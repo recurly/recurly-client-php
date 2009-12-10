@@ -27,7 +27,8 @@ class CreditTestCase extends UnitTestCase {
 		
 		// Returns a single credit
 		$credit_list = $new_acct->listCredits();
-		$this->assertIsA($credit_list, "RecurlyAccountCredit");
+		$this->assertTrue(is_array($credit_list));
+		$this->assertIsA($credit_list[0], "RecurlyAccountCredit");
 		
 		$credit2 = $new_acct->creditAccount(12.34, 'Crediting $12.34 to account from unittest');
 		
