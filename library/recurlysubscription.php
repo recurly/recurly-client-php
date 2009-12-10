@@ -19,7 +19,7 @@ class RecurlySubscription
 		$data = $this->getXml();
 		$result = RecurlyClient::__sendRequest($uri, 'POST', $data);
 		if (preg_match("/^2..$/", $result->code)) {
-			return RecurlyClient::__parse_xml($result->response, 'subscription', 'RecurlySubscription');
+			return RecurlyClient::__parse_xml($result->response, 'subscription');
 		} else if (strpos($result->response, '<errors>') > 0 && $result->code == 422) {
 			throw new RecurlyValidationException($result->code, $result->response);
 		} else {
@@ -32,7 +32,7 @@ class RecurlySubscription
 	    $uri = RecurlyClient::PATH_ACCOUNTS . urlencode($accountCode) . RecurlyClient::PATH_ACCOUNT_SUBSCRIPTION;
 		$result = RecurlyClient::__sendRequest($uri, 'GET');
 		if (preg_match("/^2..$/", $result->code)) {
-			return RecurlyClient::__parse_xml($result->response, 'subscription', 'RecurlySubscription');
+			return RecurlyClient::__parse_xml($result->response, 'subscription');
 		} else if ($result->code == '404') {
 			return null;
 		} else {

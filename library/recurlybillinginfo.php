@@ -33,7 +33,7 @@ class RecurlyBillingInfo
 		$data = $this->getXml();
 		$result = RecurlyClient::__sendRequest($uri, 'PUT', $data);
 		if (preg_match("/^2..$/", $result->code)) {
-			return RecurlyClient::__parse_xml($result->response, 'billing_info', 'RecurlyBillingInfo');
+			return RecurlyClient::__parse_xml($result->response, 'billing_info');
 		} else if (strpos($result->response, '<errors>') > 0 && $result->code == 422) {
 			throw new RecurlyValidationException($result->code, $result->response);
 		} else {

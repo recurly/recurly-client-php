@@ -27,7 +27,8 @@ class ChargeTestCase extends UnitTestCase {
 		
 		// Returns a single charge
 		$charge_list = $new_acct->listCharges();
-		$this->assertIsA($charge_list, "RecurlyAccountCharge");
+		$this->assertTrue(is_array($charge_list));
+		$this->assertIsA($charge_list[0], "RecurlyAccountCharge");
 		
 		$charge2 = $new_acct->chargeAccount(12.34, 'Charging $12.34 to account from unittest');
 		

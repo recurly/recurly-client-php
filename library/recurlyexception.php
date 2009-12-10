@@ -15,7 +15,7 @@ class RecurlyValidationException extends RecurlyException {
 	var $errors;
 	
 	public function RecurlyValidationException($http_code, $xml) {
-		$errors = RecurlyClient::__parse_xml($xml, 'error', 'RecurlyError', true);
+		$errors = RecurlyClient::__parse_xml($xml, 'error', true);
 		$this->errors = (is_array($errors) ? $errors : array($errors));
 		
 		$messages = array();
