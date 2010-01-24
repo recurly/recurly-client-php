@@ -6,6 +6,7 @@ require_once('test_charge.php');
 require_once('test_credit.php');
 require_once('test_invoice.php');
 require_once('test_plan.php');
+require_once('test_postnotification.php');
 require_once('test_subscription.php');
 
 define('RECURLY_USERNAME', '');
@@ -18,14 +19,16 @@ RecurlyClient::SetAuth(RECURLY_USERNAME, RECURLY_PASSWORD);
 date_default_timezone_set('America/Los_Angeles');
 
 class AllTests extends TestSuite {
-    function AllTests() {
-        $this->TestSuite('All Recurly Tests');
-        $this->addTestCase(new AccountTestCase());
-       	$this->addTestCase(new BillingInfoTestCase());
-        $this->addTestCase(new ChargeTestCase());
-        $this->addTestCase(new CreditTestCase());
-        $this->addTestCase(new InvoiceTestCase());
-        $this->addTestCase(new PlanTestCase());
-        $this->addTestCase(new SubscriptionTestCase());
-    }
+  
+  function AllTests() {
+    $this->TestSuite('All Recurly Tests');
+    $this->addTestCase(new AccountTestCase());
+    $this->addTestCase(new BillingInfoTestCase());
+    $this->addTestCase(new ChargeTestCase());
+    $this->addTestCase(new CreditTestCase());
+    $this->addTestCase(new InvoiceTestCase());
+    $this->addTestCase(new PlanTestCase());
+    $this->addTestCase(new PostNotificationTestCase());
+    $this->addTestCase(new SubscriptionTestCase());
+  }
 }
