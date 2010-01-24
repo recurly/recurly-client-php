@@ -3,7 +3,7 @@
 /**
  * @category   Recurly
  * @package    Recurly_Client_PHP
- * @copyright  Copyright (c) 2009 {@link http://recurly.com Recurly, Inc.}
+ * @copyright  Copyright (c) 2010 {@link http://recurly.com Recurly, Inc.}
  */
 class RecurlyAccount
 {
@@ -133,6 +133,20 @@ class RecurlyAccount
 			throw new RecurlyValidationException($result->code, $result->response);
 		} else {
 			throw new RecurlyException("Could not list charges for account {$this->account_code}: {$result->response} ({$result->code})");
+		}
+	}
+	
+	public function listInvoices()
+	{
+		$uri = RecurlyClient::PATH_ACCOUNTS . urlencode($this->account_code) . RecurlyClient::PATH_ACCOUNT_INVOICES;
+		$result = RecurlyClient::__sendRequest($uri);
+		if (preg_match("/^2..$/", $result->code)) {
+			$invoices = RecurlyClient::__parse_xml($result->response, 'invoice');
+			return ($invoices != null && !is_array($invoices)) ? array($invoices) : $invoices;
+		} else if (strpos($result->response, '<errors>') > 0 && $result->code == 422) {
+			throw new RecurlyValidationException($result->code, $result->response);
+		} else {
+			throw new RecurlyException("Could not list invoices for account {$this->account_code}: {$result->response} ({$result->code})");
 		}
 	}
 	
