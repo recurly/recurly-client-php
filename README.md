@@ -35,6 +35,27 @@ Please see the test code in the *unittest/* directory for examples.
 Please see the [documentation](http://support.recurly.com/faqs/api/php-client) and
 [support forums](http://support.recurly.com/discussions) for more information.
 
+Receiving POST Notifications
+----------------------------
+
+Create a new PHP script to receive the POST Notification:
+
+    <?php
+        require_once('recurly/library/recurly.php');
+        RecurlyClient::SetAuth(RECURLY_USERNAME, RECURLY_PASSWORD);
+        
+        $post_xml = file_get_contents ("php://input");
+        $notification = new RecurlyPostNotification($post_xml);
+        
+        // process based on $notification->type
+    ?>
+
+Be sure to update your site settings to submit POST Notifications to your new script.
+
+Examples
+--------
+
+Please see **/demo/subscribe.php** for an example subscription page.
 
 API Documentation
 -----------------
