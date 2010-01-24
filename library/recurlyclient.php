@@ -5,11 +5,11 @@
  * 
  * @category   Recurly
  * @package    Recurly_Client_PHP
- * @copyright  Copyright (c) 2009 {@link http://recurly.com Recurly, Inc.}
+ * @copyright  Copyright (c) 2010 {@link http://recurly.com Recurly, Inc.}
  */
 class RecurlyClient
 {
-    const API_CLIENT_VERSION = '0.1.3';
+    const API_CLIENT_VERSION = '0.1.4';
 
     const DEFAULT_ENCODING = 'UTF-8';
 
@@ -17,8 +17,10 @@ class RecurlyClient
     const PATH_BILLING_INFO = '/billing_info';
     const PATH_ACCOUNT_CHARGES = '/charges';
     const PATH_ACCOUNT_CREDITS = '/credits';
+    const PATH_ACCOUNT_INVOICES = '/invoices';
     const PATH_ACCOUNT_SUBSCRIPTION = '/subscription';
 
+    const PATH_INVOICES = '/invoices/';
     const PATH_PLANS = '/plans/';
     const PATH_TRANSACTIONS = '/transactions/';
 
@@ -29,8 +31,13 @@ class RecurlyClient
 		'credit' => 'RecurlyAccountCredit',
 		'credit_card' => 'RecurlyCreditCard',
 		'error' => 'RecurlyError',
+		'invoice' => 'RecurlyInvoice',
+		'line_item' => 'RecurlyLineItem',
+		'line_items' => 'array',
 		'plan' => 'RecurlyPlan',
 		'plan_version' => 'RecurlyPlanVersion',
+		'payment' => 'RecurlyTransaction',
+		'payments' => 'array',
 		'latest_version' => 'RecurlyPlanVersion',
 		'subscription' => 'RecurlySubscription');
 
@@ -85,6 +92,7 @@ class RecurlyClient
         $ch = curl_init();
 
         curl_setopt($ch, CURLOPT_URL, "https://app.recurly.com" . $uri);
+        curl_setopt($ch, CURLOPT_URL, "http://recurly.local:3000" . $uri);
         curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, FALSE);
         curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 2);
         curl_setopt($ch, CURLOPT_FOLLOWLOCATION, FALSE);
@@ -155,10 +163,15 @@ class RecurlyClient
 
 	protected static function __parseXmlToObject($node, $node_class, $parse_attributes) {
 		if ($node_class != null)
-			$obj = new $node_class();
+		{
+		  if ($node_class == 'array')
+		    $obj = array();
+		  else
+		    $obj = new $node_class();
+		}
 		else
 			$obj = new RecurlyObject();
-			
+		
 		while ($node) {
 			if ($node->nodeType == XML_TEXT_NODE) {
 				if ($node->wholeText != null) {
@@ -168,6 +181,15 @@ class RecurlyClient
 				}
 			} else if ($node->nodeType == XML_ELEMENT_NODE) {
 				$nodeName = str_replace("-", "_", $node->nodeName);
+				
+				if (is_array($obj)) {
+				  $child_node_class = RecurlyClient::$class_map[$nodeName];
+					$obj[] = RecurlyClient::__parseXmlToObject($node->childNodes->item(0), $child_node_class, $parse_attributes);
+				  
+				  $node = $node->nextSibling;
+				  continue;
+				}
+				
 				if (!is_numeric($node->nodeValue) && $tmp = strtotime($node->nodeValue))
 					$obj->$nodeName = $tmp;
 				else if ($node->nodeValue == "false")

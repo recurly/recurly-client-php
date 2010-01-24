@@ -5,7 +5,7 @@
  *
  * @category   Recurly
  * @package    RecurlyClient
- * @copyright  Copyright (c) 2009 {@link http://recurly.com Recurly, Inc.}
+ * @copyright  Copyright (c) 2010 {@link http://recurly.com Recurly, Inc.}
  */
 class RecurlyException extends Exception {}
 

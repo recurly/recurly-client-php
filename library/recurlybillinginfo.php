@@ -3,14 +3,14 @@
 /**
  * @category   Recurly
  * @package    Recurly_Client_PHP
- * @copyright  Copyright (c) 2009 {@link http://recurly.com Recurly, Inc.}
+ * @copyright  Copyright (c) 2010 {@link http://recurly.com Recurly, Inc.}
  */
 class RecurlyBillingInfo
 {
 	var $account_code;
 	
 	var $first_name;
-	var $lastName;
+	var $last_name;
 	var $address1;
 	var $address2;
 	var $city;
@@ -29,7 +29,7 @@ class RecurlyBillingInfo
 	
 	public static function getBillingInfo($accountCode)
 	{
-	    $uri = RecurlyClient::PATH_ACCOUNTS . urlencode($accountCode) . RecurlyClient::PATH_BILLING_INFO;
+    $uri = RecurlyClient::PATH_ACCOUNTS . urlencode($accountCode) . RecurlyClient::PATH_BILLING_INFO;
 		$result = RecurlyClient::__sendRequest($uri, 'GET');
 		if (preg_match("/^2..$/", $result->code)) {
 			return RecurlyClient::__parse_xml($result->response, 'billing_info');
@@ -51,6 +51,20 @@ class RecurlyBillingInfo
 			throw new RecurlyValidationException($result->code, $result->response);
 		} else {
 			throw new RecurlyException("Could not update the billing information for {$this->account_code}: {$result->response} ({$result->code})");
+		}
+	}
+	
+	/* Clear the stored billing information for this account. */
+	public function clear()
+	{
+  	$uri = RecurlyClient::PATH_ACCOUNTS . urlencode($this->account_code) . RecurlyClient::PATH_BILLING_INFO;
+		$result = RecurlyClient::__sendRequest($uri, 'DELETE');
+		if (preg_match("/^2..$/", $result->code)) {
+			return true;
+		} else if (strpos($result->response, '<errors>') > 0 && $result->code == 422) {
+			throw new RecurlyValidationException($result->code, $result->response);
+		} else {
+			throw new RecurlyException("Could not clear the billing info for {$accountCode}: {$result->response} ({$result->code})");
 		}
 	}
 	

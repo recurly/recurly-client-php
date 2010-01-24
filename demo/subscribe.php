@@ -51,7 +51,7 @@
       $error_message = $e->getMessage();
     }
     catch (RecurlyException $e) {
-      $error_message = "An error occured while communicating with our payment gateway. Please try again or " +
+      $error_message = "An error occurred while communicating with our payment gateway. Please try again or " +
         "contact support.";
     }
   }

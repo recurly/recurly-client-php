@@ -4,11 +4,11 @@ require_once('../library/recurly.php');
 
 class CreditTestCase extends UnitTestCase {
     
-    function setUp() {
-    }
-    
-    function tearDown() {
-    }
+  function setUp() {
+  }
+  
+  function tearDown() {
+  }
     	
 	function testCreditAccount() {
 		$acct = new RecurlyAccount(strval(time()) . '-credit', 'user', 'test@test.com', 'Verena', 'Test');

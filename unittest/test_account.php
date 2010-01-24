@@ -4,20 +4,20 @@ require_once('../library/recurly.php');
 
 class AccountTestCase extends UnitTestCase {
     
-    function setUp() {
-    }
+  function setUp() {
+  }
+  
+  function tearDown() {
+  }
     
-    function tearDown() {
-    }
-    
-    function testCreateAccount() {
+  function testCreateAccount() {
 		$acct = new RecurlyAccount(strval(time()) . '-create', 'user', 'test@test.com', 'Verena', 'Test', 'Test Company');
 		$new_acct = $acct->create();
 		
 		$this->assertIsA($new_acct, "RecurlyAccount");
 		$this->assertNotNull($new_acct->created_at);
 		$this->assertEqual($acct->account_code, $new_acct->account_code);
-    }
+  }
 
 	function testGetAccount() {
 		$acct = new RecurlyAccount(strval(time()) . '-get', 'user', 'test@test.com', 'Verena', 'Test', 'Test Company');
@@ -50,8 +50,5 @@ class AccountTestCase extends UnitTestCase {
 		$new_acct = $acct->create();
 		
 		$this->assertTrue(RecurlyAccount::closeAccount($new_acct->account_code));
-		
-		$get_acct = RecurlyAccount::getAccount($acct->account_code);
-		$this->assertNull($get_acct);
 	}
 }

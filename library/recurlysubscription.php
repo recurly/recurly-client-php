@@ -3,7 +3,7 @@
 /**
  * @category   Recurly
  * @package    Recurly_Client_PHP
- * @copyright  Copyright (c) 2009 {@link http://recurly.com Recurly, Inc.}
+ * @copyright  Copyright (c) 2010 {@link http://recurly.com Recurly, Inc.}
  */
 class RecurlySubscription
 {
@@ -112,20 +112,18 @@ class RecurlySubscription
 	
 	public static function getChangeSubscriptionXml($timeframe, $newPlanCode, $newQuantity, $newUnitAmount)
 	{
-	    print "<!-- Change VARS: $newPlanCode, $newQuantity, $newUnitAmount -->\n";
-		
-	    $doc = new DOMDocument("1.0");
+    $doc = new DOMDocument("1.0");
 		$root = $doc->appendChild($doc->createElement("subscription"));
 		$root->appendChild($doc->createElement("timeframe", $timeframe));
 		
 		if ($newPlanCode != null)
-		    $root->appendChild($doc->createElement("plan_code", $newPlanCode));
+      $root->appendChild($doc->createElement("plan_code", $newPlanCode));
 
 		if ($newQuantity != null)
-		    $root->appendChild($doc->createElement("quantity", $newQuantity));
+      $root->appendChild($doc->createElement("quantity", $newQuantity));
 
 		if ($newUnitAmount != null)
-		    $root->appendChild($doc->createElement("unit_amount", $newUnitAmount));
+      $root->appendChild($doc->createElement("unit_amount", $newUnitAmount));
 		
 		return $doc->saveXML();
 	}
