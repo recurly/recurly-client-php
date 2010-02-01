@@ -21,6 +21,7 @@ class RecurlySubscription
 	var $current_period_ends_at;    // The subscription is paid until this date / Next Invoice date
 	var $trial_period_started_at;   // Date the trial started, if the subscription has a trial
 	var $trial_period_ends_at;      // Date the trial ends, if the subscription has/had a trial
+	var $pending_subscription;      // Set if the subscription has a pending change
 	
 	public function create()
 	{
@@ -136,4 +137,11 @@ class RecurlySubscription
 		
 		return $doc->saveXML();
 	}
+}
+
+class RecurlyPendingSubscription
+{
+  var $plan_code;
+  var $quantity;
+  var $activates_at;
 }

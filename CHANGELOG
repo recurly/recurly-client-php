@@ -1,5 +1,9 @@
 = Recurly PHP Client Library CHANGELOG
 
+== Version 0.1.6 (February 1, 2010)
+
+* Added pending_subscription information to the RecurlySubscription.
+
 == Version 0.1.5 (January 31, 2010)
 
 * Renamed RecurlyPostNotification to RecurlyPushNotification to match naming convention in the web app.

@@ -95,6 +95,25 @@ class SubscriptionTestCase extends UnitTestCase {
 		$this->assertTrue($response);
 	}
 	
+	function testPendingSubscription() {
+		$acct = new RecurlyAccount(strval(time()) . '-pending-sub', null, 'test@test.com', 'Pending', 'Subscription', 'Test');
+		$acct = $acct->create();
+
+		$subscription = $this->buildSubscription($acct);
+		$sub_response = $subscription->create();
+		
+		$response = RecurlySubscription::changeSubscription($acct->account_code, 'renewal', null, null, 5.25);
+	  
+		// Test pending subscription
+		$get_subscription = RecurlySubscription::getSubscription($acct->account_code);
+		$this->assertNotNull($get_subscription->pending_subscription);
+		$this->assertIsA($get_subscription->pending_subscription, 'RecurlyPendingSubscription');
+		
+		print "<!--\n";
+		print_r($get_subscription);
+		print "\n-->\n";
+	}
+	
 	/* Build a subscription object for the subscription tests */
 	function buildSubscription($acct) {
 		$subscription = new RecurlySubscription();

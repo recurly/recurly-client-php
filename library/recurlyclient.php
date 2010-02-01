@@ -9,7 +9,7 @@
  */
 class RecurlyClient
 {
-    const API_CLIENT_VERSION = '0.1.4';
+    const API_CLIENT_VERSION = '0.1.6';
 
     const DEFAULT_ENCODING = 'UTF-8';
 
@@ -32,13 +32,14 @@ class RecurlyClient
 		'credit_card' => 'RecurlyCreditCard',
 		'error' => 'RecurlyError',
 		'invoice' => 'RecurlyInvoice',
+		'latest_version' => '', // Depreciated -- ignore
 		'line_item' => 'RecurlyLineItem',
 		'line_items' => 'array',
 		'plan' => 'RecurlyPlan',
-		'plan_version' => '',
+		'plan_version' => '', // Depreciated -- ignore
 		'payment' => 'RecurlyTransaction',
 		'payments' => 'array',
-		'latest_version' => '',
+		'pending_subscription' => 'RecurlyPendingSubscription',
 		'subscription' => 'RecurlySubscription');
 
 
