@@ -189,7 +189,6 @@ class RecurlyAccountCredit
 	
 	public function getXml()
 	{
-		$amount_in_cents = 
 		$doc = new DOMDocument("1.0");
 		$root = $doc->appendChild($doc->createElement("credit"));
 		$root->appendChild($doc->createElement("amount_in_cents", $this->amount_in_cents));
@@ -217,7 +216,6 @@ class RecurlyAccountCharge
 	
 	public function getXml()
 	{
-		$amount_in_cents = 
 		$doc = new DOMDocument("1.0");
 		$root = $doc->appendChild($doc->createElement("charge"));
 		$root->appendChild($doc->createElement("amount_in_cents", $this->amount_in_cents));

@@ -12,6 +12,7 @@ class RecurlySubscription
 	var $unit_amount;	// Defaults to plan's current price if not set
 	var $quantity;		// Defaults to 1
 	var $billing_info;	// Account's billing information
+	var $current_period_ends_at;
 	
 	public function create()
 	{

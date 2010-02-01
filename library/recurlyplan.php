@@ -10,12 +10,15 @@ class RecurlyPlan
 	var $plan_code;
 	var $name;
 	var $description;
-	var $latest_version;
+	var $unit_amount_in_cents;
+	var $plan_interval_length;
+	var $plan_interval_unit;
+	var $trial_interval_length;
+	var $trial_interval_unit;
 	
 	function RecurlyPlan($plan_code = null)
 	{
 		$this->plan_code = $plan_code;
-		$this->latest_version = new RecurlyPlanVersion();
 	}
 	
 	public static function getPlans()
@@ -42,13 +45,4 @@ class RecurlyPlan
 			throw new RecurlyException("Could not get subscription plan {$planCode}: {$result->response} -- ({$result->code})");
 		}
 	}
-}
-
-class RecurlyPlanVersion
-{
-	var $version;
-	var $unit_amount_in_cents;
-	var $plan_interval_length;
-	var $plan_interval_unit;
-	var $trial_interval_length;
 }

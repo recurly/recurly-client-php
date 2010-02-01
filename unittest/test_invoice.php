@@ -30,6 +30,17 @@ class InvoiceTestCase extends UnitTestCase {
 		$this->assertIsA($invoice, "RecurlyInvoice");
   }
   
+  function testCreateInvoice() {
+    $invoice = RecurlyInvoice::createInvoice($this->acct->account_code);
+    $this->assertNull($invoice);
+    
+		$charge = $this->acct->chargeAccount(9.99, 'Charging $9.99 to account from unittest');
+		$invoice = RecurlyInvoice::createInvoice($this->acct->account_code);
+    
+    $this->assertNotNull($invoice);
+		$this->assertIsA($invoice, "RecurlyInvoice");
+  }
+  
   /* Build a subscription object for the subscription tests */
 	function buildSubscription($acct) {
 		$subscription = new RecurlySubscription();

@@ -35,10 +35,10 @@ class RecurlyClient
 		'line_item' => 'RecurlyLineItem',
 		'line_items' => 'array',
 		'plan' => 'RecurlyPlan',
-		'plan_version' => 'RecurlyPlanVersion',
+		'plan_version' => '',
 		'payment' => 'RecurlyTransaction',
 		'payments' => 'array',
-		'latest_version' => 'RecurlyPlanVersion',
+		'latest_version' => '',
 		'subscription' => 'RecurlySubscription');
 
 
@@ -200,7 +200,10 @@ class RecurlyClient
 
 				if ($node->childNodes->length > 1) {
 					$child_node_class = RecurlyClient::$class_map[$nodeName];
-					$obj->$nodeName = RecurlyClient::__parseXmlToObject($node->childNodes->item(0), $child_node_class, $parse_attributes);
+					
+					if ($child_node_class != '') {
+					  $obj->$nodeName = RecurlyClient::__parseXmlToObject($node->childNodes->item(0), $child_node_class, $parse_attributes);
+				  }
 				}
 
 				if ($parse_attributes) {
