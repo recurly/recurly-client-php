@@ -1,0 +1,9 @@
+= Recurly PHP Client Library CHANGELOG
+
+== Version 0.1.5 (January 31, 2010)
+
+* Renamed RecurlyPostNotification to RecurlyPushNotification to match naming convention in the web app.
+* Removed RecurlyPlanVersion. Plan pricing information is now part of RecurlyPlan.
+* Added RecurlyInvoice::createInvoice() to create invoices for non-invoiced charges.
+* Added more subscription status variables to RecurlySubscription.
+* Added more variables to RecurlyTransaction.
