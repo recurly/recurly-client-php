@@ -2,7 +2,7 @@
 require_once('../library/recurly.php');
 
 
-class PostNotificationTestCase extends UnitTestCase {
+class PushNotificationTestCase extends UnitTestCase {
     
   function setUp() {
   }
@@ -25,7 +25,7 @@ class PostNotificationTestCase extends UnitTestCase {
 </new_account_notification>
 XML;
 
-    $notification = new RecurlyPostNotification($xml);
+    $notification = new RecurlyPushNotification($xml);
     
     print "<!--\n";
     print_r($notification);
@@ -67,7 +67,7 @@ XML;
 </new_subscription_notification>
 XML;
 
-    $notification = new RecurlyPostNotification($xml);
+    $notification = new RecurlyPushNotification($xml);
     
     print "<!--\n";
     print_r($notification);

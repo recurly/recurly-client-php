@@ -35,17 +35,17 @@ Please see the test code in the *unittest/* directory for examples.
 Please see the [documentation](http://support.recurly.com/faqs/api/php-client) and
 [support forums](http://support.recurly.com/discussions) for more information.
 
-Receiving POST Notifications
+Receiving Psuh Notifications
 ----------------------------
 
-Create a new PHP script to receive the POST Notification:
+Create a new PHP script to receive the Push Notification:
 
     <?php
         require_once('recurly/library/recurly.php');
         RecurlyClient::SetAuth(RECURLY_USERNAME, RECURLY_PASSWORD);
         
         $post_xml = file_get_contents ("php://input");
-        $notification = new RecurlyPostNotification($post_xml);
+        $notification = new RecurlyPushNotification($post_xml);
         
         // process based on $notification->type
     ?>

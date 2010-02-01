@@ -8,6 +8,6 @@ require_once('recurlycreditcard.php');
 require_once('recurlyexception.php');
 require_once('recurlyinvoice.php');
 require_once('recurlyplan.php');
-require_once('recurlypostnotification.php');
+require_once('recurlypushnotification.php');
 require_once('recurlysubscription.php');
 require_once('recurlytransaction.php');

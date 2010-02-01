@@ -3,7 +3,7 @@
 /* Usage:
 
 $post_xml = file_get_contents ("php://input");
-$notification = new RecurlyPostNotification($post_xml);
+$notification = new RecurlyPushNotification($post_xml);
 
 */
 
@@ -12,7 +12,7 @@ $notification = new RecurlyPostNotification($post_xml);
  * @package    Recurly_Client_PHP
  * @copyright  Copyright (c) 2010 {@link http://recurly.com Recurly, Inc.}
  */
-class RecurlyPostNotification
+class RecurlyPushNotification
 {
   /* Notification type:
    *   [new_account updated_account canceled_account 
@@ -25,7 +25,7 @@ class RecurlyPostNotification
   var $subscription;
   var $transaction;
   
-  function RecurlyPostNotification($post_xml)
+  function RecurlyPushNotification($post_xml)
   {
     $this->parseXml($post_xml);
   }
