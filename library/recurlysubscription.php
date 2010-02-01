@@ -12,7 +12,15 @@ class RecurlySubscription
 	var $unit_amount;	// Defaults to plan's current price if not set
 	var $quantity;		// Defaults to 1
 	var $billing_info;	// Account's billing information
-	var $current_period_ends_at;
+	
+	/* These values are populated by Recurly -- they do not need to be set by you. */
+	var $activated_at;              // Date the subscription started
+	var $canceled_at;               // If set, the date the subscriber canceled their subscription
+	var $expires_at;                // If set, the subscription will expire on this date
+	var $current_period_started_at; // Date the current invoice period started
+	var $current_period_ends_at;    // The subscription is paid until this date / Next Invoice date
+	var $trial_period_started_at;   // Date the trial started, if the subscription has a trial
+	var $trial_period_ends_at;      // Date the trial ends, if the subscription has/had a trial
 	
 	public function create()
 	{
