@@ -9,8 +9,8 @@
  */
 class RecurlyClient
 {
-    const API_CLIENT_VERSION = '0.1.6';
-
+    const API_CLIENT_VERSION = '0.1.7';
+    const API_URL = 'https://%s.recurly.com';
     const DEFAULT_ENCODING = 'UTF-8';
 
     const PATH_ACCOUNTS = '/accounts/';
@@ -58,15 +58,23 @@ class RecurlyClient
     static $password = '';
 
     /**
+    * Recurly account subdomain
+    *
+    * @var string 
+    */
+    static $subdomain = '';
+
+    /**
     * Set Recurly username and password.
     *
     * @param string $username Recurly username
     * @param string $password Recurly password
     */
-    public static function SetAuth($username, $password)
+    public static function SetAuth($username, $password, $subdomain='app')
     {
         self::$username = $username;
         self::$password = $password;
+        self::$subdomain = $subdomain;
     }
 	
 	
@@ -92,7 +100,7 @@ class RecurlyClient
 
         $ch = curl_init();
 
-        curl_setopt($ch, CURLOPT_URL, "https://app.recurly.com" . $uri);
+        curl_setopt($ch, CURLOPT_URL, sprintf(API_URL, self::$subdomain) . $uri);
         curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, FALSE);
         curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 2);
         curl_setopt($ch, CURLOPT_FOLLOWLOCATION, FALSE);

@@ -9,11 +9,12 @@ require_once('test_plan.php');
 require_once('test_postnotification.php');
 require_once('test_subscription.php');
 
-define('RECURLY_USERNAME', '');
-define('RECURLY_PASSWORD', '');
+define('RECURLY_API_USERNAME', '');
+define('RECURLY_API_PASSWORD', '');
+define('RECURLY_SUBDOMAIN', '');
 define('RECURLY_SUBSCRIPTION_PLAN_CODE', 'daily');
 
-RecurlyClient::SetAuth(RECURLY_USERNAME, RECURLY_PASSWORD);
+RecurlyClient::SetAuth(RECURLY_API_USERNAME, RECURLY_API_PASSWORD, RECURLY_SUBDOMAIN);
 
 // Setting timezone for time() function.
 date_default_timezone_set('America/Los_Angeles');

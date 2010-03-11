@@ -18,12 +18,13 @@ Initialization
 --------------
 
 First, the Recurly classes must be loaded. Next, specify your username and password for your 
-Recurly account.  Please see the [Authentication](http://support.recurly.com/faqs/api/authentication)
+Recurly API user.  Note, you must use an **API user** to connect with the PHP client.
+Please see the [Authentication](http://support.recurly.com/faqs/api/authentication)
 documentation for more details.
 
     <?php
         require_once('recurly/library/recurly.php');
-        RecurlyClient::SetAuth(RECURLY_USERNAME, RECURLY_PASSWORD);
+        RecurlyClient::SetAuth(RECURLY_API_USERNAME, RECURLY_API_PASSWORD, RECURLY_SUBDOMAIN);
     ?>
 
 
@@ -35,14 +36,14 @@ Please see the test code in the *unittest/* directory for examples.
 Please see the [documentation](http://support.recurly.com/faqs/api/php-client) and
 [support forums](http://support.recurly.com/discussions) for more information.
 
-Receiving Psuh Notifications
+Receiving Push Notifications
 ----------------------------
 
 Create a new PHP script to receive the Push Notification:
 
     <?php
         require_once('recurly/library/recurly.php');
-        RecurlyClient::SetAuth(RECURLY_USERNAME, RECURLY_PASSWORD);
+        RecurlyClient::SetAuth(RECURLY_API_USERNAME, RECURLY_API_PASSWORD, RECURLY_SUBDOMAIN);
         
         $post_xml = file_get_contents ("php://input");
         $notification = new RecurlyPushNotification($post_xml);
@@ -50,7 +51,7 @@ Create a new PHP script to receive the Push Notification:
         // process based on $notification->type
     ?>
 
-Be sure to update your site settings to submit POST Notifications to your new script.
+Be sure to update your Recurly site settings to submit POST Notifications to your new script.
 
 Examples
 --------

@@ -5,11 +5,12 @@
   // Replace with the PLAN_CODE for your subscription
   define('RECURLY_SUBSCRIPTION_PLAN_CODE', '');
   
-  // Replace with your Recurly credentials
-  define('RECURLY_USERNAME', '');
-  define('RECURLY_PASSWORD', '');
+  // Replace with your Recurly API user credentials
+  define('RECURLY_API_USERNAME', '');
+  define('RECURLY_API_PASSWORD', '');
+  define('RECURLY_SUBDOMAIN', '');
 
-  RecurlyClient::SetAuth(RECURLY_USERNAME, RECURLY_PASSWORD);
+  RecurlyClient::SetAuth(RECURLY_API_USERNAME, RECURLY_API_PASSWORD, RECURLY_SUBDOMAIN);
   
   // Setting timezone for time() function.
   date_default_timezone_set('America/Los_Angeles');

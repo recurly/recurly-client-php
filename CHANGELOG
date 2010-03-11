@@ -1,5 +1,10 @@
 = Recurly PHP Client Library CHANGELOG
 
+== Version 0.1.7 (March 11, 2010)
+
+* Added 'subdomain' parameter to authentication.
+* Added clarification that credentials should be for an API user.
+
 == Version 0.1.6 (February 1, 2010)
 
 * Added pending_subscription information to the RecurlySubscription.
