@@ -29,7 +29,7 @@ class AllTests extends TestSuite {
     $this->addTestCase(new CreditTestCase());
     $this->addTestCase(new InvoiceTestCase());
     $this->addTestCase(new PlanTestCase());
-    $this->addTestCase(new PostNotificationTestCase());
+    //$this->addTestCase(new PostNotificationTestCase());
     $this->addTestCase(new SubscriptionTestCase());
   }
 }
