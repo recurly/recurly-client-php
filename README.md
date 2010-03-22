@@ -35,7 +35,7 @@ Please see the test code in the *unittest/* directory for examples.
 Please see the [documentation](http://support.recurly.com/faqs/api/php-client) and
 [support forums](http://support.recurly.com/discussions) for more information.
 
-Receiving Psuh Notifications
+Receiving Push Notifications
 ----------------------------
 
 Create a new PHP script to receive the Push Notification:
