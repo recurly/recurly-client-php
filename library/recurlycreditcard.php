@@ -17,8 +17,8 @@ class RecurlyCreditCard
 {
 	var $number;             /* Not returned by Recurly */
 	var $verification_value; /* Not returned by Recurly */
-	var $month;              /* Card expiration year */
-	var $year;               /* Card expiration month */
+	var $month;              /* Card expiration month */
+	var $year;               /* Card expiration year */
 
 	var $type;               /* Populated when returned from Recurly */
 	var $last_four;          /* Populated when returned from Recurly */
