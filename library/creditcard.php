@@ -182,7 +182,7 @@
 		private static $types =   array( CC_VISA, CC_MC, CC_AMEX, CC_DS, CC_BOGUS );
 		private static $cvvlens = array( CC_VISA => 3, CC_MC => 3, CC_AMEX => 4, CC_DS => 3, CC_BOGUS => 3 );
 		private static $cvvword = array( CC_VISA => 'CVV2', CC_MC => 'CVV2', CC_AMEX => 'CID', CC_DS => 'CID', CC_BOGUS => 'CVV' );
-		private static $numlens = array( CC_VISA => 16, CC_MC => 16, CC_AMEX => 17, CC_DS => 16, CC_BOGUS => 1 );
+		private static $numlens = array( CC_VISA => 16, CC_MC => 16, CC_AMEX => 15, CC_DS => 16, CC_BOGUS => 1 );
 
 		private $number;	// Credit Card number, max 19 digits
 		private $CVV;		// 3/4 digit verification code
