@@ -114,6 +114,20 @@ class SubscriptionTestCase extends UnitTestCase {
 		print "\n-->\n";
 	}
 	
+	function testCustomTrialSubscription(){
+	  $acct = new RecurlyAccount(strval(time()) . '-custom-trial-sub', null, 'test@test.com', 'Pending', 'Subscription', 'Test');
+		$acct = $acct->create();
+
+		$subscription = $this->buildSubscription($acct);
+		$subscription->trial_period_ends_at = date('Y') . "-" . (intval(date('m')) + 2) . "-" . "01";
+		$sub_response = $subscription->create();
+		
+		
+		// Test pending subscription
+		$get_subscription = RecurlySubscription::getSubscription($acct->account_code);
+		$this->assertIsA($get_subscription, 'RecurlySubscription');
+	}
+	
 	/* Build a subscription object for the subscription tests */
 	function buildSubscription($acct) {
 		$subscription = new RecurlySubscription();
