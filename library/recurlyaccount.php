@@ -95,12 +95,18 @@ class RecurlyAccount
 	
 	public function chargeAccount($amount, $description = '', /* bool */ $immediate = false)
 	{
-		$uri = RecurlyClient::PATH_ACCOUNTS . urlencode($this->account_code) . ($immediate ? PATH_TRANSACTIONS : RecurlyClient::PATH_ACCOUNT_CHARGES);
-		$credit = new RecurlyAccountCharge($amount, $description);
-		$data = $credit->getXml();
+		if ($immediate) {
+			$uri = RecurlyClient::PATH_TRANSACTIONS;
+			$trans = new RecurlyTransaction($amount, $description, $this);
+			$data = $trans->getXml();
+		} else {
+			$uri = RecurlyClient::PATH_ACCOUNTS . urlencode($this->account_code) . RecurlyClient::PATH_ACCOUNT_CHARGES;
+			$credit = new RecurlyAccountCharge($amount, $description);
+			$data = $credit->getXml();
+		}
 		$result = RecurlyClient::__sendRequest($uri, 'POST', $data);
 		if (preg_match("/^2..$/", $result->code)) {
-			return RecurlyClient::__parse_xml($result->response, 'charge');
+			return RecurlyClient::__parse_xml($result->response, $immediate ? 'transaction' : 'charge');
 		} else if (strpos($result->response, '<errors>') > 0 && $result->code == 422) {
 			throw new RecurlyValidationException($result->code, $result->response);
 		} else {
