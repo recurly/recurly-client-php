@@ -19,10 +19,10 @@ class RecurlyClient
     const PATH_ACCOUNT_CREDITS = '/credits';
     const PATH_ACCOUNT_INVOICES = '/invoices';
     const PATH_ACCOUNT_SUBSCRIPTION = '/subscription';
+    const PATH_TRANSACTIONS = '/transactions';
 
     const PATH_INVOICES = '/invoices/';
     const PATH_PLANS = '/company/plans/';
-    const PATH_TRANSACTIONS = '/transactions/';
 
 	static $class_map = array(
 		'account' => 'RecurlyAccount',

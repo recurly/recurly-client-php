@@ -108,6 +108,9 @@ class RecurlySubscription
 		$root = $doc->appendChild($doc->createElement("subscription"));
 		$root->appendChild($doc->createElement("plan_code", $this->plan_code));
 		
+		if (isset($this->trial_period_ends_at))
+		  $root->appendChild($doc->createElement("trial_ends_at", $this->trial_period_ends_at));
+		
 		if (isset($this->quantity))
 			$root->appendChild($doc->createElement("quantity", $this->quantity));
 		
