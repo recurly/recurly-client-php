@@ -6,7 +6,7 @@ require_once('test_charge.php');
 require_once('test_credit.php');
 require_once('test_invoice.php');
 require_once('test_plan.php');
-require_once('test_postnotification.php');
+require_once('test_pushnotification.php');
 require_once('test_subscription.php');
 
 define('RECURLY_API_USERNAME', '');
@@ -29,7 +29,7 @@ class AllTests extends TestSuite {
     $this->addTestCase(new CreditTestCase());
     $this->addTestCase(new InvoiceTestCase());
     $this->addTestCase(new PlanTestCase());
-    //$this->addTestCase(new PostNotificationTestCase());
+    $this->addTestCase(new PushNotificationTestCase());
     $this->addTestCase(new SubscriptionTestCase());
   }
 }
