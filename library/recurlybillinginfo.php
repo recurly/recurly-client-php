@@ -19,6 +19,8 @@ class RecurlyBillingInfo
 	var $zip;
 	var $credit_card;
 	var $ip_address;
+	var $vat_number;
+	var $phone;
 	
 	function RecurlyBillingInfo($accountCode = null)
 	{
@@ -88,6 +90,8 @@ class RecurlyBillingInfo
 		$billing->appendChild($doc->createElement("state", $this->state));
 		$billing->appendChild($doc->createElement("zip", $this->zip));
 		$billing->appendChild($doc->createElement("country", $this->country));
+		$billing->appendChild($doc->createElement("phone", $this->phone));
+		$billing->appendChild($doc->createElement("vat_number", $this->vat_number));
 		
 		if (isset($this->ip_address) && strlen($this->ip_address) > 0)
 			$billing->appendChild($doc->createElement("ip_address", $this->ip_address));

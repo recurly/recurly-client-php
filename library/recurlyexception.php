@@ -31,5 +31,6 @@ class RecurlyValidationException extends RecurlyException {
 class RecurlyError
 {
 	var $field;
+	var $code;
 	var $message;
 }
