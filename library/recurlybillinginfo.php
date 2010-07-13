@@ -25,7 +25,7 @@ class RecurlyBillingInfo
 	function RecurlyBillingInfo($accountCode = null)
 	{
 		$this->account_code = $accountCode;
-		$this->ip_address = $_SERVER['REMOTE_ADDR'];
+		$this->ip_address = isset($_SERVER['REMOTE_ADDR']) ? $_SERVER['REMOTE_ADDR'] : null;
 		$this->credit_card = new RecurlyCreditCard();
 	}
 	

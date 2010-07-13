@@ -42,7 +42,7 @@ class RecurlyInvoice
 		} else if ($result->code == 422) {
 			return null; // No charges or credits to invoice.
 		} else {
-			throw new RecurlyException("Could not create a charge for {$this->account_code}: {$result->response} ({$result->code})");
+			throw new RecurlyException("Could not create a charge for {$account_code}: {$result->response} ({$result->code})");
 		}
 	}
 }

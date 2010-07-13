@@ -23,6 +23,20 @@ class RecurlyTransaction
 		$this->description = $description;
 	}
 
+	public function create()
+	{
+		$uri = RecurlyClient::PATH_TRANSACTIONS;
+		$data = $this->getXml();
+		$result = RecurlyClient::__sendRequest($uri, 'POST', $data);
+		if (preg_match("/^2..$/", $result->code)) {
+			return RecurlyClient::__parse_xml($result->response, 'subscription');
+		} else if (strpos($result->response, '<errors>') > 0 && $result->code == 422) {
+			throw new RecurlyValidationException($result->code, $result->response);
+		} else {
+			throw new RecurlyException("Could not create a subscription for {$this->account->account_code}: {$result->response} -- ({$result->code})");
+		}
+	}
+
 	/* Normalize the amount to a positive float amount */
 	public function amount()
 	{

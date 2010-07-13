@@ -8,6 +8,7 @@ require_once('test_invoice.php');
 require_once('test_plan.php');
 require_once('test_pushnotification.php');
 require_once('test_subscription.php');
+require_once('test_transaction.php');
 
 define('RECURLY_API_USERNAME', '');
 define('RECURLY_API_PASSWORD', '');
@@ -31,5 +32,6 @@ class AllTests extends TestSuite {
     $this->addTestCase(new PlanTestCase());
     $this->addTestCase(new PushNotificationTestCase());
     $this->addTestCase(new SubscriptionTestCase());
+    $this->addTestCase(new TransactionTestCase());
   }
 }
