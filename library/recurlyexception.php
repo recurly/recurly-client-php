@@ -13,10 +13,12 @@ class RecurlyConnectionException extends RecurlyException {}
 
 class RecurlyValidationException extends RecurlyException {
 	var $errors;
+	var $xml;
 	
 	public function RecurlyValidationException($http_code, $xml) {
 		$errors = RecurlyClient::__parse_xml($xml, 'error', true);
 		$this->errors = (is_array($errors) ? $errors : array($errors));
+  	$this->xml = $xml;
 		
 		$messages = array();
 		foreach ($this->errors as $err)

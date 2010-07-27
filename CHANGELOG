@@ -1,5 +1,14 @@
 = Recurly PHP Client Library CHANGELOG
 
+== Version 0.1.8 (July 27, 2010)
+
+* Added RecurlyTransaction::create()
+* Fixed error message when invoice creation fails.
+* Fixed potential bug when request IP address is not set.
+* Removed the 'creditcard.php' dependency because it does not provide comprehensive validation.
+* Added Luhn validation RecurlyCreditCard class.
+* Added raw xml variable to the RecurlyException class.
+
 == Version 0.1.7 (March 11, 2010)
 
 * Added 'subdomain' parameter to authentication.

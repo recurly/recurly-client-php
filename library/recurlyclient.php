@@ -9,7 +9,7 @@
  */
 class RecurlyClient
 {
-    const API_CLIENT_VERSION = '0.1.7';
+    const API_CLIENT_VERSION = '0.1.8';
     const API_URL = 'https://%s.recurly.com';
     const DEFAULT_ENCODING = 'UTF-8';
 

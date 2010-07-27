@@ -5,14 +5,6 @@
  * @package    Recurly_Client_PHP
  * @copyright  Copyright (c) 2010 {@link http://recurly.com Recurly, Inc.}
  */
-
-	if (!defined('CC_VISA')) { define('CC_VISA', 'Visa'); }
-	if (!defined('CC_MC')) { define('CC_MC', 'MasterCard'); }
-	if (!defined('CC_AMEX')) { define('CC_AMEX', 'Amex'); }
-	if (!defined('CC_DS')) { define('CC_DS', 'Discover'); }
-	if (!defined('CC_BOGUS')) { define('CC_BOGUS', 'Bogus'); }
-	if (!defined('CC_MAXLEN')) { define('CC_MAXLEN', 19); }
-
 class RecurlyCreditCard
 {
 	var $number;             /* Not returned by Recurly */
@@ -37,12 +29,28 @@ class RecurlyCreditCard
 		return $cc;
 	}
 
-	public static $types = array('visa'=> CC_VISA, 'master'=> CC_MC, 'american_express'=> CC_AMEX, 'discover'=> CC_DS, 'bogus'=> CC_BOGUS);
-
 	public function isValid() {
-		require_once('creditcard.php');
-		$type = array_key_exists($this->type, self::$types) ? self::$types[strtolower($this->type)] : CC_BOGUS;
-		$cc = new CreditCard($type, $this->number, $this->verification_value, $this->month, $this->year, true);
-		return strlen($this->last_four) > 0 && strtolower($this->type) !== 'unknown' && $cc->isValid();
+	  if (is_null($this->number))
+	    return false;
+
+	  # Test for Luhn validation
+	  $digits = preg_replace('/[^0-9]/', '', $this->number);
+	  return $this->isLuhnValid($digits);
 	}
+
+	# http://en.wikipedia.org/wiki/Luhn_algorithm
+	function isLuhnValid($str)
+  {
+    if (strspn($str, "0123456789") != strlen($str)) {
+      return false; // non-digit found
+    }
+    $map = array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, // for even indices
+                 0, 2, 4, 6, 8, 1, 3, 5, 7, 9); // for odd indices
+    $sum = 0;
+    $last = strlen($str) - 1;
+    for ($i = 0; $i <= $last; $i++) {
+      $sum += $map[$str[$last - $i] + ($i & 1) * 10];
+    }
+    return $sum % 10 == 0;
+  }
 }

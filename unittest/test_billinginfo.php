@@ -22,7 +22,7 @@ class BillingInfoTestCase extends UnitTestCase {
 		$billing_info->state = 'CA';
 		$billing_info->country = 'US';
 		$billing_info->zip = '94105';
-		$billing_info->credit_card->number = '1';
+		$billing_info->credit_card->number = '4111-1111-1111-1111';
 		$billing_info->credit_card->year = intval(date('Y')) + 1;
 		$billing_info->credit_card->month = date('n');
 		$billing_info->credit_card->verification_value = '123';
@@ -42,7 +42,7 @@ class BillingInfoTestCase extends UnitTestCase {
 		$billing_info->state = 'CA';
 		$billing_info->country = 'US';
 		$billing_info->zip = '94105';
-		$billing_info->credit_card->number = '1';
+		$billing_info->credit_card->number = '4111-1111-1111-1111';
 		$billing_info->credit_card->year = intval(date('Y')) + 1;
 		$billing_info->credit_card->month = date('n');
 		$billing_info->credit_card->verification_value = '123';
@@ -64,7 +64,7 @@ class BillingInfoTestCase extends UnitTestCase {
 		$billing_info->state = 'CA';
 		$billing_info->country = 'US';
 		$billing_info->zip = '94105';
-		$billing_info->credit_card->number = '1';
+		$billing_info->credit_card->number = '4111-1111-1111-1111';
 		$billing_info->credit_card->year = intval(date('Y')) + 1;
 		$billing_info->credit_card->month = date('n');
 		$billing_info->credit_card->verification_value = '123';
@@ -79,5 +79,28 @@ class BillingInfoTestCase extends UnitTestCase {
 		$this->assertNotEqual($billing_info->first_name, $get_billing->first_name);
 		$this->assertNotEqual($billing_info->address1, $get_billing->address1);
 		$this->assertNotEqual($billing_info->zip, $get_billing->zip);
+	}
+	
+	function testCreditCardValidity() {
+	  $acct = $this->acct;
+		$billing_info = new RecurlyBillingInfo($acct->account_code);
+		$billing_info->credit_card->year = intval(date('Y')) + 1;
+		$billing_info->credit_card->month = date('n');
+		$billing_info->credit_card->verification_value = '123';
+		
+		$billing_info->credit_card->number = '4111-1111-1111-1111';
+		$this->assertTrue($billing_info->credit_card->isValid());
+		
+		$billing_info->credit_card->number = '4111111111111111';
+		$this->assertTrue($billing_info->credit_card->isValid());
+		
+		$billing_info->credit_card->number = '4000000000000002';
+		$this->assertTrue($billing_info->credit_card->isValid());
+		
+		$billing_info->credit_card->number = '4000000000000001';
+		$this->assertFalse($billing_info->credit_card->isValid());
+		
+		$billing_info->credit_card->number = '4111111111';
+		$this->assertFalse($billing_info->credit_card->isValid());
 	}
 }
