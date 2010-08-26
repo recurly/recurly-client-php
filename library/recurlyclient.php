@@ -107,7 +107,7 @@ class RecurlyClient
         curl_setopt($ch, CURLOPT_MAXREDIRS, 1);
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
         curl_setopt($ch, CURLOPT_HTTPHEADER, array(
-            'Content-Type: application/xml',
+            'Content-Type: application/xml; charset=utf-8',
             'Accept: application/xml',
             "User-Agent: Recurly PHP Client v" . self::API_CLIENT_VERSION
         )); 
