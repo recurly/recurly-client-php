@@ -40,7 +40,9 @@ class RecurlyClient
 		'payment' => 'RecurlyTransaction',
 		'payments' => 'array',
 		'pending_subscription' => 'RecurlyPendingSubscription',
-		'subscription' => 'RecurlySubscription');
+		'subscription' => 'RecurlySubscription',
+		'add_ons' => 'array',
+		'add_on' => 'RecurlyAddOn');
 
 
     /**

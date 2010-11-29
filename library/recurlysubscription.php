@@ -12,6 +12,7 @@ class RecurlySubscription
 	var $unit_amount;	// Defaults to plan's current price if not set
 	var $quantity;		// Defaults to 1
 	var $billing_info;	// Account's billing information
+	var $add_ons;		// Subscription's add ons
 	
 	/* These values are populated by Recurly -- they do not need to be set by you. */
 	var $activated_at;              // Date the subscription started
@@ -39,7 +40,7 @@ class RecurlySubscription
 	
 	public static function getSubscription($accountCode)
 	{
-	    $uri = RecurlyClient::PATH_ACCOUNTS . urlencode($accountCode) . RecurlyClient::PATH_ACCOUNT_SUBSCRIPTION;
+		$uri = RecurlyClient::PATH_ACCOUNTS . urlencode($accountCode) . RecurlyClient::PATH_ACCOUNT_SUBSCRIPTION;
 		$result = RecurlyClient::__sendRequest($uri, 'GET');
 		if (preg_match("/^2..$/", $result->code)) {
 			return RecurlyClient::__parse_xml($result->response, 'subscription');
@@ -77,15 +78,16 @@ class RecurlySubscription
 		}
 	}
 
-    // Change the subscription 'now' or at 'renewal'.
+	// Change the subscription 'now' or at 'renewal'.
 	// Set a value to change it. Leave it as null otherwise.
-	public static function changeSubscription($accountCode, $timeframe = 'now', $newPlanCode = null, $newQuantity = null, $newUnitAmount = null)
+	public static function changeSubscription($accountCode, $timeframe = 'now', $newPlanCode = null, $newQuantity = null, $newUnitAmount = null, $addOns = null)
 	{
-	    if (!($timeframe == 'now' || $timeframe == 'renewal'))
-	        throw new RecurlyException("The timeframe must be 'now' or 'renewal'.");
-	    
-        $uri = RecurlyClient::PATH_ACCOUNTS . urlencode($accountCode) . RecurlyClient::PATH_ACCOUNT_SUBSCRIPTION;
-		$data = RecurlySubscription::getChangeSubscriptionXml($timeframe, $newPlanCode, $newQuantity, $newUnitAmount);
+		error_log('<br>quant:' . $newQuantity);
+		if (!($timeframe == 'now' || $timeframe == 'renewal'))
+			throw new RecurlyException("The timeframe must be 'now' or 'renewal'.");
+
+		$uri = RecurlyClient::PATH_ACCOUNTS . urlencode($accountCode) . RecurlyClient::PATH_ACCOUNT_SUBSCRIPTION;
+		$data = RecurlySubscription::getChangeSubscriptionXml($timeframe, $newPlanCode, $newQuantity, $newUnitAmount, $addOns);
 		$result = RecurlyClient::__sendRequest($uri, 'PUT', $data);
 		if (preg_match("/^2..$/", $result->code)) {
 			return true;
@@ -116,14 +118,18 @@ class RecurlySubscription
 		
 		if (isset($this->unit_amount))
 			$root->appendChild($doc->createElement("unit_amount", $this->unit_amount));
-		
+
+		if (isset($this->add_ons)) {
+		  $root->appendChild(getAddOnsXml($add_ons, $doc));
+		}
+		    
 		$account_node = $this->account->populateXmlDoc($doc, $root);
 		$this->billing_info->populateXmlDoc($doc, $account_node);
 
 		return $root;
 	}
 	
-	public static function getChangeSubscriptionXml($timeframe, $newPlanCode, $newQuantity, $newUnitAmount)
+	public static function getChangeSubscriptionXml($timeframe, $newPlanCode, $newQuantity, $newUnitAmount, $add_ons)
 	{
     $doc = new DOMDocument("1.0");
 		$root = $doc->appendChild($doc->createElement("subscription"));
@@ -137,8 +143,24 @@ class RecurlySubscription
 
 		if ($newUnitAmount != null)
       $root->appendChild($doc->createElement("unit_amount", $newUnitAmount));
-		
+
+		if (isset($add_ons)) {
+		  $root->appendChild(RecurlySubscription::getAddOnsXml($add_ons, $doc));
+		}
+
 		return $doc->saveXML();
+	}
+	
+	public static function getAddOnsXml($add_ons, $doc){
+		$add_ons_elem = $doc->createElement("add_ons");
+		foreach($add_ons as $add_on){
+			$add_on_elem = $doc->createElement('add_on');
+			$add_on_elem->appendChild($doc->createElement('add_on_code', $add_on->add_on_code));
+			$add_on_elem->appendChild($doc->createElement('quantity', $add_on->quantity));
+			$add_on_elem->appendChild($doc->createElement('unit_amount_in_cents', $add_on->unit_amount_in_cents));
+			$add_ons_elem->appendChild($add_on_elem);
+		}
+		return $add_ons_elem;
 	}
 }
 
