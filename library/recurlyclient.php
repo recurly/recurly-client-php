@@ -191,7 +191,6 @@ class RecurlyClient
 				}
 			} else if ($node->nodeType == XML_ELEMENT_NODE) {
 				$nodeName = str_replace("-", "_", $node->nodeName);
-				
 				if (is_array($obj)) {
 				  $child_node_class = RecurlyClient::$class_map[$nodeName];
 					$obj[] = RecurlyClient::__parseXmlToObject($node->childNodes->item(0), $child_node_class, $parse_attributes);

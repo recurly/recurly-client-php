@@ -119,9 +119,8 @@ class RecurlySubscription
 		if (isset($this->unit_amount))
 			$root->appendChild($doc->createElement("unit_amount", $this->unit_amount));
 
-		if (isset($this->add_ons)) {
-		  $root->appendChild(getAddOnsXml($add_ons, $doc));
-		}
+		if (isset($this->add_ons))
+		  $root->appendChild(RecurlySubscription::getAddOnsXml($this->add_ons, $doc));
 		    
 		$account_node = $this->account->populateXmlDoc($doc, $root);
 		$this->billing_info->populateXmlDoc($doc, $account_node);
@@ -144,9 +143,8 @@ class RecurlySubscription
 		if ($newUnitAmount != null)
       $root->appendChild($doc->createElement("unit_amount", $newUnitAmount));
 
-		if (isset($add_ons)) {
+		if (isset($add_ons))
 		  $root->appendChild(RecurlySubscription::getAddOnsXml($add_ons, $doc));
-		}
 
 		return $doc->saveXML();
 	}
