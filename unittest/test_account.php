@@ -5,6 +5,7 @@ require_once('../library/recurly.php');
 class AccountTestCase extends UnitTestCase {
     
   function setUp() {
+    $_SERVER['HTTP_ACCEPT_LANGUAGE'] = 'en-US,en;q=0.8';
   }
   
   function tearDown() {

@@ -172,6 +172,11 @@ class RecurlyAccount
 		$account->appendChild($doc->createElement("first_name", $this->first_name));
 		$account->appendChild($doc->createElement("last_name", $this->last_name));
 		$account->appendChild($doc->createElement("company_name", $this->company_name));
+
+		if (isset($_SERVER['HTTP_ACCEPT_LANGUAGE'])) {
+		  $account->appendChild($doc->createElement("accept_language", $_SERVER['HTTP_ACCEPT_LANGUAGE']));
+	  }
+
 		return $account;
 	}
 }
