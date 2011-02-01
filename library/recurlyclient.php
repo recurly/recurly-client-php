@@ -5,12 +5,12 @@
  * 
  * @category   Recurly
  * @package    Recurly_Client_PHP
- * @copyright  Copyright (c) 2010 {@link http://recurly.com Recurly, Inc.}
+ * @copyright  Copyright (c) 2011 {@link http://recurly.com Recurly, Inc.}
  */
 class RecurlyClient
 {
-    const API_CLIENT_VERSION = '0.1.9';
-    const API_URL = 'https://api.recurly.com';
+    const API_CLIENT_VERSION = '0.1.11';
+    const API_URL = 'https://app.recurly.com';
     const DEFAULT_ENCODING = 'UTF-8';
 
     const PATH_ACCOUNTS = '/accounts/';
@@ -19,7 +19,7 @@ class RecurlyClient
     const PATH_ACCOUNT_CREDITS = '/credits';
     const PATH_ACCOUNT_INVOICES = '/invoices';
     const PATH_ACCOUNT_SUBSCRIPTION = '/subscription';
-    const PATH_TRANSACTIONS = '/transactions';
+    const PATH_TRANSACTIONS = '/transactions/';
 
     const PATH_INVOICES = '/invoices/';
     const PATH_PLANS = '/company/plans/';
@@ -41,6 +41,7 @@ class RecurlyClient
 		'payments' => 'array',
 		'pending_subscription' => 'RecurlyPendingSubscription',
 		'subscription' => 'RecurlySubscription',
+		'transaction' => 'RecurlyTransaction',
 		'add_ons' => 'array',
 		'add_on' => 'RecurlyAddOn');
 
@@ -145,6 +146,8 @@ class RecurlyClient
         
         if ($result->code == 0)
             throw new RecurlyConnectionException('An error occurred while connecting to Recurly: ' . $curl_error);
+        if ($result->code == 401)
+            throw new RecurlyUnauthorizedException('Your API user is not authorized to connect to Recurly.');
 
         return $result;
 	}

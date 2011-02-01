@@ -185,11 +185,13 @@ class RecurlyAccountCredit
 {
 	var $amount_in_cents;
 	var $description;
+	var $currency;
 	
-	public function RecurlyAccountCredit($amount = 0, $description = null)
+	public function RecurlyAccountCredit($amount = 0, $description = null, $currency = null)
 	{
 		$this->amount_in_cents = intval($amount * 100);
 		$this->description = $description;
+		$this->currency = $currency;
 	}
 	
 	/* Normalize the amount to a positive float amount */
@@ -204,6 +206,11 @@ class RecurlyAccountCredit
 		$root = $doc->appendChild($doc->createElement("credit"));
 		$root->appendChild($doc->createElement("amount_in_cents", $this->amount_in_cents));
 		$root->appendChild($doc->createElement("description", $this->description));
+
+		if (isset($this->currency) && $this->currency != null) {
+      $root->appendChild($doc->createElement("currency", $this->currency));
+    }
+
 		return $doc->saveXML();
 	}
 }
@@ -212,25 +219,32 @@ class RecurlyAccountCharge
 {
 	var $amount_in_cents;
 	var $description;
+	var $currency;
 	
-	public function RecurlyAccountCharge($amount = 0, $description = null)
+	public function RecurlyAccountCharge($amount = 0, $description = null, $currency = null)
 	{
 		$this->amount_in_cents = intval($amount * 100);
 		$this->description = $description;
+		$this->currency = $currency;
 	}
-	
+
 	/* Normalize the amount to a positive float amount */
 	public function amount()
 	{
 		return abs($this->amount_in_cents / 100.0);
 	}
-	
+
 	public function getXml()
 	{
 		$doc = new DOMDocument("1.0");
 		$root = $doc->appendChild($doc->createElement("charge"));
 		$root->appendChild($doc->createElement("amount_in_cents", $this->amount_in_cents));
 		$root->appendChild($doc->createElement("description", $this->description));
+
+		if (isset($this->currency) && $this->currency != null) {
+      $root->appendChild($doc->createElement("currency", $this->currency));
+    }
+
 		return $doc->saveXML();
 	}
 }

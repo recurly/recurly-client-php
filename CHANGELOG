@@ -1,5 +1,19 @@
 = Recurly PHP Client Library CHANGELOG
 
+== Version 0.1.11 (February 1, 2011)
+
+* Fixed RecurlyTransaction::create()
+* Added RecurlyTransaction::getTransaction(), and void()
+* Added RecurlyUnauthorizedException for 401/Authorization failures when connecting to the API
+
+== Version 0.1.10 (January 9, 2011)
+
+* Automatically submit "Accept-Language" header to Recurly when creating or updating an account.
+
+== Version 0.1.9 (August 26, 2010)
+
+* Subscription add-ons support.
+
 == Version 0.1.8 (July 27, 2010)
 
 * Added RecurlyTransaction::create()

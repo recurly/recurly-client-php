@@ -10,6 +10,7 @@ class RecurlySubscription
 	var $account;		// User account information
 	var $plan_code;		// Subscription plan's code
 	var $unit_amount;	// Defaults to plan's current price if not set
+	var $currency;		// Subscription currency code (e.g. "USD")
 	var $quantity;		// Defaults to 1
 	var $billing_info;	// Account's billing information
 	var $add_ons;		// Subscription's add ons
@@ -118,6 +119,9 @@ class RecurlySubscription
 		
 		if (isset($this->unit_amount))
 			$root->appendChild($doc->createElement("unit_amount", $this->unit_amount));
+
+		if (isset($this->currency) && $this->currency != null)
+			$root->appendChild($doc->createElement("currency", $this->currency));
 
 		if (isset($this->add_ons))
 		  $root->appendChild(RecurlySubscription::getAddOnsXml($this->add_ons, $doc));

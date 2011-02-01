@@ -9,6 +9,8 @@
  */
 class RecurlyException extends Exception {}
 
+class RecurlyUnauthorizedException extends RecurlyException {}
+
 class RecurlyConnectionException extends RecurlyException {}
 
 class RecurlyValidationException extends RecurlyException {
