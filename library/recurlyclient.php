@@ -9,12 +9,14 @@
  */
 class RecurlyClient
 {
-    const API_CLIENT_VERSION = '0.1.11';
-    const API_URL = 'https://app.recurly.com';
+    const API_CLIENT_VERSION = '0.1.12';
+    const API_PRODUCTION_URL = 'https://api-production.recurly.com';
+    const API_SANDBOX_URL = 'https://api-sandbox.recurly.com';
     const DEFAULT_ENCODING = 'UTF-8';
 
     const PATH_ACCOUNTS = '/accounts/';
     const PATH_BILLING_INFO = '/billing_info';
+    const PATH_ACCOUNT_COUPON = '/coupon';
     const PATH_ACCOUNT_CHARGES = '/charges';
     const PATH_ACCOUNT_CREDITS = '/credits';
     const PATH_ACCOUNT_INVOICES = '/invoices';
@@ -28,6 +30,7 @@ class RecurlyClient
 		'account' => 'RecurlyAccount',
 		'billing_info' => 'RecurlyBillingInfo',
 		'charge' => 'RecurlyAccountCharge',
+		'coupon' => 'RecurlyCoupon',
 		'credit' => 'RecurlyAccountCredit',
 		'credit_card' => 'RecurlyCreditCard',
 		'error' => 'RecurlyError',
@@ -40,6 +43,7 @@ class RecurlyClient
 		'payment' => 'RecurlyTransaction',
 		'payments' => 'array',
 		'pending_subscription' => 'RecurlyPendingSubscription',
+		'redemption' => 'RecurlyCouponRedemption',
 		'subscription' => 'RecurlySubscription',
 		'transaction' => 'RecurlyTransaction',
 		'add_ons' => 'array',
@@ -66,6 +70,13 @@ class RecurlyClient
     * @var string 
     */
     static $subdomain = '';
+    
+    /**
+    * Recurly environment: 'production' or 'sandbox'
+    *
+    * @var string 
+    */
+    static $environment = '';
 
     /**
     * Set Recurly username and password.
@@ -73,16 +84,27 @@ class RecurlyClient
     * @param string $username Recurly username
     * @param string $password Recurly password
     */
-    public static function SetAuth($username, $password, $subdomain='app')
+    public static function SetAuth($username, $password, $subdomain='app', $environment = 'production')
     {
-        self::$username = $username;
-        self::$password = $password;
-        self::$subdomain = $subdomain;
+      if (!in_array($environment, array('production','sandbox'))) {
+        throw new RecurlyException("Environment must be production or sandbox.");
+      }
+
+      self::$username = $username;
+      self::$password = $password;
+      self::$subdomain = $subdomain;
+      self::$environment = $environment;
     }
-	
-	
-	
-	
+
+
+  	public static function __recurlyBaseUrl() {
+  	  if (self::$environment == 'production') {
+  	    return RecurlyClient::API_PRODUCTION_URL;
+  	  } else {
+  	    return RecurlyClient::API_SANDBOX_URL;
+  	  }
+  	}
+
 	
     /**
     * Sends an HTTP request to the Recurly API with Basic authentication.
@@ -103,7 +125,7 @@ class RecurlyClient
 
         $ch = curl_init();
 
-        curl_setopt($ch, CURLOPT_URL, sprintf(self::API_URL, self::$subdomain) . $uri);
+        curl_setopt($ch, CURLOPT_URL, self::__recurlyBaseUrl() . $uri);
         curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, FALSE);
         curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 2);
         curl_setopt($ch, CURLOPT_FOLLOWLOCATION, FALSE);

@@ -1,5 +1,11 @@
 = Recurly PHP Client Library CHANGELOG
 
+== Version 0.1.12 (February 3, 2011)
+
+* Added Coupon support (see http://docs.recurly.com/api/coupons for more info)
+* Added RecurlySubscription::terminateSubscription() to terminate a subscription without a refund.
+* Added environment variable ('production' or 'sandbox') for authentication. Client library no longer submits API requests to [your-subdomain].recurly.com. Please be sure to use your account's API user credentials when connecting to Recurly.
+
 == Version 0.1.11 (February 1, 2011)
 
 * Fixed RecurlyTransaction::create()

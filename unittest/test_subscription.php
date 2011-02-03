@@ -67,7 +67,20 @@ class SubscriptionTestCase extends UnitTestCase {
 		$sub_response = $subscription->create();
 		$this->assertIsA($sub_response, 'RecurlySubscription');
 		
-		$response = RecurlySubscription::refundSubscription($acct->account_code, false);
+		$response = RecurlySubscription::refundSubscription($acct->account_code, 'partial');
+		$this->assertTrue($response);
+	}
+
+	function testTerminateSubscription() {
+		$acct = new RecurlyAccount(strval(time()) . '-terminate-sub', null, 'test@test.com', 'Terminate', 'Subscription', 'Test');
+		$new_acct = $acct->create();
+
+		$subscription = $this->buildSubscription($new_acct);
+		$sub_response = $subscription->create();
+		$this->assertIsA($sub_response, 'RecurlySubscription');
+
+		$response = RecurlySubscription::terminateSubscription($new_acct->account_code);
+
 		$this->assertTrue($response);
 	}
 
@@ -108,10 +121,6 @@ class SubscriptionTestCase extends UnitTestCase {
 		$get_subscription = RecurlySubscription::getSubscription($acct->account_code);
 		$this->assertNotNull($get_subscription->pending_subscription);
 		$this->assertIsA($get_subscription->pending_subscription, 'RecurlyPendingSubscription');
-		
-		print "<!--\n";
-		print_r($get_subscription);
-		print "\n-->\n";
 	}
 	
 	function testCustomTrialSubscription(){
@@ -127,7 +136,7 @@ class SubscriptionTestCase extends UnitTestCase {
 		$get_subscription = RecurlySubscription::getSubscription($acct->account_code);
 		$this->assertIsA($get_subscription, 'RecurlySubscription');
 	}
-	
+
 	/* Build a subscription object for the subscription tests */
 	function buildSubscription($acct) {
 		$subscription = new RecurlySubscription();
@@ -142,7 +151,7 @@ class SubscriptionTestCase extends UnitTestCase {
 		$billing_info->state = 'CA';
 		$billing_info->country = 'US';
 		$billing_info->zip = '94105';
-		$billing_info->credit_card->number = '1';
+		$billing_info->credit_card->number = '4111-1111-1111-1111';
 		$billing_info->credit_card->year = intval(date('Y')) + 1;
 		$billing_info->credit_card->month = date('n');
 		$billing_info->credit_card->verification_value = '123';

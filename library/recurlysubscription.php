@@ -9,12 +9,13 @@ class RecurlySubscription
 {
 	var $account;		// User account information
 	var $plan_code;		// Subscription plan's code
+	var $coupon_code; // Apply a coupon to a new subscription
 	var $unit_amount;	// Defaults to plan's current price if not set
 	var $currency;		// Subscription currency code (e.g. "USD")
 	var $quantity;		// Defaults to 1
 	var $billing_info;	// Account's billing information
 	var $add_ons;		// Subscription's add ons
-	
+
 	/* These values are populated by Recurly -- they do not need to be set by you. */
 	var $activated_at;              // Date the subscription started
 	var $canceled_at;               // If set, the date the subscriber canceled their subscription
@@ -65,18 +66,33 @@ class RecurlySubscription
 		}
 	}
 	
-	public static function refundSubscription($accountCode, $fullRefund = false)
+	public static function refundSubscription($accountCode, $refund_type = 'partial')
 	{
+	  /* Support previous PHP library that accepted a boolean for refund type */
+	  if (is_bool($refund_type)) { $refund_type = ($refund_type ? 'full' : 'partial'); }
+	  /* Verify refund type is supported */
+	  if (!in_array($refund_type, array('full', 'partial', 'none'))) { throw new RecurlyException("Invalid refund type"); }
+
 		$uri = RecurlyClient::PATH_ACCOUNTS . urlencode($accountCode) . RecurlyClient::PATH_ACCOUNT_SUBSCRIPTION;
-		$uri .= '?refund=' . ($fullRefund ? 'full' : 'partial');
+		$uri .= '?refund=' . $refund_type;
 		$result = RecurlyClient::__sendRequest($uri, 'DELETE');
 		if (preg_match("/^2..$/", $result->code)) {
 			return true;
 		} else if (strpos($result->response, '<errors>') > 0 && $result->code == 422) {
 			throw new RecurlyValidationException($result->code, $result->response);
 		} else {
-			throw new RecurlyException("Could not refund the subscription for {$accountCode}: {$result->response} ({$result->code})");
+		  if ($refund_type == 'none') {
+		    throw new RecurlyException("Could not terminate the subscription for {$accountCode}: {$result->response} ({$result->code})");
+	    } else {
+			  throw new RecurlyException("Could not refund the subscription for {$accountCode}: {$result->response} ({$result->code})");
+		  }
 		}
+	}
+
+  // Immediately end the subscription without a refund.
+	public static function terminateSubscription($accountCode)
+	{
+	  return RecurlySubscription::refundSubscription($accountCode, 'none');
 	}
 
 	// Change the subscription 'now' or at 'renewal'.
@@ -110,7 +126,10 @@ class RecurlySubscription
 	{
 		$root = $doc->appendChild($doc->createElement("subscription"));
 		$root->appendChild($doc->createElement("plan_code", $this->plan_code));
-		
+
+		if (isset($this->coupon_code))
+			$root->appendChild($doc->createElement("coupon_code", $this->coupon_code));
+
 		if (isset($this->trial_period_ends_at))
 		  $root->appendChild($doc->createElement("trial_ends_at", $this->trial_period_ends_at));
 		
@@ -120,7 +139,7 @@ class RecurlySubscription
 		if (isset($this->unit_amount))
 			$root->appendChild($doc->createElement("unit_amount", $this->unit_amount));
 
-		if (isset($this->currency) && $this->currency != null)
+		if (isset($this->currency))
 			$root->appendChild($doc->createElement("currency", $this->currency));
 
 		if (isset($this->add_ons))

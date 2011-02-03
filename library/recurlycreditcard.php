@@ -11,6 +11,10 @@ class RecurlyCreditCard
 	var $verification_value; /* Not returned by Recurly */
 	var $month;              /* Card expiration month */
 	var $year;               /* Card expiration year */
+	
+	var $start_month;        /* Required for Solo cards */
+	var $start_year;         /* Required for Solo cards */
+	var $issue_number;       /* Required for Solo cards */
 
 	var $type;               /* Populated when returned from Recurly */
 	var $last_four;          /* Populated when returned from Recurly */
@@ -25,6 +29,13 @@ class RecurlyCreditCard
 		$cc->appendChild($doc->createElement('verification_value', $this->verification_value));
 		$cc->appendChild($doc->createElement('year', $this->year));
 		$cc->appendChild($doc->createElement('month', $this->month));
+
+    if (isset($this->start_month))
+      $cc->appendChild($doc->createElement('start_month', $this->start_month));
+    if (isset($this->start_month))
+      $cc->appendChild($doc->createElement('start_month', $this->start_month));
+    if (isset($this->issue_number))
+      $cc->appendChild($doc->createElement('issue_number', $this->issue_number));
 
 		return $cc;
 	}

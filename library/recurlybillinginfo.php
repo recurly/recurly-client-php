@@ -66,7 +66,7 @@ class RecurlyBillingInfo
 		} else if (strpos($result->response, '<errors>') > 0 && $result->code == 422) {
 			throw new RecurlyValidationException($result->code, $result->response);
 		} else {
-			throw new RecurlyException("Could not clear the billing info for {$accountCode}: {$result->response} ({$result->code})");
+			throw new RecurlyException("Could not clear the billing info for {$this->accountCode}: {$result->response} ({$result->code})");
 		}
 	}
 	

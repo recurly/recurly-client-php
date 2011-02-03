@@ -156,6 +156,17 @@ class RecurlyAccount
 		}
 	}
 	
+	public function getCoupon()
+	{
+	  return RecurlyCouponRedemption::getCoupon($this->account_code);
+	}
+
+	public function redeemCoupon($couponCode)
+	{
+	  $redemption = new RecurlyCouponRedemption($this->account_code);
+	  return $redemption->create($couponCode);
+	}
+
 	public function getXml()
 	{
 		$doc = new DOMDocument("1.0");
