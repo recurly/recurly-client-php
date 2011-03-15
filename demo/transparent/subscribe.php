@@ -1,70 +1,66 @@
 <?php
 
-  require_once '../library/recurly.php';
+  require_once '../../library/recurly.php';
   
   // Replace with the PLAN_CODE for your subscription
-  define('RECURLY_SUBSCRIPTION_PLAN_CODE', '');
+  define('RECURLY_SUBSCRIPTION_PLAN_CODE', 'gold');
   
   // Replace with your Recurly API user credentials
   define('RECURLY_API_USERNAME', '');
   define('RECURLY_API_PASSWORD', '');
   define('RECURLY_SUBDOMAIN', '');
-  define('RECURLY_ENVIRONMENT', 'production');
+  define('RECURLY_PRIVATE_KEY', '');
+  define('RECURLY_ENVIRONMENT', 'sandbox');
 
-  RecurlyClient::SetAuth(RECURLY_API_USERNAME, RECURLY_API_PASSWORD, RECURLY_SUBDOMAIN, RECURLY_ENVIRONMENT);
+  RecurlyClient::SetAuth(RECURLY_API_USERNAME, RECURLY_API_PASSWORD, RECURLY_SUBDOMAIN, RECURLY_ENVIRONMENT, RECURLY_PRIVATE_KEY);
   
   // Setting timezone for time() function.
   date_default_timezone_set('America/Los_Angeles');
   
   // Replace with the user's unique ID in your system
   $account_id = 'demo-' . strval(time());
+  
+  $transparent = new RecurlyTransparent(array(
+    'redirect_url' => 'http://localhost/subscribe.php',
+    'account' => array(
+      'account_code' => $account_id,
+      'username' => 'username123'
+    ),
+    'subscription' => array(
+      'plan_code' => 'gold'
+    )
+  ));
+  
+  $subscription = new RecurlySubscription();
+  $subscription->account = new RecurlyAccount();
+  $subscription->account->billing_info = new RecurlyBillingInfo();
 
-  if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    $account = new RecurlyAccount($account_id);
-    $account->username = $_POST['account']['username'];
-    $account->first_name = $_POST['account']['first_name'];
-    $account->last_name = $_POST['account']['last_name'];
-    $account->email = $_POST['account']['email'];
-    
-    $subscription = new RecurlySubscription();
-		$subscription->plan_code = RECURLY_SUBSCRIPTION_PLAN_CODE;
-		$subscription->account = $account;
-		$subscription->billing_info = new RecurlyBillingInfo($subscription->account->account_code);
-		$billing_info = $subscription->billing_info;
-		$billing_info->first_name = $account->first_name;
-		$billing_info->last_name = $account->last_name;
-		$billing_info->address1 = $_POST['billing_info']['address1'];
-		$billing_info->address2 = $_POST['billing_info']['address2'];
-		$billing_info->city = $_POST['billing_info']['city'];
-		$billing_info->state = $_POST['billing_info']['state'];
-		$billing_info->country = $_POST['billing_info']['country'];
-		$billing_info->zip = $_POST['billing_info']['zip'];
-		$billing_info->credit_card->number = $_POST['credit_card']['number'];
-		$billing_info->credit_card->year = intval($_POST['credit_card']['year']);
-		$billing_info->credit_card->month = intval($_POST['credit_card']['month']);
-		$billing_info->credit_card->verification_value = $_POST['credit_card']['verification_value'];
-		$billing_info->ip_address = $_SERVER['REMOTE_ADDR'];
-		
-		try {
-		  $account_info = $subscription->create();
-		  $success_message = 'Your subscription was created successfully.';
-    }
-    catch (RecurlyValidationException $e) {
-      $error_message = $e->getMessage();
-    }
-    catch (RecurlyException $e) {
-      $error_message = "An error occurred while communicating with our payment gateway. Please try again or " +
-        "contact support.";
+  if (RecurlyTransparent::resultsAvailable()) {
+    try {
+      $subscription = RecurlyTransparent::getResults();
+      $success_message = "Success!";
+
+      print "<!-- Transparent Post Result:\n";
+      print_r($subscription);
+      print "\n-->\n";
+
+    } catch (RecurlyValidationException $e) {
+      $subscription = $e->model;
+      $error_message = $e->getMessage(); //"An error occurred while processing your transaction.";
+
+      print "<!-- Transparent Post Result:\n";
+      print_r($e);
+      print "\n-->\n";
     }
   }
 
 ?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<!DOCTYPE html> 
+<html lang="en">
 <head>
   <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
-  <title>Recurly - Subscribe Demo</title>
-  <link type="text/css" rel="stylesheet" href="style.css"/>
+  <title>Recurly - Transparent Post Subscribe Demo</title>
+  <link type="text/css" rel="stylesheet" href="../style.css"/>
 </head>
 <body>
   <div class="container">
@@ -84,75 +80,74 @@
     print "    <div class=\"error\">$error_message</div>\n"; 
 ?>
 
-    <form method="post">
+    <form method="post" action="<?php echo RecurlyTransparent::subscribeUrl(); ?>">
+      <?php echo $transparent->hidden_field(); ?>
       <table class="editor">
         <!-- Account Details -->
         <tr>
           <td class="field"><label for="account_first_name">First Name</label></td>
           <td><input class="text" id="account_first_name" maxlength="50" name="account[first_name]" size="50" type="text"
-            value="<?php if (isset($_POST['account'])) print htmlentities($_POST['account']['first_name']); ?>" /></td>
+            value="<?php print htmlentities($subscription->account->first_name); ?>" /></td>
         </tr>
         <tr>
           <td class="field"><label for="account_last_name">Last Name</label></td>
           <td><input class="text" id="account_last_name" maxlength="50" name="account[last_name]" size="50" type="text"
-            value="<?php if (isset($_POST['account'])) print htmlentities($_POST['account']['last_name']); ?>" /></td>
+            value="<?php print htmlentities($subscription->account->last_name); ?>" /></td>
         </tr>
         <tr>
           <td class="field"><label for="account_email">Email Address</label></td>
           <td><input class="text" id="account_email" maxlength="50" name="account[email]" size="50" type="text"
-            value="<?php if (isset($_POST['account'])) print htmlentities($_POST['account']['email']); ?>" /></td>
+            value="<?php print htmlentities($subscription->account->email); ?>" /></td>
         </tr>
         <tr>
           <td class="field"><label for="account_username" class="optional">Username</label></td>
           <td><input class="text" id="account_username" maxlength="50" name="account[username]" size="50" type="text"
-            value="<?php if (isset($_POST['account'])) print htmlentities($_POST['account']['username']); ?>" /></td>
+            value="<?php print htmlentities($subscription->account->username); ?>" /></td>
         </tr>
     
         <!-- Credit Card Details -->
         <tr><td class="section">&nbsp;</td></tr>
         <tr>
           <td class="field"></td>
-          <td><img alt="Visa" height="32" src="images/visa.png" width="32" />
-            <img alt="MasterCard" height="32" src="images/mastercard.png" width="32" />
-            <img alt="AmEx" height="32" src="images/amex.png" width="32" />
-            <img alt="Discover" height="32" src="images/discover.png" width="32" />
+          <td><img alt="Visa" height="32" src="../images/visa.png" width="32" />
+            <img alt="MasterCard" height="32" src="../images/mastercard.png" width="32" />
+            <img alt="AmEx" height="32" src="../images/amex.png" width="32" />
+            <img alt="Discover" height="32" src="../images/discover.png" width="32" />
           </td>
         </tr>
         <tr>
-          <td class="field"><label for="credit_card_number">Credit Card Number</label></td>
-          <td><input class="text" id="credit_card_number" maxlength="20" name="credit_card[number]" size="20" type="text"
-            value="<?php if (isset($_POST['account'])) print htmlentities($_POST['credit_card']['number']); ?>" /></td>
+          <td class="field"><label for="billing_info_credit_card_number">Credit Card Number</label></td>
+          <td><input class="text" id="billing_info_credit_card_number" maxlength="20" name="billing_info[credit_card][number]" size="20" type="text" /></td>
         </tr>
         <tr>
-          <td class="field"><label for="credit_card_verification_value">Verification Code</label></td>
-          <td><input class="text cvv" id="credit_card_verification_value" maxlength="4" name="credit_card[verification_value]" size="4" type="text"
-            value="<?php if (isset($_POST['account'])) print htmlentities($_POST['credit_card']['verification_value']); ?>" />
-            <img alt="CVV" src="images/cvv-glyph.png" />
+          <td class="field"><label for="billing_info_credit_card_verification_value">Verification Code</label></td>
+          <td><input class="text cvv" id="billing_info_credit_card_verification_value" maxlength="4" name="billing_info[credit_card][verification_value]" size="4" type="text" />
+            <img alt="CVV" src="../images/cvv-glyph.png" />
           </td>
         </tr>
         <tr>
-          <td class="field"><label for="credit_card_month">Exp. Date</label></td>
+          <td class="field"><label for="billing_info_credit_card_month">Exp. Date</label></td>
           <td>
-            <select id="credit_card_month" name="credit_card[month]">
+            <select id="billing_info_credit_card_month" name="billing_info[credit_card][month]">
 <?php
   $months = array("January", "February", "March", "April", "May", "June", "July",
     "August", "September", "October", "November", "December");
     
   for ($month = 1; $month <= 12; $month++) {
     print "<option value=\"$month\"";
-    if (isset($_POST) && $_POST['credit_card']['month'] == $month)
+    if ($subscription->account->billing_info->credit_card->month == $month)
       print " selected=\"true\"";
     print ">" . $months[$month - 1] . "</option>\n";
   }
 ?>
             </select> 
-            <select id="credit_card_year" name="credit_card[year]">
+            <select id="billing_info_credit_card_year" name="billing_info[credit_card][year]">
 <?php 
   $date = getdate();
   $current_year = $date['year'];
   for ($year = $current_year; $year <= $current_year + 10; $year++) {
     print "<option value=\"$year\"";
-    if (isset($_POST) && $_POST['credit_card']['year'] == $year)
+    if ($subscription->account->billing_info->credit_card->year == $year)
       print " selected=\"true\"";
     print ">$year</option>\n";
   }
@@ -166,27 +161,27 @@
         <tr>
           <td class="field"><label for="billing_info_address1">Address 1</label></td>
           <td><input class="text" id="billing_info_address1" maxlength="50" name="billing_info[address1]" size="50" type="text"
-            value="<?php if (isset($_POST['account'])) print htmlentities($_POST['billing_info']['address1']); ?>" /></td>
+            value="<?php print htmlentities($subscription->account->billing_info->address1); ?>" /></td>
         </tr>
         <tr>
           <td class="field"><label for="billing_info_address2" class="optional">Address 2</label></td>
       	  <td><input class="text" id="billing_info_address2" maxlength="50" name="billing_info[address2]" size="50" type="text"
-            value="<?php if (isset($_POST['account'])) print htmlentities($_POST['billing_info']['address2']); ?>" /></td>
+            value="<?php print htmlentities($subscription->account->billing_info->address2); ?>" /></td>
         </tr>
         <tr>
           <td class="field"><label for="billing_info_city">City</label></td>
           <td><input class="text" id="billing_info_city" maxlength="50" name="billing_info[city]" size="50" type="text"
-            value="<?php if (isset($_POST['account'])) print htmlentities($_POST['billing_info']['city']); ?>" /></td>
+            value="<?php print htmlentities($subscription->account->billing_info->city); ?>" /></td>
         </tr>
         <tr>
           <td class="field"><label for="billing_info_state">State/Province</label></td>
           <td><input class="text" id="billing_info_state" maxlength="50" name="billing_info[state]" size="50" type="text"
-            value="<?php if (isset($_POST['account'])) print htmlentities($_POST['billing_info']['state']); ?>" /></td>
+            value="<?php print htmlentities($subscription->account->billing_info->state); ?>" /></td>
         </tr>
         <tr>
           <td class="field"><label for="billing_info_zip">Zip/Postal Code</label></td>
           <td><input class="text" id="billing_info_zip" maxlength="20" name="billing_info[zip]" size="20" type="text"
-            value="<?php if (isset($_POST['account'])) print htmlentities($_POST['billing_info']['zip']); ?>" /></td>
+            value="<?php print htmlentities($subscription->account->billing_info->zip); ?>" /></td>
         </tr>
         <tr>
           <td class="field"><label for="billing_info_country">Country</label></td>

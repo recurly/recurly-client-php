@@ -9,9 +9,10 @@
  */
 class RecurlyClient
 {
-    const API_CLIENT_VERSION = '0.1.12';
+    const API_CLIENT_VERSION = '0.2.0';
     const API_PRODUCTION_URL = 'https://api-production.recurly.com';
     const API_SANDBOX_URL = 'https://api-sandbox.recurly.com';
+    const API_DEVELOPMENT_URL = 'http://api-sandbox.recurly.local:3000';
     const DEFAULT_ENCODING = 'UTF-8';
 
     const PATH_ACCOUNTS = '/accounts/';
@@ -26,6 +27,12 @@ class RecurlyClient
     const PATH_INVOICES = '/invoices/';
     const PATH_PLANS = '/company/plans/';
 
+    const PATH_TRANSPARENT = '/transparent/';
+    const PATH_TRANSPARENT_SUBSCRIPTION = '/subscription';
+    const PATH_TRANSPARENT_TRANSACTION = '/transaction';
+    const PATH_TRANSPARENT_BILLING_INFO = '/billing_info';
+    const PATH_TRANSPARENT_RESULTS = 'results/';
+
 	static $class_map = array(
 		'account' => 'RecurlyAccount',
 		'billing_info' => 'RecurlyBillingInfo',
@@ -34,6 +41,7 @@ class RecurlyClient
 		'credit' => 'RecurlyAccountCredit',
 		'credit_card' => 'RecurlyCreditCard',
 		'error' => 'RecurlyError',
+		'errors' => 'array',
 		'invoice' => 'RecurlyInvoice',
 		'latest_version' => '', // Depreciated -- ignore
 		'line_item' => 'RecurlyLineItem',
@@ -51,23 +59,30 @@ class RecurlyClient
 
 
     /**
-    * Recurly account username
+    * Recurly API username
     *
     * @var string
     */
     static $username = '';
 
     /**
-    * Recurly account password
+    * Recurly API password
     *
-    * @var string 
+    * @var string
     */
     static $password = '';
 
     /**
+    * Recurly API private key
+    *
+    * @var string
+    */
+    static $private_key = '';
+
+    /**
     * Recurly account subdomain
     *
-    * @var string 
+    * @var string
     */
     static $subdomain = '';
     
@@ -84,9 +99,9 @@ class RecurlyClient
     * @param string $username Recurly username
     * @param string $password Recurly password
     */
-    public static function SetAuth($username, $password, $subdomain='app', $environment = 'production')
+    public static function SetAuth($username, $password, $subdomain, $environment = 'production', $private_key = null)
     {
-      if (!in_array($environment, array('production','sandbox'))) {
+      if (!in_array($environment, array('production','sandbox','development'))) {
         throw new RecurlyException("Environment must be production or sandbox.");
       }
 
@@ -94,13 +109,17 @@ class RecurlyClient
       self::$password = $password;
       self::$subdomain = $subdomain;
       self::$environment = $environment;
+      self::$private_key = $private_key;
     }
 
 
   	public static function __recurlyBaseUrl() {
+  	  return 'http://app.recurly.local:3000';
   	  if (self::$environment == 'production') {
   	    return RecurlyClient::API_PRODUCTION_URL;
-  	  } else {
+  	  } elseif (self::$environment == 'development') {
+    	    return RecurlyClient::API_DEVELOPMENT_URL;
+    	} else {
   	    return RecurlyClient::API_SANDBOX_URL;
   	  }
   	}
@@ -155,7 +174,7 @@ class RecurlyClient
         }
 
         curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 5);
-        curl_setopt($ch, CURLOPT_TIMEOUT, 20);
+        curl_setopt($ch, CURLOPT_TIMEOUT, 90);
 
         $result = new StdClass();
         $result->response = curl_exec($ch);
@@ -218,8 +237,24 @@ class RecurlyClient
 				$nodeName = str_replace("-", "_", $node->nodeName);
 				if (is_array($obj)) {
 				  $child_node_class = RecurlyClient::$class_map[$nodeName];
-					$obj[] = RecurlyClient::__parseXmlToObject($node->childNodes->item(0), $child_node_class, $parse_attributes);
+					$new_obj = RecurlyClient::__parseXmlToObject($node->childNodes->item(0), $child_node_class, $parse_attributes);
+
+					if ($parse_attributes) {
+  					foreach ($node->attributes as $attrName => $attrNode) {
+  						$nodeName = str_replace("-", "_", $attrName);
+  						$nodeValue = $attrNode->nodeValue;
+  						if (!is_numeric($nodeValue) && $tmp = strtotime($nodeValue))
+  							$new_obj->$nodeName = $tmp;
+  						else if ($nodeValue == "false")
+  							$new_obj->$nodeName = false;
+  						else if ($nodeValue == "true")
+  							$new_obj->$nodeName = true;
+  						else
+  							$new_obj->$nodeName = $nodeValue;
+  					}
+  				}
 				  
+				  $obj[] = $new_obj;
 				  $node = $node->nextSibling;
 				  continue;
 				}

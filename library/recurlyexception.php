@@ -5,27 +5,37 @@
  *
  * @category   Recurly
  * @package    RecurlyClient
- * @copyright  Copyright (c) 2010 {@link http://recurly.com Recurly, Inc.}
+ * @copyright  Copyright (c) 2011 {@link http://recurly.com Recurly, Inc.}
  */
 class RecurlyException extends Exception {}
 
 class RecurlyUnauthorizedException extends RecurlyException {}
 
+class RecurlyConfigurationException extends RecurlyException {}
+
 class RecurlyConnectionException extends RecurlyException {}
+
+class RecurlyForgedQueryStringException extends RecurlyException {}
 
 class RecurlyValidationException extends RecurlyException {
 	var $errors;
 	var $xml;
+	var $model;
 	
-	public function RecurlyValidationException($http_code, $xml) {
+	public function RecurlyValidationException($http_code, $xml, $model = null) {
 		$errors = RecurlyClient::__parse_xml($xml, 'error', true);
 		$this->errors = (is_array($errors) ? $errors : array($errors));
   	$this->xml = $xml;
+  	$this->model = $model;
 		
 		$messages = array();
 		foreach ($this->errors as $err)
-		    if ($err != null)
-			    $messages[] = $err->message;
+		    if ($err != null) {
+		      $msg = ($err->message[strlen($err->message)-1] != '.' ? $err->message : substr($err->message, 0, strlen($err->message) - 1));
+		      if ($err->field != null)
+		        $msg = $err->field . ' ' . $msg;
+			    $messages[] = $msg;
+			  }
 		$message = implode('. ', $messages) . '.';
 		
 		parent::__construct($message, intval($http_code));

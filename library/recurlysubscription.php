@@ -3,7 +3,7 @@
 /**
  * @category   Recurly
  * @package    Recurly_Client_PHP
- * @copyright  Copyright (c) 2010 {@link http://recurly.com Recurly, Inc.}
+ * @copyright  Copyright (c) 2011 {@link http://recurly.com Recurly, Inc.}
  */
 class RecurlySubscription
 {
@@ -25,6 +25,8 @@ class RecurlySubscription
 	var $trial_period_started_at;   // Date the trial started, if the subscription has a trial
 	var $trial_period_ends_at;      // Date the trial ends, if the subscription has/had a trial
 	var $pending_subscription;      // Set if the subscription has a pending change
+
+	var $errors; // Set by the transparent post result
 	
 	public function create()
 	{
