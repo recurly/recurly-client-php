@@ -9,7 +9,7 @@
  */
 class RecurlyClient
 {
-    const API_CLIENT_VERSION = '0.2.0';
+    const API_CLIENT_VERSION = '0.2.1';
     const API_PRODUCTION_URL = 'https://api-production.recurly.com';
     const API_SANDBOX_URL = 'https://api-sandbox.recurly.com';
     const API_DEVELOPMENT_URL = 'http://api-sandbox.recurly.local:3000';
@@ -114,7 +114,6 @@ class RecurlyClient
 
 
   	public static function __recurlyBaseUrl() {
-  	  return 'http://app.recurly.local:3000';
   	  if (self::$environment == 'production') {
   	    return RecurlyClient::API_PRODUCTION_URL;
   	  } elseif (self::$environment == 'development') {
