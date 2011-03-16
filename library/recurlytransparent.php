@@ -65,6 +65,9 @@ class RecurlyTransparent
 		} else if (strpos($result->response, '<errors>') > 0 && $result->code == 422) {
 		  $model = RecurlyClient::__parse_xml($result->response, $model_type, true);
 			throw new RecurlyValidationException($result->code, $result->response, $model);
+		} else if (strpos($result->response, '<errors>') > 0 && $result->code == 404) {
+		  $model = RecurlyClient::__parse_xml($result->response, 'error', true);
+			throw new RecurlyValidationException($result->code, $result->response, $model);
 		} else {
 			throw new RecurlyException("Could not retrieve results with result key: {$_GET['result']} (Status: {$_GET['status']})");
 		}
