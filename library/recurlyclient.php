@@ -9,7 +9,7 @@
  */
 class RecurlyClient
 {
-    const API_CLIENT_VERSION = '0.2.1';
+    const API_CLIENT_VERSION = '0.2.2';
     const API_PRODUCTION_URL = 'https://api-production.recurly.com';
     const API_SANDBOX_URL = 'https://api-sandbox.recurly.com';
     const API_DEVELOPMENT_URL = 'http://api-sandbox.recurly.local:3000';
@@ -202,8 +202,25 @@ class RecurlyClient
 		$list = array();
 		for ($i=0; $i < $childNodes->length; $i++) {
 			$node = $childNodes->item($i)->firstChild;
-			$node_class = RecurlyClient::$class_map[$node_name];
-			$list[] = RecurlyClient::__parseXmlToObject($node, $node_class, $parse_attributes);
+      $node_class = RecurlyClient::$class_map[$node_name];
+      $newObj = RecurlyClient::__parseXmlToObject($node, $node_class, $parse_attributes);
+
+      if ($parse_attributes) {
+        foreach ($childNodes->item($i)->attributes as $attrName => $attrNode) {
+          $nodeName = str_replace("-", "_", $attrName);
+          $nodeValue = $attrNode->nodeValue;
+          if (!is_numeric($nodeValue) && $tmp = strtotime($nodeValue))
+            $newObj->$nodeName = $tmp;
+          else if ($nodeValue == "false")
+            $newObj->$nodeName = false;
+          else if ($nodeValue == "true")
+            $newObj->$nodeName = true;
+          else
+            $newObj->$nodeName = $nodeValue;
+        }
+      }
+
+      $list[] = $newObj;
 		}
 		
 		if (count($list) == 0)

@@ -32,8 +32,10 @@ class RecurlyValidationException extends RecurlyException {
 		foreach ($this->errors as $err)
 		    if ($err != null) {
 		      $msg = ($err->message[strlen($err->message)-1] != '.' ? $err->message : substr($err->message, 0, strlen($err->message) - 1));
-		      if ($err->field != null)
-		        $msg = $err->field . ' ' . $msg;
+		      if ($err->field != null) {
+		        $field_name = ucfirst(str_replace('_', ' ', $err->field));
+		        $msg = $field_name . ' ' . $msg;
+		      }
 			    $messages[] = $msg;
 			  }
 		$message = implode('. ', $messages) . '.';

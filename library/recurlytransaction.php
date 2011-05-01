@@ -58,7 +58,6 @@ class RecurlyTransaction
 	{
 		$uri = RecurlyClient::PATH_TRANSACTIONS . urlencode($this->id);
 		$uri .= '?action=void';
-		print $uri;
 		$result = RecurlyClient::__sendRequest($uri, 'DELETE');
 		if (preg_match("/^2..$/", $result->code)) {
 			return true;
@@ -66,6 +65,22 @@ class RecurlyTransaction
 			throw new RecurlyValidationException($result->code, $result->response);
 		} else {
 			throw new RecurlyException("Could not void the transaction: {$result->response} ({$result->code})");
+		}
+	}
+
+  // Will attempt to refund the given transaction.
+	public function refund($amount_in_cents = null)
+	{
+		$uri = RecurlyClient::PATH_TRANSACTIONS . urlencode($this->id);
+		if (!is_null($amount_in_cents))
+		  $uri .= '?amount_in_cents=' . $amount_in_cents;
+		$result = RecurlyClient::__sendRequest($uri, 'DELETE');
+		if (preg_match("/^2..$/", $result->code)) {
+			return true;
+		} else if (strpos($result->response, '<errors>') > 0 && $result->code == 422) {
+			throw new RecurlyValidationException($result->code, $result->response);
+		} else {
+			throw new RecurlyException("Could not refund the transaction: {$result->response} ({$result->code})");
 		}
 	}
 
