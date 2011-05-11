@@ -179,8 +179,10 @@ class RecurlySubscription
 		foreach($add_ons as $add_on){
 			$add_on_elem = $doc->createElement('add_on');
 			$add_on_elem->appendChild($doc->createElement('add_on_code', $add_on->add_on_code));
-			$add_on_elem->appendChild($doc->createElement('quantity', $add_on->quantity));
-			$add_on_elem->appendChild($doc->createElement('unit_amount_in_cents', $add_on->unit_amount_in_cents));
+			if ($add_on->quantity != null)
+				$add_on_elem->appendChild($doc->createElement('quantity', $add_on->quantity));
+			if ($add_on->unit_amount_in_cents != null)
+				$add_on_elem->appendChild($doc->createElement('unit_amount_in_cents', $add_on->unit_amount_in_cents));
 			$add_ons_elem->appendChild($add_on_elem);
 		}
 		return $add_ons_elem;
