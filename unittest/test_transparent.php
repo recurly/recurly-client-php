@@ -16,7 +16,7 @@ class TransparentTestCase extends UnitTestCase {
   }
   
   function testSubscribeUrl() {
-    $url = RecurlyClient::__recurlyBaseUrl() . '/transparent/' . RecurlyClient::$subdomain . '/subscribe';
+    $url = RecurlyClient::__recurlyBaseUrl() . '/transparent/' . RecurlyClient::$subdomain . '/subscription';
     $this->assertEqual(RecurlyTransparent::subscribeUrl(), $url);
   }
   

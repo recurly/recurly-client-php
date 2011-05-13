@@ -76,9 +76,7 @@ class BillingInfoTestCase extends UnitTestCase {
 		// Should now be empty, but still a valid object
 		$get_billing = RecurlyBillingInfo::getBillingInfo($acct->account_code);
 		
-		$this->assertNotEqual($billing_info->first_name, $get_billing->first_name);
-		$this->assertNotEqual($billing_info->address1, $get_billing->address1);
-		$this->assertNotEqual($billing_info->zip, $get_billing->zip);
+		$this->assertNull($get_billing);
 	}
 	
 	function testCreditCardValidity() {
