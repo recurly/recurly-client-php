@@ -32,8 +32,8 @@ class RecurlyCreditCard
 
     if (isset($this->start_month))
       $cc->appendChild($doc->createElement('start_month', $this->start_month));
-    if (isset($this->start_month))
-      $cc->appendChild($doc->createElement('start_month', $this->start_month));
+    if (isset($this->start_year))
+      $cc->appendChild($doc->createElement('start_year', $this->start_year));
     if (isset($this->issue_number))
       $cc->appendChild($doc->createElement('issue_number', $this->issue_number));
 
