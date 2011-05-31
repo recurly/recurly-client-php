@@ -26,9 +26,22 @@ class RecurlyTransaction
 		$this->description = $description;
 	}
 
+    public static function getTransactions()
+    {
+        $uri = RecurlyClient::PATH_TRANSACTIONS;
+		$result = RecurlyClient::__sendRequest($uri, 'GET');
+		if (preg_match("/^2..$/", $result->code)) {
+			return RecurlyClient::__parse_xml($result->response, 'transaction');
+		} else if ($result->code == '404') {
+			return null;
+		} else {
+			throw new RecurlyException("Could not get all transactions");
+		}
+    }
+
 	public static function getTransaction($transactionId)
 	{
-    $uri = RecurlyClient::PATH_TRANSACTIONS . urlencode($transactionId);
+        $uri = RecurlyClient::PATH_TRANSACTIONS . urlencode($transactionId);
 		$result = RecurlyClient::__sendRequest($uri, 'GET');
 		if (preg_match("/^2..$/", $result->code)) {
 			return RecurlyClient::__parse_xml($result->response, 'transaction');

@@ -24,6 +24,19 @@ class RecurlyAccount
 		$this->company_name = $company_name;
 	}
 	
+	public static function getAccounts()
+	{
+		$uri = RecurlyClient::PATH_ACCOUNTS;
+		$result = RecurlyClient::__sendRequest($uri, 'GET');
+		if (preg_match("/^2..$/", $result->code)) {
+			return RecurlyClient::__parse_xml($result->response, 'account');
+		} else if ($result->code == '404') {
+			return null;
+		} else {
+			throw new RecurlyException("Could not get accounts");
+		}
+	}
+
 	public static function getAccount($accountCode)
 	{
 		$uri = RecurlyClient::PATH_ACCOUNTS . urlencode($accountCode);
