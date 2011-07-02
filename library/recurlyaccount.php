@@ -13,7 +13,7 @@ class RecurlyAccount
 	var $first_name;
 	var $last_name;
 	var $company_name;
-	
+
 	function RecurlyAccount($account_code = null, $username = null, $email = null, $first_name = null, $last_name = null, $company_name = null)
 	{
 		$this->account_code = $account_code;
@@ -23,7 +23,7 @@ class RecurlyAccount
 		$this->last_name = $last_name;
 		$this->company_name = $company_name;
 	}
-	
+
 	public static function getAccount($accountCode)
 	{
 		$uri = RecurlyClient::PATH_ACCOUNTS . urlencode($accountCode);
@@ -36,7 +36,7 @@ class RecurlyAccount
 			throw new RecurlyException("Could not get account info for {$accountCode}: {$result->response} -- ({$result->code})");
 		}
 	}
-	
+
 	public function create()
 	{
 		$uri = RecurlyClient::PATH_ACCOUNTS;
@@ -50,7 +50,7 @@ class RecurlyAccount
 			throw new RecurlyException("Could not create an account for {$this->account_code}: {$result->response} -- ({$result->code}) ");
 		}
 	}
-	
+
 	public function update()
 	{
 		$uri = RecurlyClient::PATH_ACCOUNTS . urlencode($this->account_code);
@@ -64,7 +64,7 @@ class RecurlyAccount
 			throw new RecurlyException("Could not update the account for {$this->account_code}: {$result->response} ({$result->code})");
 		}
 	}
-	
+
 	public static function closeAccount($accountCode)
 	{
 		$uri = RecurlyClient::PATH_ACCOUNTS . urlencode($accountCode);
@@ -77,7 +77,7 @@ class RecurlyAccount
 			throw new RecurlyException("Could not close the account for {$accountCode}: {$result->response} ({$result->code})");
 		}
 	}
-	
+
 	public function creditAccount($amount, $description = '')
 	{
 		$uri = RecurlyClient::PATH_ACCOUNTS . urlencode($this->account_code) . RecurlyClient::PATH_ACCOUNT_CREDITS;
@@ -92,7 +92,7 @@ class RecurlyAccount
 			throw new RecurlyException("Could not create a credit for {$this->account_code}: {$result->response} ({$result->code})");
 		}
 	}
-	
+
 	public function chargeAccount($amount, $description = '', /* bool */ $immediate = false)
 	{
 		if ($immediate) {
@@ -113,7 +113,7 @@ class RecurlyAccount
 			throw new RecurlyException('Could not create a'.($immediate ? 'n immediate' : '').' charge for '.$this->account_code.': '.$result->response.' ('.$result->code.')');
 		}
 	}
-	
+
 	public function listCredits()
 	{
 		$uri = RecurlyClient::PATH_ACCOUNTS . urlencode($this->account_code) . RecurlyClient::PATH_ACCOUNT_CREDITS;
@@ -127,7 +127,7 @@ class RecurlyAccount
 			throw new RecurlyException("Could not list credits for account {$this->account_code}: {$result->response} ({$result->code})");
 		}
 	}
-	
+
 	public function listCharges()
 	{
 		$uri = RecurlyClient::PATH_ACCOUNTS . urlencode($this->account_code) . RecurlyClient::PATH_ACCOUNT_CHARGES;
@@ -141,7 +141,7 @@ class RecurlyAccount
 			throw new RecurlyException("Could not list charges for account {$this->account_code}: {$result->response} ({$result->code})");
 		}
 	}
-	
+
 	public function listInvoices()
 	{
 		$uri = RecurlyClient::PATH_ACCOUNTS . urlencode($this->account_code) . RecurlyClient::PATH_ACCOUNT_INVOICES;
@@ -155,16 +155,16 @@ class RecurlyAccount
 			throw new RecurlyException("Could not list invoices for account {$this->account_code}: {$result->response} ({$result->code})");
 		}
 	}
-	
+
 	public function getCoupon()
 	{
-	  return RecurlyCouponRedemption::getCoupon($this->account_code);
+		return RecurlyCouponRedemption::getCoupon($this->account_code);
 	}
 
 	public function redeemCoupon($couponCode)
 	{
-	  $redemption = new RecurlyCouponRedemption($this->account_code);
-	  return $redemption->create($couponCode);
+		$redemption = new RecurlyCouponRedemption($this->account_code);
+		return $redemption->create($couponCode);
 	}
 
 	public function getXml()
@@ -173,7 +173,7 @@ class RecurlyAccount
 		$this->populateXmlDoc($doc, $doc);
 		return $doc->saveXML();
 	}
-	
+
 	public function populateXmlDoc(&$doc, &$root)
 	{
 		$account = $root->appendChild($doc->createElement("account"));
@@ -185,8 +185,8 @@ class RecurlyAccount
 		$account->appendChild($doc->createElement("company_name", $this->company_name));
 
 		if (isset($_SERVER['HTTP_ACCEPT_LANGUAGE'])) {
-		  $account->appendChild($doc->createElement("accept_language", $_SERVER['HTTP_ACCEPT_LANGUAGE']));
-	  }
+			$account->appendChild($doc->createElement("accept_language", $_SERVER['HTTP_ACCEPT_LANGUAGE']));
+		}
 
 		return $account;
 	}
@@ -197,20 +197,20 @@ class RecurlyAccountCredit
 	var $amount_in_cents;
 	var $description;
 	var $currency;
-	
+
 	public function RecurlyAccountCredit($amount = 0, $description = null, $currency = null)
 	{
 		$this->amount_in_cents = intval($amount * 100);
 		$this->description = $description;
 		$this->currency = $currency;
 	}
-	
+
 	/* Normalize the amount to a positive float amount */
 	public function amount()
 	{
 		return abs($this->amount_in_cents / 100.0);
 	}
-	
+
 	public function getXml()
 	{
 		$doc = new DOMDocument("1.0");
@@ -219,8 +219,8 @@ class RecurlyAccountCredit
 		$root->appendChild($doc->createElement("description", $this->description));
 
 		if (isset($this->currency) && $this->currency != null) {
-      $root->appendChild($doc->createElement("currency", $this->currency));
-    }
+			$root->appendChild($doc->createElement("currency", $this->currency));
+		}
 
 		return $doc->saveXML();
 	}
@@ -231,7 +231,7 @@ class RecurlyAccountCharge
 	var $amount_in_cents;
 	var $description;
 	var $currency;
-	
+
 	public function RecurlyAccountCharge($amount = 0, $description = null, $currency = null)
 	{
 		$this->amount_in_cents = intval($amount * 100);
@@ -253,8 +253,8 @@ class RecurlyAccountCharge
 		$root->appendChild($doc->createElement("description", $this->description));
 
 		if (isset($this->currency) && $this->currency != null) {
-      $root->appendChild($doc->createElement("currency", $this->currency));
-    }
+			$root->appendChild($doc->createElement("currency", $this->currency));
+		}
 
 		return $doc->saveXML();
 	}

@@ -7,11 +7,11 @@
  */
 class RecurlyAddOn
 {
-	var $add_on_code;       
+	var $add_on_code;
 	var $quantity;
 	var $unit_amount_in_cents;
-	
-	function RecurlyAddOn(){
+
+	function RecurlyAddOn() {
 	}
 
 }
