@@ -6,7 +6,7 @@
  * @copyright  Copyright (c) 2011 {@link http://recurly.com Recurly, Inc.}
  */
 class RecurlyCoupon
-{  
+{
 	var $account_code;
 	var $coupon_code;
 
@@ -19,7 +19,7 @@ class RecurlyCoupon
 
 	function RecurlyCoupon($accountCode = null, $couponCode = null)
 	{
-	  $this->account_code = $accountCode;
+		$this->account_code = $accountCode;
 		$this->coupon_code = $couponCode;
 	}
 }

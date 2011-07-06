@@ -7,19 +7,19 @@
  */
 class RecurlyTransaction
 {
-  var $id;
-  var $amount_in_cents;
-  var $currency;
-  var $description;
-  var $date;
-  var $message;
-  var $success;
-  var $voidable;
-  var $refundable;
-  var $account;		    // User account information
-  var $billing_info;	// Account's billing information
+	var $id;
+	var $amount_in_cents;
+	var $currency;
+	var $description;
+	var $date;
+	var $message;
+	var $success;
+	var $voidable;
+	var $refundable;
+	var $account;        // User account information
+	var $billing_info;   // Account's billing information
 
-  public function RecurlyTransaction($amount = 0, $description = null, RecurlyAccount $acct = null)
+	public function RecurlyTransaction($amount = 0, $description = null, RecurlyAccount $acct = null)
 	{
 		if (isset($acct)) { $this->account = $acct; }
 		$this->amount_in_cents = intval($amount * 100);
@@ -28,7 +28,7 @@ class RecurlyTransaction
 
 	public static function getTransaction($transactionId)
 	{
-    $uri = RecurlyClient::PATH_TRANSACTIONS . urlencode($transactionId);
+		$uri = RecurlyClient::PATH_TRANSACTIONS . urlencode($transactionId);
 		$result = RecurlyClient::__sendRequest($uri, 'GET');
 		if (preg_match("/^2..$/", $result->code)) {
 			return RecurlyClient::__parse_xml($result->response, 'transaction');
@@ -53,7 +53,7 @@ class RecurlyTransaction
 		}
 	}
 
-  // Will attempt to void (or refund) the given transaction.
+	// Will attempt to void (or refund) the given transaction.
 	public function void()
 	{
 		$uri = RecurlyClient::PATH_TRANSACTIONS . urlencode($this->id);
@@ -68,12 +68,12 @@ class RecurlyTransaction
 		}
 	}
 
-  // Will attempt to refund the given transaction.
+	// Will attempt to refund the given transaction.
 	public function refund($amount_in_cents = null)
 	{
 		$uri = RecurlyClient::PATH_TRANSACTIONS . urlencode($this->id);
 		if (!is_null($amount_in_cents))
-		  $uri .= '?amount_in_cents=' . $amount_in_cents;
+			$uri .= '?amount_in_cents=' . $amount_in_cents;
 		$result = RecurlyClient::__sendRequest($uri, 'DELETE');
 		if (preg_match("/^2..$/", $result->code)) {
 			return true;
@@ -97,17 +97,17 @@ class RecurlyTransaction
 		$root->appendChild($doc->createElement("amount_in_cents", $this->amount_in_cents));
 		$root->appendChild($doc->createElement("description", $this->description));
 
-    if (isset($this->currency) && $this->currency != null) {
-      $root->appendChild($doc->createElement("currency", $this->currency));
-    }
+		if (isset($this->currency) && $this->currency != null) {
+			$root->appendChild($doc->createElement("currency", $this->currency));
+		}
 
-		if (isset($this->account)) { 
-		  $account_node = $this->account->populateXmlDoc($doc, $root);
-		  if (isset($this->billing_info)) { $this->billing_info->populateXmlDoc($doc, $account_node); }
+		if (isset($this->account)) {
+			$account_node = $this->account->populateXmlDoc($doc, $root);
+			if (isset($this->billing_info)) { $this->billing_info->populateXmlDoc($doc, $account_node); }
 		}
 		else {
-		  throw new RecurlyException("Cannot create a transaction without specifying an account.");
-    }
+			throw new RecurlyException("Cannot create a transaction without specifying an account.");
+		}
 
 		return $doc->saveXML();
 	}

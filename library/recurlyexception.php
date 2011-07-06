@@ -21,25 +21,26 @@ class RecurlyValidationException extends RecurlyException {
 	var $errors;
 	var $xml;
 	var $model;
-	
+
 	public function RecurlyValidationException($http_code, $xml, $model = null) {
 		$errors = RecurlyClient::__parse_xml($xml, 'error', true);
 		$this->errors = (is_array($errors) ? $errors : array($errors));
-  	$this->xml = $xml;
-  	$this->model = $model;
-		
+		$this->xml = $xml;
+		$this->model = $model;
+
 		$messages = array();
-		foreach ($this->errors as $err)
-		    if ($err != null) {
-		      $msg = ($err->message[strlen($err->message)-1] != '.' ? $err->message : substr($err->message, 0, strlen($err->message) - 1));
-		      if ($err->field != null) {
-		        $field_name = ucfirst(str_replace('_', ' ', $err->field));
-		        $msg = $field_name . ' ' . $msg;
-		      }
-			    $messages[] = $msg;
-			  }
+		foreach ($this->errors as $err) {
+			if ($err != null) {
+				$msg = ($err->message[strlen($err->message)-1] != '.' ? $err->message : substr($err->message, 0, strlen($err->message) - 1));
+				if ($err->field != null) {
+					$field_name = ucfirst(str_replace('_', ' ', $err->field));
+					$msg = $field_name . ' ' . $msg;
+				}
+				$messages[] = $msg;
+			}
+		}
 		$message = implode('. ', $messages) . '.';
-		
+
 		parent::__construct($message, intval($http_code));
 	}
 }
