@@ -25,7 +25,7 @@ class RecurlyClient
     const PATH_TRANSACTIONS = '/transactions/';
 
     const PATH_INVOICES = '/invoices/';
-    const PATH_PLANS = '/company/plans/';
+    const PATH_PLANS = '/site/plans/';
 
     const PATH_TRANSPARENT = '/transparent/';
     const PATH_TRANSPARENT_SUBSCRIPTION = '/subscription';
