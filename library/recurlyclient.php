@@ -274,15 +274,30 @@ class RecurlyClient
 				  $node = $node->nextSibling;
 				  continue;
 				}
-				
-				if (!is_numeric($node->nodeValue) && $tmp = strtotime($node->nodeValue))
-					$obj->$nodeName = $tmp;
-				else if ($node->nodeValue == "false")
-					$obj->$nodeName = false;
-				else if ($node->nodeValue == "true")
-					$obj->$nodeName = true;
-				else
-					$obj->$nodeName = $node->nodeValue;
+
+				if ($node->getAttribute('nil')) {
+					$obj->$nodeName = null;
+				} else {
+					switch ($node->getAttribute('type')) {
+						case 'boolean':
+							$obj->$nodeName = $node->nodeValue == 'true';
+							break;
+						case 'date':
+							$obj->$nodeName = strtodate($node->nodeValue);
+							break;
+						case 'datetime':
+							$obj->$nodeName = strtotime($node->nodeValue);
+							break;
+						case 'float':
+							$obj->$nodeName = (float)$node->nodeValue;
+							break;
+						case 'integer':
+							$obj->$nodeName = (int)$node->nodeValue;
+							break;
+						default:
+							$obj->$nodeName = $node->nodeValue;
+					}
+				}
 
 				if ($node->childNodes->length > 1) {
 					$child_node_class = RecurlyClient::$class_map[$nodeName];
