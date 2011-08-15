@@ -22,6 +22,7 @@ class RecurlyClient
     const PATH_ACCOUNT_CREDITS = '/credits';
     const PATH_ACCOUNT_INVOICES = '/invoices';
     const PATH_ACCOUNT_SUBSCRIPTION = '/subscription';
+    const PATH_ACCOUNT_SUBSCRIPTION_REACTIVATE = '/subscription/reactivate';
     const PATH_TRANSACTIONS = '/transactions/';
 
     const PATH_INVOICES = '/invoices/';
