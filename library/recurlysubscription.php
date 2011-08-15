@@ -68,6 +68,19 @@ class RecurlySubscription
 		}
 	}
 	
+	public static function reactivateSubscription($accountCode)
+	{
+		$uri = RecurlyClient::PATH_ACCOUNTS . urlencode($accountCode) . RecurlyClient::PATH_ACCOUNT_SUBSCRIPTION_REACTIVATE;
+		$result = RecurlyClient::__sendRequest($uri, 'POST');
+		if (preg_match("/^2..$/", $result->code)) {
+			return true;
+		} else if (strpos($result->response, '<errors>') > 0 && $result->code == 422) {
+			throw new RecurlyValidationException($result->code, $result->response);
+		} else {
+			throw new RecurlyException("Could not reactivate the subscription for {$accountCode}: {$result->response} ({$result->code})");
+		}
+	}
+	
 	public static function refundSubscription($accountCode, $refund_type = 'partial')
 	{
 	  /* Support previous PHP library that accepted a boolean for refund type */
