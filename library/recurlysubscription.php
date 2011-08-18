@@ -114,7 +114,6 @@ class RecurlySubscription
 	// Set a value to change it. Leave it as null otherwise.
 	public static function changeSubscription($accountCode, $timeframe = 'now', $newPlanCode = null, $newQuantity = null, $newUnitAmount = null, $addOns = null)
 	{
-		error_log('<br>quant:' . $newQuantity);
 		if (!($timeframe == 'now' || $timeframe == 'renewal'))
 			throw new RecurlyException("The timeframe must be 'now' or 'renewal'.");
 
