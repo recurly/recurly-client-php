@@ -1,5 +1,9 @@
 # Recurly PHP Client Library CHANGELOG
 
+## Version 0.2.3 (August 19, 2011)
+
+* Added support for Recurly.js
+
 ## Version 0.2.2 (April 30, 2011)
 
 * Correctly parse "field_name" on XML errors. Thanks to Matthew Bafford for the patch.

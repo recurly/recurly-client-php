@@ -9,10 +9,10 @@
  */
 class RecurlyClient
 {
-    const API_CLIENT_VERSION = '0.2.2';
+    const API_CLIENT_VERSION = '0.2.3';
     const API_PRODUCTION_URL = 'https://api-production.recurly.com';
     const API_SANDBOX_URL = 'https://api-sandbox.recurly.com';
-    const API_DEVELOPMENT_URL = 'http://api-sandbox.recurly.local:3000';
+    const API_DEVELOPMENT_URL = 'http://api-sandbox.lvh.me:3000';
     const DEFAULT_ENCODING = 'UTF-8';
 
     const PATH_ACCOUNTS = '/accounts/';

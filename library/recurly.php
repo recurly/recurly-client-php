@@ -15,3 +15,4 @@ require_once(dirname(__FILE__) . '/recurlypushnotification.php');
 require_once(dirname(__FILE__) . '/recurlysubscription.php');
 require_once(dirname(__FILE__) . '/recurlytransaction.php');
 require_once(dirname(__FILE__) . '/recurlytransparent.php');
+require_once(dirname(__FILE__) . '/recurlyverification.php');
