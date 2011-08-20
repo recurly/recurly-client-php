@@ -134,11 +134,11 @@ class RecurlySubscription
 
 		if (isset($this->trial_period_ends_at))
 		  $root->appendChild($doc->createElement("trial_ends_at", $this->trial_period_ends_at));
-		
-		if (isset($this->quantity))
+
+		if (isset($this->quantity) && is_numeric($this->quantity))
 			$root->appendChild($doc->createElement("quantity", $this->quantity));
-		
-		if (isset($this->unit_amount))
+
+		if (isset($this->unit_amount) && is_numeric($this->unit_amount))
 			$root->appendChild($doc->createElement("unit_amount", $this->unit_amount));
 
 		if (isset($this->currency))
@@ -146,9 +146,14 @@ class RecurlySubscription
 
 		if (isset($this->add_ons))
 		  $root->appendChild(RecurlySubscription::getAddOnsXml($this->add_ons, $doc));
-		    
-		$account_node = $this->account->populateXmlDoc($doc, $root);
-		$this->billing_info->populateXmlDoc($doc, $account_node);
+
+		if (isset($this->account))
+		{
+		  $account_node = $this->account->populateXmlDoc($doc, $root);
+
+      if (isset($this->billing_info))
+        $this->billing_info->populateXmlDoc($doc, $account_node);
+	  }
 
 		return $root;
 	}
@@ -179,10 +184,13 @@ class RecurlySubscription
 		foreach($add_ons as $add_on){
 			$add_on_elem = $doc->createElement('add_on');
 			$add_on_elem->appendChild($doc->createElement('add_on_code', $add_on->add_on_code));
-			if ($add_on->quantity != null)
-				$add_on_elem->appendChild($doc->createElement('quantity', $add_on->quantity));
-			if ($add_on->unit_amount_in_cents != null)
-				$add_on_elem->appendChild($doc->createElement('unit_amount_in_cents', $add_on->unit_amount_in_cents));
+			
+			if (isset($add_on->quantity) && is_numeric($add_on->quantity))
+			  $add_on_elem->appendChild($doc->createElement('quantity', $add_on->quantity));
+
+			if (isset($add_on->unit_amount_in_cents) && is_numeric($add_on->unit_amount_in_cents))
+			  $add_on_elem->appendChild($doc->createElement('unit_amount_in_cents', $add_on->unit_amount_in_cents));
+
 			$add_ons_elem->appendChild($add_on_elem);
 		}
 		return $add_ons_elem;

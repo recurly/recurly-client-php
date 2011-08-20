@@ -93,7 +93,7 @@ class RecurlyBillingInfo
 		$billing->appendChild($doc->createElement("phone", $this->phone));
 		$billing->appendChild($doc->createElement("vat_number", $this->vat_number));
 		
-		if (isset($this->ip_address) && strlen($this->ip_address) > 0)
+		if (isset($this->ip_address) && !empty($this->ip_address))
 			$billing->appendChild($doc->createElement("ip_address", $this->ip_address));
 		
 		if (isset($this->credit_card) && $this->credit_card != null)
