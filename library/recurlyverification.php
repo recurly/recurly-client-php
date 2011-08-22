@@ -67,10 +67,8 @@ class RecurlyVerification
   }
 
   // Create a signature for a one-time transaction for the given $accountCode
-  public static function signTransaction($accountCode, $amountInCents, $currency)
+  public static function signTransaction($amountInCents, $currency, $accountCode = null)
   {
-    if (empty($accountCode))
-      throw new InvalidArgumentException("Account code is required");
     if (empty($currency) || strlen($currency) != 3)
       throw new InvalidArgumentException("Invalid currency");
     if (intval($amountInCents) <= 0)
