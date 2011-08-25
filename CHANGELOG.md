@@ -1,5 +1,9 @@
 # Recurly PHP Client Library CHANGELOG
 
+## Version 0.2.4 (August 25, 2011)
+
+* Fix bug with verifyBillingInfoUpdated not incorporating account_code key in signature message and failing
+
 ## Version 0.2.3 (August 19, 2011)
 
 * Added support for Recurly.js
