@@ -63,7 +63,7 @@ class RecurlyVerification
     if (!isset($this->data['signature'], $this->data['account_code']))
       throw new InvalidArgumentException("Signature and account_code not present.");
 
-    return $this->_verifyResults(self::BILLING_INFO_UPDATED, $this->data['signature'], array($this->data['account_code']));
+    return $this->_verifyResults(self::BILLING_INFO_UPDATED, $this->data['signature'], array('account_code' => $this->data['account_code']));
   }
 
   // Create a signature for a one-time transaction for the given $accountCode
