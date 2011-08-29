@@ -26,9 +26,11 @@ documentation for more details.
         require_once('recurly/library/recurly.php');
         RECURLY_API_USERNAME = '';
         RECURLY_API_PASSWORD = '[32 character string]';
-        RECURLY_SUBDOMAIN = '[your Recurly subdomain]';
-        RECURLY_ENVIRONMENT = 'sandbox'; // OR 'production'
-        RecurlyClient::SetAuth(RECURLY_API_USERNAME, RECURLY_API_PASSWORD, RECURLY_SUBDOMAIN, RECURLY_ENVIRONMENT);
+        RECURLY_PRIVATE_KEY  = '[32 character string]'; // Required for Recurly.JS and Transparent Post
+        RECURLY_SUBDOMAIN    = '[your Recurly subdomain]';
+        RECURLY_ENVIRONMENT  = 'sandbox'; // OR 'production'
+        RecurlyClient::SetAuth(RECURLY_API_USERNAME, RECURLY_API_PASSWORD, RECURLY_SUBDOMAIN, 
+                               RECURLY_ENVIRONMENT, RECURLY_PRIVATE_KEY);
     ?>
 
 
@@ -47,7 +49,8 @@ Create a new PHP script to receive the Push Notification:
 
     <?php
         require_once('recurly/library/recurly.php');
-        RecurlyClient::SetAuth(RECURLY_API_USERNAME, RECURLY_API_PASSWORD, RECURLY_SUBDOMAIN, RECURLY_ENVIRONMENT);
+        RecurlyClient::SetAuth(RECURLY_API_USERNAME, RECURLY_API_PASSWORD, RECURLY_SUBDOMAIN,
+                               RECURLY_ENVIRONMENT, RECURLY_PRIVATE_KEY);
         
         $post_xml = file_get_contents ("php://input");
         $notification = new RecurlyPushNotification($post_xml);
