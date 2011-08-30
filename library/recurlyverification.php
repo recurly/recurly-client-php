@@ -106,7 +106,7 @@ class RecurlyVerification
     $timestamp = intval(substr($signature, $pos + 1));
     $time_diff = $this->time_difference($timestamp);
 
-    if ($time_diff > 3600 || $time_diff < 0)
+    if ($time_diff > 3600 || $time_diff < -3600)
 			throw new RecurlyForgedQueryStringException("Timestamp is too new or too old.");
 
 		$expected_signature = self::_generateSignature($claim, $values, $timestamp);
