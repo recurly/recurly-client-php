@@ -12,8 +12,8 @@ class PlanTestCase extends UnitTestCase {
     	
 	function testListPlans() {
 		$plans = RecurlyPlan::getPlans();
-		print_r($plans);
-		$this->assertIsA($plan, 'RecurlyPlan');
+		$this->assertIsA($plans, 'Array');
+		$this->assertIsA($plans[0], 'RecurlyPlan');
 	}
 	
 	function testGetPlan() {

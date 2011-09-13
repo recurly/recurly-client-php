@@ -40,6 +40,8 @@ class RecurlyClient
 		'coupon' => 'RecurlyCoupon',
 		'credit' => 'RecurlyAccountCredit',
 		'credit_card' => 'RecurlyCreditCard',
+		'currency' => 'RecurlyObject',
+		'currencies' => 'array',
 		'error' => 'RecurlyError',
 		'errors' => 'array',
 		'invoice' => 'RecurlyInvoice',

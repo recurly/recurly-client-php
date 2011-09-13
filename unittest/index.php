@@ -21,6 +21,9 @@ define('RECURLY_PRIVATE_KEY', '');
 define('RECURLY_SUBSCRIPTION_PLAN_CODE', 'gold');
 define('RECURLY_COUPON_CODE', 'coupon');
 
+error_reporting(E_ALL);
+ini_set('display_errors','On');
+
 RecurlyClient::SetAuth(RECURLY_API_USERNAME, RECURLY_API_PASSWORD, RECURLY_SUBDOMAIN, RECURLY_ENVIRONMENT, RECURLY_PRIVATE_KEY);
 
 // Setting timezone for time() function.
