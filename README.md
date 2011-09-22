@@ -17,20 +17,17 @@ Alternatively, you may download the PHP files in the library directory and place
 Initialization
 --------------
 
-First, the Recurly classes must be loaded. Next, specify your username and password for your 
-Recurly API user.  Note, you must use an **API user** to connect with the PHP client.
+First, the Recurly classes must be loaded. Next, specify your API Key.
+Note, you must use an **API Key** to connect with the PHP client.
 Please see the [Authentication](http://support.recurly.com/faqs/api/authentication)
 documentation for more details.
 
     <?php
         require_once('recurly/library/recurly.php');
-        RECURLY_API_USERNAME = '';
-        RECURLY_API_PASSWORD = '[32 character string]';
-        RECURLY_PRIVATE_KEY  = '[32 character string]'; // Required for Recurly.JS and Transparent Post
+        RECURLY_API_KEY      = '[32 character string]';
         RECURLY_SUBDOMAIN    = '[your Recurly subdomain]';
-        RECURLY_ENVIRONMENT  = 'sandbox'; // OR 'production'
-        RecurlyClient::SetAuth(RECURLY_API_USERNAME, RECURLY_API_PASSWORD, RECURLY_SUBDOMAIN, 
-                               RECURLY_ENVIRONMENT, RECURLY_PRIVATE_KEY);
+        RECURLY_PRIVATE_KEY  = '[32 character string]'; // Required for Recurly.JS and Transparent Post
+        RecurlyClient::SetAuth(RECURLY_API_KEY, RECURLY_SUBDOMAIN, RECURLY_PRIVATE_KEY);
     ?>
 
 
@@ -49,8 +46,7 @@ Create a new PHP script to receive the Push Notification:
 
     <?php
         require_once('recurly/library/recurly.php');
-        RecurlyClient::SetAuth(RECURLY_API_USERNAME, RECURLY_API_PASSWORD, RECURLY_SUBDOMAIN,
-                               RECURLY_ENVIRONMENT, RECURLY_PRIVATE_KEY);
+        RecurlyClient::SetAuth(RECURLY_API_KEY, RECURLY_SUBDOMAIN, RECURLY_PRIVATE_KEY);
         
         $post_xml = file_get_contents ("php://input");
         $notification = new RecurlyPushNotification($post_xml);

@@ -9,10 +9,9 @@
  */
 class RecurlyClient
 {
-    const API_CLIENT_VERSION = '0.2.3';
-    const API_PRODUCTION_URL = 'https://api-production.recurly.com';
-    const API_SANDBOX_URL = 'https://api-sandbox.recurly.com';
-    const API_DEVELOPMENT_URL = 'http://api-sandbox.lvh.me:3000';
+    const API_CLIENT_VERSION = '0.2.5';
+    const API_PRODUCTION_URL = 'https://api.recurly.com';
+    const API_PRODUCTION_URL = 'http://api.lvh.me:3000';
     const DEFAULT_ENCODING = 'UTF-8';
 
     const PATH_ACCOUNTS = '/accounts/';
@@ -61,18 +60,11 @@ class RecurlyClient
 
 
     /**
-    * Recurly API username
+    * Recurly API Key
     *
     * @var string
     */
-    static $username = '';
-
-    /**
-    * Recurly API password
-    *
-    * @var string
-    */
-    static $password = '';
+    static $api_key = '';
 
     /**
     * Recurly API private key
@@ -87,42 +79,23 @@ class RecurlyClient
     * @var string
     */
     static $subdomain = '';
-    
-    /**
-    * Recurly environment: 'production' or 'sandbox'
-    *
-    * @var string 
-    */
-    static $environment = '';
 
     /**
     * Set Recurly username and password.
     *
-    * @param string $username Recurly username
-    * @param string $password Recurly password
+    * @param string $api_key Recurly API Key
+    * @param string $subdomain Recurly password
     */
-    public static function SetAuth($username, $password, $subdomain, $environment = 'production', $private_key = null)
+    public static function SetAuth($api_key, $subdomain, $private_key = null)
     {
-      if (!in_array($environment, array('production','sandbox','development'))) {
-        throw new RecurlyException("Environment must be production or sandbox.");
-      }
-
-      self::$username = $username;
-      self::$password = $password;
+      self::$api_key = $api_key;
       self::$subdomain = $subdomain;
-      self::$environment = $environment;
       self::$private_key = $private_key;
     }
 
 
   	public static function __recurlyBaseUrl() {
-  	  if (self::$environment == 'production') {
-  	    return RecurlyClient::API_PRODUCTION_URL;
-  	  } elseif (self::$environment == 'development') {
-    	    return RecurlyClient::API_DEVELOPMENT_URL;
-    	} else {
-  	    return RecurlyClient::API_SANDBOX_URL;
-  	  }
+  	  return RecurlyClient::API_PRODUCTION_URL;
   	}
 
 	
@@ -157,7 +130,7 @@ class RecurlyClient
             "User-Agent: Recurly PHP Client v" . self::API_CLIENT_VERSION
         )); 
 
-        curl_setopt($ch, CURLOPT_USERPWD, self::$username . ':' . self::$password);
+        curl_setopt($ch, CURLOPT_USERPWD, self::$api_key);
 
         if('POST' == ($method = strtoupper($method)))
         {
@@ -189,7 +162,7 @@ class RecurlyClient
         if ($result->code == 0)
             throw new RecurlyConnectionException('An error occurred while connecting to Recurly: ' . $curl_error);
         if ($result->code == 401)
-            throw new RecurlyUnauthorizedException('Your API user is not authorized to connect to Recurly.');
+            throw new RecurlyUnauthorizedException('Your API Key is not authorized to connect to Recurly.');
 
         return $result;
 	}

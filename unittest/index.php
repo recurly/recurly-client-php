@@ -13,10 +13,8 @@ require_once('test_transaction.php');
 require_once('test_transparent.php');
 require_once('test_verification.php');
 
-define('RECURLY_API_USERNAME', '');
-define('RECURLY_API_PASSWORD', '');
+define('RECURLY_API_KEY', '');
 define('RECURLY_SUBDOMAIN', '');
-define('RECURLY_ENVIRONMENT', 'sandbox');
 define('RECURLY_PRIVATE_KEY', '');
 define('RECURLY_SUBSCRIPTION_PLAN_CODE', 'gold');
 define('RECURLY_COUPON_CODE', 'coupon');
@@ -24,7 +22,7 @@ define('RECURLY_COUPON_CODE', 'coupon');
 error_reporting(E_ALL);
 ini_set('display_errors','On');
 
-RecurlyClient::SetAuth(RECURLY_API_USERNAME, RECURLY_API_PASSWORD, RECURLY_SUBDOMAIN, RECURLY_ENVIRONMENT, RECURLY_PRIVATE_KEY);
+RecurlyClient::SetAuth(RECURLY_API_KEY, RECURLY_SUBDOMAIN, RECURLY_PRIVATE_KEY);
 
 // Setting timezone for time() function.
 date_default_timezone_set('America/Los_Angeles');

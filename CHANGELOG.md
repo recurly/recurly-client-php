@@ -1,5 +1,11 @@
 # Recurly PHP Client Library CHANGELOG
 
+## Version 0.2.5 (September 22, 2011)
+
+* Replaced API username, password, and environment with "API Key".
+
+__NOTE:__ You must update your parameters for `RecurlyClient::SetAuth()`.
+
 ## Version 0.2.4 (August 25, 2011)
 
 * Fix bug with verifyBillingInfoUpdated not incorporating account_code key in signature message and failing
