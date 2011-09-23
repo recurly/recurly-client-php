@@ -11,7 +11,6 @@ class RecurlyClient
 {
     const API_CLIENT_VERSION = '0.2.5';
     const API_PRODUCTION_URL = 'https://api.recurly.com';
-    const API_PRODUCTION_URL = 'http://api.lvh.me:3000';
     const DEFAULT_ENCODING = 'UTF-8';
 
     const PATH_ACCOUNTS = '/accounts/';
