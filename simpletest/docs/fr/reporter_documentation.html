@@ -63,7 +63,8 @@
                 pour contrôler l'exécution des tests.
             </p>
         
-        <p><a class="target" name="html"><h2>Les résultats rapportés au format HTML</h2></a></p>
+        <h2>
+<a class="target" name="html"></a>Les résultats rapportés au format HTML</h2>
             <p>
                 L'affichage par défaut est minimal à l'extrême.
                 Il renvoie le succès ou l'échec avec les barres conventionnelles
@@ -106,7 +107,7 @@ class HtmlReporter extends SimpleReporter {
     public void paintException(string $message) { ... }
     public void paintMessage(string $message) { ... }
     public void paintFormattedMessage(string $message) { ... }
-    protected string _getCss() { ... }
+    protected string getCss() { ... }
     public array getTestList() { ... }
     public integer getPassCount() { ... }
     public integer getFailCount() { ... }
@@ -186,7 +187,7 @@ class HtmlReporter extends SimpleReporter {
                         ne fait rien, par défaut.
                     </li>
                     <li>
-                        <span class="new_code">string _getCss()</span><br>
+                        <span class="new_code">string getCss()</span><br>
                         renvoie les styles CSS sous la forme d'une chaîne
                         à l'attention de la méthode d'entêtes d'une page.
                         Des styles additionnels peuvent être ajoutés ici
@@ -246,8 +247,8 @@ class ShowPasses extends HtmlReporter {
         print "-&amp;gt;$message&lt;br /&gt;\n";
     }
     
-    function _getCss() {
-        return parent::_getCss() . ' .pass { color: green; }';
+    protected function getCss() {
+        return parent::getCss() . ' .pass { color: green; }';
     }
 }</strong>
 </pre>
@@ -275,7 +276,8 @@ class ShowPasses extends HtmlReporter {
                 facilement réalisable.
             </p>
         
-        <p><a class="target" name="autre"><h2>Etendre le rapporteur</h2></a></p>
+        <h2>
+<a class="target" name="autre"></a>Etendre le rapporteur</h2>
             <p>
                 Plutôt que de modifier l'affichage existant,
                 vous voudrez peut-être produire une présentation HTML
@@ -319,7 +321,8 @@ class MyDisplay extends SimpleReporter {<strong>
                 Aucune sortie ne viendrait de cette classe jusqu'à un ajout de votre part.
             </p>
         
-        <p><a class="target" name="cli"><h2>Le rapporteur en ligne de commande</h2></a></p>
+        <h2>
+<a class="target" name="cli"></a>Le rapporteur en ligne de commande</h2>
             <p>
                 SimpleTest est aussi livré avec un rapporteur
                 en ligne de commande, minime lui aussi.
@@ -401,7 +404,8 @@ $test-&gt;run(new HtmlReporter());
                 Il s'agit là de la forme utilisée par SimpleTest lui-même.
             </p>
         
-        <p><a class="target" name="xml"><h2>Test distant</h2></a></p>
+        <h2>
+<a class="target" name="xml"></a>Test distant</h2>
             <p>
                 SimpleTest est livré avec une classe <span class="new_code">XmlReporter</span>
                 utilisée pour de la communication interne.

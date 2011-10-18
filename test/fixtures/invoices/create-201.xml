@@ -1,0 +1,14 @@
+HTTP/1.1 201 Created
+Content-Type: application/xml; charset=utf-8
+Location: https://api.recurly.com/v2/invoices/created-invoice
+
+<?xml version="1.0" encoding="UTF-8"?>
+<invoice href="https://api.recurly.com/v2/invoices/012345678901234567890123456789ab">
+  <account href="https://api.recurly.com/v2/accounts/abcdef1234567890"/>
+  <uuid>012345678901234567890123456789ab</uuid>
+  <state>open</state>
+  <invoice_number type="integer">1000</invoice_number>
+  <currency>USD</currency>
+  <total_in_cents type="integer">300</total_in_cents>
+  <subtotal_in_cents type="integer">300</subtotal_in_cents>
+</invoice>

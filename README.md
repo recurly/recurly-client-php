@@ -1,67 +1,31 @@
-Recurly PHP Client
-==================
+# Recurly PHP Client
 
 The Recurly PHP Client library is an open source library to interact with Recurly's subscription management from your PHP website. The library interacts with Recurly's [REST API](http://support.recurly.com/faqs/api).
 
+**Note:** This version uses Recurly API v2. There are substantial differences between this version of the client library and versions before _0.5.0_. Please be careful when upgrading.
 
-Installation
-------------
+### Installation
 
 If you already have git, the easiest way to download the Recurly PHP Client is with the git command:
 
     git clone git://github.com/recurly/recurly-client-php.git /path/to/include/recurly
     
-Alternatively, you may download the PHP files in the library directory and place them within your PHP project.
+Alternatively, you may download the PHP files in the `lib/` directory and place them within your PHP project.
 
 
-Initialization
---------------
+## Initialization
 
-First, the Recurly classes must be loaded. Next, specify your API Key.
-Note, you must use an **API Key** to connect with the PHP client.
-Please see the [Authentication](http://support.recurly.com/faqs/api/authentication)
-documentation for more details.
+Load the Recurly library files and set your API Key globally:
 
     <?php
-        require_once('recurly/library/recurly.php');
-        RECURLY_API_KEY      = '[32 character string]';
-        RECURLY_SUBDOMAIN    = '[your Recurly subdomain]';
-        RECURLY_PRIVATE_KEY  = '[32 character string]'; // Required for Recurly.JS and Transparent Post
-        RecurlyClient::SetAuth(RECURLY_API_KEY, RECURLY_SUBDOMAIN, RECURLY_PRIVATE_KEY);
-    ?>
+    require_once('./lib/recurly.php');
 
+    Recurly_Client::$apiKey = '012345678901234567890123456789ab';
 
-Usage
------
+If you are using [Recurly.js](http://js.recurly.com), specify your `private_key`:
 
-Please see the test code in the *unittest/* directory for examples.
+    Recurly_js::$privateKey = "0123456789abcdef0123456789abcdef";
 
-Please see the [documentation](http://support.recurly.com/faqs/api/php-client) and
-[support forums](http://support.recurly.com/discussions) for more information.
+## API Documentation
 
-Receiving Push Notifications
-----------------------------
-
-Create a new PHP script to receive the Push Notification:
-
-    <?php
-        require_once('recurly/library/recurly.php');
-        RecurlyClient::SetAuth(RECURLY_API_KEY, RECURLY_SUBDOMAIN, RECURLY_PRIVATE_KEY);
-        
-        $post_xml = file_get_contents ("php://input");
-        $notification = new RecurlyPushNotification($post_xml);
-        
-        // process based on $notification->type
-    ?>
-
-Be sure to update your Recurly site settings to submit POST Notifications to your new script.
-
-Examples
---------
-
-Please see **/demo/subscribe.php** for an example subscription page.
-
-API Documentation
------------------
-
-Please see the [Recurly API](http://support.recurly.com/faqs/api/) for more information.
+Please see the [Recurly API](http://docs.recurly.com/api) for more information.

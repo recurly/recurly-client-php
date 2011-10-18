@@ -1,0 +1,31 @@
+HTTP/1.1 200 OK
+Content-Type: application/xml; charset=utf-8
+
+<?xml version="1.0" encoding="UTF-8"?>
+<plan href="https://api.recurly.com/v2/plans/silver">
+  <add_ons href="https://api.recurly.com/v2/plans/silver/add_ons"/>
+  <plan_code>silver</plan_code>
+  <name>Silver Plan</name>
+  <description>Silver is everything but gold</description>
+  <success_url>http://example.com/api100_success</success_url>
+  <cancel_url>http://example.com/api100_cancel</cancel_url>
+  <display_donation_amounts type="boolean">false</display_donation_amounts>
+  <display_quantity type="boolean">true</display_quantity>
+  <display_phone_number type="boolean">false</display_phone_number>
+  <bypass_hosted_confirmation type="boolean">true</bypass_hosted_confirmation>
+  <unit_name>wid99gets</unit_name>
+  <payment_page_tos_link>http://example.com/terms-of-service</payment_page_tos_link>
+  <plan_interval_length type="integer">100</plan_interval_length>
+  <plan_interval_unit>months</plan_interval_unit>
+  <trial_interval_length type="integer">99</trial_interval_length>
+  <trial_interval_unit>months</trial_interval_unit>
+  <created_at type="datetime">2011-04-19T07:00:00Z</created_at>
+  <unit_amount_in_cents>
+    <USD type="integer">1000</USD>
+    <EUR type="integer">800</EUR>
+  </unit_amount_in_cents>
+  <setup_fee_in_cents>
+    <USD type="integer">500</USD>
+    <EUR type="integer">400</EUR>
+  </setup_fee_in_cents>
+</plan>
