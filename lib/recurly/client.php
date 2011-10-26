@@ -145,10 +145,6 @@ class Recurly_Client
 
     list($header, $body) = explode("\r\n\r\n", $response, 2);
     $headers = $this->_getHeaders($header);
-    
-    print Recurly_Client::__userAgent();
-    print "DATA: $data\n\n";
-    print "BODY: $body\n";
 
     return new Recurly_ClientResponse($statusCode, $headers, $body);
   }
