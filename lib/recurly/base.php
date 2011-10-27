@@ -69,7 +69,7 @@ abstract class Recurly_Base
     $values = $this->__valuesString();
     return "<$class$href $values>";
   }
-  
+
   private function __valuesString() {
     $values = array();
     ksort($this->_values);
@@ -78,7 +78,7 @@ abstract class Recurly_Base
       if (is_null($value)) {
         $values[] = "$key=null";
       } else if (is_int($value)) {
-        $values[] = "$key=$value";        
+        $values[] = "$key=$value";
       } else if (is_bool($value)) {
         $values[] = "$key=" . ($value ? 'true' : 'false');
       } else if ($value instanceof Recurly_Stub) {
@@ -96,13 +96,13 @@ abstract class Recurly_Base
 
     return implode($values, ', ');
   }
-  
+
   private function addLink($name, $href, $method){
     $this->_links[$name] = new Recurly_Link($name, $href, $method);
   }
 
   /* ******************************************************
-     ** XML Parser 
+     ** XML Parser
      ****************************************************** */
   /**
    * Mapping of XML node to PHP object name
@@ -152,7 +152,8 @@ abstract class Recurly_Base
 
   protected function __parseXmlToUpdateObject($xml)
   {
-    $dom = DOMDocument::loadXML($xml);
+		$dom = new DOMDocument();
+		$dom->loadXML($xml);
     if (!$dom) return null;
 
     $rootNode = $dom->documentElement;
@@ -210,7 +211,7 @@ abstract class Recurly_Base
           $node = $node->nextSibling;
           continue;
         }
-        
+
         if ($node->childNodes->length > 1) {
           $new_obj = Recurly_Resource::__createNodeObject($node);
           if (!is_null($new_obj))
