@@ -54,7 +54,7 @@ class Recurly_Transaction extends Recurly_Resource
     return 'transaction';
   }
   protected function getWriteableAttributes() {
-    return Recurly_Transaction::$__writeableAttributes;
+    return Recurly_Transaction::$_writeableAttributes;
   }
 }
 

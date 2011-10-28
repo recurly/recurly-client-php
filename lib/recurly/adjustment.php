@@ -39,7 +39,7 @@ class Recurly_Adjustment extends Recurly_Resource
     return 'adjustment';
   }
   protected function getWriteableAttributes() {
-    return Recurly_Adjustment::$__writeableAttributes;
+    return Recurly_Adjustment::$_writeableAttributes;
   }
 }
 

@@ -49,7 +49,7 @@ class Recurly_BillingInfo extends Recurly_Resource
     return 'billing_info';
   }
   protected function getWriteableAttributes() {
-    return Recurly_BillingInfo::$__writeableAttributes;
+    return Recurly_BillingInfo::$_writeableAttributes;
   }
 }
 

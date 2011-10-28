@@ -56,7 +56,7 @@ class Recurly_Plan extends Recurly_Resource
     return 'plan';
   }
   protected function getWriteableAttributes() {
-    return Recurly_Plan::$__writeableAttributes;
+    return Recurly_Plan::$_writeableAttributes;
   }
 }
 

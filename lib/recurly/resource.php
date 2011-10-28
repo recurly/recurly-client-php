@@ -105,7 +105,7 @@ abstract class Recurly_Resource extends Recurly_Base
   protected function getChangedAttributes()
   {
     $attributes = array();
-    foreach($this::$_writeableAttributes as $attr) {
+    foreach($this->getWriteableAttributes() as $attr) {
       if (isset($this->_unsavedKeys[$attr])) {
         $attributes[$attr] = $this->$attr;
       }

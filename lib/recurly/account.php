@@ -14,7 +14,7 @@ class Recurly_Account extends Recurly_Resource
   {
     Recurly_Account::$_writeableAttributes = array(
       'account_code','username','first_name','last_name',
-      'email','company_name','accepted_language','billing_info'
+      'email','company_name','accept_language','billing_info'
     );
     Recurly_Account::$_nestedAttributes = array(
       'adjustments','billing_info','invoices','subscriptions','transactions'
@@ -53,7 +53,7 @@ class Recurly_Account extends Recurly_Resource
     return 'account';
   }
   protected function getWriteableAttributes() {
-    return Recurly_Account::$__writeableAttributes;
+    return Recurly_Account::$_writeableAttributes;
   }
 }
 

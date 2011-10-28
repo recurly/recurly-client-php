@@ -41,7 +41,7 @@ class Recurly_CouponRedemption extends Recurly_Resource
     return 'redemption';
   }
   protected function getWriteableAttributes() {
-    return Recurly_CouponRedemption::$__writeableAttributes;
+    return Recurly_CouponRedemption::$_writeableAttributes;
   }
 }
 

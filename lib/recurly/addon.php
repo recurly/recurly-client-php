@@ -44,7 +44,7 @@ class Recurly_Addon extends Recurly_Resource
     return 'add_on';
   }
   protected function getWriteableAttributes() {
-    return Recurly_Addon::$__writeableAttributes;
+    return Recurly_Addon::$_writeableAttributes;
   }
 }
 

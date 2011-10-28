@@ -94,7 +94,7 @@ class Recurly_Subscription extends Recurly_Resource
     return 'subscription';
   }
   protected function getWriteableAttributes() {
-    return Recurly_Subscription::$__writeableAttributes;
+    return Recurly_Subscription::$_writeableAttributes;
   }
 }
 
