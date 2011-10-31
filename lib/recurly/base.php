@@ -126,7 +126,7 @@ abstract class Recurly_Base
     'line_items' => 'array',
     'plan' => 'Recurly_Plan',
     'plans' => 'Recurly_PlanList',
-    'pending_subscription' => 'Recurly_PendingSubscription',
+    'pending_subscription' => 'Recurly_Subscription',
     'redemption' => 'Recurly_CouponRedemption',
     'setup_fee_in_cents' => 'Recurly_CurrencyList',
     'subscription' => 'Recurly_Subscription',
