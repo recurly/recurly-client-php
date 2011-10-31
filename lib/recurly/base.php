@@ -138,7 +138,8 @@ abstract class Recurly_Base
   );
 
   protected static function __parseXmlToNewObject($xml, $client=null) {
-    $dom = DOMDocument::loadXML($xml);
+		$dom = new DOMDocument();
+		$dom->loadXML($xml);
     if (!$dom) return null;
 
     $rootNode = $dom->documentElement;
