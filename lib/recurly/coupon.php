@@ -32,7 +32,7 @@ class Recurly_Coupon extends Recurly_Resource
     return Recurly_Resource::_delete($this->uri());
   }
   public static function deleteCoupon($couponCode) {
-    return Recurly_Resource::_delete(Recurly_Coupon::uriForCoupon($this->couponCode));
+    return Recurly_Resource::_delete(Recurly_Coupon::uriForCoupon($couponCode));
   }
 
   protected function uri() {
