@@ -29,7 +29,7 @@ class Recurly_Client
    */
   private $_acceptLanguage = 'en-US';
 
-  const API_CLIENT_VERSION = '2.0.0';
+  const API_CLIENT_VERSION = '2.0.1';
   const DEFAULT_ENCODING = 'UTF-8';
 
   const GET = 'GET';
@@ -178,5 +178,52 @@ class Recurly_Client
       default:
         throw new Recurly_ConnectionError("An unexpected error occurred connecting with Recurly.");
     }
+  }
+
+  /**
+  *  Requests a PDF document from the given URI
+  *
+  * @param  string $uri      Target URI for this request (relative to the API root)
+  * @param  string $locale   Locale for the PDF invoice (e.g. "en-GB", "en-US", "fr")
+  * @return string $response PDF document
+  */
+  public function getPdf($uri, $locale = null)
+  {
+    if (substr($uri,0,4) != 'http')
+      $uri = Recurly_Client::$apiUrl . $uri;
+
+    if (is_null($locale))
+      $locale = $this->_acceptLanguage;
+
+    $ch = curl_init();
+    curl_setopt($ch, CURLOPT_URL, $uri);
+    curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, FALSE);
+    curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 2);
+    curl_setopt($ch, CURLOPT_FOLLOWLOCATION, FALSE);
+    curl_setopt($ch, CURLOPT_MAXREDIRS, 1);
+    curl_setopt($ch, CURLOPT_HEADER, FALSE); // do not return headeres
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
+    curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 10);
+    curl_setopt($ch, CURLOPT_TIMEOUT, 15);
+    curl_setopt($ch, CURLOPT_HTTPHEADER, array(
+      'Accept: application/pdf',
+      Recurly_Client::__userAgent(),
+      'Accept-Language: ' . $locale
+    ));
+    curl_setopt($ch, CURLOPT_USERPWD, $this->apiKey());
+
+    $response = curl_exec($ch);
+
+    if ($response === false)
+    {
+      $errorNumber = curl_errno($ch);
+      $message = curl_error($ch);
+      curl_close($ch);
+      $this->_raiseCurlError($errorNumber, $message);
+    }
+
+    curl_close($ch);
+
+    return $response;
   }
 }

@@ -13,12 +13,31 @@ class Recurly_Invoice extends Recurly_Resource
   
   /**
    * Lookup an invoice by its ID
-   * @param string Invoice ID
+   * @param string Invoice number or UUID
    * @return Recurly_Invoice invoice
    */
-  public static function get($uuid, $client = null) {
-    $uri = Recurly_Client::PATH_INVOICES . '/' . urlencode($uuid);
+  public static function get($invoiceNumber, $client = null) {
+    $uri = Recurly_Client::PATH_INVOICES . '/' . urlencode($invoiceNumber);
     return self::_get($uri, $client);
+  }
+
+  /**
+   * Retrieve the PDF version of this invoice
+   */
+  public function getPdf($locale = null) {
+    return Recurly_Invoice::getInvoicePdf($this->invoice_number, $locale, $this->_client);
+  }
+
+  /**
+   * Retrieve the PDF version of an invoice
+   */
+  public static function getInvoicePdf($invoiceNumber, $locale = null, $client = null) {
+    $uri = Recurly_Client::PATH_INVOICES . '/' . urlencode($invoiceNumber);
+
+    if (is_null($client))
+      $client = new Recurly_Client();
+
+    return $client->getPdf($uri, $locale);
   }
 
   /**
