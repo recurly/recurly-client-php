@@ -21,7 +21,7 @@ class Recurly_Subscription extends Recurly_Resource
 
   public function create() {
     $account_code = (is_null($this->account_code) && !is_null($this->account)) ? $this->account->account_code : $this->account_code;
-    $uri = Recurly_Client::PATH_ACCOUNTS . '/' . urlencode($this->account_code) . Recurly_Client::PATH_SUBSCRIPTIONS;
+    $uri = Recurly_Client::PATH_ACCOUNTS . '/' . urlencode($account_code) . Recurly_Client::PATH_SUBSCRIPTIONS;
     $this->_save(Recurly_Client::POST, $uri);
   }
 
@@ -46,7 +46,7 @@ class Recurly_Subscription extends Recurly_Resource
     $this->timeframe = 'now';
     $this->_save(Recurly_Client::PUT, $this->uri());
   }
-  
+
   /**
    * Make an update that applies when the subscription renews.
    */
@@ -54,8 +54,8 @@ class Recurly_Subscription extends Recurly_Resource
     $this->timeframe = 'renewal';
     $this->_save(Recurly_Client::PUT, $this->uri());
   }
-  
-  
+
+
   /**
    * Terminate the subscription immediately and issue a full refund of the last renewal
    */

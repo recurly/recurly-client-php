@@ -5,7 +5,7 @@ abstract class Recurly_Resource extends Recurly_Base
   protected $_values;
   protected $_unsavedKeys;
   protected $_errors;
-  
+
   abstract protected function getNodeName();
   abstract protected function getWriteableAttributes();
 
@@ -51,7 +51,7 @@ abstract class Recurly_Resource extends Recurly_Base
 
 
   protected function _save($method, $uri)
-  {  
+  {
     $this->_errors = array(); // reset errors
 
     if (is_null($this->_client))
@@ -112,7 +112,7 @@ abstract class Recurly_Resource extends Recurly_Base
     }
     return $attributes;
   }
-  
+
   protected function updateErrorAttributes()
   {
     if (sizeof($this->_errors) > 0) {
