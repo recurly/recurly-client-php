@@ -201,7 +201,7 @@ class Recurly_Client
     curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 2);
     curl_setopt($ch, CURLOPT_FOLLOWLOCATION, FALSE);
     curl_setopt($ch, CURLOPT_MAXREDIRS, 1);
-    curl_setopt($ch, CURLOPT_HEADER, FALSE); // do not return headeres
+    curl_setopt($ch, CURLOPT_HEADER, FALSE); // do not return headers
     curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
     curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 10);
     curl_setopt($ch, CURLOPT_TIMEOUT, 15);
