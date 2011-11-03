@@ -54,7 +54,7 @@ class Recurly_Invoice extends Recurly_Resource
     return 'invoice';
   }
   protected function getWriteableAttributes() {
-    return Recurly_Account::$_writeableAttributes;
+    return Recurly_Invoice::$_writeableAttributes;
   }
 }
 
