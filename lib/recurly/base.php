@@ -241,7 +241,7 @@ abstract class Recurly_Base
                 $object->$nodeName = ($node->nodeValue == 'true');
                 break;
               case 'date':
-                $object->$nodeName = strtodate($node->nodeValue);
+                $object->$nodeName = strtotime($node->nodeValue);
                 break;
               case 'datetime':
                 $object->$nodeName = strtotime($node->nodeValue);
