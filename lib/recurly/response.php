@@ -5,7 +5,7 @@ class Recurly_ClientResponse
   var $statusCode;
   var $headers;
   var $body;
-  
+
   function __construct($statusCode, $headers, $body) {
     $this->statusCode = $statusCode;
     $this->headers = $headers;
@@ -55,10 +55,10 @@ class Recurly_ClientResponse
         throw new Recurly_ConnectionError('An error occurred while connecting to Recurly.');
     }
   }
-  
+
   private function parseErrorXml($xml) {
-    $dom = @DOMDocument::loadXML($xml);
-    if (!$dom) return null;
+    $dom = new DOMDocument();
+    if (!$dom->loadXML($xml)) return null;
 
     $rootNode = $dom->documentElement;
     if ($rootNode->nodeName == 'error')
