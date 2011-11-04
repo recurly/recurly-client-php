@@ -22,7 +22,7 @@ class Recurly_SubscriptionList extends Recurly_Pager
   public static function getForAccount($accountCode, $params = null, $client = null)
   {
     $list = new Recurly_SubscriptionList(Recurly_Client::PATH_ACCOUNTS . '/' . urlencode($accountCode) . Recurly_Client::PATH_SUBSCRIPTIONS, $client);
-    $list->_loadFrom(Recurly_Client::PATH_SUBSCRIPTIONS, $params);
+    $list->_loadFrom(Recurly_Client::PATH_ACCOUNTS . '/' . urlencode($accountCode) . Recurly_Client::PATH_SUBSCRIPTIONS, $params);
     return $list;
   }
 
