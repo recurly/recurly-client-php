@@ -139,8 +139,7 @@ abstract class Recurly_Base
 
   protected static function __parseXmlToNewObject($xml, $client=null) {
 		$dom = new DOMDocument();
-		$dom->loadXML($xml);
-    if (!$dom) return null;
+    if (!$dom->loadXML($xml)) return null;
 
     $rootNode = $dom->documentElement;
 
@@ -154,8 +153,7 @@ abstract class Recurly_Base
   protected function __parseXmlToUpdateObject($xml)
   {
 		$dom = new DOMDocument();
-		$dom->loadXML($xml);
-    if (!$dom) return null;
+		if (!$dom->loadXML($xml)) return null;
 
     $rootNode = $dom->documentElement;
 
@@ -243,7 +241,7 @@ abstract class Recurly_Base
                 $object->$nodeName = ($node->nodeValue == 'true');
                 break;
               case 'date':
-                $object->$nodeName = strtodate($node->nodeValue);
+                $object->$nodeName = strtotime($node->nodeValue);
                 break;
               case 'datetime':
                 $object->$nodeName = strtotime($node->nodeValue);
