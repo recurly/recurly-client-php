@@ -27,8 +27,8 @@ class Recurly_InvoiceList extends Recurly_Pager
   
   public static function getForAccount($accountCode, $params = null, $client = null)
   {
-    $list = new Recurly_InvoiceList(Recurly_Client::PATH_INVOICES, $client);
-    $list->_loadFrom(Recurly_Client::PATH_INVOICES, $params);
+    $list = new Recurly_InvoiceList(Recurly_Client::PATH_ACCOUNTS . '/' . urlencode($accountCode) . Recurly_Client::PATH_INVOICES, $client);
+    $list->_loadFrom(Recurly_Client::PATH_ACCOUNTS . '/' . urlencode($accountCode) . Recurly_Client::PATH_INVOICES, $params);
     return $list;
   }
 
