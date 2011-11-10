@@ -46,7 +46,7 @@ class Recurly_ClientResponse
       case 404:
         $message = (is_null($error) ? 'Object not found' : $error->description);
         throw new Recurly_NotFoundError($message);
-      case 428:
+      case 429:
         throw new Recurly_ApiRateLimitError('You have made too many API requests in the last hour. Future GET API requests will be ignored until the beginning of the next hour.');
       case 500:
         $message = (is_null($error) ? 'An error occurred while connecting to Recurly' :
