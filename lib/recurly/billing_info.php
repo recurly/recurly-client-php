@@ -42,7 +42,7 @@ class Recurly_BillingInfo extends Recurly_Resource
       throw new Recurly_Error("'account_code' not specified.");
   }
   protected static function uriForBillingInfo($accountCode) {
-    return Recurly_Client::PATH_ACCOUNTS . '/' . urlencode($accountCode) . Recurly_Client::PATH_BILLING_INFO;
+    return Recurly_Client::PATH_ACCOUNTS . '/' . rawurlencode($accountCode) . Recurly_Client::PATH_BILLING_INFO;
   }
 
   protected function getNodeName() {

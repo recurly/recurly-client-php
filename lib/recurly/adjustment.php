@@ -17,7 +17,7 @@ class Recurly_Adjustment extends Recurly_Resource
   }
 
   public static function get($adjustment_uuid) {
-    return Recurly_Base::_get(Recurly_Client::PATH_ADJUSTMENTS . '/' . urlencode($adjustment_uuid));
+    return Recurly_Base::_get(Recurly_Client::PATH_ADJUSTMENTS . '/' . rawurlencode($adjustment_uuid));
   }
 
   public function create() {
@@ -31,7 +31,7 @@ class Recurly_Adjustment extends Recurly_Resource
     if (empty($this->account_code))
       throw new Recurly_Error("'account_code' is not specified");
 
-    return (Recurly_Client::PATH_ACCOUNTS . '/' . urlencode($this->account_code) .
+    return (Recurly_Client::PATH_ACCOUNTS . '/' . rawurlencode($this->account_code) .
             Recurly_Client::PATH_ADJUSTMENTS);
   }
 

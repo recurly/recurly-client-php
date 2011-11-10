@@ -22,7 +22,7 @@ class Recurly_Addon extends Recurly_Resource
   }
 
   public function create() {
-    $this->_save(Recurly_Client::POST, Recurly_Client::PATH_PLANS . '/' . urlencode($this->plan_code) . Recurly_Client::PATH_ADDONS);
+    $this->_save(Recurly_Client::POST, Recurly_Client::PATH_PLANS . '/' . rawurlencode($this->plan_code) . Recurly_Client::PATH_ADDONS);
   }
 
   public function delete() {
@@ -36,8 +36,8 @@ class Recurly_Addon extends Recurly_Resource
       return Recurly_Addon::uriForAddOn($this->plan_code, $this->add_on_code);
   }
   protected static function uriForAddOn($planCode, $addonCode) {
-    return (Recurly_Client::PATH_PLANS . '/' . urlencode($planCode) . 
-            Recurly_Client::PATH_ADDONS . '/' . urlencode($addonCode));
+    return (Recurly_Client::PATH_PLANS . '/' . rawurlencode($planCode) . 
+            Recurly_Client::PATH_ADDONS . '/' . rawurlencode($addonCode));
   }
 
   protected function getNodeName() {

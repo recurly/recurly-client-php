@@ -36,7 +36,7 @@ class Recurly_CouponRedemption extends Recurly_Resource
 			return false;
   }
   protected static function uriForAccount($accountCode) {
-    return Recurly_Client::PATH_ACCOUNTS . '/' . urlencode($accountCode) . Recurly_Client::PATH_COUPON;
+    return Recurly_Client::PATH_ACCOUNTS . '/' . rawurlencode($accountCode) . Recurly_Client::PATH_COUPON;
   }
 
   protected function getNodeName() {

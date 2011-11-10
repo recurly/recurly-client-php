@@ -17,7 +17,7 @@ class Recurly_Invoice extends Recurly_Resource
    * @return Recurly_Invoice invoice
    */
   public static function get($invoiceNumber, $client = null) {
-    $uri = Recurly_Client::PATH_INVOICES . '/' . urlencode($invoiceNumber);
+    $uri = Recurly_Client::PATH_INVOICES . '/' . rawurlencode($invoiceNumber);
     return self::_get($uri, $client);
   }
 
@@ -32,7 +32,7 @@ class Recurly_Invoice extends Recurly_Resource
    * Retrieve the PDF version of an invoice
    */
   public static function getInvoicePdf($invoiceNumber, $locale = null, $client = null) {
-    $uri = Recurly_Client::PATH_INVOICES . '/' . urlencode($invoiceNumber);
+    $uri = Recurly_Client::PATH_INVOICES . '/' . rawurlencode($invoiceNumber);
 
     if (is_null($client))
       $client = new Recurly_Client();
@@ -46,7 +46,7 @@ class Recurly_Invoice extends Recurly_Resource
    * @return Recurly_Invoice invoice on success
    */
   public static function invoicePendingCharges($accountCode, $client = null) {
-    $uri = Recurly_Client::PATH_ACCOUNTS . '/' . urlencode($accountCode) . Recurly_Client::PATH_INVOICES;
+    $uri = Recurly_Client::PATH_ACCOUNTS . '/' . rawurlencode($accountCode) . Recurly_Client::PATH_INVOICES;
     return self::_post($uri, null, $client);
   }
 

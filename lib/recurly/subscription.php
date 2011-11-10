@@ -21,7 +21,7 @@ class Recurly_Subscription extends Recurly_Resource
 
   public function create() {
     $account_code = (is_null($this->account_code) && !is_null($this->account)) ? $this->account->account_code : $this->account_code;
-    $uri = Recurly_Client::PATH_ACCOUNTS . '/' . urlencode($account_code) . Recurly_Client::PATH_SUBSCRIPTIONS;
+    $uri = Recurly_Client::PATH_ACCOUNTS . '/' . rawurlencode($account_code) . Recurly_Client::PATH_SUBSCRIPTIONS;
     $this->_save(Recurly_Client::POST, $uri);
   }
 
@@ -87,7 +87,7 @@ class Recurly_Subscription extends Recurly_Resource
       throw new Recurly_Error("Subscription UUID not specified");
   }
   protected static function uriForSubscription($uuid) {
-    return Recurly_Client::PATH_SUBSCRIPTIONS . '/' . urlencode($uuid);
+    return Recurly_Client::PATH_SUBSCRIPTIONS . '/' . rawurlencode($uuid);
   }
 
   protected function getNodeName() {
