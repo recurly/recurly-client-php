@@ -17,6 +17,10 @@ class Recurly_ConfigurationError extends Recurly_Error {}
 
 class Recurly_ConnectionError extends Recurly_Error {}
 
+class Recurly_RequestError extends Recurly_Error {}
+
+class Recurly_ApiRateLimitError extends Recurly_RequestError {}
+
 class Recurly_ForgedQueryStringError extends Recurly_Error {}
 
 class Recurly_ValidationError extends Recurly_Error
