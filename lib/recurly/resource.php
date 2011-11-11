@@ -96,6 +96,11 @@ abstract class Recurly_Resource extends Recurly_Base
       } else if ($val instanceof Recurly_Resource) {
         $attribute_node = $node->appendChild($doc->createElement($key));
         $this->populateXmlDoc($doc, $attribute_node, $val);
+      } else if (is_array($val)) {
+      	$attribute_node = $node->appendChild($doc->createElement($key));
+      	foreach ($val as $child) {
+      		$child->populateXmlDoc($doc, $attribute_node, $child);
+      	}
       } else {
         $node->appendChild($doc->createElement($key, $val));
       }
