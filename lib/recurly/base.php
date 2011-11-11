@@ -131,6 +131,8 @@ abstract class Recurly_Base
     'setup_fee_in_cents' => 'Recurly_CurrencyList',
     'subscription' => 'Recurly_Subscription',
     'subscriptions' => 'Recurly_SubscriptionList',
+    'subscription_add_ons' => 'array',
+    'subscription_add_on' => 'Recurly_SubscriptionAddOn',
     'transaction' => 'Recurly_Transaction',
     'transactions' => 'Recurly_TransactionList',
     'transaction_error' => 'Recurly_TransactionError',
