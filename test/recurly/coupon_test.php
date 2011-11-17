@@ -13,7 +13,7 @@ class Recurly_CouponTest extends UnitTestCase
 
     $this->assertIsA($coupon, 'Recurly_Coupon');
     $this->assertEqual($coupon->coupon_code, 'special');
-    $this->assertEqual($coupon->created_at, 1304150400);
+    $this->assertEqual($coupon->created_at->getTimestamp(), 1304150400);
     $this->assertEqual($coupon->getHref(),'https://api.recurly.com/v2/coupons/special');
     $this->assertIsA($coupon->discount_in_cents, 'Recurly_CurrencyList');
     $this->assertEqual($coupon->discount_in_cents['USD']->amount_in_cents, 1000);

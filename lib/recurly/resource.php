@@ -31,7 +31,7 @@ abstract class Recurly_Resource extends Recurly_Base
   {
     unset($this->_values[$k]);
   }
-  public function __get($key)
+  public function &__get($key)
   {
     if (isset($this->_values[$key])) {
       return $this->_values[$key];
@@ -40,7 +40,8 @@ abstract class Recurly_Resource extends Recurly_Base
     } else if ($key == 'errors') {
       return $this->_errors;
     } else {
-      return null;
+      $null_val = null;
+      return $null_val;
     }
   }
 
@@ -96,7 +97,7 @@ abstract class Recurly_Resource extends Recurly_Base
       } else if ($val instanceof Recurly_Resource) {
         $attribute_node = $node->appendChild($doc->createElement($key));
         $this->populateXmlDoc($doc, $attribute_node, $val);
-      } else if (is_array($val)) {
+      } else if (is_array($val) && !empty($val)) {
       	$attribute_node = $node->appendChild($doc->createElement($key));
       	foreach ($val as $child) {
       		$child->populateXmlDoc($doc, $attribute_node, $child);

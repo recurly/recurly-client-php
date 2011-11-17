@@ -70,7 +70,7 @@ abstract class Recurly_Base
     return "<$class$href $values>";
   }
 
-  private function __valuesString() {
+  protected function __valuesString() {
     $values = array();
     ksort($this->_values);
 
@@ -89,6 +89,8 @@ abstract class Recurly_Base
           $innerValues[] = strval($innerValue);
         $innerValues = implode($innerValues, ', ');
         $values[] = "$key=[$innerValues]";
+      } else if ($value instanceof DateTime) {
+        $values[] = "$key=\"" . $value->format('Y-m-d H:i:s P') . '"';
       } else {
         $values[] = "$key=\"$value\"";
       }

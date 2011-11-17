@@ -1,5 +1,10 @@
 # Recurly PHP Client Library CHANGELOG
 
+## Version 2.0.4 (November 16, 2011)
+
+* Support for creating a subscription with add-ons (thanks to @qqqq).
+* Attributes with a date are now DateTime objects instead of epoch timestamps.
+
 ## Version 2.0.3 (November 9, 2011)
 
 * Use rawurlencode() instead of urlencode() to create resource URLs. Required for URLs that contain spaces

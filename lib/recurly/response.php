@@ -57,6 +57,7 @@ class Recurly_ClientResponse
         throw new Recurly_ServerError($message);
       case 502:
       case 503:
+      case 504:
         throw new Recurly_ConnectionError('An error occurred while connecting to Recurly.');
     }
 

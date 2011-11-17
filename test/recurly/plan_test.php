@@ -15,7 +15,7 @@ class Recurly_PlanTest extends UnitTestCase
     $this->assertIsA($plan->add_ons, 'Recurly_Stub');
     $this->assertEqual($plan->add_ons->getHref(), 'https://api.recurly.com/v2/plans/silver/add_ons');
     $this->assertEqual($plan->plan_code, 'silver');
-    $this->assertEqual($plan->created_at, 1303196400);
+    $this->assertEqual($plan->created_at->getTimestamp(), 1303196400);
     $this->assertEqual($plan->getHref(),'https://api.recurly.com/v2/plans/silver');
     $this->assertIsA($plan->unit_amount_in_cents, 'Recurly_CurrencyList');
     $this->assertEqual($plan->unit_amount_in_cents['USD']->amount_in_cents, 1000);

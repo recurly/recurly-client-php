@@ -15,7 +15,7 @@ class Recurly_AccountTest extends UnitTestCase
     $this->assertEqual($account->account_code, 'abcdef1234567890');
     $this->assertEqual($account->email, 'larry.david@example.com');
     $this->assertEqual($account->first_name, 'Larry');
-    $this->assertEqual($account->created_at, 1304164800);
+    $this->assertEqual($account->created_at->getTimestamp(), 1304164800);
     $this->assertEqual($account->getHref(),'https://api.recurly.com/v2/accounts/abcdef1234567890');
   }
   

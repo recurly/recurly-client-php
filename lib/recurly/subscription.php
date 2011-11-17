@@ -15,6 +15,12 @@ class Recurly_Subscription extends Recurly_Resource
     Recurly_Subscription::$_nestedAttributes = array('account', 'subscription_add_ons');
   }
 
+  public function __construct($href = null, $client = null)
+  {
+    parent::__construct($href, $client);
+    $this->subscription_add_ons = array();
+  }
+
   public static function get($uuid, $client = null) {
     return Recurly_Base::_get(Recurly_Subscription::uriForSubscription($uuid), $client);
   }
