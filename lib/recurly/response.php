@@ -31,7 +31,8 @@ class Recurly_ClientResponse
     if ($this->statusCode >= 200 && $this->statusCode < 400)
       return;
 
-    $error = $this->parseErrorXml($this->body);
+    // Do not fail here if the response is not valid XML
+    $error = @$this->parseErrorXml($this->body);
 
     switch ($this->statusCode) {
       case 0:

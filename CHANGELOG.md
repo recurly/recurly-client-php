@@ -6,6 +6,7 @@
 * Fixed URL for Recurly_CouponRedemption::get().
 * Added Recurly_TransactionList::getForAccount().
 * Add coupon redemption via $coupon->redeemCoupon('account_code').
+* Properly encode plan_codes when limiting coupons to specific plans.
 
 ## Version 2.0.4 (November 16, 2011)
 

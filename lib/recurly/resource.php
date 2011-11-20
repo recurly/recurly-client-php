@@ -99,10 +99,26 @@ abstract class Recurly_Resource extends Recurly_Base
         $this->populateXmlDoc($doc, $attribute_node, $val);
       } else if (is_array($val) && !empty($val)) {
       	$attribute_node = $node->appendChild($doc->createElement($key));
-      	foreach ($val as $child) {
-          if (is_null($child))
+        foreach ($val as $child => $childValue) {
+          if (is_null($child) || is_null($childValue)) {
             continue;
-          $child->populateXmlDoc($doc, $attribute_node, $child);
+          }
+          elseif (is_string($child) && !is_null($childValue)) {
+            // e.g. "<discount_in_cents><USD>1000</USD></discount_in_cents>"
+            $attribute_node->appendChild($doc->createElement($child, $childValue));
+          }
+          elseif (is_int($child) && !is_null($childValue)) {
+            if (substr($key, -1) == "s") {
+              if (is_object($childValue)) {
+                // e.g. "<subscription_add_ons><subscription_add_on>...</subscription_add_on></subscription_add_ons>"
+                $childValue->populateXmlDoc($doc, $attribute_node, $childValue);
+              }
+              else {
+                // e.g. "<plan_codes><plan_code>gold</plan_code><plan_code>monthly</plan_code></plan_codes>"
+                $attribute_node->appendChild($doc->createElement(substr($key, 0, -1), $childValue));
+              }
+            }
+          }
       	}
       } else {
         $node->appendChild($doc->createElement($key, $val));
