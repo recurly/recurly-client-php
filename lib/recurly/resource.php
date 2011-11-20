@@ -100,7 +100,9 @@ abstract class Recurly_Resource extends Recurly_Base
       } else if (is_array($val) && !empty($val)) {
       	$attribute_node = $node->appendChild($doc->createElement($key));
       	foreach ($val as $child) {
-      		$child->populateXmlDoc($doc, $attribute_node, $child);
+          if (is_null($child))
+            continue;
+          $child->populateXmlDoc($doc, $attribute_node, $child);
       	}
       } else {
         $node->appendChild($doc->createElement($key, $val));
@@ -112,7 +114,7 @@ abstract class Recurly_Resource extends Recurly_Base
   {
     $attributes = array();
     foreach($this->getWriteableAttributes() as $attr) {
-      if (isset($this->_unsavedKeys[$attr])) {
+      if (isset($this->_unsavedKeys[$attr]) || (isset($this->_values[$attr]) && is_array($this->_values[$attr]))) {
         $attributes[$attr] = $this->$attr;
       }
     }

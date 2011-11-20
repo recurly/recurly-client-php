@@ -1,5 +1,9 @@
 # Recurly PHP Client Library CHANGELOG
 
+## Version 2.0.5 (November 20, 2011)
+
+* Always send list of addons when performing a subscription update.
+
 ## Version 2.0.4 (November 16, 2011)
 
 * Support for creating a subscription with add-ons (thanks to @qqqq).

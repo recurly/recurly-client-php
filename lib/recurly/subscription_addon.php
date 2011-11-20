@@ -25,6 +25,12 @@ class Recurly_SubscriptionAddOn extends Recurly_Resource {
 		$addonNode = $node->appendChild($doc->createElement($this->getNodeName()));
 		parent::populateXmlDoc($doc, $addonNode, $obj);
 	}
+	
+  protected function getChangedAttributes()
+  {
+    // Return all attributes
+    return $this->_values;
+  }
 
   /**
    * Pretty string version of the object
