@@ -43,6 +43,7 @@ class Recurly_Client
   const PATH_ADJUSTMENTS = '/adjustments';
   const PATH_BILLING_INFO = '/billing_info';
   const PATH_COUPON = '/coupon';
+  const PATH_COUPON_REDEMPTION = '/redemption';
   const PATH_COUPONS = '/coupons';
   const PATH_INVOICES = '/invoices';
   const PATH_PLANS = '/plans';

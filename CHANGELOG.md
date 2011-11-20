@@ -3,6 +3,9 @@
 ## Version 2.0.5 (November 20, 2011)
 
 * Always send list of addons when performing a subscription update.
+* Fixed URL for Recurly_CouponRedemption::get().
+* Added Recurly_TransactionList::getForAccount().
+* Add coupon redemption via $coupon->redeemCoupon('account_code').
 
 ## Version 2.0.4 (November 16, 2011)
 

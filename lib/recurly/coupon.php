@@ -28,6 +28,20 @@ class Recurly_Coupon extends Recurly_Resource
     $this->_save(Recurly_Client::POST, Recurly_Client::PATH_COUPONS);
   }
 
+  public function redeemCoupon($accountCode, $currency) {
+    $redemption = new Recurly_CouponRedemption();
+    $redemption->account_code = $accountCode;
+    $redemption->currency = $currency;
+
+    foreach ($this->_links as $link) {
+      if ($link->name == 'redeem') {
+        $redemption->_save(strtoupper($link->method), $link->href);
+        return $redemption;
+      }
+    }
+  }
+
+
   public function delete() {
     return Recurly_Resource::_delete($this->uri());
   }

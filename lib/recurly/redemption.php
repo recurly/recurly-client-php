@@ -16,10 +16,6 @@ class Recurly_CouponRedemption extends Recurly_Resource
     return Recurly_Base::_get(Recurly_CouponRedemption::uriForAccount($accountCode), $client);
   }
 
-  public function redeemCoupon() {
-    $this->_save(Recurly_Client::PUT, $this->_redeemUrl);
-  }
-
   public function delete($accountCode = null) {
     return Recurly_Resource::_delete($this->uri($accountCode));
   }
@@ -36,7 +32,7 @@ class Recurly_CouponRedemption extends Recurly_Resource
 			return false;
   }
   protected static function uriForAccount($accountCode) {
-    return Recurly_Client::PATH_ACCOUNTS . '/' . rawurlencode($accountCode) . Recurly_Client::PATH_COUPON;
+    return Recurly_Client::PATH_ACCOUNTS . '/' . rawurlencode($accountCode) . Recurly_Client::PATH_COUPON_REDEMPTION;
   }
 
   protected function getNodeName() {
