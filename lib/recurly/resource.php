@@ -97,7 +97,9 @@ abstract class Recurly_Resource extends Recurly_Base
       } else if ($val instanceof Recurly_Resource) {
         $attribute_node = $node->appendChild($doc->createElement($key));
         $this->populateXmlDoc($doc, $attribute_node, $val);
-      } else if (is_array($val) && !empty($val)) {
+      } else if (is_array($val)) {
+        if (empty($val))
+          continue;
       	$attribute_node = $node->appendChild($doc->createElement($key));
         foreach ($val as $child => $childValue) {
           if (is_null($child) || is_null($childValue)) {
@@ -108,15 +110,13 @@ abstract class Recurly_Resource extends Recurly_Base
             $attribute_node->appendChild($doc->createElement($child, $childValue));
           }
           elseif (is_int($child) && !is_null($childValue)) {
-            if (substr($key, -1) == "s") {
-              if (is_object($childValue)) {
-                // e.g. "<subscription_add_ons><subscription_add_on>...</subscription_add_on></subscription_add_ons>"
-                $childValue->populateXmlDoc($doc, $attribute_node, $childValue);
-              }
-              else {
-                // e.g. "<plan_codes><plan_code>gold</plan_code><plan_code>monthly</plan_code></plan_codes>"
-                $attribute_node->appendChild($doc->createElement(substr($key, 0, -1), $childValue));
-              }
+            if (is_object($childValue)) {
+              // e.g. "<subscription_add_ons><subscription_add_on>...</subscription_add_on></subscription_add_ons>"
+              $childValue->populateXmlDoc($doc, $attribute_node, $childValue);
+            }
+            elseif (substr($key, -1) == "s") {
+              // e.g. "<plan_codes><plan_code>gold</plan_code><plan_code>monthly</plan_code></plan_codes>"
+              $attribute_node->appendChild($doc->createElement(substr($key, 0, -1), $childValue));
             }
           }
       	}

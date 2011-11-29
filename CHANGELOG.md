@@ -1,5 +1,9 @@
 # Recurly PHP Client Library CHANGELOG
 
+## Version 2.0.6 (November 29, 2011)
+
+* Fix creating subscription when add-ons is an empty array. Added tests.
+
 ## Version 2.0.5 (November 20, 2011)
 
 * Always send list of addons when performing a subscription update.
