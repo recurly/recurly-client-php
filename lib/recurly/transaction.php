@@ -8,7 +8,7 @@ class Recurly_Transaction extends Recurly_Resource
   public static function init()
   {
     Recurly_Transaction::$_writeableAttributes = array(
-      'account','amount_in_cents','currency'
+      'account','amount_in_cents','currency','description'
     );
     Recurly_Transaction::$_nestedAttributes = array('account');
   }
