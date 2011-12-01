@@ -1,5 +1,10 @@
 # Recurly PHP Client Library CHANGELOG
 
+## Version 2.0.7 (November 30, 2011)
+
+* Update subscription create URL to the endpoint that auto-creates the account if it does not exist.
+* Accept transaction description.
+
 ## Version 2.0.6 (November 29, 2011)
 
 * Fix creating subscription when add-ons is an empty array. Added tests.

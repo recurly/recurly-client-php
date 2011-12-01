@@ -26,9 +26,7 @@ class Recurly_Subscription extends Recurly_Resource
   }
 
   public function create() {
-    $account_code = (is_null($this->account_code) && !is_null($this->account)) ? $this->account->account_code : $this->account_code;
-    $uri = Recurly_Client::PATH_ACCOUNTS . '/' . rawurlencode($account_code) . Recurly_Client::PATH_SUBSCRIPTIONS;
-    $this->_save(Recurly_Client::POST, $uri);
+    $this->_save(Recurly_Client::POST, Recurly_Client::PATH_SUBSCRIPTIONS);
   }
 
   /**
