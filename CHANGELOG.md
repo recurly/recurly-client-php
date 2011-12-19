@@ -1,5 +1,9 @@
 # Recurly PHP Client Library CHANGELOG
 
+
+* Better parsing of transaction errors on one-time transaction requests.
+* Parse an array of plan_codes as strings in the coupon response.
+
 ## Version 2.0.7 (November 30, 2011)
 
 * Update subscription create URL to the endpoint that auto-creates the account if it does not exist.

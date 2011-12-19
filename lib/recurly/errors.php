@@ -35,9 +35,17 @@ class Recurly_ValidationError extends Recurly_Error
     // Create a better error message
     $errs = array();
     foreach ($errors as $err) {
-      $errs[] = strval($err);
+      if ($err instanceof Recurly_TransactionError) {
+        # Return just the customer message from the transaction error
+        parent::__construct($err->customer_message);
+        return;
+      }
+      else
+        $errs[] = strval($err);
     }
-    $message = ucfirst(implode($errs, ', ')) . '.';
+    $message = ucfirst(implode($errs, ', '));
+    if (substr($message, -1) != '.')
+      $message .= '.';
     parent::__construct($message);
   }
 }
@@ -51,7 +59,7 @@ class Recurly_FieldError
   var $description;
   
   public function __toString() {
-    if (!empty($this->field)) {
+    if (!empty($this->field) && ($this->__readableField() != 'base')) {
       return $this->__readableField() . ' ' . $this->description;
     }
     else {

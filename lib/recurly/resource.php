@@ -143,8 +143,10 @@ abstract class Recurly_Resource extends Recurly_Base
       for ($i = sizeof($this->_errors) - 1; $i >= 0; $i--) {
         $error = $this->_errors[$i];
 
-        if (substr($error->field, 0, strlen($this->getNodeName()) + 1) == ($this->getNodeName() . '.'))
-          $error->field = substr($error->field, strlen($this->getNodeName()) + 1);
+        if (isset($error->field)) {
+          if (substr($error->field, 0, strlen($this->getNodeName()) + 1) == ($this->getNodeName() . '.'))
+            $error->field = substr($error->field, strlen($this->getNodeName()) + 1);
+        }
 
         // TODO: If there are more dots, then apply these to sub elements
       }

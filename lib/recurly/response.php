@@ -20,6 +20,12 @@ class Recurly_ClientResponse
         throw new Recurly_ValidationError('Validation error', null, array($object));
       else if ($object instanceof Recurly_ErrorList)
         throw new Recurly_ValidationError('Validation error', null, $object);
+      else if (is_array($object) && count($object) == 3) {
+        $trans_error = $object[0];
+        $transaction = $object[2];
+        if ($trans_error instanceof Recurly_TransactionError && $transaction instanceof Recurly_Transaction)
+          throw new Recurly_ValidationError($trans_error->customer_message, $transaction, array($trans_error));
+      }
       else
         throw new Recurly_ValidationError('Validation error', $object, $object->getErrors());
     }
