@@ -1,0 +1,23 @@
+HTTP/1.1 200 OK
+Content-Type: application/xml; charset=utf-8
+
+<?xml version="1.0" encoding="UTF-8"?>
+<coupon href="https://api.recurly.com/v2/coupons/special">
+  <redemptions href="https://api.recurly.com/v2/coupons/special/redemptions"/>
+  <coupon_code>special</coupon_code>
+  <name>Special 50% Discount</name>
+  <state>redeemable</state>
+  <discount_type>percent</discount_type>
+  <discount_percent type="integer">50</discount_percent>
+  <redeem_by_date type="datetime">2020-04-09T07:00:00Z</redeem_by_date>
+  <single_use type="boolean">false</single_use>
+  <applies_for_months nil="nil"></applies_for_months>
+  <max_redemptions nil="nil"></max_redemptions>
+  <applies_to_all_plans type="boolean">true</applies_to_all_plans>
+  <created_at type="datetime">2011-04-10T07:00:00Z</created_at>
+  <plan_codes type="array">
+    <plan_code>plan_one</plan_code>
+    <plan_code>plan_two</plan_code>
+  </plan_codes>
+  <a name="redeem" href="https://api.recurly.com/v2/coupons/special/redeem" method="put"/>
+</coupon>

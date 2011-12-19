@@ -19,6 +19,22 @@ class Recurly_CouponTest extends UnitTestCase
     $this->assertEqual($coupon->discount_in_cents['USD']->amount_in_cents, 1000);
   }
 
+  // Parse plan_codes array in response
+  public function testPlanCodesXml()
+  {
+    $responseFixture = loadFixture('./fixtures/coupons/show-200-2.xml');
+
+    $client = new MockRecurly_Client();
+    $client->returns('request', $responseFixture, array('GET', '/coupons/special'));
+
+    $coupon = Recurly_Coupon::get('special', $client);
+
+    $this->assertIsA($coupon, 'Recurly_Coupon');
+    $this->assertIsA($coupon->plan_codes, 'array');
+    $this->assertEqual($coupon->plan_codes[0], 'plan_one');
+    $this->assertEqual($coupon->plan_codes[1], 'plan_two');
+  }
+
   public function testXml()
   {
     $coupon = new Recurly_Coupon();

@@ -128,6 +128,8 @@ abstract class Recurly_Base
     'line_items' => 'array',
     'plan' => 'Recurly_Plan',
     'plans' => 'Recurly_PlanList',
+    'plan_code' => 'string',
+    'plan_codes' => 'array',
     'pending_subscription' => 'Recurly_Subscription',
     'redemption' => 'Recurly_CouponRedemption',
     'setup_fee_in_cents' => 'Recurly_CurrencyList',
@@ -208,7 +210,8 @@ abstract class Recurly_Base
 
           $new_obj = Recurly_Resource::__createNodeObject($node);
           if (!is_null($new_obj)) {
-            Recurly_Resource::__parseXmlToObject($node->firstChild, $new_obj);
+            if (is_object($new_obj) || is_array($new_obj))
+              Recurly_Resource::__parseXmlToObject($node->firstChild, $new_obj);
             $object[] = $new_obj;
           }
           $node = $node->nextSibling;
@@ -297,6 +300,8 @@ abstract class Recurly_Base
       return new Recurly_Object();
     else if ($node_class == 'array')
       return array();
+    else if ($node_class == 'string')
+      return $node->firstChild->wholeText;
     else {
       if ($node_class == 'Recurly_CurrencyList')
         $new_obj = new $node_class($nodeName);
