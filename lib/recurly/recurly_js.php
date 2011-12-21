@@ -27,12 +27,6 @@ class Recurly_js
     if (!isset($this->data['signature'], $this->data['account_code'], $this->data['plan_code'], $this->data['quantity']))
       throw new InvalidArgumentException("Signature, account_code, plan_code, and/or quantity not present.");
 
-    $verify_data = array(
-      'account_code' => $this->data['account_code'],
-      'plan_code' => $this->data['plan_code'],
-      'quantity' => $this->data['quantity']
-    );
-
     return $this->_verifyResults(self::SUBSCRIPTION_CREATED, $this->data);
   }
 
