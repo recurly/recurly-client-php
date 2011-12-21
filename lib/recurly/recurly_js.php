@@ -33,18 +33,7 @@ class Recurly_js
       'quantity' => $this->data['quantity']
     );
 
-    if (isset($this->data['coupon_code']))
-      $verify_data['coupon_code'] = $this->data['coupon_code'];
-
-    if (isset($this->data['add_ons']) && is_array($this->data['add_ons'])) {
-      $add_ons = array();
-      foreach ($this->data['add_ons'] as $add_on) {
-        $add_ons[] = array('add_on_code' => $add_on['add_on_code'], 'quantity' => $add_on['quantity']);
-      }
-      $verify_data['add_ons'] = $add_ons;
-    }
-
-    return $this->_verifyResults(self::SUBSCRIPTION_CREATED, $this->data['signature'], $verify_data);
+    return $this->_verifyResults(self::SUBSCRIPTION_CREATED, $this->data);
   }
 
   public function verifyTransaction()
@@ -52,13 +41,7 @@ class Recurly_js
     if (!isset($this->data['signature'], $this->data['account_code'], $this->data['amount_in_cents'], $this->data['currency'], $this->data['uuid']))
       throw new InvalidArgumentException("Signature, account_code, amount_in_cents, currency, and/or uuid not present.");
 
-    return $this->_verifyResults(self::TRANSACTION_CREATED, $this->data['signature'],
-      array(
-        'account_code' => $this->data['account_code'],
-        'amount_in_cents' => $this->data['amount_in_cents'],
-        'currency' => $this->data['currency'],
-        'uuid' => $this->data['uuid']
-      ));
+    return $this->_verifyResults(self::TRANSACTION_CREATED, $this->data);
   }
 
   public function verifyBillingInfoUpdated()
@@ -66,7 +49,7 @@ class Recurly_js
     if (!isset($this->data['signature'], $this->data['account_code']))
       throw new InvalidArgumentException("Signature and account_code not present.");
 
-    return $this->_verifyResults(self::BILLING_INFO_UPDATED, $this->data['signature'], array('account_code' => $this->data['account_code']));
+    return $this->_verifyResults(self::BILLING_INFO_UPDATED, $this->data);
   }
 
   // Create a signature for a one-time transaction for the given $accountCode
@@ -100,8 +83,15 @@ class Recurly_js
   }
 
   # Validate the parameters are authentic
-  private function _verifyResults($claim, $signature, $values)
+  private function _verifyResults($claim, $values)
   {
+    if(!isset($values['signature'])) {
+      throw new Recurly_ForgedQueryStringError("Mising signature");
+    }
+
+    $signature = $values['signature'];
+    unset($values['signature']);
+
     $pos = strpos($signature, '-');
     if (!$pos)
       throw new Recurly_ForgedQueryStringError("Invalid signature");

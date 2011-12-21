@@ -19,15 +19,15 @@ class AllTests extends TestSuite {
   {
     parent::__construct();
 
-    $this->addFile('./recurly/client_test.php');
+    // $this->addFile('./recurly/client_test.php');
     $this->addFile('./recurly/recurlyjs_test.php');
-    
-    $this->addFile('./recurly/account_test.php');
-    $this->addFile('./recurly/account_list_test.php');
-    $this->addFile('./recurly/coupon_test.php');
-    $this->addFile('./recurly/invoice_test.php');
-    $this->addFile('./recurly/plan_test.php');
-    $this->addFile('./recurly/subscription_test.php');
-    $this->addFile('./recurly/transaction_test.php');
+    // 
+    // $this->addFile('./recurly/account_test.php');
+    // $this->addFile('./recurly/account_list_test.php');
+    // $this->addFile('./recurly/coupon_test.php');
+    // $this->addFile('./recurly/invoice_test.php');
+    // $this->addFile('./recurly/plan_test.php');
+    // $this->addFile('./recurly/subscription_test.php');
+    // $this->addFile('./recurly/transaction_test.php');
   }
 }
