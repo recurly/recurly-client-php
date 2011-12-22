@@ -27,13 +27,16 @@ class Recurly_Account extends Recurly_Resource
 
   public function create() {
     $this->_save(Recurly_Client::POST, Recurly_Client::PATH_ACCOUNTS);
-  }  
+  }
   public function update() {
     $this->_save(Recurly_Client::PUT, $this->uri());
   }
 
   public function close() {
     return Recurly_Resource::_delete($this->uri());
+  }
+  public function reopen() {
+    $this->_save(Recurly_Client::PUT, $this->uri() . '/reopen');
   }
   public static function closeAccount($accountCode) {
     return Recurly_Resource::_delete(Recurly_Account::uriForAccount($accountCode));

@@ -17,7 +17,7 @@ class Recurly_Plan extends Recurly_Resource
       'display_donation_amounts','display_quantity','display_phone_number',
       'bypass_hosted_confirmation','unit_name','payment_page_tos_link',
       'plan_interval_length','plan_interval_unit','trial_interval_length','trial_interval_unit',
-      'unit_amount_in_cents','setup_fee_in_cents','total_billing_cycles'
+      'unit_amount_in_cents','setup_fee_in_cents','total_billing_cycles', 'accounting_code'
     );
     Recurly_Plan::$_nestedAttributes = array(
       'add_ons'
@@ -30,7 +30,7 @@ class Recurly_Plan extends Recurly_Resource
 
   public function create() {
     $this->_save(Recurly_Client::POST, Recurly_Client::PATH_PLANS);
-  }  
+  }
   public function update() {
     $this->_save(Recurly_Client::PUT, $this->uri());
   }
@@ -41,7 +41,7 @@ class Recurly_Plan extends Recurly_Resource
   public static function deletePlan($planCode) {
     return Recurly_Resource::_delete(Recurly_Plan::uriForPlan($planCode));
   }
-  
+
   protected function uri() {
     if (!empty($this->_href))
       return $this->getHref();
