@@ -45,6 +45,10 @@ abstract class Recurly_Pager extends Recurly_Base implements Iterator
    */
   public function current()
   {
+    if (empty($this->_count)) {
+      return null;
+    }
+
     while ($this->_position >= sizeof($this->_objects)) {
       if (isset($this->_links['next'])) {
         $num_objects = sizeof($this->_objects);
