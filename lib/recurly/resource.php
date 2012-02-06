@@ -121,6 +121,9 @@ abstract class Recurly_Resource extends Recurly_Base
           }
       	}
       } else {
+        if ($val instanceof DateTime) {
+          $val = $val->format('c');
+        }
         $node->appendChild($doc->createElement($key, $val));
       }
     }
