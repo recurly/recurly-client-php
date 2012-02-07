@@ -61,13 +61,34 @@ class Recurly_js
     ));
   }
 
-  // Create a signature for a one-time transaction for the given $accountCode
+  // Create a signature for a new subscription
   public static function signSubscription($planCode, $accountCode)
   {
     return self::_generateSignature(self::SUBSCRIPTION_CREATE, array(
       'plan_code' => $planCode,
       'account_code' => $accountCode
     ));
+  }
+
+  // Create a signature for a new subscription, accepting optional parameters to
+  // be signed
+  public static function signSubscriptionEx($planCode, $accountCode, $extras = NULL)
+  {
+    return self::_generateSignatureEx(self::SUBSCRIPTION_CREATE, array(
+      'subscription' => array('plan_code' => $planCode),
+      'account' => array('account_code' => $accountCode)),
+      $extras
+      );
+  }
+
+  // For troubleshooting purposes
+  public static function subscriptionDigest($planCode, $accountCode, $extras = NULL)
+  {
+    return self::_generateSignatureDigest(self::SUBSCRIPTION_CREATE, array(
+      'subscription' => array('plan_code' => $planCode),
+      'account' => array('account_code' => $accountCode)),
+      $extras
+      );
   }
 
   // Create a signature for updating billing information for the given $accountCode
@@ -139,5 +160,69 @@ class Recurly_js
     }
     $message = "[$timestamp,$claim,[" . implode($flat_args, ',') . ']]';
     return Recurly_HmacHash::hash(self::$privateKey, $message) . '-' . strval($timestamp);
+  }
+
+  // Create a signature using the private key and accepting optional signed parameters
+  protected static function _generateSignatureEx($claim, $values, $extras = NULL, $timestamp = null)
+  {
+    if (is_null($timestamp)) { $timestamp = time(); }
+    $message = self::_generateSignatureDigest($claim, $values, $extras, $timestamp);
+   
+    $extraKeyPaths = '';
+    if (!is_null($extras)) {
+      $extraKeyPaths = '+' . self::_getExtraKeypaths($extras);
+    }
+
+    return Recurly_HmacHash::hash(self::$privateKey, $message) . '-' . strval($timestamp) . $extraKeyPaths;
+  }
+
+  // Generates the protected string used to generate the HMAC signature
+  protected static function _generateSignatureDigest($claim, $values, $extras = NULL, $timestamp = null)
+  {
+    if (is_null($timestamp)) { $timestamp = time(); }
+    $signed_values = $values;
+    if (!is_null($extras)) {
+      $signed_values = array_merge_recursive($values, $extras);
+    }
+    $digest = self::_generateDigest($signed_values);
+
+    return "[$timestamp,$claim,[$digest]]";
+  }
+
+  // Generates a "digest" of parameter values
+  protected static function _generateDigest($values)
+  {
+    $digestVals = array();
+    ksort($values);
+    $flat = array();
+    foreach($values as $key => $val) {
+      if (!is_null($val)) {
+        if (is_array($val)) {
+          $digestVals[] = $key . ':[' . self::_generateDigest($val) . ']';
+        }
+        elseif (!empty($val)) {
+          $digestVals[] = $key . ':' . preg_replace('/([\[\],:\\\\])/', '\\\\${1}', $val);
+        }
+      }
+    }
+    return implode($digestVals, ',');
+  }
+
+  // Only works with 1 level of nesting for now
+  protected static function _getExtraKeypaths($extras)
+  {
+    ksort($extras);
+    $keypaths = array();
+    foreach($extras as $key => $val) {
+      if (!is_null($val)) {
+        if (is_array($val)) {
+          ksort($val);
+          foreach($val as $inner_key => $inner_val) {
+            if (!empty($inner_val)) { $keypaths[] = "$key.$inner_key"; }
+          }
+        }
+      }
+    }
+    return implode($keypaths, '+');
   }
 }
