@@ -8,6 +8,6 @@ class Recurly_HmacHash
       throw new Recurly_Error("Recurly private key is not set. The private key must be 32 characters.");
     }
 
-    return hash_hmac('sha1', $message, sha1($privateKey, true));
+    return hash_hmac('sha1', $message, $privateKey);
   }
 }
