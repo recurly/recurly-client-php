@@ -5,6 +5,10 @@ class Recurly_jsMock extends Recurly_js {
   function utc_timestamp() {
     return 1330452000;
   }
+
+  function get_nonce() {
+    return "1234567890ABC";
+  }
 }
 
 class Recurly_RecurlyjsTestCase extends UnitTestCase {
@@ -17,16 +21,16 @@ class Recurly_RecurlyjsTestCase extends UnitTestCase {
   }
 
   function testSignSimple() {
-    $recurly_js = new Recurly_jsMock(array(
+    $signature = Recurly_jsMock::sign(array(
       'account' => array('account_code' => '123')
-    ));
-    $signature = $recurly_js->sign();
+    ), "Recurly_jsMock");
 
-    $this->assertEqual($signature, "de21d9ef754772de103be467f58ddb0cb5ebb8f6|account%5Baccount_code%5D=123&timestamp=1330452000");
+    $this->assertEqual($signature, "e4bbe0671c8154f82b6a96cf2b13307d839e6ad6|" .
+      "account%5Baccount_code%5D=123&nonce=1234567890ABC&timestamp=1330452000");
   }
 
   function testSignComplex() {
-    $recurly_js = new Recurly_jsMock(array(
+    $signature = Recurly_jsMock::sign(array(
       'account' => array('account_code' => '123'),
       'plan_code' => 'gold',
       'add_ons' => array(
@@ -34,11 +38,12 @@ class Recurly_RecurlyjsTestCase extends UnitTestCase {
         array('add_on_code'=>'bonus','quantity'=>2)
       ),
       'quantity' => 1
-    ));
-    $signature = $recurly_js->sign();
+    ), "Recurly_jsMock");
 
-    $this->assertEqual($signature, "e31ed714b041968c1685f3427d4d2b247c8ff3e9|account%5Baccount_code%5D=123&add_ons%5B0%5D%5Badd_on_code%5D=extra&" .
-                                   "add_ons%5B0%5D%5Bquantity%5D=5&add_ons%5B1%5D%5Badd_on_code%5D=bonus&add_ons%5B1%5D%5Bquantity%5D=2&" .
-                                   "plan_code=gold&quantity=1&timestamp=1330452000");
+    $this->assertEqual($signature, "af31773205811350017ed1d05e5b2f7d303417d8|" .
+      "account%5Baccount_code%5D=123&add_ons%5B0%5D%5Badd_on_code%5D=extra&ad" .
+      "d_ons%5B0%5D%5Bquantity%5D=5&add_ons%5B1%5D%5Badd_on_code%5D=bonus&add" .
+      "_ons%5B1%5D%5Bquantity%5D=2&nonce=1234567890ABC&plan_code=gold&quantit" .
+      "y=1&timestamp=1330452000");
   }
 }
