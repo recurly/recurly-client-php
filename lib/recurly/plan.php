@@ -16,8 +16,9 @@ class Recurly_Plan extends Recurly_Resource
       'plan_code','name','description','success_url','cancel_url',
       'display_donation_amounts','display_quantity','display_phone_number',
       'bypass_hosted_confirmation','unit_name','payment_page_tos_link',
-      'plan_interval_length','plan_interval_unit','trial_interval_length','trial_interval_unit',
-      'unit_amount_in_cents','setup_fee_in_cents','total_billing_cycles'
+      'plan_interval_length','plan_interval_unit','trial_interval_length',
+      'trial_interval_unit','unit_amount_in_cents','setup_fee_in_cents',
+      'total_billing_cycles','accounting_code'
     );
     Recurly_Plan::$_nestedAttributes = array(
       'add_ons'
