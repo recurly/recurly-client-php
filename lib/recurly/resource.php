@@ -123,6 +123,8 @@ abstract class Recurly_Resource extends Recurly_Base
       } else {
         if ($val instanceof DateTime) {
           $val = $val->format('c');
+        } else if (is_bool($val)) {
+          $val = ($val ? 1 : 0);
         }
         $node->appendChild($doc->createElement($key, $val));
       }
