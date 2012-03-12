@@ -48,7 +48,7 @@ class Recurly_js
   }
 
   // Lookup the result of a Recurly.js operation
-  public static function getResult($token, $client = null)
+  public static function fetch($token, $client = null)
   {
     $uri = Recurly_Client::PATH_RECURLY_JS_RESULT . '/' . rawurlencode($token);
     return Recurly_Base::_get($uri, $client);
