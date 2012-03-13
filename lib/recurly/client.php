@@ -2,7 +2,7 @@
 
 /**
  * Recurly_Client provides methods for interacting with the {@link http://docs.recurly.com/api Recurly} API.
- * 
+ *
  * @category   Recurly
  * @package    Recurly_Client_PHP
  * @copyright  Copyright (c) 2011 {@link http://recurly.com Recurly, Inc.}
@@ -29,7 +29,7 @@ class Recurly_Client
    */
   private $_acceptLanguage = 'en-US';
 
-  const API_CLIENT_VERSION = '2.1.0';
+  const API_CLIENT_VERSION = '2.1.1';
   const DEFAULT_ENCODING = 'UTF-8';
 
   const GET = 'GET';

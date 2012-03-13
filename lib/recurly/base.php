@@ -27,7 +27,7 @@ abstract class Recurly_Base
    * @param string Resource URI, if not fully qualified, the base URL will be appended
    * @param string Optional client for the request, useful for mocking the client
    */
-  protected static function _get($uri, $client = null)
+  public static function _get($uri, $client = null)
   {
     if (is_null($client))
       $client = new Recurly_Client();
