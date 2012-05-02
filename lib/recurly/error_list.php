@@ -3,7 +3,7 @@
 /**
  * Array of errors
  */
-class Recurly_ErrorList implements ArrayAccess
+class Recurly_ErrorList implements ArrayAccess, Countable
 {
   /**
    * Transaction. Set on transaction attempts
@@ -40,6 +40,11 @@ class Recurly_ErrorList implements ArrayAccess
   }
   public function offsetGet($offset) {
     return isset($this->errors[$offset]) ? $this->errors[$offset] : null;
+  }
+  
+  public function count()
+  {
+    return count($this->errors);
   }
   
   public function __toString() {
