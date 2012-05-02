@@ -3,7 +3,7 @@
 /**
  * Array of errors
  */
-class Recurly_ErrorList implements ArrayAccess, Countable
+class Recurly_ErrorList implements ArrayAccess, Countable, IteratorAggregate
 {
   /**
    * Transaction. Set on transaction attempts
@@ -45,6 +45,10 @@ class Recurly_ErrorList implements ArrayAccess, Countable
   public function count()
   {
     return count($this->errors);
+  }
+  
+  public function getIterator() {
+    return new ArrayIterator($this->errors);
   }
   
   public function __toString() {
