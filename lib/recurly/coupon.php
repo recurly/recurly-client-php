@@ -65,6 +65,9 @@ class Recurly_Coupon extends Recurly_Resource
   protected function getWriteableAttributes() {
     return Recurly_Coupon::$_writeableAttributes;
   }
+  protected function getRequiredAttributes() {
+    return array();
+  }
 }
 
 Recurly_Coupon::init();

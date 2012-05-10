@@ -4,6 +4,7 @@ class Recurly_Account extends Recurly_Resource
 {
   protected static $_writeableAttributes;
   protected static $_nestedAttributes;
+  protected static $_requiredAttributes;
 
   function __construct($accountCode = null) {
     if (!is_null($accountCode))
@@ -19,6 +20,9 @@ class Recurly_Account extends Recurly_Resource
     Recurly_Account::$_nestedAttributes = array(
       'adjustments','billing_info','invoices','subscriptions','transactions'
     );
+    Recurly_Account::$_requiredAttributes = array(
+      'account_code'
+    );
   }
 
   public static function get($accountCode, $client = null) {
@@ -27,7 +31,7 @@ class Recurly_Account extends Recurly_Resource
 
   public function create() {
     $this->_save(Recurly_Client::POST, Recurly_Client::PATH_ACCOUNTS);
-  }  
+  }
   public function update() {
     $this->_save(Recurly_Client::PUT, $this->uri());
   }
@@ -54,6 +58,9 @@ class Recurly_Account extends Recurly_Resource
   }
   protected function getWriteableAttributes() {
     return Recurly_Account::$_writeableAttributes;
+  }
+  protected function getRequiredAttributes() {
+    return Recurly_Account::$_requiredAttributes;
   }
 }
 

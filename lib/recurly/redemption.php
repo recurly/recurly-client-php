@@ -41,6 +41,9 @@ class Recurly_CouponRedemption extends Recurly_Resource
   protected function getWriteableAttributes() {
     return Recurly_CouponRedemption::$_writeableAttributes;
   }
+  protected function getRequiredAttributes() {
+    return array();
+  }
 }
 
 Recurly_CouponRedemption::init();
