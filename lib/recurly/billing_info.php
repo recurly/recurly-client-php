@@ -14,14 +14,14 @@ class Recurly_BillingInfo extends Recurly_Resource
     );
     Recurly_BillingInfo::$_nestedAttributes = array('account');
   }
-  
+
   public static function get($accountCode, $client = null) {
     return Recurly_Base::_get(Recurly_BillingInfo::uriForBillingInfo($accountCode), $client);
   }
 
   public function create() {
     $this->update();
-  }  
+  }
   public function update() {
     $this->_save(Recurly_Client::PUT, $this->uri());
   }
@@ -32,7 +32,7 @@ class Recurly_BillingInfo extends Recurly_Resource
   public static function deleteForAccount($accountCode) {
     return Recurly_Resource::_delete(Recurly_BillingInfo::uriForBillingInfo($accountCode));
   }
-  
+
   protected function uri() {
     if (!empty($this->_href))
       return $this->getHref();
@@ -50,6 +50,9 @@ class Recurly_BillingInfo extends Recurly_Resource
   }
   protected function getWriteableAttributes() {
     return Recurly_BillingInfo::$_writeableAttributes;
+  }
+  protected function getRequiredAttributes() {
+    return array();
   }
 }
 

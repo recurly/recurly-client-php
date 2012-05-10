@@ -100,6 +100,9 @@ class Recurly_Subscription extends Recurly_Resource
   protected function getWriteableAttributes() {
     return Recurly_Subscription::$_writeableAttributes;
   }
+  protected function getRequiredAttributes() {
+    return array();
+  }
 }
 
 Recurly_Subscription::init();

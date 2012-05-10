@@ -31,7 +31,7 @@ class Recurly_Plan extends Recurly_Resource
 
   public function create() {
     $this->_save(Recurly_Client::POST, Recurly_Client::PATH_PLANS);
-  }  
+  }
   public function update() {
     $this->_save(Recurly_Client::PUT, $this->uri());
   }
@@ -42,7 +42,7 @@ class Recurly_Plan extends Recurly_Resource
   public static function deletePlan($planCode) {
     return Recurly_Resource::_delete(Recurly_Plan::uriForPlan($planCode));
   }
-  
+
   protected function uri() {
     if (!empty($this->_href))
       return $this->getHref();
@@ -58,6 +58,9 @@ class Recurly_Plan extends Recurly_Resource
   }
   protected function getWriteableAttributes() {
     return Recurly_Plan::$_writeableAttributes;
+  }
+  protected function getRequiredAttributes() {
+    return array();
   }
 }
 

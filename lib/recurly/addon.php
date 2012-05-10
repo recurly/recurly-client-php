@@ -36,7 +36,7 @@ class Recurly_Addon extends Recurly_Resource
       return Recurly_Addon::uriForAddOn($this->plan_code, $this->add_on_code);
   }
   protected static function uriForAddOn($planCode, $addonCode) {
-    return (Recurly_Client::PATH_PLANS . '/' . rawurlencode($planCode) . 
+    return (Recurly_Client::PATH_PLANS . '/' . rawurlencode($planCode) .
             Recurly_Client::PATH_ADDONS . '/' . rawurlencode($addonCode));
   }
 
@@ -45,6 +45,9 @@ class Recurly_Addon extends Recurly_Resource
   }
   protected function getWriteableAttributes() {
     return Recurly_Addon::$_writeableAttributes;
+  }
+  protected function getRequiredAttributes() {
+    return array();
   }
 }
 

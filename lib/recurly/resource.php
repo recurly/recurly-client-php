@@ -8,6 +8,7 @@ abstract class Recurly_Resource extends Recurly_Base
 
   abstract protected function getNodeName();
   abstract protected function getWriteableAttributes();
+  abstract protected function getRequiredAttributes();
 
   public function __construct($href = null, $client = null)
   {
@@ -87,16 +88,16 @@ abstract class Recurly_Resource extends Recurly_Base
     return $doc->saveXML();
   }
 
-  protected function populateXmlDoc(&$doc, &$node, &$obj)
+  protected function populateXmlDoc(&$doc, &$node, &$obj, $nested = false)
   {
-    $attributes = $obj->getChangedAttributes();
+    $attributes = $obj->getChangedAttributes($nested);
 
     foreach ($attributes as $key => $val) {
       if ($val instanceof Recurly_CurrencyList) {
         $val->populateXmlDoc($doc, $node);
       } else if ($val instanceof Recurly_Resource) {
         $attribute_node = $node->appendChild($doc->createElement($key));
-        $this->populateXmlDoc($doc, $attribute_node, $val);
+        $this->populateXmlDoc($doc, $attribute_node, $val, true);
       } else if (is_array($val)) {
         if (empty($val))
           continue;
@@ -105,11 +106,11 @@ abstract class Recurly_Resource extends Recurly_Base
           if (is_null($child) || is_null($childValue)) {
             continue;
           }
-          elseif (is_string($child) && !is_null($childValue)) {
+          elseif (is_string($child)) {
             // e.g. "<discount_in_cents><USD>1000</USD></discount_in_cents>"
             $attribute_node->appendChild($doc->createElement($child, $childValue));
           }
-          elseif (is_int($child) && !is_null($childValue)) {
+          elseif (is_int($child)) {
             if (is_object($childValue)) {
               // e.g. "<subscription_add_ons><subscription_add_on>...</subscription_add_on></subscription_add_ons>"
               $childValue->populateXmlDoc($doc, $attribute_node, $childValue);
@@ -131,11 +132,15 @@ abstract class Recurly_Resource extends Recurly_Base
     }
   }
 
-  protected function getChangedAttributes()
+  protected function getChangedAttributes($nested = false)
   {
     $attributes = array();
+    $requiredAttributes = $this->getRequiredAttributes();
     foreach($this->getWriteableAttributes() as $attr) {
-      if (isset($this->_unsavedKeys[$attr]) || (isset($this->_values[$attr]) && is_array($this->_values[$attr]))) {
+      if(isset($this->_unsavedKeys[$attr]) ||
+         ($nested && in_array($attr, $requiredAttributes)) ||
+         (isset($this->_values[$attr]) && is_array($this->_values[$attr])))
+      {
         $attributes[$attr] = $this->$attr;
       }
     }
