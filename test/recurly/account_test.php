@@ -3,7 +3,7 @@
 class Recurly_AccountTest extends UnitTestCase
 {
   public function testGetAccount()
-  {  
+  {
     $responseFixture = loadFixture('./fixtures/accounts/show-200.xml');
 
     $client = new MockRecurly_Client();
@@ -18,7 +18,7 @@ class Recurly_AccountTest extends UnitTestCase
     $this->assertEqual($account->created_at->getTimestamp(), 1304164800);
     $this->assertEqual($account->getHref(),'https://api.recurly.com/v2/accounts/abcdef1234567890');
   }
-  
+
   public function testUpdateError()
   {
     $responseFixture = loadFixture('./fixtures/accounts/show-200.xml');
@@ -30,7 +30,7 @@ class Recurly_AccountTest extends UnitTestCase
 
     $account = Recurly_Account::get('abcdef1234567890', $client);
     $account->email = 'invalidemail.com';
-    
+
     try {
       $account->update();
       $this->fail("Expected Recurly_ValidationError");
@@ -45,7 +45,7 @@ class Recurly_AccountTest extends UnitTestCase
     $this->assertEqual($account->errors[0]->symbol, 'invalid_email');
     $this->assertEqual($account->errors[0]->description, 'is not a valid email address');
   }
-  
+
   public function testXml()
   {
     $account = new Recurly_Account();
