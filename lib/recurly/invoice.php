@@ -50,6 +50,13 @@ class Recurly_Invoice extends Recurly_Resource
     return self::_post($uri, null, $client);
   }
 
+  public function markSuccessful() {
+    $this->_save(Recurly_Client::PUT, $this->uri() . '/mark_successful');
+  }
+  public function markFailed() {
+    $this->_save(Recurly_Client::PUT, $this->uri() . '/mark_failed');
+  }
+
   protected function getNodeName() {
     return 'invoice';
   }
