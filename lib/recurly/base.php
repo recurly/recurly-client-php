@@ -145,7 +145,7 @@ abstract class Recurly_Base
 
   protected static function __parseXmlToNewObject($xml, $client=null) {
 		$dom = new DOMDocument();
-    if (!$dom->loadXML($xml)) return null;
+    if (!$dom->loadXML($xml, LIBXML_NOBLANKS)) return null;
 
     $rootNode = $dom->documentElement;
 
@@ -159,7 +159,7 @@ abstract class Recurly_Base
   protected function __parseXmlToUpdateObject($xml)
   {
 		$dom = new DOMDocument();
-		if (!$dom->loadXML($xml)) return null;
+		if (!$dom->loadXML($xml, LIBXML_NOBLANKS)) return null;
 
     $rootNode = $dom->documentElement;
 
@@ -218,28 +218,31 @@ abstract class Recurly_Base
           continue;
         }
 
-        if ($node->childNodes->length > 1) {
-          $new_obj = Recurly_Resource::__createNodeObject($node);
-          if (!is_null($new_obj))
-            $object->$nodeName = Recurly_Resource::__parseXmlToObject($node->firstChild, $new_obj);
-        } else if ($node->childNodes->length == 0) {
-          // No children
+        $numChildren = $node->childNodes->length;
+        if ($numChildren == 0) {
+          // No children, we might have a link
           $href = $node->getAttribute('href');
           if (!empty($href)) {
             if ($nodeName == 'a') {
               $linkName = $node->getAttribute('name');
               $method = $node->getAttribute('method');
               $object->addLink($linkName, $href, $method);
-            }
-            else {
+            } else {
               if (!is_object($object))
                 $object->$nodeName = new Recurly_Stub($nodeName, $href);
               else
                 $object->$nodeName = new Recurly_Stub($nodeName, $href, $object->_client);
             }
           }
+
+        } else if ($node->firstChild->nodeType == XML_ELEMENT_NODE) {
+          // has element children, drop in and continue parsing
+          $new_obj = Recurly_Resource::__createNodeObject($node);
+          if (!is_null($new_obj))
+            $object->$nodeName = Recurly_Resource::__parseXmlToObject($node->firstChild, $new_obj);
+
         } else {
-          // Single element
+          // we have a single text child
           if ($node->hasAttribute('nil')) {
             $object->$nodeName = null;
           } else {
@@ -303,14 +306,17 @@ abstract class Recurly_Base
     else if ($node_class == 'string')
       return $node->firstChild->wholeText;
     else {
-      if ($node_class == 'Recurly_CurrencyList')
+      if ($node_class == 'Recurly_CurrencyList') {
         $new_obj = new $node_class($nodeName);
-      else
+      } else
         $new_obj = new $node_class();
 
       $href = $node->getAttribute('href');
       if (!empty($href))
         $new_obj->setHref($href);
+      else if ($new_obj instanceof Recurly_Pager) {
+        $new_obj->_count = $node->childNodes->length;
+      }
 
       return $new_obj;
     }
