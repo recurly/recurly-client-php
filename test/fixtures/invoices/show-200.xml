@@ -1,0 +1,89 @@
+HTTP/1.1 200 OK
+Content-Type: application/xml; charset=utf-8
+
+<?xml version="1.0" encoding="UTF-8"?>
+<invoice href="https://api.recurly.com/v2/invoices/abcdef1234567890">
+  <account href="https://api.recurly.com/v2/accounts/1"/>
+  <uuid>012345678901234567890123456789aa</uuid>
+  <state>collected</state>
+  <invoice_number type="integer">abcdef1234567890</invoice_number>
+  <po_number nil="nil"></po_number>
+  <vat_number nil="nil"></vat_number>
+  <subtotal_in_cents type="integer">2995</subtotal_in_cents>
+  <tax_in_cents type="integer">0</tax_in_cents>
+  <total_in_cents type="integer">2995</total_in_cents>
+  <currency>USD</currency>
+  <created_at type="datetime">2012-05-28T17:44:13Z</created_at>
+  <line_items type="array">
+    <adjustment href="https://api.recurly.com/v2/adjustments/190357944dad4d461272774dd184a17e" type="charge">
+      <account href="https://api.recurly.com/v2/accounts/1"/>
+      <invoice href="https://api.recurly.com/v2/invoices/abcdef1234567890"/>
+      <uuid>012345678901234567890123456789ab</uuid>
+      <state>invoiced</state>
+      <description>Silver Plan</description>
+      <accounting_code></accounting_code>
+      <origin>plan</origin>
+      <unit_amount_in_cents type="integer">2995</unit_amount_in_cents>
+      <quantity type="integer">1</quantity>
+      <discount_in_cents type="integer">0</discount_in_cents>
+      <tax_in_cents type="integer">0</tax_in_cents>
+      <total_in_cents type="integer">2995</total_in_cents>
+      <currency>USD</currency>
+      <taxable type="boolean">false</taxable>
+      <start_date type="datetime">2012-05-28T17:44:13Z</start_date>
+      <end_date type="datetime">2013-05-28T17:44:13Z</end_date>
+      <created_at type="datetime">2012-05-28T17:44:13Z</created_at>
+    </adjustment>
+  </line_items>
+  <transactions type="array">
+    <transaction href="https://api.recurly.com/v2/transactions/012345678901234567890123456789ab" type="credit_card">
+      <account href="https://api.recurly.com/v2/accounts/1"/>
+      <invoice href="https://api.recurly.com/v2/invoices/abcdef1234567890"/>
+      <subscription href="https://api.recurly.com/v2/subscriptions/012345678901234567890123456789aa"/>
+      <uuid>012345678901234567890123456789ab</uuid>
+      <action>purchase</action>
+      <amount_in_cents type="integer">2995</amount_in_cents>
+      <tax_in_cents type="integer">0</tax_in_cents>
+      <currency>USD</currency>
+      <status>success</status>
+      <reference>12345</reference>
+      <source>subscription</source>
+      <recurring type="boolean">false</recurring>
+      <test type="boolean">true</test>
+      <voidable type="boolean">true</voidable>
+      <refundable type="boolean">true</refundable>
+      <cvv_result code="M">Match</cvv_result>
+      <avs_result code="D">Street address and postal code match.</avs_result>
+      <avs_result_street>Y</avs_result_street>
+      <avs_result_postal>Y</avs_result_postal>
+      <created_at type="datetime">2012-05-28T17:44:13Z</created_at>
+      <details>
+        <account>
+          <account_code>1</account_code>
+          <first_name>John</first_name>
+          <last_name>Doe</last_name>
+          <company nil="nil"></company>
+          <email>john@example.com</email>
+          <billing_info type="credit_card">
+            <first_name nil="nil"></first_name>
+            <last_name nil="nil"></last_name>
+            <address1 nil="nil"></address1>
+            <address2 nil="nil"></address2>
+            <city nil="nil"></city>
+            <state nil="nil"></state>
+            <zip nil="nil"></zip>
+            <country nil="nil"></country>
+            <phone nil="nil"></phone>
+            <vat_number nil="nil"></vat_number>
+            <card_type>Visa</card_type>
+            <year type="integer">2013</year>
+            <month type="integer">1</month>
+            <first_six>411111</first_six>
+            <last_four>1111</last_four>
+          </billing_info>
+        </account>
+      </details>
+      <a name="refund" href="https://api.recurly.com/v2/transactions/012345678901234567890123456789ab" method="delete"/>
+    </transaction>
+  </transactions>
+</invoice>
