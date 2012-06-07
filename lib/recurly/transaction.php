@@ -33,16 +33,16 @@ class Recurly_Transaction extends Recurly_Resource
    */
   public function refund($amountInCents = null) {
     if (is_null($amountInCents))
-      $this->_save(Recurly_Client::PUT, $this->uri() . '/refund');
+      $this->_delete($this->uri());
     else
-      $this->_save(Recurly_Client::PUT, $this->uri() . '/refund?amount_in_cents=' . strval(intval($amountInCents)));
+      $this->_delete($this->uri() . '?amount_in_cents=' . strval(intval($amountInCents)));
   }
 
   protected function uri() {
     if (!empty($this->_href))
       return $this->getHref();
     else if (!empty($this->uuid))
-      return Recurly_Account::uriForTransaction($this->uuid);
+      return Recurly_Transaction::uriForTransaction($this->uuid);
     else
       throw new Recurly_Error('"uuid" is not supplied');
   }
