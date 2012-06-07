@@ -23,12 +23,12 @@ class Recurly_SubscriptionAddOn extends Recurly_Resource {
     return array();
   }
 
-	protected function populateXmlDoc(&$doc, &$node, &$obj) {
+	protected function populateXmlDoc(&$doc, &$node, &$obj, $nested = false) {
 		$addonNode = $node->appendChild($doc->createElement($this->getNodeName()));
 		parent::populateXmlDoc($doc, $addonNode, $obj);
 	}
 
-  protected function getChangedAttributes()
+  protected function getChangedAttributes($nested = false)
   {
     // Return all attributes
     return $this->_values;
