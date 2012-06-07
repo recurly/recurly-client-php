@@ -22,13 +22,6 @@ class Recurly_Transaction extends Recurly_Resource
   }
 
   /**
-   * Void a recent, successful transaction
-   */
-  public function void() {
-    $this->_save(Recurly_Client::PUT, $this->uri() . '/void');
-  }
-
-  /**
    * Refund a previous, successful transaction
    */
   public function refund($amountInCents = null) {
@@ -36,6 +29,14 @@ class Recurly_Transaction extends Recurly_Resource
       $this->_delete($this->uri());
     else
       $this->_delete($this->uri() . '?amount_in_cents=' . strval(intval($amountInCents)));
+  }
+
+  /**
+   * Attempt a void, otherwise refund
+   */
+  public function void() {
+    trigger_error('Deprecated method: void(). Use refund() instead.', E_USER_NOTICE);
+    $this->refund();
   }
 
   protected function uri() {
