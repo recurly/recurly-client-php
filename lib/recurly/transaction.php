@@ -22,27 +22,28 @@ class Recurly_Transaction extends Recurly_Resource
   }
 
   /**
-   * Void a recent, successful transaction
-   */
-  public function void() {
-    $this->_save(Recurly_Client::PUT, $this->uri() . '/void');
-  }
-
-  /**
    * Refund a previous, successful transaction
    */
   public function refund($amountInCents = null) {
     if (is_null($amountInCents))
-      $this->_save(Recurly_Client::PUT, $this->uri() . '/refund');
+      $this->_delete($this->uri());
     else
-      $this->_save(Recurly_Client::PUT, $this->uri() . '/refund?amount_in_cents=' . strval(intval($amountInCents)));
+      $this->_delete($this->uri() . '?amount_in_cents=' . strval(intval($amountInCents)));
+  }
+
+  /**
+   * Attempt a void, otherwise refund
+   */
+  public function void() {
+    trigger_error('Deprecated method: void(). Use refund() instead.', E_USER_NOTICE);
+    $this->refund();
   }
 
   protected function uri() {
     if (!empty($this->_href))
       return $this->getHref();
     else if (!empty($this->uuid))
-      return Recurly_Account::uriForTransaction($this->uuid);
+      return Recurly_Transaction::uriForTransaction($this->uuid);
     else
       throw new Recurly_Error('"uuid" is not supplied');
   }
@@ -55,6 +56,9 @@ class Recurly_Transaction extends Recurly_Resource
   }
   protected function getWriteableAttributes() {
     return Recurly_Transaction::$_writeableAttributes;
+  }
+  protected function getRequiredAttributes() {
+    return array();
   }
 }
 

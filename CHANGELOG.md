@@ -1,5 +1,18 @@
 # Recurly PHP Client Library CHANGELOG
 
+## Version 2.1.2 (June 7, 2012)
+
+* Support marking invoices as successful/failed
+* Add subscriptions postpone functionality
+* Support for subscriptions 'first_renewal_date' attribute.
+* Fix problem where require parameters are sometimes not sent in requests (such as account_code).
+* Fix un-pageable array results (no href is present), such as invoice/transactions.
+* Fix transaction refunding, which was sending to a deprecated route.
+
+## Version 2.1.1 (March 13, 2012)
+
+* Fix Recurly.js token retrieval
+
 ## Version 2.1.0 (March 2, 2012)
 
 * Improved Recurly.js support for Recurly.js v2.1.x. Supports optional parameters, simplified signatures, etc.

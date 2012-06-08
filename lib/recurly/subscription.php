@@ -9,7 +9,7 @@ class Recurly_Subscription extends Recurly_Resource
   {
     Recurly_Subscription::$_writeableAttributes = array(
       'account','plan_code','coupon_code','unit_amount_in_cents','quantity',
-      'currency','starts_at','trial_ends_at','total_billing_cycles',
+      'currency','starts_at','trial_ends_at','total_billing_cycles', 'first_renewal_date',
       'timeframe', 'subscription_add_ons'
     );
     Recurly_Subscription::$_nestedAttributes = array('account', 'subscription_add_ons');
@@ -82,6 +82,10 @@ class Recurly_Subscription extends Recurly_Resource
     $this->_save(Recurly_Client::PUT, $this->uri() . '/terminate?refund=' . $refundType);
   }
 
+  public function postpone($nextRenewalDate) {
+    $this->_save(Recurly_Client::PUT, $this->uri() . '/postpone?next_renewal_date=' . $nextRenewalDate);
+  }
+
   protected function uri() {
     if (!empty($this->_href))
       return $this->getHref();
@@ -99,6 +103,9 @@ class Recurly_Subscription extends Recurly_Resource
   }
   protected function getWriteableAttributes() {
     return Recurly_Subscription::$_writeableAttributes;
+  }
+  protected function getRequiredAttributes() {
+    return array();
   }
 }
 

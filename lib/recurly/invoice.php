@@ -10,7 +10,7 @@ class Recurly_Invoice extends Recurly_Resource
     Recurly_Invoice::$_writeableAttributes = array();
     Recurly_Invoice::$_nestedAttributes = array('account','line_items','transactions');
   }
-  
+
   /**
    * Lookup an invoice by its ID
    * @param string Invoice number or UUID
@@ -50,11 +50,21 @@ class Recurly_Invoice extends Recurly_Resource
     return self::_post($uri, null, $client);
   }
 
+  public function markSuccessful() {
+    $this->_save(Recurly_Client::PUT, $this->uri() . '/mark_successful');
+  }
+  public function markFailed() {
+    $this->_save(Recurly_Client::PUT, $this->uri() . '/mark_failed');
+  }
+
   protected function getNodeName() {
     return 'invoice';
   }
   protected function getWriteableAttributes() {
     return Recurly_Invoice::$_writeableAttributes;
+  }
+  protected function getRequiredAttributes() {
+    return array();
   }
 }
 
