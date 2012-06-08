@@ -1,6 +1,6 @@
 <?php
 
-class Recurly_CurrencyList implements ArrayAccess
+class Recurly_CurrencyList implements ArrayAccess, Countable, IteratorAggregate
 {
   private $currencies;
   private $nodeName;
@@ -34,6 +34,15 @@ class Recurly_CurrencyList implements ArrayAccess
   }
   public function offsetGet($offset) {
     return isset($this->currencies[$offset]) ? $this->currencies[$offset] : null;
+  }
+  
+  public function count()
+  {
+    return count($this->currencies);
+  }
+  
+  public function getIterator() {
+    return new ArrayIterator($this->currencies);
   }
 
 
