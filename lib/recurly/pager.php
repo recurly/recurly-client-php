@@ -10,7 +10,7 @@ abstract class Recurly_Pager extends Recurly_Base implements Iterator
 {
   private $_etag;
   private $_position = 0; // position within the current page
-  private $_count;        // total number of records
+  protected $_count;        // total number of records
   protected $_objects;    // current page of records
 
   /**
