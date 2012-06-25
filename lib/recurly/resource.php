@@ -138,15 +138,20 @@ abstract class Recurly_Resource extends Recurly_Base
   protected function getChangedAttributes($nested = false)
   {
     $attributes = array();
+    $writableAttributes = $this->getWriteableAttributes();
     $requiredAttributes = $this->getRequiredAttributes();
-    foreach($this->getWriteableAttributes() as $attr) {
+
+    foreach($writableAttributes as $attr) {
+      if(!isset($this->_values[$attr])) { continue; }
+
       if(isset($this->_unsavedKeys[$attr]) ||
-         ($nested && in_array($attr, $requiredAttributes)) ||
-         (isset($this->_values[$attr]) && is_array($this->_values[$attr])))
+         $nested && in_array($attr, $requiredAttributes) ||
+         (is_array($this->_values[$attr]) || $this->_values[$attr] instanceof ArrayAccess))
       {
         $attributes[$attr] = $this->$attr;
       }
     }
+
     return $attributes;
   }
 
