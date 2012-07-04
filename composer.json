@@ -1,0 +1,21 @@
+{
+    "name": "recurly/recurly",
+    "type": "library",
+    "description": "The PHP client library for the Recurly API",
+    "keywords": ["recurly", "payments", "pay"],
+    "homepage": "https://github.com/recurly/recurly-client-php",
+    "license": "MIT",
+    "authors": [],
+    "require": {
+        "php": ">= 5.3.0",
+        "ext-curl": "*"
+    },
+    "autoload": {
+        "classmap": ["lib"]
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-master": "2.1.x-dev"
+        }
+    } 
+}

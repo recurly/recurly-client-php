@@ -1,7 +1,8 @@
 <?php
-require_once('../simpletest/autorun.php');
-require_once('../lib/recurly.php');
-require_once('./test_helpers.php');
+
+require_once(__DIR__ . '/../vendor/autoload.php');
+require_once(__DIR__ . '/../simpletest/autorun.php');
+require_once(__DIR__ . '/test_helpers.php');
 
 
 error_reporting(E_ALL);
