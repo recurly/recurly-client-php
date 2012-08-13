@@ -26,6 +26,10 @@ class Recurly_Addon extends Recurly_Resource
     $this->_save(Recurly_Client::POST, Recurly_Client::PATH_PLANS . '/' . rawurlencode($this->plan_code) . Recurly_Client::PATH_ADDONS);
   }
 
+  public function update() {
+    return $this->_save(Recurly_Client::PUT, $this->uri());
+  }
+
   public function delete() {
     return Recurly_Resource::_delete($this->uri());
   }
