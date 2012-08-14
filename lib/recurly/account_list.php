@@ -6,7 +6,7 @@ class Recurly_AccountList extends Recurly_Pager
     return Recurly_AccountList::get(Recurly_Pager::_setState($params, 'active'), $client);
   }
 
-  public static function getActive($params = null, $client = null) {
+  public static function getClosed($params = null, $client = null) {
     return Recurly_AccountList::get(Recurly_Pager::_setState($params, 'closed'), $client);
   }
 
