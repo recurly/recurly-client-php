@@ -102,8 +102,6 @@ abstract class Recurly_Resource extends Recurly_Base
         $attribute_node = $node->appendChild($doc->createElement($key));
         $this->populateXmlDoc($doc, $attribute_node, $val, true);
       } else if (is_array($val)) {
-        if (empty($val))
-          continue;
       	$attribute_node = $node->appendChild($doc->createElement($key));
         foreach ($val as $child => $childValue) {
           if (is_null($child) || is_null($childValue)) {
