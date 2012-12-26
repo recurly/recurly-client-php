@@ -51,10 +51,14 @@ class Recurly_Invoice extends Recurly_Resource
   }
 
   public function markSuccessful() {
-    $this->_save(Recurly_Client::PUT, $this->uri() . '/mark_successful');
+	  if(!empty($this->_links['mark_successful'])) {
+		  $this->_save(strtoupper($this->_links['mark_successful']->method), $this->_links['mark_successful']->href);
+	  }
   }
   public function markFailed() {
-    $this->_save(Recurly_Client::PUT, $this->uri() . '/mark_failed');
+	  if(!empty($this->_links['mark_failed'])) {
+		  $this->_save(strtoupper($this->_links['mark_failed']->method), $this->_links['mark_failed']->href);
+	  }
   }
 
   protected function getNodeName() {
