@@ -4,43 +4,51 @@ class Recurly_CurrencyList implements ArrayAccess, Countable, IteratorAggregate
 {
   private $currencies;
   private $nodeName;
-  
+
   function __construct($nodeName) {
     $this->nodeName = $nodeName;
     $this->currencies = array();
   }
 
   public function addCurrency($currencyCode, $amountInCents) {
-    $this->currencies[$currencyCode] = new Recurly_Currency($currencyCode, $amountInCents);
-  }
-  public function __set($k, $v) {
-    if (is_string($k) && strlen($k) == 3) {
-      $this->addCurrency($k, $v);
+    if (is_string($currencyCode) && strlen($currencyCode) == 3) {
+      $this->currencies[$currencyCode] = new Recurly_Currency($currencyCode, $amountInCents);
     }
   }
 
-  public function offsetSet($offset, $value) {
-    if (is_null($offset)) {
-      $this->currencies[] = $value;
-    } else {
-      $this->currencies[$offset] = $value;
-    }
+  public function getCurrency($currencyCode) {
+    return isset($this->currencies[$currencyCode]) ? $this->currencies[$currencyCode] : null;
   }
+
+  public function offsetSet($offset, $value) {
+    return $this->addCurrency($offset, $value);
+  }
+
   public function offsetExists($offset) {
     return isset($this->currencies[$offset]);
   }
+
   public function offsetUnset($offset) {
     unset($this->currencies[$offset]);
   }
+
   public function offsetGet($offset) {
-    return isset($this->currencies[$offset]) ? $this->currencies[$offset] : null;
+    return $this->getCurrency($offset);
   }
-  
+
+  public function __set($k, $v) {
+    return $this->offsetSet($k, $v);
+  }
+
+  public function __get($k) {
+    return $this->offsetGet($k);
+  }
+
   public function count()
   {
     return count($this->currencies);
   }
-  
+
   public function getIterator() {
     return new ArrayIterator($this->currencies);
   }

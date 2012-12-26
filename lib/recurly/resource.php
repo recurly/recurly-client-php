@@ -102,8 +102,6 @@ abstract class Recurly_Resource extends Recurly_Base
         $attribute_node = $node->appendChild($doc->createElement($key));
         $this->populateXmlDoc($doc, $attribute_node, $val, true);
       } else if (is_array($val)) {
-        if (empty($val))
-          continue;
       	$attribute_node = $node->appendChild($doc->createElement($key));
         foreach ($val as $child => $childValue) {
           if (is_null($child) || is_null($childValue)) {
@@ -138,15 +136,20 @@ abstract class Recurly_Resource extends Recurly_Base
   protected function getChangedAttributes($nested = false)
   {
     $attributes = array();
+    $writableAttributes = $this->getWriteableAttributes();
     $requiredAttributes = $this->getRequiredAttributes();
-    foreach($this->getWriteableAttributes() as $attr) {
+
+    foreach($writableAttributes as $attr) {
+      if(!isset($this->_values[$attr])) { continue; }
+
       if(isset($this->_unsavedKeys[$attr]) ||
-         ($nested && in_array($attr, $requiredAttributes)) ||
-         (isset($this->_values[$attr]) && is_array($this->_values[$attr])))
+         $nested && in_array($attr, $requiredAttributes) ||
+         (is_array($this->_values[$attr]) || $this->_values[$attr] instanceof ArrayAccess))
       {
         $attributes[$attr] = $this->$attr;
       }
     }
+
     return $attributes;
   }
 

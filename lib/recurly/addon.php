@@ -12,7 +12,8 @@ class Recurly_Addon extends Recurly_Resource
   public static function init()
   {
     Recurly_Addon::$_writeableAttributes = array(
-      'add_on_code','name','display_quantity','default_quantity','unit_amount_in_cents'
+      'add_on_code','name','display_quantity','default_quantity',
+      'unit_amount_in_cents','accounting_code'
     );
     Recurly_Addon::$_nestedAttributes = array();
   }
@@ -23,6 +24,10 @@ class Recurly_Addon extends Recurly_Resource
 
   public function create() {
     $this->_save(Recurly_Client::POST, Recurly_Client::PATH_PLANS . '/' . rawurlencode($this->plan_code) . Recurly_Client::PATH_ADDONS);
+  }
+
+  public function update() {
+    return $this->_save(Recurly_Client::PUT, $this->uri());
   }
 
   public function delete() {
