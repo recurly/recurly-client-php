@@ -44,8 +44,7 @@ class Recurly_CurrencyList implements ArrayAccess, Countable, IteratorAggregate
     return $this->offsetGet($k);
   }
 
-  public function count()
-  {
+  public function count() {
     return count($this->currencies);
   }
 
@@ -53,13 +52,13 @@ class Recurly_CurrencyList implements ArrayAccess, Countable, IteratorAggregate
     return new ArrayIterator($this->currencies);
   }
 
-
-  public function populateXmlDoc(&$doc, &$node)
-  {
-    $currencyNode = $node->appendChild($doc->createElement($this->nodeName));
-
-    foreach($this->currencies as $currency) {
-      $currencyNode->appendChild($doc->createElement($currency->currencyCode, $currency->amount_in_cents));
+  public function populateXmlDoc(&$doc, &$node) {
+    // Don't emit an element if there are no currencies.
+    if ($this->currencies) {
+      $currencyNode = $node->appendChild($doc->createElement($this->nodeName));
+      foreach($this->currencies as $currency) {
+        $currencyNode->appendChild($doc->createElement($currency->currencyCode, $currency->amount_in_cents));
+      }
     }
   }
 
