@@ -4,7 +4,7 @@ class Recurly_CouponTest extends UnitTestCase
 {
   public function testGetCoupon()
   {
-    $responseFixture = loadFixture('./fixtures/coupons/show-200.xml');
+    $responseFixture = loadFixture(__DIR__ . '/../fixtures/coupons/show-200.xml');
 
     $client = new MockRecurly_Client();
     $client->returns('request', $responseFixture, array('GET', '/coupons/special'));
@@ -22,7 +22,7 @@ class Recurly_CouponTest extends UnitTestCase
   // Parse plan_codes array in response
   public function testPlanCodesXml()
   {
-    $responseFixture = loadFixture('./fixtures/coupons/show-200-2.xml');
+    $responseFixture = loadFixture(__DIR__ . '/../fixtures/coupons/show-200-2.xml');
 
     $client = new MockRecurly_Client();
     $client->returns('request', $responseFixture, array('GET', '/coupons/special'));

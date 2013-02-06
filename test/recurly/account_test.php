@@ -4,7 +4,7 @@ class Recurly_AccountTest extends UnitTestCase
 {
   public function testGetAccount()
   {
-    $responseFixture = loadFixture('./fixtures/accounts/show-200.xml');
+    $responseFixture = loadFixture(__DIR__ . '/../fixtures/accounts/show-200.xml');
 
     $client = new MockRecurly_Client();
     $client->returns('request', $responseFixture, array('GET', '/accounts/abcdef1234567890'));
@@ -21,8 +21,8 @@ class Recurly_AccountTest extends UnitTestCase
 
   public function testUpdateError()
   {
-    $responseFixture = loadFixture('./fixtures/accounts/show-200.xml');
-    $updateErrFixture = loadFixture('./fixtures/accounts/update-422.xml');
+    $responseFixture = loadFixture(__DIR__ . '/../fixtures/accounts/show-200.xml');
+    $updateErrFixture = loadFixture(__DIR__ . '/../fixtures/accounts/update-422.xml');
 
     $client = new MockRecurly_Client();
     $client->returns('request', $responseFixture, array('GET', '/accounts/abcdef1234567890'));
