@@ -1,7 +1,7 @@
 <?php
 
 require_once(__DIR__ . '/../vendor/autoload.php');
-require_once(__DIR__ . '/../simpletest/autorun.php');
+require_once(__DIR__ . '/../vendor/lastcraft/simpletest/autorun.php');
 require_once(__DIR__ . '/test_helpers.php');
 
 
