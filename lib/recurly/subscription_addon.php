@@ -46,4 +46,3 @@ class Recurly_SubscriptionAddOn extends Recurly_Resource {
 }
 
 Recurly_SubscriptionAddOn::init();
-
