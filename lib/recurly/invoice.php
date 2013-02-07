@@ -17,8 +17,7 @@ class Recurly_Invoice extends Recurly_Resource
    * @return Recurly_Invoice invoice
    */
   public static function get($invoiceNumber, $client = null) {
-    $uri = Recurly_Client::PATH_INVOICES . '/' . rawurlencode($invoiceNumber);
-    return self::_get($uri, $client);
+    return self::_get(Recurly_Invoice::uriForInvoice($invoiceNumber), $client);
   }
 
   /**
@@ -32,7 +31,7 @@ class Recurly_Invoice extends Recurly_Resource
    * Retrieve the PDF version of an invoice
    */
   public static function getInvoicePdf($invoiceNumber, $locale = null, $client = null) {
-    $uri = Recurly_Client::PATH_INVOICES . '/' . rawurlencode($invoiceNumber);
+    $uri = Recurly_Client::uriForInvoice($invoiceNumber);
 
     if (is_null($client))
       $client = new Recurly_Client();
@@ -65,6 +64,17 @@ class Recurly_Invoice extends Recurly_Resource
   }
   protected function getRequiredAttributes() {
     return array();
+  }
+  protected function uri() {
+    if (!empty($this->_href))
+      return $this->getHref();
+    else if (!empty($this->invoice_number))
+      return Recurly_Invoice::uriForInvoice($this->invoice_number);
+    else
+      throw new Recurly_Error("Invoice number not specified");
+  }
+  protected static function uriForInvoice($invoiceNumber) {
+    return Recurly_Client::PATH_INVOICES . '/' . rawurlencode($invoiceNumber);
   }
 }
 
