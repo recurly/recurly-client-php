@@ -25,6 +25,16 @@ class Recurly_PlanTest extends UnitTestCase
     $this->assertEqual($plan->setup_fee_in_cents['EUR']->amount_in_cents, 400);
   }
 
+  public function testDeletePlan()
+  {
+    $responseFixture = loadFixture(__DIR__ . '/../fixtures/plans/destroy-204.xml');
+
+    $client = new MockRecurly_Client();
+    $client->returns('request', $responseFixture, array('DELETE', '/plans/platinum'));
+
+    Recurly_Plan::deletePlan('platinum', $client);
+  }
+
   public function testCreateXml()
   {
     $plan = new Recurly_Plan();

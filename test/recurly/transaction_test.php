@@ -37,15 +37,30 @@ class Recurly_TransactionTest extends UnitTestCase
     }
   }
 
-  public function testRefundTransaction()
+  public function testRefundTransactionPartial()
   {
-    $responseFixture = loadFixture(__DIR__ . '/../fixtures/transactions/refund-202.xml');
+    $getFixture = loadFixture(__DIR__ . '/../fixtures/transactions/show-200.xml');
+    $deleteFixture = loadFixture(__DIR__ . '/../fixtures/transactions/refund-202.xml');
 
     $client = new MockRecurly_Client();
-    $client->returns('request', $responseFixture, array('DELETE', '/transactions/012345678901234567890123456789ab'));
+    $client->returns('request', $getFixture, array('GET', '/transactions/012345678901234567890123456789ab'));
+    $client->returns('request', $deleteFixture, array('DELETE', 'https://api.recurly.com/v2/transactions/abcdef1234567890?amount_in_cents=100', '*'));
 
-    $transaction = new Recurly_Transaction(null, $client);
-    $transaction->uuid = '012345678901234567890123456789ab';
+    $transaction = Recurly_Transaction::get('012345678901234567890123456789ab', $client);
+    $transaction->refund(100);
+    $this->assertEqual($transaction->status, 'voided');
+  }
+
+  public function testRefundTransactionFull()
+  {
+    $getFixture = loadFixture(__DIR__ . '/../fixtures/transactions/show-200.xml');
+    $deleteFixture = loadFixture(__DIR__ . '/../fixtures/transactions/refund-202.xml');
+
+    $client = new MockRecurly_Client();
+    $client->returns('request', $getFixture, array('GET', '/transactions/012345678901234567890123456789ab'));
+    $client->returns('request', $deleteFixture, array('DELETE', 'https://api.recurly.com/v2/transactions/abcdef1234567890', '*'));
+
+    $transaction = Recurly_Transaction::get('012345678901234567890123456789ab', $client);
     $transaction->refund();
     $this->assertEqual($transaction->status, 'voided');
   }

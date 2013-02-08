@@ -60,26 +60,11 @@ abstract class Recurly_Resource extends Recurly_Base
       $this->_client = new Recurly_Client();
 
     $response = $this->_client->request($method, $uri, $this->xml());
-    Recurly_Resource::__parseXmlToUpdateObject($response->body);
-    $response->assertSuccessResponse($this);
-  }
-
-  /**
-   * Delete the object at the given URI.
-   * @param string URI of the object to delete
-   * @param array Additional parameters for the delete
-   */
-  protected function _delete($uri)
-  {
-    if (is_null($this->_client))
-      $this->_client = new Recurly_Client();
-
-    $response = $this->_client->request(Recurly_Client::DELETE, $uri);
-    if($response->body) {
+    $response->assertValidResponse();
+    if (isset($response->body)) {
       Recurly_Resource::__parseXmlToUpdateObject($response->body);
     }
     $response->assertSuccessResponse($this);
-    return true;
   }
 
 

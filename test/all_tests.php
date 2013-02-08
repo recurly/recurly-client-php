@@ -23,8 +23,10 @@ class AllTests extends TestSuite {
     $this->addFile(__DIR__ . '/recurly/client_test.php');
     $this->addFile(__DIR__ . '/recurly/recurlyjs_test.php');
 
+    $this->addFile(__DIR__ . '/recurly/adjustment_test.php');
     $this->addFile(__DIR__ . '/recurly/account_test.php');
     $this->addFile(__DIR__ . '/recurly/account_list_test.php');
+    $this->addFile(__DIR__ . '/recurly/billing_info_test.php');
     $this->addFile(__DIR__ . '/recurly/coupon_test.php');
     $this->addFile(__DIR__ . '/recurly/currency_list_test.php');
     $this->addFile(__DIR__ . '/recurly/invoice_test.php');

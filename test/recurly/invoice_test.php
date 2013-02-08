@@ -60,8 +60,8 @@ class Recurly_InvoiceTest extends UnitTestCase
 
   public function testMarkSuccessful()
   {
-    $loadFixture = loadFixture('./fixtures/invoices/show-200.xml');
-    $responseFixture = loadFixture('./fixtures/invoices/mark_successful-200.xml');
+    $loadFixture = loadFixture(__DIR__ . '/../fixtures/invoices/show-200.xml');
+    $responseFixture = loadFixture(__DIR__ . '/../fixtures/invoices/mark_successful-200.xml');
 
     $client = new MockRecurly_Client();
     $client->returns('request', $loadFixture, array('GET', '/invoices/abcdef1234567890'));
@@ -79,8 +79,8 @@ class Recurly_InvoiceTest extends UnitTestCase
 
   public function testMarkFailed()
   {
-    $loadFixture = loadFixture('./fixtures/invoices/show-200.xml');
-    $responseFixture = loadFixture('./fixtures/invoices/mark_failed-200.xml');
+    $loadFixture = loadFixture(__DIR__ . '/../fixtures/invoices/show-200.xml');
+    $responseFixture = loadFixture(__DIR__ . '/../fixtures/invoices/mark_failed-200.xml');
 
     $client = new MockRecurly_Client();
     $client->returns('request', $loadFixture, array('GET', '/invoices/abcdef1234567890'));

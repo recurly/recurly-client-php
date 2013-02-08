@@ -14,15 +14,12 @@ Content-Type: application/xml; charset=utf-8
   <zip>90210</zip>
   <country>US</country>
   <phone nil="nil"></phone>
+  <vat_number>2000</vat_number>
   <ip_address>127.0.0.1</ip_address>
   <ip_address_country nil="nil"></ip_address_country>
-  <cc_type>visa</cc_type>
+  <card_type>Visa</card_type>
   <year type="integer">2015</year>
   <month type="integer">1</month>
-  <start_year type="integer">2010</start_year>
-  <start_month type="integer">12</start_month>
-  <issue_number type="integer">20</issue_number>
-  <vat_number>2000</vat_number>
-  <last_four>1111</last_four>
   <first_six>411111</first_six>
+  <last_four>1111</last_four>
 </billing_info>

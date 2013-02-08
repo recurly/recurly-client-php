@@ -18,8 +18,8 @@ class Recurly_Addon extends Recurly_Resource
     Recurly_Addon::$_nestedAttributes = array();
   }
 
-  public static function get($planCode, $addonCode) {
-    return Recurly_Base::_get(Recurly_Addon::uriForAddOn($planCode, $addonCode));
+  public static function get($planCode, $addonCode, $client = null) {
+    return Recurly_Base::_get(Recurly_Addon::uriForAddOn($planCode, $addonCode), $client);
   }
 
   public function create() {
@@ -31,7 +31,7 @@ class Recurly_Addon extends Recurly_Resource
   }
 
   public function delete() {
-    return Recurly_Resource::_delete($this->uri());
+    return Recurly_Base::_delete($this->uri(), $this->_client);
   }
 
   protected function uri() {

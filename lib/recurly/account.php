@@ -39,8 +39,8 @@ class Recurly_Account extends Recurly_Resource
   public function close() {
     return Recurly_Resource::_delete($this->uri());
   }
-  public static function closeAccount($accountCode) {
-    return Recurly_Resource::_delete(Recurly_Account::uriForAccount($accountCode));
+  public static function closeAccount($accountCode, $client = null) {
+    return Recurly_Base::_delete(Recurly_Account::uriForAccount($accountCode), $client);
   }
 
   protected function uri() {

@@ -37,10 +37,10 @@ class Recurly_Plan extends Recurly_Resource
   }
 
   public function delete() {
-    return Recurly_Resource::_delete($this->uri());
+    return Recurly_Base::_delete($this->uri(), $this->_client);
   }
-  public static function deletePlan($planCode) {
-    return Recurly_Resource::_delete(Recurly_Plan::uriForPlan($planCode));
+  public static function deletePlan($planCode, $client = null) {
+    return Recurly_Base::_delete(Recurly_Plan::uriForPlan($planCode), $client);
   }
 
   protected function uri() {

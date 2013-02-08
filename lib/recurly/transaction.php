@@ -25,10 +25,11 @@ class Recurly_Transaction extends Recurly_Resource
    * Refund a previous, successful transaction
    */
   public function refund($amountInCents = null) {
-    if (is_null($amountInCents))
-      $this->_delete($this->uri());
-    else
-      $this->_delete($this->uri() . '?amount_in_cents=' . strval(intval($amountInCents)));
+    $uri = $this->uri();
+    if (!is_null($amountInCents)) {
+      $uri .= '?amount_in_cents=' . strval(intval($amountInCents));
+    }
+    $this->_save(Recurly_Client::DELETE, $uri);
   }
 
   /**
