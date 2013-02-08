@@ -4,7 +4,7 @@ class Recurly_TransactionTest extends UnitTestCase
 {
   public function testGetTransaction()
   {
-    $responseFixture = loadFixture('./fixtures/transactions/show-200.xml');
+    $responseFixture = loadFixture(__DIR__ . '/../fixtures/transactions/show-200.xml');
 
     $client = new MockRecurly_Client();
     $client->returns('request', $responseFixture, array('GET', '/transactions/012345678901234567890123456789ab'));
@@ -18,7 +18,7 @@ class Recurly_TransactionTest extends UnitTestCase
 
   public function testCreateTransactionFailed()
   {
-    $responseFixture = loadFixture('./fixtures/transactions/create-422.xml');
+    $responseFixture = loadFixture(__DIR__ . '/../fixtures/transactions/create-422.xml');
 
     $client = new MockRecurly_Client();
     $client->returns('request', $responseFixture);
@@ -39,7 +39,7 @@ class Recurly_TransactionTest extends UnitTestCase
 
   public function testRefundTransaction()
   {
-    $responseFixture = loadFixture('./fixtures/transactions/refund-202.xml');
+    $responseFixture = loadFixture(__DIR__ . '/../fixtures/transactions/refund-202.xml');
 
     $client = new MockRecurly_Client();
     $client->returns('request', $responseFixture, array('DELETE', '/transactions/012345678901234567890123456789ab'));
@@ -53,7 +53,7 @@ class Recurly_TransactionTest extends UnitTestCase
   public function testGetFailedTransaction()
   {
     // GET response is "200 OK", yet transaction had an error
-    $responseFixture = loadFixture('./fixtures/transactions/show-200-error.xml');
+    $responseFixture = loadFixture(__DIR__ . '/../fixtures/transactions/show-200-error.xml');
 
     $client = new MockRecurly_Client();
     $client->returns('request', $responseFixture, array('GET', '/transactions/012345678901234567890123456789ab'));
