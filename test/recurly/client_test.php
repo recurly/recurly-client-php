@@ -4,7 +4,7 @@ class Recurly_ClientTest extends UnitTestCase
 {
   public function testUnauthorizedError()
   {  
-    $responseFixture = loadFixture('./fixtures/client/unauthorized-401.xml');
+    $responseFixture = loadFixture(__DIR__ . '/../fixtures/client/unauthorized-401.xml');
 
     $client = new MockRecurly_Client();
     $client->returns('request', $responseFixture);
@@ -22,7 +22,7 @@ class Recurly_ClientTest extends UnitTestCase
   
   public function testServerError()
   {  
-    $responseFixture = loadFixture('./fixtures/client/server-error-500.xml');
+    $responseFixture = loadFixture(__DIR__ . '/../fixtures/client/server-error-500.xml');
 
     $client = new MockRecurly_Client();
     $client->returns('request', $responseFixture);
@@ -40,7 +40,7 @@ class Recurly_ClientTest extends UnitTestCase
   
   public function testGatweayError()
   {  
-    $responseFixture = loadFixture('./fixtures/client/gateway-unavailable-502.xml');
+    $responseFixture = loadFixture(__DIR__ . '/../fixtures/client/gateway-unavailable-502.xml');
 
     $client = new MockRecurly_Client();
     $client->returns('request', $responseFixture);

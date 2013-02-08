@@ -4,7 +4,7 @@ class Recurly_PlanTest extends UnitTestCase
 {
   public function testGetPlan()
   {
-    $responseFixture = loadFixture('./fixtures/plans/show-200.xml');
+    $responseFixture = loadFixture(__DIR__ . '/../fixtures/plans/show-200.xml');
 
     $client = new MockRecurly_Client();
     $client->returns('request', $responseFixture, array('GET', '/plans/silver'));
@@ -41,7 +41,7 @@ class Recurly_PlanTest extends UnitTestCase
 
   public function testUpdateXml()
   {
-    $responseFixture = loadFixture('./fixtures/plans/show-200.xml');
+    $responseFixture = loadFixture(__DIR__ . '/../fixtures/plans/show-200.xml');
 
     $client = new MockRecurly_Client();
     $client->returns('request', $responseFixture, array('GET', '/plans/silver'));

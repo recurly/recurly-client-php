@@ -4,7 +4,7 @@ class Recurly_SubscriptionTest extends UnitTestCase
 {
   public function testGetSubscription()
   {
-    $responseFixture = loadFixture('./fixtures/subscriptions/show-200.xml');
+    $responseFixture = loadFixture(__DIR__ . '/../fixtures/subscriptions/show-200.xml');
 
     $client = new MockRecurly_Client();
     $client->returns('request', $responseFixture, array('GET', '/subscriptions/012345678901234567890123456789ab'));

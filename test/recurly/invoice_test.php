@@ -5,7 +5,7 @@ class Recurly_InvoiceTest extends UnitTestCase
 
   public function testGetInvoice()
   {
-    $responseFixture = loadFixture('./fixtures/invoices/show-200.xml');
+    $responseFixture = loadFixture(__DIR__ . '/../fixtures/invoices/show-200.xml');
 
     $client = new MockRecurly_Client();
     $client->returns('request', $responseFixture, array('GET', '/invoices/abcdef1234567890'));
@@ -23,7 +23,7 @@ class Recurly_InvoiceTest extends UnitTestCase
 
   public function testInvoicePendingCharges()
   {
-    $responseFixture = loadFixture('./fixtures/invoices/create-201.xml');
+    $responseFixture = loadFixture(__DIR__ . '/../fixtures/invoices/create-201.xml');
 
     $client = new MockRecurly_Client();
     $client->returns('request', $responseFixture);
@@ -40,7 +40,7 @@ class Recurly_InvoiceTest extends UnitTestCase
 
   public function testFailedInvoicePendingCharges()
   {
-    $responseFixture = loadFixture('./fixtures/invoices/create-422.xml');
+    $responseFixture = loadFixture(__DIR__ . '/../fixtures/invoices/create-422.xml');
 
     $client = new MockRecurly_Client();
     $client->returns('request', $responseFixture);

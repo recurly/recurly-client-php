@@ -1,7 +1,8 @@
 <?php
-require_once('../simpletest/autorun.php');
-require_once('../lib/recurly.php');
-require_once('./test_helpers.php');
+
+require_once(__DIR__ . '/../vendor/autoload.php');
+require_once(__DIR__ . '/../vendor/lastcraft/simpletest/autorun.php');
+require_once(__DIR__ . '/test_helpers.php');
 
 
 error_reporting(E_ALL);
@@ -19,16 +20,16 @@ class AllTests extends TestSuite {
   {
     parent::__construct();
 
-    $this->addFile('./recurly/client_test.php');
-    $this->addFile('./recurly/recurlyjs_test.php');
+    $this->addFile(__DIR__ . '/recurly/client_test.php');
+    $this->addFile(__DIR__ . '/recurly/recurlyjs_test.php');
 
-    $this->addFile('./recurly/account_test.php');
-    $this->addFile('./recurly/account_list_test.php');
-    $this->addFile('./recurly/coupon_test.php');
-    $this->addFile('./recurly/currency_list_test.php');
-    $this->addFile('./recurly/invoice_test.php');
-    $this->addFile('./recurly/plan_test.php');
-    $this->addFile('./recurly/subscription_test.php');
-    $this->addFile('./recurly/transaction_test.php');
+    $this->addFile(__DIR__ . '/recurly/account_test.php');
+    $this->addFile(__DIR__ . '/recurly/account_list_test.php');
+    $this->addFile(__DIR__ . '/recurly/coupon_test.php');
+    $this->addFile(__DIR__ . '/recurly/currency_list_test.php');
+    $this->addFile(__DIR__ . '/recurly/invoice_test.php');
+    $this->addFile(__DIR__ . '/recurly/plan_test.php');
+    $this->addFile(__DIR__ . '/recurly/subscription_test.php');
+    $this->addFile(__DIR__ . '/recurly/transaction_test.php');
   }
 }
