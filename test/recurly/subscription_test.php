@@ -15,7 +15,7 @@ class Recurly_SubscriptionTest extends UnitTestCase
     $this->assertIsA($subscription->account, 'Recurly_Stub');
     $this->assertEqual($subscription->account->getHref(), 'https://api.recurly.com/v2/accounts/verena');
   }
-  
+
   public function testCreateSubscriptionXml()
   {
     $subscription = new Recurly_Subscription();

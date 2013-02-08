@@ -28,8 +28,8 @@ class Recurly_CouponRedemption extends Recurly_Resource
       return $this->getHref();
     else if(!empty($accountCode))
       return Recurly_CouponRedemption::uriForAccount($accountCode);
-		else
-			return false;
+    else
+      return false;
   }
   protected static function uriForAccount($accountCode) {
     return Recurly_Client::PATH_ACCOUNTS . '/' . rawurlencode($accountCode) . Recurly_Client::PATH_COUPON_REDEMPTION;
