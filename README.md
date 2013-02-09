@@ -6,9 +6,24 @@ The Recurly PHP Client library is an open source library to interact with Recurl
 
 ### Installation
 
+#### Composer
+
+If you're using [Composer](http://getcomposer.org/), you can simply add a dependency on `recurly/recurly-client-php` to your project's `composer.json` file. Here's an example of a dependency on 2.1:
+
+    {
+        "require": {
+            "recurly-client-php": "2.1.*"
+        }
+    }
+
+
+#### Git
+
 If you already have git, the easiest way to download the Recurly PHP Client is with the git command:
 
     git clone git://github.com/recurly/recurly-client-php.git /path/to/include/recurly
+
+#### By Hand
     
 Alternatively, you may download the PHP files in the `lib/` directory and place them within your PHP project.
 
