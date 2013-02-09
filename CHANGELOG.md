@@ -1,5 +1,15 @@
 # Recurly PHP Client Library CHANGELOG
 
+## Version 2.1.3 (February 8, 2013)
+
+* Added Composer support (SimpleTest is no longer bundled, use `composer install --dev` to install it)
+* Added `Recurly_AccountList::getClosed()`
+* Added `update()` and `accounting_code` to `Recurly_Addon` and `Recurly_Transaction`
+* Improved test coverage
+* Lists now implement Countable and IteratorAggregate
+* Fixed fatal errors in delete methods
+* Fixed problems marking invoices successful/failed
+
 ## Version 2.1.2 (June 7, 2012)
 
 * Support marking invoices as successful/failed
