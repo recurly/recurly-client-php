@@ -14,11 +14,11 @@ The PHP library depends on PHP 5.3.0 (or higher) and libcurl compiled with OpenS
 
 ### Composer
 
-If you're using [Composer](http://getcomposer.org/), you can simply add a dependency on `recurly/recurly-client-php` to your project's `composer.json` file. Here's an example of a dependency on 2.1:
+If you're using [Composer](http://getcomposer.org/), you can simply add a dependency on `recurly/recurly-client` to your project's `composer.json` file. Here's an example of a dependency on 2.1:
 
     {
         "require": {
-            "recurly-client-php": "2.1.*"
+            "recurly/recurly-client": "2.1.*"
         }
     }
 
@@ -30,7 +30,7 @@ If you already have git, the easiest way to download the Recurly PHP Client is w
     git clone git://github.com/recurly/recurly-client-php.git /path/to/include/recurly
 
 ### By Hand
-    
+
 Alternatively, you may download the PHP files in the `lib/` directory and place them within your PHP project.
 
 ## Initialization
