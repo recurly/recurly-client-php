@@ -102,7 +102,7 @@ abstract class Recurly_Resource extends Recurly_Base
         $attribute_node = $node->appendChild($doc->createElement($key));
         $this->populateXmlDoc($doc, $attribute_node, $val, true);
       } else if (is_array($val)) {
-      	$attribute_node = $node->appendChild($doc->createElement($key));
+        $attribute_node = $node->appendChild($doc->createElement($key));
         foreach ($val as $child => $childValue) {
           if (is_null($child) || is_null($childValue)) {
             continue;
@@ -121,7 +121,7 @@ abstract class Recurly_Resource extends Recurly_Base
               $attribute_node->appendChild($doc->createElement(substr($key, 0, -1), $childValue));
             }
           }
-      	}
+        }
       } else {
         if ($val instanceof DateTime) {
           $val = $val->format('c');

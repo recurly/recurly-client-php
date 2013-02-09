@@ -19,7 +19,7 @@ class Recurly_ErrorList implements ArrayAccess, Countable, IteratorAggregate
    * Array of field errors
    */
   private $errors;
-  
+
   function __construct() {
     $this->errors = array();
   }
@@ -29,7 +29,7 @@ class Recurly_ErrorList implements ArrayAccess, Countable, IteratorAggregate
     if (is_null($offset)) {
       $this->errors[] = $value;
     } else {
-    $this->errors[$offset] = $value;
+      $this->errors[$offset] = $value;
     }
   }
   public function offsetExists($offset) {
@@ -41,16 +41,16 @@ class Recurly_ErrorList implements ArrayAccess, Countable, IteratorAggregate
   public function offsetGet($offset) {
     return isset($this->errors[$offset]) ? $this->errors[$offset] : null;
   }
-  
+
   public function count()
   {
     return count($this->errors);
   }
-  
+
   public function getIterator() {
     return new ArrayIterator($this->errors);
   }
-  
+
   public function __toString() {
     $values = array();
     foreach($this->errors as $error) {
