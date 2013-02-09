@@ -70,9 +70,7 @@ class Recurly_Client
 
   public function request($method, $uri, $data = null)
   {
-    $response = $this->_sendRequest($method, $uri, $data);
-    $response->assertValidResponse();
-    return $response;
+    return $this->_sendRequest($method, $uri, $data);
   }
 
   /**
