@@ -19,6 +19,16 @@ class Recurly_CouponTest extends UnitTestCase
     $this->assertEqual($coupon->discount_in_cents['USD']->amount_in_cents, 1000);
   }
 
+  public function testDeleteCoupon()
+  {
+    $responseFixture = loadFixture(__DIR__ . '/../fixtures/coupons/destroy-204.xml');
+
+    $client = new MockRecurly_Client();
+    $client->returns('request', $responseFixture, array('DELETE', '/coupons/special'));
+
+    Recurly_Coupon::deleteCoupon('special', $client);
+  }
+
   // Parse plan_codes array in response
   public function testPlanCodesXml()
   {

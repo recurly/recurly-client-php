@@ -27,10 +27,10 @@ class Recurly_BillingInfo extends Recurly_Resource
   }
 
   public function delete() {
-    return Recurly_Resource::_delete($this->uri());
+    return Recurly_Base::_delete($this->uri(), $this->_client);
   }
-  public static function deleteForAccount($accountCode) {
-    return Recurly_Resource::_delete(Recurly_BillingInfo::uriForBillingInfo($accountCode));
+  public static function deleteForAccount($accountCode, $client = null) {
+    return Recurly_Base::_delete(Recurly_BillingInfo::uriForBillingInfo($accountCode), $client);
   }
 
   protected function uri() {

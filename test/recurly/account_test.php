@@ -19,6 +19,16 @@ class Recurly_AccountTest extends UnitTestCase
     $this->assertEqual($account->getHref(),'https://api.recurly.com/v2/accounts/abcdef1234567890');
   }
 
+  public function testCloseAccount()
+  {
+    $responseFixture = loadFixture(__DIR__ . '/../fixtures/accounts/destroy-204.xml');
+
+    $client = new MockRecurly_Client();
+    $client->returns('request', $responseFixture, array('DELETE', '/accounts/abcdef1234567890'));
+
+    Recurly_Account::closeAccount('abcdef1234567890', $client);
+  }
+
   public function testUpdateError()
   {
     $responseFixture = loadFixture(__DIR__ . '/../fixtures/accounts/show-200.xml');
