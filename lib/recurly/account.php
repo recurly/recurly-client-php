@@ -44,6 +44,13 @@ class Recurly_Account extends Recurly_Resource
     return Recurly_Base::_delete(Recurly_Account::uriForAccount($accountCode), $client);
   }
 
+  public function reopen() {
+    $this->_save(Recurly_Client::PUT, $this->uri() . '/reopen');
+  }
+  public static function reopenAccount($accountCode, $client = null) {
+    return Recurly_Base::_put(Recurly_Account::uriForAccount($accountCode) . '/reopen', $client);
+  }
+
   protected function uri() {
     if (!empty($this->_href))
       return $this->getHref();

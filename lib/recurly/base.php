@@ -53,6 +53,24 @@ abstract class Recurly_Base
   }
 
   /**
+   * Put to the URI, validate the response and return the object.
+   * @param string Resource URI, if not fully qualified, the base URL will be appended
+   * @param string Optional client for the request, useful for mocking the client
+   */
+  protected static function _put($uri, $client = null)
+  {
+    if (is_null($client))
+      $client = new Recurly_Client();
+    $response = $client->request(Recurly_Client::PUT, $uri);
+    $response->assertValidResponse();
+    if ($response->body) {
+      $object = Recurly_Base::__parseXmlToNewObject($response->body, $client);
+    }
+    $response->assertSuccessResponse($object);
+    return $object;
+  }
+
+  /**
    * Delete the URI, validate the response and return the object.
    * @param string Resource URI, if not fully qualified, the base URL will be appended
    * @param string Data to post to the URI

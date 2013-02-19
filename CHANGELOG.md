@@ -4,6 +4,7 @@
 
 * Fixed fatal error in Recurly_Invoice::getInvoicePdf().
 * Fixed fatal error in Recurly_Account::close().
+* Added `reopen()` and `reopenAccount` to `Recurly_Account`.
 
 ## Version 2.1.3 (February 8, 2013)
 

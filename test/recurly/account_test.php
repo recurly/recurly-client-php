@@ -35,6 +35,24 @@ class Recurly_AccountTest extends UnitTestCase
     $this->assertEqual($account->state, 'closed');
   }
 
+  public function testReopenAccount()
+  {
+    mockRequest($this->client, 'accounts/reopen-200.xml', array('PUT', '/accounts/abcdef1234567890/reopen'));
+
+    $account = Recurly_Account::reopenAccount('abcdef1234567890', $this->client);
+    $this->assertIsA($account, 'Recurly_Account');
+    $this->assertEqual($account->state, 'active');
+  }
+
+  public function testReopen()
+  {
+    mockRequest($this->client, 'accounts/reopen-200.xml', array('PUT', 'https://api.recurly.com/v2/accounts/abcdef1234567890/reopen', '*'));
+
+    $account = Recurly_Account::get('abcdef1234567890', $this->client);
+    $account->reopen();
+    $this->assertEqual($account->state, 'active');
+  }
+
   public function testUpdateError()
   {
     mockRequest($this->client, 'accounts/update-422.xml', array('PUT', 'https://api.recurly.com/v2/accounts/abcdef1234567890', "<?xml version=\"1.0\"?>\n<account><email>invalidemail.com</email></account>\n"));
