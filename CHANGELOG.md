@@ -3,6 +3,7 @@
 ## Version 2.1.4 (?)
 
 * Fixed fatal error in Recurly_Invoice::getInvoicePdf().
+* Fixed fatal error in Recurly_Account::close().
 
 ## Version 2.1.3 (February 8, 2013)
 

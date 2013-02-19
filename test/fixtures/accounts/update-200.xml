@@ -10,6 +10,7 @@ Location: https://api.recurly.com/v2/accounts/abcdef1234567890.xml
   <subscriptions href="https://api.recurly.com/v2/accounts/abcdef1234567890/subscriptions"/>
   <transactions href="https://api.recurly.com/v2/accounts/abcdef1234567890/transactions"/>
   <account_code>abcdef1234567890</account_code>
+  <state>active</state>
   <username>shmohawk58</username>
   <email>larry.david@example.com</email>
   <first_name>Larry</first_name>

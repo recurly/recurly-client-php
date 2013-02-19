@@ -26,6 +26,15 @@ class Recurly_AccountTest extends UnitTestCase
     Recurly_Account::closeAccount('abcdef1234567890', $this->client);
   }
 
+  public function testClose()
+  {
+    mockRequest($this->client, 'accounts/destroy-204.xml', array('DELETE', 'https://api.recurly.com/v2/accounts/abcdef1234567890'));
+
+    $account = Recurly_Account::get('abcdef1234567890', $this->client);
+    $account->close();
+    $this->assertEqual($account->state, 'closed');
+  }
+
   public function testUpdateError()
   {
     mockRequest($this->client, 'accounts/update-422.xml', array('PUT', 'https://api.recurly.com/v2/accounts/abcdef1234567890', "<?xml version=\"1.0\"?>\n<account><email>invalidemail.com</email></account>\n"));
