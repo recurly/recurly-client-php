@@ -4,10 +4,8 @@ class Recurly_AccountListTest extends UnitTestCase
 {
   public function testLoad()
   {
-    $responseFixture = loadFixture(__DIR__ . '/../fixtures/accounts/index-200.xml');
-
     $client = new MockRecurly_Client();
-    $client->returns('request', $responseFixture, array('GET', '/accounts'));
+    mockRequest($client, 'accounts/index-200.xml', array('GET', '/accounts'));
 
     $accounts = Recurly_AccountList::get(null, $client);
 

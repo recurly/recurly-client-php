@@ -2,15 +2,14 @@
 
 class Recurly_InvoiceTest extends UnitTestCase
 {
+  function setUp() {
+    $this->client = new MockRecurly_Client();
+    mockRequest($this->client, 'invoices/show-200.xml', array('GET', '/invoices/abcdef1234567890'));
+  }
 
   public function testGetInvoice()
   {
-    $responseFixture = loadFixture(__DIR__ . '/../fixtures/invoices/show-200.xml');
-
-    $client = new MockRecurly_Client();
-    $client->returns('request', $responseFixture, array('GET', '/invoices/abcdef1234567890'));
-
-    $invoice = Recurly_Invoice::get('abcdef1234567890', $client);
+    $invoice = Recurly_Invoice::get('abcdef1234567890', $this->client);
 
     $this->assertIsA($invoice, 'Recurly_Invoice');
     $this->assertEqual($invoice->state, 'open');
@@ -23,12 +22,9 @@ class Recurly_InvoiceTest extends UnitTestCase
 
   public function testInvoicePendingCharges()
   {
-    $responseFixture = loadFixture(__DIR__ . '/../fixtures/invoices/create-201.xml');
+    mockRequest($this->client, 'invoices/create-201.xml', array('POST', '/accounts/abcdef1234567890/invoices', '*'));
 
-    $client = new MockRecurly_Client();
-    $client->returns('request', $responseFixture);
-
-    $invoice = Recurly_Invoice::invoicePendingCharges('abcdef1234567890', $client);
+    $invoice = Recurly_Invoice::invoicePendingCharges('abcdef1234567890', $this->client);
 
     $this->assertIsA($invoice, 'Recurly_Invoice');
     $this->assertIsA($invoice->account, 'Recurly_Stub');
@@ -60,34 +56,24 @@ class Recurly_InvoiceTest extends UnitTestCase
 
   public function testMarkSuccessful()
   {
-    $loadFixture = loadFixture(__DIR__ . '/../fixtures/invoices/show-200.xml');
-    $responseFixture = loadFixture(__DIR__ . '/../fixtures/invoices/mark_successful-200.xml');
-
-    $client = new MockRecurly_Client();
-    $client->returns('request', $loadFixture, array('GET', '/invoices/abcdef1234567890'));
     // Two things to note:
     // - the invoice will use the full URL from the XML response
     // - Recurly_Resource::_save() passes the current XML into the PUT which
     //   doesn't seem quite right but I don't want to change it without
     //   understanding what side effects it would have.
-    $client->returns('request', $responseFixture, array('PUT', 'https://api.recurly.com/v2/invoices/abcdef1234567890/mark_successful', '*'));
+    mockRequest($this->client, 'invoices/mark_successful-200.xml', array('PUT', 'https://api.recurly.com/v2/invoices/abcdef1234567890/mark_successful', '*'));
 
-    $invoice = Recurly_Invoice::get('abcdef1234567890', $client);
+    $invoice = Recurly_Invoice::get('abcdef1234567890', $this->client);
     $invoice->markSuccessful();
     $this->assertEqual($invoice->state, 'collected');
   }
 
   public function testMarkFailed()
   {
-    $loadFixture = loadFixture(__DIR__ . '/../fixtures/invoices/show-200.xml');
-    $responseFixture = loadFixture(__DIR__ . '/../fixtures/invoices/mark_failed-200.xml');
-
-    $client = new MockRecurly_Client();
-    $client->returns('request', $loadFixture, array('GET', '/invoices/abcdef1234567890'));
     // See the notes in testMarkSuccessful().
-    $client->returns('request', $responseFixture, array('PUT', 'https://api.recurly.com/v2/invoices/abcdef1234567890/mark_failed', '*'));
+    mockRequest($this->client, 'invoices/mark_failed-200.xml', array('PUT', 'https://api.recurly.com/v2/invoices/abcdef1234567890/mark_failed', '*'));
 
-    $invoice = Recurly_Invoice::get('abcdef1234567890', $client);
+    $invoice = Recurly_Invoice::get('abcdef1234567890', $this->client);
     $invoice->markFailed();
     $this->assertEqual($invoice->state, 'failed');
   }

@@ -5,7 +5,7 @@ function loadFixture($filename)
   $statusCode = 200;
   $headers = array();
   $body = null;
-  
+
   $fixture = file($filename, FILE_IGNORE_NEW_LINES);
 
   $matches = null;
@@ -27,4 +27,9 @@ function loadFixture($filename)
     $body = implode(array_slice($fixture, $bodyLineNumber), "\n");
 
   return new Recurly_ClientResponse($statusCode, $headers, $body);
+}
+
+function mockRequest($client, $fixturePath, $params) {
+  $fixture = loadFixture(__DIR__ . '/fixtures/' . $fixturePath);
+  $client->returns('request', $fixture, $params);
 }

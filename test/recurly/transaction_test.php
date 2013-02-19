@@ -2,14 +2,14 @@
 
 class Recurly_TransactionTest extends UnitTestCase
 {
+  function setUp() {
+    $this->client = new MockRecurly_Client();
+    mockRequest($this->client, 'transactions/show-200.xml', array('GET', '/transactions/012345678901234567890123456789ab'));
+  }
+
   public function testGetTransaction()
   {
-    $responseFixture = loadFixture(__DIR__ . '/../fixtures/transactions/show-200.xml');
-
-    $client = new MockRecurly_Client();
-    $client->returns('request', $responseFixture, array('GET', '/transactions/012345678901234567890123456789ab'));
-
-    $transaction = Recurly_Transaction::get('012345678901234567890123456789ab', $client);
+    $transaction = Recurly_Transaction::get('012345678901234567890123456789ab', $this->client);
 
     $this->assertIsA($transaction, 'Recurly_Transaction');
     $this->assertIsA($transaction->account, 'Recurly_Stub');
@@ -39,42 +39,39 @@ class Recurly_TransactionTest extends UnitTestCase
 
   public function testRefundTransactionPartial()
   {
-    $getFixture = loadFixture(__DIR__ . '/../fixtures/transactions/show-200.xml');
-    $deleteFixture = loadFixture(__DIR__ . '/../fixtures/transactions/refund-202.xml');
+    mockRequest($this->client,
+      'transactions/refund-202.xml',
+      array('DELETE', 'https://api.recurly.com/v2/transactions/abcdef1234567890?amount_in_cents=100', '*')
+    );
 
-    $client = new MockRecurly_Client();
-    $client->returns('request', $getFixture, array('GET', '/transactions/012345678901234567890123456789ab'));
-    $client->returns('request', $deleteFixture, array('DELETE', 'https://api.recurly.com/v2/transactions/abcdef1234567890?amount_in_cents=100', '*'));
-
-    $transaction = Recurly_Transaction::get('012345678901234567890123456789ab', $client);
+    $transaction = Recurly_Transaction::get('012345678901234567890123456789ab', $this->client);
     $transaction->refund(100);
     $this->assertEqual($transaction->status, 'voided');
   }
 
   public function testRefundTransactionFull()
   {
-    $getFixture = loadFixture(__DIR__ . '/../fixtures/transactions/show-200.xml');
-    $deleteFixture = loadFixture(__DIR__ . '/../fixtures/transactions/refund-202.xml');
+    mockRequest($this->client,
+      'transactions/refund-202.xml',
+      array('DELETE', 'https://api.recurly.com/v2/transactions/abcdef1234567890', '*')
+    );
 
-    $client = new MockRecurly_Client();
-    $client->returns('request', $getFixture, array('GET', '/transactions/012345678901234567890123456789ab'));
-    $client->returns('request', $deleteFixture, array('DELETE', 'https://api.recurly.com/v2/transactions/abcdef1234567890', '*'));
-
-    $transaction = Recurly_Transaction::get('012345678901234567890123456789ab', $client);
+    $transaction = Recurly_Transaction::get('012345678901234567890123456789ab', $this->client);
     $transaction->refund();
     $this->assertEqual($transaction->status, 'voided');
   }
 
   public function testGetFailedTransaction()
   {
-    // GET response is "200 OK", yet transaction had an error
-    $responseFixture = loadFixture(__DIR__ . '/../fixtures/transactions/show-200-error.xml');
-
     $client = new MockRecurly_Client();
-    $client->returns('request', $responseFixture, array('GET', '/transactions/012345678901234567890123456789ab'));
+
+    // GET response is "200 OK", yet transaction had an error
+    mockRequest($client,
+      'transactions/show-200-error.xml',
+      array('GET', '/transactions/012345678901234567890123456789ab')
+    );
 
     $transaction = Recurly_Transaction::get('012345678901234567890123456789ab', $client);
-
     $this->assertIsA($transaction, 'Recurly_Transaction');
     $this->assertIsA($transaction->transaction_error, 'Recurly_TransactionError');
   }
