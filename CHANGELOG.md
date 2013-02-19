@@ -1,5 +1,9 @@
 # Recurly PHP Client Library CHANGELOG
 
+## Version 2.1.4 (?)
+
+* Fixed fatal error in Recurly_Invoice::getInvoicePdf().
+
 ## Version 2.1.3 (February 8, 2013)
 
 * Added Composer support (SimpleTest is no longer bundled, use `composer install --dev` to install it)
