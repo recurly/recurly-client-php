@@ -91,4 +91,13 @@ class Recurly_InvoiceTest extends UnitTestCase
     $invoice->markFailed();
     $this->assertEqual($invoice->state, 'failed');
   }
+
+  public function testGetInvoicePdf()
+  {
+    $client = new MockRecurly_Client();
+    $client->returns('getPdf', "Fake PDF", array('/invoices/abcdef1234567890', 'en-GB'));
+
+    $result = Recurly_Invoice::getInvoicePdf('abcdef1234567890', 'en-GB', $client);
+    $this->assertEqual($result, "Fake PDF");
+  }
 }

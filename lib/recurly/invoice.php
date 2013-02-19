@@ -31,7 +31,7 @@ class Recurly_Invoice extends Recurly_Resource
    * Retrieve the PDF version of an invoice
    */
   public static function getInvoicePdf($invoiceNumber, $locale = null, $client = null) {
-    $uri = Recurly_Client::uriForInvoice($invoiceNumber);
+    $uri = self::uriForInvoice($invoiceNumber);
 
     if (is_null($client))
       $client = new Recurly_Client();
