@@ -1,6 +1,6 @@
 # Recurly PHP Client Library CHANGELOG
 
-## Version 2.1.4 (?)
+## Version 2.1.4 (February 19, 2013)
 
 * Fixed fatal error in Recurly_Invoice::getInvoicePdf().
 * Fixed fatal error in Recurly_Account::close().
