@@ -1,7 +1,9 @@
 <?php
 
 /**
- * Resource stub for Recurly API. Call get() to retrieve the stubbed resource.
+ * Resource stub for Recurly API. 
+ * Old Retreival Syntax:  $transaction->account->get()->account_id
+ * New Retrieval Syntax:  $transaction->account->account_code
  */
 class Recurly_Stub extends Recurly_Base
 {
@@ -9,7 +11,8 @@ class Recurly_Stub extends Recurly_Base
    * Stubbed object type. Useful for printing the current object as a string.
    */
   var $objectType;
-  private $_data;
+
+  protected $_requestObject;
 
   function __construct($objectType, $href, $client = null)
   {
@@ -19,19 +22,22 @@ class Recurly_Stub extends Recurly_Base
 
   /**
    * Retrieve the stubbed resource.
+   * Preferred usage is __get()
    */
   function get() {
-    return self::_get($this->_href, $this->_client);
+    $this->_requestObject = self::_get($this->_href, $this->_client);
+    return $this->_requestObject;
   }
 
-/**
+  /**
    * More intuitive way to lazily fetch stubs
+   * $transaction->account->account_code
    */
   function __get($var) {
-    if ($this->_data == null){
-      $this->_data = self::_get($this->_href, $this->_client);
+    if (is_null($this->_requestObject)){
+      $this->get();
     }
-    return $this->_data->$var;
+    return $this->_requestObject->$var;
   }
   
   public function __toString()
