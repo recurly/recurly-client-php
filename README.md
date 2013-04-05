@@ -35,11 +35,12 @@ Alternatively, you may download the PHP files in the `lib/` directory and place 
 
 ## Initialization
 
-Load the Recurly library files and set your API Key globally:
+Load the Recurly library files and set your subdomain and API Key globally:
 
     <?php
     require_once('./lib/recurly.php');
 
+    Recurly_Client::$subdomain = 'your-subdomain';
     Recurly_Client::$apiKey = '012345678901234567890123456789ab';
 
 If you are using [Recurly.js](http://js.recurly.com), specify your `private_key`:
