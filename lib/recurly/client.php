@@ -10,6 +10,11 @@
 class Recurly_Client
 {
   /**
+   * Subdomain for all requests.
+   */
+  public static $subdomain = 'api';
+
+  /**
    * Default API key for all requests, may be overridden with the Recurly_Client constructor
    */
   public static $apiKey;
@@ -17,7 +22,7 @@ class Recurly_Client
   /**
    * Base API URL
    */
-  public static $apiUrl = 'https://api.recurly.com/v2';
+  public static $apiUrl = 'https://%s.recurly.com/v2';
 
   /**
    * API Key instance, may differ from the static key
@@ -73,6 +78,10 @@ class Recurly_Client
     return $this->_sendRequest($method, $uri, $data);
   }
 
+  public function baseUri() {
+    return sprintf(Recurly_Client::$apiUrl, Recurly_Client::$subdomain);
+  }
+
   /**
    * Current API key
    * @return string API key
@@ -96,7 +105,7 @@ class Recurly_Client
       mb_internal_encoding(self::DEFAULT_ENCODING);
 
     if (substr($uri,0,4) != 'http')
-      $uri = Recurly_Client::$apiUrl . $uri;
+      $uri = $this->baseUri() . $uri;
 
     $ch = curl_init();
     curl_setopt($ch, CURLOPT_URL, $uri);
@@ -191,7 +200,7 @@ class Recurly_Client
   public function getPdf($uri, $locale = null)
   {
     if (substr($uri,0,4) != 'http')
-      $uri = Recurly_Client::$apiUrl . $uri;
+      $uri = $this->baseUri() . $uri;
 
     if (is_null($locale))
       $locale = $this->_acceptLanguage;
