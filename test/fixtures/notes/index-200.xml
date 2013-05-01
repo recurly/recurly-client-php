@@ -1,0 +1,18 @@
+HTTP/1.1 200 OK
+Content-Type: application/xml; charset=utf-8
+X-Records: 42
+Link: <https://api.recurly.com/v2/accounts/abcdef1234567890/notes?cursor=1234567890&per_page=20>; rel="start", <https://api.recurly.com/v2/accounts/abcdef1234567890/notes?cursor=1234566890&per_page=20>; rel="next"
+
+<?xml version="1.0" encoding="UTF-8"?>
+<notes>
+  <note>
+    <account href="api.recurly.com/v2/accounts/abcdef1234567890"/>
+    <message>this account needs an account manager</message>
+    <created_at type="datetime">2013-03-12T18:35:00Z</created_at>
+  </note>
+  <note>
+    <account href="api.recurly.com/v2/accounts/abcdef1234567890"/>
+    <message>Some message</message>
+    <created_at type="datetime">2012-04-30T12:35:00Z</created_at>
+  </note>
+</notes>

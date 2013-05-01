@@ -24,6 +24,8 @@ require_once(dirname(__FILE__) . '/recurly/coupon.php');
 require_once(dirname(__FILE__) . '/recurly/coupon_list.php');
 require_once(dirname(__FILE__) . '/recurly/invoice.php');
 require_once(dirname(__FILE__) . '/recurly/invoice_list.php');
+require_once(dirname(__FILE__) . '/recurly/note.php');
+require_once(dirname(__FILE__) . '/recurly/note_list.php');
 require_once(dirname(__FILE__) . '/recurly/plan.php');
 require_once(dirname(__FILE__) . '/recurly/plan_list.php');
 require_once(dirname(__FILE__) . '/recurly/redemption.php');
