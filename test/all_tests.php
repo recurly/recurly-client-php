@@ -30,6 +30,7 @@ class AllTests extends TestSuite {
     $this->addFile(__DIR__ . '/recurly/coupon_test.php');
     $this->addFile(__DIR__ . '/recurly/currency_list_test.php');
     $this->addFile(__DIR__ . '/recurly/invoice_test.php');
+    $this->addFile(__DIR__ . '/recurly/note_list_test.php');
     $this->addFile(__DIR__ . '/recurly/plan_test.php');
     $this->addFile(__DIR__ . '/recurly/subscription_test.php');
     $this->addFile(__DIR__ . '/recurly/transaction_test.php');

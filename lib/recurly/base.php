@@ -161,6 +161,8 @@ abstract class Recurly_Base
     'invoice' => 'Recurly_Invoice',
     'invoices' => 'Recurly_InvoiceList',
     'line_items' => 'array',
+    'note' => 'Recurly_Note',
+    'notes' => 'Recurly_NoteList',
     'plan' => 'Recurly_Plan',
     'plans' => 'Recurly_PlanList',
     'plan_code' => 'string',
@@ -175,7 +177,7 @@ abstract class Recurly_Base
     'transaction' => 'Recurly_Transaction',
     'transactions' => 'Recurly_TransactionList',
     'transaction_error' => 'Recurly_TransactionError',
-    'unit_amount_in_cents' => 'Recurly_CurrencyList'
+    'unit_amount_in_cents' => 'Recurly_CurrencyList',
   );
 
   protected static function __parseXmlToNewObject($xml, $client=null) {
