@@ -14,11 +14,11 @@ The PHP library depends on PHP 5.3.0 (or higher) and libcurl compiled with OpenS
 
 ### Composer
 
-If you're using [Composer](http://getcomposer.org/), you can simply add a dependency on `recurly/recurly-client` to your project's `composer.json` file. Here's an example of a dependency on 2.1:
+If you're using [Composer](http://getcomposer.org/), you can simply add a dependency on `recurly/recurly-client` to your project's `composer.json` file. Here's an example of a dependency on 2.2:
 
     {
         "require": {
-            "recurly/recurly-client": "2.1.*"
+            "recurly/recurly-client": "2.2.*"
         }
     }
 

@@ -1,8 +1,9 @@
 # Recurly PHP Client Library CHANGELOG
 
-## Version 2.2.0 ()
-* Added support for client subdomains, the default of 'api' should be fine for most users..
-* Added support for fetching account notes
+## Version 2.2.0 (May 10, 2013)
+
+* Added support for client subdomains, the default of 'api' should be fine for most users.
+* Added support for fetching account notes.
 
 ## Version 2.1.4 (February 19, 2013)
 
