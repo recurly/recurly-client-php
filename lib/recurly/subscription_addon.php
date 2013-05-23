@@ -28,10 +28,9 @@ class Recurly_SubscriptionAddOn extends Recurly_Resource {
     parent::populateXmlDoc($doc, $addonNode, $obj);
   }
 
-  protected function getChangedAttributes($nested = false)
-  {
-    // Return all attributes
-    return $this->_values;
+  protected function getChangedAttributes($nested = false) {
+    // Ignore the name, it can't be changed.
+    return array_diff_key($this->_values, array('name' => 0));
   }
 
   /**

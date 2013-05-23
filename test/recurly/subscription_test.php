@@ -64,6 +64,7 @@ class Recurly_SubscriptionTest extends UnitTestCase
 
     $add_on = new Recurly_SubscriptionAddOn();
     $add_on->add_on_code = 'more';
+    $add_on->name = 'should be ignored';
     $add_on->quantity = 1;
     $subscription->subscription_add_ons[] = $add_on;
 

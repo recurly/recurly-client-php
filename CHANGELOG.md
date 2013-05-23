@@ -1,5 +1,9 @@
 # Recurly PHP Client Library CHANGELOG
 
+## Version 2.2.1 ()
+
+* Fixed invalid XML errors when saving subscriptions with add-ons.
+
 ## Version 2.2.0 (May 10, 2013)
 
 * Added support for client subdomains, the default of 'api' should be fine for most users.
