@@ -11,6 +11,17 @@ class Recurly_SubscriptionTest extends UnitTestCase
     $this->assertIsA($subscription, 'Recurly_Subscription');
     $this->assertIsA($subscription->account, 'Recurly_Stub');
     $this->assertEqual($subscription->account->getHref(), 'https://api.recurly.com/v2/accounts/verena');
+
+    $this->assertIsA($subscription->subscription_add_ons, 'Array');
+    $this->assertEqual(count($subscription->subscription_add_ons), 1);
+    $add_on = $subscription->subscription_add_ons[0];
+    $this->assertIsA($add_on, 'Recurly_SubscriptionAddOn');
+    $this->assertEqual($add_on->name, 'IP Addresses');
+    $this->assertEqual($add_on->add_on_code, 'ipaddresses');
+    $this->assertEqual($add_on->unit_amount_in_cents, 200);
+    $this->assertEqual($add_on->quantity, 2);
+
+    # TODO: Should test the rest of the parsing.
   }
 
   public function testCreateSubscriptionXml()
@@ -53,6 +64,7 @@ class Recurly_SubscriptionTest extends UnitTestCase
 
     $add_on = new Recurly_SubscriptionAddOn();
     $add_on->add_on_code = 'more';
+    $add_on->name = 'should be ignored';
     $add_on->quantity = 1;
     $subscription->subscription_add_ons[] = $add_on;
 

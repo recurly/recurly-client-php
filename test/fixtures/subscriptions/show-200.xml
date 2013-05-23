@@ -19,8 +19,14 @@ Content-Type: application/xml; charset=utf-8
   <current_period_ends_at type="datetime">2011-05-01T06:59:59Z</current_period_ends_at>
   <trial_started_at nil="nil"></trial_started_at>
   <trial_ends_at nil="nil"></trial_ends_at>
-  <add_ons type="array">
-  </add_ons>
-  <a name="cancel" href="https://api.recurly.com/v2/subscriptions/012345678901234567890123456789ab/cancel" method="put"/> 
+  <subscription_add_ons type="array">
+    <subscription_add_on>
+      <name>IP Addresses</name>
+      <add_on_code>ipaddresses</add_on_code>
+      <unit_amount_in_cents type="integer">200</unit_amount_in_cents>
+      <quantity type="integer">2</quantity>
+    </subscription_add_on>
+  </subscription_add_ons>
+  <a name="cancel" href="https://api.recurly.com/v2/subscriptions/012345678901234567890123456789ab/cancel" method="put"/>
   <a name="terminate" href="https://api.recurly.com/v2/subscriptions/012345678901234567890123456789ab/terminate" method="put"/>
 </subscription>
