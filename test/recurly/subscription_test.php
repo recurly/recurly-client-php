@@ -20,8 +20,29 @@ class Recurly_SubscriptionTest extends UnitTestCase
     $this->assertEqual($add_on->add_on_code, 'ipaddresses');
     $this->assertEqual($add_on->unit_amount_in_cents, 200);
     $this->assertEqual($add_on->quantity, 2);
+    $this->assertEqual($subscription->collection_method, 'manual');
+    $this->assertEqual($subscription->po_number, '1000');
+    $this->assertEqual($subscription->net_terms, 10);
 
     # TODO: Should test the rest of the parsing.
+  }
+
+  public function testCreateManualCollectionSubscriptionXml()
+  {
+    $subscription = new Recurly_Subscription();
+    $subscription->plan_code = 'gold';
+    $subscription->currency = 'USD';
+    $subscription->net_terms = 10;
+    $subscription->collection_method = 'manual';
+    $subscription->po_number = '1000';
+
+    $account = new Recurly_Account();
+    $account->account_code = '123';
+
+    $subscription->account = $account;
+
+    $xml = $subscription->xml();
+    $this->assertEqual($xml, "<?xml version=\"1.0\"?>\n<subscription><account><account_code>123</account_code></account><plan_code>gold</plan_code><currency>USD</currency><subscription_add_ons/><net_terms>10</net_terms><po_number>1000</po_number><collection_method>manual</collection_method></subscription>\n");
   }
 
   public function testCreateSubscriptionXml()
