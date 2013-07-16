@@ -147,6 +147,7 @@ abstract class Recurly_Base
   static $class_map = array(
     'account' => 'Recurly_Account',
     'accounts' => 'Recurly_AccountList',
+    'address' => 'Recurly_Address',
     'add_on' => 'Recurly_AddOn',
     'add_ons' => 'Recurly_AddOnList',
     'billing_info' => 'Recurly_BillingInfo',

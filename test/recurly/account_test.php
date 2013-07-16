@@ -15,6 +15,9 @@ class Recurly_AccountTest extends UnitTestCase
     $this->assertEqual($account->account_code, 'abcdef1234567890');
     $this->assertEqual($account->email, 'larry.david@example.com');
     $this->assertEqual($account->first_name, 'Larry');
+    $this->assertEqual($account->vat_number, 'ST-1937');
+    $this->assertEqual($account->address->address1, '123 Main St.');
+    $this->assertEqual($account->address->city, 'San Francisco');
     $this->assertEqual($account->created_at->getTimestamp(), 1304164800);
     $this->assertEqual($account->getHref(),'https://api.recurly.com/v2/accounts/abcdef1234567890');
   }
@@ -80,9 +83,10 @@ class Recurly_AccountTest extends UnitTestCase
     $account = new Recurly_Account();
     $account->account_code = 'act123';
     $account->first_name = 'Verena';
+    $account->address->address1 = "123 Main St.";
 
     $xml = $account->xml();
     $this->assertEqual($xml,
-      "<?xml version=\"1.0\"?>\n<account><account_code>act123</account_code><first_name>Verena</first_name></account>\n");
+      "<?xml version=\"1.0\"?>\n<account><account_code>act123</account_code><first_name>Verena</first_name><address><address1>123 Main St.</address1></address></account>\n");
   }
 }
