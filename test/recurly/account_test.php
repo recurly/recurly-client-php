@@ -16,8 +16,13 @@ class Recurly_AccountTest extends UnitTestCase
     $this->assertEqual($account->email, 'larry.david@example.com');
     $this->assertEqual($account->first_name, 'Larry');
     $this->assertEqual($account->vat_number, 'ST-1937');
+    $this->assertIsA($account->address, 'Recurly_Address');
     $this->assertEqual($account->address->address1, '123 Main St.');
+    $this->assertEqual($account->address->address2, 'APT #6');
+    $this->assertEqual($account->address->state, 'CA');
+    $this->assertEqual($account->address->zip, '94105');
     $this->assertEqual($account->address->city, 'San Francisco');
+    $this->assertEqual($account->address->country, 'US');
     $this->assertEqual($account->created_at->getTimestamp(), 1304164800);
     $this->assertEqual($account->getHref(),'https://api.recurly.com/v2/accounts/abcdef1234567890');
   }

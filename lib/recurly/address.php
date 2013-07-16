@@ -4,10 +4,6 @@ class Recurly_Address extends Recurly_Resource {
 
   protected static $_writeableAttributes;
 
-  function __construct() {
-
-  }
-
   public static function init()
   {
     Recurly_Address::$_writeableAttributes = array(

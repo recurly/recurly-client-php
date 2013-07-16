@@ -1,14 +1,11 @@
 # Recurly PHP Client Library CHANGELOG
 
-## Version 2.2.2 (July 16, 2013)
-
-* Added support for manual payments
-* Added support for account level address
-* moved VAT number to Account
-
 ## Version 2.2.1 ()
 
 * Fixed invalid XML errors when saving subscriptions with add-ons.
+* Added support for manual payments
+* Added support for account level address
+* moved VAT number to Account
 
 ## Version 2.2.0 (May 10, 2013)
 
