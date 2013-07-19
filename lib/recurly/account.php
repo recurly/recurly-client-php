@@ -9,13 +9,14 @@ class Recurly_Account extends Recurly_Resource
   function __construct($accountCode = null) {
     if (!is_null($accountCode))
       $this->account_code = $accountCode;
+    $this->address = new Recurly_Address();
   }
 
   public static function init()
   {
     Recurly_Account::$_writeableAttributes = array(
-      'account_code','username','first_name','last_name',
-      'email','company_name','accept_language','billing_info'
+      'account_code','username','first_name','last_name','vat_number',
+      'email','company_name','accept_language','billing_info','address'
     );
     Recurly_Account::$_nestedAttributes = array(
       'adjustments','billing_info','invoices','subscriptions','transactions'
@@ -23,6 +24,7 @@ class Recurly_Account extends Recurly_Resource
     Recurly_Account::$_requiredAttributes = array(
       'account_code'
     );
+
   }
 
   public static function get($accountCode, $client = null) {

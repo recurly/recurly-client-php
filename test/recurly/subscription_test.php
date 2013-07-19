@@ -42,7 +42,7 @@ class Recurly_SubscriptionTest extends UnitTestCase
     $subscription->account = $account;
 
     $xml = $subscription->xml();
-    $this->assertEqual($xml, "<?xml version=\"1.0\"?>\n<subscription><account><account_code>123</account_code></account><plan_code>gold</plan_code><currency>USD</currency><subscription_add_ons/><net_terms>10</net_terms><po_number>1000</po_number><collection_method>manual</collection_method></subscription>\n");
+    $this->assertEqual($xml, "<?xml version=\"1.0\"?>\n<subscription><account><account_code>123</account_code><address/></account><plan_code>gold</plan_code><currency>USD</currency><subscription_add_ons/><net_terms>10</net_terms><po_number>1000</po_number><collection_method>manual</collection_method></subscription>\n");
   }
 
   public function testCreateSubscriptionXml()
@@ -73,7 +73,7 @@ class Recurly_SubscriptionTest extends UnitTestCase
     $account->billing_info = $billing_info;
 
     $xml = $subscription->xml();
-    $this->assertEqual($xml, "<?xml version=\"1.0\"?>\n<subscription><account><account_code>account_code</account_code><username>username</username><first_name>Verena</first_name><last_name>Example</last_name><email>verena@example.com</email><accept_language>en-US</accept_language><billing_info><first_name>Verena</first_name><last_name>Example</last_name><ip_address>192.168.0.1</ip_address><number>4111-1111-1111-1111</number><month>11</month><year>2015</year><verification_value>123</verification_value></billing_info></account><plan_code>gold</plan_code><quantity>1</quantity><currency>USD</currency><subscription_add_ons/></subscription>\n");
+    $this->assertEqual($xml, "<?xml version=\"1.0\"?>\n<subscription><account><account_code>account_code</account_code><username>username</username><first_name>Verena</first_name><last_name>Example</last_name><email>verena@example.com</email><accept_language>en-US</accept_language><billing_info><first_name>Verena</first_name><last_name>Example</last_name><ip_address>192.168.0.1</ip_address><number>4111-1111-1111-1111</number><month>11</month><year>2015</year><verification_value>123</verification_value></billing_info><address/></account><plan_code>gold</plan_code><quantity>1</quantity><currency>USD</currency><subscription_add_ons/></subscription>\n");
   }
 
   public function testCreateSubscriptionWithAddonsXml()
@@ -110,6 +110,6 @@ class Recurly_SubscriptionTest extends UnitTestCase
     $account->billing_info = $billing_info;
 
     $xml = $subscription->xml();
-    $this->assertEqual($xml, "<?xml version=\"1.0\"?>\n<subscription><account><account_code>account_code</account_code><username>username</username><first_name>Verena</first_name><last_name>Example</last_name><email>verena@example.com</email><accept_language>en-US</accept_language><billing_info><first_name>Verena</first_name><last_name>Example</last_name><ip_address>192.168.0.1</ip_address><number>4111-1111-1111-1111</number><month>11</month><year>2015</year><verification_value>123</verification_value></billing_info></account><plan_code>gold</plan_code><quantity>1</quantity><currency>USD</currency><subscription_add_ons><subscription_add_on><add_on_code>more</add_on_code><quantity>1</quantity></subscription_add_on></subscription_add_ons></subscription>\n");
+    $this->assertEqual($xml, "<?xml version=\"1.0\"?>\n<subscription><account><account_code>account_code</account_code><username>username</username><first_name>Verena</first_name><last_name>Example</last_name><email>verena@example.com</email><accept_language>en-US</accept_language><billing_info><first_name>Verena</first_name><last_name>Example</last_name><ip_address>192.168.0.1</ip_address><number>4111-1111-1111-1111</number><month>11</month><year>2015</year><verification_value>123</verification_value></billing_info><address/></account><plan_code>gold</plan_code><quantity>1</quantity><currency>USD</currency><subscription_add_ons><subscription_add_on><add_on_code>more</add_on_code><quantity>1</quantity></subscription_add_on></subscription_add_ons></subscription>\n");
   }
 }
