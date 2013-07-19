@@ -1,6 +1,6 @@
 # Recurly PHP Client Library CHANGELOG
 
-## Version 2.2.1 ()
+## Version 2.2.1 (July 19th, 2013)
 
 * Fixed invalid XML errors when saving subscriptions with add-ons.
 * Added support for manual payments
