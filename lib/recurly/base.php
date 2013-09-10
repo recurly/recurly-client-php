@@ -183,7 +183,7 @@ abstract class Recurly_Base
 
   protected static function __parseXmlToNewObject($xml, $client=null) {
     $dom = new DOMDocument();
-    if (!$dom->loadXML($xml, LIBXML_NOBLANKS)) return null;
+    if (empty($xml) || !$dom->loadXML($xml, LIBXML_NOBLANKS)) return null;
 
     $rootNode = $dom->documentElement;
 
@@ -197,7 +197,7 @@ abstract class Recurly_Base
   protected function __parseXmlToUpdateObject($xml)
   {
     $dom = new DOMDocument();
-    if (!$dom->loadXML($xml, LIBXML_NOBLANKS)) return null;
+    if (empty($xml) || !$dom->loadXML($xml, LIBXML_NOBLANKS)) return null;
 
     $rootNode = $dom->documentElement;
 
