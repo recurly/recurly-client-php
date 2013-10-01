@@ -15,6 +15,14 @@ Content-Type: application/xml; charset=utf-8
   <last_name>David</last_name>
   <company_name>Home Box Office</company_name>
   <vat_number>ST-1937</vat_number>
+  <balance_in_cents_invoiced>
+    <USD type="integer">1000</USD>
+    <EUR type="integer">800</EUR>
+  </balance_in_cents_invoiced>
+  <balance_in_cents_uninvoiced>
+    <USD type="integer">1200</USD>
+    <EUR type="integer">700</EUR>
+  </balance_in_cents_uninvoiced>
   <address>
     <address1>123 Main St.</address1>
     <address2>APT #6</address2>

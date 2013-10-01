@@ -11,6 +11,8 @@ class Recurly_Account extends Recurly_Resource
     if (!is_null($accountCode))
       $this->account_code = $accountCode;
     $this->address = new Recurly_Address();
+    $this->balance_in_cents_invoiced = new Recurly_CurrencyList('balance_in_cents_invoiced');
+    $this->balance_in_cents_uninvoiced = new Recurly_CurrencyList('balance_in_cents_uninvoiced');
   }
 
   public static function init()
