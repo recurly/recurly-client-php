@@ -1,5 +1,9 @@
 # Recurly PHP Client Library CHANGELOG
 
+## Version 2.2.2 (Oct 7th, 2013)
+
+* Fixed errors thrown due to empty XML strings #62 [beaudesigns](https://github.com/beaudesigns)
+
 ## Version 2.2.1 (July 19th, 2013)
 
 * Fixed invalid XML errors when saving subscriptions with add-ons.
