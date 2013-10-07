@@ -2,8 +2,6 @@
 <?php
 
 class Recurly_BaseTest extends UnitTestCase {
-  // __parseXmlToNewObject($xml, $client)
-  // __parseXmlToUpdateObject($xml)
 
   function setUp() {
     $this->client = new MockRecurly_Client();
@@ -19,16 +17,5 @@ class Recurly_BaseTest extends UnitTestCase {
     }
 
     $this->assertEqual($account, null);
-  }
-
-  public function testParsingXMLToUpdateObject() {
-    //try {
-      //$out = Recurly_Resource::__parseXmlToUpdateObject('');
-    //}
-    //catch (Exception $e) {
-      //$this->fail("Could not parse empty XML string");
-    //}
-
-    //$this->assertEqual($out, null);
   }
 }
