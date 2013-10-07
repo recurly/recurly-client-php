@@ -37,6 +37,17 @@ class Recurly_TransactionTest extends UnitTestCase
     }
   }
 
+  public function testCreateTransactionWithEmptyXMLResponse()
+  {
+    $responseFixture = loadFixture(__DIR__ . '/../fixtures/transactions/empty.xml');
+
+    $client = new MockRecurly_Client();
+    $client->returns('request', $responseFixture);
+
+    $transaction = new Recurly_Transaction(null, $client);
+    $transaction->create();
+  }
+
   public function testRefundTransactionPartial()
   {
     mockRequest($this->client,

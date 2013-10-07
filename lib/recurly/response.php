@@ -82,7 +82,7 @@ class Recurly_ClientResponse
 
   private function parseErrorXml($xml) {
     $dom = new DOMDocument();
-    if (!$dom->loadXML($xml)) return null;
+    if (empty($xml) || !$dom->loadXML($xml)) return null;
 
     $rootNode = $dom->documentElement;
     if ($rootNode->nodeName == 'error')
