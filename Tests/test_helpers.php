@@ -51,14 +51,14 @@ class Recurly_MockClient {
       throw new Exception("Don't know how to $method '$uri'");
     }
 
-    return $this->loadFixture($fixture_filename);
+    return $this->responseFromFixture($fixture_filename);
   }
 
   public function getPdf($uri, $locale = null) {
     return array($uri, $locale);
   }
 
-  function loadFixture($filename) {
+  protected function responseFromFixture($filename) {
     $statusCode = 200;
     $headers = array();
     $body = null;
