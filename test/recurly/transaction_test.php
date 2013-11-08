@@ -1,89 +1,68 @@
 <?php
 
-class Recurly_TransactionTest extends UnitTestCase
+require_once(__DIR__ . '/../test_helpers.php');
+
+class Recurly_TransactionTest extends Recurly_TestCase
 {
-  function setUp() {
-    $this->client = new MockRecurly_Client();
-    mockRequest($this->client, 'transactions/show-200.xml', array('GET', '/transactions/012345678901234567890123456789ab'));
+  function defaultResponses() {
+    return array(
+      array('GET', '/transactions/012345678901234567890123456789ab', 'transactions/show-200.xml'),
+    );
   }
 
-  public function testGetTransaction()
-  {
+  public function testGetTransaction() {
     $transaction = Recurly_Transaction::get('012345678901234567890123456789ab', $this->client);
 
-    $this->assertIsA($transaction, 'Recurly_Transaction');
-    $this->assertIsA($transaction->account, 'Recurly_Stub');
-    $this->assertEqual($transaction->account->getHref(), 'https://api.recurly.com/v2/accounts/verena');
+    $this->assertInstanceOf('Recurly_Transaction', $transaction);
+    $this->assertInstanceOf('Recurly_Stub', $transaction->account);
+    $this->assertEquals($transaction->account->getHref(), 'https://api.recurly.com/v2/accounts/verena');
   }
 
-  public function testCreateTransactionFailed()
-  {
-    $responseFixture = loadFixture(__DIR__ . '/../fixtures/transactions/create-422.xml');
+  public function testCreateTransactionFailed() {
+    $this->client->addResponse('POST', '/transactions', 'transactions/create-422.xml');
 
-    $client = new MockRecurly_Client();
-    $client->returns('request', $responseFixture);
-
-    $transaction = new Recurly_Transaction(null, $client);
+    $transaction = new Recurly_Transaction(null, $this->client);
 
     try {
       $transaction->create();
       $this->fail("Expected Recurly_ValidationError");
     }
     catch (Recurly_ValidationError $e) {
-      $this->pass("Received Recurly_ValidationError");
-      $this->assertEqual($e->getMessage(), 'Your card number is not valid. Please update your card number.');
-      $this->assertIsA($e->errors[0], 'Recurly_TransactionError');
-      $this->assertIsA($e->object, 'Recurly_Transaction');
+      $this->assertEquals($e->getMessage(), 'Your card number is not valid. Please update your card number.');
+      $this->assertInstanceOf('Recurly_TransactionError', $e->errors[0]);
+      $this->assertInstanceOf('Recurly_Transaction', $e->object);
     }
   }
 
-  public function testCreateTransactionWithEmptyXMLResponse()
-  {
-    $responseFixture = loadFixture(__DIR__ . '/../fixtures/transactions/empty.xml');
+  public function testCreateTransactionWithEmptyXMLResponse() {
+    $this->client->addResponse('POST', '/transactions', 'transactions/empty.xml');
 
-    $client = new MockRecurly_Client();
-    $client->returns('request', $responseFixture);
-
-    $transaction = new Recurly_Transaction(null, $client);
+    $transaction = new Recurly_Transaction(null, $this->client);
     $transaction->create();
   }
 
-  public function testRefundTransactionPartial()
-  {
-    mockRequest($this->client,
-      'transactions/refund-202.xml',
-      array('DELETE', 'https://api.recurly.com/v2/transactions/abcdef1234567890?amount_in_cents=100', '*')
-    );
+  public function testRefundTransactionPartial() {
+    $this->client->addResponse('DELETE', 'https://api.recurly.com/v2/transactions/abcdef1234567890?amount_in_cents=100', 'transactions/refund-202.xml');
 
     $transaction = Recurly_Transaction::get('012345678901234567890123456789ab', $this->client);
     $transaction->refund(100);
-    $this->assertEqual($transaction->status, 'voided');
+    $this->assertEquals($transaction->status, 'voided');
   }
 
-  public function testRefundTransactionFull()
-  {
-    mockRequest($this->client,
-      'transactions/refund-202.xml',
-      array('DELETE', 'https://api.recurly.com/v2/transactions/abcdef1234567890', '*')
-    );
+  public function testRefundTransactionFull() {
+    $this->client->addResponse('DELETE', 'https://api.recurly.com/v2/transactions/abcdef1234567890', 'transactions/refund-202.xml');
 
     $transaction = Recurly_Transaction::get('012345678901234567890123456789ab', $this->client);
     $transaction->refund();
-    $this->assertEqual($transaction->status, 'voided');
+    $this->assertEquals($transaction->status, 'voided');
   }
 
-  public function testGetFailedTransaction()
-  {
-    $client = new MockRecurly_Client();
-
+  public function testGetFailedTransaction() {
     // GET response is "200 OK", yet transaction had an error
-    mockRequest($client,
-      'transactions/show-200-error.xml',
-      array('GET', '/transactions/012345678901234567890123456789ab')
-    );
+    $this->client->addResponse('GET', '/transactions/012345678901234567890123456789ab', 'transactions/show-200-error.xml');
 
-    $transaction = Recurly_Transaction::get('012345678901234567890123456789ab', $client);
-    $this->assertIsA($transaction, 'Recurly_Transaction');
-    $this->assertIsA($transaction->transaction_error, 'Recurly_TransactionError');
+    $transaction = Recurly_Transaction::get('012345678901234567890123456789ab', $this->client);
+    $this->assertInstanceOf('Recurly_Transaction', $transaction);
+    $this->assertInstanceOf('Recurly_TransactionError', $transaction->transaction_error);
   }
 }

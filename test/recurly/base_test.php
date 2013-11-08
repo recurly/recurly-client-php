@@ -1,21 +1,13 @@
-
 <?php
 
-class Recurly_BaseTest extends UnitTestCase {
+require_once(__DIR__ . '/../test_helpers.php');
 
-  function setUp() {
-    $this->client = new MockRecurly_Client();
-    mockRequest($this->client, 'accounts/empty.xml', array('GET', '/accounts/abcdef1234567890'));
-  }
+class Recurly_BaseTest extends Recurly_TestCase {
 
   public function testParsingXMLToNewObject() {
-    try {
-      $account = Recurly_Account::get('abcdef1234567890', $this->client);
-    }
-    catch (Exception $e) {
-      $this->fail("Could not parse empty XML string");
-    }
+    $this->client->addResponse('GET', '/accounts/abcdef1234567890', 'accounts/empty.xml');
 
-    $this->assertEqual($account, null);
+    $account = Recurly_Account::get('abcdef1234567890', $this->client);
+    $this->assertNull($account);
   }
 }

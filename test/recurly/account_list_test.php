@@ -1,16 +1,20 @@
 <?php
 
-class Recurly_AccountListTest extends UnitTestCase
+require_once(__DIR__ . '/../test_helpers.php');
+
+class Recurly_AccountListTest extends Recurly_TestCase
 {
-  public function testLoad()
-  {
-    $client = new MockRecurly_Client();
-    mockRequest($client, 'accounts/index-200.xml', array('GET', '/accounts'));
+  function defaultResponses() {
+    return array(
+      array('GET', '/accounts', 'accounts/index-200.xml')
+    );
+  }
 
-    $accounts = Recurly_AccountList::get(null, $client);
+  public function testLoad() {
+    $accounts = Recurly_AccountList::get(null, $this->client);
 
-    $this->assertIsA($accounts, 'Recurly_AccountList');
-    $this->assertEqual($accounts->getHref(),'/accounts');
-    $this->assertEqual($accounts->count(),42);
+    $this->assertInstanceOf('Recurly_AccountList', $accounts);
+    $this->assertEquals('/accounts', $accounts->getHref());
+    $this->assertEquals(42, $accounts->count());
   }
 }

@@ -1,14 +1,15 @@
 <?php
 
-class Recurly_AdjustmentTest extends UnitTestCase
+require_once(__DIR__ . '/../test_helpers.php');
+
+class Recurly_AdjustmentTest extends Recurly_TestCase
 {
   public function testDelete() {
-    $client = new MockRecurly_Client();
-    mockRequest($client, 'adjustments/show-200.xml', array('GET', '/adjustments/abcdef1234567890'));
-    mockRequest($client, 'adjustments/destroy-204.xml', array('DELETE', 'https://api.recurly.com/v2/adjustments/abcdef1234567890'));
+    $this->client->addResponse('GET', '/adjustments/abcdef1234567890', 'adjustments/show-200.xml');
+    $this->client->addResponse('DELETE', 'https://api.recurly.com/v2/adjustments/abcdef1234567890', 'adjustments/destroy-204.xml');
 
-    $adjustment = Recurly_Adjustment::get('abcdef1234567890', $client);
-    $this->assertIsA($adjustment, 'Recurly_Adjustment');
+    $adjustment = Recurly_Adjustment::get('abcdef1234567890', $this->client);
+    $this->assertInstanceOf('Recurly_Adjustment', $adjustment);
     $adjustment->delete();
   }
 
@@ -24,8 +25,7 @@ class Recurly_AdjustmentTest extends UnitTestCase
     // This deprecated parameter should be ignored:
     $charge->taxable = 0;
 
-    $expected = '<?xml version="1.0"?>' + "\n";
-    $expected += '<adjustment><currency>USD</currency><unit_amount_in_cents>5000</unit_amount_in_cents><quantity>1</quantity><description>Charge for extra bandwidth</description><accounting_code>bandwidth</accounting_code></adjustment>';
-    $this->assertEqual($charge->xml(), $expected);
+    $expected = "<?xml version=\"1.0\"?>\n<adjustment><currency>USD</currency><unit_amount_in_cents>5000</unit_amount_in_cents><quantity>1</quantity><description>Charge for extra bandwidth</description><accounting_code>bandwidth</accounting_code></adjustment>\n";
+    $this->assertEquals($expected, $charge->xml());
   }
 }

@@ -1,4 +1,4 @@
-Status: 200 OK
+HTTP/1.1 200 OK
 Content-Type: application/xml; charset=utf-8
 ETag: "a81253e90a4f16089b951028675c58d2"
 
