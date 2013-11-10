@@ -17,8 +17,10 @@ Content-Type: application/xml; charset=utf-8
   <payment_page_tos_link>http://example.com/terms-of-service</payment_page_tos_link>
   <plan_interval_length type="integer">100</plan_interval_length>
   <plan_interval_unit>months</plan_interval_unit>
-  <trial_interval_length type="integer">99</trial_interval_length>
-  <trial_interval_unit>months</trial_interval_unit>
+  <trial_interval_length type="integer">15</trial_interval_length>
+  <trial_interval_unit>days</trial_interval_unit>
+  <total_billing_cycles type="integer">6</total_billing_cycles>
+  <accounting_code nil="nil"></accounting_code>
   <created_at type="datetime">2011-04-19T07:00:00Z</created_at>
   <unit_amount_in_cents>
     <USD type="integer">1000</USD>
