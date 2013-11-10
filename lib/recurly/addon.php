@@ -6,6 +6,7 @@ class Recurly_Addon extends Recurly_Resource
   protected static $_nestedAttributes;
 
   function __construct() {
+    parent::__construct();
     $this->unit_amount_in_cents = new Recurly_CurrencyList('unit_amount_in_cents');
   }
 

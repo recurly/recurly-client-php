@@ -7,6 +7,7 @@ class Recurly_Coupon extends Recurly_Resource
   protected $_redeemUrl;
 
   function __construct() {
+    parent::__construct();
     $this->discount_in_cents = new Recurly_CurrencyList('discount_in_cents');
   }
 
