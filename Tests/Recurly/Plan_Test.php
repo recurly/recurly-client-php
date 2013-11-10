@@ -60,9 +60,10 @@ class Recurly_PlanTest extends Recurly_TestCase
     $plan->unit_amount_in_cents->addCurrency('USD', 1500);
     $plan->unit_amount_in_cents->addCurrency('EUR', 1200);
     $plan->setup_fee_in_cents->addCurrency('EUR', 500);
+    $plan->total_billing_cycles = NULL;
 
     $this->assertEquals(
-      "<?xml version=\"1.0\"?>\n<plan><plan_code>platinum</plan_code><name>Platinum Plan</name><unit_amount_in_cents><USD>1500</USD><EUR>1200</EUR></unit_amount_in_cents><setup_fee_in_cents><USD>500</USD><EUR>500</EUR></setup_fee_in_cents></plan>\n",
+      "<?xml version=\"1.0\"?>\n<plan><plan_code>platinum</plan_code><name>Platinum Plan</name><unit_amount_in_cents><USD>1500</USD><EUR>1200</EUR></unit_amount_in_cents><setup_fee_in_cents><USD>500</USD><EUR>500</EUR></setup_fee_in_cents><total_billing_cycles nil=\"nil\"></total_billing_cycles></plan>\n",
       $plan->xml()
     );
   }
