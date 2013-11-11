@@ -1,5 +1,11 @@
 # Recurly PHP Client Library CHANGELOG
 
+## Version 2.2.3 (Nov 11th, 2013)
+
+* Use PHPUnit for testing
+* Remove old `taxable` parameter from `Recurly_Adjustment`
+* Send `null` attributes because `Recurly_PlanTest` needs `total_billing_cycles` to be set to `null` for unlimited renewals.
+
 ## Version 2.2.2 (Oct 7th, 2013)
 
 * Fixed errors thrown due to empty XML strings #62 [beaudesigns](https://github.com/beaudesigns)
@@ -9,7 +15,7 @@
 * Fixed invalid XML errors when saving subscriptions with add-ons.
 * Added support for manual payments
 * Added support for account level address
-* moved VAT number to Account
+* Moved VAT number to Account
 
 ## Version 2.2.0 (May 10, 2013)
 
