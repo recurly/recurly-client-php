@@ -73,7 +73,9 @@ abstract class Recurly_Resource extends Recurly_Base
     $doc = new DOMDocument("1.0");
     $root = $doc->appendChild($doc->createElement($this->getNodeName()));
     $this->populateXmlDoc($doc, $root, $this);
-    return $doc->saveXML();
+    // To be able to consistently run tests across different XML libraries,
+    // favor `<foo></foo>` over `<foo/>`.
+    return $doc->saveXML(null, LIBXML_NOEMPTYTAG);
   }
 
   protected function populateXmlDoc(&$doc, &$node, &$obj, $nested = false)
@@ -107,6 +109,12 @@ abstract class Recurly_Resource extends Recurly_Base
             }
           }
         }
+      } else if (is_null($val)) {
+        $domAttribute = $doc->createAttribute('nil');
+        $domAttribute->value = 'nil';
+        $attribute_node = $doc->createElement($key, null);
+        $attribute_node->appendChild($domAttribute);
+        $node->appendChild($attribute_node);
       } else {
         if ($val instanceof DateTime) {
           $val = $val->format('c');
@@ -125,7 +133,7 @@ abstract class Recurly_Resource extends Recurly_Base
     $requiredAttributes = $this->getRequiredAttributes();
 
     foreach($writableAttributes as $attr) {
-      if(!isset($this->_values[$attr])) { continue; }
+      if(!array_key_exists($attr, $this->_values)) { continue; }
 
       if(isset($this->_unsavedKeys[$attr]) ||
          $nested && in_array($attr, $requiredAttributes) ||
