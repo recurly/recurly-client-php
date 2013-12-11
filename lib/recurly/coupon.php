@@ -33,12 +33,16 @@ class Recurly_Coupon extends Recurly_Resource
     $redemption->account_code = $accountCode;
     $redemption->currency = $currency;
 
-    foreach ($this->_links as $link) {
-      if ($link->name == 'redeem') {
-        $redemption->_save(strtoupper($link->method), $link->href);
-        return $redemption;
+    if (!empty($this->_links)) {
+      foreach ($this->_links as $link) {
+        if ($link->name == 'redeem') {
+          $redemption->_save(strtoupper($link->method), $link->href);
+          return $redemption;
+        }
       }
     }
+    
+    return false;
   }
 
 
