@@ -41,8 +41,7 @@ class Recurly_Coupon extends Recurly_Resource
         }
       }
     }
-    
-    return false;
+    throw new Recurly_Error('Unknown error redeeming coupon.');
   }
 
 
