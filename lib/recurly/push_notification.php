@@ -10,9 +10,17 @@
 class Recurly_PushNotification
 {
   /* Notification type:
-   *   [new_account updated_account canceled_account 
-   *    new_subscription updated_subscription canceled_subscription expired_subscription 
-   *    successful_payment failed_payment successful_refund void_payment]
+   *    new_account_notification
+   *    updated_account_notification
+   *    canceled_account_notification
+   *    new_subscription_notification
+   *    updated_subscription_notification
+   *    canceled_subscription_notification
+   *    expired_subscription_notification
+   *    successful_payment_notification
+   *    failed_payment_notification
+   *    successful_refund_notification
+   *    void_payment_notification
    */
   var $type;
 
