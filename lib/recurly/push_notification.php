@@ -32,7 +32,7 @@ class Recurly_PushNotification
     }
     $xml = new SimpleXMLElement ($post_xml);
     
-    $this->type = $xml->getName();
+    $this->type = str_replace('_notification', '', $xml->getName());
     
     foreach ($xml->children() as $child_node)
     {
