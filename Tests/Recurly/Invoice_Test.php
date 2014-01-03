@@ -15,7 +15,9 @@ class Recurly_InvoiceTest extends Recurly_TestCase
     $invoice = Recurly_Invoice::get('abcdef1234567890', $this->client);
 
     $this->assertInstanceOf('Recurly_Invoice', $invoice);
-    $this->assertEquals($invoice->state, 'open');
+    $this->assertInstanceOf('Recurly_Stub', $invoice->account);
+    $this->assertInstanceOf('Recurly_Stub', $invoice->subscription);
+    $this->assertEquals($invoice->state, 'collected');
     $this->assertEquals($invoice->total_in_cents, 2995);
     $this->assertEquals($invoice->getHref(),'https://api.recurly.com/v2/invoices/abcdef1234567890');
     $this->assertInstanceOf('Recurly_TransactionList', $invoice->transactions);

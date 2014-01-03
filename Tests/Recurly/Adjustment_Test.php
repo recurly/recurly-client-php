@@ -4,12 +4,42 @@ require_once(__DIR__ . '/../test_helpers.php');
 
 class Recurly_AdjustmentTest extends Recurly_TestCase
 {
+  function defaultResponses() {
+    return array(
+      array('GET', '/adjustments/abcdef1234567890', 'adjustments/show-200.xml')
+    );
+  }
+
+  public function testGetAdjustment() {
+    $adjustment = Recurly_Adjustment::get('abcdef1234567890', $this->client);
+
+    $this->assertInstanceOf('Recurly_Adjustment', $adjustment);
+    $this->assertInstanceOf('Recurly_Stub', $adjustment->account);
+    $this->assertInstanceOf('Recurly_Stub', $adjustment->invoice);
+    $this->assertInstanceOf('Recurly_Stub', $adjustment->subscription);
+    $this->assertEquals('abcdef1234567890', $adjustment->uuid);
+    $this->assertEquals('invoiced', $adjustment->state);
+    $this->assertEquals('$12 Annual Subscription', $adjustment->description);
+    $this->assertEquals('', $adjustment->accounting_code);
+    $this->assertEquals('', $adjustment->product_code);
+    $this->assertEquals('plan', $adjustment->origin);
+    $this->assertEquals('1200', $adjustment->unit_amount_in_cents);
+    $this->assertEquals('1', $adjustment->quantity);
+    $this->assertEquals('0', $adjustment->discount_in_cents);
+    $this->assertEquals('0', $adjustment->tax_in_cents);
+    $this->assertEquals('1200', $adjustment->total_in_cents);
+    $this->assertEquals('USD', $adjustment->currency);
+    $this->assertEquals(false, $adjustment->taxable);
+    $this->assertEquals('2011-04-30T07:00:00+00:00', $adjustment->start_date->format('c'));
+    $this->assertEquals('2011-04-30T07:00:00+00:00', $adjustment->end_date->format('c'));
+    $this->assertEquals('2011-08-31T03:30:00+00:00', $adjustment->created_at->format('c'));
+  }
+
   public function testDelete() {
     $this->client->addResponse('GET', '/adjustments/abcdef1234567890', 'adjustments/show-200.xml');
     $this->client->addResponse('DELETE', 'https://api.recurly.com/v2/adjustments/abcdef1234567890', 'adjustments/destroy-204.xml');
 
     $adjustment = Recurly_Adjustment::get('abcdef1234567890', $this->client);
-    $this->assertInstanceOf('Recurly_Adjustment', $adjustment);
     $adjustment->delete();
   }
 

@@ -15,6 +15,9 @@ class Recurly_TransactionTest extends Recurly_TestCase
 
     $this->assertInstanceOf('Recurly_Transaction', $transaction);
     $this->assertInstanceOf('Recurly_Stub', $transaction->account);
+    $this->assertInstanceOf('Recurly_Stub', $transaction->invoice);
+    $this->assertInstanceOf('Recurly_Stub', $transaction->subscription);
+
     $this->assertEquals($transaction->account->getHref(), 'https://api.recurly.com/v2/accounts/verena');
   }
 
