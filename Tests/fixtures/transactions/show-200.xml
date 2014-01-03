@@ -4,20 +4,25 @@ Content-Type: application/xml; charset=utf-8
 <?xml version="1.0" encoding="UTF-8"?>
 <transaction href="https://api.recurly.com/v2/transactions/abcdef1234567890">
   <account href="https://api.recurly.com/v2/accounts/verena"/>
+  <invoice href="https://api.recurly.com/v2/invoices/abcdef1234567890"/>
+  <subscription href="https://api.recurly.com/v2/subscriptions/1234567890abcdef"/>
   <uuid>abcdef1234567890</uuid>
   <action>purchase</action>
   <amount_in_cents type="integer">30000</amount_in_cents>
   <tax_in_cents type="integer">0</tax_in_cents>
   <currency>USD</currency>
   <status>success</status>
-  <reference nil="nil"></reference>
+  <payment_method>credit_card</payment_method>
+  <reference>12345</reference>
+  <source>subscription</source>
+  <recurring type="boolean">false</recurring>
   <test type="boolean">true</test>
   <voidable type="boolean">true</voidable>
   <refundable type="boolean">true</refundable>
-  <cvv_result code=""></cvv_result>
-  <avs_result code=""></avs_result>
-  <avs_result_street nil="nil"></avs_result_street>
-  <avs_result_postal nil="nil"></avs_result_postal>
+  <cvv_result code="M">Match</cvv_result>
+  <avs_result code="D">Street address and postal code match.</avs_result>
+  <avs_result_street>Y</avs_result_street>
+  <avs_result_postal>Y</avs_result_postal>
   <created_at type="datetime">2011-04-30T12:00:00Z</created_at>
   <details>
     <account>

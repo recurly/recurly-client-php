@@ -4,10 +4,15 @@ Content-Type: application/xml; charset=utf-8
 <?xml version="1.0" encoding="UTF-8"?>
 <adjustment href="https://api.recurly.com/v2/adjustments/abcdef1234567890" type="charge">
   <account href="https://api.recurly.com/v2/accounts/account"/>
+  <invoice href="https://api.recurly.com/v2/invoices/1234"/>
   <uuid>abcdef1234567890</uuid>
+  <state>invoiced</state>
   <description>$12 Annual Subscription</description>
-  <quantity type="integer">1</quantity>
+  <accounting_code></accounting_code>
+  <product_code nil="nil"></product_code>
+  <origin>plan</origin>
   <unit_amount_in_cents type="integer">1200</unit_amount_in_cents>
+  <quantity type="integer">1</quantity>
   <discount_in_cents type="integer">0</discount_in_cents>
   <tax_in_cents type="integer">0</tax_in_cents>
   <total_in_cents type="integer">1200</total_in_cents>
