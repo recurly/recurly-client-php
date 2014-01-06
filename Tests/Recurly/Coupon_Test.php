@@ -4,9 +4,13 @@ require_once(__DIR__ . '/../test_helpers.php');
 
 class Recurly_CouponTest extends Recurly_TestCase
 {
-  public function testGetCoupon() {
-    $this->client->addResponse('GET', '/coupons/special', 'coupons/show-200.xml');
+  function defaultResponses() {
+    return array(
+      array('GET', '/coupons/special', 'coupons/show-200.xml')
+    );
+  }
 
+  public function testGetCoupon() {
     $coupon = Recurly_Coupon::get('special', $this->client);
 
     $this->assertInstanceOf('Recurly_Coupon', $coupon);
