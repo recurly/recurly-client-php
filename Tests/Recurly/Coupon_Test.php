@@ -21,6 +21,15 @@ class Recurly_CouponTest extends Recurly_TestCase
     $this->assertEquals(1000, $coupon->discount_in_cents['USD']->amount_in_cents);
   }
 
+  public function testRedeemCoupon() {
+    $this->client->addResponse('POST', 'https://api.recurly.com/v2/coupons/special/redeem', 'coupons/redeem-201.xml');
+
+    $coupon = Recurly_Coupon::get('special', $this->client);
+    $redemption = $coupon->redeemCoupon('abcdef1234567890', 'USD');
+
+    $this->assertInstanceOf('Recurly_CouponRedemption', $redemption);
+  }
+
   public function testDeleteCoupon() {
     $this->client->addResponse('DELETE', '/coupons/special', 'coupons/destroy-204.xml');
 
