@@ -1,5 +1,12 @@
 # Recurly PHP Client Library CHANGELOG
 
+## Version 2.2.4 (Jan 7th, 2014)
+
+* Fixed error when trying to redeem expired or maxed out coupons (thanks to @jeffchannell)
+* Improved documentation of `Recurly_PushNotification` (thanks to @richardkmiller)
+* Updated XML in test fixtures
+* Better tests for `Recurly_Adjustment`
+
 ## Version 2.2.3 (Nov 11th, 2013)
 
 * Use PHPUnit for testing
