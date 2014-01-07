@@ -29,6 +29,10 @@ class Recurly_Coupon extends Recurly_Resource
   }
 
   public function redeemCoupon($accountCode, $currency) {
+    if ($this->state != 'redeemable') {
+      throw new Recurly_Error('Coupon is not redeemable.');
+    }
+
     $redemption = new Recurly_CouponRedemption(null, $this->_client);
     $redemption->account_code = $accountCode;
     $redemption->currency = $currency;
