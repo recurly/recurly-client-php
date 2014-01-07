@@ -7,6 +7,7 @@ Content-Type: application/xml; charset=utf-8
   <coupon_code>special</coupon_code>
   <name>Special 50% Discount</name>
   <state>redeemable</state>
+  <description></description>
   <discount_type>percent</discount_type>
   <discount_percent type="integer">50</discount_percent>
   <redeem_by_date type="datetime">2020-04-09T07:00:00Z</redeem_by_date>
@@ -19,5 +20,5 @@ Content-Type: application/xml; charset=utf-8
     <plan_code>plan_one</plan_code>
     <plan_code>plan_two</plan_code>
   </plan_codes>
-  <a name="redeem" href="https://api.recurly.com/v2/coupons/special/redeem" method="put"/>
+  <a name="redeem" href="https://api.recurly.com/v2/coupons/special/redeem" method="post"/>
 </coupon>

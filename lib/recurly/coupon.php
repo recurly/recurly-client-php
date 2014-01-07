@@ -29,7 +29,11 @@ class Recurly_Coupon extends Recurly_Resource
   }
 
   public function redeemCoupon($accountCode, $currency) {
-    $redemption = new Recurly_CouponRedemption();
+    if ($this->state != 'redeemable') {
+      throw new Recurly_Error('Coupon is not redeemable.');
+    }
+
+    $redemption = new Recurly_CouponRedemption(null, $this->_client);
     $redemption->account_code = $accountCode;
     $redemption->currency = $currency;
 
@@ -40,7 +44,6 @@ class Recurly_Coupon extends Recurly_Resource
       }
     }
   }
-
 
   public function delete() {
     return Recurly_Base::_delete($this->uri(), $this->_client);

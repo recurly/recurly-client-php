@@ -4,9 +4,13 @@ require_once(__DIR__ . '/../test_helpers.php');
 
 class Recurly_CouponTest extends Recurly_TestCase
 {
-  public function testGetCoupon() {
-    $this->client->addResponse('GET', '/coupons/special', 'coupons/show-200.xml');
+  function defaultResponses() {
+    return array(
+      array('GET', '/coupons/special', 'coupons/show-200.xml')
+    );
+  }
 
+  public function testGetCoupon() {
     $coupon = Recurly_Coupon::get('special', $this->client);
 
     $this->assertInstanceOf('Recurly_Coupon', $coupon);
@@ -15,6 +19,26 @@ class Recurly_CouponTest extends Recurly_TestCase
     $this->assertEquals('https://api.recurly.com/v2/coupons/special', $coupon->getHref());
     $this->assertInstanceOf('Recurly_CurrencyList', $coupon->discount_in_cents);
     $this->assertEquals(1000, $coupon->discount_in_cents['USD']->amount_in_cents);
+  }
+
+  public function testRedeemCoupon() {
+    $this->client->addResponse('POST', 'https://api.recurly.com/v2/coupons/special/redeem', 'coupons/redeem-201.xml');
+
+    $coupon = Recurly_Coupon::get('special', $this->client);
+    $this->assertEquals('redeemable', $coupon->state);
+
+    $redemption = $coupon->redeemCoupon('abcdef1234567890', 'USD');
+    $this->assertInstanceOf('Recurly_CouponRedemption', $redemption);
+  }
+
+  public function testRedeemCouponExpired() {
+    $this->client->addResponse('GET', '/coupons/expired', 'coupons/show-200-expired.xml');
+
+    $coupon = Recurly_Coupon::get('expired', $this->client);
+    $this->assertEquals('expired', $coupon->state);
+
+    $this->setExpectedException('Recurly_Error', 'Coupon is not redeemable');
+    $redemption = $coupon->redeemCoupon('abcdef1234567890', 'USD');
   }
 
   public function testDeleteCoupon() {

@@ -1,0 +1,14 @@
+HTTP/1.1 201 Created
+Content-Type: application/xml; charset=utf-8
+Location: https://api.recurly.com/v2/coupons/special/redeem
+
+<?xml version="1.0" encoding="UTF-8"?>
+<redemption href="https://api.recurly.com/v2/accounts/with_address/redemption">
+  <coupon href="https://api.recurly.com/v2/coupons/special"/>
+  <account href="https://api.recurly.com/v2/accounts/abcdef1234567890"/>
+  <single_use type="boolean">false</single_use>
+  <total_discounted_in_cents type="integer">0</total_discounted_in_cents>
+  <currency>USD</currency>
+  <state>active</state>
+  <created_at type="datetime">2014-01-06T19:06:35Z</created_at>
+</redemption>
