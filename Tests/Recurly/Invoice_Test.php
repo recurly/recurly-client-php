@@ -23,6 +23,7 @@ class Recurly_InvoiceTest extends Recurly_TestCase
     $this->assertInstanceOf('Recurly_TransactionList', $invoice->transactions);
     $this->assertEquals($invoice->transactions->current()->uuid, '012345678901234567890123456789ab');
     $this->assertEquals($invoice->transactions->count(), 1);
+    $this->assertEquals($invoice->tax_type, 'usst');
   }
 
   public function testInvoicePendingCharges() {

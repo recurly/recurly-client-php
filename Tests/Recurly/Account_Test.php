@@ -27,6 +27,7 @@ class Recurly_AccountTest extends Recurly_TestCase
     $this->assertEquals($account->address->country, 'US');
     $this->assertEquals($account->created_at->getTimestamp(), 1304164800);
     $this->assertEquals($account->getHref(),'https://api.recurly.com/v2/accounts/abcdef1234567890');
+    $this->assertTrue($account->tax_exempt);
   }
 
   public function testCloseAccount() {

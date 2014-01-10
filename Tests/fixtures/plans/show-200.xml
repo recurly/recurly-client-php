@@ -22,6 +22,7 @@ Content-Type: application/xml; charset=utf-8
   <total_billing_cycles type="integer">6</total_billing_cycles>
   <accounting_code nil="nil"></accounting_code>
   <created_at type="datetime">2011-04-19T07:00:00Z</created_at>
+  <tax_exempt type="boolean">true</tax_exempt>
   <unit_amount_in_cents>
     <USD type="integer">1000</USD>
     <EUR type="integer">800</EUR>

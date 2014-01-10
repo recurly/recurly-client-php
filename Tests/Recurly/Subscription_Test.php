@@ -23,6 +23,8 @@ class Recurly_SubscriptionTest extends Recurly_TestCase
     $this->assertEquals($subscription->collection_method, 'manual');
     $this->assertEquals($subscription->po_number, '1000');
     $this->assertEquals($subscription->net_terms, 10);
+    $this->assertEquals($subscription->tax_in_cents, 0);
+    $this->assertEquals($subscription->tax_type, 'usst');
 
     # TODO: Should test the rest of the parsing.
   }

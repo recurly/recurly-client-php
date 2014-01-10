@@ -33,6 +33,7 @@ class Recurly_AdjustmentTest extends Recurly_TestCase
     $this->assertEquals('2011-04-30T07:00:00+00:00', $adjustment->start_date->format('c'));
     $this->assertEquals('2011-04-30T07:00:00+00:00', $adjustment->end_date->format('c'));
     $this->assertEquals('2011-08-31T03:30:00+00:00', $adjustment->created_at->format('c'));
+    $this->assertEquals($adjustment->tax_exempt, false);
   }
 
   public function testDelete() {
