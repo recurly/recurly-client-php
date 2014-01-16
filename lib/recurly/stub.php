@@ -22,7 +22,7 @@ class Recurly_Stub extends Recurly_Base
 
   /**
    * Retrieve the stubbed resource.
-   * Preferred usage is __get()
+   * This is used to reload the object
    */
   function get() {
     $this->_requestObject = self::_get($this->_href, $this->_client);
@@ -30,8 +30,13 @@ class Recurly_Stub extends Recurly_Base
   }
 
   /**
-   * More intuitive way to lazily fetch stubs
-   * $transaction->account->account_code
+   * Ensures the resource has been fetched then tries to return it's property of the same name.
+   * 
+   * You can replace: 
+   * $transaction->account->get()->account_id
+   * With:
+   * $transaction->account->account_id
+   * 
    */
   function __get($var) {
     if (is_null($this->_requestObject)){
