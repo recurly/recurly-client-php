@@ -33,6 +33,7 @@ require_once(dirname(__FILE__) . '/recurly/redemption.php');
 require_once(dirname(__FILE__) . '/recurly/subscription.php');
 require_once(dirname(__FILE__) . '/recurly/subscription_list.php');
 require_once(dirname(__FILE__) . '/recurly/subscription_addon.php');
+require_once(dirname(__FILE__) . '/recurly/tax_detail.php');
 require_once(dirname(__FILE__) . '/recurly/transaction.php');
 require_once(dirname(__FILE__) . '/recurly/transaction_error.php');
 require_once(dirname(__FILE__) . '/recurly/transaction_list.php');

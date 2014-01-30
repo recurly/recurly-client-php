@@ -177,6 +177,8 @@ abstract class Recurly_Base
     'subscriptions' => 'Recurly_SubscriptionList',
     'subscription_add_ons' => 'array',
     'subscription_add_on' => 'Recurly_SubscriptionAddOn',
+    'tax_detail' => 'Recurly_Tax_Detail',
+    'tax_details' => 'array',
     'transaction' => 'Recurly_Transaction',
     'transactions' => 'Recurly_TransactionList',
     'transaction_error' => 'Recurly_TransactionError',
