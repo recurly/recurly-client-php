@@ -31,7 +31,7 @@ Here's an example of a dependency on 2.2:
 ```json
 {
     "require": {
-        "recurly/recurly-client": "2.2.*"
+        "recurly/recurly-client": "2.3.*"
     }
 }
 ```

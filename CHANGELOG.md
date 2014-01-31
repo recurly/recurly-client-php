@@ -1,5 +1,10 @@
 # Recurly PHP Client Library CHANGELOG
 
+## Version 2.3.0 (May 14th, 2014)
+
+* Added tax details to adjustments: `$adjustment->tax_details`
+* Added subscription previews: `$subscription->preview()`
+
 ## Version 2.2.6 (May 9th, 2014)
 
 * Added support for `Recurly_Account` field `balance_in_cents_invoiced` [#64](https://github.com/recurly/recurly-client-php/pull/64)

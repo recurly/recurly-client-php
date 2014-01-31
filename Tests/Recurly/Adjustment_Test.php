@@ -23,11 +23,11 @@ class Recurly_AdjustmentTest extends Recurly_TestCase
     $this->assertEquals('', $adjustment->accounting_code);
     $this->assertEquals('', $adjustment->product_code);
     $this->assertEquals('plan', $adjustment->origin);
-    $this->assertEquals('1200', $adjustment->unit_amount_in_cents);
-    $this->assertEquals('1', $adjustment->quantity);
-    $this->assertEquals('0', $adjustment->discount_in_cents);
-    $this->assertEquals('5000', $adjustment->tax_in_cents);
-    $this->assertEquals('1200', $adjustment->total_in_cents);
+    $this->assertEquals(1200, $adjustment->unit_amount_in_cents);
+    $this->assertEquals(1, $adjustment->quantity);
+    $this->assertEquals(0, $adjustment->discount_in_cents);
+    $this->assertEquals(5000, $adjustment->tax_in_cents);
+    $this->assertEquals(1200, $adjustment->total_in_cents);
     $this->assertEquals('USD', $adjustment->currency);
     $this->assertEquals(false, $adjustment->taxable);
     $this->assertEquals('2011-04-30T07:00:00+00:00', $adjustment->start_date->format('c'));
@@ -37,17 +37,19 @@ class Recurly_AdjustmentTest extends Recurly_TestCase
 
     $taxDetails = $adjustment->tax_details;
     $this->assertEquals(2, count($taxDetails));
+    $this->assertInstanceOf('Recurly_Tax_Detail', $taxDetails[0]);
+    $this->assertInstanceOf('Recurly_Tax_Detail', $taxDetails[1]);
     $state = $taxDetails[0];
     $county = $taxDetails[1];
     $this->assertEquals('california', $state->name);
     $this->assertEquals('state', $state->type);
-    $this->assertEquals('0.065', $state->tax_rate);
-    $this->assertEquals('3000', $state->tax_in_cents);
+    $this->assertEquals(0.065, $state->tax_rate);
+    $this->assertEquals(3000, $state->tax_in_cents);
 
     $this->assertEquals('san francisco', $county->name);
     $this->assertEquals('county', $county->type);
-    $this->assertEquals('0.02', $county->tax_rate);
-    $this->assertEquals('2000', $county->tax_in_cents);
+    $this->assertEquals(0.02, $county->tax_rate);
+    $this->assertEquals(2000, $county->tax_in_cents);
   }
 
   public function testDelete() {
