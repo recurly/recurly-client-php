@@ -134,15 +134,6 @@ class Recurly_SubscriptionTest extends Recurly_TestCase
       "<?xml version=\"1.0\"?>\n<subscription><account><account_code>account_code</account_code><billing_info><token_id>abc123</token_id></billing_info><address></address></account><plan_code>gold</plan_code><quantity>1</quantity><currency>USD</currency><subscription_add_ons></subscription_add_ons></subscription>\n",
       $subscription->xml()
     );
-
-  /**
-   * @expectedException Recurly_Error
-   */
-  public function testNonPreviewableSubscriptions() {
-    $this->client->addResponse('GET', '/subscriptions/012345678901234567890123456789ab', 'subscriptions/show-200.xml');
-
-    $subscription = Recurly_Subscription::get('012345678901234567890123456789ab', $this->client);
-    $subscription->preview();
   }
 
   public function testPreviewableSubscription() {
