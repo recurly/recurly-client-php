@@ -19,6 +19,8 @@ class Recurly_CouponTest extends Recurly_TestCase
     $this->assertEquals('https://api.recurly.com/v2/coupons/special', $coupon->getHref());
     $this->assertInstanceOf('Recurly_CurrencyList', $coupon->discount_in_cents);
     $this->assertEquals(1000, $coupon->discount_in_cents['USD']->amount_in_cents);
+    $this->assertTrue($coupon->applies_to_all_plans);
+    $this->assertEquals(array(), $coupon->plan_codes);
   }
 
   public function testRedeemCoupon() {
@@ -54,9 +56,8 @@ class Recurly_CouponTest extends Recurly_TestCase
     $coupon = Recurly_Coupon::get('special', $this->client);
 
     $this->assertInstanceOf('Recurly_Coupon', $coupon);
-    $this->assertCount(2, $coupon->plan_codes);
-    $this->assertEquals($coupon->plan_codes[0], 'plan_one');
-    $this->assertEquals($coupon->plan_codes[1], 'plan_two');
+    $this->assertTrue($coupon->applies_to_all_plans);
+    $this->assertEquals(array('plan_one', 'plan_two'), $coupon->plan_codes);
   }
 
   public function testXml() {
