@@ -7,6 +7,7 @@ class Recurly_Account extends Recurly_Resource
   protected static $_requiredAttributes;
 
   function __construct($accountCode = null) {
+    parent::__construct();
     if (!is_null($accountCode))
       $this->account_code = $accountCode;
     $this->address = new Recurly_Address();
