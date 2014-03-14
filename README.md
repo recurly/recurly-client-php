@@ -71,3 +71,13 @@ Recurly_js::$privateKey = "0123456789abcdef0123456789abcdef";
 ## API Documentation
 
 Please see the [Recurly API](http://docs.recurly.com/api) for more information.
+
+## Support
+
+- [https://support.recurly.com](https://support.recurly.com)
+- [stackoverflow](http://stackoverflow.com/questions/tagged/recurly)
+
+## Announcements
+
+- [@recurly](https://twitter.com/recurly)
+- [Google Group Announcements](https://groups.google.com/group/recurly-api)
