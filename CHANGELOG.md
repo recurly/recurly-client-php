@@ -1,9 +1,16 @@
 # Recurly PHP Client Library CHANGELOG
 
+## Version 2.2.5 (??? ?th, 2014)
+
+* Explictly call `Recurly_Resource`'s constructor [#67](https://github.com/recurly/recurly-client-php/pull/67)
+* More tests for coupons [#77](https://github.com/recurly/recurly-client-php/pull/77)
+* Document where new releases are announced in the README [#78](https://github.com/recurly/recurly-client-php/pull/78)
+* Fixed error where where `Recurly_Addon` was not found [#79 by baxevanis](https://github.com/recurly/recurly-client-php/pull/79)
+
 ## Version 2.2.4 (Jan 7th, 2014)
 
-* Fixed error when trying to redeem expired or maxed out coupons (thanks to @jeffchannell)
-* Improved documentation of `Recurly_PushNotification` (thanks to @richardkmiller)
+* Fixed error when trying to redeem expired or maxed out coupons (thanks to [jeffchannell](https://github.com/jeffchannell))
+* Improved documentation of `Recurly_PushNotification` (thanks to [richardkmiller](https://github.com/richardkmiller))
 * Updated XML in test fixtures
 * Better tests for `Recurly_Adjustment`
 
@@ -105,7 +112,7 @@ NOTE: Recurly.js signature and result retrieval is not backwards compatible with
 
 * Include method to retrieve invoice as PDF
 
-Merged fixes from beaudesigns:
+Merged fixes from [beaudesigns](https://github.com/beaudesigns):
 
 * Replaced static class to DomDocument::loadXML()
 * "pending_subscription" now loads class Recurly_Subscription
