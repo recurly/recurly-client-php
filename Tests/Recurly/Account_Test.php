@@ -91,4 +91,17 @@ class Recurly_AccountTest extends Recurly_TestCase
       $account->xml()
     );
   }
+
+  /**
+   * Test that updates to nested objects like account addresses are detected
+   * when generating XML to send.
+   */
+  public function testNestedAddress() {
+    $account = Recurly_Account::get('abcdef1234567890', $this->client);
+    $account->address->address1 = '987 Alternate St.';
+    $this->assertEquals(
+      "<?xml version=\"1.0\"?>\n<account><address><address1>987 Alternate St.</address1></address></account>\n",
+      $account->xml()
+    );
+  }
 }
