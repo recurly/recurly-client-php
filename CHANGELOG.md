@@ -1,11 +1,12 @@
 # Recurly PHP Client Library CHANGELOG
 
-## Version 2.2.5 (??? ?th, 2014)
+## Version 2.2.5 (Apr 24th, 2014)
 
 * Explictly call `Recurly_Resource`'s constructor [#67](https://github.com/recurly/recurly-client-php/pull/67)
 * More tests for coupons [#77](https://github.com/recurly/recurly-client-php/pull/77)
 * Document where new releases are announced in the README [#78](https://github.com/recurly/recurly-client-php/pull/78)
 * Fixed error where where `Recurly_Addon` was not found [#79 by baxevanis](https://github.com/recurly/recurly-client-php/pull/79)
+* Fixed bug setting account address [#80 by deviantintegral](https://github.com/recurly/recurly-client-php/pull/80)
 
 ## Version 2.2.4 (Jan 7th, 2014)
 
