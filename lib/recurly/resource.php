@@ -141,6 +141,14 @@ abstract class Recurly_Resource extends Recurly_Base
       {
         $attributes[$attr] = $this->$attr;
       }
+
+      // Check for nested objects.
+      if ($this->_values[$attr] instanceof Recurly_Resource) {
+        $changed_attrs = $this->_values[$attr]->getChangedAttributes();
+        if (!empty($changed_attrs)) {
+          $attributes[$attr] = $this->$attr;
+        }
+      }
     }
 
     return $attributes;
