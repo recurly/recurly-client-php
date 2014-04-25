@@ -10,7 +10,8 @@ class Recurly_BillingInfo extends Recurly_Resource
     Recurly_BillingInfo::$_writeableAttributes = array(
       'first_name','last_name','ip_address',
       'address1','address2','city','state','country','zip','phone','vat_number',
-      'number','month','year','verification_value','start_year','start_month','issue_number'
+      'number','month','year','verification_value','start_year','start_month','issue_number',
+      'token_id'
     );
     Recurly_BillingInfo::$_nestedAttributes = array('account');
   }
