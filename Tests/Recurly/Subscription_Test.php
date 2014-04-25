@@ -115,4 +115,22 @@ class Recurly_SubscriptionTest extends Recurly_TestCase
       $subscription->xml()
     );
   }
+
+  public function testCreateSubscriptionWithBillingInfoTokenXml() {
+    $subscription = new Recurly_Subscription();
+    $subscription->plan_code = 'gold';
+    $subscription->quantity = 1;
+    $subscription->currency = 'USD';
+
+    $subscription->account = new Recurly_Account();
+    $subscription->account->account_code = 'account_code';
+
+    $subscription->account->billing_info = new Recurly_BillingInfo();
+    $subscription->account->billing_info->token_id = 'abc123';
+
+    $this->assertEquals(
+      "<?xml version=\"1.0\"?>\n<subscription><account><account_code>account_code</account_code><billing_info><token_id>abc123</token_id></billing_info><address></address></account><plan_code>gold</plan_code><quantity>1</quantity><currency>USD</currency><subscription_add_ons></subscription_add_ons></subscription>\n",
+      $subscription->xml()
+    );
+  }
 }

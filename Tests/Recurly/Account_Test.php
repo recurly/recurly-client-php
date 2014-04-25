@@ -104,4 +104,28 @@ class Recurly_AccountTest extends Recurly_TestCase
       $account->xml()
     );
   }
+
+  public function testCreate() {
+    $this->client->addResponse('POST', '/accounts', 'accounts/create-201.xml');
+
+    $account = new Recurly_Account(null, $this->client);
+    $account->account_code = 'abcdef1234567890';
+
+    $account->create();
+
+    $this->assertInstanceOf('Recurly_Account', $account);
+  }
+
+  public function testCreateWithBillingInfoToken() {
+    $this->client->addResponse('POST', '/accounts', 'accounts/create-201.xml');
+
+    $account = new Recurly_Account(null, $this->client);
+    $account->account_code = 'abcdef1234567890';
+    $account->billing_info = new Recurly_BillingInfo();
+    $account->billing_info->token_id = 'abc123';
+
+    $account->create();
+
+    $this->assertInstanceOf('Recurly_Account', $account);
+  }
 }
