@@ -13,7 +13,7 @@ class Recurly_Invoice extends Recurly_Resource
 
   /**
    * Lookup an invoice by its ID
-   * @param string Invoice number or UUID
+   * @param string Invoice number
    * @return Recurly_Invoice invoice
    */
   public static function get($invoiceNumber, $client = null) {
