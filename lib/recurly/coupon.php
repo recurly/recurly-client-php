@@ -16,7 +16,7 @@ class Recurly_Coupon extends Recurly_Resource
     Recurly_Coupon::$_writeableAttributes = array(
       'coupon_code','name','discount_type','redeem_by_date','single_use','applies_for_months',
       'max_redemptions','applies_to_all_plans','discount_percent','discount_in_cents','plan_codes',
-      'hosted_description','invoice_description'
+      'hosted_description','invoice_description','plan_codes'
     );
     Recurly_Coupon::$_nestedAttributes = array();
   }
