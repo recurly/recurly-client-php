@@ -46,6 +46,16 @@ abstract class Recurly_Resource extends Recurly_Base
     }
   }
 
+  /**
+   * Return all of the values associated with this resource.
+   *
+   * @return array
+   *   The array of values stored with this resource.
+   */
+  public function values() {
+    return $this->_values;
+  }
+
   public function getErrors() {
     return $this->_errors;
   }
