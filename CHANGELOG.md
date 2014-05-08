@@ -1,5 +1,10 @@
 # Recurly PHP Client Library CHANGELOG
 
+## Version 2.2.6 (?)
+
+* Added support for field balance_in_cents_invoiced
+* Added support for field balance_in_cents_uninvoiced
+
 ## Version 2.2.5 (Apr 24th, 2014)
 
 * Explictly call `Recurly_Resource`'s constructor [#67](https://github.com/recurly/recurly-client-php/pull/67)
