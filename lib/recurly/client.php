@@ -155,6 +155,11 @@ class Recurly_Client
     curl_close($ch);
 
     list($header, $body) = explode("\r\n\r\n", $response, 2);
+    // Larger responses end up prefixed by "HTTP/1.1 100 Continue\r\n\r\n" which
+    // needs to be discarded.
+    if (strpos($header," 100 Continue") !== false ) {
+      list($header, $body) = explode("\r\n\r\n", $body, 2);
+    }
     $headers = $this->_getHeaders($header);
 
     return new Recurly_ClientResponse($statusCode, $headers, $body);
