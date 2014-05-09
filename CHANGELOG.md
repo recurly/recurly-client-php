@@ -1,9 +1,11 @@
 # Recurly PHP Client Library CHANGELOG
 
-## Version 2.2.6 (?)
+## Version 2.2.6 (May 9th, 2014)
 
-* Added support for field balance_in_cents_invoiced
-* Added support for field balance_in_cents_uninvoiced
+* Added support for `Recurly_Account` field `balance_in_cents_invoiced` [#64]
+* Added support for `Recurly_Account` field `balance_in_cents_uninvoiced` [#64]
+* Added support for `Recurly_BillingInfo` field `token_id` [#83]
+* Fixed bug in parsing large XML responses [#88]
 
 ## Version 2.2.5 (Apr 24th, 2014)
 
