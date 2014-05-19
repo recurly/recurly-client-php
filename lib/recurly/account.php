@@ -19,7 +19,7 @@ class Recurly_Account extends Recurly_Resource
   {
     Recurly_Account::$_writeableAttributes = array(
       'account_code','username','first_name','last_name','vat_number',
-      'email','company_name','accept_language','billing_info','address'
+      'email','company_name','accept_language','billing_info','address','tax_exempt'
     );
     Recurly_Account::$_nestedAttributes = array(
       'adjustments','billing_info','invoices','subscriptions','transactions'

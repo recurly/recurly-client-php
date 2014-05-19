@@ -30,6 +30,7 @@ class Recurly_PlanTest extends Recurly_TestCase
     $this->assertInstanceOf('Recurly_CurrencyList', $plan->setup_fee_in_cents);
     $this->assertEquals(500, $plan->setup_fee_in_cents['USD']->amount_in_cents);
     $this->assertEquals(400, $plan->setup_fee_in_cents['EUR']->amount_in_cents);
+    $this->assertTrue($plan->tax_exempt);
   }
 
   public function testDeletePlan() {
