@@ -52,7 +52,7 @@ abstract class Recurly_Resource extends Recurly_Base
    * @return array
    *   The array of values stored with this resource.
    */
-  public function values() {
+  public function getValues() {
     return $this->_values;
   }
 
