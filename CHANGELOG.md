@@ -1,5 +1,9 @@
 # Recurly PHP Client Library CHANGELOG
 
+## Unreleased
+
+* Added remaining billing cycles to subscriptions: `subscription.remaining_billing_cycles` [91](https://github.com/recurly/recurly-client-php/pull/91)
+
 ## Version 2.3.0 (May 19th, 2014)
 
 * Added tax details to adjustments: `$adjustment->tax_details` [90](https://github.com/recurly/recurly-client-php/pull/90)
