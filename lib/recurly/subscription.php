@@ -11,7 +11,7 @@ class Recurly_Subscription extends Recurly_Resource
       'account','plan_code','coupon_code','unit_amount_in_cents','quantity',
       'currency','starts_at','trial_ends_at','total_billing_cycles', 'first_renewal_date',
       'timeframe', 'subscription_add_ons', 'net_terms', 'po_number', 'collection_method',
-      'cost_in_cents'
+      'cost_in_cents', 'remaining_billing_cycles'
     );
     Recurly_Subscription::$_nestedAttributes = array('account', 'subscription_add_ons');
   }
