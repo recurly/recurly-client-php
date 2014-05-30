@@ -19,6 +19,7 @@ class Recurly_CouponTest extends Recurly_TestCase
     $this->assertEquals('https://api.recurly.com/v2/coupons/special', $coupon->getHref());
     $this->assertInstanceOf('Recurly_CurrencyList', $coupon->discount_in_cents);
     $this->assertEquals(1000, $coupon->discount_in_cents['USD']->amount_in_cents);
+    $this->assertEquals('Invoice description', $coupon->invoice_description);
     $this->assertTrue($coupon->applies_to_all_plans);
     $this->assertEquals(array(), $coupon->plan_codes);
   }
@@ -66,9 +67,10 @@ class Recurly_CouponTest extends Recurly_TestCase
     $coupon->name = '$15 Off';
     $coupon->discount_type = 'dollar';
     $coupon->discount_in_cents->addCurrency('USD', 1500);
+    $coupon->invoice_description = 'Invoice description';
 
     $this->assertEquals(
-      "<?xml version=\"1.0\"?>\n<coupon><coupon_code>fifteen-off</coupon_code><name>$15 Off</name><discount_type>dollar</discount_type><discount_in_cents><USD>1500</USD></discount_in_cents></coupon>\n",
+      "<?xml version=\"1.0\"?>\n<coupon><coupon_code>fifteen-off</coupon_code><name>$15 Off</name><discount_type>dollar</discount_type><discount_in_cents><USD>1500</USD></discount_in_cents><invoice_description>Invoice description</invoice_description></coupon>\n",
       $coupon->xml()
     );
   }
@@ -80,9 +82,10 @@ class Recurly_CouponTest extends Recurly_TestCase
     $coupon->discount_type = 'dollar';
     $coupon->discount_in_cents->addCurrency('USD', 1500);
     $coupon->plan_codes = array('gold', 'monthly');
+    $coupon->invoice_description = 'Invoice description';
 
     $this->assertEquals(
-      "<?xml version=\"1.0\"?>\n<coupon><coupon_code>fifteen-off</coupon_code><name>$15 Off</name><discount_type>dollar</discount_type><discount_in_cents><USD>1500</USD></discount_in_cents><plan_codes><plan_code>gold</plan_code><plan_code>monthly</plan_code></plan_codes></coupon>\n",
+      "<?xml version=\"1.0\"?>\n<coupon><coupon_code>fifteen-off</coupon_code><name>$15 Off</name><discount_type>dollar</discount_type><discount_in_cents><USD>1500</USD></discount_in_cents><plan_codes><plan_code>gold</plan_code><plan_code>monthly</plan_code></plan_codes><invoice_description>Invoice description</invoice_description></coupon>\n",
       $coupon->xml()
     );
   }
