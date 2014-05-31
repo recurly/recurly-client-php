@@ -12,6 +12,7 @@ Content-Type: application/xml; charset=utf-8
   <discount_in_cents>
     <USD type="integer">1000</USD>
   </discount_in_cents>
+  <invoice_description>Invoice description</invoice_description>
   <redeem_by_date type="datetime">2020-05-01T08:00:00Z</redeem_by_date>
   <single_use type="boolean">true</single_use>
   <applies_for_months type="integer">1</applies_for_months>
