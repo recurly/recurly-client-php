@@ -2,7 +2,8 @@
 
 ## Unreleased
 
-* Added remaining billing cycles to subscriptions: `subscription.remaining_billing_cycles` [91](https://github.com/recurly/recurly-client-php/pull/91)
+* Added remaining billing cycles to subscriptions: `subscription->remaining_billing_cycles` [91](https://github.com/recurly/recurly-client-php/pull/91)
+* Add subscription change preview for existing subscriptions: `subscription->preview()` [94](https://github.com/recurly/recurly-client-php/pull/94)
 
 ## Version 2.3.0 (May 19th, 2014)
 
