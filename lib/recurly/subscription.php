@@ -30,11 +30,11 @@ class Recurly_Subscription extends Recurly_Resource
   }
 
   public function preview() {
-    if (!empty($this->uuid)) {
-      throw new Recurly_Error('Cannot preview an existing subscription');
+    if ($this->uuid) {
+      $this->_save(Recurly_Client::POST, $this->uri() . '/preview');
+    } else {
+      $this->_save(Recurly_Client::POST, Recurly_Client::PATH_SUBSCRIPTIONS . '/preview');
     }
-
-    $this->_save(Recurly_Client::POST, Recurly_Client::PATH_SUBSCRIPTIONS . '/preview');
   }
 
   /**

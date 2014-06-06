@@ -136,8 +136,8 @@ class Recurly_SubscriptionTest extends Recurly_TestCase
     );
   }
 
-  public function testPreviewableSubscription() {
-    $this->client->addResponse('POST', '/subscriptions/preview', 'subscriptions/preview-200.xml');
+  public function testPreviewNewSubscription() {
+    $this->client->addResponse('POST', '/subscriptions/preview', 'subscriptions/preview-200-new.xml');
 
     $subscription = new Recurly_Subscription(null, $this->client);
     $subscription->plan_code = 'gold';
@@ -157,13 +157,17 @@ class Recurly_SubscriptionTest extends Recurly_TestCase
     $this->assertEquals('pending', $subscription->state);
   }
 
-  /**
-   * @expectedException Recurly_Error
-   */
-  public function testNonPreviewableSubscriptions() {
+  public function testPreviewChangeSubscription() {
     $this->client->addResponse('GET', '/subscriptions/012345678901234567890123456789ab', 'subscriptions/show-200.xml');
 
+    $this->client->addResponse('POST', 'https://api.recurly.com/v2/subscriptions/012345678901234567890123456789ab/preview', 'subscriptions/preview-200-change.xml');
+
     $subscription = Recurly_Subscription::get('012345678901234567890123456789ab', $this->client);
+    $subscription->plan_code = 'gold';
+
     $subscription->preview();
+
+    $this->assertEquals('5000', $subscription->cost_in_cents);
+    $this->assertEquals('gold', $subscription->plan_code);
   }
 }
