@@ -62,12 +62,6 @@ Recurly_Client::$subdomain = 'your-subdomain';
 Recurly_Client::$apiKey = '012345678901234567890123456789ab';
 ```
 
-If you are using [Recurly.js](http://js.recurly.com), specify your `private_key`:
-
-```php
-Recurly_js::$privateKey = "0123456789abcdef0123456789abcdef";
-```
-
 ## API Documentation
 
 Please see the [Recurly API](http://docs.recurly.com/api) for more information.
