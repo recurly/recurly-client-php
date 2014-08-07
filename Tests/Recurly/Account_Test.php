@@ -86,9 +86,10 @@ class Recurly_AccountTest extends Recurly_TestCase
     $account->account_code = 'act123';
     $account->first_name = 'Verena';
     $account->address->address1 = "123 Main St.";
+    $account->tax_exempt = false;
 
     $this->assertEquals(
-      "<?xml version=\"1.0\"?>\n<account><account_code>act123</account_code><first_name>Verena</first_name><address><address1>123 Main St.</address1></address></account>\n",
+      "<?xml version=\"1.0\"?>\n<account><account_code>act123</account_code><first_name>Verena</first_name><address><address1>123 Main St.</address1></address><tax_exempt>false</tax_exempt></account>\n",
       $account->xml()
     );
   }
