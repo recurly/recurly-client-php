@@ -3,7 +3,8 @@
 ## Unreleased
 
 * Added remaining billing cycles to subscriptions: `subscription->remaining_billing_cycles` [91](https://github.com/recurly/recurly-client-php/pull/91)
-* Add subscription change preview for existing subscriptions: `subscription->preview()` [94](https://github.com/recurly/recurly-client-php/pull/94)
+* Added subscription change preview for existing subscriptions: `subscription->preview()` [94](https://github.com/recurly/recurly-client-php/pull/94)
+* Added account entity use code: `account->entity_use_code` [100](https://github.com/recurly/recurly-client-php/pull/100)
 
 ## Version 2.3.0 (May 19th, 2014)
 
