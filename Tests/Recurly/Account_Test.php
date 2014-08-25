@@ -28,6 +28,7 @@ class Recurly_AccountTest extends Recurly_TestCase
     $this->assertEquals($account->created_at->getTimestamp(), 1304164800);
     $this->assertEquals($account->getHref(),'https://api.recurly.com/v2/accounts/abcdef1234567890');
     $this->assertTrue($account->tax_exempt);
+    $this->assertEquals($account->entity_use_code, 'I');
   }
 
   public function testCloseAccount() {
@@ -87,9 +88,10 @@ class Recurly_AccountTest extends Recurly_TestCase
     $account->first_name = 'Verena';
     $account->address->address1 = "123 Main St.";
     $account->tax_exempt = false;
+    $account->entity_use_code = 'I';
 
     $this->assertEquals(
-      "<?xml version=\"1.0\"?>\n<account><account_code>act123</account_code><first_name>Verena</first_name><address><address1>123 Main St.</address1></address><tax_exempt>false</tax_exempt></account>\n",
+      "<?xml version=\"1.0\"?>\n<account><account_code>act123</account_code><first_name>Verena</first_name><address><address1>123 Main St.</address1></address><tax_exempt>false</tax_exempt><entity_use_code>I</entity_use_code></account>\n",
       $account->xml()
     );
   }
