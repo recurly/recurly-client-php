@@ -90,8 +90,14 @@ class Recurly_Subscription extends Recurly_Resource
     $this->_save(Recurly_Client::PUT, $this->uri() . '/terminate?refund=' . $refundType);
   }
 
-  public function postpone($nextRenewalDate) {
-    $this->_save(Recurly_Client::PUT, $this->uri() . '/postpone?next_renewal_date=' . $nextRenewalDate);
+  /**
+   * Postpone a subscription's renewal date.
+   *
+   * $nextRenewalDate - ISO8601 DateTime String, postpone the subscription to this date
+   * $bulk - bool, for making bulk updates, avoid checking for duplicate subscriptions.
+   **/
+  public function postpone($nextRenewalDate, $bulk = false) {
+    $this->_save(Recurly_Client::PUT, $this->uri() . '/postpone?next_renewal_date=' . $nextRenewalDate . '&bulk=' . ((bool) $bulk));
   }
 
   protected function uri() {
