@@ -23,6 +23,10 @@ class Recurly_Stub extends Recurly_Base
     return self::_get($this->_href, $this->_client);
   }
   
+  function getHref() {
+    return $this->_href;
+  }
+
   public function __toString()
   {
     return "<Recurly_Stub[{$this->objectType}] href={$this->_href}>";

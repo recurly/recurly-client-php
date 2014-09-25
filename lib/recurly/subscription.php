@@ -26,6 +26,7 @@ class Recurly_Subscription extends Recurly_Resource
   }
 
   public function create() {
+    return
     $this->_save(Recurly_Client::POST, Recurly_Client::PATH_SUBSCRIPTIONS);
   }
 
