@@ -1,10 +1,17 @@
 # Recurly PHP Client Library CHANGELOG
 
-## Unreleased
+## Version 2.3.1 (Sept 26th, 2014)
 
 * Added remaining billing cycles to subscriptions: `subscription->remaining_billing_cycles` [91](https://github.com/recurly/recurly-client-php/pull/91)
 * Added subscription change preview for existing subscriptions: `subscription->preview()` [94](https://github.com/recurly/recurly-client-php/pull/94)
+* Remove readme reference to recurlyjs v2 private key [97](https://github.com/recurly/recurly-client-php/pull/97)
+* Addding bulk parameter to subscription creation [98](https://github.com/recurly/recurly-client-php/pull/98)
 * Added account entity use code: `account->entity_use_code` [100](https://github.com/recurly/recurly-client-php/pull/100)
+* Added PHP 5.6 and HHVM to travis.yml (thanks to [Nyholm](https://github.com/Nyholm)) [101](https://github.com/recurly/recurly-client-php/pull/101)
+* Update branch alias to 2.3.x-dev (thanks to [bangpound](https://github.com/bangpound)) [102](https://github.com/recurly/recurly-client-php/pull/102)
+* Bump phpunit to 4.2 [103](https://github.com/recurly/recurly-client-php/pull/103)
+* Adds PayPal and Amazon support to Recurly_BillingInfo [104](https://github.com/recurly/recurly-client-php/pull/104)
+* Adding bulk parameter to `$subscription->postpone()` [105](https://github.com/recurly/recurly-client-php/pull/105)
 
 ## Version 2.3.0 (May 19th, 2014)
 
