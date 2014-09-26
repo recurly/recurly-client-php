@@ -75,3 +75,7 @@ Please see the [Recurly API](http://docs.recurly.com/api) for more information.
 
 - [@recurly](https://twitter.com/recurly)
 - [Google Group Announcements](https://groups.google.com/group/recurly-api)
+
+## Contributing Guidelines
+
+Please refer to [CONTRIBUTING.md](CONTRIBUTING.md)
