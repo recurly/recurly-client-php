@@ -75,6 +75,7 @@ abstract class Recurly_Resource extends Recurly_Base
       Recurly_Resource::__parseXmlToUpdateObject($response->body);
     }
     $response->assertSuccessResponse($this);
+    return $this;
   }
 
 
