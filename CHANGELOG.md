@@ -1,5 +1,9 @@
 # Recurly PHP Client Library CHANGELOG
 
+## Unreleased
+
+* Added invoice previews: `Recurly_Invoice::previewPendingCharges('<accountCode>');` [112](https://github.com/recurly/recurly-client-php/pull/112)
+
 ## Version 2.3.1 (Sept 26th, 2014)
 
 * Added remaining billing cycles to subscriptions: `subscription->remaining_billing_cycles` [91](https://github.com/recurly/recurly-client-php/pull/91)

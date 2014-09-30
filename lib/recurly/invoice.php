@@ -49,6 +49,16 @@ class Recurly_Invoice extends Recurly_Resource
     return self::_post($uri, null, $client);
   }
 
+  /**
+   * Previews an invoice for an account using its pending charges
+   * @param string Unique account code
+   * @return Recurly_Invoice invoice on success
+   */
+  public static function previewPendingCharges($accountCode, $client = null) {
+    $uri = Recurly_Client::PATH_ACCOUNTS . '/' . rawurlencode($accountCode) . Recurly_Client::PATH_INVOICES . '/preview';
+    return self::_post($uri, null, $client);
+  }
+
   public function markSuccessful() {
     $this->_save(Recurly_Client::PUT, $this->uri() . '/mark_successful');
   }
