@@ -7,4 +7,4 @@ php:
   - hhvm
 install:
   - composer install --dev
-script: phpunit Tests
+script: vendor/phpunit/phpunit/phpunit Tests
