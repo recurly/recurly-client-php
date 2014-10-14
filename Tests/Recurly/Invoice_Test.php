@@ -51,6 +51,31 @@ class Recurly_InvoiceTest extends Recurly_TestCase
     }
   }
 
+  public function testPreviewPendingCharges() {
+    $this->client->addResponse('POST', '/accounts/abcdef1234567890/invoices/preview', 'invoices/preview-200.xml');
+
+    $invoice = Recurly_Invoice::previewPendingCharges('abcdef1234567890', $this->client);
+
+    $this->assertInstanceOf('Recurly_Invoice', $invoice);
+    $this->assertInstanceOf('Recurly_Stub', $invoice->account);
+    $this->assertEquals($invoice->uuid, '012345678901234567890123456789ab');
+    $this->assertEquals($invoice->currency, 'USD');
+    $this->assertEquals($invoice->total_in_cents, 300);
+    $this->assertEquals($invoice->getHref(), Null);
+  }
+
+  public function testFailedPreviewPendingCharges() {
+    $this->client->addResponse('POST', '/accounts/abcdef1234567890/invoices/preview', 'invoices/create-422.xml');
+
+    try {
+      $invoice = Recurly_Invoice::previewPendingCharges('abcdef1234567890', $this->client);
+      $this->fail("Expected Recurly_ValidationError");
+    }
+    catch (Recurly_ValidationError $e) {
+      $this->assertEquals($e->errors[0]->symbol,'will_not_invoice');
+    }
+  }
+
   public function testMarkSuccessful() {
     // Two things to note:
     // - the invoice will use the full URL from the XML response
