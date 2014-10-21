@@ -2,6 +2,8 @@
 
 ## Unreleased
 
+## Version 2.3.2 (Oct 21st, 2014)
+
 * Added invoice previews: `Recurly_Invoice::previewPendingCharges('<accountCode>');` [112](https://github.com/recurly/recurly-client-php/pull/112)
 
 ## Version 2.3.1 (Sept 26th, 2014)
