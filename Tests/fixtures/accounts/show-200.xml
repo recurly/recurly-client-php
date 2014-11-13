@@ -16,14 +16,6 @@ Content-Type: application/xml; charset=utf-8
   <company_name>Home Box Office</company_name>
   <vat_number>ST-1937</vat_number>
   <entity_use_code>I</entity_use_code>
-  <balance_in_cents_invoiced>
-    <USD type="integer">1000</USD>
-    <EUR type="integer">800</EUR>
-  </balance_in_cents_invoiced>
-  <balance_in_cents_uninvoiced>
-    <USD type="integer">1200</USD>
-    <EUR type="integer">700</EUR>
-  </balance_in_cents_uninvoiced>
   <tax_exempt type="boolean">true</tax_exempt>
   <address>
     <address1>123 Main St.</address1>

@@ -2,6 +2,8 @@
 
 ## Unreleased
 
+* Reverted #64, removing `balance_in_cents_invoiced` and `balance_in_cents_uninvoiced` from `Recurly_Account`. They were never added to the API.
+
 ## Version 2.3.2 (Oct 21st, 2014)
 
 * Added invoice previews: `Recurly_Invoice::previewPendingCharges('<accountCode>');` [112](https://github.com/recurly/recurly-client-php/pull/112)
