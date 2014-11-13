@@ -150,8 +150,6 @@ abstract class Recurly_Base
     'address' => 'Recurly_Address',
     'add_on' => 'Recurly_Addon',
     'add_ons' => 'Recurly_AddonList',
-    'balance_in_cents_invoiced' => 'Recurly_CurrencyList',
-    'balance_in_cents_uninvoiced' => 'Recurly_CurrencyList',
     'billing_info' => 'Recurly_BillingInfo',
     'adjustment' => 'Recurly_Adjustment',
     'adjustments' => 'Recurly_AdjustmentList',
