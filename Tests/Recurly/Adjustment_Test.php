@@ -68,11 +68,13 @@ class Recurly_AdjustmentTest extends Recurly_TestCase
     $charge->currency = 'USD';
     $charge->quantity = 1;
     $charge->accounting_code = 'bandwidth';
+    $charge->tax_exempt = false;
+    $charge->tax_code = 'fake-tax-code';
 
     // This deprecated parameter should be ignored:
     $charge->taxable = 0;
 
-    $expected = "<?xml version=\"1.0\"?>\n<adjustment><currency>USD</currency><unit_amount_in_cents>5000</unit_amount_in_cents><quantity>1</quantity><description>Charge for extra bandwidth</description><accounting_code>bandwidth</accounting_code></adjustment>\n";
+    $expected = "<?xml version=\"1.0\"?>\n<adjustment><currency>USD</currency><unit_amount_in_cents>5000</unit_amount_in_cents><quantity>1</quantity><description>Charge for extra bandwidth</description><accounting_code>bandwidth</accounting_code><tax_exempt>false</tax_exempt><tax_code>fake-tax-code</tax_code></adjustment>\n";
     $this->assertEquals($expected, $charge->xml());
   }
 }

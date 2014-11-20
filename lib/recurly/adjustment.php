@@ -9,7 +9,7 @@ class Recurly_Adjustment extends Recurly_Resource
   {
     Recurly_Adjustment::$_writeableAttributes = array(
       'currency','unit_amount_in_cents','quantity','description',
-      'accounting_code','tax_exempt'
+      'accounting_code','tax_exempt','tax_code'
     );
     Recurly_Adjustment::$_nestedAttributes = array(
       'invoice'
