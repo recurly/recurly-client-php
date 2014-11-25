@@ -66,6 +66,16 @@ Recurly_Client::$apiKey = '012345678901234567890123456789ab';
 
 Please see the [Recurly API](http://docs.recurly.com/api) for more information.
 
+## Unit tests
+
+You can run our unit tests by using Composer to install PHPUnit:
+
+```
+$ curl -s https://getcomposer.org/installer | php
+$ php composer.phar install --dev
+$ vendor/phpunit/phpunit/phpunit Tests/
+```
+
 ## Support
 
 - [https://support.recurly.com](https://support.recurly.com)
