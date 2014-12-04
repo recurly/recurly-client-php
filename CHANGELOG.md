@@ -3,6 +3,7 @@
 ## Unreleased
 
 * Reverted #64, removing `balance_in_cents_invoiced` and `balance_in_cents_uninvoiced` from `Recurly_Account`. They were never added to the API.
+* Added tax_code to plans, add-ons and adjustments [120](https://github.com/recurly/recurly-client-php/pull/120)
 
 ## Version 2.3.2 (Oct 21st, 2014)
 

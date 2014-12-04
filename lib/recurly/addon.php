@@ -14,7 +14,7 @@ class Recurly_Addon extends Recurly_Resource
   {
     Recurly_Addon::$_writeableAttributes = array(
       'add_on_code','name','display_quantity','default_quantity',
-      'unit_amount_in_cents','accounting_code'
+      'unit_amount_in_cents','accounting_code','tax_code'
     );
     Recurly_Addon::$_nestedAttributes = array();
   }
