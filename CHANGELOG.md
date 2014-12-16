@@ -1,12 +1,10 @@
 # Recurly PHP Client Library CHANGELOG
 
-## Unreleased
+## Version 2.3.2 (Unreleased)
 
+* Force cURL to validate SSL certificates: [122](https://github.com/recurly/recurly-client-php/pull/122)
 * Reverted #64, removing `balance_in_cents_invoiced` and `balance_in_cents_uninvoiced` from `Recurly_Account`. They were never added to the API.
 * Added tax_code to plans, add-ons and adjustments [120](https://github.com/recurly/recurly-client-php/pull/120)
-
-## Version 2.3.2 (Oct 21st, 2014)
-
 * Added invoice previews: `Recurly_Invoice::previewPendingCharges('<accountCode>');` [112](https://github.com/recurly/recurly-client-php/pull/112)
 
 ## Version 2.3.1 (Sept 26th, 2014)
