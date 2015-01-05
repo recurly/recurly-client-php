@@ -7,6 +7,7 @@
 * Added tax_code to plans, add-ons and adjustments [120](https://github.com/recurly/recurly-client-php/pull/120)
 * Added invoice previews: `Recurly_Invoice::previewPendingCharges('<accountCode>');` [112](https://github.com/recurly/recurly-client-php/pull/112)
 * Added ability to read and write custom invoice notes [115](https://github.com/recurly/recurly-client-php/pull/115)
+* Added vat_location_valid field to Account [127](https://github.com/recurly/recurly-client-php/pull/127)
 
 ## Version 2.3.1 (Sept 26th, 2014)
 
