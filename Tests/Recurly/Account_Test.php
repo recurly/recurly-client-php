@@ -29,6 +29,7 @@ class Recurly_AccountTest extends Recurly_TestCase
     $this->assertEquals($account->getHref(),'https://api.recurly.com/v2/accounts/abcdef1234567890');
     $this->assertTrue($account->tax_exempt);
     $this->assertEquals($account->entity_use_code, 'I');
+    $this->assertEquals($account->vat_location_valid, true);
   }
 
   public function testCloseAccount() {
