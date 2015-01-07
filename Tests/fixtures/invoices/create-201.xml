@@ -11,4 +11,6 @@ Location: https://api.recurly.com/v2/invoices/created-invoice
   <currency>USD</currency>
   <total_in_cents type="integer">300</total_in_cents>
   <subtotal_in_cents type="integer">300</subtotal_in_cents>
+  <terms_and_conditions>Some Terms and Conditions</terms_and_conditions>
+  <customer_notes>Some Customer Notes</customer_notes>
 </invoice>

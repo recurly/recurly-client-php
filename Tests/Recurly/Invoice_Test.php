@@ -24,12 +24,14 @@ class Recurly_InvoiceTest extends Recurly_TestCase
     $this->assertEquals($invoice->transactions->current()->uuid, '012345678901234567890123456789ab');
     $this->assertEquals($invoice->transactions->count(), 1);
     $this->assertEquals($invoice->tax_type, 'usst');
+    $this->assertEquals($invoice->terms_and_conditions, 'Some Terms and Conditions');
+    $this->assertEquals($invoice->customer_notes, 'Some Customer Notes');
   }
 
   public function testInvoicePendingCharges() {
     $this->client->addResponse('POST', '/accounts/abcdef1234567890/invoices', 'invoices/create-201.xml');
 
-    $invoice = Recurly_Invoice::invoicePendingCharges('abcdef1234567890', $this->client);
+    $invoice = Recurly_Invoice::invoicePendingCharges('abcdef1234567890', array(), $this->client);
 
     $this->assertInstanceOf('Recurly_Invoice', $invoice);
     $this->assertInstanceOf('Recurly_Stub', $invoice->account);
@@ -37,13 +39,15 @@ class Recurly_InvoiceTest extends Recurly_TestCase
     $this->assertEquals($invoice->currency, 'USD');
     $this->assertEquals($invoice->total_in_cents, 300);
     $this->assertEquals($invoice->getHref(),'https://api.recurly.com/v2/invoices/012345678901234567890123456789ab');
+    $this->assertEquals($invoice->terms_and_conditions, 'Some Terms and Conditions');
+    $this->assertEquals($invoice->customer_notes, 'Some Customer Notes');
   }
 
   public function testFailedInvoicePendingCharges() {
     $this->client->addResponse('POST', '/accounts/abcdef1234567890/invoices', 'invoices/create-422.xml');
 
     try {
-      $invoice = Recurly_Invoice::invoicePendingCharges('abcdef1234567890', $this->client);
+      $invoice = Recurly_Invoice::invoicePendingCharges('abcdef1234567890', array(), $this->client);
       $this->fail("Expected Recurly_ValidationError");
     }
     catch (Recurly_ValidationError $e) {
@@ -54,7 +58,7 @@ class Recurly_InvoiceTest extends Recurly_TestCase
   public function testPreviewPendingCharges() {
     $this->client->addResponse('POST', '/accounts/abcdef1234567890/invoices/preview', 'invoices/preview-200.xml');
 
-    $invoice = Recurly_Invoice::previewPendingCharges('abcdef1234567890', $this->client);
+    $invoice = Recurly_Invoice::previewPendingCharges('abcdef1234567890', array("terms_and_conditions" => "New Terms", "customer_notes" => "New Notes"), $this->client);
 
     $this->assertInstanceOf('Recurly_Invoice', $invoice);
     $this->assertInstanceOf('Recurly_Stub', $invoice->account);
@@ -62,13 +66,15 @@ class Recurly_InvoiceTest extends Recurly_TestCase
     $this->assertEquals($invoice->currency, 'USD');
     $this->assertEquals($invoice->total_in_cents, 300);
     $this->assertEquals($invoice->getHref(), Null);
+    $this->assertEquals($invoice->terms_and_conditions, "New Terms");
+    $this->assertEquals($invoice->customer_notes, "New Notes");
   }
 
   public function testFailedPreviewPendingCharges() {
     $this->client->addResponse('POST', '/accounts/abcdef1234567890/invoices/preview', 'invoices/create-422.xml');
 
     try {
-      $invoice = Recurly_Invoice::previewPendingCharges('abcdef1234567890', $this->client);
+      $invoice = Recurly_Invoice::previewPendingCharges('abcdef1234567890', array(), $this->client);
       $this->fail("Expected Recurly_ValidationError");
     }
     catch (Recurly_ValidationError $e) {

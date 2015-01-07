@@ -19,6 +19,8 @@ Content-Type: application/xml; charset=utf-8
   <net_terms type="integer">0</net_terms>
   <collection_method>automatic</collection_method>
   <tax_type>usst</tax_type>
+  <terms_and_conditions>Some Terms and Conditions</terms_and_conditions>
+  <customer_notes>Some Customer Notes</customer_notes>
   <line_items type="array">
     <adjustment href="https://api.recurly.com/v2/adjustments/012345678901234567890123456789ab" type="charge">
       <account href="https://api.recurly.com/v2/accounts/1"/>
