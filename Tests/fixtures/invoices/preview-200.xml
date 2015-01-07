@@ -12,4 +12,5 @@ Content-Type: application/xml; charset=utf-8
   <subtotal_in_cents type="integer">300</subtotal_in_cents>
   <terms_and_conditions>New Terms</terms_and_conditions>
   <customer_notes>New Notes</customer_notes>
+  <vat_reverse_charge_notes>New VAT Notes</vat_reverse_charge_notes>
 </invoice>

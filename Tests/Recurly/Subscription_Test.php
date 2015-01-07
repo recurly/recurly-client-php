@@ -27,6 +27,7 @@ class Recurly_SubscriptionTest extends Recurly_TestCase
     $this->assertEquals('usst', $subscription->tax_type);
     $this->assertEquals('Some Terms and Conditions', $subscription->terms_and_conditions);
     $this->assertEquals('Some Customer Notes', $subscription->customer_notes);
+    $this->assertEquals('Some VAT Notes', $subscription->vat_reverse_charge_notes);
 
     # TODO: Should test the rest of the parsing.
   }
@@ -174,5 +175,20 @@ class Recurly_SubscriptionTest extends Recurly_TestCase
 
     $this->assertEquals('5000', $subscription->cost_in_cents);
     $this->assertEquals('gold', $subscription->plan_code);
+  }
+
+  public function testUpdateNotes() {
+    $this->client->addResponse('GET', '/subscriptions/012345678901234567890123456789ab', 'subscriptions/show-200.xml');
+    $this->client->addResponse('PUT', 'https://api.recurly.com/v2/subscriptions/012345678901234567890123456789ab/notes', 'subscriptions/show-200-changed-notes.xml');
+
+    $subscription = Recurly_Subscription::get('012345678901234567890123456789ab', $this->client);
+
+    $notes = array("customer_notes" => "New Customer Notes", "terms_and_condititions" => "New Terms", "vat_reverse_charge_notes" => "New VAT Notes");
+
+    $subscription->updateNotes($notes);
+
+    foreach($notes as $key => $value) {
+      $this->assertEquals($subscription->$key, $value);
+    }
   }
 }

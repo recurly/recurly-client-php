@@ -11,7 +11,8 @@ class Recurly_Subscription extends Recurly_Resource
       'account','plan_code','coupon_code','unit_amount_in_cents','quantity',
       'currency','starts_at','trial_ends_at','total_billing_cycles', 'first_renewal_date',
       'timeframe', 'subscription_add_ons', 'net_terms', 'po_number', 'collection_method',
-      'cost_in_cents', 'remaining_billing_cycles', 'bulk', 'terms_and_conditions', 'customer_notes'
+      'cost_in_cents', 'remaining_billing_cycles', 'bulk', 'terms_and_conditions', 'customer_notes',
+      'vat_reverse_charge_notes'
     );
     Recurly_Subscription::$_nestedAttributes = array('account', 'subscription_add_ons');
   }
@@ -98,6 +99,15 @@ class Recurly_Subscription extends Recurly_Resource
    **/
   public function postpone($nextRenewalDate, $bulk = false) {
     $this->_save(Recurly_Client::PUT, $this->uri() . '/postpone?next_renewal_date=' . $nextRenewalDate . '&bulk=' . ((bool) $bulk));
+  }
+
+  /**
+   * Updates the notes fields of the subscription without generating a SubscriptionChange.
+   *
+   * @parameter array of notes, allowed keys: (customer_notes, terms_and_conditions, vat_reverse_charge_notes)
+   **/
+  public function updateNotes($notes) {
+    $this->setValues($notes)->_save(Recurly_Client::PUT, $this->uri() . '/notes');
   }
 
   protected function uri() {

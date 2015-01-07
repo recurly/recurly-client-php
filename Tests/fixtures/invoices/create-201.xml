@@ -13,4 +13,5 @@ Location: https://api.recurly.com/v2/invoices/created-invoice
   <subtotal_in_cents type="integer">300</subtotal_in_cents>
   <terms_and_conditions>Some Terms and Conditions</terms_and_conditions>
   <customer_notes>Some Customer Notes</customer_notes>
+  <vat_reverse_charge_notes>Some VAT Notes</vat_reverse_charge_notes>
 </invoice>

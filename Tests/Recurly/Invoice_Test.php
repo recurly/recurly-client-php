@@ -26,6 +26,7 @@ class Recurly_InvoiceTest extends Recurly_TestCase
     $this->assertEquals($invoice->tax_type, 'usst');
     $this->assertEquals($invoice->terms_and_conditions, 'Some Terms and Conditions');
     $this->assertEquals($invoice->customer_notes, 'Some Customer Notes');
+    $this->assertEquals($invoice->vat_reverse_charge_notes, 'Some VAT Notes');
   }
 
   public function testInvoicePendingCharges() {
@@ -41,6 +42,7 @@ class Recurly_InvoiceTest extends Recurly_TestCase
     $this->assertEquals($invoice->getHref(),'https://api.recurly.com/v2/invoices/012345678901234567890123456789ab');
     $this->assertEquals($invoice->terms_and_conditions, 'Some Terms and Conditions');
     $this->assertEquals($invoice->customer_notes, 'Some Customer Notes');
+    $this->assertEquals($invoice->vat_reverse_charge_notes, 'Some VAT Notes');
   }
 
   public function testFailedInvoicePendingCharges() {
@@ -66,8 +68,9 @@ class Recurly_InvoiceTest extends Recurly_TestCase
     $this->assertEquals($invoice->currency, 'USD');
     $this->assertEquals($invoice->total_in_cents, 300);
     $this->assertEquals($invoice->getHref(), Null);
-    $this->assertEquals($invoice->terms_and_conditions, "New Terms");
-    $this->assertEquals($invoice->customer_notes, "New Notes");
+    $this->assertEquals($invoice->terms_and_conditions, 'New Terms');
+    $this->assertEquals($invoice->customer_notes, 'New Notes');
+    $this->assertEquals($invoice->vat_reverse_charge_notes, 'New VAT Notes');
   }
 
   public function testFailedPreviewPendingCharges() {
