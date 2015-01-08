@@ -93,8 +93,8 @@ class Recurly_Subscription extends Recurly_Resource
   /**
    * Postpone a subscription's renewal date.
    *
-   * $nextRenewalDate - ISO8601 DateTime String, postpone the subscription to this date
-   * $bulk - bool, for making bulk updates, avoid checking for duplicate subscriptions.
+   * @param String ISO8601 DateTime String, postpone the subscription to this date
+   * @param Boolean bulk is for making bulk updates, setting to true bypasses api check for accidental duplicate subscriptions.
    **/
   public function postpone($nextRenewalDate, $bulk = false) {
     $this->_save(Recurly_Client::PUT, $this->uri() . '/postpone?next_renewal_date=' . $nextRenewalDate . '&bulk=' . ((bool) $bulk));
