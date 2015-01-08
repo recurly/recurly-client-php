@@ -60,7 +60,18 @@ abstract class Recurly_Resource extends Recurly_Base
     return $this->_errors;
   }
 
-
+  /**
+   * Does a mass assignment on this resource's values
+   *
+   * @parameter array
+   *   The array of values to set on the resource.
+   */
+  public function setValues($values) {
+    foreach($values as $key => $value) {
+      $this->$key = $value;
+    }
+    return $this;
+  }
 
   protected function _save($method, $uri)
   {

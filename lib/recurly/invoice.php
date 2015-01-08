@@ -7,7 +7,7 @@ class Recurly_Invoice extends Recurly_Resource
 
   public static function init()
   {
-    Recurly_Invoice::$_writeableAttributes = array('terms_and_conditions', 'customer_notes');
+    Recurly_Invoice::$_writeableAttributes = array('terms_and_conditions', 'customer_notes', 'vat_reverse_charge_notes');
     Recurly_Invoice::$_nestedAttributes = array('account','line_items','transactions');
   }
 
@@ -48,10 +48,7 @@ class Recurly_Invoice extends Recurly_Resource
   public static function invoicePendingCharges($accountCode, $attributes = array(), $client = null) {
     $uri = Recurly_Client::PATH_ACCOUNTS . '/' . rawurlencode($accountCode) . Recurly_Client::PATH_INVOICES;
     $invoice = new self();
-    foreach($attributes as $key => $value) {
-      $invoice->$key = $value;
-    }
-    return self::_post($uri, $invoice->xml(), $client);
+    return self::_post($uri, $invoice->setValues($attributes)->xml(), $client);
   }
 
   /**
@@ -63,10 +60,7 @@ class Recurly_Invoice extends Recurly_Resource
   public static function previewPendingCharges($accountCode, $attributes = array(), $client = null) {
     $uri = Recurly_Client::PATH_ACCOUNTS . '/' . rawurlencode($accountCode) . Recurly_Client::PATH_INVOICES . '/preview';
     $invoice = new self();
-    foreach($attributes as $key => $value) {
-      $invoice->$key = $value;
-    }
-    return self::_post($uri, $invoice->xml(), $client);
+    return self::_post($uri, $invoice->setValues($attributes)->xml(), $client);
   }
 
   public function markSuccessful() {

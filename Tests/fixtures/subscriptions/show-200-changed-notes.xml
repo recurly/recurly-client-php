@@ -24,9 +24,9 @@ Content-Type: application/xml; charset=utf-8
   <trial_ends_at nil="nil"></trial_ends_at>
   <tax_in_cents type="integer">0</tax_in_cents>
   <tax_type>usst</tax_type>
-  <terms_and_conditions>Some Terms and Conditions</terms_and_conditions>
-  <customer_notes>Some Customer Notes</customer_notes>
-  <vat_reverse_charge_notes>Some VAT Notes</vat_reverse_charge_notes>
+  <terms_and_conditions>New Terms</terms_and_conditions>
+  <customer_notes>New Customer Notes</customer_notes>
+  <vat_reverse_charge_notes>New VAT Notes</vat_reverse_charge_notes>
   <subscription_add_ons type="array">
     <subscription_add_on>
       <name>IP Addresses</name>
