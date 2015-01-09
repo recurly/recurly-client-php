@@ -70,6 +70,10 @@ class Recurly_Invoice extends Recurly_Resource
     $this->_save(Recurly_Client::PUT, $this->uri() . '/mark_failed');
   }
 
+  public function invoiceNumberWithPrefix() {
+    return $this->invoice_number_prefix . $this->invoice_number;
+  }
+
   protected function getNodeName() {
     return 'invoice';
   }
@@ -80,10 +84,11 @@ class Recurly_Invoice extends Recurly_Resource
     return array();
   }
   protected function uri() {
+    $invoiceNumberWithPrefix = $this->invoiceNumberWithPrefix();
     if (!empty($this->_href))
       return $this->getHref();
-    else if (!empty($this->invoice_number))
-      return Recurly_Invoice::uriForInvoice($this->invoice_number);
+    else if (!empty($invoiceNumberWithPrefix))
+      return Recurly_Invoice::uriForInvoice($invoiceNumberWithPrefix);
     else
       throw new Recurly_Error("Invoice number not specified");
   }

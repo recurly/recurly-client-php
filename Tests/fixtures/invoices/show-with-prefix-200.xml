@@ -2,13 +2,13 @@ HTTP/1.1 200 OK
 Content-Type: application/xml; charset=utf-8
 
 <?xml version="1.0" encoding="UTF-8"?>
-<invoice href="https://api.recurly.com/v2/invoices/1001">
+<invoice href="https://api.recurly.com/v2/invoices/1002">
   <account href="https://api.recurly.com/v2/accounts/1"/>
   <subscription href="https://api.recurly.com/v2/subscriptions/1234567890abcdef"/>
   <uuid>012345678901234567890123456789aa</uuid>
   <state>collected</state>
-  <invoice_number type="integer">1001</invoice_number>
-  <invoice_number_prefix></invoice_number_prefix>
+  <invoice_number type="integer">1002</invoice_number>
+  <invoice_number_prefix>GB</invoice_number_prefix>
   <po_number></po_number>
   <vat_number></vat_number>
   <subtotal_in_cents type="integer">2995</subtotal_in_cents>
@@ -26,7 +26,7 @@ Content-Type: application/xml; charset=utf-8
   <line_items type="array">
     <adjustment href="https://api.recurly.com/v2/adjustments/012345678901234567890123456789ab" type="charge">
       <account href="https://api.recurly.com/v2/accounts/1"/>
-      <invoice href="https://api.recurly.com/v2/invoices/1001"/>
+      <invoice href="https://api.recurly.com/v2/invoices/1002"/>
       <subscription href="https://api.recurly.com/v2/subscriptions/1234567890abcdef"/>
       <uuid>012345678901234567890123456789ab</uuid>
       <state>invoiced</state>
@@ -49,7 +49,7 @@ Content-Type: application/xml; charset=utf-8
   <transactions type="array">
     <transaction href="https://api.recurly.com/v2/transactions/012345678901234567890123456789ab" type="credit_card">
       <account href="https://api.recurly.com/v2/accounts/1"/>
-      <invoice href="https://api.recurly.com/v2/invoices/1001"/>
+      <invoice href="https://api.recurly.com/v2/invoices/1002"/>
       <subscription href="https://api.recurly.com/v2/subscriptions/1234567890abcdef"/>
       <uuid>012345678901234567890123456789ab</uuid>
       <action>purchase</action>
