@@ -12,12 +12,27 @@ be careful when upgrading.
 
 ## Requirements
 
+###cURL and OpenSSL
+
 The PHP library depends on PHP 5.3.0 (or higher) and libcurl compiled with
 OpenSSL support. Open up a `phpinfo();` page and verify that under the curl
 section, there's a line that says something like:
 
 ```
 libcurl/7.19.5 OpenSSL/0.9.8g zlib/1.2.3.3 libidn/1.15
+```
+
+### Timezone
+You will need to specify your server's timezone before using the Recurly PHP client. This is necessary for the library to properly handle datetime conversions. You can do this in your `php.ini` file:
+
+```php
+date.timezone = 'America/Los_Angeles'
+```
+
+or in your PHP script:
+
+```php
+date_default_timezone_set('America/Los_Angeles');
 ```
 
 ## Installation
@@ -58,7 +73,9 @@ Load the Recurly library files and set your subdomain and API Key globally:
 <?php
 require_once('./lib/recurly.php');
 
+/* https://<your-subdomain>.recurly.com */
 Recurly_Client::$subdomain = 'your-subdomain';
+/* your private API key */
 Recurly_Client::$apiKey = '012345678901234567890123456789ab';
 ```
 
