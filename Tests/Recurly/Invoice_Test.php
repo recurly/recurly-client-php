@@ -121,4 +121,26 @@ class Recurly_InvoiceTest extends Recurly_TestCase
     $result = Recurly_Invoice::getInvoicePdf('1001', 'en-GB', $this->client);
     $this->assertEquals(array('/invoices/1001', 'en-GB'), $result);
   }
+
+  public function testRefundAmount() {
+    $this->client->addResponse('POST', 'https://api.recurly.com/v2/invoices/1001/refund', 'invoices/refund-201.xml');
+    $invoice = Recurly_Invoice::get('1001', $this->client);
+
+    $refund_invoice = $invoice->refundAmount(1000);
+    $this->assertEquals($refund_invoice->subtotal_in_cents, -1000);
+  }
+
+  public function testRefund() {
+    $this->client->addResponse('POST', 'https://api.recurly.com/v2/invoices/1001/refund', 'invoices/refund-201.xml');
+    $invoice = Recurly_Invoice::get('1001', $this->client);
+    $line_items = $invoice->line_items;
+
+    $adjustment_map = function($line_item) {
+      return $line_item->toRefundAttributes();
+    };
+    $adjustments = array_map($adjustment_map, $line_items);
+
+    $refund_invoice = $invoice->refund($adjustments);
+    $this->assertEquals($refund_invoice->subtotal_in_cents, -1000);
+  }
 }

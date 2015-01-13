@@ -91,11 +91,19 @@ abstract class Recurly_Resource extends Recurly_Base
 
   public function xml()
   {
-    $doc = new DOMDocument("1.0");
+    $doc = $this->createDocument();
     $root = $doc->appendChild($doc->createElement($this->getNodeName()));
     $this->populateXmlDoc($doc, $root, $this);
     // To be able to consistently run tests across different XML libraries,
     // favor `<foo></foo>` over `<foo/>`.
+    return $this->renderXML($doc);
+  }
+
+  public function createDocument() {
+    return new DOMDocument("1.0");
+  }
+
+  public function renderXML($doc) {
     return $doc->saveXML(null, LIBXML_NOEMPTYTAG);
   }
 
