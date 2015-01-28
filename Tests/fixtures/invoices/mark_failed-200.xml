@@ -2,11 +2,12 @@ HTTP/1.1 200 OK
 Content-Type: application/xml; charset=utf-8
 
 <?xml version="1.0" encoding="UTF-8"?>
-<invoice href="https://api.recurly.com/v2/invoices/abcdef1234567890">
+<invoice href="https://api.recurly.com/v2/invoices/1001">
   <account href="https://api.recurly.com/v2/accounts/1"/>
   <uuid>012345678901234567890123456789aa</uuid>
   <state>failed</state>
-  <invoice_number type="integer">abcdef1234567890</invoice_number>
+  <invoice_number type="integer">1001</invoice_number>
+  <invoice_number_prefix></invoice_number_prefix>
   <po_number nil="nil"></po_number>
   <vat_number nil="nil"></vat_number>
   <subtotal_in_cents type="integer">2995</subtotal_in_cents>
@@ -17,7 +18,7 @@ Content-Type: application/xml; charset=utf-8
   <line_items type="array">
     <adjustment href="https://api.recurly.com/v2/adjustments/190357944dad4d461272774dd184a17e" type="charge">
       <account href="https://api.recurly.com/v2/accounts/1"/>
-      <invoice href="https://api.recurly.com/v2/invoices/abcdef1234567890"/>
+      <invoice href="https://api.recurly.com/v2/invoices/1001"/>
       <uuid>012345678901234567890123456789ab</uuid>
       <state>invoiced</state>
       <description>Silver Plan</description>
