@@ -1,33 +1,34 @@
 # Recurly PHP Client Library CHANGELOG
 
-## Version 2.4.0 (Unreleased)
+## Version 2.4.0 (Feb 2nd, 2014)
 
-* Force cURL to validate SSL certificates: [122](https://github.com/recurly/recurly-client-php/pull/122)
+* Force cURL to validate SSL certificates [#122](https://github.com/recurly/recurly-client-php/pull/122)
 * Reverted #64, removing `balance_in_cents_invoiced` and `balance_in_cents_uninvoiced` from `Recurly_Account`. They were never added to the API.
-* Added tax_code to plans, add-ons and adjustments [120](https://github.com/recurly/recurly-client-php/pull/120)
-* Added invoice previews: `Recurly_Invoice::previewPendingCharges('<accountCode>');` [112](https://github.com/recurly/recurly-client-php/pull/112)
-* Added ability to read and write custom invoice notes [115](https://github.com/recurly/recurly-client-php/pull/115)
-* Added vat_location_valid field to Account [127](https://github.com/recurly/recurly-client-php/pull/127)
-* Added updateNotes() and vat_reverse_charge to Subscription. Added vat_reverse_charge_notes to Invoice. [128](https://github.com/recurly/recurly-client-php/pull/128)
-* Added `invoice_number_prefix` and `invoiceNumberWithPrefix()` to `Invoice`. This is to be used with the Country Invoice Sequencing feature. [130](https://github.com/recurly/recurly-client-php/pull/130)
+* Added `tax_code` to `Recurly_Plan`, `Recurly_Addon` and `Recurly_Adjustment` [#120](https://github.com/recurly/recurly-client-php/pull/120)
+* Added invoice previews: `Recurly_Invoice::previewPendingCharges($accountCode)` [#112](https://github.com/recurly/recurly-client-php/pull/112)
+* Added `terms_and_conditions` and `customer_notes` to `Recurly_Invoice` [#115](https://github.com/recurly/recurly-client-php/pull/115)
+* Added `vat_location_valid` field to `Recurly_Account` [#127](https://github.com/recurly/recurly-client-php/pull/127)
+* Added `updateNotes()` and `vat_reverse_charge` to `Recurly_Subscription`. [#128](https://github.com/recurly/recurly-client-php/pull/128)
+* Added `vat_reverse_charge_notes` to `Recurly_Invoice`. [#128](https://github.com/recurly/recurly-client-php/pull/128)
+* Added `invoice_number_prefix` and `invoiceNumberWithPrefix()` to `Recurly_Invoice`. This is to be used with the Country Invoice Sequencing feature. [#130](https://github.com/recurly/recurly-client-php/pull/130)
 
 ## Version 2.3.1 (Sept 26th, 2014)
 
-* Added remaining billing cycles to subscriptions: `subscription->remaining_billing_cycles` [91](https://github.com/recurly/recurly-client-php/pull/91)
-* Added subscription change preview for existing subscriptions: `subscription->preview()` [94](https://github.com/recurly/recurly-client-php/pull/94)
-* Remove readme reference to recurlyjs v2 private key [97](https://github.com/recurly/recurly-client-php/pull/97)
-* Addding bulk parameter to subscription creation [98](https://github.com/recurly/recurly-client-php/pull/98)
-* Added account entity use code: `account->entity_use_code` [100](https://github.com/recurly/recurly-client-php/pull/100)
-* Added PHP 5.6 and HHVM to travis.yml (thanks to [Nyholm](https://github.com/Nyholm)) [101](https://github.com/recurly/recurly-client-php/pull/101)
-* Update branch alias to 2.3.x-dev (thanks to [bangpound](https://github.com/bangpound)) [102](https://github.com/recurly/recurly-client-php/pull/102)
-* Bump phpunit to 4.2 [103](https://github.com/recurly/recurly-client-php/pull/103)
-* Adds PayPal and Amazon support to Recurly_BillingInfo [104](https://github.com/recurly/recurly-client-php/pull/104)
-* Adding bulk parameter to `$subscription->postpone()` [105](https://github.com/recurly/recurly-client-php/pull/105)
+* Added remaining billing cycles to subscriptions: `$subscription->remaining_billing_cycles` [#91](https://github.com/recurly/recurly-client-php/pull/91)
+* Added subscription change preview for existing subscriptions: `$subscription->preview()` [#94](https://github.com/recurly/recurly-client-php/pull/94)
+* Remove readme reference to RecurlyJS v2 private key [#97](https://github.com/recurly/recurly-client-php/pull/97)
+* Adding bulk parameter to subscription creation [#98](https://github.com/recurly/recurly-client-php/pull/98)
+* Added account entity use code: `$account->entity_use_code` [#100](https://github.com/recurly/recurly-client-php/pull/100)
+* Added PHP 5.6 and HHVM to `travis.yml` (thanks to [Nyholm](https://github.com/Nyholm)) [#101](https://github.com/recurly/recurly-client-php/pull/101)
+* Update branch alias to 2.3.x-dev (thanks to [bangpound](https://github.com/bangpound)) [#102](https://github.com/recurly/recurly-client-php/pull/102)
+* Bump phpunit to 4.2 [#103](https://github.com/recurly/recurly-client-php/pull/103)
+* Adds PayPal and Amazon support to `Recurly_BillingInfo` [#104](https://github.com/recurly/recurly-client-php/pull/104)
+* Adding bulk parameter to `$subscription->postpone()` [#105](https://github.com/recurly/recurly-client-php/pull/105)
 
 ## Version 2.3.0 (May 19th, 2014)
 
-* Added tax details to adjustments: `$adjustment->tax_details` [90](https://github.com/recurly/recurly-client-php/pull/90)
-* Added subscription previews: `$subscription->preview()` [90](https://github.com/recurly/recurly-client-php/pull/90)
+* Added tax details to adjustments: `$adjustment->tax_details` [#90](https://github.com/recurly/recurly-client-php/pull/90)
+* Added subscription previews: `$subscription->preview()` [#90](https://github.com/recurly/recurly-client-php/pull/90)
 
 ## Version 2.2.6 (May 9th, 2014)
 
