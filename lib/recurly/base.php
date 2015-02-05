@@ -189,8 +189,8 @@ abstract class Recurly_Base
     $rootNode = $dom->documentElement;
 
     $obj = Recurly_Resource::__createNodeObject($rootNode);
-    Recurly_Resource::__parseXmlToObject($rootNode->firstChild, $obj);
     $obj->_client = $client;
+    Recurly_Resource::__parseXmlToObject($rootNode->firstChild, $obj);
     return $obj;
   }
 
