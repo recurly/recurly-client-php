@@ -1,5 +1,10 @@
 # Recurly PHP Client Library CHANGELOG
 
+## Unreleased
+
+* Added adjustment refund support: `refund()` and `toRefundAttributes()` on `Recurly_Adjustment` [133](https://github.com/recurly/recurly-client-php/pull/133)
+* Added invoice refund supprt: `refund()` and `refundAmount()` on `Recurly_Invoice` [133](https://github.com/recurly/recurly-client-php/pull/133)
+
 ## Version 2.4.0 (Feb 2nd, 2014)
 
 * Force cURL to validate SSL certificates [#122](https://github.com/recurly/recurly-client-php/pull/122)

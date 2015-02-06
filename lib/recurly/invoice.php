@@ -74,6 +74,47 @@ class Recurly_Invoice extends Recurly_Resource
     return $this->invoice_number_prefix . $this->invoice_number;
   }
 
+  /**
+   * Refunds an open amount from the invoice and returns a new refund invoice
+   * @param Integer amount in cents to refund from this invoice
+   * @return Recurly_Invoice a new refund invoice
+   */
+  public function refundAmount($amount_in_cents) {
+    $doc = $this->createDocument();
+
+    $root = $doc->appendChild($doc->createElement($this->getNodeName()));
+    $root->appendChild($doc->createElement('amount_in_cents', $amount_in_cents));
+
+    return $this->createRefundInvoice($this->renderXML($doc));
+  }
+
+  /**
+   * Refunds given line items from an invoice and returns new refund invoice
+   * @param Array refund attributes or Array of refund attributes to refund (see 'REFUND ATTRIBUTES' in docs or Recurly_Adjustment#toRefundAttributes)
+   * @return Recurly_Invoice a new refund invoice
+   */
+  public function refund($line_items) {
+    if (isset($line_items['uuid'])) { $line_items = array($line_items); }
+
+    $doc = $this->createDocument();
+
+    $root = $doc->appendChild($doc->createElement($this->getNodeName()));
+    $line_items_node = $root->appendChild($doc->createElement('line_items'));
+
+    foreach ($line_items as $line_item) {
+      $adjustment_node = $line_items_node->appendChild($doc->createElement('adjustment'));
+      $adjustment_node->appendChild($doc->createElement('uuid', $line_item['uuid']));
+      $adjustment_node->appendChild($doc->createElement('quantity', $line_item['quantity']));
+      $adjustment_node->appendChild($doc->createElement('prorate', $line_item['prorate'] ? 'true' : 'false'));
+    }
+
+    return $this->createRefundInvoice($this->renderXML($doc));
+  }
+
+  protected function createRefundInvoice($xml_string) {
+    return self::_post($this->uri() . '/refund', $xml_string, $this->_client);
+  }
+
   protected function getNodeName() {
     return 'invoice';
   }
