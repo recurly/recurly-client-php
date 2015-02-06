@@ -1,6 +1,6 @@
 # Recurly PHP Client Library CHANGELOG
 
-## Unreleased
+## Version 2.4.1 (Feb 6th, 2015)
 
 * Added adjustment refund support: `refund()` and `toRefundAttributes()` on `Recurly_Adjustment` [133](https://github.com/recurly/recurly-client-php/pull/133)
 * Added invoice refund supprt: `refund()` and `refundAmount()` on `Recurly_Invoice` [133](https://github.com/recurly/recurly-client-php/pull/133)

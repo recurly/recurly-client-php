@@ -26,12 +26,12 @@ libcurl/7.19.5 OpenSSL/0.9.8g zlib/1.2.3.3 libidn/1.15
 
 If you're using [Composer](http://getcomposer.org/), you can simply add a
 dependency on `recurly/recurly-client` to your project's `composer.json` file.
-Here's an example of a dependency on 2.3:
+Here's an example of a dependency on 2.4:
 
 ```json
 {
     "require": {
-        "recurly/recurly-client": "2.3.*"
+        "recurly/recurly-client": "2.4.*"
     }
 }
 ```
