@@ -2,10 +2,10 @@
 
 ## Version 2.4.1 (Feb 6th, 2015)
 
-* Added adjustment refund support: `refund()` and `toRefundAttributes()` on `Recurly_Adjustment` [133](https://github.com/recurly/recurly-client-php/pull/133)
-* Added invoice refund supprt: `refund()` and `refundAmount()` on `Recurly_Invoice` [133](https://github.com/recurly/recurly-client-php/pull/133)
+* Added adjustment refund support: `refund()` and `toRefundAttributes()` on `Recurly_Adjustment` [#133](https://github.com/recurly/recurly-client-php/pull/133)
+* Added invoice refund supprt: `refund()` and `refundAmount()` on `Recurly_Invoice` [#133](https://github.com/recurly/recurly-client-php/pull/133)
 
-## Version 2.4.0 (Feb 2nd, 2014)
+## Version 2.4.0 (Feb 2nd, 2015)
 
 * Force cURL to validate SSL certificates [#122](https://github.com/recurly/recurly-client-php/pull/122)
 * Reverted #64, removing `balance_in_cents_invoiced` and `balance_in_cents_uninvoiced` from `Recurly_Account`. They were never added to the API.
