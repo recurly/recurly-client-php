@@ -1,0 +1,21 @@
+HTTP/1.1 201 Created
+Content-Type: application/xml; charset=utf-8
+Location: https://api.recurly.com/v2/invoices/created-invoice
+
+<invoice href="https://api.recurly.com/v2/invoices/1001">
+  <account href="https://api.recurly.com/v2/accounts/1"/>
+  <subscription href="https://api.recurly.com/v2/subscriptions/1234567890abcdef"/>
+  <uuid>012345678901234567890123456789aa</uuid>
+  <state>collected</state>
+  <invoice_number type="integer">abcdef1234567890</invoice_number>
+  <po_number></po_number>
+  <vat_number></vat_number>
+  <subtotal_in_cents type="integer">-1000</subtotal_in_cents>
+  <tax_in_cents type="integer">0</tax_in_cents>
+  <total_in_cents type="integer">2995</total_in_cents>
+  <currency>USD</currency>
+  <created_at type="datetime">2012-05-28T17:44:13Z</created_at>
+  <closed_at type="datetime">2012-05-28T17:44:13Z</closed_at>
+  <net_terms type="integer">0</net_terms>
+  <collection_method>automatic</collection_method>
+</invoice>

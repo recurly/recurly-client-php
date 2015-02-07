@@ -25,6 +25,9 @@ class Recurly_SubscriptionTest extends Recurly_TestCase
     $this->assertEquals(10, $subscription->net_terms);
     $this->assertEquals(0, $subscription->tax_in_cents);
     $this->assertEquals('usst', $subscription->tax_type);
+    $this->assertEquals('Some Terms and Conditions', $subscription->terms_and_conditions);
+    $this->assertEquals('Some Customer Notes', $subscription->customer_notes);
+    $this->assertEquals('Some VAT Notes', $subscription->vat_reverse_charge_notes);
 
     # TODO: Should test the rest of the parsing.
   }
@@ -54,6 +57,8 @@ class Recurly_SubscriptionTest extends Recurly_TestCase
     $subscription->quantity = 1;
     $subscription->currency = 'USD';
     $subscription->bulk = true;
+    $subscription->terms_and_conditions = 'Some Terms and Conditions';
+    $subscription->customer_notes = 'Some Customer Notes';
 
     $account = new Recurly_Account();
     $account->account_code = 'account_code';
@@ -76,7 +81,7 @@ class Recurly_SubscriptionTest extends Recurly_TestCase
     $account->billing_info = $billing_info;
 
     $this->assertEquals(
-      "<?xml version=\"1.0\"?>\n<subscription><account><account_code>account_code</account_code><username>username</username><first_name>Verena</first_name><last_name>Example</last_name><email>verena@example.com</email><accept_language>en-US</accept_language><billing_info><first_name>Verena</first_name><last_name>Example</last_name><ip_address>192.168.0.1</ip_address><number>4111-1111-1111-1111</number><month>11</month><year>2015</year><verification_value>123</verification_value></billing_info><address></address></account><plan_code>gold</plan_code><quantity>1</quantity><currency>USD</currency><subscription_add_ons></subscription_add_ons><bulk>true</bulk></subscription>\n",
+      "<?xml version=\"1.0\"?>\n<subscription><account><account_code>account_code</account_code><username>username</username><first_name>Verena</first_name><last_name>Example</last_name><email>verena@example.com</email><accept_language>en-US</accept_language><billing_info><first_name>Verena</first_name><last_name>Example</last_name><ip_address>192.168.0.1</ip_address><number>4111-1111-1111-1111</number><month>11</month><year>2015</year><verification_value>123</verification_value></billing_info><address></address></account><plan_code>gold</plan_code><quantity>1</quantity><currency>USD</currency><subscription_add_ons></subscription_add_ons><bulk>true</bulk><terms_and_conditions>Some Terms and Conditions</terms_and_conditions><customer_notes>Some Customer Notes</customer_notes></subscription>\n",
       $subscription->xml()
     );
   }
@@ -170,5 +175,20 @@ class Recurly_SubscriptionTest extends Recurly_TestCase
 
     $this->assertEquals('5000', $subscription->cost_in_cents);
     $this->assertEquals('gold', $subscription->plan_code);
+  }
+
+  public function testUpdateNotes() {
+    $this->client->addResponse('GET', '/subscriptions/012345678901234567890123456789ab', 'subscriptions/show-200.xml');
+    $this->client->addResponse('PUT', 'https://api.recurly.com/v2/subscriptions/012345678901234567890123456789ab/notes', 'subscriptions/show-200-changed-notes.xml');
+
+    $subscription = Recurly_Subscription::get('012345678901234567890123456789ab', $this->client);
+
+    $notes = array("customer_notes" => "New Customer Notes", "terms_and_condititions" => "New Terms", "vat_reverse_charge_notes" => "New VAT Notes");
+
+    $subscription->updateNotes($notes);
+
+    foreach($notes as $key => $value) {
+      $this->assertEquals($subscription->$key, $value);
+    }
   }
 }

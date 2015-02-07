@@ -60,6 +60,28 @@ class Recurly_AdjustmentTest extends Recurly_TestCase
     $adjustment->delete();
   }
 
+  public function testToRefundAttributes() {
+    $this->client->addResponse('GET', '/adjustments/abcdef1234567890', 'adjustments/show-200.xml');
+
+    $adjustment = Recurly_Adjustment::get('abcdef1234567890', $this->client);
+
+    $attributes = $adjustment->toRefundAttributes();
+    $this->assertEquals($attributes['uuid'], $adjustment->uuid);
+    $this->assertEquals($attributes['prorate'], false);
+    $this->assertEquals($attributes['quantity'], $adjustment->quantity);
+  }
+
+  public function testAdjustmentRefund() {
+    $this->client->addResponse('GET', '/adjustments/abcdef1234567890', 'adjustments/show-200.xml');
+    $this->client->addResponse('GET', 'https://api.recurly.com/v2/invoices/1234', 'invoices/show-200.xml');
+    $this->client->addResponse('POST', 'https://api.recurly.com/v2/invoices/1001/refund', 'invoices/refund-201.xml');
+
+    $adjustment = Recurly_Adjustment::get('abcdef1234567890', $this->client);
+
+    $refund_invoice = $adjustment->refund();
+    $this->assertEquals($refund_invoice->subtotal_in_cents, -1000);
+  }
+
   public function testXml() {
     $charge = new Recurly_Adjustment();
     $charge->account_code = '1';

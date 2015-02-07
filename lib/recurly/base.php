@@ -73,7 +73,6 @@ abstract class Recurly_Base
   /**
    * Delete the URI, validate the response and return the object.
    * @param string Resource URI, if not fully qualified, the base URL will be appended
-   * @param string Data to post to the URI
    * @param string Optional client for the request, useful for mocking the client
    */
   protected static function _delete($uri, $client = null)
@@ -190,8 +189,8 @@ abstract class Recurly_Base
     $rootNode = $dom->documentElement;
 
     $obj = Recurly_Resource::__createNodeObject($rootNode);
-    Recurly_Resource::__parseXmlToObject($rootNode->firstChild, $obj);
     $obj->_client = $client;
+    Recurly_Resource::__parseXmlToObject($rootNode->firstChild, $obj);
     return $obj;
   }
 
