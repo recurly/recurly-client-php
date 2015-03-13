@@ -149,10 +149,10 @@ class Recurly_Client
       curl_setopt($ch, CURLOPT_CUSTOMREQUEST, $method);
     }
 
-    if(Recurly_Client::$logger){
+    if (Recurly_Client::$logger) {
       Recurly_Client::$logger->info('Send request to Recurly', array('method' => $method, 'uri' => $uri));
       Recurly_Client::$logger->debug('Send request with headers', array('headers' => $headers));
-      if(!empty($data)){
+      if ($data) {
         Recurly_Client::$logger->debug('Recurly request body', array('body' => $data));
       }
     }
@@ -178,9 +178,9 @@ class Recurly_Client
     }
     $headers = $this->_getHeaders($header);
 
-    if(Recurly_Client::$logger){
+    if (Recurly_Client::$logger) {
       Recurly_Client::$logger->debug('Response from Recurly', array('headers' => $headers));
-      if(!empty($body)){
+      if ($body) {
         Recurly_Client::$logger->debug('Recurly response body', array('body' => $body));
       }
     }
