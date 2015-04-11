@@ -150,6 +150,7 @@ abstract class Recurly_Resource extends Recurly_Base
         } else if (is_bool($val)) {
           $val = ($val ? 'true' : 'false');
         }
+        $val = htmlspecialchars($val, ENT_NOQUOTES, null, false);
         $node->appendChild($doc->createElement($key, $val));
       }
     }
