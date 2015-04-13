@@ -141,16 +141,16 @@ abstract class Recurly_Resource extends Recurly_Base
       } else if (is_null($val)) {
         $domAttribute = $doc->createAttribute('nil');
         $domAttribute->value = 'nil';
-        $attribute_node = $doc->createElement($key, null);
+        $attribute_node = $node->appendChild($doc->createElement($key));
         $attribute_node->appendChild($domAttribute);
-        $node->appendChild($attribute_node);
       } else {
         if ($val instanceof DateTime) {
           $val = $val->format('c');
         } else if (is_bool($val)) {
           $val = ($val ? 'true' : 'false');
         }
-        $node->appendChild($doc->createElement($key, $val));
+        $attribute_node = $node->appendChild($doc->createElement($key));
+        $attribute_node->appendChild($doc->createTextNode($val));
       }
     }
   }
