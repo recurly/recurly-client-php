@@ -42,14 +42,14 @@ class Recurly_PlanTest extends Recurly_TestCase
   public function testCreateXml() {
     $plan = new Recurly_Plan();
     $plan->plan_code = 'platinum';
-    $plan->name = 'Platinum Plan';
+    $plan->name = 'Platinum & Gold Plan';
     $plan->unit_amount_in_cents->addCurrency('USD', 1500);
     $plan->unit_amount_in_cents->addCurrency('EUR', 1200);
     $plan->setup_fee_in_cents->addCurrency('EUR', 500);
     $plan->total_billing_cycles = 6;
 
     $this->assertEquals(
-      "<?xml version=\"1.0\"?>\n<plan><plan_code>platinum</plan_code><name>Platinum Plan</name><unit_amount_in_cents><USD>1500</USD><EUR>1200</EUR></unit_amount_in_cents><setup_fee_in_cents><EUR>500</EUR></setup_fee_in_cents><total_billing_cycles>6</total_billing_cycles></plan>\n",
+      "<?xml version=\"1.0\"?>\n<plan><plan_code>platinum</plan_code><name>Platinum &amp; Gold Plan</name><unit_amount_in_cents><USD>1500</USD><EUR>1200</EUR></unit_amount_in_cents><setup_fee_in_cents><EUR>500</EUR></setup_fee_in_cents><total_billing_cycles>6</total_billing_cycles></plan>\n",
       $plan->xml()
     );
   }
