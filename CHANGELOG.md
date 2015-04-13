@@ -16,6 +16,7 @@
 * Added `updateNotes()` and `vat_reverse_charge` to `Recurly_Subscription`. [#128](https://github.com/recurly/recurly-client-php/pull/128)
 * Added `vat_reverse_charge_notes` to `Recurly_Invoice`. [#128](https://github.com/recurly/recurly-client-php/pull/128)
 * Added `invoice_number_prefix` and `invoiceNumberWithPrefix()` to `Recurly_Invoice`. This is to be used with the Country Invoice Sequencing feature. [#130](https://github.com/recurly/recurly-client-php/pull/130)
+* Added `collection_method`, `net_terms` and `po_number` to `Recurly_Invoice` [#131 by dmatora](https://github.com/recurly/recurly-client-php/pull/131)
 
 ## Version 2.3.1 (Sept 26th, 2014)
 
