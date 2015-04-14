@@ -1,6 +1,6 @@
 # Recurly PHP Client Library CHANGELOG
 
-## Version 2.4.2 (Unreleased)
+## Version 2.4.2 (Apr 14th, 2015)
 
 * Fixes encoding of values with ampersands [#150](https://github.com/recurly/recurly-client-php/issues/150)
 
