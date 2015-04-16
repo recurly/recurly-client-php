@@ -60,7 +60,18 @@ class Recurly_Invoice extends Recurly_Resource
   public function markFailed() {
     $this->_save(Recurly_Client::PUT, $this->uri() . '/mark_failed');
   }
-
+  
+  /**
+   * Enters an offline payment for an invoice
+   * @param array additional transaction attributes ('account', 'amount_in_cents', 'currency', 'description', 'accounting_code',  'payment_method', 'collected_at', 'tax_exempt', 'tax_code')
+   * @return Recurly_Transaction transaction on success
+   */
+  public function enterOfflinePayment($attributes = array(), $client = null) {
+    $uri = $this->uri() . '/transactions';
+    $transaction = new Recurly_Transaction();
+    return Recurly_Transaction::_post($uri, $transaction->setValues($attributes)->xml(), $client);
+  }
+  
   public function invoiceNumberWithPrefix() {
     return $this->invoice_number_prefix . $this->invoice_number;
   }

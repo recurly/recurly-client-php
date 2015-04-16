@@ -6,6 +6,7 @@ class Recurly_TransactionTest extends Recurly_TestCase
   function defaultResponses() {
     return array(
       array('GET', '/transactions/012345678901234567890123456789ab', 'transactions/show-200.xml'),
+      array('GET', '/invoices/1001', 'invoices/show-200.xml'),
     );
   }
 
@@ -88,5 +89,16 @@ class Recurly_TransactionTest extends Recurly_TestCase
     $this->assertEquals('The credit card number is not valid. The customer needs to try a different number.', $transaction->transaction_error->merchant_message);
     $this->assertEquals('Your card number is not valid. Please update your card number.', $transaction->transaction_error->customer_message);
     $this->assertEquals('123', $transaction->transaction_error->gateway_error_code);
+  }
+  
+  public function testEnterOfflinePayment() {
+    $invoice = Recurly_Invoice::get('1001', $this->client);
+    $this->client->addResponse('POST', 'https://api.recurly.com/v2/invoices/1001/transactions', 'transactions/create-200.xml');
+    
+    $transaction = $invoice->enterOfflinePayment(array('payment_method' => 'check', 'collected_at' => date('c', strtotime('2012-12-31Z')), 'amount_in_cents' => 1000, 'description' => "check #12345"), $this->client);
+    
+    $this->assertInstanceOf('Recurly_Transaction', $transaction);
+    $this->assertEquals($transaction->status, 'success');
+    
   }
 }
