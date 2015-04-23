@@ -1,5 +1,13 @@
 # Recurly PHP Client Library CHANGELOG
 
+## Unreleased
+
+* - Added bank account attributes to `Recurly_BillingInfo`, these include:
+  + - `name_on_account`
+  + - `account_type` (`checking` or `savings`)
+  + - `last_four`
+  + - `routing_number`
+
 ## Version 2.4.2 (Apr 14th, 2015)
 
 * Fixes encoding of values with ampersands [#150](https://github.com/recurly/recurly-client-php/issues/150)
