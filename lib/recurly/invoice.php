@@ -24,7 +24,7 @@ class Recurly_Invoice extends Recurly_Resource
    * Retrieve the PDF version of this invoice
    */
   public function getPdf($locale = null) {
-    return Recurly_Invoice::getInvoicePdf($this->invoice_number, $locale, $this->_client);
+    return Recurly_Invoice::getInvoicePdf($this->invoiceNumberWithPrefix(), $locale, $this->_client);
   }
 
   /**
