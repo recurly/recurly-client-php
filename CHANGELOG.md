@@ -3,13 +3,14 @@
 ## Unreleased
 
 * Fixed bug where fetching an invoice PDF did not use the invoice number prefix [#155](https://github.com/recurly/recurly-client-php/pull/155)
-* - Added bank account attributes to `Recurly_BillingInfo`, these include:
-  + - `name_on_account`
-  + - `account_type` (`checking` or `savings`)
-  + - `last_four`
-  + - `routing_number`
+* Added bank account attributes to `Recurly_BillingInfo`, these include:
+  + `name_on_account`
+  + `account_type` (`checking` or `savings`)
+  + `last_four`
+  + `routing_number`
   * [#153](https://github.com/recurly/recurly-client-php/pull/153)
 * Added `ip_address` attribute to `Recurly_Transaction`[#157](https://github.com/recurly/recurly-client-php/pull/157)
+* Added `bank_account_authorized_at` to `Recurly_Subscription` [#156](https://github.com/recurly/recurly-client-php/pull/156)
 
 ## Version 2.4.2 (Apr 14th, 2015)
 
