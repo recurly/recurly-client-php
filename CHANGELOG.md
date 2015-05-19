@@ -9,6 +9,7 @@
   + - `last_four`
   + - `routing_number`
   * [#153](https://github.com/recurly/recurly-client-php/pull/153)
+* Added `ip_address` attribute to `Recurly_Transaction`[#157](https://github.com/recurly/recurly-client-php/pull/157)
 
 ## Version 2.4.2 (Apr 14th, 2015)
 
