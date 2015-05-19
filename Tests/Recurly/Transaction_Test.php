@@ -19,6 +19,7 @@ class Recurly_TransactionTest extends Recurly_TestCase
     $this->assertInstanceOf('Recurly_Stub', $transaction->subscription);
 
     $this->assertEquals($transaction->account->getHref(), 'https://api.recurly.com/v2/accounts/verena');
+    $this->assertEquals($transaction->ip_address, '127.0.0.1');
   }
 
   public function testCreateTransactionFailed() {
