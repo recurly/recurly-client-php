@@ -21,7 +21,9 @@ class Recurly_PushNotification
    *    failed_payment_notification
    *    successful_refund_notification
    *    void_payment_notification
-   *    *_invoice_notification
+   *    new_invoice_notification
+   *    closed_invoice_notification
+   *    past_due_invoice_notification
    */
   var $type;
 
