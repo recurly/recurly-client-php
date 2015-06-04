@@ -34,7 +34,7 @@ class Recurly_Client
    */
   private $_acceptLanguage = 'en-US';
 
-  const API_CLIENT_VERSION = '2.4.2';
+  const API_CLIENT_VERSION = '2.4.3';
   const DEFAULT_ENCODING = 'UTF-8';
 
   const GET = 'GET';
