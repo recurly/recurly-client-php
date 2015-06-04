@@ -21,27 +21,31 @@ class Recurly_PushNotification
    *    failed_payment_notification
    *    successful_refund_notification
    *    void_payment_notification
+   *    new_invoice_notification
+   *    closed_invoice_notification
+   *    past_due_invoice_notification
    */
   var $type;
 
   var $account;
   var $subscription;
   var $transaction;
+  var $invoice;
 
   function __construct($post_xml)
   {
     $this->parseXml($post_xml);
   }
-  
+
   function parseXml($post_xml)
   {
     if (!@simplexml_load_string ($post_xml)) {
       return;
     }
     $xml = new SimpleXMLElement ($post_xml);
-    
+
     $this->type = $xml->getName();
-    
+
     foreach ($xml->children() as $child_node)
     {
       switch ($child_node->getName())
@@ -54,6 +58,9 @@ class Recurly_PushNotification
           break;
         case 'transaction':
           $this->transaction = $child_node;
+          break;
+        case 'invoice':
+          $this->invoice = $child_node;
           break;
       }
     }
