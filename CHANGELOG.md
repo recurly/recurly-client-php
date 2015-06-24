@@ -2,7 +2,8 @@
 
 ## Unreleased
 
-* Added `gateway_error_code` to `Transaction`
+* Added `gateway_error_code` to `Transaction` [#163](https://github.com/recurly/recurly-client-php/pull/163)
+* Add support for `refund_apply_order` when performing an open amount or line item refund [#161](https://github.com/recurly/recurly-client-php/pull/161)]
 
 ## Version 2.4.3 (June 4th, 2015)
 

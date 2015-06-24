@@ -77,12 +77,14 @@ class Recurly_Invoice extends Recurly_Resource
   /**
    * Refunds an open amount from the invoice and returns a new refund invoice
    * @param Integer amount in cents to refund from this invoice
+   * @param String indicates the refund order to apply, valid options: {'credit','transaction'}, defaults to 'credit'
    * @return Recurly_Invoice a new refund invoice
    */
-  public function refundAmount($amount_in_cents) {
+  public function refundAmount($amount_in_cents, $refund_apply_order = 'credit') {
     $doc = $this->createDocument();
 
     $root = $doc->appendChild($doc->createElement($this->getNodeName()));
+    $root->appendChild($doc->createElement('refund_apply_order', $refund_apply_order));
     $root->appendChild($doc->createElement('amount_in_cents', $amount_in_cents));
 
     return $this->createRefundInvoice($this->renderXML($doc));
@@ -91,14 +93,16 @@ class Recurly_Invoice extends Recurly_Resource
   /**
    * Refunds given line items from an invoice and returns new refund invoice
    * @param Array refund attributes or Array of refund attributes to refund (see 'REFUND ATTRIBUTES' in docs or Recurly_Adjustment#toRefundAttributes)
+   * @param String indicates the refund order to apply, valid options: {'credit','transaction'}, defaults to 'credit'
    * @return Recurly_Invoice a new refund invoice
    */
-  public function refund($line_items) {
+  public function refund($line_items, $refund_apply_order = 'credit') {
     if (isset($line_items['uuid'])) { $line_items = array($line_items); }
 
     $doc = $this->createDocument();
 
     $root = $doc->appendChild($doc->createElement($this->getNodeName()));
+    $root->appendChild($doc->createElement('refund_apply_order', $refund_apply_order));
     $line_items_node = $root->appendChild($doc->createElement('line_items'));
 
     foreach ($line_items as $line_item) {
