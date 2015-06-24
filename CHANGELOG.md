@@ -1,5 +1,9 @@
 # Recurly PHP Client Library CHANGELOG
 
+## Unreleased
+
+* Added `gateway_error_code` to `Transaction`
+
 ## Version 2.4.3 (June 4th, 2015)
 
 * Fixed bug where fetching an invoice PDF did not use the invoice number prefix [#155](https://github.com/recurly/recurly-client-php/pull/155)
