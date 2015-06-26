@@ -16,6 +16,9 @@ Content-Type: application/xml; charset=utf-8
   <max_redemptions nil="nil"></max_redemptions>
   <applies_to_all_plans type="boolean">true</applies_to_all_plans>
   <created_at type="datetime">2013-10-16T22:30:12Z</created_at>
+  <duration>forever</duration>
+  <temporal_unit></temporal_unit>
+  <temporal_amount type="integer"></temporal_amount>
   <plan_codes type="array">
   </plan_codes>
 </coupon>
