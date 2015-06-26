@@ -34,6 +34,16 @@ class Recurly_CouponTest extends Recurly_TestCase
     $this->assertInstanceOf('Recurly_CouponRedemption', $redemption);
   }
 
+  public function testGetCouponRedemptions() {
+    $this->client->addResponse('GET', 'https://api.recurly.com/v2/coupons/special/redemptions', 'coupons/show-redemptions-200.xml');
+
+    $coupon = Recurly_Coupon::get('special', $this->client);
+    $redemptions = $coupon->redemptions->get();
+
+    $this->assertInstanceOf('Recurly_CouponRedemptionList', $redemptions);
+    $this->assertEquals(2, $redemptions->count());
+  }
+
   public function testRedeemCouponExpired() {
     $this->client->addResponse('GET', '/coupons/expired', 'coupons/show-200-expired.xml');
 

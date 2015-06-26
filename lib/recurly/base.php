@@ -169,6 +169,7 @@ abstract class Recurly_Base
     'plan_codes' => 'array',
     'pending_subscription' => 'Recurly_Subscription',
     'redemption' => 'Recurly_CouponRedemption',
+    'redemptions' => 'Recurly_CouponRedemptionList',
     'setup_fee_in_cents' => 'Recurly_CurrencyList',
     'subscription' => 'Recurly_Subscription',
     'subscriptions' => 'Recurly_SubscriptionList',
