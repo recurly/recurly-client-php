@@ -13,13 +13,13 @@ Location: https://api.recurly.com/v2/coupons/special/redemptions
     <state>active</state>
     <created_at type="datetime">2014-01-06T19:06:35Z</created_at>
   </redemption>
-    <redemption href="https://api.recurly.com/v2/accounts/with_address/redemption">
-      <coupon href="https://api.recurly.com/v2/coupons/special"/>
-      <account href="https://api.recurly.com/v2/accounts/1234567890abcdef"/>
-      <single_use type="boolean">false</single_use>
-      <total_discounted_in_cents type="integer">1238</total_discounted_in_cents>
-      <currency>USD</currency>
-      <state>active</state>
-      <created_at type="datetime">2014-01-14T13:27:53Z</created_at>
-    </redemption>
+  <redemption href="https://api.recurly.com/v2/accounts/with_address/redemption">
+    <coupon href="https://api.recurly.com/v2/coupons/special"/>
+    <account href="https://api.recurly.com/v2/accounts/1234567890abcdef"/>
+    <single_use type="boolean">false</single_use>
+    <total_discounted_in_cents type="integer">1238</total_discounted_in_cents>
+    <currency>USD</currency>
+    <state>active</state>
+    <created_at type="datetime">2014-01-14T13:27:53Z</created_at>
+  </redemption>
 </redemptions>
