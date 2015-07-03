@@ -5,7 +5,7 @@
 * Added `gateway_error_code` to `Recurly_Transaction` [#163](https://github.com/recurly/recurly-client-php/pull/163)
 * Add support for `refund_apply_order` when performing an open amount or line item refund [#161](https://github.com/recurly/recurly-client-php/pull/161)]
 * Add `tax_exempt`, `tax_code` to `Recurly_Transaction` [#166](https://github.com/recurly/recurly-client-php/pull/166)
-* Add `Recurly_CouponRedemptionList` (thanks to [Flambe](https://github.com/rikless)) [#164](https://github.com/recurly/recurly-client-php/pull/164)
+* Add `Recurly_CouponRedemptionList` (thanks to [Flambe](https://github.com/Flambe)) [#164](https://github.com/recurly/recurly-client-php/pull/164)
 
 ## Version 2.4.3 (June 4th, 2015)
 
