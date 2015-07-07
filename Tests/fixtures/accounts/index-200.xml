@@ -19,6 +19,7 @@ Link: <https://api.recurly.com/v2/accounts?cursor=1234567890&per_page=20>; rel="
     <company_name>api100_cn</company_name>
     <accept_language>api100_al</accept_language>
     <created_at type="datetime">2011-04-30T12:00:00Z</created_at>
+    <closed_at nil="nil"></closed_at>
   </account>
   <account href="https://api.recurly.com/v2/accounts/api99">
     <adjustments href="https://api.recurly.com/v2/accounts/api99/adjustments"/>
@@ -34,6 +35,7 @@ Link: <https://api.recurly.com/v2/accounts?cursor=1234567890&per_page=20>; rel="
     <company_name>api99_cn</company_name>
     <accept_language>api99_al</accept_language>
     <created_at type="datetime">2011-04-30T12:00:00Z</created_at>
+    <closed_at nil="nil"></closed_at>
   </account>
   <account href="https://api.recurly.com/v2/accounts/api98">
     <adjustments href="https://api.recurly.com/v2/accounts/api98/adjustments"/>
@@ -49,6 +51,7 @@ Link: <https://api.recurly.com/v2/accounts?cursor=1234567890&per_page=20>; rel="
     <company_name>api98_cn</company_name>
     <accept_language>api98_al</accept_language>
     <created_at type="datetime">2011-04-30T12:00:00Z</created_at>
+    <closed_at nil="nil"></closed_at>
   </account>
   <account href="https://api.recurly.com/v2/accounts/api97">
     <adjustments href="https://api.recurly.com/v2/accounts/api97/adjustments"/>
@@ -64,6 +67,7 @@ Link: <https://api.recurly.com/v2/accounts?cursor=1234567890&per_page=20>; rel="
     <company_name>api97_cn</company_name>
     <accept_language>api97_al</accept_language>
     <created_at type="datetime">2011-04-30T12:00:00Z</created_at>
+    <closed_at nil="nil"></closed_at>
   </account>
   <account href="https://api.recurly.com/v2/accounts/api96">
     <adjustments href="https://api.recurly.com/v2/accounts/api96/adjustments"/>
@@ -79,6 +83,7 @@ Link: <https://api.recurly.com/v2/accounts?cursor=1234567890&per_page=20>; rel="
     <company_name>api96_cn</company_name>
     <accept_language>api96_al</accept_language>
     <created_at type="datetime">2011-04-30T12:00:00Z</created_at>
+    <closed_at nil="nil"></closed_at>
   </account>
   <account href="https://api.recurly.com/v2/accounts/api95">
     <adjustments href="https://api.recurly.com/v2/accounts/api95/adjustments"/>
@@ -94,6 +99,7 @@ Link: <https://api.recurly.com/v2/accounts?cursor=1234567890&per_page=20>; rel="
     <company_name>api95_cn</company_name>
     <accept_language>api95_al</accept_language>
     <created_at type="datetime">2011-04-30T12:00:00Z</created_at>
+    <closed_at nil="nil"></closed_at>
   </account>
   <account href="https://api.recurly.com/v2/accounts/api94">
     <adjustments href="https://api.recurly.com/v2/accounts/api94/adjustments"/>
@@ -109,6 +115,7 @@ Link: <https://api.recurly.com/v2/accounts?cursor=1234567890&per_page=20>; rel="
     <company_name>api94_cn</company_name>
     <accept_language>api94_al</accept_language>
     <created_at type="datetime">2011-04-30T12:00:00Z</created_at>
+    <closed_at nil="nil"></closed_at>
   </account>
   <account href="https://api.recurly.com/v2/accounts/api93">
     <adjustments href="https://api.recurly.com/v2/accounts/api93/adjustments"/>
@@ -124,6 +131,7 @@ Link: <https://api.recurly.com/v2/accounts?cursor=1234567890&per_page=20>; rel="
     <company_name>api93_cn</company_name>
     <accept_language>api93_al</accept_language>
     <created_at type="datetime">2011-04-30T12:00:00Z</created_at>
+    <closed_at nil="nil"></closed_at>
   </account>
   <account href="https://api.recurly.com/v2/accounts/api92">
     <adjustments href="https://api.recurly.com/v2/accounts/api92/adjustments"/>
@@ -139,6 +147,7 @@ Link: <https://api.recurly.com/v2/accounts?cursor=1234567890&per_page=20>; rel="
     <company_name>api92_cn</company_name>
     <accept_language>api92_al</accept_language>
     <created_at type="datetime">2011-04-30T12:00:00Z</created_at>
+    <closed_at nil="nil"></closed_at>
   </account>
   <account href="https://api.recurly.com/v2/accounts/api91">
     <adjustments href="https://api.recurly.com/v2/accounts/api91/adjustments"/>
@@ -154,6 +163,7 @@ Link: <https://api.recurly.com/v2/accounts?cursor=1234567890&per_page=20>; rel="
     <company_name>api91_cn</company_name>
     <accept_language>api91_al</accept_language>
     <created_at type="datetime">2011-04-30T12:00:00Z</created_at>
+    <closed_at nil="nil"></closed_at>
   </account>
   <account href="https://api.recurly.com/v2/accounts/api90">
     <adjustments href="https://api.recurly.com/v2/accounts/api90/adjustments"/>
@@ -169,6 +179,7 @@ Link: <https://api.recurly.com/v2/accounts?cursor=1234567890&per_page=20>; rel="
     <company_name>api90_cn</company_name>
     <accept_language>api90_al</accept_language>
     <created_at type="datetime">2011-04-30T12:00:00Z</created_at>
+    <closed_at nil="nil"></closed_at>
   </account>
   <account href="https://api.recurly.com/v2/accounts/api89">
     <adjustments href="https://api.recurly.com/v2/accounts/api89/adjustments"/>
@@ -184,6 +195,7 @@ Link: <https://api.recurly.com/v2/accounts?cursor=1234567890&per_page=20>; rel="
     <company_name>api89_cn</company_name>
     <accept_language>api89_al</accept_language>
     <created_at type="datetime">2011-04-30T12:00:00Z</created_at>
+    <closed_at nil="nil"></closed_at>
   </account>
   <account href="https://api.recurly.com/v2/accounts/api88">
     <adjustments href="https://api.recurly.com/v2/accounts/api88/adjustments"/>
@@ -199,6 +211,7 @@ Link: <https://api.recurly.com/v2/accounts?cursor=1234567890&per_page=20>; rel="
     <company_name>api88_cn</company_name>
     <accept_language>api88_al</accept_language>
     <created_at type="datetime">2011-04-30T12:00:00Z</created_at>
+    <closed_at nil="nil"></closed_at>
   </account>
   <account href="https://api.recurly.com/v2/accounts/api87">
     <adjustments href="https://api.recurly.com/v2/accounts/api87/adjustments"/>
@@ -214,6 +227,7 @@ Link: <https://api.recurly.com/v2/accounts?cursor=1234567890&per_page=20>; rel="
     <company_name>api87_cn</company_name>
     <accept_language>api87_al</accept_language>
     <created_at type="datetime">2011-04-30T12:00:00Z</created_at>
+    <closed_at nil="nil"></closed_at>
   </account>
   <account href="https://api.recurly.com/v2/accounts/api86">
     <adjustments href="https://api.recurly.com/v2/accounts/api86/adjustments"/>
@@ -229,6 +243,7 @@ Link: <https://api.recurly.com/v2/accounts?cursor=1234567890&per_page=20>; rel="
     <company_name>api86_cn</company_name>
     <accept_language>api86_al</accept_language>
     <created_at type="datetime">2011-04-30T12:00:00Z</created_at>
+    <closed_at nil="nil"></closed_at>
   </account>
   <account href="https://api.recurly.com/v2/accounts/api85">
     <adjustments href="https://api.recurly.com/v2/accounts/api85/adjustments"/>
@@ -244,6 +259,7 @@ Link: <https://api.recurly.com/v2/accounts?cursor=1234567890&per_page=20>; rel="
     <company_name>api85_cn</company_name>
     <accept_language>api85_al</accept_language>
     <created_at type="datetime">2011-04-30T12:00:00Z</created_at>
+    <closed_at nil="nil"></closed_at>
   </account>
   <account href="https://api.recurly.com/v2/accounts/api84">
     <adjustments href="https://api.recurly.com/v2/accounts/api84/adjustments"/>
@@ -259,6 +275,7 @@ Link: <https://api.recurly.com/v2/accounts?cursor=1234567890&per_page=20>; rel="
     <company_name>api84_cn</company_name>
     <accept_language>api84_al</accept_language>
     <created_at type="datetime">2011-04-30T12:00:00Z</created_at>
+    <closed_at nil="nil"></closed_at>
   </account>
   <account href="https://api.recurly.com/v2/accounts/api83">
     <adjustments href="https://api.recurly.com/v2/accounts/api83/adjustments"/>
@@ -274,6 +291,7 @@ Link: <https://api.recurly.com/v2/accounts?cursor=1234567890&per_page=20>; rel="
     <company_name>api83_cn</company_name>
     <accept_language>api83_al</accept_language>
     <created_at type="datetime">2011-04-30T12:00:00Z</created_at>
+    <closed_at nil="nil"></closed_at>
   </account>
   <account href="https://api.recurly.com/v2/accounts/api82">
     <adjustments href="https://api.recurly.com/v2/accounts/api82/adjustments"/>
@@ -289,6 +307,7 @@ Link: <https://api.recurly.com/v2/accounts?cursor=1234567890&per_page=20>; rel="
     <company_name>api82_cn</company_name>
     <accept_language>api82_al</accept_language>
     <created_at type="datetime">2011-04-30T12:00:00Z</created_at>
+    <closed_at nil="nil"></closed_at>
   </account>
   <account href="https://api.recurly.com/v2/accounts/api81">
     <adjustments href="https://api.recurly.com/v2/accounts/api81/adjustments"/>
@@ -304,5 +323,6 @@ Link: <https://api.recurly.com/v2/accounts?cursor=1234567890&per_page=20>; rel="
     <company_name>api81_cn</company_name>
     <accept_language>api81_al</accept_language>
     <created_at type="datetime">2011-04-30T12:00:00Z</created_at>
+    <closed_at nil="nil"></closed_at>
   </account>
 </accounts>
