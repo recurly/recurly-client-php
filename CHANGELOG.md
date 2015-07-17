@@ -9,6 +9,7 @@
 * Added `redemptions` to `Account` [#14](https://github.com/recurly/recurly-client-php-internal/pull/14)
 * Add `max_redemptions_per_account` to `Coupon`
 * Add `redemptions` to `Subscription`
+* Add support for `coupon_codes` to `Subscription` [#15](https://github.com/recurly/recurly-client-php-internal/pull/15)
 
 ## Version 2.4.5 (August 3, 2015)
 
