@@ -34,7 +34,7 @@ class Recurly_Client
    */
   private $_acceptLanguage = 'en-US';
 
-  const API_CLIENT_VERSION = '2.4.3';
+  const API_CLIENT_VERSION = '2.4.4';
   const DEFAULT_ENCODING = 'UTF-8';
 
   const GET = 'GET';
@@ -49,6 +49,7 @@ class Recurly_Client
   const PATH_BILLING_INFO = '/billing_info';
   const PATH_COUPON = '/coupon';
   const PATH_COUPON_REDEMPTION = '/redemption';
+  const PATH_COUPON_REDEMPTIONS = '/redemptions';
   const PATH_COUPONS = '/coupons';
   const PATH_INVOICES = '/invoices';
   const PATH_NOTES = '/notes';
