@@ -21,6 +21,7 @@ class Recurly_CouponTest extends Recurly_TestCase
     $this->assertEquals(1000, $coupon->discount_in_cents['USD']->amount_in_cents);
     $this->assertEquals('Invoice description', $coupon->invoice_description);
     $this->assertTrue($coupon->applies_to_all_plans);
+    $this->assertTrue($coupon->applies_to_non_plan_charges);
     $this->assertEquals(array(), $coupon->plan_codes);
   }
 

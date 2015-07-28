@@ -1,5 +1,9 @@
 # Recurly PHP Client Library CHANGELOG
 
+## Unreleased
+
+* Add `applies_to_non_plan_charges` to `Coupon`
+
 ## Version 2.4.5 (August 3, 2015)
 
 * Added `duration`, `temporal_unit`, & `temporal_amount` to `Coupon` [#171](https://github.com/recurly/recurly-client-php/pull/171)
