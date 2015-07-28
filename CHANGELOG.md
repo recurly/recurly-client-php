@@ -7,6 +7,7 @@
 * Added X-Api-Version request header at 2.1 [#14](https://github.com/recurly/recurly-client-php-internal/pull/14)
 * Added `uuid` to `Account` [#14](https://github.com/recurly/recurly-client-php-internal/pull/14)
 * Added `redemptions` to `Account` [#14](https://github.com/recurly/recurly-client-php-internal/pull/14)
+* Add `max_redemptions_per_account` to `Coupon`
 
 ## Version 2.4.5 (August 3, 2015)
 
