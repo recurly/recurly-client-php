@@ -2,6 +2,7 @@
 
 ## Unreleased
 * Added `setup_fee_accounting_code` to `Plan`
+* Add `applies_to_non_plan_charges` to `Coupon`
 
 ## Version 2.4.5 (August 3, 2015)
 
