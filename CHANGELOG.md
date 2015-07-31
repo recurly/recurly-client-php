@@ -1,5 +1,10 @@
 # Recurly PHP Client Library CHANGELOG
 
+## Unreleased
+
+* Added `duration`, `temporal_unit`, & `temporal_amount` to `Coupon` [#171](https://github.com/recurly/recurly-client-php/pull/171)
+
+
 ## Version 2.4.4 (July 2nd, 2015)
 
 * Added `gateway_error_code` to `Recurly_Transaction` [#163](https://github.com/recurly/recurly-client-php/pull/163)
