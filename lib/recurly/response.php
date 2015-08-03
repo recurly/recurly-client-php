@@ -57,7 +57,7 @@ class Recurly_ClientResponse
         // Handled in assertSuccessResponse()
         return;
       case 429:
-        throw new Recurly_ApiRateLimitError('You have made too many API requests in the last 5 minutes. Future API requests may be ignored until your rate limit resets in 5 minutes. Please visit: https://docs.recurly.com/api/basics/rate-limits');
+        throw new Recurly_ApiRateLimitError('You have made too many API requests in the last 5 minutes. Future API requests may be ignored until your rate limit resets in 5 minutes. Please visit: https://dev.recurly.com/docs/rate-limits');
       case 500:
         $message = (is_null($error) ? 'An error occurred while connecting to Recurly' :
                    'An error occurred while connecting to Recurly: ' . $error->description);
