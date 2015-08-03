@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Recurly_Client provides methods for interacting with the {@link http://docs.recurly.com/api Recurly} API.
+ * Recurly_Client provides methods for interacting with the {@link https://dev.recurly.com/docs/getting-started Recurly} API.
  *
  * @category   Recurly
  * @package    Recurly_Client_PHP
