@@ -79,6 +79,20 @@ Recurly_Client::$subdomain = 'your-subdomain';
 Recurly_Client::$apiKey = '012345678901234567890123456789ab';
 ```
 
+If you are getting certificate verification errors that look like this:
+
+```
+Fatal error: Uncaught exception 'Recurly_ConnectionError' with message 'Could not verify Recurly's SSL certificate.'
+```
+
+Then there is likely a problem with your php or libcurl package and it cannot find your system's root CA certificates.
+Ideally you would want to fix your installation but if you cannot you can override the path manually:
+
+```php
+// Example on my OS X system, the path will be dependent on your system so ask your sysadmin
+Recurly_Client::$CACertPath = '/usr/local/etc/openssl/cert.pem';
+```
+
 ## API Documentation
 
 Please see the [Recurly API](https://dev.recurly.com/docs/getting-started) for more information.
