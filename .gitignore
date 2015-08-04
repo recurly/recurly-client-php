@@ -2,3 +2,4 @@
 *.tmproj
 composer.lock
 vendor
+composer.phar
