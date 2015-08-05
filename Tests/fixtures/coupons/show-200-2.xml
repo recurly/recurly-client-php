@@ -16,6 +16,7 @@ Content-Type: application/xml; charset=utf-8
   <applies_for_months nil="nil"></applies_for_months>
   <max_redemptions nil="nil"></max_redemptions>
   <applies_to_all_plans type="boolean">true</applies_to_all_plans>
+  <redemption_resource>account</redemption_resource>
   <created_at type="datetime">2011-04-10T07:00:00Z</created_at>
   <duration>forever</duration>
   <temporal_unit></temporal_unit>
