@@ -3,6 +3,7 @@
 ## Unreleased
 
 * Add `applies_to_non_plan_charges` to `Coupon`
+* Add `redemption_resource` to `Coupon`
 
 ## Version 2.4.5 (August 3, 2015)
 

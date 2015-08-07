@@ -17,7 +17,7 @@ class Recurly_Coupon extends Recurly_Resource
       'coupon_code','name','discount_type','redeem_by_date','single_use','applies_for_months',
       'duration', 'temporal_unit', 'temporal_amount',
       'max_redemptions','applies_to_all_plans','discount_percent','discount_in_cents','plan_codes',
-      'hosted_description','invoice_description', 'applies_to_non_plan_charges'
+      'hosted_description','invoice_description', 'applies_to_non_plan_charges', 'redemption_resource'
     );
     Recurly_Coupon::$_nestedAttributes = array();
   }
