@@ -20,12 +20,21 @@ class Recurly_Account extends Recurly_Resource
       'email','company_name','accept_language','billing_info','address','tax_exempt', 'entity_use_code'
     );
     Recurly_Account::$_nestedAttributes = array(
-      'adjustments','billing_info','invoices','subscriptions','transactions'
+      'adjustments','billing_info','invoices','redemptions','subscriptions','transactions'
     );
     Recurly_Account::$_requiredAttributes = array(
       'account_code'
     );
 
+  }
+
+  public function &__get($key)
+  {
+    if ($key == 'redemption' && parent::__isset('redemptions')) {
+      return new Recurly_Stub($redemption, $this->_href . "/redemption", $this->_client);
+    } else {
+      return parent::__get($key);
+    }
   }
 
   public static function get($accountCode, $client = null) {

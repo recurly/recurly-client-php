@@ -24,13 +24,4 @@ class Recurly_CouponRedemptionTest extends Recurly_TestCase
     $this->assertEquals('active', $redemption->state);
     $this->assertEquals(1435591848, $redemption->created_at->getTimestamp());
   }
-
-  public function testDeleteRedemption() {
-    $this->client->addResponse(
-      'DELETE', 'https://api.recurly.com/v2/accounts/abcdef1234567890/redemption',
-      'accounts/redemption/destroy-204.xml'
-    );
-
-    Recurly_CouponRedemption::get('abcdef1234567890', $this->client)->delete();
-  }
 }
