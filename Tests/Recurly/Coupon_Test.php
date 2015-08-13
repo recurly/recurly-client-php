@@ -24,6 +24,7 @@ class Recurly_CouponTest extends Recurly_TestCase
     $this->assertTrue($coupon->applies_to_non_plan_charges);
     $this->assertEquals($coupon->redemption_resource, 'account');
     $this->assertEquals(array(), $coupon->plan_codes);
+    $this->assertEquals(1000, $coupon->max_redemptions_per_account);
   }
 
   public function testRedeemCoupon() {

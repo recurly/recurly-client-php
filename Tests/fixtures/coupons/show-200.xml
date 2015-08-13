@@ -24,6 +24,7 @@ Content-Type: application/xml; charset=utf-8
   <duration>forever</duration>
   <temporal_unit></temporal_unit>
   <temporal_amount type="integer"></temporal_amount>
+  <max_redemptions_per_account type="integer">1000</max_redemptions_per_account>
   <plan_codes type="array">
   </plan_codes>
   <a name="redeem" href="https://api.recurly.com/v2/coupons/special/redeem" method="post"/>
