@@ -8,7 +8,7 @@ class Recurly_CouponRedemption extends Recurly_Resource
 
   public static function init()
   {
-    Recurly_CouponRedemption::$_writeableAttributes = array('account_code','currency');
+    Recurly_CouponRedemption::$_writeableAttributes = array('account_code','currency','subscription_uuid');
     Recurly_CouponRedemption::$_nestedAttributes = array('account');
   }
 
