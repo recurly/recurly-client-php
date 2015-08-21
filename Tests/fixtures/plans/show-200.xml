@@ -21,6 +21,7 @@ Content-Type: application/xml; charset=utf-8
   <trial_interval_unit>days</trial_interval_unit>
   <total_billing_cycles type="integer">6</total_billing_cycles>
   <accounting_code nil="nil"></accounting_code>
+  <setup_fee_accounting_code>Setup Fee AC</setup_fee_accounting_code>
   <created_at type="datetime">2011-04-19T07:00:00Z</created_at>
   <tax_exempt type="boolean">true</tax_exempt>
   <unit_amount_in_cents>
