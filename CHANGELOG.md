@@ -1,5 +1,8 @@
 # Recurly PHP Client Library CHANGELOG
 
+## Unreleased
+* Added `setup_fee_accounting_code` to `Plan`
+
 ## Version 2.4.5 (August 3, 2015)
 
 * Added `duration`, `temporal_unit`, & `temporal_amount` to `Coupon` [#171](https://github.com/recurly/recurly-client-php/pull/171)

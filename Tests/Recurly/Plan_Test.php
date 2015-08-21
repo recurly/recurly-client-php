@@ -22,6 +22,7 @@ class Recurly_PlanTest extends Recurly_TestCase
     $this->assertEquals(15, $plan->trial_interval_length);
     $this->assertEquals('days', $plan->trial_interval_unit);
     $this->assertEquals(6, $plan->total_billing_cycles);
+    $this->assertEquals("Setup Fee AC", $plan->setup_fee_accounting_code);
 
     $this->assertInstanceOf('Recurly_CurrencyList', $plan->unit_amount_in_cents);
     $this->assertEquals(1000, $plan->unit_amount_in_cents['USD']->amount_in_cents);
