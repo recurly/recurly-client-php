@@ -191,4 +191,19 @@ class Recurly_SubscriptionTest extends Recurly_TestCase
       $this->assertEquals($subscription->$key, $value);
     }
   }
+
+  public function testGetSubscriptionRedemptions() {
+    $this->client->addResponse('GET', '/subscriptions/012345678901234567890123456789ab', 'subscriptions/show-200.xml');
+    $this->client->addResponse('GET', 'https://api.recurly.com/v2/subscriptions/012345678901234567890123456789ab/redemptions', 'subscriptions/redemptions-200.xml');
+
+    $subscription = Recurly_Subscription::get('012345678901234567890123456789ab', $this->client);
+
+    $redemptions = $subscription->redemptions->get();
+
+    $this->assertEquals(2, $redemptions->count());
+
+    foreach($redemptions as $r) {
+      $this->assertInstanceOf('Recurly_CouponRedemption', $r);
+    }
+  }
 }
