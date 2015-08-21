@@ -188,7 +188,7 @@ class Recurly_Client
       case CURLE_COULDNT_CONNECT:
       case CURLE_COULDNT_RESOLVE_HOST:
       case CURLE_OPERATION_TIMEOUTED:
-        throw new Recurly_ConnectionError("Failed to connect to Recurly.");
+        throw new Recurly_ConnectionError("Failed to connect to Recurly ($message).");
       case CURLE_SSL_CACERT:
       case CURLE_SSL_PEER_CERTIFICATE:
         throw new Recurly_ConnectionError("Could not verify Recurly's SSL certificate.");
