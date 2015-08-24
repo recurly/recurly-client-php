@@ -10,6 +10,7 @@ Location: https://api.recurly.com/v2/coupons/special/redemptions
     <single_use type="boolean">false</single_use>
     <total_discounted_in_cents type="integer">0</total_discounted_in_cents>
     <currency>USD</currency>
+    <subscription href="https://api.recurly.com/v2/subscriptions/012345678901234567890123456789ab"/>
     <state>active</state>
     <created_at type="datetime">2014-01-06T19:06:35Z</created_at>
   </redemption>
@@ -19,6 +20,7 @@ Location: https://api.recurly.com/v2/coupons/special/redemptions
     <single_use type="boolean">false</single_use>
     <total_discounted_in_cents type="integer">1238</total_discounted_in_cents>
     <currency>USD</currency>
+    <subscription href="https://api.recurly.com/v2/subscriptions/012345678901234567890123456789cd"/>
     <state>active</state>
     <created_at type="datetime">2014-01-14T13:27:53Z</created_at>
   </redemption>

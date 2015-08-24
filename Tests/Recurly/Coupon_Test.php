@@ -33,7 +33,7 @@ class Recurly_CouponTest extends Recurly_TestCase
     $coupon = Recurly_Coupon::get('special', $this->client);
     $this->assertEquals('redeemable', $coupon->state);
 
-    $redemption = $coupon->redeemCoupon('abcdef1234567890', 'USD');
+    $redemption = $coupon->redeemCoupon('abcdef1234567890', 'USD', '012345678901234567890123456789ab');
     $this->assertInstanceOf('Recurly_CouponRedemption', $redemption);
   }
 

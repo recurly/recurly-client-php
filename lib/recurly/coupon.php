@@ -31,7 +31,7 @@ class Recurly_Coupon extends Recurly_Resource
     $this->_save(Recurly_Client::POST, Recurly_Client::PATH_COUPONS);
   }
 
-  public function redeemCoupon($accountCode, $currency) {
+  public function redeemCoupon($accountCode, $currency, $subscriptionUUID = null) {
     if ($this->state != 'redeemable') {
       throw new Recurly_Error('Coupon is not redeemable.');
     }
@@ -39,6 +39,7 @@ class Recurly_Coupon extends Recurly_Resource
     $redemption = new Recurly_CouponRedemption(null, $this->_client);
     $redemption->account_code = $accountCode;
     $redemption->currency = $currency;
+    $redemption->subscription_uuid = $subscriptionUUID;
 
     foreach ($this->_links as $link) {
       if ($link->name == 'redeem') {
