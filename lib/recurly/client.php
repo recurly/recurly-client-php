@@ -1,5 +1,7 @@
 <?php
 
+use Psr\Log\LoggerInterface;
+
 /**
  * Recurly_Client provides methods for interacting with the {@link https://dev.recurly.com/docs/getting-started Recurly} API.
  *
@@ -23,6 +25,11 @@ class Recurly_Client
    * Base API URL
    */
   public static $apiUrl = 'https://%s.recurly.com/v2';
+
+  /**
+   * PSR-3 logger for logging client requests
+   */
+  public static $logger = null;
 
   /**
    * API Key instance, may differ from the static key
@@ -119,12 +126,13 @@ class Recurly_Client
     curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
     curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 10);
     curl_setopt($ch, CURLOPT_TIMEOUT, 45);
-    curl_setopt($ch, CURLOPT_HTTPHEADER, array(
+    $headers = array(
       'Content-Type: application/xml; charset=utf-8',
       'Accept: application/xml',
       Recurly_Client::__userAgent(),
       'Accept-Language: ' . $this->_acceptLanguage
-    ));
+    );
+    curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
     curl_setopt($ch, CURLOPT_USERPWD, $this->apiKey());
 
     if ('POST' == $method)
@@ -140,6 +148,14 @@ class Recurly_Client
     else if('GET' != $method)
     {
       curl_setopt($ch, CURLOPT_CUSTOMREQUEST, $method);
+    }
+
+    if (Recurly_Client::$logger) {
+      Recurly_Client::$logger->info('Send request to Recurly', array('method' => $method, 'uri' => $uri));
+      Recurly_Client::$logger->debug('Send request with headers', array('headers' => $headers));
+      if ($data) {
+        Recurly_Client::$logger->debug('Recurly request body', array('body' => $data));
+      }
     }
 
     $response = curl_exec($ch);
@@ -162,6 +178,13 @@ class Recurly_Client
       list($header, $body) = explode("\r\n\r\n", $body, 2);
     }
     $headers = $this->_getHeaders($header);
+
+    if (Recurly_Client::$logger) {
+      Recurly_Client::$logger->debug('Response from Recurly', array('headers' => $headers));
+      if ($body) {
+        Recurly_Client::$logger->debug('Recurly response body', array('body' => $body));
+      }
+    }
 
     return new Recurly_ClientResponse($statusCode, $headers, $body);
   }
