@@ -1,7 +1,7 @@
 # Recurly PHP Client Library CHANGELOG
 
 ## Unreleased
-* Added `setup_fee_accounting_code` to `Plan`
+
 * Add `applies_to_non_plan_charges` to `Coupon`
 * Add `redemption_resource` to `Coupon`
 * Added X-Api-Version request header at 2.1 [#14](https://github.com/recurly/recurly-client-php-internal/pull/14)
