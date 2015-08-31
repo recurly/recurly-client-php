@@ -25,6 +25,11 @@ class Recurly_Client
   public static $apiUrl = 'https://%s.recurly.com/v2';
 
   /**
+   * API Version
+   */
+  public static $apiVersion = '2.1';
+
+  /**
    * API Key instance, may differ from the static key
    */
   private $_apiKey;
@@ -123,7 +128,8 @@ class Recurly_Client
       'Content-Type: application/xml; charset=utf-8',
       'Accept: application/xml',
       Recurly_Client::__userAgent(),
-      'Accept-Language: ' . $this->_acceptLanguage
+      'Accept-Language: ' . $this->_acceptLanguage,
+      'X-Api-Version: ' . Recurly_Client::$apiVersion
     ));
     curl_setopt($ch, CURLOPT_USERPWD, $this->apiKey());
 

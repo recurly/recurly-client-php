@@ -21,7 +21,10 @@ class Recurly_CouponTest extends Recurly_TestCase
     $this->assertEquals(1000, $coupon->discount_in_cents['USD']->amount_in_cents);
     $this->assertEquals('Invoice description', $coupon->invoice_description);
     $this->assertTrue($coupon->applies_to_all_plans);
+    $this->assertTrue($coupon->applies_to_non_plan_charges);
+    $this->assertEquals($coupon->redemption_resource, 'account');
     $this->assertEquals(array(), $coupon->plan_codes);
+    $this->assertEquals(1000, $coupon->max_redemptions_per_account);
   }
 
   public function testRedeemCoupon() {
@@ -30,7 +33,7 @@ class Recurly_CouponTest extends Recurly_TestCase
     $coupon = Recurly_Coupon::get('special', $this->client);
     $this->assertEquals('redeemable', $coupon->state);
 
-    $redemption = $coupon->redeemCoupon('abcdef1234567890', 'USD');
+    $redemption = $coupon->redeemCoupon('abcdef1234567890', 'USD', '012345678901234567890123456789ab');
     $this->assertInstanceOf('Recurly_CouponRedemption', $redemption);
   }
 

@@ -1,7 +1,16 @@
 # Recurly PHP Client Library CHANGELOG
 
 ## Unreleased
+
 * Added `setup_fee_accounting_code` to `Plan`
+* Add `applies_to_non_plan_charges` to `Coupon`
+* Add `redemption_resource` to `Coupon`
+* Added X-Api-Version request header at 2.1 [#14](https://github.com/recurly/recurly-client-php-internal/pull/14)
+* Added `uuid` to `Account` [#14](https://github.com/recurly/recurly-client-php-internal/pull/14)
+* Added `redemptions` to `Account` [#14](https://github.com/recurly/recurly-client-php-internal/pull/14)
+* Add `max_redemptions_per_account` to `Coupon`
+* Add `redemptions` to `Subscription`
+* Add support for `coupon_codes` to `Subscription` [#15](https://github.com/recurly/recurly-client-php-internal/pull/15)
 
 ## Version 2.4.5 (August 3, 2015)
 

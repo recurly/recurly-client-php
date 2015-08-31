@@ -8,7 +8,7 @@ class Recurly_CouponRedemption extends Recurly_Resource
 
   public static function init()
   {
-    Recurly_CouponRedemption::$_writeableAttributes = array('account_code','currency');
+    Recurly_CouponRedemption::$_writeableAttributes = array('account_code','currency','subscription_uuid');
     Recurly_CouponRedemption::$_nestedAttributes = array('account');
   }
 
@@ -17,7 +17,7 @@ class Recurly_CouponRedemption extends Recurly_Resource
   }
 
   public function delete($accountCode = null) {
-    return Recurly_Base::_delete($this->uri($accountCode), $this->_client);
+    return Recurly_Base::_delete($this->delete_uri($accountCode), $this->_client);
   }
 
   protected function uri($accountCode = null) {
@@ -28,6 +28,11 @@ class Recurly_CouponRedemption extends Recurly_Resource
     else
       return false;
   }
+
+  protected function delete_uri($accountCode) {
+    return $this->uri($accountCode) . "s/" . $this->uuid;
+  }
+
   protected static function uriForAccount($accountCode) {
     return Recurly_Client::PATH_ACCOUNTS . '/' . rawurlencode($accountCode) . Recurly_Client::PATH_COUPON_REDEMPTION;
   }

@@ -17,7 +17,8 @@ class Recurly_Coupon extends Recurly_Resource
       'coupon_code','name','discount_type','redeem_by_date','single_use','applies_for_months',
       'duration', 'temporal_unit', 'temporal_amount',
       'max_redemptions','applies_to_all_plans','discount_percent','discount_in_cents','plan_codes',
-      'hosted_description','invoice_description'
+      'hosted_description','invoice_description', 'applies_to_non_plan_charges', 'redemption_resource',
+      'max_redemptions_per_account'
     );
     Recurly_Coupon::$_nestedAttributes = array();
   }
@@ -30,7 +31,7 @@ class Recurly_Coupon extends Recurly_Resource
     $this->_save(Recurly_Client::POST, Recurly_Client::PATH_COUPONS);
   }
 
-  public function redeemCoupon($accountCode, $currency) {
+  public function redeemCoupon($accountCode, $currency, $subscriptionUUID = null) {
     if ($this->state != 'redeemable') {
       throw new Recurly_Error('Coupon is not redeemable.');
     }
@@ -38,6 +39,7 @@ class Recurly_Coupon extends Recurly_Resource
     $redemption = new Recurly_CouponRedemption(null, $this->_client);
     $redemption->account_code = $accountCode;
     $redemption->currency = $currency;
+    $redemption->subscription_uuid = $subscriptionUUID;
 
     foreach ($this->_links as $link) {
       if ($link->name == 'redeem') {
