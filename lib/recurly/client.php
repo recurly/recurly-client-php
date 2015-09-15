@@ -30,6 +30,11 @@ class Recurly_Client
   public static $apiVersion = '2.1';
 
   /**
+   * The path to your CA certs. Use only if needed (if you can't fix libcurl/php).
+   */
+  public static $CACertPath = false;
+
+  /**
    * API Key instance, may differ from the static key
    */
   private $_apiKey;
@@ -118,6 +123,9 @@ class Recurly_Client
     curl_setopt($ch, CURLOPT_URL, $uri);
     curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, TRUE);
     curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 2);
+    if (self::$CACertPath) {
+      curl_setopt($ch, CURLOPT_CAINFO, self::$CACertPath);
+    }
     curl_setopt($ch, CURLOPT_FOLLOWLOCATION, FALSE);
     curl_setopt($ch, CURLOPT_MAXREDIRS, 1);
     curl_setopt($ch, CURLOPT_HEADER, TRUE);
