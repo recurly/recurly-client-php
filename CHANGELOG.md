@@ -1,17 +1,17 @@
 # Recurly PHP Client Library CHANGELOG
 
-## Unreleased
+## Version 2.4.6 (September 15th, 2015)
 
-* Added `setup_fee_accounting_code` to `Plan`
-* Add `applies_to_non_plan_charges` to `Coupon`
-* Add `redemption_resource` to `Coupon`
-* Added X-Api-Version request header at 2.1 [#14](https://github.com/recurly/recurly-client-php-internal/pull/14)
-* Added `uuid` to `Account` [#14](https://github.com/recurly/recurly-client-php-internal/pull/14)
-* Added `redemptions` to `Account` [#14](https://github.com/recurly/recurly-client-php-internal/pull/14)
-* Add `max_redemptions_per_account` to `Coupon`
-* Add `redemptions` to `Subscription`
-* Add support for `coupon_codes` to `Subscription` [#15](https://github.com/recurly/recurly-client-php-internal/pull/15)
-* Added `CACertPath` to `Recurly_Client`
+* Added `setup_fee_accounting_code` to `Plan` [#179](https://github.com/recurly/recurly-client-php/pull/179)
+* Added `applies_to_non_plan_charges` to `Coupon` [#181](https://github.com/recurly/recurly-client-php/pull/181)
+* Added `redemption_resource` to `Coupon` [#181](https://github.com/recurly/recurly-client-php/pull/181)
+* Added `X-Api-Version` request header at 2.1 [#181](https://github.com/recurly/recurly-client-php/pull/181)
+* Added `uuid` to `Account` [#181](https://github.com/recurly/recurly-client-php/pull/181)
+* Added `redemptions` to `Account` [#181](https://github.com/recurly/recurly-client-php/pull/181)
+* Added `max_redemptions_per_account` to `Coupon` [#181](https://github.com/recurly/recurly-client-php/pull/181)
+* Added `redemptions` to `Subscription` [#181](https://github.com/recurly/recurly-client-php/pull/181)
+* Added `coupon_codes` to `Subscription` [#181](https://github.com/recurly/recurly-client-php/pull/181)
+* Added `CACertPath` to `Recurly_Client` [#176](https://github.com/recurly/recurly-client-php/pull/176)
 
 ## Version 2.4.5 (August 3, 2015)
 
