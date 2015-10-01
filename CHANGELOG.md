@@ -1,6 +1,7 @@
 # Recurly PHP Client Library CHANGELOG
 
 * Removed `nestedAttributes` [#191](https://github.com/recurly/recurly-client-php/pull/191)
+* Added support for coupon `update` and `restore` actions [#186](https://github.com/recurly/recurly-client-php/pull/186)
 
 ## Version 2.4.6 (September 15th, 2015)
 

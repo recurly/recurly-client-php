@@ -1,0 +1,31 @@
+HTTP/1.1 200 OK
+Content-Type: application/xml; charset=utf-8
+
+<?xml version="1.0" encoding="UTF-8"?>
+<coupon href="https://api.recurly.com/v2/coupons/special">
+  <redemptions href="https://api.recurly.com/v2/coupons/special/redemptions"/>
+  <coupon_code>special</coupon_code>
+  <name>My New Name</name>
+  <state>redeemable</state>
+  <description>New Description</description>
+  <discount_type>dollars</discount_type>
+  <discount_in_cents>
+    <USD type="integer">1000</USD>
+  </discount_in_cents>
+  <invoice_description>New Invoice Description</invoice_description>
+  <redeem_by_date type="datetime">2020-05-01T08:00:00Z</redeem_by_date>
+  <single_use type="boolean">true</single_use>
+  <applies_for_months type="integer">1</applies_for_months>
+  <max_redemptions type="integer">99</max_redemptions>
+  <applies_to_all_plans type="boolean">true</applies_to_all_plans>
+  <applies_to_non_plan_charges type="boolean">true</applies_to_non_plan_charges>
+  <redemption_resource>account</redemption_resource>
+  <created_at type="datetime">2011-04-30T08:00:00Z</created_at>
+  <duration>forever</duration>
+  <temporal_unit></temporal_unit>
+  <temporal_amount type="integer"></temporal_amount>
+  <max_redemptions_per_account type="integer">3</max_redemptions_per_account>
+  <plan_codes type="array">
+  </plan_codes>
+  <a name="redeem" href="https://api.recurly.com/v2/coupons/special/redeem" method="post"/>
+</coupon>

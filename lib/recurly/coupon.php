@@ -3,6 +3,7 @@
 class Recurly_Coupon extends Recurly_Resource
 {
   protected static $_writeableAttributes;
+  protected static $_updatableAttributes;
   protected $_redeemUrl;
 
   function __construct() {
@@ -18,6 +19,9 @@ class Recurly_Coupon extends Recurly_Resource
       'max_redemptions','applies_to_all_plans','discount_percent','discount_in_cents','plan_codes',
       'hosted_description','invoice_description', 'applies_to_non_plan_charges', 'redemption_resource',
       'max_redemptions_per_account'
+    );
+    Recurly_Coupon::$_updatableAttributes = array('name', 'max_redemptions',
+      'max_redemptions_per_account', 'hosted_description', 'invoice_description', 'redeem_by_date'
     );
   }
 
@@ -47,11 +51,39 @@ class Recurly_Coupon extends Recurly_Resource
     }
   }
 
+  public function update() {
+    $this->_save(Recurly_Client::PUT, $this->uri(), $this->createUpdateXML());
+  }
+
+  public function restore() {
+    $this->_save(Recurly_Client::PUT, $this->uri() . '/restore', $this->createUpdateXML());
+  }
+
   public function delete() {
     return Recurly_Base::_delete($this->uri(), $this->_client);
   }
   public static function deleteCoupon($couponCode, $client = null) {
     return Recurly_Base::_delete(Recurly_Coupon::uriForCoupon($couponCode), $client);
+  }
+
+  // generates the xml needed for a coupon update
+  // only uses the updateable attributes
+  public function createUpdateXML() {
+    $doc = $this->createDocument();
+
+    $root = $doc->appendChild($doc->createElement($this->getNodeName()));
+
+    foreach ($this->getUpdatableAttributes() as $attr) {
+      $val = $this->$attr;
+
+      if ($val instanceof DateTime) {
+        $val = $val->format('c');
+      }
+
+      $root->appendChild($doc->createElement($attr, $val));
+    }
+
+    return $this->renderXML($doc);
   }
 
   protected function uri() {
@@ -69,6 +101,9 @@ class Recurly_Coupon extends Recurly_Resource
   }
   protected function getWriteableAttributes() {
     return Recurly_Coupon::$_writeableAttributes;
+  }
+  protected function getUpdatableAttributes() {
+    return Recurly_Coupon::$_updatableAttributes;
   }
   protected function getRequiredAttributes() {
     return array();
