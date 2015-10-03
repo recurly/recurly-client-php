@@ -145,4 +145,15 @@ class Recurly_CouponTest extends Recurly_TestCase
       $coupon->createUpdateXML()
     );
   }
+
+  public function testGenerate() {
+    $this->client->addResponse('POST', '/coupons/fifteen-off/generate', 'unique_coupons/generate-201.xml');
+    $this->client->addResponse('GET', 'https://api.recurly.com/v2/coupons/fifteen-off/unique_coupon_codes?cursor=1234566890&per_page=20', 'unique_coupons/index-200.xml');
+
+    $coupon = new Recurly_Coupon(null, $this->client);
+    $coupon->coupon_code = 'fifteen-off';
+
+    $coupons = $coupon->generate(10);
+    $this->assertEquals(count($coupons), 10);
+  }
 }

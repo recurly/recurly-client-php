@@ -1,0 +1,16 @@
+HTTP/1.1 200 OK
+Content-Type: application/xml; charset=utf-8
+X-Records: 2
+Link: <https://api.recurly.com/v2/coupons/fifteen-off/unique_coupon_codes?cursor=1234566890&per_page=20>; rel="start", <https://api.recurly.com/v2/coupons/fifteen-off/unique_coupon_codes?cursor=1234566890&per_page=20>; rel="next"
+
+<?xml version="1.0" encoding="UTF-8"?>
+<unique_coupon_codes>
+  <coupon href="https://api.recurly.com/v2/coupons/fifteen-off-aaaaaa">
+    <coupon_code>fifteen-off-aaaaaa</coupon_code>
+    <a name="redeem" href="https://api.recurly.com/v2/coupons//fifteen-off-aaaaaa/redeem" method="post"/>
+  </coupon>
+  <coupon href="https://api.recurly.com/v2/coupons/fifteen-off-bbbbbb">
+    <coupon_code>fifteen-off-bbbbbb</coupon_code>
+    <a name="redeem" href="https://api.recurly.com/v2/coupons//fifteen-off-bbbbbb/redeem" method="post"/>
+  </coupon>
+</unique_coupon_codes>
