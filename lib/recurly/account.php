@@ -31,7 +31,7 @@ class Recurly_Account extends Recurly_Resource
   public function &__get($key)
   {
     if ($key == 'redemption' && parent::__isset('redemptions')) {
-      return new Recurly_Stub($redemption, $this->_href . "/redemption", $this->_client);
+      return new Recurly_Stub('redemption', $this->_href . "/redemption", $this->_client);
     } else {
       return parent::__get($key);
     }
