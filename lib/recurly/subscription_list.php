@@ -5,9 +5,7 @@ class Recurly_SubscriptionList extends Recurly_Pager
   public static function getActive($params = null, $client = null) {
     return Recurly_SubscriptionList::get(Recurly_Pager::_setState($params, 'active'), $client);
   }
-  public static function getTrials($params = null, $client = null) {
-    return Recurly_SubscriptionList::get(Recurly_Pager::_setState($params, 'in_trial'), $client);
-  }
+  
   public static function getCanceled($params = null, $client = null) {
     return Recurly_SubscriptionList::get(Recurly_Pager::_setState($params, 'canceled'), $client);
   }
@@ -26,6 +24,9 @@ class Recurly_SubscriptionList extends Recurly_Pager
   
   public static function getPastDue($params = null, $client = null) {
     return Recurly_SubscriptionList::get(Recurly_Pager::_setState($params, 'past_due'), $client);
+  }
+  public static function getTrials($params = null, $client = null) {
+    return Recurly_SubscriptionList::get(Recurly_Pager::_setState($params, 'in_trial'), $client);
   }
 
   public static function get($params = null, $client = null)
