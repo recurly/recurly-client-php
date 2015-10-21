@@ -3,7 +3,6 @@
 class Recurly_Addon extends Recurly_Resource
 {
   protected static $_writeableAttributes;
-  protected static $_nestedAttributes;
 
   function __construct() {
     parent::__construct();
@@ -16,7 +15,6 @@ class Recurly_Addon extends Recurly_Resource
       'add_on_code','name','display_quantity','default_quantity',
       'unit_amount_in_cents','accounting_code','tax_code'
     );
-    Recurly_Addon::$_nestedAttributes = array();
   }
 
   public static function get($planCode, $addonCode, $client = null) {

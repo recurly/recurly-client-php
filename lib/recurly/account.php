@@ -3,7 +3,6 @@
 class Recurly_Account extends Recurly_Resource
 {
   protected static $_writeableAttributes;
-  protected static $_nestedAttributes;
   protected static $_requiredAttributes;
 
   function __construct($accountCode = null, $client = null) {
@@ -18,9 +17,6 @@ class Recurly_Account extends Recurly_Resource
     Recurly_Account::$_writeableAttributes = array(
       'account_code','username','first_name','last_name','vat_number',
       'email','company_name','accept_language','billing_info','address','tax_exempt', 'entity_use_code'
-    );
-    Recurly_Account::$_nestedAttributes = array(
-      'adjustments','billing_info','invoices','redemptions','subscriptions','transactions'
     );
     Recurly_Account::$_requiredAttributes = array(
       'account_code'

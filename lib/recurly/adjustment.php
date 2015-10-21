@@ -3,16 +3,12 @@
 class Recurly_Adjustment extends Recurly_Resource
 {
   protected static $_writeableAttributes;
-  protected static $_nestedAttributes;
 
   public static function init()
   {
     Recurly_Adjustment::$_writeableAttributes = array(
       'currency','unit_amount_in_cents','quantity','description',
       'accounting_code','tax_exempt','tax_code'
-    );
-    Recurly_Adjustment::$_nestedAttributes = array(
-      'invoice'
     );
   }
 

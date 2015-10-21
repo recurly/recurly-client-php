@@ -3,13 +3,11 @@
 class Recurly_CouponRedemption extends Recurly_Resource
 {
   protected static $_writeableAttributes;
-  protected static $_nestedAttributes;
   protected static $_redeemUrl;
 
   public static function init()
   {
     Recurly_CouponRedemption::$_writeableAttributes = array('account_code','currency','subscription_uuid');
-    Recurly_CouponRedemption::$_nestedAttributes = array('account');
   }
 
   public static function get($accountCode, $client = null) {

@@ -3,12 +3,10 @@
 class Recurly_Invoice extends Recurly_Resource
 {
   protected static $_writeableAttributes;
-  protected static $_nestedAttributes;
 
   public static function init()
   {
     Recurly_Invoice::$_writeableAttributes = array('terms_and_conditions', 'customer_notes', 'vat_reverse_charge_notes', 'collection_method', 'net_terms', 'po_number');
-    Recurly_Invoice::$_nestedAttributes = array('account','line_items','transactions');
   }
 
   /**

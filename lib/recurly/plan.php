@@ -3,7 +3,6 @@
 class Recurly_Plan extends Recurly_Resource
 {
   protected static $_writeableAttributes;
-  protected static $_nestedAttributes;
 
   function __construct() {
     parent::__construct();
@@ -21,9 +20,6 @@ class Recurly_Plan extends Recurly_Resource
       'trial_interval_unit','unit_amount_in_cents','setup_fee_in_cents',
       'total_billing_cycles','accounting_code','setup_fee_accounting_code',
       'tax_exempt','tax_code'
-    );
-    Recurly_Plan::$_nestedAttributes = array(
-      'add_ons'
     );
   }
 
