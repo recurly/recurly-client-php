@@ -3,7 +3,6 @@
 class Recurly_Coupon extends Recurly_Resource
 {
   protected static $_writeableAttributes;
-  protected static $_nestedAttributes;
   protected $_redeemUrl;
 
   function __construct() {
@@ -20,7 +19,6 @@ class Recurly_Coupon extends Recurly_Resource
       'hosted_description','invoice_description', 'applies_to_non_plan_charges', 'redemption_resource',
       'max_redemptions_per_account'
     );
-    Recurly_Coupon::$_nestedAttributes = array();
   }
 
   public static function get($couponCode, $client = null) {

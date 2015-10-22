@@ -3,14 +3,12 @@
 class Recurly_Transaction extends Recurly_Resource
 {
   protected static $_writeableAttributes;
-  protected static $_nestedAttributes;
 
   public static function init()
   {
     Recurly_Transaction::$_writeableAttributes = array(
       'account','amount_in_cents','currency','description','accounting_code', 'tax_exempt', 'tax_code'
     );
-    Recurly_Transaction::$_nestedAttributes = array('account');
   }
 
   public static function get($uuid, $client = null) {

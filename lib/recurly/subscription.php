@@ -3,7 +3,6 @@
 class Recurly_Subscription extends Recurly_Resource
 {
   protected static $_writeableAttributes;
-  protected static $_nestedAttributes;
 
   public static function init()
   {
@@ -14,7 +13,6 @@ class Recurly_Subscription extends Recurly_Resource
       'cost_in_cents', 'remaining_billing_cycles', 'bulk', 'terms_and_conditions', 'customer_notes',
       'vat_reverse_charge_notes', 'bank_account_authorized_at'
     );
-    Recurly_Subscription::$_nestedAttributes = array('account', 'subscription_add_ons');
   }
 
   public function __construct($href = null, $client = null) {

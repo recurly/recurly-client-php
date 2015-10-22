@@ -3,7 +3,6 @@
 class Recurly_BillingInfo extends Recurly_Resource
 {
   protected static $_writeableAttributes;
-  protected static $_nestedAttributes;
 
   public static function init()
   {
@@ -15,7 +14,6 @@ class Recurly_BillingInfo extends Recurly_Resource
       'paypal_billing_agreement_id', 'amazon_billing_agreement_id',
       'token_id'
     );
-    Recurly_BillingInfo::$_nestedAttributes = array('account');
   }
 
   public static function get($accountCode, $client = null) {
