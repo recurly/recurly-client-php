@@ -13,14 +13,6 @@ abstract class Recurly_Base
     $this->_links = array();
   }
 
-  public function getHref() {
-    return $this->_href;
-  }
-  public function setHref($href) {
-    $this->_href = $href;
-  }
-
-
   /**
    * Request the URI, validate the response and return the object.
    * @param string Resource URI, if not fully qualified, the base URL will be appended
@@ -137,8 +129,20 @@ abstract class Recurly_Base
     return implode($values, ', ');
   }
 
+  public function getHref() {
+    return $this->_href;
+  }
+  // TODO: not sure this should be public
+  public function setHref($href) {
+    $this->_href = $href;
+  }
+
   private function addLink($name, $href, $method){
     $this->_links[$name] = new Recurly_Link($name, $href, $method);
+  }
+
+  public function getLinks() {
+    return $this->_links;
   }
 
   /* ******************************************************
