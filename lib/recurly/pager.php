@@ -101,8 +101,9 @@ abstract class Recurly_Pager extends Recurly_Base implements Iterator
   }
 
   protected static function _setState($params, $state) {
-    if (is_null($params))
+    if (is_null($params)) {
       $params = array();
+    }
     $params['state'] = $state;
     return $params;
   }
@@ -130,8 +131,9 @@ abstract class Recurly_Pager extends Recurly_Base implements Iterator
    */
   private function _loadRecordCount($response)
   {
-    if (empty($this->_count) && isset($response->headers['X-Records']))
+    if (empty($this->_count) && isset($response->headers['X-Records'])) {
       $this->_count = intval($response->headers['X-Records']);
+    }
   }
 
   /**
