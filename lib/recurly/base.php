@@ -364,10 +364,8 @@ abstract class Recurly_Base
         $new_obj = new $node_class();
 
       $href = $node->getAttribute('href');
-      if (!empty($href))
+      if (!empty($href)) {
         $new_obj->setHref($href);
-      else if ($new_obj instanceof Recurly_Pager) {
-        $new_obj->_count = $node->childNodes->length;
       }
 
       return $new_obj;

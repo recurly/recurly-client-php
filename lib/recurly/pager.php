@@ -8,10 +8,9 @@
  */
 abstract class Recurly_Pager extends Recurly_Base implements Iterator
 {
-  private $_etag;
-  private $_position = 0; // position within the current page
-  protected $_count;        // total number of records
-  protected $_objects;    // current page of records
+  private $_position = 0;    // position within the current page
+  protected $_count = null;  // total number of records
+  protected $_objects;       // current page of records
 
   /**
    * Number of records in this list.
@@ -19,10 +18,14 @@ abstract class Recurly_Pager extends Recurly_Base implements Iterator
    */
   public function count()
   {
-    if (empty($this->_count)) {
-      $response = $this->_client->request(Recurly_Client::HEAD, $this->_href);
-      $response->assertValidResponse();
-      $this->_loadRecordCount($response);
+    if (!isset($this->_count)) {
+      if (isset($this->_href)) {
+        $response = $this->_client->request(Recurly_Client::HEAD, $this->_href);
+        $response->assertValidResponse();
+        $this->_loadRecordCount($response);
+      } else {
+        $this->_count = count($this->_objects);
+      }
     }
     return $this->_count;
   }
@@ -43,7 +46,7 @@ abstract class Recurly_Pager extends Recurly_Base implements Iterator
    */
   public function current()
   {
-    if (empty($this->_count)) {
+    if ($this->count() == 0) {
       return null;
     }
 
