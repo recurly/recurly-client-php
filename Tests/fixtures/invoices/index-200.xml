@@ -1,0 +1,441 @@
+HTTP/1.1 200 OK
+X-Records: 3
+Content-Type: application/xml; charset=utf-8
+
+<?xml version="1.0" encoding="UTF-8"?>
+<invoices type="array">
+  <invoice href="https://api.recurly.com/v2/invoices/1002">
+    <account href="https://api.recurly.com/v2/accounts/13daac568eab9337da5235a3e23899"/>
+    <address>
+      <address1>2515 Mayer Stravenue</address1>
+      <address2 nil="nil"></address2>
+      <city>GAINSVILLE</city>
+      <state>FL</state>
+      <zip>32601</zip>
+      <country>US</country>
+      <phone nil="nil"></phone>
+    </address>
+    <subscription href="https://api.recurly.com/v2/subscriptions/32558dd8a07eec471fbe6642d3a422f4"/>
+    <uuid>32558dd8acf30242475046443c8149ed</uuid>
+    <state>collected</state>
+    <invoice_number_prefix></invoice_number_prefix>
+    <invoice_number type="integer">1002</invoice_number>
+    <po_number nil="nil"></po_number>
+    <vat_number nil="nil"></vat_number>
+    <subtotal_in_cents type="integer">0</subtotal_in_cents>
+    <tax_in_cents type="integer">0</tax_in_cents>
+    <total_in_cents type="integer">0</total_in_cents>
+    <currency>USD</currency>
+    <created_at type="datetime">2015-11-08T11:02:04Z</created_at>
+    <closed_at type="datetime">2015-11-08T11:02:04Z</closed_at>
+    <terms_and_conditions>Some Terms and Conditions</terms_and_conditions>
+    <customer_notes>Some Customer Notes</customer_notes>
+    <net_terms type="integer">0</net_terms>
+    <collection_method>automatic</collection_method>
+    <line_items type="array">
+      <adjustment href="https://api.recurly.com/v2/adjustments/32558dd8aa6c8f1e4e363c4cd689aaac" type="charge">
+        <account href="https://api.recurly.com/v2/accounts/13daac568eab9337da5235a3e23899"/>
+        <invoice href="https://api.recurly.com/v2/invoices/1002"/>
+        <subscription href="https://api.recurly.com/v2/subscriptions/32558dd8a07eec471fbe6642d3a422f4"/>
+        <uuid>32558dd8aa6c8f1e4e363c4cd689aaac</uuid>
+        <state>invoiced</state>
+        <description>Trial period for 1 YEAR TRIAL - FOR DATA GENERATION</description>
+        <accounting_code nil="nil"></accounting_code>
+        <product_code>quasi_aut9</product_code>
+        <origin>plan_trial</origin>
+        <unit_amount_in_cents type="integer">0</unit_amount_in_cents>
+        <quantity type="integer">1</quantity>
+        <discount_in_cents type="integer">0</discount_in_cents>
+        <tax_in_cents type="integer">0</tax_in_cents>
+        <total_in_cents type="integer">0</total_in_cents>
+        <currency>USD</currency>
+        <taxable type="boolean">false</taxable>
+        <start_date type="datetime">2015-11-08T11:02:04Z</start_date>
+        <end_date type="datetime">2016-11-08T11:02:04Z</end_date>
+        <created_at type="datetime">2015-11-08T11:02:04Z</created_at>
+      </adjustment>
+    </line_items>
+    <transactions type="array">
+    </transactions>
+  </invoice>
+  <invoice href="https://api.recurly.com/v2/invoices/1000">
+    <account href="https://api.recurly.com/v2/accounts/ee46571618ef22b7a0cc7e2f37a9b5"/>
+    <address>
+      <address1>694 Jerome Fall</address1>
+      <address2 nil="nil"></address2>
+      <city>ADA</city>
+      <state>MN</state>
+      <zip>56510</zip>
+      <country>US</country>
+      <phone nil="nil"></phone>
+    </address>
+    <subscription href="https://api.recurly.com/v2/subscriptions/313928798e08cf7d2403b34ed1954801"/>
+    <uuid>31392879f497d0230dd39640b786b223</uuid>
+    <state>collected</state>
+    <invoice_number_prefix></invoice_number_prefix>
+    <invoice_number type="integer">1000</invoice_number>
+    <po_number nil="nil"></po_number>
+    <vat_number nil="nil"></vat_number>
+    <subtotal_in_cents type="integer">8704</subtotal_in_cents>
+    <tax_in_cents type="integer">0</tax_in_cents>
+    <total_in_cents type="integer">8704</total_in_cents>
+    <currency>USD</currency>
+    <created_at type="datetime">2015-09-14T05:39:11Z</created_at>
+    <closed_at type="datetime">2015-09-14T05:39:11Z</closed_at>
+    <terms_and_conditions>Some Terms and Conditions</terms_and_conditions>
+    <customer_notes>Some Customer Notes</customer_notes>
+    <net_terms type="integer">0</net_terms>
+    <collection_method>automatic</collection_method>
+    <line_items type="array">
+      <adjustment href="https://api.recurly.com/v2/adjustments/31392879db9a569ced40f04d2ba9ed20" type="charge">
+        <account href="https://api.recurly.com/v2/accounts/ee46571618ef22b7a0cc7e2f37a9b5"/>
+        <invoice href="https://api.recurly.com/v2/invoices/1000"/>
+        <subscription href="https://api.recurly.com/v2/subscriptions/313928798e08cf7d2403b34ed1954801"/>
+        <uuid>31392879db9a569ced40f04d2ba9ed20</uuid>
+        <state>invoiced</state>
+        <description>Setup fee: Corporis Excepturi8 Plan</description>
+        <accounting_code nil="nil"></accounting_code>
+        <product_code>corporis_excepturi8</product_code>
+        <origin>setup_fee</origin>
+        <unit_amount_in_cents type="integer">100</unit_amount_in_cents>
+        <quantity type="integer">1</quantity>
+        <discount_in_cents type="integer">0</discount_in_cents>
+        <tax_in_cents type="integer">0</tax_in_cents>
+        <total_in_cents type="integer">100</total_in_cents>
+        <currency>USD</currency>
+        <taxable type="boolean">false</taxable>
+        <start_date type="datetime">2015-09-14T05:39:11Z</start_date>
+        <end_date nil="nil"></end_date>
+        <created_at type="datetime">2015-09-14T05:39:11Z</created_at>
+      </adjustment>
+      <adjustment href="https://api.recurly.com/v2/adjustments/31392879dc037e09b6cf3944a68d1e33" type="charge">
+        <account href="https://api.recurly.com/v2/accounts/ee46571618ef22b7a0cc7e2f37a9b5"/>
+        <invoice href="https://api.recurly.com/v2/invoices/1000"/>
+        <subscription href="https://api.recurly.com/v2/subscriptions/313928798e08cf7d2403b34ed1954801"/>
+        <uuid>31392879dc037e09b6cf3944a68d1e33</uuid>
+        <state>invoiced</state>
+        <description>Corporis Excepturi8 Plan</description>
+        <accounting_code nil="nil"></accounting_code>
+        <product_code>corporis_excepturi8</product_code>
+        <origin>plan</origin>
+        <unit_amount_in_cents type="integer">6784</unit_amount_in_cents>
+        <quantity type="integer">1</quantity>
+        <discount_in_cents type="integer">0</discount_in_cents>
+        <tax_in_cents type="integer">0</tax_in_cents>
+        <total_in_cents type="integer">6784</total_in_cents>
+        <currency>USD</currency>
+        <taxable type="boolean">false</taxable>
+        <start_date type="datetime">2015-09-14T05:39:11Z</start_date>
+        <end_date type="datetime">2015-10-14T05:39:11Z</end_date>
+        <created_at type="datetime">2015-09-14T05:39:11Z</created_at>
+      </adjustment>
+      <adjustment href="https://api.recurly.com/v2/adjustments/31392879de386c59672a0447f0ba9f9a" type="charge">
+        <account href="https://api.recurly.com/v2/accounts/ee46571618ef22b7a0cc7e2f37a9b5"/>
+        <invoice href="https://api.recurly.com/v2/invoices/1000"/>
+        <subscription href="https://api.recurly.com/v2/subscriptions/313928798e08cf7d2403b34ed1954801"/>
+        <uuid>31392879de386c59672a0447f0ba9f9a</uuid>
+        <state>invoiced</state>
+        <description>1 Dolores Molestiae15 Add-on Add On</description>
+        <accounting_code nil="nil"></accounting_code>
+        <product_code>dolores_molestiae15</product_code>
+        <origin>add_on</origin>
+        <unit_amount_in_cents type="integer">122</unit_amount_in_cents>
+        <quantity type="integer">1</quantity>
+        <discount_in_cents type="integer">0</discount_in_cents>
+        <tax_in_cents type="integer">0</tax_in_cents>
+        <total_in_cents type="integer">122</total_in_cents>
+        <currency>USD</currency>
+        <taxable type="boolean">false</taxable>
+        <start_date type="datetime">2015-09-14T05:39:11Z</start_date>
+        <end_date type="datetime">2015-10-14T05:39:11Z</end_date>
+        <created_at type="datetime">2015-09-14T05:39:11Z</created_at>
+      </adjustment>
+      <adjustment href="https://api.recurly.com/v2/adjustments/31392879dfbd1ac2cc95ca426a864c82" type="charge">
+        <account href="https://api.recurly.com/v2/accounts/ee46571618ef22b7a0cc7e2f37a9b5"/>
+        <invoice href="https://api.recurly.com/v2/invoices/1000"/>
+        <subscription href="https://api.recurly.com/v2/subscriptions/313928798e08cf7d2403b34ed1954801"/>
+        <uuid>31392879dfbd1ac2cc95ca426a864c82</uuid>
+        <state>invoiced</state>
+        <description>1 Suscipit Incidunt14 Add-on Add On</description>
+        <accounting_code nil="nil"></accounting_code>
+        <product_code>suscipit_incidunt14</product_code>
+        <origin>add_on</origin>
+        <unit_amount_in_cents type="integer">111</unit_amount_in_cents>
+        <quantity type="integer">1</quantity>
+        <discount_in_cents type="integer">0</discount_in_cents>
+        <tax_in_cents type="integer">0</tax_in_cents>
+        <total_in_cents type="integer">111</total_in_cents>
+        <currency>USD</currency>
+        <taxable type="boolean">false</taxable>
+        <start_date type="datetime">2015-09-14T05:39:11Z</start_date>
+        <end_date type="datetime">2015-10-14T05:39:11Z</end_date>
+        <created_at type="datetime">2015-09-14T05:39:11Z</created_at>
+      </adjustment>
+      <adjustment href="https://api.recurly.com/v2/adjustments/31392879dff2f997a766d24277979c53" type="charge">
+        <account href="https://api.recurly.com/v2/accounts/ee46571618ef22b7a0cc7e2f37a9b5"/>
+        <invoice href="https://api.recurly.com/v2/invoices/1000"/>
+        <subscription href="https://api.recurly.com/v2/subscriptions/313928798e08cf7d2403b34ed1954801"/>
+        <uuid>31392879dff2f997a766d24277979c53</uuid>
+        <state>invoiced</state>
+        <description>1 Omnis Iusto13 Add-on Add On</description>
+        <accounting_code nil="nil"></accounting_code>
+        <product_code>omnis_iusto13</product_code>
+        <origin>add_on</origin>
+        <unit_amount_in_cents type="integer">698</unit_amount_in_cents>
+        <quantity type="integer">1</quantity>
+        <discount_in_cents type="integer">0</discount_in_cents>
+        <tax_in_cents type="integer">0</tax_in_cents>
+        <total_in_cents type="integer">698</total_in_cents>
+        <currency>USD</currency>
+        <taxable type="boolean">false</taxable>
+        <start_date type="datetime">2015-09-14T05:39:11Z</start_date>
+        <end_date type="datetime">2015-10-14T05:39:11Z</end_date>
+        <created_at type="datetime">2015-09-14T05:39:11Z</created_at>
+      </adjustment>
+      <adjustment href="https://api.recurly.com/v2/adjustments/31392879e02b3191e61c2a4a9e848aa8" type="charge">
+        <account href="https://api.recurly.com/v2/accounts/ee46571618ef22b7a0cc7e2f37a9b5"/>
+        <invoice href="https://api.recurly.com/v2/invoices/1000"/>
+        <subscription href="https://api.recurly.com/v2/subscriptions/313928798e08cf7d2403b34ed1954801"/>
+        <uuid>31392879e02b3191e61c2a4a9e848aa8</uuid>
+        <state>invoiced</state>
+        <description>1 Error Aut12 Add-on Add On</description>
+        <accounting_code nil="nil"></accounting_code>
+        <product_code>error_aut12</product_code>
+        <origin>add_on</origin>
+        <unit_amount_in_cents type="integer">889</unit_amount_in_cents>
+        <quantity type="integer">1</quantity>
+        <discount_in_cents type="integer">0</discount_in_cents>
+        <tax_in_cents type="integer">0</tax_in_cents>
+        <total_in_cents type="integer">889</total_in_cents>
+        <currency>USD</currency>
+        <taxable type="boolean">false</taxable>
+        <start_date type="datetime">2015-09-14T05:39:11Z</start_date>
+        <end_date type="datetime">2015-10-14T05:39:11Z</end_date>
+        <created_at type="datetime">2015-09-14T05:39:11Z</created_at>
+      </adjustment>
+    </line_items>
+    <transactions type="array">
+      <transaction href="https://api.recurly.com/v2/transactions/3139287a5f5ee3345752694530a5f0b8" type="credit_card">
+        <account href="https://api.recurly.com/v2/accounts/ee46571618ef22b7a0cc7e2f37a9b5"/>
+        <invoice href="https://api.recurly.com/v2/invoices/1000"/>
+        <subscription href="https://api.recurly.com/v2/subscriptions/313928798e08cf7d2403b34ed1954801"/>
+        <uuid>3139287a5f5ee3345752694530a5f0b8</uuid>
+        <action>purchase</action>
+        <amount_in_cents type="integer">8704</amount_in_cents>
+        <tax_in_cents type="integer">0</tax_in_cents>
+        <currency>USD</currency>
+        <status>success</status>
+        <payment_method>credit_card</payment_method>
+        <reference>6270253</reference>
+        <source>subscription</source>
+        <recurring type="boolean">false</recurring>
+        <test type="boolean">true</test>
+        <voidable type="boolean">false</voidable>
+        <refundable type="boolean">true</refundable>
+        <ip_address>80.40.4.43</ip_address>
+        <cvv_result code="M">Match</cvv_result>
+        <avs_result code="D">Street address and postal code match.</avs_result>
+        <avs_result_street nil="nil"></avs_result_street>
+        <avs_result_postal nil="nil"></avs_result_postal>
+        <created_at type="datetime">2015-09-14T05:39:11Z</created_at>
+        <details>
+          <account>
+            <account_code>ee46571618ef22b7a0cc7e2f37a9b5</account_code>
+            <first_name>Keara</first_name>
+            <last_name>Wolf</last_name>
+            <company>Rutherford-Harber</company>
+            <email>71cde37eb84f362666bb1@example.com</email>
+            <billing_info type="credit_card">
+              <first_name>Keara</first_name>
+              <last_name>Wolf</last_name>
+              <address1>694 Jerome Fall</address1>
+              <address2 nil="nil"></address2>
+              <city>ADA</city>
+              <state>MN</state>
+              <zip>56510</zip>
+              <country>US</country>
+              <phone nil="nil"></phone>
+              <vat_number nil="nil"></vat_number>
+              <card_type>American Express</card_type>
+              <year type="integer">2016</year>
+              <month type="integer">10</month>
+              <first_six>378282</first_six>
+              <last_four>0005</last_four>
+            </billing_info>
+          </account>
+        </details>
+        <a name="refund" href="https://api.recurly.com/v2/transactions/3139287a5f5ee3345752694530a5f0b8" method="delete"/>
+      </transaction>
+    </transactions>
+    <a name="refund" href="https://api.recurly.com/v2/invoices/1000/refund" method="post"/>
+  </invoice>
+  <invoice href="https://api.recurly.com/v2/invoices/1001">
+    <account href="https://api.recurly.com/v2/accounts/ea141ef9e6cf9d91fe1ecf58f636e3"/>
+    <address>
+      <address1>311 Crona Causeway</address1>
+      <address2 nil="nil"></address2>
+      <city>NAKNEK</city>
+      <state>AK</state>
+      <zip>99633</zip>
+      <country>US</country>
+      <phone nil="nil"></phone>
+    </address>
+    <subscription href="https://api.recurly.com/v2/subscriptions/30fb3db268a0ddbf62753a4cce8bfa7e"/>
+    <uuid>30fb3db2766a00f1f6cc2043f59bd43a</uuid>
+    <state>collected</state>
+    <invoice_number_prefix></invoice_number_prefix>
+    <invoice_number type="integer">1001</invoice_number>
+    <po_number nil="nil"></po_number>
+    <vat_number nil="nil"></vat_number>
+    <subtotal_in_cents type="integer">17263</subtotal_in_cents>
+    <tax_in_cents type="integer">0</tax_in_cents>
+    <total_in_cents type="integer">17263</total_in_cents>
+    <currency>USD</currency>
+    <created_at type="datetime">2015-09-02T05:05:55Z</created_at>
+    <closed_at type="datetime">2015-09-02T05:05:55Z</closed_at>
+    <terms_and_conditions>Some Terms and Conditions</terms_and_conditions>
+    <customer_notes>Some Customer Notes</customer_notes>
+    <net_terms type="integer">0</net_terms>
+    <collection_method>automatic</collection_method>
+    <line_items type="array">
+      <adjustment href="https://api.recurly.com/v2/adjustments/30fb3db2727c2012eb62fd424ca6952f" type="charge">
+        <account href="https://api.recurly.com/v2/accounts/ea141ef9e6cf9d91fe1ecf58f636e3"/>
+        <invoice href="https://api.recurly.com/v2/invoices/1001"/>
+        <subscription href="https://api.recurly.com/v2/subscriptions/30fb3db268a0ddbf62753a4cce8bfa7e"/>
+        <uuid>30fb3db2727c2012eb62fd424ca6952f</uuid>
+        <state>invoiced</state>
+        <description>Setup fee: Et Quas2 Plan</description>
+        <accounting_code nil="nil"></accounting_code>
+        <product_code>et_quas2</product_code>
+        <origin>setup_fee</origin>
+        <unit_amount_in_cents type="integer">400</unit_amount_in_cents>
+        <quantity type="integer">1</quantity>
+        <discount_in_cents type="integer">0</discount_in_cents>
+        <tax_in_cents type="integer">0</tax_in_cents>
+        <total_in_cents type="integer">400</total_in_cents>
+        <currency>USD</currency>
+        <taxable type="boolean">false</taxable>
+        <start_date type="datetime">2015-09-02T05:05:54Z</start_date>
+        <end_date nil="nil"></end_date>
+        <created_at type="datetime">2015-09-02T05:05:55Z</created_at>
+      </adjustment>
+      <adjustment href="https://api.recurly.com/v2/adjustments/30fb3db273e068f42ee8b44a279243a5" type="charge">
+        <account href="https://api.recurly.com/v2/accounts/ea141ef9e6cf9d91fe1ecf58f636e3"/>
+        <invoice href="https://api.recurly.com/v2/invoices/1001"/>
+        <subscription href="https://api.recurly.com/v2/subscriptions/30fb3db268a0ddbf62753a4cce8bfa7e"/>
+        <uuid>30fb3db273e068f42ee8b44a279243a5</uuid>
+        <state>invoiced</state>
+        <description>Et Quas2 Plan</description>
+        <accounting_code nil="nil"></accounting_code>
+        <product_code>et_quas2</product_code>
+        <origin>plan</origin>
+        <unit_amount_in_cents type="integer">15432</unit_amount_in_cents>
+        <quantity type="integer">1</quantity>
+        <discount_in_cents type="integer">0</discount_in_cents>
+        <tax_in_cents type="integer">0</tax_in_cents>
+        <total_in_cents type="integer">15432</total_in_cents>
+        <currency>USD</currency>
+        <taxable type="boolean">false</taxable>
+        <start_date type="datetime">2015-09-02T05:05:54Z</start_date>
+        <end_date type="datetime">2015-10-02T05:05:54Z</end_date>
+        <created_at type="datetime">2015-09-02T05:05:55Z</created_at>
+      </adjustment>
+      <adjustment href="https://api.recurly.com/v2/adjustments/30fb3db2742b5e06a875834769b2af7c" type="charge">
+        <account href="https://api.recurly.com/v2/accounts/ea141ef9e6cf9d91fe1ecf58f636e3"/>
+        <invoice href="https://api.recurly.com/v2/invoices/1001"/>
+        <subscription href="https://api.recurly.com/v2/subscriptions/30fb3db268a0ddbf62753a4cce8bfa7e"/>
+        <uuid>30fb3db2742b5e06a875834769b2af7c</uuid>
+        <state>invoiced</state>
+        <description>1 Facilis Sit2 Add-on Add On</description>
+        <accounting_code nil="nil"></accounting_code>
+        <product_code>facilis_sit2</product_code>
+        <origin>add_on</origin>
+        <unit_amount_in_cents type="integer">447</unit_amount_in_cents>
+        <quantity type="integer">1</quantity>
+        <discount_in_cents type="integer">0</discount_in_cents>
+        <tax_in_cents type="integer">0</tax_in_cents>
+        <total_in_cents type="integer">447</total_in_cents>
+        <currency>USD</currency>
+        <taxable type="boolean">false</taxable>
+        <start_date type="datetime">2015-09-02T05:05:54Z</start_date>
+        <end_date type="datetime">2015-10-02T05:05:54Z</end_date>
+        <created_at type="datetime">2015-09-02T05:05:55Z</created_at>
+      </adjustment>
+      <adjustment href="https://api.recurly.com/v2/adjustments/30fb3db274dc9ddcfaa30c46618426a3" type="charge">
+        <account href="https://api.recurly.com/v2/accounts/ea141ef9e6cf9d91fe1ecf58f636e3"/>
+        <invoice href="https://api.recurly.com/v2/invoices/1001"/>
+        <subscription href="https://api.recurly.com/v2/subscriptions/30fb3db268a0ddbf62753a4cce8bfa7e"/>
+        <uuid>30fb3db274dc9ddcfaa30c46618426a3</uuid>
+        <state>invoiced</state>
+        <description>1 Assumenda Aliquid3 Add-on Add On</description>
+        <accounting_code nil="nil"></accounting_code>
+        <product_code>assumenda_aliquid3</product_code>
+        <origin>add_on</origin>
+        <unit_amount_in_cents type="integer">984</unit_amount_in_cents>
+        <quantity type="integer">1</quantity>
+        <discount_in_cents type="integer">0</discount_in_cents>
+        <tax_in_cents type="integer">0</tax_in_cents>
+        <total_in_cents type="integer">984</total_in_cents>
+        <currency>USD</currency>
+        <taxable type="boolean">false</taxable>
+        <start_date type="datetime">2015-09-02T05:05:54Z</start_date>
+        <end_date type="datetime">2015-10-02T05:05:54Z</end_date>
+        <created_at type="datetime">2015-09-02T05:05:55Z</created_at>
+      </adjustment>
+    </line_items>
+    <transactions type="array">
+      <transaction href="https://api.recurly.com/v2/transactions/30fb3db27f36c18a54d35f4b63929c0f" type="credit_card">
+        <account href="https://api.recurly.com/v2/accounts/ea141ef9e6cf9d91fe1ecf58f636e3"/>
+        <invoice href="https://api.recurly.com/v2/invoices/1001"/>
+        <subscription href="https://api.recurly.com/v2/subscriptions/30fb3db268a0ddbf62753a4cce8bfa7e"/>
+        <uuid>30fb3db27f36c18a54d35f4b63929c0f</uuid>
+        <action>purchase</action>
+        <amount_in_cents type="integer">17263</amount_in_cents>
+        <tax_in_cents type="integer">0</tax_in_cents>
+        <currency>USD</currency>
+        <status>success</status>
+        <payment_method>credit_card</payment_method>
+        <reference>5883860</reference>
+        <source>subscription</source>
+        <recurring type="boolean">false</recurring>
+        <test type="boolean">true</test>
+        <voidable type="boolean">false</voidable>
+        <refundable type="boolean">true</refundable>
+        <ip_address>45.185.92.138</ip_address>
+        <cvv_result code="M">Match</cvv_result>
+        <avs_result code="D">Street address and postal code match.</avs_result>
+        <avs_result_street nil="nil"></avs_result_street>
+        <avs_result_postal nil="nil"></avs_result_postal>
+        <created_at type="datetime">2015-09-02T05:05:54Z</created_at>
+        <details>
+          <account>
+            <account_code>ea141ef9e6cf9d91fe1ecf58f636e3</account_code>
+            <first_name>Ursula</first_name>
+            <last_name>Powlowski</last_name>
+            <company>Predovic, Wilderman and Stehr</company>
+            <email>3d0ef3cf33c6c390a991b@example.com</email>
+            <billing_info type="credit_card">
+              <first_name>Ursula</first_name>
+              <last_name>Powlowski</last_name>
+              <address1>311 Crona Causeway</address1>
+              <address2 nil="nil"></address2>
+              <city>NAKNEK</city>
+              <state>AK</state>
+              <zip>99633</zip>
+              <country>US</country>
+              <phone nil="nil"></phone>
+              <vat_number nil="nil"></vat_number>
+              <card_type>American Express</card_type>
+              <year type="integer">2017</year>
+              <month type="integer">9</month>
+              <first_six>371449</first_six>
+              <last_four>8431</last_four>
+            </billing_info>
+          </account>
+        </details>
+        <a name="refund" href="https://api.recurly.com/v2/transactions/30fb3db27f36c18a54d35f4b63929c0f" method="delete"/>
+      </transaction>
+    </transactions>
+    <a name="refund" href="https://api.recurly.com/v2/invoices/1001/refund" method="post"/>
+  </invoice>
+</invoices>

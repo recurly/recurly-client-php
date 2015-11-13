@@ -1,0 +1,220 @@
+HTTP/1.1 200 OK
+X-Records: 5
+Content-Type: application/xml; charset=utf-8
+
+<?xml version="1.0" encoding="UTF-8"?>
+<subscriptions type="array">
+  <subscription href="https://api.recurly.com/v2/subscriptions/32558dd8a07eec471fbe6642d3a422f4">
+    <account href="https://api.recurly.com/v2/accounts/13daac568eab9337da5235a3e23899"/>
+    <invoice href="https://api.recurly.com/v2/invoices/1002"/>
+    <plan href="https://api.recurly.com/v2/plans/quasi_aut9">
+      <plan_code>quasi_aut9</plan_code>
+      <name>1 YEAR TRIAL - FOR DATA GENERATION</name>
+    </plan>
+    <uuid>32558dd8a07eec471fbe6642d3a422f4</uuid>
+    <state>active</state>
+    <unit_amount_in_cents type="integer">5982</unit_amount_in_cents>
+    <currency>USD</currency>
+    <quantity type="integer">1</quantity>
+    <activated_at type="datetime">2015-11-08T11:02:04Z</activated_at>
+    <canceled_at nil="nil"></canceled_at>
+    <expires_at nil="nil"></expires_at>
+    <total_billing_cycles type="integer">6</total_billing_cycles>
+    <remaining_billing_cycles type="integer">6</remaining_billing_cycles>
+    <current_period_started_at type="datetime">2015-11-08T11:02:04Z</current_period_started_at>
+    <current_period_ends_at type="datetime">2016-11-08T11:02:04Z</current_period_ends_at>
+    <trial_started_at type="datetime">2015-11-08T11:02:04Z</trial_started_at>
+    <trial_ends_at type="datetime">2016-11-08T11:02:04Z</trial_ends_at>
+    <terms_and_conditions>Some Terms and Conditions</terms_and_conditions>
+    <customer_notes>Some Customer Notes</customer_notes>
+    <po_number nil="nil"></po_number>
+    <net_terms type="integer">0</net_terms>
+    <collection_method>automatic</collection_method>
+    <subscription_add_ons type="array">
+    </subscription_add_ons>
+    <a name="cancel" href="https://api.recurly.com/v2/subscriptions/32558dd8a07eec471fbe6642d3a422f4/cancel" method="put"/>
+    <a name="terminate" href="https://api.recurly.com/v2/subscriptions/32558dd8a07eec471fbe6642d3a422f4/terminate" method="put"/>
+    <a name="postpone" href="https://api.recurly.com/v2/subscriptions/32558dd8a07eec471fbe6642d3a422f4/postpone" method="put"/>
+    <a name="notes" href="https://api.recurly.com/v2/subscriptions/32558dd8a07eec471fbe6642d3a422f4/notes" method="put"/>
+  </subscription>
+  <subscription href="https://api.recurly.com/v2/subscriptions/313928798e08cf7d2403b34ed1954801">
+    <account href="https://api.recurly.com/v2/accounts/ee46571618ef22b7a0cc7e2f37a9b5"/>
+    <invoice href="https://api.recurly.com/v2/invoices/1000"/>
+    <plan href="https://api.recurly.com/v2/plans/corporis_excepturi8">
+      <plan_code>corporis_excepturi8</plan_code>
+      <name>Corporis Excepturi8 Plan</name>
+    </plan>
+    <uuid>313928798e08cf7d2403b34ed1954801</uuid>
+    <state>active</state>
+    <unit_amount_in_cents type="integer">6784</unit_amount_in_cents>
+    <currency>USD</currency>
+    <quantity type="integer">1</quantity>
+    <activated_at type="datetime">2015-09-14T05:39:11Z</activated_at>
+    <canceled_at nil="nil"></canceled_at>
+    <expires_at nil="nil"></expires_at>
+    <total_billing_cycles type="integer">4</total_billing_cycles>
+    <remaining_billing_cycles type="integer">3</remaining_billing_cycles>
+    <current_period_started_at type="datetime">2015-09-14T05:39:11Z</current_period_started_at>
+    <current_period_ends_at type="datetime">2015-10-14T05:39:11Z</current_period_ends_at>
+    <trial_started_at nil="nil"></trial_started_at>
+    <trial_ends_at nil="nil"></trial_ends_at>
+    <terms_and_conditions>Some Terms and Conditions</terms_and_conditions>
+    <customer_notes>Some Customer Notes</customer_notes>
+    <po_number nil="nil"></po_number>
+    <net_terms type="integer">0</net_terms>
+    <collection_method>automatic</collection_method>
+    <subscription_add_ons type="array">
+      <subscription_add_on>
+        <add_on_code>dolores_molestiae15</add_on_code>
+        <unit_amount_in_cents type="integer">122</unit_amount_in_cents>
+        <quantity type="integer">1</quantity>
+      </subscription_add_on>
+      <subscription_add_on>
+        <add_on_code>suscipit_incidunt14</add_on_code>
+        <unit_amount_in_cents type="integer">111</unit_amount_in_cents>
+        <quantity type="integer">1</quantity>
+      </subscription_add_on>
+      <subscription_add_on>
+        <add_on_code>omnis_iusto13</add_on_code>
+        <unit_amount_in_cents type="integer">698</unit_amount_in_cents>
+        <quantity type="integer">1</quantity>
+      </subscription_add_on>
+      <subscription_add_on>
+        <add_on_code>error_aut12</add_on_code>
+        <unit_amount_in_cents type="integer">889</unit_amount_in_cents>
+        <quantity type="integer">1</quantity>
+      </subscription_add_on>
+    </subscription_add_ons>
+    <a name="cancel" href="https://api.recurly.com/v2/subscriptions/313928798e08cf7d2403b34ed1954801/cancel" method="put"/>
+    <a name="terminate" href="https://api.recurly.com/v2/subscriptions/313928798e08cf7d2403b34ed1954801/terminate" method="put"/>
+    <a name="postpone" href="https://api.recurly.com/v2/subscriptions/313928798e08cf7d2403b34ed1954801/postpone" method="put"/>
+    <a name="notes" href="https://api.recurly.com/v2/subscriptions/313928798e08cf7d2403b34ed1954801/notes" method="put"/>
+  </subscription>
+  <subscription href="https://api.recurly.com/v2/subscriptions/30fb3db268a0ddbf62753a4cce8bfa7e">
+    <account href="https://api.recurly.com/v2/accounts/ea141ef9e6cf9d91fe1ecf58f636e3"/>
+    <invoice href="https://api.recurly.com/v2/invoices/1001"/>
+    <plan href="https://api.recurly.com/v2/plans/et_quas2">
+      <plan_code>et_quas2</plan_code>
+      <name>Et Quas2 Plan</name>
+    </plan>
+    <uuid>30fb3db268a0ddbf62753a4cce8bfa7e</uuid>
+    <state>active</state>
+    <unit_amount_in_cents type="integer">15432</unit_amount_in_cents>
+    <currency>USD</currency>
+    <quantity type="integer">1</quantity>
+    <activated_at type="datetime">2015-09-02T05:05:54Z</activated_at>
+    <canceled_at nil="nil"></canceled_at>
+    <expires_at nil="nil"></expires_at>
+    <total_billing_cycles type="integer">1</total_billing_cycles>
+    <remaining_billing_cycles type="integer">0</remaining_billing_cycles>
+    <current_period_started_at type="datetime">2015-09-02T05:05:54Z</current_period_started_at>
+    <current_period_ends_at type="datetime">2015-10-02T05:05:54Z</current_period_ends_at>
+    <trial_started_at nil="nil"></trial_started_at>
+    <trial_ends_at nil="nil"></trial_ends_at>
+    <terms_and_conditions>Some Terms and Conditions</terms_and_conditions>
+    <customer_notes>Some Customer Notes</customer_notes>
+    <po_number nil="nil"></po_number>
+    <net_terms type="integer">0</net_terms>
+    <collection_method>automatic</collection_method>
+    <subscription_add_ons type="array">
+      <subscription_add_on>
+        <add_on_code>facilis_sit2</add_on_code>
+        <unit_amount_in_cents type="integer">447</unit_amount_in_cents>
+        <quantity type="integer">1</quantity>
+      </subscription_add_on>
+      <subscription_add_on>
+        <add_on_code>assumenda_aliquid3</add_on_code>
+        <unit_amount_in_cents type="integer">984</unit_amount_in_cents>
+        <quantity type="integer">1</quantity>
+      </subscription_add_on>
+    </subscription_add_ons>
+    <a name="cancel" href="https://api.recurly.com/v2/subscriptions/30fb3db268a0ddbf62753a4cce8bfa7e/cancel" method="put"/>
+    <a name="terminate" href="https://api.recurly.com/v2/subscriptions/30fb3db268a0ddbf62753a4cce8bfa7e/terminate" method="put"/>
+    <a name="postpone" href="https://api.recurly.com/v2/subscriptions/30fb3db268a0ddbf62753a4cce8bfa7e/postpone" method="put"/>
+    <a name="notes" href="https://api.recurly.com/v2/subscriptions/30fb3db268a0ddbf62753a4cce8bfa7e/notes" method="put"/>
+  </subscription>
+  <subscription href="https://api.recurly.com/v2/subscriptions/2ee83d3143a4647ac537c14b81893798">
+    <account href="https://api.recurly.com/v2/accounts/9cbfe2f3d45f258464767d7a5d87aa"/>
+    <plan href="https://api.recurly.com/v2/plans/impedit_in6">
+      <plan_code>impedit_in6</plan_code>
+      <name>Impedit In6 Plan</name>
+    </plan>
+    <uuid>2ee83d3143a4647ac537c14b81893798</uuid>
+    <state>future</state>
+    <unit_amount_in_cents type="integer">6271</unit_amount_in_cents>
+    <currency>USD</currency>
+    <quantity type="integer">1</quantity>
+    <activated_at type="datetime">2015-06-22T02:27:00Z</activated_at>
+    <canceled_at nil="nil"></canceled_at>
+    <expires_at nil="nil"></expires_at>
+    <total_billing_cycles nil="nil"></total_billing_cycles>
+    <remaining_billing_cycles nil="nil"></remaining_billing_cycles>
+    <current_period_started_at type="datetime">2015-05-22T02:27:00Z</current_period_started_at>
+    <current_period_ends_at type="datetime">2015-06-22T02:27:00Z</current_period_ends_at>
+    <trial_started_at nil="nil"></trial_started_at>
+    <trial_ends_at nil="nil"></trial_ends_at>
+    <terms_and_conditions>Some Terms and Conditions</terms_and_conditions>
+    <customer_notes>Some Customer Notes</customer_notes>
+    <po_number nil="nil"></po_number>
+    <net_terms type="integer">0</net_terms>
+    <collection_method>automatic</collection_method>
+    <subscription_add_ons type="array">
+      <subscription_add_on>
+        <add_on_code>quibusdam_iure8</add_on_code>
+        <unit_amount_in_cents type="integer">970</unit_amount_in_cents>
+        <quantity type="integer">1</quantity>
+      </subscription_add_on>
+      <subscription_add_on>
+        <add_on_code>maxime_ut9</add_on_code>
+        <unit_amount_in_cents type="integer">33</unit_amount_in_cents>
+        <quantity type="integer">1</quantity>
+      </subscription_add_on>
+      <subscription_add_on>
+        <add_on_code>consequuntur_sint10</add_on_code>
+        <unit_amount_in_cents type="integer">517</unit_amount_in_cents>
+        <quantity type="integer">1</quantity>
+      </subscription_add_on>
+    </subscription_add_ons>
+    <a name="cancel" href="https://api.recurly.com/v2/subscriptions/2ee83d3143a4647ac537c14b81893798/cancel" method="put"/>
+    <a name="terminate" href="https://api.recurly.com/v2/subscriptions/2ee83d3143a4647ac537c14b81893798/terminate" method="put"/>
+    <a name="postpone" href="https://api.recurly.com/v2/subscriptions/2ee83d3143a4647ac537c14b81893798/postpone" method="put"/>
+    <a name="notes" href="https://api.recurly.com/v2/subscriptions/2ee83d3143a4647ac537c14b81893798/notes" method="put"/>
+  </subscription>
+  <subscription href="https://api.recurly.com/v2/subscriptions/29871d2940afd79e8a33bf4b059ba004">
+    <account href="https://api.recurly.com/v2/accounts/d4f2ea1b84c145de9d12fe1621c624"/>
+    <plan href="https://api.recurly.com/v2/plans/magni_corrupti7">
+      <plan_code>magni_corrupti7</plan_code>
+      <name>Magni Corrupti7 Plan</name>
+    </plan>
+    <uuid>29871d2940afd79e8a33bf4b059ba004</uuid>
+    <state>future</state>
+    <unit_amount_in_cents type="integer">12440</unit_amount_in_cents>
+    <currency>USD</currency>
+    <quantity type="integer">1</quantity>
+    <activated_at type="datetime">2015-02-27T16:34:54Z</activated_at>
+    <canceled_at nil="nil"></canceled_at>
+    <expires_at nil="nil"></expires_at>
+    <total_billing_cycles type="integer">4</total_billing_cycles>
+    <remaining_billing_cycles type="integer">4</remaining_billing_cycles>
+    <current_period_started_at type="datetime">2014-08-27T16:34:54Z</current_period_started_at>
+    <current_period_ends_at type="datetime">2015-02-27T16:34:54Z</current_period_ends_at>
+    <trial_started_at nil="nil"></trial_started_at>
+    <trial_ends_at nil="nil"></trial_ends_at>
+    <terms_and_conditions>Some Terms and Conditions</terms_and_conditions>
+    <customer_notes>Some Customer Notes</customer_notes>
+    <po_number nil="nil"></po_number>
+    <net_terms type="integer">0</net_terms>
+    <collection_method>automatic</collection_method>
+    <subscription_add_ons type="array">
+      <subscription_add_on>
+        <add_on_code>amet_odit11</add_on_code>
+        <unit_amount_in_cents type="integer">254</unit_amount_in_cents>
+        <quantity type="integer">1</quantity>
+      </subscription_add_on>
+    </subscription_add_ons>
+    <a name="cancel" href="https://api.recurly.com/v2/subscriptions/29871d2940afd79e8a33bf4b059ba004/cancel" method="put"/>
+    <a name="terminate" href="https://api.recurly.com/v2/subscriptions/29871d2940afd79e8a33bf4b059ba004/terminate" method="put"/>
+    <a name="postpone" href="https://api.recurly.com/v2/subscriptions/29871d2940afd79e8a33bf4b059ba004/postpone" method="put"/>
+    <a name="notes" href="https://api.recurly.com/v2/subscriptions/29871d2940afd79e8a33bf4b059ba004/notes" method="put"/>
+  </subscription>
+</subscriptions>

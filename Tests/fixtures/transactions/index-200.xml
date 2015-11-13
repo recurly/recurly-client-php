@@ -1,0 +1,253 @@
+HTTP/1.1 200 OK
+X-Records: 5
+Content-Type: application/xml; charset=utf-8
+
+<?xml version="1.0" encoding="UTF-8"?>
+<transactions type="array">
+  <transaction href="https://api.recurly.com/v2/transactions/32558dd8b4fb4a02affa9d4848a28cac" type="credit_card">
+    <account href="https://api.recurly.com/v2/accounts/13daac568eab9337da5235a3e23899"/>
+    <uuid>32558dd8b4fb4a02affa9d4848a28cac</uuid>
+    <action>verify</action>
+    <amount_in_cents type="integer">0</amount_in_cents>
+    <tax_in_cents type="integer">0</tax_in_cents>
+    <currency>USD</currency>
+    <status>success</status>
+    <payment_method>credit_card</payment_method>
+    <reference>9606707</reference>
+    <source>billing_info</source>
+    <recurring type="boolean">false</recurring>
+    <test type="boolean">true</test>
+    <voidable type="boolean">false</voidable>
+    <refundable type="boolean">false</refundable>
+    <ip_address>34.222.154.53</ip_address>
+    <cvv_result code="M">Match</cvv_result>
+    <avs_result code="D">Street address and postal code match.</avs_result>
+    <avs_result_street nil="nil"></avs_result_street>
+    <avs_result_postal nil="nil"></avs_result_postal>
+    <created_at type="datetime">2015-11-08T11:02:04Z</created_at>
+    <details>
+      <account>
+        <account_code>13daac568eab9337da5235a3e23899</account_code>
+        <first_name>Werner</first_name>
+        <last_name>Ratke</last_name>
+        <company>Hagenes-Grady</company>
+        <email>3eb482928d0e3493eece9@example.com</email>
+        <billing_info type="credit_card">
+          <first_name>Werner</first_name>
+          <last_name>Ratke</last_name>
+          <address1>2515 Mayer Stravenue</address1>
+          <address2 nil="nil"></address2>
+          <city>GAINSVILLE</city>
+          <state>FL</state>
+          <zip>32601</zip>
+          <country>US</country>
+          <phone nil="nil"></phone>
+          <vat_number nil="nil"></vat_number>
+          <card_type>MasterCard</card_type>
+          <year type="integer">2017</year>
+          <month type="integer">10</month>
+          <first_six>555555</first_six>
+          <last_four>4444</last_four>
+        </billing_info>
+      </account>
+    </details>
+  </transaction>
+  <transaction href="https://api.recurly.com/v2/transactions/3139287a5f5ee3345752694530a5f0b8" type="credit_card">
+    <account href="https://api.recurly.com/v2/accounts/ee46571618ef22b7a0cc7e2f37a9b5"/>
+    <invoice href="https://api.recurly.com/v2/invoices/1000"/>
+    <subscription href="https://api.recurly.com/v2/subscriptions/313928798e08cf7d2403b34ed1954801"/>
+    <uuid>3139287a5f5ee3345752694530a5f0b8</uuid>
+    <action>purchase</action>
+    <amount_in_cents type="integer">8704</amount_in_cents>
+    <tax_in_cents type="integer">0</tax_in_cents>
+    <currency>USD</currency>
+    <status>success</status>
+    <payment_method>credit_card</payment_method>
+    <reference>6270253</reference>
+    <source>subscription</source>
+    <recurring type="boolean">false</recurring>
+    <test type="boolean">true</test>
+    <voidable type="boolean">false</voidable>
+    <refundable type="boolean">true</refundable>
+    <ip_address>80.40.4.43</ip_address>
+    <cvv_result code="M">Match</cvv_result>
+    <avs_result code="D">Street address and postal code match.</avs_result>
+    <avs_result_street nil="nil"></avs_result_street>
+    <avs_result_postal nil="nil"></avs_result_postal>
+    <created_at type="datetime">2015-09-14T05:39:11Z</created_at>
+    <details>
+      <account>
+        <account_code>ee46571618ef22b7a0cc7e2f37a9b5</account_code>
+        <first_name>Keara</first_name>
+        <last_name>Wolf</last_name>
+        <company>Rutherford-Harber</company>
+        <email>71cde37eb84f362666bb1@example.com</email>
+        <billing_info type="credit_card">
+          <first_name>Keara</first_name>
+          <last_name>Wolf</last_name>
+          <address1>694 Jerome Fall</address1>
+          <address2 nil="nil"></address2>
+          <city>ADA</city>
+          <state>MN</state>
+          <zip>56510</zip>
+          <country>US</country>
+          <phone nil="nil"></phone>
+          <vat_number nil="nil"></vat_number>
+          <card_type>American Express</card_type>
+          <year type="integer">2016</year>
+          <month type="integer">10</month>
+          <first_six>378282</first_six>
+          <last_four>0005</last_four>
+        </billing_info>
+      </account>
+    </details>
+    <a name="refund" href="https://api.recurly.com/v2/transactions/3139287a5f5ee3345752694530a5f0b8" method="delete"/>
+  </transaction>
+  <transaction href="https://api.recurly.com/v2/transactions/30fb3db27f36c18a54d35f4b63929c0f" type="credit_card">
+    <account href="https://api.recurly.com/v2/accounts/ea141ef9e6cf9d91fe1ecf58f636e3"/>
+    <invoice href="https://api.recurly.com/v2/invoices/1001"/>
+    <subscription href="https://api.recurly.com/v2/subscriptions/30fb3db268a0ddbf62753a4cce8bfa7e"/>
+    <uuid>30fb3db27f36c18a54d35f4b63929c0f</uuid>
+    <action>purchase</action>
+    <amount_in_cents type="integer">17263</amount_in_cents>
+    <tax_in_cents type="integer">0</tax_in_cents>
+    <currency>USD</currency>
+    <status>success</status>
+    <payment_method>credit_card</payment_method>
+    <reference>5883860</reference>
+    <source>subscription</source>
+    <recurring type="boolean">false</recurring>
+    <test type="boolean">true</test>
+    <voidable type="boolean">false</voidable>
+    <refundable type="boolean">true</refundable>
+    <ip_address>45.185.92.138</ip_address>
+    <cvv_result code="M">Match</cvv_result>
+    <avs_result code="D">Street address and postal code match.</avs_result>
+    <avs_result_street nil="nil"></avs_result_street>
+    <avs_result_postal nil="nil"></avs_result_postal>
+    <created_at type="datetime">2015-09-02T05:05:54Z</created_at>
+    <details>
+      <account>
+        <account_code>ea141ef9e6cf9d91fe1ecf58f636e3</account_code>
+        <first_name>Ursula</first_name>
+        <last_name>Powlowski</last_name>
+        <company>Predovic, Wilderman and Stehr</company>
+        <email>3d0ef3cf33c6c390a991b@example.com</email>
+        <billing_info type="credit_card">
+          <first_name>Ursula</first_name>
+          <last_name>Powlowski</last_name>
+          <address1>311 Crona Causeway</address1>
+          <address2 nil="nil"></address2>
+          <city>NAKNEK</city>
+          <state>AK</state>
+          <zip>99633</zip>
+          <country>US</country>
+          <phone nil="nil"></phone>
+          <vat_number nil="nil"></vat_number>
+          <card_type>American Express</card_type>
+          <year type="integer">2017</year>
+          <month type="integer">9</month>
+          <first_six>371449</first_six>
+          <last_four>8431</last_four>
+        </billing_info>
+      </account>
+    </details>
+    <a name="refund" href="https://api.recurly.com/v2/transactions/30fb3db27f36c18a54d35f4b63929c0f" method="delete"/>
+  </transaction>
+  <transaction href="https://api.recurly.com/v2/transactions/2ee83d314e1845061e2e2840f1b6ed11" type="credit_card">
+    <account href="https://api.recurly.com/v2/accounts/9cbfe2f3d45f258464767d7a5d87aa"/>
+    <uuid>2ee83d314e1845061e2e2840f1b6ed11</uuid>
+    <action>verify</action>
+    <amount_in_cents type="integer">0</amount_in_cents>
+    <tax_in_cents type="integer">0</tax_in_cents>
+    <currency>USD</currency>
+    <status>success</status>
+    <payment_method>credit_card</payment_method>
+    <reference>90017</reference>
+    <source>billing_info</source>
+    <recurring type="boolean">false</recurring>
+    <test type="boolean">true</test>
+    <voidable type="boolean">false</voidable>
+    <refundable type="boolean">false</refundable>
+    <ip_address>115.82.254.140</ip_address>
+    <cvv_result code="M">Match</cvv_result>
+    <avs_result code="D">Street address and postal code match.</avs_result>
+    <avs_result_street nil="nil"></avs_result_street>
+    <avs_result_postal nil="nil"></avs_result_postal>
+    <created_at type="datetime">2015-05-22T02:27:00Z</created_at>
+    <details>
+      <account>
+        <account_code>9cbfe2f3d45f258464767d7a5d87aa</account_code>
+        <first_name>Charlie</first_name>
+        <last_name>Herzog</last_name>
+        <company>Rippin and Sons</company>
+        <email>2dfaa08075252f46642c2@example.com</email>
+        <billing_info type="credit_card">
+          <first_name>Charlie</first_name>
+          <last_name>Herzog</last_name>
+          <address1>52280 Kasandra Ports</address1>
+          <address2 nil="nil"></address2>
+          <city>HAWI</city>
+          <state>HI</state>
+          <zip>96719</zip>
+          <country>US</country>
+          <phone nil="nil"></phone>
+          <vat_number nil="nil"></vat_number>
+          <card_type>MasterCard</card_type>
+          <year type="integer">2017</year>
+          <month type="integer">8</month>
+          <first_six>510510</first_six>
+          <last_four>5100</last_four>
+        </billing_info>
+      </account>
+    </details>
+  </transaction>
+  <transaction href="https://api.recurly.com/v2/transactions/29871d2a1ceea03ecc76694bea8a078f" type="credit_card">
+    <account href="https://api.recurly.com/v2/accounts/d4f2ea1b84c145de9d12fe1621c624"/>
+    <uuid>29871d2a1ceea03ecc76694bea8a078f</uuid>
+    <action>verify</action>
+    <amount_in_cents type="integer">0</amount_in_cents>
+    <tax_in_cents type="integer">0</tax_in_cents>
+    <currency>USD</currency>
+    <status>success</status>
+    <payment_method>credit_card</payment_method>
+    <reference>5254075</reference>
+    <source>billing_info</source>
+    <recurring type="boolean">false</recurring>
+    <test type="boolean">true</test>
+    <voidable type="boolean">false</voidable>
+    <refundable type="boolean">false</refundable>
+    <ip_address>34.208.243.86</ip_address>
+    <cvv_result code="M">Match</cvv_result>
+    <avs_result code="D">Street address and postal code match.</avs_result>
+    <avs_result_street nil="nil"></avs_result_street>
+    <avs_result_postal nil="nil"></avs_result_postal>
+    <created_at type="datetime">2014-08-27T16:34:54Z</created_at>
+    <details>
+      <account>
+        <account_code>d4f2ea1b84c145de9d12fe1621c624</account_code>
+        <first_name>Noe</first_name>
+        <last_name>Keebler</last_name>
+        <company>Hansen-Emard</company>
+        <email>167e8a145bd18bf6178ed@example.com</email>
+        <billing_info type="credit_card">
+          <first_name>Noe</first_name>
+          <last_name>Keebler</last_name>
+          <address1>566 Jazmyn Walk</address1>
+          <address2 nil="nil"></address2>
+          <city>ABBOT</city>
+          <state>ME</state>
+          <zip>04406</zip>
+          <country>US</country>
+          <phone nil="nil"></phone>
+          <vat_number nil="nil"></vat_number>
+          <card_type>Discover</card_type>
+          <year type="integer">2017</year>
+          <month type="integer">1</month>
+          <first_six>601111</first_six>
+          <last_four>1117</last_four>
+        </billing_info>
+      </account>
+    </details>
+  </transaction>
+</transactions>
