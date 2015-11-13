@@ -90,11 +90,11 @@ class Recurly_PagerTest extends Recurly_TestCase
     $pager = $stub->get();
     $this->assertInstanceOf('Mock_Pager', $pager);
 
-    // TODO: The URL is not passed from the stub to the object, it seems to
-    // load the first page of the results, but doesn't have a link to the next
-    // page. These tests document the desired behavior but are currently broken:
-/*
     $this->assertEquals($url, $pager->getHref());
+    // TODO: It seems to load the first page of the results, but doesn't have a
+    // link to the next page. These tests document the desired behavior but are
+    // currently broken:
+/*
     $this->assertEquals($pager->count(), 6, 'Returns correct count');
     $this->assertIteratesCorrectly($pager, 6);
 */
