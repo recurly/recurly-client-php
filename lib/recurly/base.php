@@ -9,7 +9,7 @@ abstract class Recurly_Base
   public function __construct($href = null, $client = null)
   {
     $this->_href = $href;
-    $this->_client = $client;
+    $this->_client = is_null($client) ? new Recurly_Client() : $client;
     $this->_links = array();
   }
 

@@ -20,8 +20,6 @@ abstract class Recurly_Pager extends Recurly_Base implements Iterator
   public function count()
   {
     if (empty($this->_count)) {
-      if (is_null($this->_client))
-        $this->_client = new Recurly_Client();
       $response = $this->_client->request(Recurly_Client::HEAD, $this->_href);
       $response->assertValidResponse();
       $this->_loadRecordCount($response);
@@ -86,9 +84,6 @@ abstract class Recurly_Pager extends Recurly_Base implements Iterator
    * Load another page of results into this pager.
    */
   protected function _loadFrom($uri, $params = null) {
-    if (is_null($this->_client))
-      $this->_client = new Recurly_Client();
-
     if (!is_null($params) && is_array($params)) {
       $vals = array();
       foreach ($params as $k => $v) {
@@ -104,14 +99,14 @@ abstract class Recurly_Pager extends Recurly_Base implements Iterator
     $this->_loadLinks($response);
     $this->_loadObjects($response);
   }
-  
+
   protected static function _setState($params, $state) {
     if (is_null($params))
       $params = array();
     $params['state'] = $state;
     return $params;
   }
-  
+
   /**
    * The 'Links' header contains links to the next, previous, and starting pages.
    * This parses the links header into an array of links if the header is present.
@@ -129,7 +124,7 @@ abstract class Recurly_Pager extends Recurly_Base implements Iterator
       }
     }
   }
-  
+
   /**
    * Find the total number of results in the collection from the 'X-Records' header.
    */

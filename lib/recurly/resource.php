@@ -77,9 +77,6 @@ abstract class Recurly_Resource extends Recurly_Base
   {
     $this->_errors = array(); // reset errors
 
-    if (is_null($this->_client))
-      $this->_client = new Recurly_Client();
-
     $response = $this->_client->request($method, $uri, $this->xml());
     $response->assertValidResponse();
     if (isset($response->body)) {
