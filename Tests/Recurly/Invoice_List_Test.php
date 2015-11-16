@@ -11,7 +11,7 @@ class Recurly_InvoiceListTest extends Recurly_TestCase
 
     $invoices = Recurly_InvoiceList::getOpen($params, $this->client);
     $this->assertInstanceOf('Recurly_InvoiceList', $invoices);
-    // $this->assertEquals($url, $invoices->getHref());
+    $this->assertEquals($url, $invoices->getHref());
   }
 
   public function testGetCollected() {
@@ -21,7 +21,7 @@ class Recurly_InvoiceListTest extends Recurly_TestCase
 
     $invoices = Recurly_InvoiceList::getCollected($params, $this->client);
     $this->assertInstanceOf('Recurly_InvoiceList', $invoices);
-    // $this->assertEquals($url, $invoices->getHref());
+    $this->assertEquals($url, $invoices->getHref());
   }
 
   public function testGetFailed() {
@@ -31,7 +31,7 @@ class Recurly_InvoiceListTest extends Recurly_TestCase
 
     $invoices = Recurly_InvoiceList::getFailed($params, $this->client);
     $this->assertInstanceOf('Recurly_InvoiceList', $invoices);
-    // $this->assertEquals($url, $invoices->getHref());
+    $this->assertEquals($url, $invoices->getHref());
   }
 
   public function testGetPastDue() {
@@ -41,6 +41,6 @@ class Recurly_InvoiceListTest extends Recurly_TestCase
 
     $invoices = Recurly_InvoiceList::getPastDue($params, $this->client);
     $this->assertInstanceOf('Recurly_InvoiceList', $invoices);
-    // $this->assertEquals($url, $invoices->getHref());
+    $this->assertEquals($url, $invoices->getHref());
   }
 }

@@ -2,11 +2,9 @@
 
 class Recurly_CouponList extends Recurly_Pager
 {
-  public static function get($params = null, $client = null)
-  {
-    $list = new Recurly_CouponList(Recurly_Client::PATH_COUPONS, $client);
-    $list->_loadFrom(Recurly_Client::PATH_COUPONS, $params);
-    return $list;
+  public static function get($params = null, $client = null) {
+    $uri = self::_uriWithParams(Recurly_Client::PATH_COUPONS, $params);
+    return new self($uri, $client);
   }
 
   protected function getNodeName() {

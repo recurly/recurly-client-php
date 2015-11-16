@@ -10,20 +10,16 @@ class Recurly_TransactionList extends Recurly_Pager
     return Recurly_TransactionList::get(Recurly_Pager::_setState($params, 'voided'), $client);
   }
 
-  public static function get($params = null, $client = null)
-  {
-    $list = new Recurly_TransactionList(Recurly_Client::PATH_TRANSACTIONS, $client);
-    $list->_loadFrom(Recurly_Client::PATH_TRANSACTIONS, $params);
-    return $list;
+  public static function get($params = null, $client = null) {
+    $uri = self::_uriWithParams(Recurly_Client::PATH_TRANSACTIONS, $params);
+    return new self($uri, $client);
   }
-  
-  public static function getForAccount($accountCode, $params = null, $client = null)
-  {
-    $list = new Recurly_TransactionList(Recurly_Client::PATH_ACCOUNTS . '/' . rawurlencode($accountCode) . Recurly_Client::PATH_TRANSACTIONS, $client);
-    $list->_loadFrom(Recurly_Client::PATH_ACCOUNTS . '/' . rawurlencode($accountCode) . Recurly_Client::PATH_TRANSACTIONS, $params);
-    return $list;
+
+  public static function getForAccount($accountCode, $params = null, $client = null) {
+    $uri = self::_uriWithParams(Recurly_Client::PATH_ACCOUNTS . '/' . rawurlencode($accountCode) . Recurly_Client::PATH_TRANSACTIONS, $params);
+    return new self($uri, $client);
   }
-  
+
   protected function getNodeName() {
     return 'transactions';
   }

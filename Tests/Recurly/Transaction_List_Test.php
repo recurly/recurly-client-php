@@ -11,7 +11,7 @@ class Recurly_TransactionListTest extends Recurly_TestCase
 
     $transactions = Recurly_TransactionList::getSuccessful($params, $this->client);
     $this->assertInstanceOf('Recurly_TransactionList', $transactions);
-    // $this->assertEquals($url, $transactions->getHref());
+    $this->assertEquals($url, $transactions->getHref());
   }
 
   public function testGetVoided() {
@@ -21,6 +21,6 @@ class Recurly_TransactionListTest extends Recurly_TestCase
 
     $transactions = Recurly_TransactionList::getVoided($params, $this->client);
     $this->assertInstanceOf('Recurly_TransactionList', $transactions);
-    // $this->assertEquals($url, $transactions->getHref());
+    $this->assertEquals($url, $transactions->getHref());
   }
 }

@@ -25,7 +25,7 @@ class Recurly_AccountListTest extends Recurly_TestCase
 
     $accounts = Recurly_AccountList::getActive($params, $this->client);
     $this->assertInstanceOf('Recurly_AccountList', $accounts);
-    // $this->assertEquals($url, $accounts->getHref());
+    $this->assertEquals($url, $accounts->getHref());
   }
 
   public function testGetClosed() {
@@ -35,7 +35,7 @@ class Recurly_AccountListTest extends Recurly_TestCase
 
     $accounts = Recurly_AccountList::getClosed($params, $this->client);
     $this->assertInstanceOf('Recurly_AccountList', $accounts);
-    // $this->assertEquals($url, $accounts->getHref());
+    $this->assertEquals($url, $accounts->getHref());
   }
 
   public function testGetPastDue() {
@@ -45,6 +45,6 @@ class Recurly_AccountListTest extends Recurly_TestCase
 
     $accounts = Recurly_AccountList::getPastDue($params, $this->client);
     $this->assertInstanceOf('Recurly_AccountList', $accounts);
-    // $this->assertEquals($url, $accounts->getHref());
+    $this->assertEquals($url, $accounts->getHref());
   }
 }

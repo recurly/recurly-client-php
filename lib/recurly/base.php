@@ -25,7 +25,7 @@ abstract class Recurly_Base
     }
     $response = $client->request(Recurly_Client::GET, $uri);
     $response->assertValidResponse();
-    return Recurly_Base::__parseXmlToNewObject($response->body, $client);
+    return Recurly_Base::__parseResponseToNewObject($response, $uri, $client);
   }
 
   /**
@@ -41,7 +41,7 @@ abstract class Recurly_Base
     }
     $response = $client->request(Recurly_Client::POST, $uri, $data);
     $response->assertValidResponse();
-    $object = Recurly_Base::__parseXmlToNewObject($response->body, $client);
+    $object = Recurly_Base::__parseResponseToNewObject($response, $uri, $client);
     $response->assertSuccessResponse($object);
     return $object;
   }
@@ -59,7 +59,7 @@ abstract class Recurly_Base
     $response = $client->request(Recurly_Client::PUT, $uri);
     $response->assertValidResponse();
     if ($response->body) {
-      $object = Recurly_Base::__parseXmlToNewObject($response->body, $client);
+      $object = Recurly_Base::__parseResponseToNewObject($response, $uri, $client);
     }
     $response->assertSuccessResponse($object);
     return $object;
@@ -78,9 +78,22 @@ abstract class Recurly_Base
     $response = $client->request(Recurly_Client::DELETE, $uri);
     $response->assertValidResponse();
     if ($response->body) {
-      return Recurly_Base::__parseXmlToNewObject($response->body, $client);
+      return Recurly_Base::__parseResponseToNewObject($response, $uri, $client);
     }
     return null;
+  }
+
+  protected static function _uriWithParams($uri, $params = null) {
+    if (is_null($params) || !is_array($params)) {
+      return $uri;
+    }
+
+    $vals = array();
+    foreach ($params as $k => $v) {
+      $vals[] = $k . '=' . urlencode($v);
+    }
+
+    return $uri . '?' . implode($vals, '&');
   }
 
   /**
@@ -191,19 +204,28 @@ abstract class Recurly_Base
     'unit_amount_in_cents' => 'Recurly_CurrencyList',
   );
 
-  protected static function __parseXmlToNewObject($xml, $client=null) {
+  // Use a valid Recurly_Response to populate a new object.
+  protected static function __parseResponseToNewObject($response, $uri, $client) {
     $dom = new DOMDocument();
-    if (empty($xml) || !$dom->loadXML($xml, LIBXML_NOBLANKS)) return null;
+    if (empty($response->body) || !$dom->loadXML($response->body, LIBXML_NOBLANKS)) {
+      return null;
+    }
 
     $rootNode = $dom->documentElement;
 
     $obj = Recurly_Resource::__createNodeObject($rootNode);
     $obj->_client = $client;
     Recurly_Resource::__parseXmlToObject($rootNode->firstChild, $obj);
+    if ($obj instanceof self) {
+      $obj->_afterParseResponse($response, $uri);
+    }
     return $obj;
   }
 
+  // Optional method to allow objects access to the full response with headers.
+  protected function _afterParseResponse($response, $uri) { }
 
+  // Use the XML to update $this object.
   protected function __parseXmlToUpdateObject($xml)
   {
     $dom = new DOMDocument();
@@ -286,7 +308,6 @@ abstract class Recurly_Base
               }
             }
           }
-
         } else if ($node->firstChild->nodeType == XML_ELEMENT_NODE) {
           // has element children, drop in and continue parsing
           $new_obj = Recurly_Resource::__createNodeObject($node);

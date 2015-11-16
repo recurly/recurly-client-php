@@ -12,7 +12,7 @@ class Recurly_SubscriptionListTest extends Recurly_TestCase
 
     $subscriptions = Recurly_SubscriptionList::getActive($params, $this->client);
     $this->assertInstanceOf('Recurly_SubscriptionList', $subscriptions);
-    // $this->assertEquals($url, $subscriptions->getHref());
+    $this->assertEquals($url, $subscriptions->getHref());
   }
 
   public function testGetCanceled() {
@@ -22,7 +22,7 @@ class Recurly_SubscriptionListTest extends Recurly_TestCase
 
     $subscriptions = Recurly_SubscriptionList::getCanceled($params, $this->client);
     $this->assertInstanceOf('Recurly_SubscriptionList', $subscriptions);
-    // $this->assertEquals($url, $subscriptions->getHref());
+    $this->assertEquals($url, $subscriptions->getHref());
   }
 
   public function testGetExpired() {
@@ -32,7 +32,7 @@ class Recurly_SubscriptionListTest extends Recurly_TestCase
 
     $subscriptions = Recurly_SubscriptionList::getExpired($params, $this->client);
     $this->assertInstanceOf('Recurly_SubscriptionList', $subscriptions);
-    // $this->assertEquals($url, $subscriptions->getHref());
+    $this->assertEquals($url, $subscriptions->getHref());
   }
 
   public function testGetFuture() {
@@ -42,7 +42,7 @@ class Recurly_SubscriptionListTest extends Recurly_TestCase
 
     $subscriptions = Recurly_SubscriptionList::getFuture($params, $this->client);
     $this->assertInstanceOf('Recurly_SubscriptionList', $subscriptions);
-    // $this->assertEquals($url, $subscriptions->getHref());
+    $this->assertEquals($url, $subscriptions->getHref());
   }
 
   public function testGetLive() {
@@ -52,7 +52,7 @@ class Recurly_SubscriptionListTest extends Recurly_TestCase
 
     $subscriptions = Recurly_SubscriptionList::getLive($params, $this->client);
     $this->assertInstanceOf('Recurly_SubscriptionList', $subscriptions);
-    // $this->assertEquals($url, $subscriptions->getHref());
+    $this->assertEquals($url, $subscriptions->getHref());
   }
 
   public function testGetPastDue() {
@@ -62,7 +62,7 @@ class Recurly_SubscriptionListTest extends Recurly_TestCase
 
     $subscriptions = Recurly_SubscriptionList::getPastDue($params, $this->client);
     $this->assertInstanceOf('Recurly_SubscriptionList', $subscriptions);
-    // $this->assertEquals($url, $subscriptions->getHref());
+    $this->assertEquals($url, $subscriptions->getHref());
   }
 
   public function testGetTrials() {
@@ -72,6 +72,6 @@ class Recurly_SubscriptionListTest extends Recurly_TestCase
 
     $subscriptions = Recurly_SubscriptionList::getTrials($params, $this->client);
     $this->assertInstanceOf('Recurly_SubscriptionList', $subscriptions);
-    // $this->assertEquals($url, $subscriptions->getHref());
+    $this->assertEquals($url, $subscriptions->getHref());
   }
 }

@@ -64,16 +64,6 @@ class Recurly_PagerTest extends Recurly_TestCase
     $this->assertEquals(0, $pager->key());
   }
 
-  public function testHeadCount() {
-    // Fires off a HEAD request, looks at the `X-Records` header
-    $url = '/mocks';
-    $this->client->addResponse('HEAD', $url, 'pager/head-200.xml');
-    $pager = new Mock_Pager($url, $this->client);
-
-    $this->assertEquals($pager->getHref(), $url);
-    $this->assertEquals(33, $pager->count());
-  }
-
   public function testFromHref() {
     $url = '/mocks';
     $pager = new Mock_Pager($url, $this->client);
@@ -94,10 +84,8 @@ class Recurly_PagerTest extends Recurly_TestCase
     // TODO: It seems to load the first page of the results, but doesn't have a
     // link to the next page. These tests document the desired behavior but are
     // currently broken:
-/*
     $this->assertEquals($pager->count(), 6, 'Returns correct count');
     $this->assertIteratesCorrectly($pager, 6);
-*/
   }
 
   public function testFromNested() {
