@@ -44,6 +44,7 @@ abstract class Recurly_Pager extends Recurly_Base implements Iterator
    */
   public function current()
   {
+    // Work around pre-PHP 5.5 issue that prevents `empty($this->count())`:
     if ($this->count() == 0) {
       return null;
     }

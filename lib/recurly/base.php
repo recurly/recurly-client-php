@@ -145,7 +145,6 @@ abstract class Recurly_Base
   public function getHref() {
     return $this->_href;
   }
-  // TODO: not sure this should be public
   public function setHref($href) {
     $this->_href = $href;
   }
