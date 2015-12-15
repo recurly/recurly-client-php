@@ -20,9 +20,13 @@ class Recurly_Stub extends Recurly_Base
    * Retrieve the stubbed resource.
    */
   function get() {
-    return self::_get($this->_href, $this->_client);
+    $stub = self::_get($this->_href, $this->_client);
+    if ($this->_href && !$stub->getHref()) {
+      $stub->setHref($this->_href);
+    }
+    return $stub;
   }
-  
+
   public function __toString()
   {
     return "<Recurly_Stub[{$this->objectType}] href={$this->_href}>";

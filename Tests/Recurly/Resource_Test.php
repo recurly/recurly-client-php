@@ -2,7 +2,7 @@
 
 require_once(__DIR__ . '/../test_helpers.php');
 
-class Recource_Mock_Resource extends Recurly_Resource {
+class Mock_Resource extends Recurly_Resource {
   protected function getNodeName() {
     return 'mock';
   }
@@ -17,7 +17,7 @@ class Recource_Mock_Resource extends Recurly_Resource {
 class Recurly_ResourceTest extends Recurly_TestCase {
 
   public function testXml() {
-    $resource = new Recource_Mock_Resource();
+    $resource = new Mock_Resource();
     $resource->date = new DateTime("@1384202874");
     $resource->bool = true;
     $resource->number = 34;

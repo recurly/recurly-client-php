@@ -9,17 +9,9 @@ abstract class Recurly_Base
   public function __construct($href = null, $client = null)
   {
     $this->_href = $href;
-    $this->_client = $client;
+    $this->_client = is_null($client) ? new Recurly_Client() : $client;
     $this->_links = array();
   }
-
-  public function getHref() {
-    return $this->_href;
-  }
-  public function setHref($href) {
-    $this->_href = $href;
-  }
-
 
   /**
    * Request the URI, validate the response and return the object.
@@ -28,11 +20,12 @@ abstract class Recurly_Base
    */
   public static function _get($uri, $client = null)
   {
-    if (is_null($client))
+    if (is_null($client)) {
       $client = new Recurly_Client();
+    }
     $response = $client->request(Recurly_Client::GET, $uri);
     $response->assertValidResponse();
-    return Recurly_Base::__parseXmlToNewObject($response->body, $client);
+    return Recurly_Base::__parseResponseToNewObject($response, $uri, $client);
   }
 
   /**
@@ -43,11 +36,12 @@ abstract class Recurly_Base
    */
   protected static function _post($uri, $data = null, $client = null)
   {
-    if (is_null($client))
+    if (is_null($client)) {
       $client = new Recurly_Client();
+    }
     $response = $client->request(Recurly_Client::POST, $uri, $data);
     $response->assertValidResponse();
-    $object = Recurly_Base::__parseXmlToNewObject($response->body, $client);
+    $object = Recurly_Base::__parseResponseToNewObject($response, $uri, $client);
     $response->assertSuccessResponse($object);
     return $object;
   }
@@ -59,12 +53,13 @@ abstract class Recurly_Base
    */
   protected static function _put($uri, $client = null)
   {
-    if (is_null($client))
+    if (is_null($client)) {
       $client = new Recurly_Client();
+    }
     $response = $client->request(Recurly_Client::PUT, $uri);
     $response->assertValidResponse();
     if ($response->body) {
-      $object = Recurly_Base::__parseXmlToNewObject($response->body, $client);
+      $object = Recurly_Base::__parseResponseToNewObject($response, $uri, $client);
     }
     $response->assertSuccessResponse($object);
     return $object;
@@ -77,14 +72,28 @@ abstract class Recurly_Base
    */
   protected static function _delete($uri, $client = null)
   {
-    if (is_null($client))
+    if (is_null($client)) {
       $client = new Recurly_Client();
+    }
     $response = $client->request(Recurly_Client::DELETE, $uri);
     $response->assertValidResponse();
     if ($response->body) {
-      return Recurly_Base::__parseXmlToNewObject($response->body, $client);
+      return Recurly_Base::__parseResponseToNewObject($response, $uri, $client);
     }
     return null;
+  }
+
+  protected static function _uriWithParams($uri, $params = null) {
+    if (is_null($params) || !is_array($params)) {
+      return $uri;
+    }
+
+    $vals = array();
+    foreach ($params as $k => $v) {
+      $vals[] = $k . '=' . urlencode($v);
+    }
+
+    return $uri . '?' . implode($vals, '&');
   }
 
   /**
@@ -133,8 +142,19 @@ abstract class Recurly_Base
     return implode($values, ', ');
   }
 
+  public function getHref() {
+    return $this->_href;
+  }
+  public function setHref($href) {
+    $this->_href = $href;
+  }
+
   private function addLink($name, $href, $method){
     $this->_links[$name] = new Recurly_Link($name, $href, $method);
+  }
+
+  public function getLinks() {
+    return $this->_links;
   }
 
   /* ******************************************************
@@ -183,19 +203,28 @@ abstract class Recurly_Base
     'unit_amount_in_cents' => 'Recurly_CurrencyList',
   );
 
-  protected static function __parseXmlToNewObject($xml, $client=null) {
+  // Use a valid Recurly_Response to populate a new object.
+  protected static function __parseResponseToNewObject($response, $uri, $client) {
     $dom = new DOMDocument();
-    if (empty($xml) || !$dom->loadXML($xml, LIBXML_NOBLANKS)) return null;
+    if (empty($response->body) || !$dom->loadXML($response->body, LIBXML_NOBLANKS)) {
+      return null;
+    }
 
     $rootNode = $dom->documentElement;
 
     $obj = Recurly_Resource::__createNodeObject($rootNode);
     $obj->_client = $client;
     Recurly_Resource::__parseXmlToObject($rootNode->firstChild, $obj);
+    if ($obj instanceof self) {
+      $obj->_afterParseResponse($response, $uri);
+    }
     return $obj;
   }
 
+  // Optional method to allow objects access to the full response with headers.
+  protected function _afterParseResponse($response, $uri) { }
 
+  // Use the XML to update $this object.
   protected function __parseXmlToUpdateObject($xml)
   {
     $dom = new DOMDocument();
@@ -221,8 +250,9 @@ abstract class Recurly_Base
       if ($node->nodeType == XML_TEXT_NODE) {
         if ($node->wholeText != null) {
           $text = trim($node->wholeText);
-          if (!empty($text))
+          if (!empty($text)) {
             $object->description = $text;
+          }
         }
       } else if ($node->nodeType == XML_ELEMENT_NODE) {
         $nodeName = str_replace("-", "_", $node->nodeName);
@@ -250,8 +280,9 @@ abstract class Recurly_Base
 
           $new_obj = Recurly_Resource::__createNodeObject($node);
           if (!is_null($new_obj)) {
-            if (is_object($new_obj) || is_array($new_obj))
+            if (is_object($new_obj) || is_array($new_obj)) {
               Recurly_Resource::__parseXmlToObject($node->firstChild, $new_obj);
+            }
             $object[] = $new_obj;
           }
           $node = $node->nextSibling;
@@ -268,19 +299,20 @@ abstract class Recurly_Base
               $method = $node->getAttribute('method');
               $object->addLink($linkName, $href, $method);
             } else {
-              if (!is_object($object))
+              if (!is_object($object)) {
                 $object->$nodeName = new Recurly_Stub($nodeName, $href);
-              else
+              }
+              else {
                 $object->$nodeName = new Recurly_Stub($nodeName, $href, $object->_client);
+              }
             }
           }
-
         } else if ($node->firstChild->nodeType == XML_ELEMENT_NODE) {
           // has element children, drop in and continue parsing
           $new_obj = Recurly_Resource::__createNodeObject($node);
-          if (!is_null($new_obj))
+          if (!is_null($new_obj)) {
             $object->$nodeName = Recurly_Resource::__parseXmlToObject($node->firstChild, $new_obj);
-
+          }
         } else {
           // we have a single text child
           if ($node->hasAttribute('nil')) {
@@ -352,10 +384,8 @@ abstract class Recurly_Base
         $new_obj = new $node_class();
 
       $href = $node->getAttribute('href');
-      if (!empty($href))
+      if (!empty($href)) {
         $new_obj->setHref($href);
-      else if ($new_obj instanceof Recurly_Pager) {
-        $new_obj->_count = $node->childNodes->length;
       }
 
       return $new_obj;

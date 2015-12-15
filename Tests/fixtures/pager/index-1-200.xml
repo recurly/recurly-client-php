@@ -1,0 +1,14 @@
+HTTP/1.1 200 OK
+Content-Type: application/xml; charset=utf-8
+X-Records: 6
+Link: <http://example.com/mocks?cursor=2>; rel="next"
+
+<?xml version="1.0" encoding="UTF-8"?>
+<mocks>
+  <mock>
+    <value>1</value>
+  </mock>
+  <mock>
+    <value>2</value>
+  </mock>
+</mocks>

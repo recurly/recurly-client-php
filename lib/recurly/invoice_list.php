@@ -15,21 +15,17 @@ class Recurly_InvoiceList extends Recurly_Pager
   }
 
   public static function getPastDue($params = null, $client = null) {
-     return Recurly_InvoiceList::get(Recurly_Pager::_setState($params, 'past_due'), $client);
-   }
-
-  public static function get($params = null, $client = null)
-  {
-    $list = new Recurly_InvoiceList(Recurly_Client::PATH_INVOICES, $client);
-    $list->_loadFrom(Recurly_Client::PATH_INVOICES, $params);
-    return $list;
+    return Recurly_InvoiceList::get(Recurly_Pager::_setState($params, 'past_due'), $client);
   }
-  
-  public static function getForAccount($accountCode, $params = null, $client = null)
-  {
-    $list = new Recurly_InvoiceList(Recurly_Client::PATH_ACCOUNTS . '/' . rawurlencode($accountCode) . Recurly_Client::PATH_INVOICES, $client);
-    $list->_loadFrom(Recurly_Client::PATH_ACCOUNTS . '/' . rawurlencode($accountCode) . Recurly_Client::PATH_INVOICES, $params);
-    return $list;
+
+  public static function get($params = null, $client = null) {
+    $uri = self::_uriWithParams(Recurly_Client::PATH_INVOICES, $params);
+    return new self($uri, $client);
+  }
+
+  public static function getForAccount($accountCode, $params = null, $client = null) {
+    $uri = self::_uriWithParams(Recurly_Client::PATH_ACCOUNTS . '/' . rawurlencode($accountCode) . Recurly_Client::PATH_INVOICES, $params);
+    return new self($uri, $client);
   }
 
   protected function getNodeName() {

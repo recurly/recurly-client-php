@@ -77,9 +77,6 @@ abstract class Recurly_Resource extends Recurly_Base
   {
     $this->_errors = array(); // reset errors
 
-    if (is_null($this->_client))
-      $this->_client = new Recurly_Client();
-
     $response = $this->_client->request($method, $uri, $this->xml());
     $response->assertValidResponse();
     if (isset($response->body)) {
@@ -94,8 +91,6 @@ abstract class Recurly_Resource extends Recurly_Base
     $doc = $this->createDocument();
     $root = $doc->appendChild($doc->createElement($this->getNodeName()));
     $this->populateXmlDoc($doc, $root, $this);
-    // To be able to consistently run tests across different XML libraries,
-    // favor `<foo></foo>` over `<foo/>`.
     return $this->renderXML($doc);
   }
 
@@ -104,6 +99,8 @@ abstract class Recurly_Resource extends Recurly_Base
   }
 
   public function renderXML($doc) {
+    // To be able to consistently run tests across different XML libraries,
+    // favor `<foo></foo>` over `<foo/>`.
     return $doc->saveXML(null, LIBXML_NOEMPTYTAG);
   }
 
