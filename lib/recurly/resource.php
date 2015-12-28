@@ -73,12 +73,17 @@ abstract class Recurly_Resource extends Recurly_Base
     return $this;
   }
 
-  protected function _save($method, $uri)
+  protected function _save($method, $uri, $data = null)
   {
     $this->_errors = array(); // reset errors
 
-    $response = $this->_client->request($method, $uri, $this->xml());
+    if (is_null($data)) {
+      $data = $this->xml();
+    }
+
+    $response = $this->_client->request($method, $uri, $data);
     $response->assertValidResponse();
+
     if (isset($response->body)) {
       Recurly_Resource::__parseXmlToUpdateObject($response->body);
     }

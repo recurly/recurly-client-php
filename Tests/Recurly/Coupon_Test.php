@@ -1,5 +1,4 @@
 <?php
-
 require_once(__DIR__ . '/../test_helpers.php');
 
 class Recurly_CouponTest extends Recurly_TestCase
@@ -63,6 +62,28 @@ class Recurly_CouponTest extends Recurly_TestCase
     Recurly_Coupon::deleteCoupon('special', $this->client);
   }
 
+  public function testUpdateCoupon() {
+    $this->client->addResponse('PUT', 'https://api.recurly.com/v2/coupons/special', 'coupons/update-201.xml');
+
+    $coupon = Recurly_Coupon::get('special', $this->client);
+
+    $this->assertEquals($coupon->name, 'Special 50% Discount');
+    $coupon->name = 'My New Name';
+    $coupon->update();
+    $this->assertEquals($coupon->name, 'My New Name', 'It loads values from the returned XML');
+  }
+
+  public function testRestoreCoupon() {
+    $this->client->addResponse('PUT', 'https://api.recurly.com/v2/coupons/special/restore', 'coupons/update-201.xml');
+
+    $coupon = Recurly_Coupon::get('special', $this->client);
+
+    $this->assertEquals($coupon->name, 'Special 50% Discount');
+    $coupon->name = 'My New Name';
+    $coupon->restore();
+    $this->assertEquals($coupon->name, 'My New Name', 'It loads values from the returned XML');
+  }
+
   // Parse plan_codes array in response
   public function testPlanCodesXml() {
     $this->client->addResponse('GET', '/coupons/special', 'coupons/show-200-2.xml');
@@ -100,6 +121,28 @@ class Recurly_CouponTest extends Recurly_TestCase
     $this->assertEquals(
       "<?xml version=\"1.0\"?>\n<coupon><coupon_code>fifteen-off</coupon_code><name>$15 Off</name><discount_type>dollar</discount_type><discount_in_cents><USD>1500</USD></discount_in_cents><plan_codes><plan_code>gold</plan_code><plan_code>monthly</plan_code></plan_codes><invoice_description>Invoice description</invoice_description></coupon>\n",
       $coupon->xml()
+    );
+  }
+
+  public function testCreateUpdateXML() {
+    $coupon = new Recurly_Coupon();
+
+    // should ignore these values
+    $coupon->coupon_code = 'fifteen-off';
+    $coupon->discount_type = 'dollar';
+    $coupon->discount_in_cents->addCurrency('USD', 1500);
+    $coupon->plan_codes = array('gold', 'monthly');
+
+    // should serialize these values
+    $coupon->name = '$15 Off';
+    $coupon->invoice_description = 'Invoice description';
+    $coupon->redeem_by_date = '2017-12-01';
+    $coupon->max_redemptions = 100;
+    $coupon->max_redemptions_per_account = 3;
+
+    $this->assertEquals(
+      "<?xml version=\"1.0\"?>\n<coupon><name>$15 Off</name><max_redemptions>100</max_redemptions><max_redemptions_per_account>3</max_redemptions_per_account><hosted_description></hosted_description><invoice_description>Invoice description</invoice_description><redeem_by_date>2017-12-01</redeem_by_date></coupon>\n",
+      $coupon->createUpdateXML()
     );
   }
 }
