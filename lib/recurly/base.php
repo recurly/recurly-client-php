@@ -173,6 +173,7 @@ abstract class Recurly_Base
     'adjustment' => 'Recurly_Adjustment',
     'adjustments' => 'Recurly_AdjustmentList',
     'coupon' => 'Recurly_Coupon',
+    'unique_coupon_codes' => 'Recurly_UniqueCouponCodeList',
     'currency' => 'Recurly_Currency',
     'details' => 'array',
     'discount_in_cents' => 'Recurly_CurrencyList',

@@ -23,6 +23,7 @@ require_once(dirname(__FILE__) . '/recurly/adjustment_list.php');
 require_once(dirname(__FILE__) . '/recurly/billing_info.php');
 require_once(dirname(__FILE__) . '/recurly/coupon.php');
 require_once(dirname(__FILE__) . '/recurly/coupon_list.php');
+require_once(dirname(__FILE__) . '/recurly/unique_coupon_code_list.php');
 require_once(dirname(__FILE__) . '/recurly/invoice.php');
 require_once(dirname(__FILE__) . '/recurly/invoice_list.php');
 require_once(dirname(__FILE__) . '/recurly/note.php');

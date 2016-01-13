@@ -6,8 +6,8 @@ class Recurly_Coupon extends Recurly_Resource
   protected static $_updatableAttributes;
   protected $_redeemUrl;
 
-  function __construct() {
-    parent::__construct();
+  function __construct($href = null, $client = null) {
+    parent::__construct($href, $client);
     $this->discount_in_cents = new Recurly_CurrencyList('discount_in_cents');
   }
 
@@ -18,7 +18,7 @@ class Recurly_Coupon extends Recurly_Resource
       'duration', 'temporal_unit', 'temporal_amount',
       'max_redemptions','applies_to_all_plans','discount_percent','discount_in_cents','plan_codes',
       'hosted_description','invoice_description', 'applies_to_non_plan_charges', 'redemption_resource',
-      'max_redemptions_per_account'
+      'max_redemptions_per_account', 'coupon_type', 'unique_code_template', 'unique_coupon_codes'
     );
     Recurly_Coupon::$_updatableAttributes = array('name', 'max_redemptions',
       'max_redemptions_per_account', 'hosted_description', 'invoice_description', 'redeem_by_date'
@@ -84,6 +84,24 @@ class Recurly_Coupon extends Recurly_Resource
     }
 
     return $this->renderXML($doc);
+  }
+
+  public function generate($number) {
+    $doc = $this->createDocument();
+
+    $root = $doc->appendChild($doc->createElement($this->getNodeName()));
+    $root->appendChild($doc->createElement('number_of_unique_codes', $number));
+
+    $response = $this->_client->request(Recurly_Client::POST, $this->uri() . '/generate', $this->renderXML($doc));
+    $response->assertValidResponse();
+
+    $coupons = array();
+    foreach (new Recurly_UniqueCouponCodeList($response->headers['Location'], $this->_client) as $coupon) {
+      $coupons[] = $coupon;
+      if (count($coupons) == $number) break;
+    }
+
+    return $coupons;
   }
 
   protected function uri() {
