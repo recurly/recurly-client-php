@@ -1,7 +1,10 @@
 # Recurly PHP Client Library CHANGELOG
 
+## Version 2.5.0 (January 13th, 2016)
+
 * Removed `nestedAttributes` [#191](https://github.com/recurly/recurly-client-php/pull/191)
 * Added support for coupon `update` and `restore` actions [#186](https://github.com/recurly/recurly-client-php/pull/186)
+* Added support bulk coupons and generation [#188](https://github.com/recurly/recurly-client-php/pull/188)
 
 ## Version 2.4.6 (September 15th, 2015)
 
