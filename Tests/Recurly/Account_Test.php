@@ -30,6 +30,7 @@ class Recurly_AccountTest extends Recurly_TestCase
     $this->assertTrue($account->tax_exempt);
     $this->assertEquals($account->entity_use_code, 'I');
     $this->assertEquals($account->vat_location_valid, true);
+    $this->assertEquals($account->cc_emails, 'cheryl.hines@example.com,richard.lewis@example.com');
   }
 
   public function testCloseAccount() {

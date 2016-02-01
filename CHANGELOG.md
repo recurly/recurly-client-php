@@ -1,5 +1,9 @@
 # Recurly PHP Client Library CHANGELOG
 
+## Unreleased
+
+* Added support for `cc_emails` attribute on the `Account` class [#202](https://github.com/recurly/recurly-client-php/pull/202)
+
 ## Version 2.5.0 (January 13th, 2016)
 
 * Removed `nestedAttributes` [#191](https://github.com/recurly/recurly-client-php/pull/191)
