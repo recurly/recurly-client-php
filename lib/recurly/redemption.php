@@ -15,7 +15,7 @@ class Recurly_CouponRedemption extends Recurly_Resource
   }
 
   public function delete($accountCode = null) {
-    return Recurly_Base::_delete($this->delete_uri($accountCode), $this->_client);
+    return Recurly_Base::_delete($this->uri($accountCode), $this->_client);
   }
 
   protected function uri($accountCode = null) {
@@ -25,10 +25,6 @@ class Recurly_CouponRedemption extends Recurly_Resource
       return Recurly_CouponRedemption::uriForAccount($accountCode);
     else
       return false;
-  }
-
-  protected function delete_uri($accountCode) {
-    return $this->uri($accountCode) . "s/" . $this->uuid;
   }
 
   protected static function uriForAccount($accountCode) {
