@@ -102,7 +102,7 @@ class Recurly_Subscription extends Recurly_Resource
   /**
    * Updates the notes fields of the subscription without generating a SubscriptionChange.
    *
-   * @parameter array of notes, allowed keys: (customer_notes, terms_and_conditions, vat_reverse_charge_notes)
+   * @param array of notes, allowed keys: (customer_notes, terms_and_conditions, vat_reverse_charge_notes)
    **/
   public function updateNotes($notes) {
     $this->setValues($notes)->_save(Recurly_Client::PUT, $this->uri() . '/notes');

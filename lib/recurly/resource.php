@@ -63,7 +63,7 @@ abstract class Recurly_Resource extends Recurly_Base
   /**
    * Does a mass assignment on this resource's values
    *
-   * @parameter array
+   * @param array
    *   The array of values to set on the resource.
    */
   public function setValues($values) {
