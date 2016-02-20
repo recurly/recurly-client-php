@@ -1,6 +1,6 @@
 # Recurly PHP Client Library CHANGELOG
 
-## Unreleased
+## Version 2.5.1 (February 19th, 2016)
 
 * Added support for `cc_emails` attribute on the `Account` class [#202](https://github.com/recurly/recurly-client-php/pull/202)
 * Fix bug with incorrect `delete_uri` on the `Redemption` class [#201](https://github.com/recurly/recurly-client-php/pull/201)
