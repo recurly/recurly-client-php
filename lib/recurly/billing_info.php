@@ -12,7 +12,7 @@ class Recurly_BillingInfo extends Recurly_Resource
       'number','month','year','verification_value','start_year','start_month','issue_number',
       'account_number','routing_number','account_type',
       'paypal_billing_agreement_id', 'amazon_billing_agreement_id', 'currency',
-      'token_id'
+      'token_id', 'fraud_session_id'
     );
   }
 
