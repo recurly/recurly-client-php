@@ -34,7 +34,9 @@ abstract class Recurly_Pager extends Recurly_Base implements Iterator
    * Rewind to the beginning
    */
   public function rewind() {
-    $this->_loadFrom($this->_href);
+    if ( ! isset( $this->_objects ) ) {
+      $this->_loadFrom($this->_href);
+    }
     $this->_position = 0;
   }
 
