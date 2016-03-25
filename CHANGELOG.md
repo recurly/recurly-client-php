@@ -1,5 +1,9 @@
 # Recurly PHP Client Library CHANGELOG
 
+## Unreleased
+
+* Added support for `fraud_session_id` attribute on `BillingInfo` class [#214](https://github.com/recurly/recurly-client-php/pull/214)
+
 ## Version 2.5.1 (February 19th, 2016)
 
 * Added support for `cc_emails` attribute on the `Account` class [#202](https://github.com/recurly/recurly-client-php/pull/202)
