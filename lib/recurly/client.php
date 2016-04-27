@@ -124,7 +124,7 @@ class Recurly_Client
     curl_setopt($ch, CURLOPT_URL, $uri);
     curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, TRUE);
     curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 2);
-    curl_setopt($ch, CURLOPT_SSLVERSION, CURL_SSLVERSION_TLSv1_2);
+    curl_setopt($ch, CURLOPT_SSLVERSION, 6);
     if (self::$CACertPath) {
       curl_setopt($ch, CURLOPT_CAINFO, self::$CACertPath);
     }
