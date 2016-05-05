@@ -18,7 +18,8 @@ class Recurly_Coupon extends Recurly_Resource
       'duration', 'temporal_unit', 'temporal_amount',
       'max_redemptions','applies_to_all_plans','discount_percent','discount_in_cents','plan_codes',
       'hosted_description','invoice_description', 'applies_to_non_plan_charges', 'redemption_resource',
-      'max_redemptions_per_account', 'coupon_type', 'unique_code_template', 'unique_coupon_codes'
+      'max_redemptions_per_account', 'coupon_type', 'unique_code_template', 'unique_coupon_codes',
+      'discount_type', 'free_trial_amount', 'free_trial_unit'
     );
     Recurly_Coupon::$_updatableAttributes = array('name', 'max_redemptions',
       'max_redemptions_per_account', 'hosted_description', 'invoice_description', 'redeem_by_date'
