@@ -138,22 +138,6 @@ class Recurly_Invoice extends Recurly_Resource
   protected static function uriForInvoice($invoiceNumber) {
     return Recurly_Client::PATH_INVOICES . '/' . rawurlencode($invoiceNumber);
   }
-
-  public function enterOfflinePayment($amount_in_cents, $collected_at, $payment_method = 'credit_card', $description='') {
-    $doc = $this->createDocument();
-
-    $root = $doc->appendChild($doc->createElement('transaction'));
-    $root->appendChild($doc->createElement('amount_in_cents', $amount_in_cents));
-    $root->appendChild($doc->createElement('payment_method', $payment_method));
-    $root->appendChild($doc->createElement('collected_at', $collected_at));
-    $root->appendChild($doc->createElement('description', $description));
-
-    return $this->createOfflinePayment($this->renderXML($doc));
-  }
-  
-  protected function createOfflinePayment($xml_string) {
-    return self::_post($this->uri() . '/transactions', $xml_string, $this->_client);
-  }
 }
 
 Recurly_Invoice::init();
