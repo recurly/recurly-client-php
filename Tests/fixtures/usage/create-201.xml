@@ -1,0 +1,17 @@
+HTTP/1.1 201 Created
+Content-Type: application/xml; charset=utf-8
+
+<?xml version="1.0" encoding="UTF-8"?>
+<usage href="https://api.recurly.com/v2/subscriptions/012345678901234567890123456789ab/add_ons/marketing_emails/usage/123456">
+  <measured_unit href="https://yoursubdomain.recurly.com/v2/measured_units/7610" />
+  <amount type="integer">6</amount>
+  <merchant_tag>Order Number: #198349243975</merchant_tag>
+  <recording_timestamp type="date">2016-03-15T23:17:15+00:00</recording_timestamp>
+  <usage_timestamp type="date">2016-03-15T23:17:14+00:00</usage_timestamp>
+  <created_at type="date">2016-03-15T23:18:12+00:00</created_at>
+  <updated_at nil="nil"></updated_at>
+  <billed_at nil="nil"></billed_at>
+  <usage_type>percentage</usage_type>
+  <unit_amount_in_cents nil="nil"></unit_amount_in_cents>
+  <usage_percentage type="float">1.25</usage_percentage>
+</usage>

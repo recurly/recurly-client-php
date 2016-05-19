@@ -30,10 +30,15 @@ Content-Type: application/xml; charset=utf-8
   <vat_reverse_charge_notes>Some VAT Notes</vat_reverse_charge_notes>
   <subscription_add_ons type="array">
     <subscription_add_on>
-      <name>IP Addresses</name>
-      <add_on_code>ipaddresses</add_on_code>
-      <unit_amount_in_cents type="integer">200</unit_amount_in_cents>
-      <quantity type="integer">2</quantity>
+      <add_on_type>usage</add_on_type>
+      <measured_unit href="https://api.recurly.com/v2/measured_units/123456"/>
+      <usage href="https://api.recurly.com/v2/subscriptions/012345678901234567890123456789ab/add_ons/marketing_emails/usage"/>
+      <add_on_code>marketing_emails</add_on_code>
+      <name>Marketing Emails</name>
+      <unit_amount_in_cents type="integer">5</unit_amount_in_cents>
+      <quantity type="integer">1</quantity>
+      <usage_type>price</usage_type>
+      <usage_percentage nil="nil"/>
     </subscription_add_on>
   </subscription_add_ons>
   <a name="cancel" href="https://api.recurly.com/v2/subscriptions/012345678901234567890123456789ab/cancel" method="put"/>

@@ -2,6 +2,7 @@
 
 * Added support for parsing `fraud` attribute on the `Transaction` class [#228](https://github.com/recurly/recurly-client-php/pull/228)
 * Added support for setting`start_date` and `end_date` when creating an `Adjustment` (thanks to [imsagar](https://github.com/imsagar)) [#229](https://github.com/recurly/recurly-client-php/pull/229)
+* Added support for Usage Based Billing [#227](https://github.com/recurly/recurly-client-php/pull/227)
 
 ## Version 2.5.1 (February 19th, 2016)
 
