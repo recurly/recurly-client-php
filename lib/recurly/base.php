@@ -179,6 +179,7 @@ abstract class Recurly_Base
     'discount_in_cents' => 'Recurly_CurrencyList',
     'error' => 'Recurly_FieldError',
     'errors' => 'Recurly_ErrorList',
+    'fraud' => 'Recurly_FraudInfo',
     'invoice' => 'Recurly_Invoice',
     'invoices' => 'Recurly_InvoiceList',
     'line_items' => 'array',

@@ -51,4 +51,8 @@ Content-Type: application/xml; charset=utf-8
       </billing_info>
     </account>
   </details>
+  <fraud>
+    <score type="integer">99</score>
+    <decision>DECLINE</decision>
+  </fraud>
 </transaction>
