@@ -1,5 +1,7 @@
 # Recurly PHP Client Library CHANGELOG
 
+* Added support for parsing `fraud` attribute on the `Transaction` class [#228](https://github.com/recurly/recurly-client-php/pull/228)
+
 ## Version 2.5.1 (February 19th, 2016)
 
 * Added support for `cc_emails` attribute on the `Account` class [#202](https://github.com/recurly/recurly-client-php/pull/202)
