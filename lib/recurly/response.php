@@ -34,7 +34,7 @@ class Recurly_ClientResponse
   public function assertValidResponse()
   {
     // Successful response code
-    if ($this->statusCode >= 200 && $this->statusCode < 400)
+    if ($this->statusCode >= 200 && $this->statusCode < 300)
       return;
 
     // Do not fail here if the response is not valid XML
@@ -43,6 +43,9 @@ class Recurly_ClientResponse
     switch ($this->statusCode) {
       case 0:
         throw new Recurly_ConnectionError('An error occurred while connecting to Recurly.');
+      case 301:
+      case 302:
+        throw new Recurly_Error('Unexpected redirection to ' . $this->headers['Location'] . ', we where expecting a response.');
       case 400:
         $message = (is_null($error) ? 'Bad API Request' : $error->description);
         throw new Recurly_Error($message);
