@@ -183,6 +183,8 @@ abstract class Recurly_Base
     'invoice' => 'Recurly_Invoice',
     'invoices' => 'Recurly_InvoiceList',
     'line_items' => 'array',
+    'measured_unit' => 'Recurly_MeasuredUnit',
+    'measured_units' => 'Recurly_MeasuredUnitList',
     'note' => 'Recurly_Note',
     'notes' => 'Recurly_NoteList',
     'plan' => 'Recurly_Plan',
@@ -203,6 +205,8 @@ abstract class Recurly_Base
     'transactions' => 'Recurly_TransactionList',
     'transaction_error' => 'Recurly_TransactionError',
     'unit_amount_in_cents' => 'Recurly_CurrencyList',
+    'usage' => 'Recurly_Usage',
+    'usages' => 'Recurly_UsageList'
   );
 
   // Use a valid Recurly_Response to populate a new object.

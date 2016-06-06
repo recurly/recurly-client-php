@@ -27,6 +27,8 @@ require_once(dirname(__FILE__) . '/recurly/coupon_list.php');
 require_once(dirname(__FILE__) . '/recurly/unique_coupon_code_list.php');
 require_once(dirname(__FILE__) . '/recurly/invoice.php');
 require_once(dirname(__FILE__) . '/recurly/invoice_list.php');
+require_once(dirname(__FILE__) . '/recurly/measured_unit.php');
+require_once(dirname(__FILE__) . '/recurly/measured_unit_list.php');
 require_once(dirname(__FILE__) . '/recurly/note.php');
 require_once(dirname(__FILE__) . '/recurly/note_list.php');
 require_once(dirname(__FILE__) . '/recurly/plan.php');
@@ -40,6 +42,8 @@ require_once(dirname(__FILE__) . '/recurly/tax_detail.php');
 require_once(dirname(__FILE__) . '/recurly/transaction.php');
 require_once(dirname(__FILE__) . '/recurly/transaction_error.php');
 require_once(dirname(__FILE__) . '/recurly/transaction_list.php');
+require_once(dirname(__FILE__) . '/recurly/usage.php');
+require_once(dirname(__FILE__) . '/recurly/usage_list.php');
 
 require_once(dirname(__FILE__) . '/recurly/push_notification.php');
 require_once(dirname(__FILE__) . '/recurly/recurly_js.php');
