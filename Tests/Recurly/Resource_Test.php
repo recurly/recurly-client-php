@@ -1,6 +1,5 @@
 <?php
 
-require_once(__DIR__ . '/../test_helpers.php');
 
 class Mock_Resource extends Recurly_Resource {
   protected function getNodeName() {
