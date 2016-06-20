@@ -2,6 +2,8 @@
 
 ## Version 2.6.0 (unreleased)
 
+* Added `Recurly_AccountBalance` [#239](https://github.com/recurly/recurly-client-php/pull/239)
+
 ## Version 2.5.3 (July 5th, 2016)
 
 * Added support for setting `free_trial_amount` and `free_trial_unit` to `Recurly_Coupon` [#224](https://github.com/recurly/recurly-client-php/pull/224)
