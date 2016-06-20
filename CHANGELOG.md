@@ -1,5 +1,7 @@
 # Recurly PHP Client Library CHANGELOG
 
+## Version 2.6.0 (unreleased)
+
 ## Version 2.5.3 (unreleased)
 
 * Added support for setting `free_trial_amount` and `free_trial_unit` to `Recurly_Coupon` [#224](https://github.com/recurly/recurly-client-php/pull/224)
