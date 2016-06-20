@@ -11,6 +11,6 @@ class Recurly_NoteList extends Recurly_Pager
   }
 
   protected function getNodeName() {
-    return 'note';
+    return 'notes';
   }
 }
