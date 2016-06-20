@@ -86,12 +86,11 @@ abstract class Recurly_Pager extends Recurly_Base implements Iterator
   /**
    * Load another page of results into this pager.
    */
-  protected function _loadFrom($uri, $params = null) {
+  protected function _loadFrom($uri) {
     if (empty($uri)) {
       return;
     }
 
-    $uri = Recurly_Base::_uriWithParams($uri, $params);
     $response = $this->_client->request(Recurly_Client::GET, $uri);
     $response->assertValidResponse();
 
