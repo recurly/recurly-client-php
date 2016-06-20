@@ -72,12 +72,6 @@ class Recurly_Client
 
   const PATH_RECURLY_JS_RESULT = '/recurly_js/result';
 
-  const PATH_TRANSPARENT = '/transparent/';
-  const PATH_TRANSPARENT_SUBSCRIPTION = '/subscription';
-  const PATH_TRANSPARENT_TRANSACTION = '/transaction';
-  const PATH_TRANSPARENT_BILLING_INFO = '/billing_info';
-  const PATH_TRANSPARENT_RESULTS = 'results/';
-
   /**
    * Create a new Recurly Client
    * @param string API key. Do not specify to use the default API key (which must be set at the static variable)
