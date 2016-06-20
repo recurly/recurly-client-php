@@ -49,10 +49,13 @@ abstract class Recurly_Pager extends Recurly_Base implements Iterator
       return null;
     }
 
-    while ($this->_position >= sizeof($this->_objects)) {
+    if ($this->_position >= sizeof($this->_objects)) {
       if (isset($this->_links['next'])) {
         $this->_loadFrom($this->_links['next']);
         $this->_position = 0;
+      }
+      else {
+        throw new Recurly_Error("Pager is not in a valid state");
       }
     }
 
