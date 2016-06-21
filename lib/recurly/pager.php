@@ -100,9 +100,9 @@ abstract class Recurly_Pager extends Recurly_Base implements Iterator
   }
 
   protected function _afterParseResponse($response, $uri) {
-    $this->_href = $uri;
     $this->_loadRecordCount($response);
     $this->_loadLinks($response);
+    $this->_href = isset($this->_links['start']) ? $this->_links['start'] : $uri;
   }
 
   protected static function _setState($params, $state) {
