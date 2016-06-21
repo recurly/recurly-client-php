@@ -2,6 +2,7 @@
 
 ## Version 2.6.0 (unreleased)
 
+* Added support for `original_transaction` to `Recurly_Transaction` [#238](https://github.com/recurly/recurly-client-php/pull/238)
 * Added `Recurly_AccountBalance` [#239](https://github.com/recurly/recurly-client-php/pull/239)
 
 ## Version 2.5.3 (unreleased)

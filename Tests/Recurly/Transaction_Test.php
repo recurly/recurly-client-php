@@ -13,11 +13,23 @@ class Recurly_TransactionTest extends Recurly_TestCase
     $transaction = Recurly_Transaction::get('012345678901234567890123456789ab', $this->client);
 
     $this->assertInstanceOf('Recurly_Transaction', $transaction);
-    $this->assertInstanceOf('Recurly_Stub', $transaction->account);
-    $this->assertInstanceOf('Recurly_Stub', $transaction->invoice);
-    $this->assertInstanceOf('Recurly_Stub', $transaction->subscription);
+    $this->assertEquals($transaction->getHref(), 'https://api.recurly.com/v2/transactions/abcdef1234567890');
 
+    $this->assertInstanceOf('Recurly_Stub', $transaction->account);
     $this->assertEquals($transaction->account->getHref(), 'https://api.recurly.com/v2/accounts/verena');
+
+    $this->assertInstanceOf('Recurly_Stub', $transaction->invoice);
+    $this->assertEquals($transaction->invoice->getHref(), 'https://api.recurly.com/v2/invoices/1012');
+
+    $this->assertInstanceOf('Recurly_Stub', $transaction->subscription);
+    $this->assertEquals($transaction->subscription->getHref(), 'https://api.recurly.com/v2/subscriptions/1234567890abcdef');
+
+    $this->assertInstanceOf('Recurly_Stub', $transaction->original_transaction);
+    $this->assertEquals($transaction->original_transaction->getHref(), 'https://api.recurly.com/v2/transactions/abcdef1000000000');
+
+    $this->assertEquals($transaction->action, 'refund');
+    $this->assertEquals($transaction->amount_in_cents, '30000');
+
     $this->assertEquals($transaction->ip_address, '127.0.0.1');
 
     $this->assertInstanceOf('Recurly_FraudInfo', $transaction->fraud);
