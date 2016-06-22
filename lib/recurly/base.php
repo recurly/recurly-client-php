@@ -165,6 +165,7 @@ abstract class Recurly_Base
    */
   static $class_map = array(
     'account' => 'Recurly_Account',
+    'account_acquisition' => 'Recurly_AccountAcquisition',
     'accounts' => 'Recurly_AccountList',
     'account_balance' => 'Recurly_AccountBalance',
     'address' => 'Recurly_Address',
