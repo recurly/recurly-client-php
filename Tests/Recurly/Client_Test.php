@@ -1,6 +1,5 @@
 <?php
 
-require_once(__DIR__ . '/../test_helpers.php');
 
 class Recurly_ClientTest extends Recurly_TestCase
 {
