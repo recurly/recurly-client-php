@@ -1,0 +1,15 @@
+HTTP/1.1 201 Created
+Content-Type: application/xml; charset=utf-8
+Location: https://api.recurly.com/v2/accounts/abcdef1234567890/acquisition
+
+<?xml version="1.0" encoding="UTF-8"?>
+<account_acquisition href="https://api.recurly.com/v2/accounts/abcdef1234567890/acquisition">
+  <account href="https://api.recurly.com/v2/accounts/abcdef1234567890"/>
+  <cost_in_cents type="integer">599</cost_in_cents>
+  <currency>USD</currency>
+  <channel>marketing_content</channel>
+  <subchannel>pickle sticks blog post</subchannel>
+  <campaign>mailchimp67a904de95.0914d8f4b4</campaign>
+  <created_at type="datetime">2016-06-30T16:22:46Z</created_at>
+  <updated_at type="datetime">2016-06-30T16:22:46Z</updated_at>
+</account_acquisition>
