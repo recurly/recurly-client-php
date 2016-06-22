@@ -22,9 +22,6 @@ class Recurly_SubscriptionAddOn extends Recurly_Resource {
   protected function getWriteableAttributes() {
     return Recurly_SubscriptionAddOn::$_writeableAttributes;
   }
-  protected function getRequiredAttributes() {
-    return array();
-  }
 
   protected function populateXmlDoc(&$doc, &$node, &$obj, $nested = false) {
     $addonNode = $node->appendChild($doc->createElement($this->getNodeName()));

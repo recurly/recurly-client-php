@@ -35,9 +35,6 @@ class Recurly_MeasuredUnit extends Recurly_Resource
   protected function getWriteableAttributes() {
     return Recurly_MeasuredUnit::$_writeableAttributes;
   }
-  protected function getRequiredAttributes() {
-    return array();
-  }
 }
 
 Recurly_MeasuredUnit::init();

@@ -124,9 +124,6 @@ class Recurly_Coupon extends Recurly_Resource
   protected function getUpdatableAttributes() {
     return Recurly_Coupon::$_updatableAttributes;
   }
-  protected function getRequiredAttributes() {
-    return array();
-  }
 }
 
 Recurly_Coupon::init();

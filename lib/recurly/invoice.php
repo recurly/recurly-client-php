@@ -123,9 +123,6 @@ class Recurly_Invoice extends Recurly_Resource
   protected function getWriteableAttributes() {
     return Recurly_Invoice::$_writeableAttributes;
   }
-  protected function getRequiredAttributes() {
-    return array();
-  }
   protected function uri() {
     $invoiceNumberWithPrefix = $this->invoiceNumberWithPrefix();
     if (!empty($this->_href))
