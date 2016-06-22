@@ -19,10 +19,6 @@ class Recurly_Address extends Recurly_Resource {
   protected function getWriteableAttributes() {
     return Recurly_Address::$_writeableAttributes;
   }
-  protected function getRequiredAttributes() {
-    return array();
-  }
-
 }
 
 Recurly_Address::init();

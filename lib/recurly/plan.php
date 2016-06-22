@@ -57,9 +57,6 @@ class Recurly_Plan extends Recurly_Resource
   protected function getWriteableAttributes() {
     return Recurly_Plan::$_writeableAttributes;
   }
-  protected function getRequiredAttributes() {
-    return array();
-  }
 }
 
 Recurly_Plan::init();

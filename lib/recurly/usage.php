@@ -52,9 +52,6 @@ class Recurly_Usage extends Recurly_Resource
   protected function getWriteableAttributes() {
     return Recurly_Usage::$_writeableAttributes;
   }
-  protected function getRequiredAttributes() {
-    return array();
-  }
 }
 
 Recurly_Usage::init();

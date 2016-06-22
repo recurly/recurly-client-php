@@ -16,7 +16,6 @@ Recurly_Resource::$class_map['mocks'] = 'Mock_Pager';
 class Mock_Item extends Recurly_Resource {
   protected function getNodeName()            { return 'mock'; }
   protected function getWriteableAttributes() { return array(); }
-  protected function getRequiredAttributes()  { return array(); }
 }
 Recurly_Resource::$class_map['mock'] = 'Mock_Item';
 
