@@ -1,11 +1,12 @@
 # Recurly PHP Client Library CHANGELOG
 
-## Version 2.5.3 (unreleased)
+## Version 2.5.3 (July 5th, 2016)
 
 * Added support for setting `free_trial_amount` and `free_trial_unit` to `Recurly_Coupon` [#224](https://github.com/recurly/recurly-client-php/pull/224)
 * Fix PHP 7 notice (thanks to [davedevelopment](https://github.com/davedevelopment)) [#235](https://github.com/recurly/recurly-client-php/pull/235)
 * Fix for fetching `Recurly_NoteList` [#236](https://github.com/recurly/recurly-client-php/pull/236)
 * Fix for updating subscriptions with add-ons [#242](https://github.com/recurly/recurly-client-php/pull/242)
+* Fix for paginating `Recurly_CouponRedemptionList` and `Recurly_UniqueCouponCodeList` [#243](https://github.com/recurly/recurly-client-php/pull/243)
 * Use standard PHPUnit configuration file name (thanks to [davedevelopment](https://github.com/davedevelopment)) [#234](https://github.com/recurly/recurly-client-php/pull/234)
 * Removed old transparent post path constants [#237](https://github.com/recurly/recurly-client-php/pull/237)
 * Provide default implementation for `getRequiredAttributes()` [#241](https://github.com/recurly/recurly-client-php/pull/241)
