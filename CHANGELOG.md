@@ -1,9 +1,19 @@
 # Recurly PHP Client Library CHANGELOG
 
+## Version 2.5.3 (unreleased)
+
+* Added support for setting `free_trial_amount` and `free_trial_unit` to `Recurly_Coupon` [#224](https://github.com/recurly/recurly-client-php/pull/224)
+* Fix PHP 7 notice (thanks to [davedevelopment](https://github.com/davedevelopment)) [#235](https://github.com/recurly/recurly-client-php/pull/235)
+* Fix for fetching `Recurly_NoteList` [#236](https://github.com/recurly/recurly-client-php/pull/236)
+* Fix for updating subscriptions with add-ons [#242](https://github.com/recurly/recurly-client-php/pull/242)
+* Use standard PHPUnit configuration file name (thanks to [davedevelopment](https://github.com/davedevelopment)) [#234](https://github.com/recurly/recurly-client-php/pull/234)
+* Removed old transparent post path constants [#237](https://github.com/recurly/recurly-client-php/pull/237)
+* Provide default implementation for `getRequiredAttributes()` [#241](https://github.com/recurly/recurly-client-php/pull/241)
+
 ## Version 2.5.2 (June 7th, 2016)
 
 * Added support for parsing `fraud` attribute on the `Transaction` class [#228](https://github.com/recurly/recurly-client-php/pull/228)
-* Added support for setting`start_date` and `end_date` when creating an `Adjustment` (thanks to [imsagar](https://github.com/imsagar)) [#229](https://github.com/recurly/recurly-client-php/pull/229)
+* Added support for setting `start_date` and `end_date` when creating an `Adjustment` (thanks to [imsagar](https://github.com/imsagar)) [#229](https://github.com/recurly/recurly-client-php/pull/229)
 * Added support for Usage Based Billing [#227](https://github.com/recurly/recurly-client-php/pull/227)
 
 ## Version 2.5.1 (February 19th, 2016)
