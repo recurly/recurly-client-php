@@ -4,6 +4,7 @@
 
 * Added support for `original_transaction` to `Recurly_Transaction` [#238](https://github.com/recurly/recurly-client-php/pull/238)
 * Added `Recurly_AccountBalance` [#239](https://github.com/recurly/recurly-client-php/pull/239)
+* Print warnings when using a deprecated version of the API.
 
 ## Version 2.5.3 (July 5th, 2016)
 
