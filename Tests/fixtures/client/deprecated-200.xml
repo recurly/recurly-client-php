@@ -1,0 +1,21 @@
+HTTP/1.1 200 OK
+X-Api-Version: 1.999
+Recurly-Deprecated: true
+Recurly-Sunset-Date: 2014-01-01T00:00:00+00:00
+Content-Language: en-US
+X-RateLimit-Limit: 2000
+X-RateLimit-Remaining: 1998
+X-RateLimit-Reset: 1467912540
+X-Records: 3
+Link: <https://api.recurly.com/v2/accounts?order=asc&per_page=1>; rel="start", <https://api.recurly.com/v2/accounts?cursor=-1963376195782139893&order=asc&per_page=1>; rel="prev"
+ETag: "d41d8cd98f00b204e9800998ecf8427e"
+Content-Type: application/xml; charset=utf-8
+Cache-Control: max-age=0, private, must-revalidate
+X-Request-Id: 6a8c07775f9dac83402cea1a28752a55
+X-Runtime: 0.048038
+Connection: close
+Transfer-Encoding: chunked
+
+<?xml version="1.0" encoding="UTF-8"?>
+<accounts type="array">
+</accounts>
