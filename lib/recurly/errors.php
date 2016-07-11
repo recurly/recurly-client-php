@@ -43,7 +43,7 @@ class Recurly_ValidationError extends Recurly_Error
       else
         $errs[] = strval($err);
     }
-    $message = ucfirst(implode($errs, ', '));
+    $message = ucfirst(implode($errs, '; '));
     if (substr($message, -1) != '.')
       $message .= '.';
     parent::__construct($message);
