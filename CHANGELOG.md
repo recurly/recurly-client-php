@@ -1,7 +1,8 @@
 # Recurly PHP Client Library CHANGELOG
 
-## (Unreleased)
+## Version 2.7.0 (unreleased)
 
+* Upgraded to API V2.4: https://dev.recurly.com/v2.4/docs
 * Fix for client not being passed from `Recurly_Pager` to its items (thanks to [cyruscollier](https://github.com/cyruscollier)) [#265](https://github.com/recurly/recurly-client-php/pull/265)
 * Adding missing require for `account_balance` [#273](https://github.com/recurly/recurly-client-php/pull/273)
 
