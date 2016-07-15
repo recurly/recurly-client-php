@@ -211,6 +211,39 @@ class Recurly_Client
   }
 
   /**
+   * Saves the contents of a URI into a file handle.
+   *
+   * @param string    $uri          Target URI for the request (complete URL)
+   * @param resource  $file_pointer Resourced returned from fopen() with write mode.
+   */
+  public function getFile($uri, $file_pointer) {
+    $ch = curl_init();
+    curl_setopt($ch, CURLOPT_URL, $uri);
+    curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, TRUE);
+    curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 2);
+    curl_setopt($ch, CURLOPT_FOLLOWLOCATION, FALSE);
+    curl_setopt($ch, CURLOPT_MAXREDIRS, 1);
+    curl_setopt($ch, CURLOPT_HEADER, FALSE); // do not return headers
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
+    curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 10);
+    curl_setopt($ch, CURLOPT_HTTPHEADER, array(
+      Recurly_Client::__userAgent(),
+    ));
+    curl_setopt($ch, CURLOPT_FILE, $file_pointer);
+
+    $response = curl_exec($ch);
+
+    if ($response === false) {
+      $errorNumber = curl_errno($ch);
+      $message = curl_error($ch);
+      curl_close($ch);
+      $this->_raiseCurlError($errorNumber, $message);
+    }
+
+    curl_close($ch);
+  }
+
+  /**
   *  Requests a PDF document from the given URI
   *
   * @param  string $uri      Target URI for this request (relative to the API root)
