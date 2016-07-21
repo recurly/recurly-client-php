@@ -29,5 +29,6 @@ Content-Type: application/xml; charset=utf-8
   </address>
   <accept_language>en-US</accept_language>
   <created_at type="datetime">2011-04-30T12:00:00Z</created_at>
+  <closed_at nil="nil"></closed_at>
   <vat_location_valid type="boolean">true</vat_location_valid>
 </account>
