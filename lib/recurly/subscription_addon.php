@@ -11,7 +11,8 @@ class Recurly_SubscriptionAddOn extends Recurly_Resource {
       'unit_amount_in_cents',
       'add_on_type',
       'usage_type',
-      'usage_percentage'
+      'usage_percentage',
+      'revenue_schedule_type',
     );
   }
 
