@@ -1,5 +1,17 @@
 # Recurly PHP Client Library CHANGELOG
 
+## Version 2.6.0 (unreleased)
+
+* Added support for `original_transaction` to `Recurly_Transaction` [#238](https://github.com/recurly/recurly-client-php/pull/238)
+* Added `Recurly_AccountBalance` [#239](https://github.com/recurly/recurly-client-php/pull/239)
+* Print warnings when using a deprecated version of the API. [#250](https://github.com/recurly/recurly-client-php/pull/250):
+* Added support new pagination options [#249](https://github.com/recurly/recurly-client-php/pull/249):
+  - `sort` accepts `created_at` or `updated_at`, defaults to `created_at`.
+  - `order` accepts `desc` or `asc`, defaults to `desc`.
+  - `begin_time` and `end_time` accepts an ISO 8601 date or date and time.
+* Changed `Recurly_AddonList::get()` and `Recurly_NoteList::get()` to add `$params` as the second parameter so sort, order and date filtering can be passed in [#249](https://github.com/recurly/recurly-client-php/pull/249)
+* Added support for `revenue_schedule_type` to `Recurly_Addon`, `Recurly_Adjustment`, `Recurly_Plan`, `Recurly_Subscription` and `Recurly_SubscriptionAddOn` classes [#257](https://github.com/recurly/recurly-client-php/pull/257)
+
 ## Version 2.5.3 (July 5th, 2016)
 
 * Added support for setting `free_trial_amount` and `free_trial_unit` to `Recurly_Coupon` [#224](https://github.com/recurly/recurly-client-php/pull/224)

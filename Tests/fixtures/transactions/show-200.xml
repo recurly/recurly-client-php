@@ -2,12 +2,13 @@ HTTP/1.1 200 OK
 Content-Type: application/xml; charset=utf-8
 
 <?xml version="1.0" encoding="UTF-8"?>
-<transaction href="https://api.recurly.com/v2/transactions/abcdef1234567890">
+<transaction href="https://api.recurly.com/v2/transactions/abcdef1234567890" type="credit_card">
   <account href="https://api.recurly.com/v2/accounts/verena"/>
-  <invoice href="https://api.recurly.com/v2/invoices/abcdef1234567890"/>
+  <invoice href="https://api.recurly.com/v2/invoices/1012"/>
   <subscription href="https://api.recurly.com/v2/subscriptions/1234567890abcdef"/>
+  <original_transaction href="https://api.recurly.com/v2/transactions/abcdef1000000000"/>
   <uuid>abcdef1234567890</uuid>
-  <action>purchase</action>
+  <action>refund</action>
   <amount_in_cents type="integer">30000</amount_in_cents>
   <tax_in_cents type="integer">0</tax_in_cents>
   <currency>USD</currency>
@@ -18,13 +19,14 @@ Content-Type: application/xml; charset=utf-8
   <recurring type="boolean">false</recurring>
   <test type="boolean">true</test>
   <voidable type="boolean">true</voidable>
-  <refundable type="boolean">true</refundable>
+  <refundable type="boolean">false</refundable>
+  <ip_address>127.0.0.1</ip_address>
   <cvv_result code="M">Match</cvv_result>
   <avs_result code="D">Street address and postal code match.</avs_result>
   <avs_result_street>Y</avs_result_street>
   <avs_result_postal>Y</avs_result_postal>
-  <created_at type="datetime">2011-04-30T12:00:00Z</created_at>
-  <ip_address>127.0.0.1</ip_address>
+  <created_at type="datetime">2016-06-21T16:37:40Z</created_at>
+  <updated_at type="datetime">2016-06-21T16:37:40Z</updated_at>
   <details>
     <account>
       <account_code>gob</account_code>
@@ -33,19 +35,19 @@ Content-Type: application/xml; charset=utf-8
       <company nil="nil"></company>
       <email>gobias@bluth-company.com</email>
       <billing_info type="credit_card">
-        <first_name nil="nil"></first_name>
-        <last_name nil="nil"></last_name>
-        <address1 nil="nil"></address1>
+        <first_name>Larry</first_name>
+        <last_name>David</last_name>
+        <address1>123 Pretty Pretty Good St.</address1>
         <address2 nil="nil"></address2>
-        <city nil="nil"></city>
-        <state nil="nil"></state>
-        <zip nil="nil"></zip>
-        <country nil="nil"></country>
+        <city>Los Angeles</city>
+        <state>CA</state>
+        <zip>90210</zip>
+        <country>US</country>
         <phone nil="nil"></phone>
-        <vat_number nil="nil"></vat_number>
-        <cc_type>visa</cc_type>
-        <year type="integer">2011</year>
-        <month type="integer">12</month>
+        <vat_number>2000</vat_number>
+        <card_type>Visa</card_type>
+        <year type="integer">2016</year>
+        <month type="integer">6</month>
         <first_six>411111</first_six>
         <last_four>1111</last_four>
       </billing_info>
@@ -55,4 +57,5 @@ Content-Type: application/xml; charset=utf-8
     <score type="integer">99</score>
     <decision>DECLINE</decision>
   </fraud>
+  <a name="refund" href="https://api.recurly.com/v2/transactions/abcdef1234567890" method="delete"/>
 </transaction>

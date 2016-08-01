@@ -19,6 +19,7 @@ class Recurly_Plan extends Recurly_Resource
       'plan_interval_length','plan_interval_unit','trial_interval_length',
       'trial_interval_unit','unit_amount_in_cents','setup_fee_in_cents',
       'total_billing_cycles','accounting_code','setup_fee_accounting_code',
+      'revenue_schedule_type', 'setup_fee_revenue_schedule_type',
       'tax_exempt','tax_code'
     );
   }
