@@ -6,8 +6,9 @@ class Mock_Pager extends Recurly_Pager {
     return 'mocks';
   }
 
-  public function _loadFrom($uri, $params = null) {
-    parent::_loadFrom($uri, $params);
+  // Overridden to make it public.
+  public function _loadFrom($uri) {
+    parent::_loadFrom($uri);
   }
 }
 Recurly_Resource::$class_map['mocks'] = 'Mock_Pager';

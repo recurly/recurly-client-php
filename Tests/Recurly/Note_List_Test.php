@@ -4,9 +4,9 @@
 class Recurly_NoteListTest extends Recurly_TestCase
 {
   public function testGetNotes() {
-    $this->client->addResponse('GET', '/accounts/abcdef1234567890/notes', 'notes/index-200.xml');
+    $this->client->addResponse('GET', '/accounts/abcdef1234567890/notes?', 'notes/index-200.xml');
 
-    $notes = Recurly_NoteList::get('abcdef1234567890', $this->client);
+    $notes = Recurly_NoteList::get('abcdef1234567890', array(), $this->client);
     $this->assertInstanceOf('Recurly_NoteList', $notes);
     $this->assertEquals($notes->count(), 2);
 

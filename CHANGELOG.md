@@ -4,7 +4,12 @@
 
 * Added support for `original_transaction` to `Recurly_Transaction` [#238](https://github.com/recurly/recurly-client-php/pull/238)
 * Added `Recurly_AccountBalance` [#239](https://github.com/recurly/recurly-client-php/pull/239)
-* Print warnings when using a deprecated version of the API.
+* Print warnings when using a deprecated version of the API. [#250](https://github.com/recurly/recurly-client-php/pull/250):
+* Added support new pagination options [#249](https://github.com/recurly/recurly-client-php/pull/249):
+  - `sort` accepts `created_at` or `updated_at`, defaults to `created_at`.
+  - `order` accepts `desc` or `asc`, defaults to `desc`.
+  - `begin_time` and `end_time` accepts an ISO 8601 date or date and time.
+* Changed `Recurly_AddonList::get()` and `Recurly_NoteList::get()` to add `$params` as the second parameter so sort, order and date filtering can be passed in [#249](https://github.com/recurly/recurly-client-php/pull/249)
 
 ## Version 2.5.3 (July 5th, 2016)
 
