@@ -14,6 +14,7 @@
   - `order` accepts `desc` or `asc`, defaults to `desc`.
   - `begin_time` and `end_time` accepts an ISO 8601 date or date and time.
 * Changed `Recurly_AddonList::get()` and `Recurly_NoteList::get()` to add `$params` as the second parameter so sort, order and date filtering can be passed in [#249](https://github.com/recurly/recurly-client-php/pull/249)
+* Added support for `revenue_schedule_type` to `Recurly_Addon`, `Recurly_Adjustment`, `Recurly_Plan`, `Recurly_Subscription` and `Recurly_SubscriptionAddOn` classes [#257](https://github.com/recurly/recurly-client-php/pull/257)
 
 ## Version 2.5.3 (July 5th, 2016)
 
