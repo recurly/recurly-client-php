@@ -46,6 +46,9 @@ require_once(dirname(__FILE__) . '/recurly/transaction_error.php');
 require_once(dirname(__FILE__) . '/recurly/transaction_list.php');
 require_once(dirname(__FILE__) . '/recurly/usage.php');
 require_once(dirname(__FILE__) . '/recurly/usage_list.php');
+require_once(dirname(__FILE__) . '/recurly/gift_card.php');
+require_once(dirname(__FILE__) . '/recurly/gift_card_list.php');
+require_once(dirname(__FILE__) . '/recurly/delivery.php');
 
 require_once(dirname(__FILE__) . '/recurly/push_notification.php');
 require_once(dirname(__FILE__) . '/recurly/recurly_js.php');

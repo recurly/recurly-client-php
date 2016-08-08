@@ -126,7 +126,7 @@ class Recurly_Subscription extends Recurly_Resource
       'timeframe', 'subscription_add_ons', 'net_terms', 'po_number',
       'collection_method', 'cost_in_cents', 'remaining_billing_cycles', 'bulk',
       'terms_and_conditions', 'customer_notes', 'vat_reverse_charge_notes',
-      'bank_account_authorized_at', 'revenue_schedule_type',
+      'bank_account_authorized_at', 'revenue_schedule_type','gift_card'
     );
   }
 }
