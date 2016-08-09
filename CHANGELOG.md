@@ -3,6 +3,7 @@
 ## Version 2.7.0 (unreleased)
 
 * Upgraded to API V2.4: https://dev.recurly.com/v2.4/docs
+* Allow credit adjustments (`Recurly_Adjustment`) to specify an `origin` of `external_gift_card` [#263](https://github.com/recurly/recurly-client-php/pull/263)
 
 ## Version 2.6.0 (August 9th, 2016)
 
