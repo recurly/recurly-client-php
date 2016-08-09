@@ -9,7 +9,7 @@ class Recurly_Adjustment extends Recurly_Resource
     Recurly_Adjustment::$_writeableAttributes = array(
       'currency','unit_amount_in_cents','quantity','description',
       'accounting_code','tax_exempt','tax_code','start_date','end_date',
-      'revenue_schedule_type',
+      'revenue_schedule_type', 'origin'
     );
   }
 
