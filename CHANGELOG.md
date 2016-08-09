@@ -1,7 +1,8 @@
 # Recurly PHP Client Library CHANGELOG
 
-## Version 2.6.0 (unreleased)
+## Version 2.6.0 (August 9th, 2016)
 
+* Upgraded to API V2.3: https://dev.recurly.com/v2.3/docs
 * Added support for `original_transaction` to `Recurly_Transaction` [#238](https://github.com/recurly/recurly-client-php/pull/238)
 * Added `Recurly_AccountBalance` [#239](https://github.com/recurly/recurly-client-php/pull/239)
 * Print warnings when using a deprecated version of the API. [#250](https://github.com/recurly/recurly-client-php/pull/250):
