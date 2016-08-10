@@ -267,6 +267,7 @@ abstract class Recurly_Base
 
         if ($object instanceof Recurly_Pager) {
           $new_obj = Recurly_Resource::__createNodeObject($node);
+          $new_obj->_client = $object->_client;
           if (!is_null($new_obj)) {
             Recurly_Resource::__parseXmlToObject($node->firstChild, $new_obj);
             $object->_objects[] = $new_obj;

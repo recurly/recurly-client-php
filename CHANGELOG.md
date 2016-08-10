@@ -1,5 +1,9 @@
 # Recurly PHP Client Library CHANGELOG
 
+## (Unreleased)
+
+* Fix for client not being passed from `Recurly_Pager` to its items (thanks to [cyruscollier](https://github.com/cyruscollier)) [#265](https://github.com/recurly/recurly-client-php/pull/265)
+
 ## Version 2.6.0 (August 9th, 2016)
 
 * Upgraded to API V2.3: https://dev.recurly.com/v2.3/docs
