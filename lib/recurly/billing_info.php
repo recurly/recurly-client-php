@@ -2,20 +2,6 @@
 
 class Recurly_BillingInfo extends Recurly_Resource
 {
-  protected static $_writeableAttributes;
-
-  public static function init()
-  {
-    Recurly_BillingInfo::$_writeableAttributes = array(
-      'first_name','last_name','name_on_account','ip_address',
-      'address1','address2','city','state','country','zip','phone','vat_number',
-      'number','month','year','verification_value','start_year','start_month','issue_number',
-      'account_number','routing_number','account_type',
-      'paypal_billing_agreement_id', 'amazon_billing_agreement_id', 'currency',
-      'token_id'
-    );
-  }
-
   public static function get($accountCode, $client = null) {
     return Recurly_Base::_get(Recurly_BillingInfo::uriForBillingInfo($accountCode), $client);
   }
@@ -50,8 +36,13 @@ class Recurly_BillingInfo extends Recurly_Resource
     return 'billing_info';
   }
   protected function getWriteableAttributes() {
-    return Recurly_BillingInfo::$_writeableAttributes;
+    return array(
+      'first_name', 'last_name', 'name_on_account', 'ip_address',
+      'address1', 'address2', 'city', 'state', 'country', 'zip', 'phone',
+      'vat_number', 'number', 'month', 'year', 'verification_value',
+      'account_number', 'routing_number', 'account_type',
+      'paypal_billing_agreement_id', 'amazon_billing_agreement_id', 'currency',
+      'token_id'
+    );
   }
 }
-
-Recurly_BillingInfo::init();

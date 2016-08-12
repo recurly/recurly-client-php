@@ -2,27 +2,11 @@
 
 class Recurly_Account extends Recurly_Resource
 {
-  protected static $_writeableAttributes;
-  protected static $_requiredAttributes;
-
   function __construct($accountCode = null, $client = null) {
     parent::__construct(null, $client);
     if (!is_null($accountCode))
       $this->account_code = $accountCode;
     $this->address = new Recurly_Address();
-  }
-
-  public static function init()
-  {
-    Recurly_Account::$_writeableAttributes = array(
-      'account_code','username','first_name','last_name','vat_number',
-      'email','company_name','accept_language','billing_info','address',
-      'tax_exempt','entity_use_code','cc_emails'
-    );
-    Recurly_Account::$_requiredAttributes = array(
-      'account_code'
-    );
-
   }
 
   public function &__get($key)
@@ -75,11 +59,15 @@ class Recurly_Account extends Recurly_Resource
     return 'account';
   }
   protected function getWriteableAttributes() {
-    return Recurly_Account::$_writeableAttributes;
+    return array(
+      'account_code', 'username', 'first_name', 'last_name', 'vat_number',
+      'email', 'company_name', 'accept_language', 'billing_info', 'address',
+      'tax_exempt', 'entity_use_code', 'cc_emails'
+    );
   }
   protected function getRequiredAttributes() {
-    return Recurly_Account::$_requiredAttributes;
+    return array(
+      'account_code'
+    );
   }
 }
-
-Recurly_Account::init();

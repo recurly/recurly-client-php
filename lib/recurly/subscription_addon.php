@@ -2,10 +2,12 @@
 
 class Recurly_SubscriptionAddOn extends Recurly_Resource {
 
-  protected static $_writeableAttributes;
+  protected function getNodeName() {
+    return 'subscription_add_on';
+  }
 
-  public static function init() {
-    Recurly_SubscriptionAddOn::$_writeableAttributes = array(
+  protected function getWriteableAttributes() {
+    return array(
       'add_on_code',
       'quantity',
       'unit_amount_in_cents',
@@ -14,14 +16,6 @@ class Recurly_SubscriptionAddOn extends Recurly_Resource {
       'usage_percentage',
       'revenue_schedule_type',
     );
-  }
-
-  protected function getNodeName() {
-    return 'subscription_add_on';
-  }
-
-  protected function getWriteableAttributes() {
-    return Recurly_SubscriptionAddOn::$_writeableAttributes;
   }
 
   protected function populateXmlDoc(&$doc, &$node, &$obj, $nested = false) {
@@ -51,6 +45,3 @@ class Recurly_SubscriptionAddOn extends Recurly_Resource {
     return "<$class $values>";
   }
 }
-
-Recurly_SubscriptionAddOn::init();
-
