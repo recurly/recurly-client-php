@@ -2,17 +2,6 @@
 
 class Recurly_Adjustment extends Recurly_Resource
 {
-  protected static $_writeableAttributes;
-
-  public static function init()
-  {
-    Recurly_Adjustment::$_writeableAttributes = array(
-      'currency','unit_amount_in_cents','quantity','description',
-      'accounting_code','tax_exempt','tax_code','start_date','end_date',
-      'revenue_schedule_type',
-    );
-  }
-
   public static function get($adjustment_uuid, $client = null) {
     return Recurly_Base::_get(Recurly_Client::PATH_ADJUSTMENTS . '/' . rawurlencode($adjustment_uuid), $client);
   }
@@ -68,8 +57,10 @@ class Recurly_Adjustment extends Recurly_Resource
     return 'adjustment';
   }
   protected function getWriteableAttributes() {
-    return Recurly_Adjustment::$_writeableAttributes;
+    return array(
+      'currency', 'unit_amount_in_cents', 'quantity', 'description',
+      'accounting_code', 'tax_exempt', 'tax_code', 'start_date', 'end_date',
+      'revenue_schedule_type',
+    );
   }
 }
-
-Recurly_Adjustment::init();
