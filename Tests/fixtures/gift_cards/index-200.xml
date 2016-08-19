@@ -1,0 +1,76 @@
+HTTP/1.1 200 OK
+Content-Type: application/xml; charset=utf-8
+X-Records: 42
+Link: <https://api.recurly.com/v2/gift_cards?cursor=1234567890&per_page=20>; rel="start", <https://api.recurly.com/v2/gift_cards?cursor=1234566890&per_page=20>; rel="next"
+
+<?xml version="1.0" encoding="UTF-8"?>
+<gift_cards type="array">
+  <gift_card href="https://api.recurly.com/v2/gift_cards/1988596967980562362">
+    <gifter_account href="https://api.recurly.com/v2/accounts/myaccount" />
+    <invoice href="https://api.recurly.com/v2/invoices/1000" />
+    <recipient_account href="https://api.recurly.com/v2/accounts/myaccount" />
+    <id type="integer">1988596967980562362</id>
+    <redemption_code>AI4VOVO1RC74H9E2</redemption_code>
+    <product_code>gift_card</product_code>
+    <unit_amount_in_cents type="integer">2000</unit_amount_in_cents>
+    <currency>USD</currency>
+    <balance_in_cents type="integer">2000</balance_in_cents>
+    <delivery>
+      <method>email</method>
+      <deliver_at nil="nil"></deliver_at>
+      <email_address>john@example.com</email_address>
+      <first_name>John</first_name>
+      <last_name>Smith</last_name>
+      <address>
+        <address1></address1>
+        <address2></address2>
+        <city></city>
+        <state></state>
+        <zip></zip>
+        <country></country>
+        <phone nil="nil"></phone>
+      </address>
+      <gifter_name>Sally</gifter_name>
+      <personal_message>Hi John, Happy Birthday! I hope you have a great day! Love, Sally</personal_message>
+    </delivery>
+    <created_at type="datetime">2016-04-15T07:00:00Z</created_at>
+    <updated_at type="datetime">2016-12-27T07:00:00Z</updated_at>
+    <delivered_at type="datetime">2016-12-25T07:00:05Z</delivered_at>
+    <redeemed_at type="datetime">2016-12-27T07:00:00Z</redeemed_at>
+    <canceled_at nil="nil"></canceled_at>
+  </gift_card>
+  <gift_card href="https://api.recurly.com/v2/gift_cards/1985029118618044373">
+    <gifter_account href="https://api.recurly.com/v2/accounts/myaccount" />
+    <invoice href="https://api.recurly.com/v2/invoices/1000" />
+    <recipient_account href="https://api.recurly.com/v2/accounts/myaccount" />
+    <unit_amount_in_cents type="integer">2000</unit_amount_in_cents>
+    <currency>USD</currency>
+    <redemption_code>18645EFA7CDB30E2</redemption_code>
+    <id type="integer">1985029118618044373</id>
+    <created_at type="datetime">2016-04-15T07:00:00Z</created_at>
+    <updated_at type="datetime">2016-12-27T07:00:00Z</updated_at>
+    <delivered_at type="datetime">2016-12-25T07:00:05Z</delivered_at>
+    <redeemed_at type="datetime">2016-12-27T07:00:00Z</redeemed_at>
+    <canceled_at nil="nil"></canceled_at>
+    <product_code>gift_card</product_code>
+    <balance_in_cents type="integer">2000</balance_in_cents>
+    <delivery>
+      <deliver_at nil="nil"></deliver_at>
+      <gifter_name>Sally</gifter_name>
+      <personal_message>Hi John, Happy Birthday! I hope you have a great day! Love, Sally</personal_message>
+      <method>email</method>
+      <email_address>john@example.com</email_address>
+      <first_name>John</first_name>
+      <last_name>Smith</last_name>
+      <address>
+        <address1></address1>
+        <address2></address2>
+        <city></city>
+        <state></state>
+        <zip></zip>
+        <country></country>
+        <phone nil="nil"></phone>
+      </address>
+    </delivery>
+  </gift_card>
+</gift_cards>
