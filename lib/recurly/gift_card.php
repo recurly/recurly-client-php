@@ -25,6 +25,12 @@ class Recurly_GiftCard extends Recurly_Resource
     $this->_save(Recurly_Client::POST, Recurly_Client::PATH_GIFT_CARDS);
   }
 
+  /**
+   * Preview the creation and check for errors.
+   *
+   * Note: once preview() has been called you will not be able to call create()
+   * without reassiging all the attributes.
+   */
   public function preview() {
     $this->_save(Recurly_Client::POST, Recurly_Client::PATH_GIFT_CARDS . '/preview');
   }
