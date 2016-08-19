@@ -15,6 +15,12 @@ class Recurly_Subscription extends Recurly_Resource
     $this->_save(Recurly_Client::POST, Recurly_Client::PATH_SUBSCRIPTIONS);
   }
 
+  /**
+   * Preview the creation and check for errors.
+   *
+   * Note: once preview() has been called you will not be able to call create()
+   * or save() without reassiging all the attributes.
+   */
   public function preview() {
     if ($this->uuid) {
       $this->_save(Recurly_Client::POST, $this->uri() . '/preview');
