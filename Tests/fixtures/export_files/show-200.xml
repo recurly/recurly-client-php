@@ -1,0 +1,8 @@
+HTTP/1.1 200 OK
+Content-Type: application/xml; charset=utf-8
+X-Api-Version: 2.4
+
+<export_file href="https://api.recurly.com/v2/export_dates/2016-08-01/export_files/revenue_schedules_full.csv">
+  <expires_at type="datetime">2016-08-19T18:32:06Z</expires_at>
+  <download_url>https://example.com/download/1424738224870632110/dates/2016-08-01/revenue_schedules_full.csv</download_url>
+</export_file>
