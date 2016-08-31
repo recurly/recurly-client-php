@@ -62,7 +62,7 @@ class Recurly_Account extends Recurly_Resource
     return array(
       'account_code', 'username', 'first_name', 'last_name', 'vat_number',
       'email', 'company_name', 'accept_language', 'billing_info', 'address',
-      'tax_exempt', 'entity_use_code', 'cc_emails'
+      'tax_exempt', 'entity_use_code', 'cc_emails', 'shipping_addresses'
     );
   }
   protected function getRequiredAttributes() {

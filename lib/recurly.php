@@ -37,6 +37,8 @@ require_once(dirname(__FILE__) . '/recurly/plan.php');
 require_once(dirname(__FILE__) . '/recurly/plan_list.php');
 require_once(dirname(__FILE__) . '/recurly/redemption.php');
 require_once(dirname(__FILE__) . '/recurly/redemption_list.php');
+require_once(dirname(__FILE__) . '/recurly/shipping_address.php');
+require_once(dirname(__FILE__) . '/recurly/shipping_address_list.php');
 require_once(dirname(__FILE__) . '/recurly/subscription.php');
 require_once(dirname(__FILE__) . '/recurly/subscription_list.php');
 require_once(dirname(__FILE__) . '/recurly/subscription_addon.php');
