@@ -206,6 +206,8 @@ abstract class Recurly_Base
     'redemption' => 'Recurly_CouponRedemption',
     'redemptions' => 'Recurly_CouponRedemptionList',
     'setup_fee_in_cents' => 'Recurly_CurrencyList',
+    'shipping_address' => 'Recurly_ShippingAddress',
+    'shipping_addresses' => 'Recurly_ShippingAddressList',
     'subscription' => 'Recurly_Subscription',
     'subscriptions' => 'Recurly_SubscriptionList',
     'subscription_add_ons' => 'array',

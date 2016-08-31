@@ -78,11 +78,37 @@ class Recurly_SubscriptionTest extends Recurly_TestCase
     $billing_info->year = 2015;
     $billing_info->ip_address = '192.168.0.1';
 
+    $shad = new Recurly_ShippingAddress();
+    $shad->nickname = "Work";
+    $shad->first_name = "Verena";
+    $shad->last_name = "Example";
+    $shad->company = "Recurly Inc.";
+    $shad->phone = "555-555-5555";
+    $shad->email = "verena@example.com";
+    $shad->address1 = "123 Main St.";
+    $shad->city = "San Francisco";
+    $shad->state = "CA";
+    $shad->zip = "94110";
+    $shad->country = "US";
+
+    $subscription->shipping_address = $shad;
     $subscription->account = $account;
     $account->billing_info = $billing_info;
 
     $this->assertEquals(
-      "<?xml version=\"1.0\"?>\n<subscription><account><account_code>account_code</account_code><username>username</username><first_name>Verena</first_name><last_name>Example</last_name><email>verena@example.com</email><accept_language>en-US</accept_language><billing_info><first_name>Verena</first_name><last_name>Example</last_name><ip_address>192.168.0.1</ip_address><number>4111-1111-1111-1111</number><month>11</month><year>2015</year><verification_value>123</verification_value></billing_info><address></address></account><plan_code>gold</plan_code><quantity>1</quantity><currency>USD</currency><subscription_add_ons></subscription_add_ons><bulk>true</bulk><terms_and_conditions>Some Terms and Conditions</terms_and_conditions><customer_notes>Some Customer Notes</customer_notes></subscription>\n",
+      "<?xml version=\"1.0\"?>\n<subscription><account><account_code>account_code</account_code><username>username</username><first_name>Verena</first_name><last_name>Example</last_name><email>verena@example.com</email><accept_language>en-US</accept_language><billing_info><first_name>Verena</first_name><last_name>Example</last_name><ip_address>192.168.0.1</ip_address><number>4111-1111-1111-1111</number><month>11</month><year>2015</year><verification_value>123</verification_value></billing_info><address></address></account><plan_code>gold</plan_code><quantity>1</quantity><currency>USD</currency><subscription_add_ons></subscription_add_ons><bulk>true</bulk><terms_and_conditions>Some Terms and Conditions</terms_and_conditions><customer_notes>Some Customer Notes</customer_notes><shipping_address><address1>123 Main St.</address1><city>San Francisco</city><state>CA</state><zip>94110</zip><country>US</country><phone>555-555-5555</phone><email>verena@example.com</email><nickname>Work</nickname><first_name>Verena</first_name><last_name>Example</last_name><company>Recurly Inc.</company></shipping_address></subscription>\n",
+      $subscription->xml()
+    );
+  }
+
+  public function testUpdateShippingAddressXml() {
+    $this->client->addResponse('GET', '/subscriptions/012345678901234567890123456789ab', 'subscriptions/show-200.xml');
+    $subscription = Recurly_Subscription::get('012345678901234567890123456789ab', $this->client);
+
+    $subscription->shipping_address_id = 1234567890;
+
+    $this->assertEquals(
+      "<?xml version=\"1.0\"?>\n<subscription><subscription_add_ons><subscription_add_on><add_on_code>marketing_emails</add_on_code><unit_amount_in_cents>5</unit_amount_in_cents><quantity>1</quantity></subscription_add_on></subscription_add_ons><shipping_address_id>1234567890</shipping_address_id></subscription>\n",
       $subscription->xml()
     );
   }

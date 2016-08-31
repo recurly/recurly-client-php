@@ -7,6 +7,7 @@
 * Allow credit adjustments (`Recurly_Adjustment`) to specify an `origin` of `external_gift_card` [#263](https://github.com/recurly/recurly-client-php/pull/263)
 * Added `Recurly_AccountAcquisition` [#259](https://github.com/recurly/recurly-client-php/pull/259)
 * Added support for automated exports [#260](https://github.com/recurly/recurly-client-php/pull/260)
+* Added support for shipping addresses [#269](https://github.com/recurly/recurly-client-php/pull/269)
 
 ## Version 2.6.0 (August 9th, 2016)
 
