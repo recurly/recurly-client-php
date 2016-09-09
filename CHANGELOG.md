@@ -3,6 +3,7 @@
 ## (Unreleased)
 
 * Fix for client not being passed from `Recurly_Pager` to its items (thanks to [cyruscollier](https://github.com/cyruscollier)) [#265](https://github.com/recurly/recurly-client-php/pull/265)
+* Adding missing require for `account_balance` [#273](https://github.com/recurly/recurly-client-php/pull/273)
 
 ## Version 2.6.0 (August 9th, 2016)
 
