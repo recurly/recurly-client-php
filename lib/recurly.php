@@ -16,6 +16,7 @@ require_once(dirname(__FILE__) . '/recurly/stub.php');
 
 require_once(dirname(__FILE__) . '/recurly/address.php');
 require_once(dirname(__FILE__) . '/recurly/account.php');
+require_once(dirname(__FILE__) . '/recurly/account_balance.php');
 require_once(dirname(__FILE__) . '/recurly/account_list.php');
 require_once(dirname(__FILE__) . '/recurly/addon.php');
 require_once(dirname(__FILE__) . '/recurly/addon_list.php');
