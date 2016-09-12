@@ -21,11 +21,11 @@ class Recurly_Stub extends Recurly_Base
    */
   function get($params = null) {
     $uri = self::_uriWithParams($this->_href, $params);
-    $stub = self::_get($uri, $this->_client);
-    if ($this->_href && !$stub->getHref()) {
-      $stub->setHref($this->_href);
+    $object = self::_get($uri, $this->_client);
+    if ($this->_href && !$object->getHref()) {
+      $object->setHref($this->_href);
     }
-    return $stub;
+    return $object;
   }
 
   public function __toString()
