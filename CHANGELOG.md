@@ -9,6 +9,7 @@
 * Added `Recurly_AccountAcquisition` [#259](https://github.com/recurly/recurly-client-php/pull/259)
 * Added support for automated exports [#260](https://github.com/recurly/recurly-client-php/pull/260)
 * Added support for shipping addresses [#269](https://github.com/recurly/recurly-client-php/pull/269)
+* Added filters to `Recurly_Stub` allowing `$account->invoices->get(array('state' => 'past_due'))` (thanks to [developer-devPHP](https://github.com/developer-devPHP)) [#270](https://github.com/recurly/recurly-client-php/pull/270)
 
 ## Version 2.6.0 (August 9th, 2016)
 
