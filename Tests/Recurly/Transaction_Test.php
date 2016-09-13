@@ -35,6 +35,15 @@ class Recurly_TransactionTest extends Recurly_TestCase
     $this->assertInstanceOf('Recurly_FraudInfo', $transaction->fraud);
     $this->assertEquals($transaction->fraud->score, 99);
     $this->assertEquals($transaction->fraud->decision, 'DECLINE');
+
+    $risk_rules = $transaction->fraud->risk_rules_triggered;
+    $this->assertEquals(count($risk_rules), 2);
+
+    $this->assertEquals($risk_rules[0]->code, "848760");
+    $this->assertEquals($risk_rules[0]->message, "Review Non-Normal Network Type");
+
+    $this->assertEquals($risk_rules[1]->code, "404934");
+    $this->assertEquals($risk_rules[1]->message, "More than 4 unique Email Addresses");
   }
 
   public function testCreateTransactionFailed() {

@@ -56,6 +56,16 @@ Content-Type: application/xml; charset=utf-8
   <fraud>
     <score type="integer">99</score>
     <decision>DECLINE</decision>
+    <risk_rules_triggered>
+      <rule>
+        <code>848760</code>
+        <message>Review Non-Normal Network Type</message>
+      </rule>
+      <rule>
+        <code>404934</code>
+        <message>More than 4 unique Email Addresses</message>
+      </rule>
+    </risk_rules_triggered>
   </fraud>
   <a name="refund" href="https://api.recurly.com/v2/transactions/abcdef1234567890" method="delete"/>
 </transaction>

@@ -8,6 +8,7 @@ require_once(dirname(__FILE__) . '/recurly/currency_list.php');
 require_once(dirname(__FILE__) . '/recurly/error_list.php');
 require_once(dirname(__FILE__) . '/recurly/errors.php');
 require_once(dirname(__FILE__) . '/recurly/fraud_info.php');
+require_once(dirname(__FILE__) . '/recurly/fraud_risk_rule.php');
 require_once(dirname(__FILE__) . '/recurly/link.php');
 require_once(dirname(__FILE__) . '/recurly/pager.php');
 require_once(dirname(__FILE__) . '/recurly/response.php');
