@@ -93,7 +93,6 @@ abstract class Recurly_Resource extends Recurly_Base
     $response->assertSuccessResponse($this);
   }
 
-
   public function xml()
   {
     $doc = $this->createDocument();

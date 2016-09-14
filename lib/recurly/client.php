@@ -27,7 +27,7 @@ class Recurly_Client
   /**
    * API Version
    */
-  public static $apiVersion = '2.3';
+  public static $apiVersion = '2.4';
 
   /**
    * The path to your CA certs. Use only if needed (if you can't fix libcurl/php).
@@ -44,7 +44,7 @@ class Recurly_Client
    */
   private $_acceptLanguage = 'en-US';
 
-  const API_CLIENT_VERSION = '2.6.0';
+  const API_CLIENT_VERSION = '2.7.0';
   const DEFAULT_ENCODING = 'UTF-8';
 
   const GET = 'GET';
@@ -62,6 +62,7 @@ class Recurly_Client
   const PATH_COUPON_REDEMPTION = '/redemption';
   const PATH_COUPON_REDEMPTIONS = '/redemptions';
   const PATH_COUPONS = '/coupons';
+  const PATH_GIFT_CARDS = '/gift_cards';
   const PATH_UNIQUE_COUPONS = '/unique_coupon_codes';
   const PATH_INVOICES = '/invoices';
   const PATH_NOTES = '/notes';
@@ -207,6 +208,39 @@ class Recurly_Client
       default:
         throw new Recurly_ConnectionError("An unexpected error occurred connecting with Recurly.");
     }
+  }
+
+  /**
+   * Saves the contents of a URI into a file handle.
+   *
+   * @param string    $uri          Target URI for the request (complete URL)
+   * @param resource  $file_pointer Resourced returned from fopen() with write mode.
+   */
+  public function getFile($uri, $file_pointer) {
+    $ch = curl_init();
+    curl_setopt($ch, CURLOPT_URL, $uri);
+    curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, TRUE);
+    curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 2);
+    curl_setopt($ch, CURLOPT_FOLLOWLOCATION, FALSE);
+    curl_setopt($ch, CURLOPT_MAXREDIRS, 1);
+    curl_setopt($ch, CURLOPT_HEADER, FALSE); // do not return headers
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
+    curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 10);
+    curl_setopt($ch, CURLOPT_HTTPHEADER, array(
+      Recurly_Client::__userAgent(),
+    ));
+    curl_setopt($ch, CURLOPT_FILE, $file_pointer);
+
+    $response = curl_exec($ch);
+
+    if ($response === false) {
+      $errorNumber = curl_errno($ch);
+      $message = curl_error($ch);
+      curl_close($ch);
+      $this->_raiseCurlError($errorNumber, $message);
+    }
+
+    curl_close($ch);
   }
 
   /**

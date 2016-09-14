@@ -1,9 +1,14 @@
 # Recurly PHP Client Library CHANGELOG
 
-## (Unreleased)
+## Version 2.7.0 (unreleased)
 
+* Upgraded to API V2.4: https://dev.recurly.com/v2.4/docs
 * Fix for client not being passed from `Recurly_Pager` to its items (thanks to [cyruscollier](https://github.com/cyruscollier)) [#265](https://github.com/recurly/recurly-client-php/pull/265)
 * Adding missing require for `account_balance` [#273](https://github.com/recurly/recurly-client-php/pull/273)
+* Allow credit adjustments (`Recurly_Adjustment`) to specify an `origin` of `external_gift_card` [#263](https://github.com/recurly/recurly-client-php/pull/263)
+* Added `Recurly_AccountAcquisition` [#259](https://github.com/recurly/recurly-client-php/pull/259)
+* Added support for automated exports [#260](https://github.com/recurly/recurly-client-php/pull/260)
+* Added support for shipping addresses [#269](https://github.com/recurly/recurly-client-php/pull/269)
 
 ## Version 2.6.0 (August 9th, 2016)
 

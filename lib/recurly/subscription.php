@@ -15,6 +15,12 @@ class Recurly_Subscription extends Recurly_Resource
     $this->_save(Recurly_Client::POST, Recurly_Client::PATH_SUBSCRIPTIONS);
   }
 
+  /**
+   * Preview the creation and check for errors.
+   *
+   * Note: once preview() has been called you will not be able to call create()
+   * or save() without reassiging all the attributes.
+   */
   public function preview() {
     if ($this->uuid) {
       $this->_save(Recurly_Client::POST, $this->uri() . '/preview');
@@ -126,7 +132,8 @@ class Recurly_Subscription extends Recurly_Resource
       'timeframe', 'subscription_add_ons', 'net_terms', 'po_number',
       'collection_method', 'cost_in_cents', 'remaining_billing_cycles', 'bulk',
       'terms_and_conditions', 'customer_notes', 'vat_reverse_charge_notes',
-      'bank_account_authorized_at', 'revenue_schedule_type',
+      'bank_account_authorized_at', 'revenue_schedule_type', 'gift_card',
+      'shipping_address', 'shipping_address_id'
     );
   }
 }

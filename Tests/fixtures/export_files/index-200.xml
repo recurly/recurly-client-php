@@ -1,0 +1,11 @@
+HTTP/1.1 200 OK
+Content-Type: application/xml; charset=utf-8
+X-Api-Version: 2.4
+X-Records: 1
+
+<export_files href="https://api.recurly.com/v2/export_dates/2016-08-01/export_files">
+  <export_file href="https://api.recurly.com/v2/export_dates/2016-08-01/export_files/revenue_schedules_full.csv">
+    <name>revenue_schedules_full.csv</name>
+    <md5sum>9aa55980167ae522b27410edcd5303b0</md5sum>
+  </export_file>
+</export_files>
