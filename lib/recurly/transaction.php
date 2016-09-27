@@ -2,11 +2,10 @@
 /**
  * Class Recurly_Transaction
  * @property string $uuid Transaction's unique identifier.
- * @property string $account The URL of the account associated with the transaction.
- * @property string $invoice The URL of the invoice associated with the transaction.
- * @property string $subscription The URL of the subscription associated with the transaction.
- * @property string $original_transaction For refund transactions, the URL of the original transaction.
- * @property string $uuid The unique identifier of the transaction.
+ * @property string $account The URL of the account associated with the transaction.  Run get() to pull back a Recurly_Account
+ * @property string $invoice The URL of the invoice associated with the transaction.  Run get() to pull back a Recurly_Invoice
+ * @property string $subscription The URL of the subscription associated with the transaction.  Run get() to pull back a Recurly_Subscription
+ * @property string $original_transaction For refund transactions, the URL of the original transaction.  Run get() to pull back a Recurly_Transaction
  * @property string $action purchase, verify or refund.
  * @property integer $amount_in_cents Total transaction amount in cents.
  * @property integer $tax_in_cents Amount of tax or VAT within the transaction, in cents.
@@ -26,7 +25,7 @@
  * @property string $avs_result_postal AVS result for the postal code.
  * @property datetime $created_at Date the transaction took place.
  * @property datetime $updated_at Date the transaction was last modified.
- * @property string $details Nested account and billing information submitted at the time of the transaction. When writing a client library, do not map these directly to Account or Billing Info objects.
+ * @property string $details Nested account and billing information submitted at the time of the transaction. When writing a client library, do not map these directly to Account or Billing Info objects.  Retrieve data by accessing the array details[0]->fieldname i.e. details[0]->email 
  * @property string $error_code For declined transactions, the error code (if applicable).
  * @property string $error_category For declined transactions, the error category (if applicable).
  * @property string $merchant_message For declined transactions, the message displayed to the merchant (if applicable).
