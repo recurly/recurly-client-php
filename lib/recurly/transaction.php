@@ -34,7 +34,7 @@
  */
 class Recurly_Transaction extends Recurly_Resource
 {
-  /**
+ /**
   * Get Tranasction by uuid
   * 
   * @param string $uuid
