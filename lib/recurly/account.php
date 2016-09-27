@@ -12,18 +12,18 @@
  * @property string $state The state of accounts to return: active or closed.
  * @property string $username The username of the account.
  * @property string $email The email address of the account.
- * @property array of strings $cc_emails Additional email address that should receive account correspondence. These should be separated only by commas. These CC emails will receive all emails that the email field also receives.
+ * @property string[] $cc_emails Additional email address that should receive account correspondence. These should be separated only by commas. These CC emails will receive all emails that the email field also receives.
  * @property string $first_name The first name of the account.
  * @property string $last_name The last name of the account.
  * @property string $company_name The company name of the account.
  * @property string $vat_number The VAT number of the account (to avoid having the VAT applied).
  * @property boolean $tax_exempt The tax status of the account. true exempts tax on the account, false applies tax on the account.
- * @property object $address The nested address information of the account: address1, address2, city, state, zip, country, phone.
+ * @property Recurly_Address $address The nested address information of the account: address1, address2, city, state, zip, country, phone.
  * @property string $accept_language The ISO 639-1 language code from the user's browser, indicating their preferred language and locale.
  * @property string $hosted_login_token The unique token for automatically logging the account in to the hosted management pages. You may automatically log the user into their hosted management pages by directing the user to: https://:subdomain.recurly.com/account/:hosted_login_token.
- * @property datetime $created_at The date and time the account was created in Recurly.
- * @property datetime $updated_at The date and time the account or its billing info was last updated.
- * @property datetime $closed_at For closed accounts, the date and time it was closed.
+ * @property DateTime $created_at The date and time the account was created in Recurly.
+ * @property DateTime $updated_at The date and time the account or its billing info was last updated.
+ * @property DateTime $closed_at For closed accounts, the date and time it was closed.
  */
 class Recurly_Account extends Recurly_Resource
 {
