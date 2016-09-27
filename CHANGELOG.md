@@ -1,5 +1,9 @@
 # Recurly PHP Client Library CHANGELOG
 
+## Unreleased
+
+* Added property documentation to several classes (thanks to [phpdave](https://github.com/phpdave)) [#278](https://github.com/recurly/recurly-client-php/pull/278)
+
 ## Version 2.7.0 (September 15th, 2016)
 
 * Upgraded to API V2.4: https://dev.recurly.com/v2.4/docs
