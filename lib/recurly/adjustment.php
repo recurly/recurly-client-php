@@ -1,5 +1,5 @@
 <?php
-/*
+/**
  * class Recurly_Adjustment
  * @property string $type The type of adjustment to return: charge or credit.
  * @property Recurly_Stub $account The URL of the account for the specified adjustment.
