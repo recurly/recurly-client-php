@@ -1,5 +1,5 @@
 <?php
-/*
+/**
  * Class Recurly_Account
  * @property Recurly_Stub $adjustments The URL of adjustments for the specified account.
  * @property Recurly_Stub $account_balance The URL of the account balance for the specified account.
