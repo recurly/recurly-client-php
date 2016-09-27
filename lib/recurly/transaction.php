@@ -23,9 +23,9 @@
  * @property string $avs_result AVS result, if applicable.
  * @property string $avs_result_street AVS result for the street address, line 1.
  * @property string $avs_result_postal AVS result for the postal code.
- * @property datetime $created_at Date the transaction took place.
- * @property datetime $updated_at Date the transaction was last modified.
- * @property string $details Nested account and billing information submitted at the time of the transaction. When writing a client library, do not map these directly to Account or Billing Info objects.  Retrieve data by accessing the array details[0]->fieldname i.e. details[0]->email 
+ * @property DateTime $created_at Date the transaction took place.
+ * @property DateTime $updated_at Date the transaction was last modified.
+ * @property mixed[] $details Nested account and billing information submitted at the time of the transaction. When writing a client library, do not map these directly to Account or Billing Info objects.  Retrieve data by accessing the array details[0]->fieldname i.e. details[0]->email 
  * @property string $error_code For declined transactions, the error code (if applicable).
  * @property string $error_category For declined transactions, the error category (if applicable).
  * @property string $merchant_message For declined transactions, the message displayed to the merchant (if applicable).
