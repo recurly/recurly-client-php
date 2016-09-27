@@ -1,5 +1,6 @@
 <?php
-/*
+/**
+ * Class Recurly_Transaction
  * @property string $uuid Transaction's unique identifier.
  * @property string $account The URL of the account associated with the transaction.
  * @property string $invoice The URL of the invoice associated with the transaction.
@@ -34,6 +35,13 @@
  */
 class Recurly_Transaction extends Recurly_Resource
 {
+  /**
+  * Get Tranasction by uuid
+  * 
+  * @param string $uuid
+  * @param Recurly_Client $client optional
+  * @return Recurly_Transaction
+  */
   public static function get($uuid, $client = null) {
     return Recurly_Base::_get(Recurly_Transaction::uriForTransaction($uuid), $client);
   }
