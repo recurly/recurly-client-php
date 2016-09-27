@@ -34,16 +34,7 @@
  */
 class Recurly_Transaction extends Recurly_Resource
 {
-  protected static $_writeableAttributes;
-
-  public static function init()
-  {
-    Recurly_Transaction::$_writeableAttributes = array(
-      'account','amount_in_cents','currency','description','accounting_code', 'tax_exempt', 'tax_code'
-    );
-  }
-  
-  /**
+ /**
   * Get Tranasction by uuid
   * 
   * @param string $uuid
@@ -93,11 +84,9 @@ class Recurly_Transaction extends Recurly_Resource
     return 'transaction';
   }
   protected function getWriteableAttributes() {
-    return Recurly_Transaction::$_writeableAttributes;
-  }
-  protected function getRequiredAttributes() {
-    return array();
+    return array(
+      'account', 'amount_in_cents', 'currency', 'description', 'accounting_code',
+      'tax_exempt', 'tax_code'
+    );
   }
 }
-
-Recurly_Transaction::init();
