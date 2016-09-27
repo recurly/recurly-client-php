@@ -1,13 +1,13 @@
 <?php
 /*
  * Class Recurly_Account
- * @property string $adjustments The URL of adjustments for the specified account.
- * @property string $account_balance The URL of the account balance for the specified account.
- * @property string $billing_info The URL of billing info for the specified account.
- * @property string $invoices The URL of invoices for the specified account.
- * @property string $redemption The URL of the coupon redemption for the specified account.
- * @property string $subscriptions The URL of subscriptions for the specified account.
- * @property string $transactions The URL of transactions for the specified account.
+ * @property Recurly_Stub $adjustments The URL of adjustments for the specified account.
+ * @property Recurly_Stub $account_balance The URL of the account balance for the specified account.
+ * @property Recurly_Stub $billing_info The URL of billing info for the specified account.
+ * @property Recurly_Stub $invoices The URL of invoices for the specified account.
+ * @property Recurly_Stub $redemption The URL of the coupon redemption for the specified account.
+ * @property Recurly_Stub $subscriptions The URL of subscriptions for the specified account.
+ * @property Recurly_Stub $transactions The URL of transactions for the specified account.
  * @property string $account_code The unique identifier of the account.
  * @property string $state The state of accounts to return: active or closed.
  * @property string $username The username of the account.
