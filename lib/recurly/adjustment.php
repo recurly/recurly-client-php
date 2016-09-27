@@ -2,8 +2,8 @@
 /*
  * class Recurly_Adjustment
  * @property string $type The type of adjustment to return: charge or credit.
- * @property string $account The URL of the account for the specified adjustment.
- * @property string $invoice The URL of the invoice for the specified adjustment.
+ * @property Recurly_Stub $account The URL of the account for the specified adjustment.
+ * @property Recurly_Stub $invoice The URL of the invoice for the specified adjustment.
  * @property string $uuid The unique identifier of the adjustment.
  * @property string $state The state of the adjustments to return: pending or invoiced.
  * @property string $description Description of the adjustment for the adjustment. Max 255 characters.
