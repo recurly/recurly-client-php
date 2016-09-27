@@ -1,5 +1,4 @@
 <?php
-<?
 /*
  * @property string $uuid Transaction's unique identifier.
  * @property string $account The URL of the account associated with the transaction.
