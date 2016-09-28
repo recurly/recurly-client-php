@@ -16,6 +16,7 @@
  * @property string $country Country, 2-letter ISO code STRONGLY RECOMMENDED
  * @property string $zip Zip or postal code, recommended for address validation
  * @property string $phone Phone number
+ * @property string $company Customer's company
  * @property string $vat_number Customer's VAT Number
  * @property string $currency Currency in which invoices will be posted. Only applicable if this account is enrolled in a plan has a different currency than your site's default.
  * @property string $verification_value Security code or CVV, 3-4 digits STRONGLY RECOMMENDED
@@ -58,7 +59,7 @@ class Recurly_BillingInfo extends Recurly_Resource
   }
   protected function getWriteableAttributes() {
     return array(
-      'first_name', 'last_name', 'name_on_account', 'ip_address',
+      'first_name', 'last_name', 'name_on_account', 'company', 'ip_address',
       'address1', 'address2', 'city', 'state', 'country', 'zip', 'phone',
       'vat_number', 'number', 'month', 'year', 'verification_value',
       'account_number', 'routing_number', 'account_type',

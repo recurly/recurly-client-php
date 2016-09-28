@@ -3,6 +3,7 @@
 ## Unreleased
 
 * Added property documentation to several classes (thanks to [phpdave](https://github.com/phpdave)) [#278](https://github.com/recurly/recurly-client-php/pull/278)
+* Added company attribute to billing info [#280](https://github.com/recurly/recurly-client-php/pull/280)
 
 ## Version 2.7.0 (September 15th, 2016)
 
