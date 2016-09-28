@@ -20,6 +20,7 @@ class Recurly_BillingInfoTest extends Recurly_TestCase
 
     $this->assertInstanceOf('Recurly_BillingInfo', $billing_info);
     $this->assertEquals($billing_info->first_name, 'Larry');
+    $this->assertEquals($billing_info->company, 'Pretty Good Company');
     $this->assertEquals($billing_info->address1, '123 Pretty Pretty Good St.');
     $this->assertEquals($billing_info->country, 'US');
     $this->assertEquals($billing_info->card_type, 'Visa');
