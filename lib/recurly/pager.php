@@ -6,7 +6,7 @@
  *
  * The pager moves forward only and can rewind to the first item.
  */
-abstract class Recurly_Pager extends Recurly_Base implements Iterator
+abstract class Recurly_Pager extends Recurly_Base implements Iterator, Countable
 {
   private $_position = 0;    // position within the current page
   protected $_count = null;  // total number of records
