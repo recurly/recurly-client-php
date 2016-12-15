@@ -74,7 +74,6 @@ class Recurly_Account extends Recurly_Resource
     if ($client) {
       $shippingAddress->_client = $client;
     }
-
     $shippingAddress->_save(Recurly_Client::POST, $this->uri() . '/shipping_addresses');
   }
 

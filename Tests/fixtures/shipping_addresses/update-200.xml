@@ -1,0 +1,24 @@
+HTTP/1.1 200 Updated
+Content-Type: application/xml; charset=utf-8
+Location: https://api.recurly.com/v2/accounts/abcdef1234567890/shipping_addresses/1234567
+
+<?xml version="1.0" encoding="UTF-8"?>
+<shipping_address href="https://api.recurly.com/v2/accounts/abcdef1234567890/shipping_addresses/1234567">
+  <account href="https://api.recurly.com/v2/accounts/abcdef1234567890" />
+  <id type="integer">1234567</id>
+  <nickname>Home</nickname>
+  <first_name>Verena</first_name>
+  <last_name>Example</last_name>
+  <company nil="nil"></company>
+  <email>verena@example.com</email>
+  <vat_number nil="nil"></vat_number>
+  <address1>123 NewStreet Ave.</address1>
+  <address2 nil="nil"></address2>
+  <city>San Francisco</city>
+  <state>CA</state>
+  <zip>94110</zip>
+  <country>US</country>
+  <phone>555-555-5555</phone>
+  <created_at type="datetime">2016-12-15T21:01:51Z</created_at>
+  <updated_at type="datetime">2016-12-15T21:01:51Z</updated_at>
+</shipping_address>

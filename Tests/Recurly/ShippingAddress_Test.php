@@ -9,7 +9,7 @@ class Recurly_ShippingAddressTest extends Recurly_TestCase
     );
   }
 
-  public function testGetAccount() {
+  public function testCreateShippingAddressOnExistingAccount() {
     $account = Recurly_Account::get('abcdef1234567890', $this->client);
     $this->client->addResponse('POST', 'https://api.recurly.com/v2/accounts/abcdef1234567890/shipping_addresses', 'shipping_addresses/create-201.xml');
 
@@ -28,6 +28,21 @@ class Recurly_ShippingAddressTest extends Recurly_TestCase
     $account->createShippingAddress($shad, $this->client);
 
     $this->assertEquals($shad->id, 1234567);
+  }
+
+  public function testUpdateShippingAddress() {
+    $this->client->addResponse('GET', '/accounts/abcdef1234567890/shipping_addresses', 'shipping_addresses/index-200.xml');
+    $this->client->addResponse('PUT', 'https://api.recurly.com/v2/accounts/abcdef1234567890/shipping_addresses/1234567', 'shipping_addresses/update-200.xml');
+
+    $shipping_addresses = Recurly_ShippingAddressList::get('abcdef1234567890', null, $this->client);
+
+    foreach ($shipping_addresses as $shipping_address)  {
+      if ($shipping_address->nickname == 'Home') {
+        $shipping_address->address1 = "123 NewStreet Ave.";
+        $shipping_address->update();
+        $this->assertEquals($shipping_address->address1, "123 NewStreet Ave.");
+      }
+    }
   }
 
 }

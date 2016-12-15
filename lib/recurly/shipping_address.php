@@ -2,6 +2,10 @@
 
 class Recurly_ShippingAddress extends Recurly_Resource
 {
+  public function update() {
+    $this->_save(Recurly_Client::PUT, $this->getHref());
+  }
+
   protected function getNodeName() {
     return 'shipping_address';
   }
