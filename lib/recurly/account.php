@@ -70,6 +70,13 @@ class Recurly_Account extends Recurly_Resource
     return Recurly_Base::_put(Recurly_Account::uriForAccount($accountCode) . '/reopen', $client);
   }
 
+  public function createShippingAddress($shippingAddress, $client = null) {
+    if ($client) {
+      $shippingAddress->_client = $client;
+    }
+    $shippingAddress->_save(Recurly_Client::POST, $this->uri() . '/shipping_addresses');
+  }
+
   protected function uri() {
     if (!empty($this->_href))
       return $this->getHref();
