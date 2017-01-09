@@ -1,9 +1,14 @@
 # Recurly PHP Client Library CHANGELOG
 
-## Unreleased
+## Version 2.7.2 (unreleased)
+
+## Version 2.7.1 (January 9th, 2017)
 
 * Added property documentation to several classes (thanks to [phpdave](https://github.com/phpdave)) [#278](https://github.com/recurly/recurly-client-php/pull/278)
 * Added company attribute to billing info [#280](https://github.com/recurly/recurly-client-php/pull/280)
+* Fixed add-on creation bug [#286](https://github.com/recurly/recurly-client-php/pull/286)
+* Create shipping addresses on existing accounts and allow updates [#289](https://github.com/recurly/recurly-client-php/pull/289)
+* Adding ability to get Recurly error code from Recurly_Error Exception [#291](https://github.com/recurly/recurly-client-php/pull/291)
 
 ## Version 2.7.0 (September 15th, 2016)
 
