@@ -110,13 +110,14 @@ class Recurly_Coupon extends Recurly_Resource
       'invoice_description', 'applies_to_non_plan_charges', 'redemption_resource',
       'max_redemptions_per_account', 'coupon_type', 'unique_code_template',
       'unique_coupon_codes', 'discount_type', 'free_trial_amount',
-      'free_trial_unit'
+      'free_trial_unit', 'description'
     );
   }
   protected function getUpdatableAttributes() {
     return array(
       'name', 'max_redemptions', 'max_redemptions_per_account',
-      'hosted_description', 'invoice_description', 'redeem_by_date'
+      'hosted_description', 'invoice_description', 'redeem_by_date',
+      'description'
     );
   }
 }
