@@ -3,6 +3,7 @@
 abstract class Recurly_Base
 {
   protected $_href;
+  protected $_type;
   protected $_client;
   protected $_links;
 
@@ -147,6 +148,11 @@ abstract class Recurly_Base
   }
   public function setHref($href) {
     $this->_href = $href;
+  }
+
+  /** Refers to the `type` root xml attribute **/
+  public function getType() {
+    return $this->_type;
   }
 
   private function addLink($name, $href, $method){
@@ -402,6 +408,12 @@ abstract class Recurly_Base
         $new_obj = new $node_class($nodeName);
       } else
         $new_obj = new $node_class();
+
+      // It may have a type attribute we wish to capture
+      $typeAttribute = $node->getAttribute('type');
+      if (!empty($typeAttribute)) {
+        $new_obj->_type = $typeAttribute;
+      }
 
       $href = $node->getAttribute('href');
       if (!empty($href)) {

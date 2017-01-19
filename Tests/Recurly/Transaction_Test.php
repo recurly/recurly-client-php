@@ -35,6 +35,7 @@ class Recurly_TransactionTest extends Recurly_TestCase
     $this->assertInstanceOf('Recurly_FraudInfo', $transaction->fraud);
     $this->assertEquals($transaction->fraud->score, 99);
     $this->assertEquals($transaction->fraud->decision, 'DECLINE');
+    $this->assertEquals($transaction->getType(), 'credit_card');
   }
 
   public function testCreateTransactionFailed() {

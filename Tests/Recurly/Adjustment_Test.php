@@ -16,6 +16,7 @@ class Recurly_AdjustmentTest extends Recurly_TestCase
     $this->assertInstanceOf('Recurly_Stub', $adjustment->account);
     $this->assertInstanceOf('Recurly_Stub', $adjustment->invoice);
     $this->assertInstanceOf('Recurly_Stub', $adjustment->subscription);
+    $this->assertEquals('charge', $adjustment->getType());
     $this->assertEquals('abcdef1234567890', $adjustment->uuid);
     $this->assertEquals('invoiced', $adjustment->state);
     $this->assertEquals('$12 Annual Subscription', $adjustment->description);
