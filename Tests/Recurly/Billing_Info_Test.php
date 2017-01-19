@@ -27,6 +27,7 @@ class Recurly_BillingInfoTest extends Recurly_TestCase
     $this->assertEquals($billing_info->year, 2015);
     $this->assertEquals($billing_info->month, 1);
     $this->assertEquals($billing_info->getHref(), 'https://api.recurly.com/v2/accounts/abcdef1234567890/billing_info');
+    $this->assertEquals($billing_info->getType(), 'credit_card');
   }
 
   public function testGetPayPalBillingInfo() {
