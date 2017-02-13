@@ -70,6 +70,7 @@ class Recurly_PagerTest extends Recurly_TestCase
 
     $this->assertEquals($url, $pager->getHref());
     $this->assertEquals(6, $pager->count(), 'Returns correct count');
+    $this->assertEquals(6, count($pager), 'Returns correct count');
     $this->assertIteratesCorrectly($pager, 6);
   }
 
@@ -81,6 +82,7 @@ class Recurly_PagerTest extends Recurly_TestCase
 
     $this->assertEquals($url, $pager->getHref());
     $this->assertEquals($pager->count(), 6, 'Returns correct count');
+    $this->assertEquals(count($pager), 6, 'Returns correct count');
     $this->assertIteratesCorrectly($pager, 6);
   }
 
@@ -94,6 +96,7 @@ class Recurly_PagerTest extends Recurly_TestCase
 
     $this->assertNull($pager->getHref(), "Nested records shouldn't have a URL");
     $this->assertEquals(4, $pager->count(), 'Returns correct count');
+    $this->assertEquals(4, count($pager), 'Returns correct count');
     $this->assertIteratesCorrectly($pager, 4);
   }
 }
