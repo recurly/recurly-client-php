@@ -2,6 +2,14 @@
 
 class Recurly_ShippingAddress extends Recurly_Resource
 {
+  public static function get($accountCode, $shippingAddressId, $client = null) {
+    return Recurly_Base::_get(Recurly_ShippingAddress::uriForAccountShippingAddress($accountCode, $shippingAddressId), $client);
+  }
+
+  protected static function uriForAccountShippingAddress($accountCode, $shippingAddressId) {
+    return Recurly_Client::PATH_ACCOUNTS . '/' . rawurlencode($accountCode) . '/shipping_addresses/' . rawurlencode($shippingAddressId);
+  }
+
   public function update() {
     $this->_save(Recurly_Client::PUT, $this->getHref());
   }
