@@ -86,7 +86,7 @@ class Recurly_Transaction extends Recurly_Resource
   protected function getWriteableAttributes() {
     return array(
       'account', 'amount_in_cents', 'currency', 'description', 'accounting_code',
-      'tax_exempt', 'tax_code'
+      'payment_method', 'collected_at', 'tax_exempt', 'tax_code'
     );
   }
 }
