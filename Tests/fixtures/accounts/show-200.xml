@@ -18,6 +18,11 @@ Content-Type: application/xml; charset=utf-8
   <vat_number>ST-1937</vat_number>
   <entity_use_code>I</entity_use_code>
   <tax_exempt type="boolean">true</tax_exempt>
+  <has_live_subscription type="boolean">true</has_live_subscription>
+  <has_active_subscription type="boolean">true</has_active_subscription>
+  <has_future_subscription type="boolean">false</has_future_subscription>
+  <has_canceled_subscription type="boolean">false</has_canceled_subscription>
+  <has_past_due_invoice type="boolean">false</has_past_due_invoice>
   <address>
     <address1>123 Main St.</address1>
     <address2>APT #6</address2>
