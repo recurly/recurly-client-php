@@ -31,6 +31,8 @@
  * @property string $merchant_message For declined transactions, the message displayed to the merchant (if applicable).
  * @property string $customer_message For declined transactions, the message displayed to the customer (if applicable).
  * @property string $gateway_error_code For declined transactions, this field lists the gateway error code sent to us from the gateway (if applicable).
+ * @property string $payment_method The method of payment: The method of payment: (credit_card, paypal, eft, wire_transfer, money_order, check, or other).
+ * @property DateTime $collected_at Date payment was collected
  */
 class Recurly_Transaction extends Recurly_Resource
 {
@@ -86,7 +88,7 @@ class Recurly_Transaction extends Recurly_Resource
   protected function getWriteableAttributes() {
     return array(
       'account', 'amount_in_cents', 'currency', 'description', 'accounting_code',
-      'tax_exempt', 'tax_code'
+      'tax_exempt', 'tax_code', 'payment_method', 'collected_at'
     );
   }
 }
