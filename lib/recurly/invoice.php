@@ -60,6 +60,9 @@ class Recurly_Invoice extends Recurly_Resource
   public function markFailed() {
     $this->_save(Recurly_Client::PUT, $this->uri() . '/mark_failed');
   }
+  public function forceCollect() {
+    $this->_save(Recurly_Client::PUT, $this->uri() . '/collect');
+  }
 
   public function invoiceNumberWithPrefix() {
     return $this->invoice_number_prefix . $this->invoice_number;
@@ -126,7 +129,7 @@ class Recurly_Invoice extends Recurly_Resource
   protected function getWriteableAttributes() {
     return array(
       'terms_and_conditions', 'customer_notes', 'vat_reverse_charge_notes',
-      'collection_method', 'net_terms', 'po_number'
+      'collection_method', 'net_terms', 'po_number', 'currency'
     );
   }
   protected function uri() {

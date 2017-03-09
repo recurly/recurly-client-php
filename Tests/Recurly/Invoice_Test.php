@@ -107,6 +107,14 @@ class Recurly_InvoiceTest extends Recurly_TestCase
     $this->assertEquals($invoice->state, 'collected');
   }
 
+  public function testForceCollect() {
+    $this->client->addResponse('PUT', 'https://api.recurly.com/v2/invoices/1001/collect', 'invoices/force_collect-200.xml');
+
+    $invoice = Recurly_Invoice::get('1001', $this->client);
+    $invoice->forceCollect();
+    $this->assertEquals($invoice->state, 'collected');
+  }
+
   public function testMarkFailed() {
     // See the notes in testMarkSuccessful().
     $this->client->addResponse('PUT', 'https://api.recurly.com/v2/invoices/1001/mark_failed', 'invoices/mark_failed-200.xml');
