@@ -6,6 +6,7 @@ class Recurly_TransactionTest extends Recurly_TestCase
   function defaultResponses() {
     return array(
       array('GET', '/transactions/012345678901234567890123456789ab', 'transactions/show-200.xml'),
+      array('GET', '/invoices/1001', 'invoices/show-200.xml'),
     );
   }
 

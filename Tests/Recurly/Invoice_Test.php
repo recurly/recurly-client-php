@@ -142,4 +142,18 @@ class Recurly_InvoiceTest extends Recurly_TestCase
     $refund_invoice = $invoice->refund($adjustments);
     $this->assertEquals($refund_invoice->subtotal_in_cents, -1000);
   }
+
+  public function testEnterOfflinePayment() {
+    $invoice = Recurly_Invoice::get('1001', $this->client);
+    $this->client->addResponse('POST', 'https://api.recurly.com/v2/invoices/1001/transactions', 'transactions/create-200.xml');
+    $transactionAttrs = new Recurly_Transaction();
+    $transactionAttrs->payment_method = 'check';
+    $transactionAttrs->collected_at = date('c', strtotime('2012-12-31Z'));
+    $transactionAttrs->amount_in_cents = 1000;
+    $transactionAttrs->description = "check #12345";
+    $transaction = $invoice->enterOfflinePayment($transactionAttrs, $this->client);
+
+    $this->assertInstanceOf('Recurly_Transaction', $transaction);
+    $this->assertEquals($transaction->status, 'success');
+  }
 }

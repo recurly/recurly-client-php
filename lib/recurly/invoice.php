@@ -66,6 +66,16 @@ class Recurly_Invoice extends Recurly_Resource
   }
 
   /**
+   * Enters an offline payment for an invoice
+   * @param Recurly_Transaction additional transaction attributes. The attributes available to set are (payment_method, collected_at, amount_in_cents, description)
+   * @return Recurly_Transaction transaction on success
+   */
+  public function enterOfflinePayment($transaction) {
+    $uri = $this->uri() . '/transactions';
+    return Recurly_Transaction::_post($uri, $transaction->xml(), $this->_client);
+  }
+
+  /**
    * Refunds an open amount from the invoice and returns a new refund invoice
    * @param Integer amount in cents to refund from this invoice
    * @param String indicates the refund order to apply, valid options: {'credit','transaction'}, defaults to 'credit'
