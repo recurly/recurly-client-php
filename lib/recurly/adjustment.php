@@ -23,6 +23,7 @@
  * @property boolean $tax_exempt true exempts tax on the charge, false applies tax on the charge. If not defined, then defaults to the Plan and Site settings. This attribute does not work for credits (negative adjustments). Credits are always post-tax. Pre-tax discounts should use the Coupons feature.
  * @property mixed[] $tax_details The nested address information of the adjustment: name, type, tax_rate, tax_in_cents.
  * @property string $tax_code Optional field for EU VAT merchants and Avalara AvaTax Pro merchants. If you are using Recurly's EU VAT feature, you can use values of unknown, physical, or digital. If you have your own AvaTax account configured, you can use Avalara tax codes to assign custom tax rules.
+ * @property string $product_code Merchant defined product code
  * @property DateTime $start_date A timestamp associated with when the adjustment began.
  * @property DateTime $end_date A timestamp associated with when the adjustment ended.
  * @property DateTime $created_at A timestamp associated with when the adjustment was created.
@@ -87,7 +88,7 @@ class Recurly_Adjustment extends Recurly_Resource
     return array(
       'currency', 'unit_amount_in_cents', 'quantity', 'description',
       'accounting_code', 'tax_exempt', 'tax_code', 'start_date', 'end_date',
-      'revenue_schedule_type', 'origin'
+      'revenue_schedule_type', 'origin', 'product_code'
     );
   }
 }

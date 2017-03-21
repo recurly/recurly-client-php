@@ -93,11 +93,12 @@ class Recurly_AdjustmentTest extends Recurly_TestCase
     $charge->tax_exempt = false;
     $charge->tax_code = 'fake-tax-code';
     $charge->origin = 'external_gift_card';
+    $charge->product_code = 'abc123';
 
     // This deprecated parameter should be ignored:
     $charge->taxable = 0;
 
-    $expected = "<?xml version=\"1.0\"?>\n<adjustment><currency>USD</currency><unit_amount_in_cents>5000</unit_amount_in_cents><quantity>1</quantity><description>Charge for extra bandwidth</description><accounting_code>bandwidth</accounting_code><tax_exempt>false</tax_exempt><tax_code>fake-tax-code</tax_code><origin>external_gift_card</origin></adjustment>\n";
+    $expected = "<?xml version=\"1.0\"?>\n<adjustment><currency>USD</currency><unit_amount_in_cents>5000</unit_amount_in_cents><quantity>1</quantity><description>Charge for extra bandwidth</description><accounting_code>bandwidth</accounting_code><tax_exempt>false</tax_exempt><tax_code>fake-tax-code</tax_code><origin>external_gift_card</origin><product_code>abc123</product_code></adjustment>\n";
     $this->assertEquals($expected, $charge->xml());
   }
 }

@@ -25,6 +25,7 @@ Content-Type: application/xml; charset=utf-8
   <avs_result code="D">Street address and postal code match.</avs_result>
   <avs_result_street>Y</avs_result_street>
   <avs_result_postal>Y</avs_result_postal>
+  <product_code>abc123</product_code>
   <created_at type="datetime">2016-06-21T16:37:40Z</created_at>
   <updated_at type="datetime">2016-06-21T16:37:40Z</updated_at>
   <details>
