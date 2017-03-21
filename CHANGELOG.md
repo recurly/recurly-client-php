@@ -1,6 +1,15 @@
 # Recurly PHP Client Library CHANGELOG
 
-## Version 2.7.2 (unreleased)
+## Version 2.7.2 (March 21st, 2017)
+
+* Require export files [#296](https://github.com/recurly/recurly-client-php/pull/296)
+* Writeable and updatable coupon description [#297](https://github.com/recurly/recurly-client-php/pull/297)
+* Adds a getType method to all Resources [#299](https://github.com/recurly/recurly-client-php/pull/299)
+* The Pager should implement the Countable interface (thanks to [naderman]()) [#282](https://github.com/recurly/recurly-client-php/pull/282)
+* Parse incorrectly shaped validation errors [#298](https://github.com/recurly/recurly-client-php/pull/298)
+* Adds external payments to invoices [#309](https://github.com/recurly/recurly-client-php/pull/309)
+* GiftCard: deliver_at goes on the Delivery object [#307](https://github.com/recurly/recurly-client-php/pull/307)
+* Changes for API v2.5 [#310](https://github.com/recurly/recurly-client-php/pull/310)
 
 ## Version 2.7.1 (January 9th, 2017)
 
