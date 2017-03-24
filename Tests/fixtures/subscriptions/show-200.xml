@@ -29,6 +29,7 @@ Content-Type: application/xml; charset=utf-8
   <customer_notes>Some Customer Notes</customer_notes>
   <vat_reverse_charge_notes>Some VAT Notes</vat_reverse_charge_notes>
   <started_with_gift type="boolean">false</started_with_gift>
+  <no_billing_info_reason>plan_free_trial</no_billing_info_reason>
   <converted_at nil="nil"></converted_at>
   <subscription_add_ons type="array">
     <subscription_add_on>
