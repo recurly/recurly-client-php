@@ -32,6 +32,7 @@
  * @property string $measured_unit_id The id of the measured unit on your site associated with the add-on.
  * @property string $usage_type If add_on_type = usage, you must set a usage_type, which can be price or percentage. If price, the price is defined in unit_amount_in_cents. If percentage, the percentage is defined in usage_percentage.
  * @property string $usage_percentage If add_on_type = usage and usage_type = percentage, you must set a usage_percentage. Must be between 0.0000 and 100.0000.
+ * @property boolean $trial_requires_billing_info Setting to determine if subscriptions to this plan will always require billing info or will only require it when either not in a trial or when money is due, defaults to true.
  */
 class Recurly_Plan extends Recurly_Resource
 {
@@ -81,7 +82,7 @@ class Recurly_Plan extends Recurly_Resource
       'trial_interval_unit', 'unit_amount_in_cents', 'setup_fee_in_cents',
       'total_billing_cycles', 'accounting_code', 'setup_fee_accounting_code',
       'revenue_schedule_type', 'setup_fee_revenue_schedule_type',
-      'tax_exempt', 'tax_code'
+      'tax_exempt', 'tax_code', 'trial_requires_billing_info'
     );
   }
 }

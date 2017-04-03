@@ -29,6 +29,7 @@ class Recurly_SubscriptionTest extends Recurly_TestCase
     $this->assertEquals('Some Terms and Conditions', $subscription->terms_and_conditions);
     $this->assertEquals('Some Customer Notes', $subscription->customer_notes);
     $this->assertEquals('Some VAT Notes', $subscription->vat_reverse_charge_notes);
+    $this->assertEquals('plan_free_trial', $subscription->no_billing_info_reason);
 
     # TODO: Should test the rest of the parsing.
   }
