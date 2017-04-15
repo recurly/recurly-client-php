@@ -27,12 +27,15 @@ class Recurly_Coupon extends Recurly_Resource
     $redemption->currency = $currency;
     $redemption->subscription_uuid = $subscriptionUUID;
 
-    foreach ($this->_links as $link) {
-      if ($link->name == 'redeem') {
-        $redemption->_save(strtoupper($link->method), $link->href);
-        return $redemption;
+    if (!empty($this->_links)) {
+      foreach ($this->_links as $link) {
+        if ($link->name == 'redeem') {
+          $redemption->_save(strtoupper($link->method), $link->href);
+          return $redemption;
+        }
       }
     }
+    throw new Recurly_Error('Unknown error redeeming coupon.');
   }
 
   public function update() {
