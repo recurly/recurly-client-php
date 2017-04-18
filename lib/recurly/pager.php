@@ -125,6 +125,7 @@ abstract class Recurly_Pager extends Recurly_Base implements Iterator, Countable
       preg_match_all('/\<([^>]+)\>; rel=\"([^"]+)\"/', $links, $matches);
       if (sizeof($matches) > 2) {
         for ($i = 0; $i < sizeof($matches[1]); $i++) {
+          $matches[1][$i] = str_replace('http://', 'https://', $matches[1][$i]);
           $this->_links[$matches[2][$i]] = $matches[1][$i];
         }
       }

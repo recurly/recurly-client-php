@@ -25,9 +25,9 @@ class Recurly_PagerTest extends Recurly_TestCase
   function defaultResponses() {
     return array(
       array('GET', '/mocks', 'pager/index-1-200.xml'),
-      array('GET', 'http://example.com/mocks?cursor=1', 'pager/index-1-200.xml'),
-      array('GET', 'http://example.com/mocks?cursor=2', 'pager/index-2-200.xml'),
-      array('GET', 'http://example.com/mocks?cursor=3', 'pager/index-3-200.xml'),
+      array('GET', 'https://example.com/mocks?cursor=1', 'pager/index-1-200.xml'),
+      array('GET', 'https://example.com/mocks?cursor=2', 'pager/index-2-200.xml'),
+      array('GET', 'https://example.com/mocks?cursor=3', 'pager/index-3-200.xml'),
     );
   }
 
