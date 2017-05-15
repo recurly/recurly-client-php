@@ -1,7 +1,6 @@
 <?php
 
 class Recurly_Address extends Recurly_Resource {
-
   protected function getNodeName() {
     return 'address';
   }

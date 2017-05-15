@@ -39,6 +39,7 @@ require_once(dirname(__FILE__) . '/recurly/note.php');
 require_once(dirname(__FILE__) . '/recurly/note_list.php');
 require_once(dirname(__FILE__) . '/recurly/plan.php');
 require_once(dirname(__FILE__) . '/recurly/plan_list.php');
+require_once(dirname(__FILE__) . '/recurly/purchase.php');
 require_once(dirname(__FILE__) . '/recurly/redemption.php');
 require_once(dirname(__FILE__) . '/recurly/redemption_list.php');
 require_once(dirname(__FILE__) . '/recurly/shipping_address.php');
