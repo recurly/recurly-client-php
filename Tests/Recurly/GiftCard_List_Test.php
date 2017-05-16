@@ -13,6 +13,5 @@ class RecurlyGiftCardListTest extends Recurly_TestCase
 
     $this->assertInstanceOf('Recurly_GiftCardList', $gift_cards);
     $this->assertEquals('/gift_cards', $gift_cards->getHref());
-    $this->assertEquals(42, $gift_cards->count());
   }
 }

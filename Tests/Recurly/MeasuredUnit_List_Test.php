@@ -9,6 +9,6 @@ class Recurly_MeasuredUnitListTest extends Recurly_TestCase
     $measured_units = Recurly_MeasuredUnitList::get(null, $this->client);
 
     $this->assertInstanceOf('Recurly_MeasuredUnitList', $measured_units);
-    $this->assertEquals(2, $measured_units->count());
+    $this->assertEquals('/measured_units', $measured_units->getHref());
   }
 }

@@ -1,7 +1,6 @@
 HTTP/1.1 200 OK
 Content-Type: application/xml; charset=utf-8
 X-Api-Version: 2.4
-X-Records: 1
 
 <export_dates type="array">
   <export_date>

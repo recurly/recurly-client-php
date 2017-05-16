@@ -16,7 +16,7 @@ abstract class Recurly_Base
 
   /**
    * Request the URI, validate the response and return the object.
-   * @param string Resource URI, if not fully qualified, the base URL will be appended
+   * @param string Resource URI, if not fully qualified, the base URL will be prepended
    * @param string Optional client for the request, useful for mocking the client
    */
   public static function _get($uri, $client = null)
@@ -30,8 +30,23 @@ abstract class Recurly_Base
   }
 
   /**
+   * Send a HEAD request to the URI, validate the response and return the headers.
+   * @param string Resource URI, if not fully qualified, the base URL will be prepended
+   * @param string Optional client for the request, useful for mocking the client
+   */
+  public static function _head($uri, $client = null)
+  {
+    if (is_null($client)) {
+      $client = new Recurly_Client();
+    }
+    $response = $client->request(Recurly_Client::HEAD, $uri);
+    $response->assertValidResponse();
+    return $response->headers;
+  }
+
+  /**
    * Post to the URI, validate the response and return the object.
-   * @param string Resource URI, if not fully qualified, the base URL will be appended
+   * @param string Resource URI, if not fully qualified, the base URL will be prepended
    * @param string Data to post to the URI
    * @param string Optional client for the request, useful for mocking the client
    */
@@ -49,7 +64,7 @@ abstract class Recurly_Base
 
   /**
    * Put to the URI, validate the response and return the object.
-   * @param string Resource URI, if not fully qualified, the base URL will be appended
+   * @param string Resource URI, if not fully qualified, the base URL will be prepended
    * @param string Optional client for the request, useful for mocking the client
    */
   protected static function _put($uri, $client = null)

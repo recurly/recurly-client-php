@@ -14,7 +14,6 @@ class Recurly_AccountListTest extends Recurly_TestCase
 
     $this->assertInstanceOf('Recurly_AccountList', $accounts);
     $this->assertEquals('/accounts', $accounts->getHref());
-    $this->assertEquals(42, $accounts->count());
   }
 
   public function testGetActive() {
