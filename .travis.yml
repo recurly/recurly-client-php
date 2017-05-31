@@ -7,6 +7,7 @@ php:
   - 5.3
   - hhvm
 sudo: false
+dist: trusty
 install:
   - composer install --dev
 script: vendor/phpunit/phpunit/phpunit Tests
