@@ -1,6 +1,5 @@
 <?php
 
-
 class Recurly_ShippingAddressTest extends Recurly_TestCase
 {
   function defaultResponses() {
@@ -9,12 +8,9 @@ class Recurly_ShippingAddressTest extends Recurly_TestCase
     );
   }
 
-  public function testCreateShippingAddressOnExistingAccount() {
-    $account = Recurly_Account::get('abcdef1234567890', $this->client);
-    $this->client->addResponse('POST', 'https://api.recurly.com/v2/accounts/abcdef1234567890/shipping_addresses', 'shipping_addresses/create-201.xml');
-
+  protected function mockShippingAddress() {
     $shad = new Recurly_ShippingAddress();
-    $shad->nickname = "Home";
+    $shad->nickname = "Work";
     $shad->first_name = "Verena";
     $shad->last_name = "Example";
     $shad->phone = "555-555-5555";
@@ -24,6 +20,25 @@ class Recurly_ShippingAddressTest extends Recurly_TestCase
     $shad->state = "CA";
     $shad->zip = "94110";
     $shad->country = "US";
+    $shad->company = "Recurly Inc.";
+
+    return $shad;
+  }
+
+  public function testXml() {
+    $shad = $this->mockShippingAddress();
+
+    $this->assertEquals(
+      "<?xml version=\"1.0\"?>\n<shipping_address><address1>123 Dolores St.</address1><city>San Francisco</city><state>CA</state><zip>94110</zip><country>US</country><phone>555-555-5555</phone><email>verena@example.com</email><nickname>Work</nickname><first_name>Verena</first_name><last_name>Example</last_name><company>Recurly Inc.</company></shipping_address>\n",
+      $shad->xml()
+    );
+  }
+
+  public function testCreateShippingAddressOnExistingAccount() {
+    $account = Recurly_Account::get('abcdef1234567890', $this->client);
+    $this->client->addResponse('POST', 'https://api.recurly.com/v2/accounts/abcdef1234567890/shipping_addresses', 'shipping_addresses/create-201.xml');
+
+    $shad = $this->mockShippingAddress();
 
     $account->createShippingAddress($shad, $this->client);
 
