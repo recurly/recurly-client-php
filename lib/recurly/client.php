@@ -150,6 +150,10 @@ class Recurly_Client
       curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'PUT');
       curl_setopt($ch, CURLOPT_POSTFIELDS, $data);
     }
+    else if ('HEAD' == $method)
+    {
+      curl_setopt($ch, CURLOPT_NOBODY, TRUE);
+    }
     else if('GET' != $method)
     {
       curl_setopt($ch, CURLOPT_CUSTOMREQUEST, $method);

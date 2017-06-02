@@ -8,10 +8,9 @@ class Recurly_NoteListTest extends Recurly_TestCase
 
     $notes = Recurly_NoteList::get('abcdef1234567890', array(), $this->client);
     $this->assertInstanceOf('Recurly_NoteList', $notes);
-    $this->assertEquals($notes->count(), 2);
+    $this->assertEquals('/accounts/abcdef1234567890/notes?', $notes->getHref());
 
     $note = $notes->current();
-
     $this->assertInstanceOf('Recurly_Note', $note);
     $this->assertEquals($note->message, 'this account needs an account manager');
     $this->assertEquals($note->created_at->format(DateTime::ISO8601), '2013-03-12T18:35:00+0000');
