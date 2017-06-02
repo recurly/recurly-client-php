@@ -60,4 +60,11 @@ class Recurly_ShippingAddressTest extends Recurly_TestCase
     }
   }
 
+    public function testGetShippingAddress() {
+      $this->client->addResponse('GET', '/accounts/abcdef1234567890/shipping_addresses/1234567', 'shipping_addresses/show-200.xml');
+
+      $shad = Recurly_ShippingAddress::get('abcdef1234567890', 1234567, $this->client);
+      $this->assertEquals($shad->id, 1234567);
+    }
+
 }
