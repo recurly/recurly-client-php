@@ -29,6 +29,7 @@ class Recurly_SubscriptionTest extends Recurly_TestCase
     $this->assertEquals('Some Terms and Conditions', $subscription->terms_and_conditions);
     $this->assertEquals('Some Customer Notes', $subscription->customer_notes);
     $this->assertEquals('Some VAT Notes', $subscription->vat_reverse_charge_notes);
+    $this->assertEquals('plan_free_trial', $subscription->no_billing_info_reason);
 
     # TODO: Should test the rest of the parsing.
   }
@@ -238,8 +239,7 @@ class Recurly_SubscriptionTest extends Recurly_TestCase
     $subscription = Recurly_Subscription::get('012345678901234567890123456789ab', $this->client);
 
     $redemptions = $subscription->redemptions->get();
-
-    $this->assertEquals(2, $redemptions->count());
+    $this->assertEquals('https://api.recurly.com/v2/subscriptions/012345678901234567890123456789ab/redemptions', $redemptions->getHref());
 
     foreach($redemptions as $r) {
       $this->assertInstanceOf('Recurly_CouponRedemption', $r);

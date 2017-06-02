@@ -8,7 +8,7 @@ class Recurly_ClientTest extends Recurly_TestCase
     $this->client->addResponse('GET', '/accounts', 'client/deprecated-200.xml');
 
     // This should print an error but not raise.
-    $accounts = Recurly_AccountList::get(null, $this->client)->count();
+    $accounts = Recurly_AccountList::get(null, $this->client)->get();
   }
 
   public function testUnauthorizedError() {

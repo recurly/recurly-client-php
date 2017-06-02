@@ -81,6 +81,14 @@ class Recurly_Adjustment extends Recurly_Resource
             Recurly_Client::PATH_ADJUSTMENTS);
   }
 
+  protected function populateXmlDoc(&$doc, &$node, &$obj, $nested = false) {
+    if ($this->isEmbedded($node)) {
+      $adjustmentNode = $node->appendChild($doc->createElement($this->getNodeName()));
+      parent::populateXmlDoc($doc, $adjustmentNode, $obj);
+    } else {
+      parent::populateXmlDoc($doc, $node, $obj);
+    }
+  }
   protected function getNodeName() {
     return 'adjustment';
   }
@@ -90,5 +98,11 @@ class Recurly_Adjustment extends Recurly_Resource
       'accounting_code', 'tax_exempt', 'tax_code', 'start_date', 'end_date',
       'revenue_schedule_type', 'origin', 'product_code'
     );
+  }
+
+  private function isEmbedded($node) {
+    $path = explode('/', $node->getNodePath());
+    $last = $path[count($path)-1];
+    return $last == 'adjustments';
   }
 }

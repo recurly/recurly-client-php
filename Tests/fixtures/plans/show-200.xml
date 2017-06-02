@@ -19,6 +19,7 @@ Content-Type: application/xml; charset=utf-8
   <plan_interval_unit>months</plan_interval_unit>
   <trial_interval_length type="integer">15</trial_interval_length>
   <trial_interval_unit>days</trial_interval_unit>
+  <trial_requires_billing_info type="boolean">false</trial_requires_billing_info>
   <total_billing_cycles type="integer">6</total_billing_cycles>
   <accounting_code nil="nil"></accounting_code>
   <setup_fee_accounting_code>Setup Fee AC</setup_fee_accounting_code>

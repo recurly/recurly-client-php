@@ -27,7 +27,7 @@ class Recurly_Client
   /**
    * API Version
    */
-  public static $apiVersion = '2.5';
+  public static $apiVersion = '2.6';
 
   /**
    * The path to your CA certs. Use only if needed (if you can't fix libcurl/php).
@@ -44,7 +44,7 @@ class Recurly_Client
    */
   private $_acceptLanguage = 'en-US';
 
-  const API_CLIENT_VERSION = '2.7.2';
+  const API_CLIENT_VERSION = '2.8.0.rc1';
   const DEFAULT_ENCODING = 'UTF-8';
 
   const GET = 'GET';
@@ -149,6 +149,10 @@ class Recurly_Client
     {
       curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'PUT');
       curl_setopt($ch, CURLOPT_POSTFIELDS, $data);
+    }
+    else if ('HEAD' == $method)
+    {
+      curl_setopt($ch, CURLOPT_NOBODY, TRUE);
     }
     else if('GET' != $method)
     {

@@ -1,5 +1,23 @@
 # Recurly PHP Client Library CHANGELOG
 
+## Version 2.8.0.rc1 (June 2nd, 2017)
+
+* Remove 5.3 Support and upgrade Travis to support HHVM [#316](https://github.com/recurly/recurly-client-php/pull/316)
+* Purchases endpoint [#315](https://github.com/recurly/recurly-client-php/pull/315)
+* Remove X-Records header [#314](https://github.com/recurly/recurly-client-php/pull/314)
+* Add trial requires billing info field and no billing info reason field [#312](https://github.com/recurly/recurly-client-php/pull/312)
+
+### Upgrade Notes
+
+There are a few breaking changes this release.
+
+1. PHP 5.3 is no longer officially supported and we no longer run tests against it.
+2. To speed up your listing requests we're no longer automatically computing the record counts for each request's `X-Records` header. For our larger sites this could halve the response time. If you still need a count it will be computed with a separate request.
+From now on, when you call `Recurly_Pager::count()`, it will send a HEAD request to the server. Ensure you aren't calling that method in places where you expect the value
+to be cached for you. For more information on how this may affect you, see PR [#314](https://github.com/recurly/recurly-client-php/pull/314)
+3. For `POST /v2/subscriptions` Sending `null` for `total_billing_cycles` attribute will now override plan `total_billing_cycles` setting and will make subscription renew forever.
+Omitting the attribute will cause the setting to default to the value of plan `total_billing_cycles`.
+
 ## Version 2.7.2 (March 21st, 2017)
 
 * Require export files [#296](https://github.com/recurly/recurly-client-php/pull/296)
