@@ -12,7 +12,7 @@ be careful when upgrading.
 
 ## Requirements
 
-###cURL and OpenSSL
+### cURL and OpenSSL
 
 The PHP library depends on PHP 5.4.0 (or higher) and libcurl compiled with
 OpenSSL support. Open up a `phpinfo();` page and verify that under the curl
