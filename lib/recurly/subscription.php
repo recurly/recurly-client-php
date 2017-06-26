@@ -150,6 +150,14 @@ class Recurly_Subscription extends Recurly_Resource
     return Recurly_Client::PATH_SUBSCRIPTIONS . '/' . rawurlencode($uuid);
   }
 
+  protected function populateXmlDoc(&$doc, &$node, &$obj, $nested = false) {
+    if ($this->isEmbedded($node, 'subscriptions')) {
+      $subscriptionNode = $node->appendChild($doc->createElement($this->getNodeName()));
+      parent::populateXmlDoc($doc, $subscriptionNode, $obj);
+    } else {
+      parent::populateXmlDoc($doc, $node, $obj);
+    }
+  }
   protected function getNodeName() {
     return 'subscription';
   }

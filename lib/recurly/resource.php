@@ -111,6 +111,12 @@ abstract class Recurly_Resource extends Recurly_Base
     return $doc->saveXML(null, LIBXML_NOEMPTYTAG);
   }
 
+  protected function isEmbedded($node, $xmlKey) {
+    $path = explode('/', $node->getNodePath());
+    $last = $path[count($path)-1];
+    return $last == $xmlKey;
+  }
+
   protected function populateXmlDoc(&$doc, &$node, &$obj, $nested = false)
   {
     $attributes = $obj->getChangedAttributes($nested);
