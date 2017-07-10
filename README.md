@@ -114,11 +114,6 @@ $ vendor/bin/phpunit
 - [https://support.recurly.com](https://support.recurly.com)
 - [stackoverflow](http://stackoverflow.com/questions/tagged/recurly)
 
-## Announcements
-
-- [@recurly](https://twitter.com/recurly)
-- [Google Group Announcements](https://groups.google.com/group/recurly-api)
-
 ## Contributing Guidelines
 
 Please refer to [CONTRIBUTING.md](CONTRIBUTING.md)
