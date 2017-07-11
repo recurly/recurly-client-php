@@ -1,5 +1,26 @@
 <?php
-
+/**
+ * class Recurly_Invoice
+ * @property Recurly_Stub $account
+ * @property Recurly_Address $address
+ * @property Recurly_Stub $subscription
+ * @property string $uuid
+ * @property string $state
+ * @property int $invoice_number
+ * @property int $subtotal_in_cents
+ * @property int $tax_in_cents
+ * @property int $total_in_cents
+ * @property DateTime $created_at
+ * @property DateTime $closed_at
+ * @property int $net_terms
+ * @property string $collection_method
+ * @property string $collection_method
+ * @property string $collection_method
+ * @property string $collection_method
+ * @property string $collection_method
+ * @property Recurly_Adjustment[] $line_items
+ * @property Recurly_TransactionList $transactions
+ */
 class Recurly_Invoice extends Recurly_Resource
 {
   /**

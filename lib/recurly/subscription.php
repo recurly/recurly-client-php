@@ -1,5 +1,34 @@
 <?php
-
+/**
+ * Class Recurly_Subscription
+ * @property Recurly_Stub $gift_card The gift card object is required in order to redeem a redemption code.
+ * @property string $redemption_code The redemption code for the gift card being redeemed.
+ * @property string $plan_code plan_code for the subscription.
+ * @property Recurly_Stub $account Nested account attributes.
+ * @property string $currency Currency for the subscription.
+ * @property mixed[] $subscription_add_ons Nested add-ons.
+ * @property string $coupon_code Optional coupon code to redeem on the account and discount the subscription. Please note, the subscription request will fail if the coupon is invalid.
+ * @property integer $unit_amount_in_cents Override the unit amount of the subscription plan by setting this value in cents. If not provided, the subscription will inherit the price from the subscription plan for the provided currency. Max 10000000.
+ * @property integer $quantity Optionally override the default quantity of 1.
+ * @property DateTime $trial_ends_at If set, overrides the default trial behavior for the subscription. This must be a date and time, preferably in UTC. The date must be in the future.
+ * @property DateTime $starts_at If set, the subscription will begin in the future on this date. The subscription will apply the setup fee and trial period, unless the plan has no trial.
+ * @property integer $total_billing_cycles Renews the subscription for a specified number of cycles, then automatically cancels. Defaults to the subscription renewing indefinitely.
+ * @property DateTime $first_renewal_date Indicates a date at which the first renewal should occur. Subsequent renewals will be offset from this date. The first invoice will be prorated appropriately so that the customer only pays for the portion of the first billing period for which the subscription applies. Useful for forcing a subscription to renew on the first of the month.
+ * @property string $collection_method Optional field to set the collection for an invoice as automatic or manual. The default is automatic if it's not set.
+ * @property integer $net_terms Integer representing the number of days after an invoice's creation that the invoice will become past due. If an invoice's net terms are set to 0, it is due 'On Receipt' and will become past due 24 hours after it’s created. If an invoice is due net 30, it will become past due at 31 days exactly. Defaults to 0.
+ * @property string $po_number Optional notes field. Attach a PO number to the invoice.
+ * @property boolean $bulk Optional field to be used only when needing to bypass the 60 second limit on creating subscriptions. Should only be used when creating subscriptions in bulk from the API. Set to 'true' or 'false'. Defaults to 'false'.
+ * @property string $terms_and_conditions Optional notes field. This will default to the Terms and Conditions text specified on the Invoice Settings page in your Recurly admin. Specify custom notes with this tag to add or override Terms and Conditions. Custom notes will stay with a subscription on all renewals.
+ * @property string $customer_notes Optional notes field. This will default to the Customer Notes text specified on the Invoice Settings page in your Recurly admin. Specify custom notes with this tag to add or override Customer Notes. Custom notes will stay with a subscription on all renewals.
+ * @property string $vat_reverse_charge_notes VAT Reverse Charge Notes only appear if you have EU VAT enabled or are using your own Avalara AvaTax account and the customer is in the EU, has a VAT number, and is in a different country than your own. This will default to the VAT Reverse Charge Notes text specified on the Tax Settings page in your Recurly admin, unless custom notes were created with the original subscription. Specify custom notes with this tag to add or override VAT Reverse Charge Notes. Custom notes will stay with a subscription on all renewals.
+ * @property timestamp $bank_account_authorized_at Merchants importing recurring subscriptions paid with ACH into Recurly can backdate the subscription's authorization with this attribute using an ISO 8601 timestamp. This timestamp is used for alerting customers to reauthorize in 3 years in accordance with NACHA rules. If a subscription becomes inactive or the billing info is no longer a bank account, this timestamp is cleared.
+ * @property string $revenue_schedule_type Optional field for setting a revenue schedule type. This will determine how revenue for the associated Subscription should be recognized. When creating a Subscription, available schedule types are never, evenly, at_range_start, or at_range_end. If no revenue_schedule_type is set, the Subscription will inherit the revenue_schedule_type from its Plan.
+ * @property string $add_on_code The code for the Add-On.
+ * @property integer $unit_amount_in_cents Amount of the transaction in cents. Max 10000000.
+ * @property integer $quantity Optionally override the default quantity of 1
+ * @property string $usage_percentage If add_on_type = usage and usage_type = percentage, you can set a custom usage_percentage for the subscription add-on. Must be between 0.0000 and 100.0000.
+ * @property string $revenue_schedule_type Optional field for setting a revenue schedule type. This will determine how revenue for the associated Subscription Add-On should be recognized. When creating a Subscription Add-On, available schedule types are never, evenly, at_range_start, or at_range_end. If no revenue_schedule_type is set, the Subscription Add-On will inherit the revenue_schedule_type from its Plan Add-On.
+ */
 class Recurly_Subscription extends Recurly_Resource
 {
   public function __construct($href = null, $client = null) {
