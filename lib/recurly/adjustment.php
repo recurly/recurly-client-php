@@ -1,4 +1,5 @@
 <?php
+
 /**
  * class Recurly_Adjustment
  * @property string $type The type of adjustment to return: charge or credit.

@@ -1,5 +1,11 @@
 <?php
 
+/**
+ * Class Recurly_AccountBalance
+ * @property Recurly_Stub $account The associated Recurly_Account for this balance.
+ * @property boolean $past_due The account's past due status.
+ * @property Recurly_CurrencyList $balance_in_cents The account balance in cents for each currency.
+ */
 class Recurly_AccountBalance extends Recurly_Resource
 {
   public static function get($accountCode, $client = null) {
