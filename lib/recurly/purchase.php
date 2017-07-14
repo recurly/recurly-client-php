@@ -7,6 +7,9 @@
  * @property string $currency The currency to use in this invoice
  * @property string $po_number The po number for the invoice
  * @property integer $net_terms The net terms of the invoice
+ * @property string[] $coupon_codes An array of coupon codes to apply to the purchase
+ * @property Recurly_Subscription[] $subscriptions An array of subscriptions to apply to the purchase
+ * @property Recurly_GiftCard $gift_card A gift card to apply to the purchase
  */
 class Recurly_Purchase extends Recurly_Resource
 {
@@ -42,7 +45,7 @@ class Recurly_Purchase extends Recurly_Resource
   protected function getWriteableAttributes() {
     return array(
       'account', 'adjustments', 'collection_method', 'currency', 'po_number',
-      'net_terms'
+      'net_terms', 'subscriptions', 'gift_card', 'coupon_codes'
     );
   }
 }

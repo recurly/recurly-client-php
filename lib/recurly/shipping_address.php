@@ -17,17 +17,11 @@ class Recurly_ShippingAddress extends Recurly_Resource
     );
   }
   protected function populateXmlDoc(&$doc, &$node, &$obj, $nested = false) {
-    if ($this->isEmbedded($node)) {
+    if ($this->isEmbedded($node, 'shipping_addresses')) {
       $shippingAddressNode = $node->appendChild($doc->createElement($this->getNodeName()));
       parent::populateXmlDoc($doc, $shippingAddressNode, $obj);
     } else {
       parent::populateXmlDoc($doc, $node, $obj);
     }
-  }
-
-  private function isEmbedded($node) {
-    $path = explode('/', $node->getNodePath());
-    $last = $path[count($path)-1];
-    return $last == 'shipping_addresses';
   }
 }
