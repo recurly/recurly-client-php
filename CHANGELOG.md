@@ -1,5 +1,12 @@
 # Recurly PHP Client Library CHANGELOG
 
+## Version 2.8.1 (July 14th, 2017)
+
+This bumps us to API v2.7 but does not contain any breaking changes.
+
+* Bump API v2.7 (purchase endpoint updates) [#319](https://github.com/recurly/recurly-client-php/pull/319)
+* Enhancement: Enable IntelliSense (IDE friendly) for class properties (Part 2) Invoice and Subscription (thanks to @phpdave) [#279](https://github.com/recurly/recurly-client-php/pull/279)
+
 ## Version 2.8.0 (June 7th, 2017)
 
 No changes from 2.8.0.rc1
