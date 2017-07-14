@@ -1,5 +1,9 @@
 # Recurly PHP Client Library CHANGELOG
 
+## Version 2.8.0 (June 7th, 2017)
+
+No changes from 2.8.0.rc1
+
 ## Version 2.8.0.rc1 (June 2nd, 2017)
 
 * Remove 5.3 Support and upgrade Travis to support HHVM [#316](https://github.com/recurly/recurly-client-php/pull/316)
