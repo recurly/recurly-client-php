@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Class Recurly_Subscription
  * @property Recurly_Stub $gift_card The gift card object is required in order to redeem a redemption code.

@@ -1,4 +1,5 @@
 <?php
+
 /**
  * class Recurly_BillingInfo
  * @property string $account_code Account's unique code.

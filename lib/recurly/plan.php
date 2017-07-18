@@ -1,4 +1,5 @@
 <?php
+
 /**
  * class Recurly_Plan
  * @property string $plan_code Unique code to identify the plan. This code may only contain the following characters: [a-z 0-9 @ - _ .]. Max of 50 characters.

@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Class Recurly_Account
  * @property Recurly_Stub $adjustments The URL of adjustments for the specified account.
