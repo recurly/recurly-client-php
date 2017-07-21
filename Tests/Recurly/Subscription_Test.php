@@ -114,17 +114,8 @@ class Recurly_SubscriptionTest extends Recurly_TestCase
     );
   }
 
-  public function testCreateSubscripionOnPreExistingAccount() {
-    $account_code = 'abcdef1234567890';
-    $fixture = 'accounts/create-201.xml';
-    $this->client->addResponse('POST', '/accounts', $fixture);
-    $this->client->addResponse('GET', "/accounts/$account_code", $fixture);
-
-    $account = new Recurly_Account(null, $this->client);
-    $account->account_code = 'abcdef1234567890';
-
-    $account->create();
-
+  public function testCreateSubscripionWithExistingAccountXml() {
+    $this->client->addResponse('GET', "/accounts/abcdef1234567890", 'accounts/show-200.xml');
     $account = Recurly_Account::get('abcdef1234567890', $this->client);
 
     $subscription = new Recurly_Subscription();
