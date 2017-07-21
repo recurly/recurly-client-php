@@ -1,5 +1,9 @@
 # Recurly PHP Client Library CHANGELOG
 
+## Version 2.8.2 (July 21th, 2017)
+
+* Fixes a bug creating subscriptions for existing accounts (thanks to @g30rg) [#326](https://github.com/recurly/recurly-client-php/pull/326)
+
 ## Version 2.8.1 (July 14th, 2017)
 
 This bumps us to API v2.7 but does not contain any breaking changes.
