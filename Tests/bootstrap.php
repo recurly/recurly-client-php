@@ -10,6 +10,8 @@ date_default_timezone_set('America/Los_Angeles');
 
 /**
  * Base class for our tests that sets up a mock client.
+ *
+ * @property Recurly_MockClient $client
  */
 abstract class Recurly_TestCase extends PHPUnit_Framework_TestCase {
   function setUp() {
