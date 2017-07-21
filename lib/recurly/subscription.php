@@ -154,9 +154,9 @@ class Recurly_Subscription extends Recurly_Resource
   protected function populateXmlDoc(&$doc, &$node, &$obj, $nested = false) {
     if ($this->isEmbedded($node, 'subscriptions')) {
       $subscriptionNode = $node->appendChild($doc->createElement($this->getNodeName()));
-      parent::populateXmlDoc($doc, $subscriptionNode, $obj);
+      parent::populateXmlDoc($doc, $subscriptionNode, $obj, $nested);
     } else {
-      parent::populateXmlDoc($doc, $node, $obj);
+      parent::populateXmlDoc($doc, $node, $obj, $nested);
     }
   }
   protected function getNodeName() {
