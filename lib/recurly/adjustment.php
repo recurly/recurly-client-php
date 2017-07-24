@@ -86,9 +86,9 @@ class Recurly_Adjustment extends Recurly_Resource
   protected function populateXmlDoc(&$doc, &$node, &$obj, $nested = false) {
     if ($this->isEmbedded($node, 'adjustments')) {
       $adjustmentNode = $node->appendChild($doc->createElement($this->getNodeName()));
-      parent::populateXmlDoc($doc, $adjustmentNode, $obj);
+      parent::populateXmlDoc($doc, $adjustmentNode, $obj, $nested);
     } else {
-      parent::populateXmlDoc($doc, $node, $obj);
+      parent::populateXmlDoc($doc, $node, $obj, $nested);
     }
   }
 

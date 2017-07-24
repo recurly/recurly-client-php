@@ -29,7 +29,7 @@ class Recurly_SubscriptionAddOn extends Recurly_Resource
 
   protected function populateXmlDoc(&$doc, &$node, &$obj, $nested = false) {
     $addonNode = $node->appendChild($doc->createElement($this->getNodeName()));
-    parent::populateXmlDoc($doc, $addonNode, $obj);
+    parent::populateXmlDoc($doc, $addonNode, $obj, $nested);
   }
 
   protected function getChangedAttributes($nested = false) {
