@@ -38,6 +38,7 @@ class Recurly_Adjustment extends Recurly_Resource
   public function create() {
     $this->_save(Recurly_Client::POST, $this->createUriForAccount());
   }
+
   public function delete() {
     return Recurly_Base::_delete($this->getHref(), $this->_client);
   }
@@ -79,7 +80,7 @@ class Recurly_Adjustment extends Recurly_Resource
       throw new Recurly_Error("'account_code' is not specified");
 
     return (Recurly_Client::PATH_ACCOUNTS . '/' . rawurlencode($this->account_code) .
-            Recurly_Client::PATH_ADJUSTMENTS);
+        Recurly_Client::PATH_ADJUSTMENTS);
   }
 
   protected function populateXmlDoc(&$doc, &$node, &$obj, $nested = false) {
@@ -90,14 +91,16 @@ class Recurly_Adjustment extends Recurly_Resource
       parent::populateXmlDoc($doc, $node, $obj);
     }
   }
+
   protected function getNodeName() {
     return 'adjustment';
   }
+
   protected function getWriteableAttributes() {
     return array(
-      'currency', 'unit_amount_in_cents', 'quantity', 'description',
-      'accounting_code', 'tax_exempt', 'tax_code', 'start_date', 'end_date',
-      'revenue_schedule_type', 'origin', 'product_code'
+        'currency', 'unit_amount_in_cents', 'quantity', 'description',
+        'accounting_code', 'tax_exempt', 'tax_code', 'start_date', 'end_date',
+        'revenue_schedule_type', 'origin', 'product_code'
     );
   }
 }
