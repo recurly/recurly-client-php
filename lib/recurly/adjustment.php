@@ -38,6 +38,7 @@ class Recurly_Adjustment extends Recurly_Resource
   public function create() {
     $this->_save(Recurly_Client::POST, $this->createUriForAccount());
   }
+
   public function delete() {
     return Recurly_Base::_delete($this->getHref(), $this->_client);
   }
@@ -79,20 +80,22 @@ class Recurly_Adjustment extends Recurly_Resource
       throw new Recurly_Error("'account_code' is not specified");
 
     return (Recurly_Client::PATH_ACCOUNTS . '/' . rawurlencode($this->account_code) .
-            Recurly_Client::PATH_ADJUSTMENTS);
+        Recurly_Client::PATH_ADJUSTMENTS);
   }
 
   protected function populateXmlDoc(&$doc, &$node, &$obj, $nested = false) {
     if ($this->isEmbedded($node, 'adjustments')) {
       $adjustmentNode = $node->appendChild($doc->createElement($this->getNodeName()));
-      parent::populateXmlDoc($doc, $adjustmentNode, $obj);
+      parent::populateXmlDoc($doc, $adjustmentNode, $obj, $nested);
     } else {
-      parent::populateXmlDoc($doc, $node, $obj);
+      parent::populateXmlDoc($doc, $node, $obj, $nested);
     }
   }
+
   protected function getNodeName() {
     return 'adjustment';
   }
+
   protected function getWriteableAttributes() {
     return array(
       'currency', 'unit_amount_in_cents', 'quantity', 'description',
