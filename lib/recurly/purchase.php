@@ -10,6 +10,9 @@
  * @property string[] $coupon_codes An array of coupon codes to apply to the purchase
  * @property Recurly_Subscription[] $subscriptions An array of subscriptions to apply to the purchase
  * @property Recurly_GiftCard $gift_card A gift card to apply to the purchase
+ * @property string $customer_notes Optional notes field. This will default to the Customer Notes text specified on the Invoice Settings page in your Recurly admin. Custom notes made on an invoice for a one time charge will not carry over to subsequent invoices.
+ * @property string $terms_and_conditions Optional Terms and Conditions field. This will default to the Terms and Conditions text specified on the Invoice Settings page in your Recurly admin. Custom notes will stay with a subscription on all renewals.
+ * @property string $vat_reverse_charge_notes Optional VAT Reverse Charge Notes only appear if you have EU VAT enabled or are using your own Avalara AvaTax account and the customer is in the EU, has a VAT number, and is in a different country than your own. This will default to the VAT Reverse Charge Notes text specified on the Tax Settings page in your Recurly admin, unless custom notes were created with the original subscription. Custom notes will stay with a subscription on all renewals.
  */
 class Recurly_Purchase extends Recurly_Resource
 {
@@ -45,7 +48,8 @@ class Recurly_Purchase extends Recurly_Resource
   protected function getWriteableAttributes() {
     return array(
       'account', 'adjustments', 'collection_method', 'currency', 'po_number',
-      'net_terms', 'subscriptions', 'gift_card', 'coupon_codes'
+      'net_terms', 'subscriptions', 'gift_card', 'coupon_codes', 'customer_notes',
+      'terms_and_conditions', 'vat_reverse_charge_notes'
     );
   }
 }
