@@ -13,6 +13,9 @@ class Recurly_PurchaseTest extends Recurly_TestCase
     $purchase = new Recurly_Purchase();
     $purchase->currency = 'USD';
     $purchase->collection_method = 'automatic';
+    $purchase->customer_notes = 'Customer Notes';
+    $purchase->terms_and_conditions = 'Terms and Conditions';
+    $purchase->vat_reverse_charge_notes = 'VAT Reverse Charge Notes';
     $purchase->account = new Recurly_Account();
     $purchase->account->account_code = 'aba9209a-aa61-4790-8e61-0a2692435fee';
     $purchase->account->address->phone = "555-555-5555";
@@ -39,7 +42,7 @@ class Recurly_PurchaseTest extends Recurly_TestCase
     $purchase = $this->mockPurchase();
 
     $this->assertEquals(
-      "<?xml version=\"1.0\"?>\n<purchase><account><account_code>aba9209a-aa61-4790-8e61-0a2692435fee</account_code><address><address1>123 Main St.</address1><city>San Francisco</city><state>CA</state><zip>94110</zip><country>US</country><phone>555-555-5555</phone></address></account><adjustments><adjustment><currency>USD</currency><unit_amount_in_cents>1000</unit_amount_in_cents><quantity>1</quantity><revenue_schedule_type>at_invoice</revenue_schedule_type><product_code>abcd123</product_code></adjustment></adjustments><collection_method>automatic</collection_method><currency>USD</currency></purchase>\n",
+      "<?xml version=\"1.0\"?>\n<purchase><account><account_code>aba9209a-aa61-4790-8e61-0a2692435fee</account_code><address><address1>123 Main St.</address1><city>San Francisco</city><state>CA</state><zip>94110</zip><country>US</country><phone>555-555-5555</phone></address></account><adjustments><adjustment><currency>USD</currency><unit_amount_in_cents>1000</unit_amount_in_cents><quantity>1</quantity><revenue_schedule_type>at_invoice</revenue_schedule_type><product_code>abcd123</product_code></adjustment></adjustments><collection_method>automatic</collection_method><currency>USD</currency><customer_notes>Customer Notes</customer_notes><terms_and_conditions>Terms and Conditions</terms_and_conditions><vat_reverse_charge_notes>VAT Reverse Charge Notes</vat_reverse_charge_notes></purchase>\n",
       $purchase->xml()
     );
   }
