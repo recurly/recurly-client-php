@@ -9,7 +9,7 @@ This release will upgrade us to API version 2.8.
 
 ### Upgrade Notes
 
-There is one breaking changes in this API version you must consider. All `country` fields must now contain valid [2 letter ISO 3166 country codes](https://www.iso.org/iso-3166-country-codes.html).  If your code fails validation, you will receive a validation error. This affects any endpoint where an address is collected.
+There is one breaking changes in this API version you must consider. All `country` fields must now contain valid [2 letter ISO 3166 country codes](https://www.iso.org/iso-3166-country-codes.html).  If your country code fails validation, you will receive a validation error. This affects any endpoint where an address is collected.
 
 ## Version 2.8.2 (July 21th, 2017)
 
