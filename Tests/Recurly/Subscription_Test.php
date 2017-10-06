@@ -41,6 +41,7 @@ class Recurly_SubscriptionTest extends Recurly_TestCase
     $subscription->net_terms = 10;
     $subscription->collection_method = 'manual';
     $subscription->po_number = '1000';
+    $subscription->imported_trial = true;
 
     $account = new Recurly_Account();
     $account->account_code = '123';
@@ -48,7 +49,7 @@ class Recurly_SubscriptionTest extends Recurly_TestCase
     $subscription->account = $account;
 
     $this->assertEquals(
-      "<?xml version=\"1.0\"?>\n<subscription><account><account_code>123</account_code><address></address></account><plan_code>gold</plan_code><currency>USD</currency><subscription_add_ons></subscription_add_ons><net_terms>10</net_terms><po_number>1000</po_number><collection_method>manual</collection_method></subscription>\n",
+      "<?xml version=\"1.0\"?>\n<subscription><account><account_code>123</account_code><address></address></account><plan_code>gold</plan_code><currency>USD</currency><subscription_add_ons></subscription_add_ons><net_terms>10</net_terms><po_number>1000</po_number><collection_method>manual</collection_method><imported_trial>true</imported_trial></subscription>\n",
       $subscription->xml()
   );
   }

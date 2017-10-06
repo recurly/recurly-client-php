@@ -1,5 +1,16 @@
 # Recurly PHP Client Library CHANGELOG
 
+## Version 2.9.0 (October 6th, 2017)
+
+This release will upgrade us to API version 2.8.
+
+- Added custom invoice notes to `Purchase` [#332](https://github.com/recurly/recurly-client-php/pull/332)
+- Added `imported_trial` boolean field to `Subscription` [#331](https://github.com/recurly/recurly-client-php/pull/331)
+
+### Upgrade Notes
+
+There is one breaking changes in this API version you must consider. All `country` fields must now contain valid [2 letter ISO 3166 country codes](https://www.iso.org/iso-3166-country-codes.html).  If your country code fails validation, you will receive a validation error. This affects any endpoint where an address is collected.
+
 ## Version 2.8.2 (July 21th, 2017)
 
 * Fixes a bug creating subscriptions for existing accounts (thanks to @g30rg) [#326](https://github.com/recurly/recurly-client-php/pull/326)
