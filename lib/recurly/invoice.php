@@ -4,6 +4,7 @@
  * @property Recurly_Stub $account
  * @property Recurly_Address $address
  * @property Recurly_Stub $subscription
+ * @property Recurly_Stub $subscriptions
  * @property string $uuid
  * @property string $state
  * @property int $invoice_number
