@@ -9,6 +9,16 @@ class Recurly_PlanTest extends Recurly_TestCase
     );
   }
 
+  public function testConstructor() {
+    $client = new Recurly_Client;
+    $plan = new Recurly_Plan(null, $client);
+
+    $prop = new ReflectionProperty($plan, '_client');
+    $prop->setAccessible(true);
+
+    $this->assertSame($client, $prop->getValue($plan));
+  }
+
   public function testGetPlan() {
     $plan = Recurly_Plan::get('silver', $this->client);
 

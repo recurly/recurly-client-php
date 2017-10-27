@@ -9,6 +9,16 @@ class Recurly_AddonTest extends Recurly_TestCase
     );
   }
 
+  public function testConstructor() {
+    $client = new Recurly_Client;
+    $plan = new Recurly_Addon(null, $client);
+
+    $prop = new ReflectionProperty($plan, '_client');
+    $prop->setAccessible(true);
+
+    $this->assertSame($client, $prop->getValue($plan));
+  }
+
   public function testDelete() {
     $this->client->addResponse(
       'DELETE',

@@ -21,8 +21,8 @@
  */
 class Recurly_Addon extends Recurly_Resource
 {
-  function __construct() {
-    parent::__construct();
+  function __construct($href = null, $client = null) {
+    parent::__construct($href, $client);
     $this->unit_amount_in_cents = new Recurly_CurrencyList('unit_amount_in_cents');
   }
 

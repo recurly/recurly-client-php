@@ -8,6 +8,16 @@ class Recurly_AccountBalanceTest extends Recurly_TestCase
     );
   }
 
+  public function testConstructor() {
+    $client = new Recurly_Client;
+    $plan = new Recurly_AccountBalance(null, $client);
+
+    $prop = new ReflectionProperty($plan, '_client');
+    $prop->setAccessible(true);
+
+    $this->assertSame($client, $prop->getValue($plan));
+  }
+
   public function testGet() {
     $balance = Recurly_AccountBalance::get('abcdef1234567890', $this->client);
 
