@@ -37,8 +37,8 @@
  */
 class Recurly_Plan extends Recurly_Resource
 {
-  function __construct() {
-    parent::__construct();
+  function __construct($href = null, $client = null) {
+    parent::__construct($href, $client);
     $this->setup_fee_in_cents = new Recurly_CurrencyList('setup_fee_in_cents');
     $this->unit_amount_in_cents = new Recurly_CurrencyList('unit_amount_in_cents');
   }
