@@ -105,4 +105,16 @@ class Recurly_BillingInfoTest extends Recurly_TestCase
     $billing_info->create();
   }
 
+  public function testForExternalHppType() {
+    $billing_info = new Recurly_BillingInfo(null, $this->client);
+    $billing_info->token_id = 'abc123';
+    $billing_info->external_hpp_type = 'adyen';
+
+    $this->assertInstanceOf('Recurly_BillingInfo', $billing_info);
+    $this->assertEquals(
+      $billing_info->xml(),
+      "<?xml version=\"1.0\"?>\n<billing_info><token_id>abc123</token_id><external_hpp_type>adyen</external_hpp_type></billing_info>\n"
+    );
+  }
+
 }
