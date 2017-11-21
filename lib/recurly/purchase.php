@@ -27,7 +27,7 @@ class Recurly_Purchase extends Recurly_Resource
   }
 
   /**
-   * Send the purchase data to the server and creates a preview invoice. This runs
+   * Send the purchase data to the server and create a preview invoice. This runs
    * the validations but not the transactions.
    *
    * @param Recurly_Purchase Our purchase data.
@@ -35,6 +35,20 @@ class Recurly_Purchase extends Recurly_Resource
    */
   public static function preview($purchase, $client = null) {
     return Recurly_Base::_post('/purchases/preview', $purchase->xml(), $client);
+  }
+
+  /**
+   * Send the purchase data to the server and create an authorized purchase. This runs
+   * the validations but not the transactions. This endpoint will create a
+   * pending purchase that can be activated at a later time once payment
+   * has been completed on an external source (e.g. Adyen's Hosted
+   * Payment Pages).
+   *
+   * @param Recurly_Purchase Our purchase data.
+   * @param RecurlyClient Optional client for the request, useful for mocking the client
+   */
+  public static function authorize($purchase, $client = null) {
+    return Recurly_Base::_post('/purchases/authorize', $purchase->xml(), $client);
   }
 
   public function __construct($href = null, $client = null) {

@@ -22,6 +22,7 @@
  * @property string $currency Currency in which invoices will be posted. Only applicable if this account is enrolled in a plan has a different currency than your site's default.
  * @property string $verification_value Security code or CVV, 3-4 digits STRONGLY RECOMMENDED
  * @property string $ip_address Customer's IP address when updating their Billing Information STRONGLY RECOMMENDED
+ * @property string $external_hpp_type Used to indicate payment made out of band via an external service (e.g. Adyen HPP).
  */
 class Recurly_BillingInfo extends Recurly_Resource
 {
@@ -65,7 +66,7 @@ class Recurly_BillingInfo extends Recurly_Resource
       'vat_number', 'number', 'month', 'year', 'verification_value',
       'account_number', 'routing_number', 'account_type',
       'paypal_billing_agreement_id', 'amazon_billing_agreement_id', 'currency',
-      'token_id'
+      'token_id', 'external_hpp_type'
     );
   }
 }
