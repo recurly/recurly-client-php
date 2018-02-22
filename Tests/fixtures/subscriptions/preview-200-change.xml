@@ -29,7 +29,7 @@ Content-Type: application/xml; charset=utf-8
     <account href="https://api.recurly.com/v2/accounts/account_code"/>
     <subscription href="https://api.recurly.com/v2/subscriptions/012345678901234567890123456789ab"/>
     <uuid>abcdefg123</uuid>
-    <state>open</state>
+    <state>pending</state>
     <invoice_number nil="nil"></invoice_number>
     <invoice_number_prefix></invoice_number_prefix>
     <po_number nil="nil"></po_number>

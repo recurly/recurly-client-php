@@ -1,0 +1,15 @@
+HTTP/1.1 200 OK
+Content-Type: application/xml; charset=utf-8
+
+<?xml version="1.0" encoding="UTF-8"?>
+<credit_payments>
+  <credit_payment href="https://api.recurly.com/v2/adjustments/abcdef1234567890">
+    <account href="https://api.recurly.com/v2/accounts/account"/>
+    <uuid>abcdef1234567890</uuid>
+    <amount_in_cents type="integer">1200</amount_in_cents>
+    <currency>USD</currency>
+    <created_at type="datetime">2018-08-31T03:30:00Z</created_at>
+    <updated_at type="datetime">2018-04-30T07:00:00Z</updated_at>
+    <voided_at type="datetime">2018-04-30T07:00:00Z</voided_at>
+  </credit_payment>
+</credit_payments>

@@ -27,6 +27,7 @@
  * @property string $usage_percentage If add_on_type = usage and usage_type = percentage, you can set a custom usage_percentage for the subscription add-on. Must be between 0.0000 and 100.0000.
  * @property string $revenue_schedule_type Optional field for setting a revenue schedule type. This will determine how revenue for the associated Subscription Add-On should be recognized. When creating a Subscription Add-On, available schedule types are never, evenly, at_range_start, or at_range_end. If no revenue_schedule_type is set, the Subscription Add-On will inherit the revenue_schedule_type from its Plan Add-On.
  * @property boolean $imported_trial Optionally set true to denote that this subscription was imported from a trial.
+ * @property string $credit_customer_notes Allows merchant to set customer notes on a credit invoice. Will be ignored if no credit invoice is created.
  */
 class Recurly_Subscription extends Recurly_Resource
 {

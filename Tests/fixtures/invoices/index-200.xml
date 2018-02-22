@@ -16,7 +16,7 @@ Content-Type: application/xml; charset=utf-8
     </address>
     <subscription href="https://api.recurly.com/v2/subscriptions/32558dd8a07eec471fbe6642d3a422f4"/>
     <uuid>32558dd8acf30242475046443c8149ed</uuid>
-    <state>collected</state>
+    <state>paid</state>
     <invoice_number_prefix></invoice_number_prefix>
     <invoice_number type="integer">1002</invoice_number>
     <po_number nil="nil"></po_number>
@@ -70,7 +70,7 @@ Content-Type: application/xml; charset=utf-8
     </address>
     <subscription href="https://api.recurly.com/v2/subscriptions/313928798e08cf7d2403b34ed1954801"/>
     <uuid>31392879f497d0230dd39640b786b223</uuid>
-    <state>collected</state>
+    <state>paid</state>
     <invoice_number_prefix></invoice_number_prefix>
     <invoice_number type="integer">1000</invoice_number>
     <po_number nil="nil"></po_number>
@@ -281,7 +281,7 @@ Content-Type: application/xml; charset=utf-8
     </address>
     <subscription href="https://api.recurly.com/v2/subscriptions/30fb3db268a0ddbf62753a4cce8bfa7e"/>
     <uuid>30fb3db2766a00f1f6cc2043f59bd43a</uuid>
-    <state>collected</state>
+    <state>paid</state>
     <invoice_number_prefix></invoice_number_prefix>
     <invoice_number type="integer">1001</invoice_number>
     <po_number nil="nil"></po_number>
