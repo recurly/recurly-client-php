@@ -1,5 +1,132 @@
 # Recurly PHP Client Library CHANGELOG
 
+## Version 2.10.0 (March 19th, 2018)
+
+This release will upgrade us to API version 2.10.
+
+* API Version 2.10 [#339](https://github.com/recurly/recurly-client-php/pull/339)
+* Add missing writeable fields to AddOn [#338](https://github.com/recurly/recurly-client-php/pull/338)
+* Removes links to singular subscription (thanks to @phpdave) [#340](https://github.com/recurly/recurly-client-php/pull/340)
+
+### Upgrade Notes
+
+There are several breaking changes to support the new credit memos feature.
+
+#### 1. InvoiceCollection
+
+When creating invoices or using `markFailed()`, we now return an `Recurly_InvoiceCollection` object rather than an `Recurly_Invoice`. If you wish to upgrade your application without changing functionality, we recommend that you use the `charge_invoice` on the `Recurly_InvoiceCollection`. Example:
+
+```php
+# Change This:
+$invoice = Recurly_Invoice::invoicePendingCharges('my_account_code');
+
+# To this
+$invoiceCollection = Recurly_Invoice::invoicePendingCharges('my_account_code');
+$invoice = $invoiceCollection->charge_invoice;
+```
+
+Calls that now return `InvoiceCollection` instead of `Invoice`:
+
+* `Recurly_Purchase::invoice()`
+* `Recurly_Purchase::preview()`
+* `Recurly_Purchase::authorize()`
+* `Recurly_Invoice::invoicePendingCharges()`
+* `Recurly_Invoice::previewPendingCharges()`
+
+Furthermore, `Recurly_Invoice->markFailed()` no longer updates the invoice but rather returns a new `Recurly_InvoiceCollection` object:
+
+```php
+# Change This:
+$invoice->markFailed();
+
+# To this
+$invoiceCollection = $invoice->markFailed();
+$failedInvoice = $invoiceCollection->charge_invoice;
+```
+
+#### 2. Recurly_Invoice->original_invoice removed
+
+`Recurly_Invoice->original_invoice` was removed in favor of `Recurly_Invoice->original_invoices`. If you want to maintain functionality, change your code grab the first invoice from that endpoint:
+
+```php
+# Change this
+$originalInvoice = $invoice->original_invoice->get();
+
+# To this
+$originalInvoice = $invoice->original_invoices->get()->current(); # current is first item
+```
+
+#### 3. Invoice `subtotal_*` changes
+
+We have renamed two of the invoice subtotal fields to more clearly reflect their values:
+- Renamed `subtotal_in_cents` to `subtotal_before_discount_in_cents`
+- Renamed `subtotal_after_discount_in_cents` to `subtotal_in_cents`
+
+#### 4. Invoice Refund -- `refund_apply_order` changed to `refund_method`
+
+If you were using `Recurly_Invoice->refund` or `Recurly_Invoice->refundAmount` and explicitly setting the second `refund_apply_order` parameter, then you may need to change value to fit the new `refund_method` format. The values for this have changed from (`credit`, `transaction`) to (`credit_first`, `transaction_first`)
+
+If you don't explicitly set the `refund_apply_order` like in these two calls, no change is needed:
+```php
+$invoice->refund($line_items);
+$invoice->refundAmount(1000);
+```
+
+If you do set the second param, you'll need to change:
+* `credit` to `credit_first`
+* `transaction` to `transaction_first`
+
+Examples:
+```php
+# Change `credit`:
+$invoice->refund($line_items, 'credit');
+$invoice->refundAmount(1000, 'credit');
+
+# To `credit_first`
+$invoice->refund($line_items, 'credit_first');
+$invoice->refundAmount(1000, 'credit_first');
+
+# Change `transaction`
+$invoice->refund($line_items, 'transaction');
+$invoice->refundAmount(1000, 'transaction');
+
+# To `transaction_first`
+$invoice->refund($line_items, 'transaction_first');
+$invoice->refundAmount(1000, 'transaction_first');
+```
+
+#### 5. Invoice States
+
+If you are checking `Recurly_Invoice->state` anywhere, you will want to check that you have the new correct values. `collected` has changed to `paid` and `open` has changed to `pending`. Example:
+
+```php
+# Change this
+if ($invoice->state == 'collected')
+# To this
+if ($invoice->state == 'paid')
+```
+```php
+# Change this
+if ($invoice->state == 'open')
+# To this
+if ($invoice->state == 'pending')
+```
+
+This also affects the `Recurly_InvoiceList::getCollected()` and `Recurly_InvoiceList::getOpen()` functions. Example:
+
+```php
+# Change this
+Recurly_InvoiceList::getCollected()
+# To this
+Recurly_InvoiceList::getPaid()
+```
+```php
+# Change this
+Recurly_InvoiceList::getOpen()
+# To this
+Recurly_InvoiceList::getPending()
+```
+
 ## Version 2.9.0 (October 6th, 2017)
 
 This release will upgrade us to API version 2.8.
