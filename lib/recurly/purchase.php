@@ -21,6 +21,7 @@ class Recurly_Purchase extends Recurly_Resource
    *
    * @param Recurly_Purchase Our purchase data.
    * @param RecurlyClient Optional client for the request, useful for mocking the client
+   * @return Recurly_InvoiceCollection
    */
   public static function invoice($purchase, $client = null) {
     return Recurly_Base::_post('/purchases', $purchase->xml(), $client);
@@ -32,6 +33,7 @@ class Recurly_Purchase extends Recurly_Resource
    *
    * @param Recurly_Purchase Our purchase data.
    * @param RecurlyClient Optional client for the request, useful for mocking the client
+   * @return Recurly_InvoiceCollection
    */
   public static function preview($purchase, $client = null) {
     return Recurly_Base::_post('/purchases/preview', $purchase->xml(), $client);
@@ -46,6 +48,7 @@ class Recurly_Purchase extends Recurly_Resource
    *
    * @param Recurly_Purchase Our purchase data.
    * @param RecurlyClient Optional client for the request, useful for mocking the client
+   * @return Recurly_InvoiceCollection
    */
   public static function authorize($purchase, $client = null) {
     return Recurly_Base::_post('/purchases/authorize', $purchase->xml(), $client);

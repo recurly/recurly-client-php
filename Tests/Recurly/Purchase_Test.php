@@ -52,30 +52,32 @@ class Recurly_PurchaseTest extends Recurly_TestCase
 
   public function testInvoicePurchase() {
     $purchase = $this->mockPurchase();
-    $invoice = Recurly_Purchase::invoice($purchase, $this->client);
+    $collection = Recurly_Purchase::invoice($purchase, $this->client);
 
-    $this->assertInstanceOf('Recurly_Invoice', $invoice);
-    $this->assertEquals('3d8648fcf2be67ed304ff242d6bbb9d4', $invoice->uuid);
+    $this->assertInstanceOf('Recurly_InvoiceCollection', $collection);
+    $this->assertInstanceOf('Recurly_Invoice', $collection->charge_invoice);
+    $this->assertEquals('3d8648fcf2be67ed304ff242d6bbb9d4', $collection->charge_invoice->uuid);
   }
 
   public function testPreviewPurchase() {
     $purchase = $this->mockPurchase();
-    $invoice = Recurly_Purchase::preview($purchase, $this->client);
+    $collection = Recurly_Purchase::preview($purchase, $this->client);
 
-    $this->assertInstanceOf('Recurly_Invoice', $invoice);
-    $this->assertNull($invoice->uuid);
+    $this->assertInstanceOf('Recurly_InvoiceCollection', $collection);
+    $this->assertInstanceOf('Recurly_Invoice', $collection->charge_invoice);
+    $this->assertNull($collection->charge_invoice->uuid);
   }
 
   public function testAuthorizePurchase() {
     $purchase = $this->mockPurchase();
     $purchase->account->email = 'benjamin.dumonde@example.com';
     $purchase->account->billing_info->external_hpp_type = 'adyen';
-    $invoice = Recurly_Purchase::authorize($purchase, $this->client);
+    $collection = Recurly_Purchase::authorize($purchase, $this->client);
 
-    $this->assertInstanceOf('Recurly_Invoice', $invoice);
-    $this->assertNull($invoice->uuid);
+    $this->assertInstanceOf('Recurly_InvoiceCollection', $collection);
+    $this->assertInstanceOf('Recurly_Invoice', $collection->charge_invoice);
+    $this->assertNull($collection->charge_invoice->uuid);
   }
-
 
   public function testTransactionError() {
     $this->client->addResponse('POST', '/purchases', 'purchases/create-422.xml');

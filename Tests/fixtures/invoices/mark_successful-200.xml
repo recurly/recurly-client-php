@@ -5,7 +5,7 @@ Content-Type: application/xml; charset=utf-8
 <invoice href="https://api.recurly.com/v2/invoices/1001">
   <account href="https://api.recurly.com/v2/accounts/1"/>
   <uuid>012345678901234567890123456789aa</uuid>
-  <state>collected</state>
+  <state>paid</state>
   <invoice_number type="integer">1001</invoice_number>
   <invoice_number_prefix></invoice_number_prefix>
   <po_number nil="nil"></po_number>
