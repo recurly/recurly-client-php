@@ -31,6 +31,8 @@ Content-Type: application/xml; charset=utf-8
   <started_with_gift type="boolean">false</started_with_gift>
   <no_billing_info_reason>plan_free_trial</no_billing_info_reason>
   <converted_at nil="nil"></converted_at>
+  <remaining_pause_cycles type="integer">1</remaining_pause_cycles>>
+  <paused_at type="datetime">2020-01-01T01:00:00Z</paused_at>
   <subscription_add_ons type="array">
     <subscription_add_on>
       <add_on_type>usage</add_on_type>

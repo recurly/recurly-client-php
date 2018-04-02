@@ -59,6 +59,17 @@ Location: https://api.recurly.com/v2/invoices/3704
         <created_at type="datetime">2017-05-17T17:38:55Z</created_at>
         <updated_at type="datetime">2017-05-17T17:38:55Z</updated_at>
         <revenue_schedule_type>at_invoice</revenue_schedule_type>
+        <shipping_address>
+          <first_name>Dolores</first_name>
+          <last_name>Du Monde</last_name>
+          <address1>400 Dolores St</address1>
+          <address2 nil="nil"></address2>
+          <city>San Francisco</city>
+          <state>CA</state>
+          <zip>94110</zip>
+          <country>US</country>
+          <nickname>Home</nickname>
+        </shipping_address>
       </adjustment>
     </line_items>
     <transactions type="array">

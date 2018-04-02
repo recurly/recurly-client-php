@@ -59,7 +59,7 @@ class Recurly_Invoice extends Recurly_Resource
    * @param string Unique account code
    * @param array additional invoice attributes (see writeableAttributes)
    * @return Recurly_InvoiceCollection collection of invoices on success
-   */
+   **/
   public static function invoicePendingCharges($accountCode, $attributes = array(), $client = null) {
     $uri = Recurly_Client::PATH_ACCOUNTS . '/' . rawurlencode($accountCode) . Recurly_Client::PATH_INVOICES;
     $invoice = new self();

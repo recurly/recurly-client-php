@@ -26,6 +26,8 @@
  * @property string $tax_code Optional field for EU VAT merchants and Avalara AvaTax Pro merchants. If you are using Recurly's EU VAT feature, you can use values of unknown, physical, or digital. If you have your own AvaTax account configured, you can use Avalara tax codes to assign custom tax rules.
  * @property string $product_code Merchant defined product code
  * @property string $credit_reason_code Can be set if adjustment is a credit (unit_amount_in_cents < 0). Allowed values: [general, service, promotional, refund, gift_card, write_off]. Defaults to "general".
+ * @property Recurly_ShippingAddress $shipping_address The Recurly_ShippingAddress object associated with this adjustment.
+ * @property string $shipping_address_id The id of Recurly_ShippingAddress object associated with this adjustment.
  * @property DateTime $start_date A timestamp associated with when the adjustment began.
  * @property DateTime $end_date A timestamp associated with when the adjustment ended.
  * @property DateTime $created_at A timestamp associated with when the adjustment was created.
@@ -101,7 +103,8 @@ class Recurly_Adjustment extends Recurly_Resource
     return array(
       'currency', 'unit_amount_in_cents', 'quantity', 'description',
       'accounting_code', 'tax_exempt', 'tax_code', 'start_date', 'end_date',
-      'revenue_schedule_type', 'origin', 'product_code', 'credit_reason_code'
+      'revenue_schedule_type', 'origin', 'product_code', 'credit_reason_code',
+      'shipping_address', 'shipping_address_id'
     );
   }
 }

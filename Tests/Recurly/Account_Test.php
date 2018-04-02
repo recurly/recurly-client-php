@@ -30,6 +30,8 @@ class Recurly_AccountTest extends Recurly_TestCase
     $this->assertEquals($account->entity_use_code, 'I');
     $this->assertEquals($account->vat_location_valid, true);
     $this->assertEquals($account->cc_emails, 'cheryl.hines@example.com,richard.lewis@example.com');
+    $this->assertEquals($account->has_paused_subscription, false);
+    $this->assertEquals($account->preferred_locale, 'en-US');
   }
 
   public function testCloseAccount() {
@@ -90,6 +92,7 @@ class Recurly_AccountTest extends Recurly_TestCase
     $account->address->address1 = "123 Main St.";
     $account->tax_exempt = false;
     $account->entity_use_code = 'I';
+    $account->preferred_locale = 'en-US';
 
     // work shipping address
     $shad1 = new Recurly_ShippingAddress();
@@ -121,7 +124,7 @@ class Recurly_AccountTest extends Recurly_TestCase
     $account->shipping_addresses = array($shad1, $shad2);
 
     $this->assertEquals(
-      "<?xml version=\"1.0\"?>\n<account><account_code>act123</account_code><first_name>Verena</first_name><address><address1>123 Main St.</address1></address><tax_exempt>false</tax_exempt><entity_use_code>I</entity_use_code><shipping_addresses><shipping_address><address1>123 Main St.</address1><city>San Francisco</city><state>CA</state><zip>94110</zip><country>US</country><phone>555-555-5555</phone><email>verena@example.com</email><nickname>Work</nickname><first_name>Verena</first_name><last_name>Example</last_name><company>Recurly Inc.</company></shipping_address><shipping_address><address1>123 Dolores St.</address1><city>San Francisco</city><state>CA</state><zip>94110</zip><country>US</country><phone>555-555-5555</phone><email>verena@example.com</email><nickname>Home</nickname><first_name>Verena</first_name><last_name>Example</last_name></shipping_address></shipping_addresses></account>\n",
+      "<?xml version=\"1.0\"?>\n<account><account_code>act123</account_code><first_name>Verena</first_name><address><address1>123 Main St.</address1></address><tax_exempt>false</tax_exempt><entity_use_code>I</entity_use_code><shipping_addresses><shipping_address><address1>123 Main St.</address1><city>San Francisco</city><state>CA</state><zip>94110</zip><country>US</country><phone>555-555-5555</phone><email>verena@example.com</email><nickname>Work</nickname><first_name>Verena</first_name><last_name>Example</last_name><company>Recurly Inc.</company></shipping_address><shipping_address><address1>123 Dolores St.</address1><city>San Francisco</city><state>CA</state><zip>94110</zip><country>US</country><phone>555-555-5555</phone><email>verena@example.com</email><nickname>Home</nickname><first_name>Verena</first_name><last_name>Example</last_name></shipping_address></shipping_addresses><preferred_locale>en-US</preferred_locale></account>\n",
       $account->xml()
     );
   }

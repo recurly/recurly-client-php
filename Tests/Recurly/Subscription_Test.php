@@ -259,4 +259,20 @@ class Recurly_SubscriptionTest extends Recurly_TestCase
       $this->assertInstanceOf('Recurly_CouponRedemption', $r);
     }
   }
+
+  public function testPauseSubscription() {
+    $this->client->addResponse('GET', '/subscriptions/012345678901234567890123456789ab', 'subscriptions/show-200.xml');
+    $this->client->addResponse('PUT', 'https://api.recurly.com/v2/subscriptions/012345678901234567890123456789ab/pause', 'subscriptions/show-200.xml');
+    $subscription = Recurly_Subscription::get('012345678901234567890123456789ab', $this->client);
+    $subscription->pause(1);
+    $this->assertInstanceOf('DateTime', $subscription->paused_at);
+    $this->assertEquals($subscription->remaining_pause_cycles, 1);
+  }
+
+  public function testResumeSubscription() {
+    $this->client->addResponse('GET', '/subscriptions/012345678901234567890123456789ab', 'subscriptions/show-200.xml');
+    $this->client->addResponse('PUT', 'https://api.recurly.com/v2/subscriptions/012345678901234567890123456789ab/resume', 'subscriptions/show-200.xml');
+    $subscription = Recurly_Subscription::get('012345678901234567890123456789ab', $this->client);
+    $subscription->resume();
+  }
 }
