@@ -22,12 +22,14 @@
  * @property string $terms_and_conditions Optional notes field. This will default to the Terms and Conditions text specified on the Invoice Settings page in your Recurly admin. Specify custom notes with this tag to add or override Terms and Conditions. Custom notes will stay with a subscription on all renewals.
  * @property string $customer_notes Optional notes field. This will default to the Customer Notes text specified on the Invoice Settings page in your Recurly admin. Specify custom notes with this tag to add or override Customer Notes. Custom notes will stay with a subscription on all renewals.
  * @property string $vat_reverse_charge_notes VAT Reverse Charge Notes only appear if you have EU VAT enabled or are using your own Avalara AvaTax account and the customer is in the EU, has a VAT number, and is in a different country than your own. This will default to the VAT Reverse Charge Notes text specified on the Tax Settings page in your Recurly admin, unless custom notes were created with the original subscription. Specify custom notes with this tag to add or override VAT Reverse Charge Notes. Custom notes will stay with a subscription on all renewals.
- * @property timestamp $bank_account_authorized_at Merchants importing recurring subscriptions paid with ACH into Recurly can backdate the subscription's authorization with this attribute using an ISO 8601 timestamp. This timestamp is used for alerting customers to reauthorize in 3 years in accordance with NACHA rules. If a subscription becomes inactive or the billing info is no longer a bank account, this timestamp is cleared.
+ * @property DateTime $bank_account_authorized_at Merchants importing recurring subscriptions paid with ACH into Recurly can backdate the subscription's authorization with this attribute using an ISO 8601 timestamp. This timestamp is used for alerting customers to reauthorize in 3 years in accordance with NACHA rules. If a subscription becomes inactive or the billing info is no longer a bank account, this timestamp is cleared.
  * @property string $add_on_code The code for the Add-On.
  * @property string $usage_percentage If add_on_type = usage and usage_type = percentage, you can set a custom usage_percentage for the subscription add-on. Must be between 0.0000 and 100.0000.
  * @property string $revenue_schedule_type Optional field for setting a revenue schedule type. This will determine how revenue for the associated Subscription Add-On should be recognized. When creating a Subscription Add-On, available schedule types are never, evenly, at_range_start, or at_range_end. If no revenue_schedule_type is set, the Subscription Add-On will inherit the revenue_schedule_type from its Plan Add-On.
  * @property boolean $imported_trial Optionally set true to denote that this subscription was imported from a trial.
  * @property string $credit_customer_notes Allows merchant to set customer notes on a credit invoice. Will be ignored if no credit invoice is created.
+ * @property DateTime $paused_at The datetime when the subscription will be (or was) paused.
+ * @property integer $remaining_pause_cycles The number of billing cycles that the subscription will be paused.
  */
 class Recurly_Subscription extends Recurly_Resource
 {
@@ -130,6 +132,40 @@ class Recurly_Subscription extends Recurly_Resource
     $this->setValues($notes)->_save(Recurly_Client::PUT, $this->uri() . '/notes');
   }
 
+  /**
+    * Pauses a subscription or cancels a scheduled pause.
+    *
+    * - For an active subscription without a pause scheduled already,
+    * this will schedule a pause period to begin at the next renewal
+    * date for the specified number of billing cycles (remaining_pause_cycles).
+    * - For an active subscription with a scheduled pause, this will update the remaining
+    * pause cycles with the new value sent. When zero (0) remaining_pause_cycles
+    * is sent for a subscription with a scheduled pause, the pause will be canceled.
+    * - For a paused subscription, the remaining_pause_cycles will adjust the
+    * length of the current pause period. Sending zero (0) in the remaining_pause_cycles
+    * field will cause the subscription to be resumed at the next renewal date.
+    *
+    * @param integer remaining_pause_cycles The number of billing cycles that the subscription will be paused.
+    **/
+  public function pause($remaining_pause_cycles) {
+    $doc = $this->createDocument();
+    $root = $doc->appendChild($doc->createElement($this->getNodeName()));
+    $root->appendChild($doc->createElement('remaining_pause_cycles', $remaining_pause_cycles));
+    $this->_save(Recurly_Client::PUT, $this->uri() . '/pause', $this->renderXML($doc));
+  }
+
+  /**
+   * Resumes a paused subscription.
+   *
+   * For a paused subscription, this will immediately resume the subscription
+   * from the pause, produce an invoice, and return the newly resumed subscription.
+   * Any at-renewal subscription changes will be immediately applied
+   * when the subscription resumes.
+   **/
+  public function resume() {
+    $this->_save(Recurly_Client::PUT, $this->uri() . '/resume');
+  }
+
   public function buildUsage($addOnCode, $client = null) {
     return Recurly_Usage::build($this->uuid, $addOnCode, $client);
   }
@@ -170,7 +206,8 @@ class Recurly_Subscription extends Recurly_Resource
       'collection_method', 'cost_in_cents', 'remaining_billing_cycles', 'bulk',
       'terms_and_conditions', 'customer_notes', 'vat_reverse_charge_notes',
       'bank_account_authorized_at', 'revenue_schedule_type', 'gift_card',
-      'shipping_address', 'shipping_address_id', 'imported_trial'
+      'shipping_address', 'shipping_address_id', 'imported_trial',
+      'remaining_pause_cycles'
     );
   }
 }
