@@ -32,6 +32,14 @@ class Recurly_AccountTest extends Recurly_TestCase
     $this->assertEquals($account->cc_emails, 'cheryl.hines@example.com,richard.lewis@example.com');
     $this->assertEquals($account->has_paused_subscription, false);
     $this->assertEquals($account->preferred_locale, 'en-US');
+
+    $this->assertInstanceOf('Recurly_CustomFieldList', $account->custom_fields);
+    $this->assertCount(2, $account->custom_fields);
+    $this->assertEquals(array('cat_name', 'shasta'), array_keys((array)$account->custom_fields));
+    $this->assertInstanceOf('Recurly_CustomField', $account->custom_fields['cat_name']);
+    $this->assertEquals($account->custom_fields['cat_name']->value, 'mittens');
+    $this->assertInstanceOf('Recurly_CustomField', $account->custom_fields['shasta']);
+    $this->assertEquals($account->custom_fields['shasta']->value, 'ate my hamburger');
   }
 
   public function testCloseAccount() {
@@ -123,21 +131,38 @@ class Recurly_AccountTest extends Recurly_TestCase
 
     $account->shipping_addresses = array($shad1, $shad2);
 
+    $account->custom_fields[] = new Recurly_CustomField("serial_number", "4567-8900-1234");
+
     $this->assertEquals(
-      "<?xml version=\"1.0\"?>\n<account><account_code>act123</account_code><first_name>Verena</first_name><address><address1>123 Main St.</address1></address><tax_exempt>false</tax_exempt><entity_use_code>I</entity_use_code><shipping_addresses><shipping_address><address1>123 Main St.</address1><city>San Francisco</city><state>CA</state><zip>94110</zip><country>US</country><phone>555-555-5555</phone><email>verena@example.com</email><nickname>Work</nickname><first_name>Verena</first_name><last_name>Example</last_name><company>Recurly Inc.</company></shipping_address><shipping_address><address1>123 Dolores St.</address1><city>San Francisco</city><state>CA</state><zip>94110</zip><country>US</country><phone>555-555-5555</phone><email>verena@example.com</email><nickname>Home</nickname><first_name>Verena</first_name><last_name>Example</last_name></shipping_address></shipping_addresses><preferred_locale>en-US</preferred_locale></account>\n",
+      "<?xml version=\"1.0\"?>\n<account><account_code>act123</account_code><first_name>Verena</first_name><address><address1>123 Main St.</address1></address><tax_exempt>false</tax_exempt><entity_use_code>I</entity_use_code><shipping_addresses><shipping_address><address1>123 Main St.</address1><city>San Francisco</city><state>CA</state><zip>94110</zip><country>US</country><phone>555-555-5555</phone><email>verena@example.com</email><nickname>Work</nickname><first_name>Verena</first_name><last_name>Example</last_name><company>Recurly Inc.</company></shipping_address><shipping_address><address1>123 Dolores St.</address1><city>San Francisco</city><state>CA</state><zip>94110</zip><country>US</country><phone>555-555-5555</phone><email>verena@example.com</email><nickname>Home</nickname><first_name>Verena</first_name><last_name>Example</last_name></shipping_address></shipping_addresses><preferred_locale>en-US</preferred_locale><custom_fields><custom_field><name>serial_number</name><value>4567-8900-1234</value></custom_field></custom_fields></account>\n",
       $account->xml()
     );
   }
 
   /**
-   * Test that updates to nested objects like account addresses are detected
-   * when generating XML to send.
+   * Test that updates to nested account addresses are detected when generating
+   * XML to send.
    */
   public function testNestedAddress() {
     $account = Recurly_Account::get('abcdef1234567890', $this->client);
     $account->address->address1 = '987 Alternate St.';
     $this->assertEquals(
       "<?xml version=\"1.0\"?>\n<account><address><address1>987 Alternate St.</address1></address></account>\n",
+      $account->xml()
+    );
+  }
+
+  /**
+   * Test that updates to nested custom fields are detected when generating
+   * XML to send.
+   */
+  public function testNestedCustomFields() {
+    $account = Recurly_Account::get('abcdef1234567890', $this->client);
+    $account->custom_fields[] = new Recurly_CustomField('new_field', 'something');
+    $account->custom_fields[] = new Recurly_CustomField('shasta', '');
+
+    $this->assertEquals(
+      "<?xml version=\"1.0\"?>\n<account><custom_fields><custom_field><name>shasta</name><value></value></custom_field><custom_field><name>new_field</name><value>something</value></custom_field></custom_fields></account>\n",
       $account->xml()
     );
   }
