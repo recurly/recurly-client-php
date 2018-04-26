@@ -122,7 +122,9 @@ abstract class Recurly_Resource extends Recurly_Base
     $attributes = $obj->getChangedAttributes($nested);
 
     foreach ($attributes as $key => $val) {
-      if ($val instanceof Recurly_CurrencyList) {
+      // If we get another object that handles its own XML serialization but
+      // doesn't extend Recurly_Resource we should add an interface for this.
+      if ($val instanceof Recurly_CurrencyList || $val instanceof Recurly_CustomFieldList) {
         $val->populateXmlDoc($doc, $node);
       } else if ($val instanceof Recurly_Resource) {
         $attribute_node = $node->appendChild($doc->createElement($key));

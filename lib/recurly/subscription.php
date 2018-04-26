@@ -36,6 +36,7 @@ class Recurly_Subscription extends Recurly_Resource
   public function __construct($href = null, $client = null) {
     parent::__construct($href, $client);
     $this->subscription_add_ons = array();
+    $this->custom_fields = new Recurly_CustomFieldList();
   }
 
   public static function get($uuid, $client = null) {
@@ -207,7 +208,7 @@ class Recurly_Subscription extends Recurly_Resource
       'terms_and_conditions', 'customer_notes', 'vat_reverse_charge_notes',
       'bank_account_authorized_at', 'revenue_schedule_type', 'gift_card',
       'shipping_address', 'shipping_address_id', 'imported_trial',
-      'remaining_pause_cycles'
+      'remaining_pause_cycles', 'custom_fields'
     );
   }
 }
