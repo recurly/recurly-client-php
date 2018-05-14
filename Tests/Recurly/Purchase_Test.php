@@ -7,6 +7,7 @@ class Recurly_PurchaseTest extends Recurly_TestCase
       array('POST', '/purchases', 'purchases/create-201.xml'),
       array('POST', '/purchases/preview', 'purchases/preview-200.xml'),
       array('POST', '/purchases/authorize', 'purchases/authorize-200.xml'),
+      array('POST', '/purchases/pending', 'purchases/pending-200.xml'),
     );
   }
 
@@ -85,6 +86,17 @@ class Recurly_PurchaseTest extends Recurly_TestCase
     $purchase->account->email = 'benjamin.dumonde@example.com';
     $purchase->account->billing_info->external_hpp_type = 'adyen';
     $collection = Recurly_Purchase::authorize($purchase, $this->client);
+
+    $this->assertInstanceOf('Recurly_InvoiceCollection', $collection);
+    $this->assertInstanceOf('Recurly_Invoice', $collection->charge_invoice);
+    $this->assertNull($collection->charge_invoice->uuid);
+  }
+
+  public function testPendingPurchase() {
+    $purchase = $this->mockPurchase();
+    $purchase->account->email = 'benjamin.dumonde@example.com';
+    $purchase->account->billing_info->external_hpp_type = 'adyen';
+    $collection = Recurly_Purchase::pending($purchase, $this->client);
 
     $this->assertInstanceOf('Recurly_InvoiceCollection', $collection);
     $this->assertInstanceOf('Recurly_Invoice', $collection->charge_invoice);
