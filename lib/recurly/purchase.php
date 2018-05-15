@@ -55,6 +55,18 @@ class Recurly_Purchase extends Recurly_Resource
     return Recurly_Base::_post('/purchases/authorize', $purchase->xml(), $client);
   }
 
+  /**
+   * Use for Adyen HPP transaction requests. This runs
+   * the validations but not the transactions.
+   *
+   * @param Recurly_Purchase Our purchase data.
+   * @param RecurlyClient Optional client for the request, useful for mocking the client
+   * @return Recurly_InvoiceCollection
+   */
+  public static function pending($purchase, $client = null) {
+    return Recurly_Base::_post('/purchases/pending', $purchase->xml(), $client);
+  }
+
   public function __construct($href = null, $client = null) {
     parent::__construct($href, $client);
     $this->adjustments = array();
