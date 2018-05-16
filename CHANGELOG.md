@@ -1,5 +1,11 @@
 # Recurly PHP Client Library CHANGELOG
 
+## Version 2.10.2 (May 16th, 2018)
+
+This release will upgrade us to API version 2.12. There are no breaking changes.
+
+* API Version 2.12 [#348](https://github.com/recurly/recurly-client-php/pull/348)
+
 ## Version 2.10.1 (April 4th, 2018)
 
 This release will upgrade us to API version 2.11. There are no breaking changes.
