@@ -4,6 +4,7 @@
  * @property Recurly_Stub $account
  * @property Recurly_Address $address
  * @property Recurly_Stub $subscriptions
+ * @property Recurly_String $all_transactions A link to all transactions on the invoice. Only present if there are more than 500 transactions
  * @property string $uuid
  * @property string $state
  * @property int $invoice_number
