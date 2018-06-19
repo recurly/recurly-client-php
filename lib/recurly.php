@@ -28,6 +28,8 @@ require_once(dirname(__FILE__) . '/recurly/coupon.php');
 require_once(dirname(__FILE__) . '/recurly/coupon_list.php');
 require_once(dirname(__FILE__) . '/recurly/credit_payment.php');
 require_once(dirname(__FILE__) . '/recurly/credit_payment_list.php');
+require_once(dirname(__FILE__) . '/recurly/custom_field.php');
+require_once(dirname(__FILE__) . '/recurly/custom_field_list.php');
 require_once(dirname(__FILE__) . '/recurly/unique_coupon_code_list.php');
 require_once(dirname(__FILE__) . '/recurly/export_date.php');
 require_once(dirname(__FILE__) . '/recurly/export_date_list.php');

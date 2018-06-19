@@ -40,6 +40,7 @@ class Recurly_Account extends Recurly_Resource
     if (!is_null($accountCode))
       $this->account_code = $accountCode;
     $this->address = new Recurly_Address();
+    $this->custom_fields = new Recurly_CustomFieldList();
   }
 
   public function &__get($key)
@@ -103,7 +104,7 @@ class Recurly_Account extends Recurly_Resource
       'account_code', 'username', 'first_name', 'last_name', 'vat_number',
       'email', 'company_name', 'accept_language', 'billing_info', 'address',
       'tax_exempt', 'entity_use_code', 'cc_emails', 'shipping_addresses',
-      'preferred_locale'
+      'preferred_locale', 'custom_fields'
     );
   }
   protected function getRequiredAttributes() {

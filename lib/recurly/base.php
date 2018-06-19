@@ -201,6 +201,8 @@ abstract class Recurly_Base
     'charge_invoice' => 'Recurly_Invoice',
     'credit_invoice' => 'Recurly_Invoice',
     'currency' => 'Recurly_Currency',
+    'custom_fields' => 'Recurly_CustomFieldList',
+    'custom_field' => 'Recurly_CustomField',
     'credit_invoices' => 'array',
     'credit_payment' => 'Recurly_CreditPayment',
     'credit_payments' => 'Recurly_CreditPaymentList',
@@ -318,7 +320,9 @@ abstract class Recurly_Base
             $node = $node->nextSibling;
             continue;
           }
-        } else if (is_array($object)) {
+        // Would prefer to do `$object instanceof ArrayAccess` but Recurly_CurrencyList
+        // implements that and expects to have its children assigned like `$list->USD = 123`.
+        } else if (is_array($object) || $object instanceof Recurly_CustomFieldList) {
           if ($nodeName == 'error') {
             $object[] = Recurly_Resource::parseErrorNode($node);
             $node = $node->nextSibling;
@@ -427,8 +431,9 @@ abstract class Recurly_Base
     else {
       if ($node_class == 'Recurly_CurrencyList') {
         $new_obj = new $node_class($nodeName);
-      } else
+      } else {
         $new_obj = new $node_class();
+      }
 
       // It may have a type attribute we wish to capture
       $typeAttribute = $node->getAttribute('type');
