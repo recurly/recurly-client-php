@@ -13,7 +13,7 @@
  * @property integer $quantity Optionally override the default quantity of 1.
  * @property DateTime $trial_ends_at If set, overrides the default trial behavior for the subscription. This must be a date and time, preferably in UTC. The date must be in the future.
  * @property DateTime $starts_at If set, the subscription will begin in the future on this date. The subscription will apply the setup fee and trial period, unless the plan has no trial.
- * @property integer $total_billing_cycles Renews the subscription for a specified number of cycles, then automatically cancels. Defaults to the subscription renewing indefinitely.
+ * @property integer $total_billing_cycles Determines the length of the subscription’s initial term. Defaults to plan’s total billing cycles value unless overwritten when creating the subscription or editing subscription.
  * @property DateTime $first_renewal_date Indicates a date at which the first renewal should occur. Subsequent renewals will be offset from this date. The first invoice will be prorated appropriately so that the customer only pays for the portion of the first billing period for which the subscription applies. Useful for forcing a subscription to renew on the first of the month.
  * @property string $collection_method Optional field to set the collection for an invoice as automatic or manual. The default is automatic if it's not set.
  * @property integer $net_terms Integer representing the number of days after an invoice's creation that the invoice will become past due. If an invoice's net terms are set to 0, it is due 'On Receipt' and will become past due 24 hours after it’s created. If an invoice is due net 30, it will become past due at 31 days exactly. Defaults to 0.
@@ -30,6 +30,15 @@
  * @property string $credit_customer_notes Allows merchant to set customer notes on a credit invoice. Will be ignored if no credit invoice is created.
  * @property DateTime $paused_at The datetime when the subscription will be (or was) paused.
  * @property integer $remaining_pause_cycles The number of billing cycles that the subscription will be paused.
+ * @property boolean $auto_renew Determines whether subscription will auto renew for another term at the end of current term. Defaults to plan value unless overwritten when creating subscription or editing subscription.
+ * @property integer $remaining_billing_cycles Remaining billing periods in the current subscription term. Decrements from the total number of billing periods in the current term. Will always be 0 if total billing cycles is 1.
+ * @property integer $renewal_billing_cycles Determines the renewal subscription term Defaults to plan’s total billing cycles value unless overwritten when creating the subscription or editing subscription.
+ * @property DateTime $current_period_started_at Start date of the subscription’s current billing period.
+ * @property DateTime $current_period_ends_at End date of the subscription’s current billing period.
+ * @property DateTime $first_bill_date Previously named first_renewal_date. Forces the subscription’s next billing period start date. Subsequent billing period start dates will be offset from this date. The first invoice will be prorated appropriately so that the customer pays for the portion of the first billing period for which the subscription applies.
+ * @property DateTime $next_bill_date Previously named next_renewal_date. Specifies a future date that the subscription’s next  billing period should be billed.
+ * @property DateTime $current_term_started_at Start date of the subscription’s current term. Will equal the future start date if subscription was created in the future state.
+ * @property DateTime $current_term_ends_at End date of the subscription’s current term. Will be null if subscription has future start date.
  */
 class Recurly_Subscription extends Recurly_Resource
 {
@@ -208,7 +217,8 @@ class Recurly_Subscription extends Recurly_Resource
       'terms_and_conditions', 'customer_notes', 'vat_reverse_charge_notes',
       'bank_account_authorized_at', 'revenue_schedule_type', 'gift_card',
       'shipping_address', 'shipping_address_id', 'imported_trial',
-      'remaining_pause_cycles', 'custom_fields'
+      'remaining_pause_cycles', 'custom_fields', 'auto_renew',
+      'renewal_billing_cycles'
     );
   }
 }
