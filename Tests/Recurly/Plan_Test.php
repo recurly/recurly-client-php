@@ -59,9 +59,10 @@ class Recurly_PlanTest extends Recurly_TestCase
     $plan->setup_fee_in_cents->addCurrency('EUR', 500);
     $plan->trial_requires_billing_info = false;
     $plan->total_billing_cycles = 6;
+    $plan->auto_renew = false;
 
     $this->assertEquals(
-      "<?xml version=\"1.0\"?>\n<plan><plan_code>platinum</plan_code><name>Platinum &amp; Gold Plan</name><unit_amount_in_cents><USD>1500</USD><EUR>1200</EUR></unit_amount_in_cents><setup_fee_in_cents><EUR>500</EUR></setup_fee_in_cents><total_billing_cycles>6</total_billing_cycles><trial_requires_billing_info>false</trial_requires_billing_info></plan>\n",
+      "<?xml version=\"1.0\"?>\n<plan><plan_code>platinum</plan_code><name>Platinum &amp; Gold Plan</name><unit_amount_in_cents><USD>1500</USD><EUR>1200</EUR></unit_amount_in_cents><setup_fee_in_cents><EUR>500</EUR></setup_fee_in_cents><total_billing_cycles>6</total_billing_cycles><trial_requires_billing_info>false</trial_requires_billing_info><auto_renew>false</auto_renew></plan>\n",
       $plan->xml()
     );
   }
