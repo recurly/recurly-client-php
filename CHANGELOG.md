@@ -1,5 +1,15 @@
 # Recurly PHP Client Library CHANGELOG
 
+## Version 2.10.3 (June 26th, 2018)
+
+This release will upgrade us to API version 2.13. There are no breaking changes.
+
+* Add all_transactions link to Invoice [#350](https://github.com/recurly/recurly-client-php/pull/350)
+* Allow programmer to set gateway code in purchase [#351](https://github.com/recurly/recurly-client-php/pull/351)
+* External token support [#352](https://github.com/recurly/recurly-client-php/pull/352)
+* Support for custom fields [#353](https://github.com/recurly/recurly-client-php/pull/353)
+* Subscription terms [#356](https://github.com/recurly/recurly-client-php/pull/356)
+
 ## Version 2.10.2 (May 16th, 2018)
 
 This release will upgrade us to API version 2.12. There are no breaking changes.
