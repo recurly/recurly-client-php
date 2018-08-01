@@ -9,7 +9,7 @@ PHPUnit, then run our existing tests:
 
 ```
 $ curl -s https://getcomposer.org/installer | php
-$ php composer.phar install --dev
+$ php composer.phar install
 $ vendor/phpunit/phpunit/phpunit Tests/
 ```
 

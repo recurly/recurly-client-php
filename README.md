@@ -105,7 +105,7 @@ You can run our unit tests by using Composer to install PHPUnit:
 
 ```
 $ curl -s https://getcomposer.org/installer | php
-$ php composer.phar install --dev
+$ php composer.phar install
 $ vendor/bin/phpunit
 ```
 
