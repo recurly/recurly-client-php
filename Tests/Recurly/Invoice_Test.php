@@ -165,4 +165,35 @@ class Recurly_InvoiceTest extends Recurly_TestCase
     $this->assertInstanceOf('Recurly_Transaction', $transaction);
     $this->assertEquals($transaction->status, 'success');
   }
+
+  public function testUpdateInvoice() {
+    $this->client->addResponse('PUT', 'https://api.recurly.com/v2/invoices/1001', 'invoices/show-200-updated-invoice.xml');
+
+    $invoice = Recurly_Invoice::get('1001', $this->client);
+
+    $invoice->address = new Recurly_Address();
+    $invoice->address->first_name = "Spongebob";
+    $invoice->address->last_name = "Squarepants";
+    $invoice->address->name_on_account = 'Patrick Star';
+    $invoice->address->company = 'Krusty Krab';
+    $invoice->address->address1 = '124 Conch Street';
+    $invoice->address->address2 = 'Pineapple';
+    $invoice->address->city = 'Bikini Bottom';
+    $invoice->address->state = 'Dead Eye Gulch';
+    $invoice->address->zip = '96970';
+    $invoice->address->country = 'Pacific Ocean';
+    $invoice->address->phone = '509-990-3551';
+
+    $invoice->po_number = '3699';
+    $invoice->customer_notes = 'Is this the Krusty Krab?';
+    $invoice->terms_and_conditions = 'Never disclose the location of the Krabby Patty secret formula.';
+    $invoice->vat_reverse_charge_notes = "can't be changed when invoice was not a reverse charge";
+    $invoice->net_terms = '60';
+
+    $this->assertEquals(
+      "<?xml version=\"1.0\"?>\n<invoice><address><first_name>Spongebob</first_name><last_name>Squarepants</last_name><name_on_account>Patrick Star</name_on_account><company>Krusty Krab</company><address1>124 Conch Street</address1><address2>Pineapple</address2><city>Bikini Bottom</city><state>Dead Eye Gulch</state><zip>96970</zip><country>Pacific Ocean</country><phone>509-990-3551</phone></address><terms_and_conditions>Never disclose the location of the Krabby Patty secret formula.</terms_and_conditions><customer_notes>Is this the Krusty Krab?</customer_notes><vat_reverse_charge_notes>can't be changed when invoice was not a reverse charge</vat_reverse_charge_notes><net_terms>60</net_terms><po_number>3699</po_number></invoice>\n",
+      $invoice->xml()
+    );
+    $invoice->update();
+  }
 }
