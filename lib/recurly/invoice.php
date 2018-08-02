@@ -2,28 +2,44 @@
 /**
  * class Recurly_Invoice
  * @property Recurly_Stub $account
- * @property Recurly_Address $address
  * @property Recurly_Stub $subscriptions
- * @property Recurly_String $all_transactions A link to all transactions on the invoice. Only present if there are more than 500 transactions
+ * @property Recurly_Address $address
+ * @property Recurly_ShippingAddress $shipping_address
  * @property string $uuid
  * @property string $state
+ * @property int $invoice_number_prefix
  * @property int $invoice_number
- * @property int $tax_in_cents
- * @property int $total_in_cents
- * @property DateTime $created_at
- * @property DateTime $closed_at
- * @property int $net_terms
- * @property string $collection_method
- * @property int $subtotal_before_discount_in_cents The total of all adjustments on the invoice before discounts or taxes are applied.
+ * @property string $po_number
+ * @property string $vat_number
  * @property int $subtotal_in_cents The total of all adjustments on the invoice after discounts are applied, but before taxes.
  * @property int $discount_in_cents The total of all discounts applied to adjustments on the invoice.
- * @property int $balance_in_cents The total_in_cents minus all successful transactions and credit payments for the invoice.
  * @property DateTime $due_on If type = charge, will have a value that is the created_at plus the terms. If type = credit, will be null.
+ * @property int $balance_in_cents The total_in_cents minus all successful transactions and credit payments for the invoice.
  * @property int $type Whether the invoice is a credit invoice or charge invoice.
  * @property int $origin The event that created the invoice.
- * @property int $credit_customer_notes Allows merchant to set customer notes on a credit invoice. Will only be rejected if type is set to "charge", otherwise will be ignored if no credit invoice is created.
+ * @property Recurly_Stub $credit_invoices
+ * @property int $refundable_total_in_cents
+ * @property array $credit_payments
+ * @property int $tax_in_cents
+ * @property int $total_in_cents
+ * @property string $currency
+ * @property DateTime $created_at
+ * @property DateTime $updated_at
+ * @property DateTime $closed_at
+ * @property string $terms_and_conditions
+ * @property string $vat_reverse_charge_notes
+ * @property string $customer_notes
+ * @property string $tax_type
+ * @property string $tax_region
+ * @property float $tax_rate
+ * @property int $net_terms
+ * @property string $collection_method
+ * @property Recurly_Stub $redemptions
  * @property Recurly_Adjustment[] $line_items
  * @property Recurly_TransactionList $transactions
+ * @property Recurly_String $all_transactions A link to all transactions on the invoice. Only present if there are more than 500 transactions
+ * @property int $subtotal_before_discount_in_cents The total of all adjustments on the invoice before discounts or taxes are applied.
+ * @property int $credit_customer_notes Allows merchant to set customer notes on a credit invoice. Will only be rejected if type is set to "charge", otherwise will be ignored if no credit invoice is created.
  */
 class Recurly_Invoice extends Recurly_Resource
 {
@@ -150,6 +166,13 @@ class Recurly_Invoice extends Recurly_Resource
     return $this->createRefundInvoice($this->renderXML($doc));
   }
 
+  /**
+   * Attempts to update an invoice
+   */
+  public function update() {
+    $this->_save(Recurly_Client::PUT, $this->uri());
+  }
+
   protected function createRefundInvoice($xml_string) {
     return Recurly_Invoice::_post($this->uri() . '/refund', $xml_string, $this->_client);
   }
@@ -159,7 +182,7 @@ class Recurly_Invoice extends Recurly_Resource
   }
   protected function getWriteableAttributes() {
     return array(
-      'terms_and_conditions', 'customer_notes', 'vat_reverse_charge_notes',
+      'address', 'terms_and_conditions', 'customer_notes', 'vat_reverse_charge_notes',
       'collection_method', 'net_terms', 'po_number', 'currency', 'credit_customer_notes'
     );
   }
