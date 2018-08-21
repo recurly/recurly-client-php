@@ -240,6 +240,11 @@ class Recurly_SubscriptionTest extends Recurly_TestCase
 
     $notes = array("customer_notes" => "New Customer Notes", "terms_and_condititions" => "New Terms", "vat_reverse_charge_notes" => "New VAT Notes");
 
+    // You can also update custom fields through this endpoint
+    $cf = $subscription->custom_fields->offsetGet("shasta");
+    $cf->name = "shasta";
+    $cf->value = "did not eat my tacos";
+
     $subscription->updateNotes($notes);
 
     foreach($notes as $key => $value) {
