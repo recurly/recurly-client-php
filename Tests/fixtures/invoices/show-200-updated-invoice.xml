@@ -1,0 +1,119 @@
+HTTP/1.1 200 OK
+Content-Type: application/xml; charset=utf-8
+
+<?xml version="1.0" encoding="UTF-8"?>
+<invoice href="https://api.recurly.com/v2/invoices/1001">
+  <account href="https://api.recurly.com/v2/accounts/1"/>
+  <subscription href="https://api.recurly.com/v2/subscriptions/1234567890abcdef"/>
+  <all_transactions href="https://api.recurly.com/v2/invoices/1001/transactions"/>
+  <address>
+    <first_name>Spongebob</first_name>
+    <last_name>Squarepants</last_name>
+    <name_on_account>Patrick Star</name_on_account>
+    <company>Krusty Krab</company>
+    <address1>124 Conch Street</address1>
+    <address2>Pineapple</address2>
+    <city>Bikini Bottom</city>
+    <state>Dead Eye Gulch</state>
+    <zip>96970</zip>
+    <country>Pacific Ocean</country>
+    <phone>509-990-3551</phone>
+  </address>
+  <uuid>012345678901234567890123456789aa</uuid>
+  <state>paid</state>
+  <invoice_number type="integer">1001</invoice_number>
+  <invoice_number_prefix></invoice_number_prefix>
+  <po_number>3699</po_number>
+  <vat_number></vat_number>
+  <subtotal_in_cents type="integer">2995</subtotal_in_cents>
+  <tax_in_cents type="integer">0</tax_in_cents>
+  <total_in_cents type="integer">2995</total_in_cents>
+  <currency>USD</currency>
+  <created_at type="datetime">2012-05-28T17:44:13Z</created_at>
+  <closed_at type="datetime">2012-05-28T17:44:13Z</closed_at>
+  <net_terms type="integer">60</net_terms>
+  <collection_method>automatic</collection_method>
+  <tax_type>usst</tax_type>
+  <terms_and_conditions>Never disclose the location of the Krabby Patty secret formula.</terms_and_conditions>
+  <customer_notes>Is this the Krusty Krab?</customer_notes>
+  <vat_reverse_charge_notes>can't be changed when invoice was not a reverse charge</vat_reverse_charge_notes>
+  <subtotal_after_discount_in_cents type="integer">300</subtotal_after_discount_in_cents>
+  <attempt_next_collection_at nil="nil"></attempt_next_collection_at>
+  <recovery_reason nil="nil"></recovery_reason>
+  <tax_types nil="nil"></tax_types>
+  <line_items type="array">
+    <adjustment href="https://api.recurly.com/v2/adjustments/012345678901234567890123456789ab" type="charge">
+      <account href="https://api.recurly.com/v2/accounts/1"/>
+      <invoice href="https://api.recurly.com/v2/invoices/1001"/>
+      <subscription href="https://api.recurly.com/v2/subscriptions/1234567890abcdef"/>
+      <uuid>012345678901234567890123456789ab</uuid>
+      <state>invoiced</state>
+      <description>Silver Plan</description>
+      <accounting_code></accounting_code>
+      <product_code nil="nil"></product_code>
+      <origin>plan</origin>
+      <unit_amount_in_cents type="integer">2995</unit_amount_in_cents>
+      <quantity type="integer">1</quantity>
+      <discount_in_cents type="integer">0</discount_in_cents>
+      <tax_in_cents type="integer">0</tax_in_cents>
+      <total_in_cents type="integer">2995</total_in_cents>
+      <currency>USD</currency>
+      <taxable type="boolean">false</taxable>
+      <start_date type="datetime">2012-05-28T17:44:13Z</start_date>
+      <end_date type="datetime">2013-05-28T17:44:13Z</end_date>
+      <created_at type="datetime">2012-05-28T17:44:13Z</created_at>
+    </adjustment>
+  </line_items>
+  <transactions type="array">
+    <transaction href="https://api.recurly.com/v2/transactions/012345678901234567890123456789ab" type="credit_card">
+      <account href="https://api.recurly.com/v2/accounts/1"/>
+      <invoice href="https://api.recurly.com/v2/invoices/1001"/>
+      <subscription href="https://api.recurly.com/v2/subscriptions/1234567890abcdef"/>
+      <uuid>012345678901234567890123456789ab</uuid>
+      <action>purchase</action>
+      <amount_in_cents type="integer">2995</amount_in_cents>
+      <tax_in_cents type="integer">0</tax_in_cents>
+      <currency>USD</currency>
+      <status>success</status>
+      <payment_method>credit_card</payment_method>
+      <reference>12345</reference>
+      <source>subscription</source>
+      <recurring type="boolean">false</recurring>
+      <test type="boolean">true</test>
+      <voidable type="boolean">true</voidable>
+      <refundable type="boolean">true</refundable>
+      <cvv_result code="M">Match</cvv_result>
+      <avs_result code="D">Street address and postal code match.</avs_result>
+      <avs_result_street>Y</avs_result_street>
+      <avs_result_postal>Y</avs_result_postal>
+      <created_at type="datetime">2012-05-28T17:44:13Z</created_at>
+      <details>
+        <account>
+          <account_code>1</account_code>
+          <first_name>John</first_name>
+          <last_name>Doe</last_name>
+          <company nil="nil"></company>
+          <email>john@example.com</email>
+          <billing_info type="credit_card">
+            <first_name nil="nil"></first_name>
+            <last_name nil="nil"></last_name>
+            <address1 nil="nil"></address1>
+            <address2 nil="nil"></address2>
+            <city nil="nil"></city>
+            <state nil="nil"></state>
+            <zip nil="nil"></zip>
+            <country nil="nil"></country>
+            <phone nil="nil"></phone>
+            <vat_number nil="nil"></vat_number>
+            <card_type>Visa</card_type>
+            <year type="integer">2013</year>
+            <month type="integer">1</month>
+            <first_six>411111</first_six>
+            <last_four>1111</last_four>
+          </billing_info>
+        </account>
+      </details>
+      <a name="refund" href="https://api.recurly.com/v2/transactions/012345678901234567890123456789ab" method="delete"/>
+    </transaction>
+  </transactions>
+</invoice>

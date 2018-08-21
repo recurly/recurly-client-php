@@ -1,5 +1,15 @@
 # Recurly PHP Client Library CHANGELOG
 
+## Version 2.10.4 (August 21st, 2018)
+
+This release will upgrade us to API version 2.14. There are no breaking changes.
+
+* Update php version info [#355](https://github.com/recurly/recurly-client-php/pull/355)
+* Support updating an invoice [#360](https://github.com/recurly/recurly-client-php/pull/360)
+* Fix custom field serialization [#361](https://github.com/recurly/recurly-client-php/pull/361)
+* Support updating custom fields through Subscription#updateNotes [#362](https://github.com/recurly/recurly-client-php/pull/362)
+* Update README [#359](https://github.com/recurly/recurly-client-php/pull/359)
+
 ## Version 2.10.3 (June 26th, 2018)
 
 This release will upgrade us to API version 2.13. There are no breaking changes.
