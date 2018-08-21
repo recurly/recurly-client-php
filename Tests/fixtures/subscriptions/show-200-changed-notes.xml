@@ -35,6 +35,16 @@ Content-Type: application/xml; charset=utf-8
       <quantity type="integer">2</quantity>
     </subscription_add_on>
   </subscription_add_ons>
+  <custom_fields type="array">
+    <custom_field>
+      <name>shasta</name>
+      <value>didn't eat my tacos</value>
+    </custom_field>
+    <custom_field>
+      <name>license-number</name>
+      <value>0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz</value>
+    </custom_field>
+  </custom_fields>
   <a name="cancel" href="https://api.recurly.com/v2/subscriptions/012345678901234567890123456789ab/cancel" method="put"/>
   <a name="terminate" href="https://api.recurly.com/v2/subscriptions/012345678901234567890123456789ab/terminate" method="put"/>
 </subscription>
