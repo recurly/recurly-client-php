@@ -33,19 +33,7 @@ class Recurly_CustomFieldListTest extends Recurly_TestCase
     }
   }
 
-  public function testAssignField() {
-    $field = new Recurly_CustomField();
-    $field->name = 'food';
-    $field->value = 'salsa';
-    $this->assertTrue($field->has_changed());
-    $list = new Recurly_CustomFieldList();
-    $list[] = $field;
-
-    $this->assertEquals('salsa', $list['food']->value);
-    $this->assertEquals("<?xml version=\"1.0\"?>\n<custom_fields><custom_field><name>food</name><value>salsa</value></custom_field></custom_fields>\n", $this->asXml($list));
-  }
-
-  public function testAssignStringValue() {
+  public function testAssignFieldWithStringValue() {
     $list = new Recurly_CustomFieldList();
     $list[] = new Recurly_CustomField('foo', 'bar');
 
@@ -54,7 +42,7 @@ class Recurly_CustomFieldListTest extends Recurly_TestCase
     $this->assertEquals("<?xml version=\"1.0\"?>\n<custom_fields><custom_field><name>foo</name><value>bar</value></custom_field></custom_fields>\n", $this->asXml($list));
   }
 
-  public function testAssignEmptyValue() {
+  public function testAssignFieldWithEmptyValue() {
     $list = new Recurly_CustomFieldList();
     $list[] = new Recurly_CustomField('empty_value', '');
 
@@ -62,7 +50,7 @@ class Recurly_CustomFieldListTest extends Recurly_TestCase
     $this->assertEquals("<?xml version=\"1.0\"?>\n<custom_fields><custom_field><name>empty_value</name><value></value></custom_field></custom_fields>\n", $this->asXml($list));
   }
 
-  public function testAssignNilValue() {
+  public function testAssignFieldWithNilValue() {
     $list = new Recurly_CustomFieldList();
     $list[] = new Recurly_CustomField('nil_value', null);
 
@@ -77,6 +65,21 @@ class Recurly_CustomFieldListTest extends Recurly_TestCase
     $this->assertTrue(isset($list['foo']));
     $this->assertEquals(null, $list['foo']->value);
     $this->assertEquals("<?xml version=\"1.0\"?>\n<custom_fields><custom_field><name>foo</name><value nil=\"nil\"></value></custom_field></custom_fields>\n", $this->asXml($list));
+  }
+
+  public function testSeralizesChanged() {
+    $field = new Recurly_CustomField('foo', 'bar');
+    $list = new Recurly_CustomFieldList();
+    $list[] = $field;
+
+    $this->assertTrue($field->has_changed());
+    setProtectedProperty($field, '_unsavedKeys', []);
+    $this->assertFalse($field->has_changed());
+
+    $list['foo']->value = 'baz';
+    $this->assertEquals('baz', $list['foo']->value);
+    $this->assertTrue($list['foo']->has_changed());
+    $this->assertEquals("<?xml version=\"1.0\"?>\n<custom_fields><custom_field><name>foo</name><value>baz</value></custom_field></custom_fields>\n", $this->asXml($list));
   }
 
   public function testIteration() {

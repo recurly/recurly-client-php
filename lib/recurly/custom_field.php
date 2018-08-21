@@ -19,6 +19,9 @@ class Recurly_CustomField extends Recurly_Resource
   // Recurly_Resource.
   public function populateXmlDoc(&$doc, &$node, &$obj, $nested = false) {
     if ($this->has_changed()) {
+      // If the name as changed so it's always output.
+      $this->_unsavedKeys['name'] = true;
+
       $childNode = $node->appendChild($doc->createElement($this->getNodeName()));
       parent::populateXmlDoc($doc, $childNode, $obj, $nested);
     }

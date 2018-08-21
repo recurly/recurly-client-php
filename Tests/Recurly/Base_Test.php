@@ -9,6 +9,13 @@ function getProtectedProperty($obj, $property) {
   return $property->getValue($obj);
 }
 
+function setProtectedProperty($obj, $property, $value) {
+  $reflection = new ReflectionClass($obj);
+  $property = $reflection->getProperty($property);
+  $property->setAccessible(true);
+  return $property->setValue($obj, $value);
+}
+
 class Recurly_BaseTest extends Recurly_TestCase {
   public function testParsingEmptyXML() {
     $this->client->addResponse('GET', 'abcdef1234567890', 'accounts/empty.xml');
