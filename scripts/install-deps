@@ -1,0 +1,23 @@
+#!/usr/bin/env bash
+set -e
+
+if ! hash brew 2>/dev/null; then
+  echo "✖ Homebrew not found. Please install: https://brew.sh/"
+  exit 1
+else
+  echo "✓ Found homebrew"
+fi
+
+if ! hash composer 2>/dev/null; then
+  read -p "✖ 'composer' not found. Would you like to install it? [Y/n] " -n 1 -r
+  echo
+  if [[ $REPLY =~ ^[Yy]$ ]]
+  then
+    curl -s https://getcomposer.org/installer | php
+    mv composer.phar /usr/local/bin/composer
+  else
+    exit 1
+  fi
+else
+  echo "✓ Found composer"
+fi
