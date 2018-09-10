@@ -51,13 +51,13 @@ class Recurly_ClientResponse
 
     // Do not fail here if the response is not valid XML
     $error = @$this->parseErrorXml($this->body);
+    $recurlyCode = (is_null($error) ? null : $error->symbol);
 
     switch ($this->statusCode) {
       case 0:
         throw new Recurly_ConnectionError('An error occurred while connecting to Recurly.');
       case 400:
         $message = (is_null($error) ? 'Bad API Request' : $error->description);
-        $recurlyCode = (is_null($error) ? null : $error->symbol);
         throw new Recurly_Error($message, 0, null, $recurlyCode);
       case 401:
         throw new Recurly_UnauthorizedError('Your API Key is not authorized to connect to Recurly.');
@@ -65,7 +65,7 @@ class Recurly_ClientResponse
         throw new Recurly_UnauthorizedError('Please use an API key to connect to Recurly.');
       case 404:
         $message = (is_null($error) ? 'Object not found' : $error->description);
-        throw new Recurly_NotFoundError($message);
+        throw new Recurly_NotFoundError($message, 0, null, $recurlyCode);
       case 422:
         // Handled in assertSuccessResponse()
         return;
