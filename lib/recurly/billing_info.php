@@ -33,7 +33,7 @@ class Recurly_BillingInfo extends Recurly_Resource
   }
 
   public function create() {
-    $this->update();
+    $this->_save(Recurly_Client::POST, $this->uri());
   }
   public function update() {
     $this->_save(Recurly_Client::PUT, $this->uri());
