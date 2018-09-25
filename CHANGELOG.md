@@ -1,5 +1,13 @@
 # Recurly PHP Client Library CHANGELOG
 
+## Version 2.10.5 (September 25th, 2018)
+
+This release will upgrade us to API version 2.15. There are no breaking changes.
+
+* Added `scripts` folder [364](https://github.com/recurly/recurly-client-php/pull/364)
+* Provide a correct recurly code when responding with a 404 [366](https://github.com/recurly/recurly-client-php/pull/366)
+* Add support for more webhooks [368](https://github.com/recurly/recurly-client-php/pull/368)
+
 ## Version 2.10.4 (August 21st, 2018)
 
 This release will upgrade us to API version 2.14. There are no breaking changes.
