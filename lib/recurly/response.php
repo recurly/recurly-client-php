@@ -57,7 +57,7 @@ class Recurly_ClientResponse
       case 0:
         throw new Recurly_ConnectionError('An error occurred while connecting to Recurly.');
       case 400:
-        $message = (is_null($error) ? 'Bad API Request' : $error->description);
+        $message = (is_null($error) ? 'Bad API Request' : (string) $error);
         throw new Recurly_Error($message, 0, null, $recurlyCode);
       case 401:
         throw new Recurly_UnauthorizedError('Your API Key is not authorized to connect to Recurly.');
@@ -116,6 +116,9 @@ class Recurly_ClientResponse
           break;
         case 'description':
           $error->description = $node->nodeValue;
+          break;
+        case 'details':
+          $error->details = $node->nodeValue;
           break;
       }
       $node = $node->nextSibling;
