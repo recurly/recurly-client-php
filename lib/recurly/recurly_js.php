@@ -13,6 +13,11 @@ class Recurly_js
   private $data;
 
 
+  /**
+   * Recurly_js constructor.
+   * @param $data
+   * @throws Exception
+   */
   function __construct($data)
   {
     if (!is_array($data)) {
@@ -22,7 +27,12 @@ class Recurly_js
     $this->data = $data;
   }
 
-  // Create a signature with the protected data
+  /**
+   * Create a signature with the protected data
+   *
+   * @return string
+   * @throws Recurly_ConfigurationError
+   */
   public function get_signature()
   {
     $this->data['timestamp'] = $this->utc_timestamp();
@@ -47,14 +57,27 @@ class Recurly_js
     return $rjs->get_signature();
   }
 
-  // Lookup the result of a Recurly.js operation
+  /**
+   * Lookup the result of a Recurly.js operation
+   *
+   * @param $token
+   * @param null $client
+   * @return object
+   * @throws Recurly_Error
+   */
   public static function fetch($token, $client = null)
   {
     $uri = Recurly_Client::PATH_RECURLY_JS_RESULT . '/' . rawurlencode($token);
     return Recurly_Base::_get($uri, $client);
   }
 
-  // Hash a message using the client's private key
+  /**
+   * Hash a message using the client's private key
+   *
+   * @param $message
+   * @return string
+   * @throws Recurly_ConfigurationError
+   */
   public static function _hash($message)
   {
     if (!isset(Recurly_js::$privateKey) || strlen(Recurly_js::$privateKey) != 32) {

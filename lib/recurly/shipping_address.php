@@ -2,6 +2,9 @@
 
 class Recurly_ShippingAddress extends Recurly_Resource
 {
+  /**
+   * @throws Recurly_Error
+   */
   public function update() {
     $this->_save(Recurly_Client::PUT, $this->getHref());
   }

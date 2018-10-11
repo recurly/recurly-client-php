@@ -22,12 +22,9 @@
  * @property string $cancel_url Deprecated URL to redirect to on canceled signup on the hosted payment pages.
  * @property boolean $tax_exempt true exempts tax on the plan, false applies tax on the plan. If not defined, then defaults to the Plan and Site settings.
  * @property string $tax_code Optional field for EU VAT merchants and Avalara AvaTax Pro merchants. If you are using Recurly's EU VAT feature, you can use values of unknown, physical, or digital. If you have your own AvaTax account configured, you can use Avalara tax codes to assign custom tax rules.
- * @property string $plan_code The unique plan code
  * @property string $add_on_code Add-on code. Max of 50 characters.
  * @property string $add_on_type Whether the add-on is Fixed-Price (fixed), or Usage-Based (usage).
  * @property integer $default_quantity Default quantity for the hosted pages.
- * @property Recurly_CurrencyList $unit_amount_in_cents Array of unit amounts with their currency code. Max 10000000.
- * @property string $name Add-on name. Max of 255 characters.
  * @property boolean $display_quantity_on_hosted_page If true, display a quantity field on the hosted pages for the add-on.
  * @property boolean $optional Whether the add-on is optional for the customer to include in their purchase on the hosted payment page.
  * @property string $measured_unit_id The id of the measured unit on your site associated with the add-on.
@@ -44,6 +41,12 @@ class Recurly_Plan extends Recurly_Resource
     $this->unit_amount_in_cents = new Recurly_CurrencyList('unit_amount_in_cents');
   }
 
+  /**
+   * @param string $planCode The plan code
+   * @param Recurly_Client $client Optional client for the request, useful for mocking the client
+   * @return object Recurly_Resource or null
+   * @throws Recurly_Error
+   */
   public static function get($planCode, $client = null) {
     return Recurly_Base::_get(Recurly_Plan::uriForPlan($planCode), $client);
   }
@@ -55,9 +58,20 @@ class Recurly_Plan extends Recurly_Resource
     $this->_save(Recurly_Client::PUT, $this->uri());
   }
 
+  /**
+   * @return object
+   * @throws Recurly_Error
+   */
   public function delete() {
     return Recurly_Base::_delete($this->uri(), $this->_client);
   }
+
+  /**
+   * @param string $planCode The plan code
+   * @param Recurly_Client $client Optional client for the request, useful for mocking the client
+   * @return object Recurly_Resource or null
+   * @throws Recurly_Error
+   */
   public static function deletePlan($planCode, $client = null) {
     return Recurly_Base::_delete(Recurly_Plan::uriForPlan($planCode), $client);
   }

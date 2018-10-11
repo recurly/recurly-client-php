@@ -2,6 +2,8 @@
 
 /**
  * An name/value pair.
+ * @property string $name The name of the custom field
+ * @property string $value The value of the custom field
  */
 class Recurly_CustomField extends Recurly_Resource
 {

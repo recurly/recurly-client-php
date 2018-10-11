@@ -12,6 +12,10 @@ class Recurly_ClientResponse
     $this->body = $body;
   }
 
+  /**
+   * @param $object
+   * @throws Recurly_ValidationError
+   */
   public function assertSuccessResponse($object)
   {
     if ($this->statusCode == 422)
@@ -39,6 +43,9 @@ class Recurly_ClientResponse
     }
   }
 
+  /**
+   * @throws Recurly_Error
+   */
   public function assertValidResponse()
   {
     if (!empty($this->headers['Recurly-Deprecated'])) {

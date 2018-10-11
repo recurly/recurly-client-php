@@ -86,6 +86,10 @@ class Recurly_PushNotification
   var $subscription;
   var $transaction;
   var $invoice;
+  var $credit_payment;
+  var $gift_card;
+  var $shipping_address;
+  var $usage;
 
   function __construct($post_xml)
   {

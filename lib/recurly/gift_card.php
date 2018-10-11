@@ -23,6 +23,11 @@ class Recurly_GiftCard extends Recurly_Resource
 {
   /**
    * Get a gift card by the id
+   *
+   * @param string $giftCardId The gift card ID
+   * @param Recurly_Client $client Optional client for the request, useful for mocking the client
+   * @return object Recurly_Resource or null
+   * @throws Recurly_Error
    */
   public static function get($giftCardId, $client = null) {
     return Recurly_Base::_get(Recurly_GiftCard::uriForGiftCard($giftCardId), $client);
@@ -30,6 +35,10 @@ class Recurly_GiftCard extends Recurly_Resource
 
   /**
    * Redeem a gift card given an account code
+   *
+   * @param string $accountCode The account code
+   *
+   * @throws Recurly_Error
    */
   public function redeem($accountCode) {
     $doc = $this->createDocument();
@@ -48,7 +57,7 @@ class Recurly_GiftCard extends Recurly_Resource
    * Preview the creation and check for errors.
    *
    * Note: once preview() has been called you will not be able to call create()
-   * without reassiging all the attributes.
+   * without reassigning all the attributes.
    */
   public function preview() {
     $this->_save(Recurly_Client::POST, Recurly_Client::PATH_GIFT_CARDS . '/preview');

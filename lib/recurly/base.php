@@ -6,6 +6,8 @@ abstract class Recurly_Base
   protected $_type;
   protected $_client;
   protected $_links;
+  protected $_values;
+  protected $_errors;
 
   public function __construct($href = null, $client = null)
   {
@@ -18,6 +20,8 @@ abstract class Recurly_Base
    * Request the URI, validate the response and return the object.
    * @param string Resource URI, if not fully qualified, the base URL will be prepended
    * @param string Optional client for the request, useful for mocking the client
+   * @return object Recurly_Resource or null
+   * @throws Recurly_Error
    */
   public static function _get($uri, $client = null)
   {
@@ -33,6 +37,7 @@ abstract class Recurly_Base
    * Send a HEAD request to the URI, validate the response and return the headers.
    * @param string Resource URI, if not fully qualified, the base URL will be prepended
    * @param string Optional client for the request, useful for mocking the client
+   * @throws Recurly_Error
    */
   public static function _head($uri, $client = null)
   {
@@ -49,6 +54,8 @@ abstract class Recurly_Base
    * @param string Resource URI, if not fully qualified, the base URL will be prepended
    * @param string Data to post to the URI
    * @param string Optional client for the request, useful for mocking the client
+   * @return object Recurly_Resource or null
+   * @throws Recurly_Error
    */
   protected static function _post($uri, $data = null, $client = null)
   {
@@ -66,6 +73,8 @@ abstract class Recurly_Base
    * Put to the URI, validate the response and return the object.
    * @param string Resource URI, if not fully qualified, the base URL will be prepended
    * @param string Optional client for the request, useful for mocking the client
+   * @return object Recurly_Resource or null
+   * @throws Recurly_Error
    */
   protected static function _put($uri, $client = null)
   {
@@ -74,6 +83,7 @@ abstract class Recurly_Base
     }
     $response = $client->request(Recurly_Client::PUT, $uri);
     $response->assertValidResponse();
+    $object = null;
     if ($response->body) {
       $object = Recurly_Base::__parseResponseToNewObject($response, $uri, $client);
     }
@@ -85,6 +95,8 @@ abstract class Recurly_Base
    * Delete the URI, validate the response and return the object.
    * @param string Resource URI, if not fully qualified, the base URL will be appended
    * @param string Optional client for the request, useful for mocking the client
+   * @return object Recurly_Resource or null
+   * @throws Recurly_Error
    */
   protected static function _delete($uri, $client = null)
   {
