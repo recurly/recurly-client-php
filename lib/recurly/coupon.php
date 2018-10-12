@@ -28,6 +28,7 @@
  * @property DateTime $created_at The date and time the coupon was created.
  * @property DateTime $updated_at The date and time the coupon was last updated.
  * @property DateTime $deleted_at The date and time the coupon was deleted.
+ * @property string $state The state of coupons to return: redeemable, expired, maxed_out, or inactive.
  */
 class Recurly_Coupon extends Recurly_Resource
 {
@@ -38,6 +39,12 @@ class Recurly_Coupon extends Recurly_Resource
     $this->discount_in_cents = new Recurly_CurrencyList('discount_in_cents');
   }
 
+  /**
+   * @param string $couponCode The coupon code
+   * @param Recurly_Client $client Optional client for the request, useful for mocking the client
+   * @return object Recurly_Resource or null
+   * @throws Recurly_Error
+   */
   public static function get($couponCode, $client = null) {
     return Recurly_Base::_get(Recurly_Coupon::uriForCoupon($couponCode), $client);
   }
@@ -46,6 +53,13 @@ class Recurly_Coupon extends Recurly_Resource
     $this->_save(Recurly_Client::POST, Recurly_Client::PATH_COUPONS);
   }
 
+  /**
+   * @param string $accountCode The account code
+   * @param string $currency The currency of
+   * @param string $subscriptionUUID The UUID of the subscription
+   * @return Recurly_CouponRedemption
+   * @throws Recurly_Error
+   */
   public function redeemCoupon($accountCode, $currency, $subscriptionUUID = null) {
     if ($this->state != 'redeemable') {
       throw new Recurly_Error('Coupon is not redeemable.');
@@ -62,6 +76,8 @@ class Recurly_Coupon extends Recurly_Resource
         return $redemption;
       }
     }
+
+    return null;
   }
 
   public function update() {
@@ -72,9 +88,20 @@ class Recurly_Coupon extends Recurly_Resource
     $this->_save(Recurly_Client::PUT, $this->uri() . '/restore', $this->createUpdateXML());
   }
 
+  /**
+   * @return object
+   * @throws Recurly_Error
+   */
   public function delete() {
     return Recurly_Base::_delete($this->uri(), $this->_client);
   }
+
+  /**
+   * @param string $couponCode The coupon code
+   * @param Recurly_Client $client Optional client for the request, useful for mocking the client
+   * @return object Recurly_Resource or null
+   * @throws Recurly_Error
+   */
   public static function deleteCoupon($couponCode, $client = null) {
     return Recurly_Base::_delete(Recurly_Coupon::uriForCoupon($couponCode), $client);
   }
@@ -99,6 +126,11 @@ class Recurly_Coupon extends Recurly_Resource
     return $this->renderXML($doc);
   }
 
+  /**
+   * @param int $number Number of unique codes to generate
+   * @return array
+   * @throws Recurly_Error
+   */
   public function generate($number) {
     $doc = $this->createDocument();
 

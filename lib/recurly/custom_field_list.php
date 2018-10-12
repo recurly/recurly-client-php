@@ -5,6 +5,11 @@
 // values are used to clear a value.
 class Recurly_CustomFieldList extends ArrayObject
 {
+  /**
+   * @param mixed $index
+   * @param object $value Must be instance of Recurly_CustomField
+   * @throws Exception
+   */
   public function offsetSet($index, $value) {
     if (!$value instanceof Recurly_CustomField) {
       throw new Exception("value must be an instance of Recurly_CustomField");

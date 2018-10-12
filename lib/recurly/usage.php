@@ -26,14 +26,28 @@ class Recurly_Usage extends Recurly_Resource
     return $usage;
   }
 
+  /**
+   * @throws Recurly_Error
+   */
   public function create() {
     $this->_save(Recurly_Client::POST, Recurly_Usage::uriForUsages($this->subUuid, $this->addOnCode));
   }
 
+  /**
+   * @throws Recurly_Error
+   */
   public function update() {
     return $this->_save(Recurly_Client::PUT, $this->uri());
   }
 
+  /**
+   * @param $subUuid
+   * @param $addOnCode
+   * @param $usageId
+   * @param Recurly_Client $client Optional client for the request, useful for mocking the client
+   * @return object
+   * @throws Recurly_Error
+   */
   public static function get($subUuid, $addOnCode, $usageId, $client = null) {
     return Recurly_Base::_get(self::uriForUsage($subUuid, $addOnCode, $usageId), $client);
   }

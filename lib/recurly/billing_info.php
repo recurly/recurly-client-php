@@ -19,7 +19,6 @@
  * @property string $phone Phone number
  * @property string $company Customer's company
  * @property string $vat_number Customer's VAT Number
- * @property string $currency Currency in which invoices will be posted. Only applicable if this account is enrolled in a plan has a different currency than your site's default.
  * @property string $verification_value Security code or CVV, 3-4 digits STRONGLY RECOMMENDED
  * @property string $ip_address Customer's IP address when updating their Billing Information STRONGLY RECOMMENDED
  * @property string $external_hpp_type Used to indicate payment made out of band via an external service (e.g. Adyen HPP).
@@ -28,6 +27,12 @@
  */
 class Recurly_BillingInfo extends Recurly_Resource
 {
+  /**
+   * @param string $accountCode The account code
+   * @param Recurly_Client $client Optional client for the request, useful for mocking the client
+   * @return object Recurly_Resource or null
+   * @throws Recurly_Error
+   */
   public static function get($accountCode, $client = null) {
     return Recurly_Base::_get(Recurly_BillingInfo::uriForBillingInfo($accountCode), $client);
   }
@@ -35,17 +40,34 @@ class Recurly_BillingInfo extends Recurly_Resource
   public function create() {
     $this->update();
   }
+
+  /**
+   * @throws Recurly_Error
+   */
   public function update() {
     $this->_save(Recurly_Client::PUT, $this->uri());
   }
 
+  /**
+   * @throws Recurly_Error
+   */
   public function delete() {
     return Recurly_Base::_delete($this->uri(), $this->_client);
   }
+
+  /**
+   * @param string $accountCode The account code
+   * @param Recurly_Client $client Optional client for the request, useful for mocking the client
+   * @return object Recurly_Resource or null
+   * @throws Recurly_Error
+   */
   public static function deleteForAccount($accountCode, $client = null) {
     return Recurly_Base::_delete(Recurly_BillingInfo::uriForBillingInfo($accountCode), $client);
   }
 
+  /**
+   * @throws Recurly_Error
+   */
   protected function uri() {
     if (!empty($this->_href))
       return $this->getHref();

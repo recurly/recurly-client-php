@@ -18,6 +18,7 @@
  * @property string $revenue_schedule_type Optional field for setting a revenue schedule type. This will determine how revenue for the associated Plan should be recognized. When creating a Plan, if you supply an end_date and end_date available schedule types are never, evenly, at_range_start, or at_range_end.
  * @property DateTime $created_at The date and time the add-on was created.
  * @property DateTime $updated_at The date and time the add-on was last updated.
+ * @property string $plan_code Unique code to identify the plan.
  */
 class Recurly_Addon extends Recurly_Resource
 {

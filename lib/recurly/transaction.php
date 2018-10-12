@@ -11,7 +11,6 @@
  * @property integer $tax_in_cents Amount of tax or VAT within the transaction, in cents.
  * @property string $currency 3-letter currency for the transaction.
  * @property string $status success, declined, or void.
- * @property string $payment_method credit_card, paypal, check, wire_transfer, money_order.
  * @property string $reference Transaction reference from your payment gateway.
  * @property string $source Source of the transaction. Possible values: transaction for one-time transactions, subscription for subscriptions, billing_info for updating billing info.
  * @property boolean $recurring True if transaction is recurring.
@@ -31,29 +30,36 @@
  * @property string $merchant_message For declined transactions, the message displayed to the merchant (if applicable).
  * @property string $customer_message For declined transactions, the message displayed to the customer (if applicable).
  * @property string $gateway_error_code For declined transactions, this field lists the gateway error code sent to us from the gateway (if applicable).
- * @property string $payment_method The method of payment: The method of payment: (credit_card, paypal, eft, wire_transfer, money_order, check, or other).
+ * @property string $payment_method The method of payment: (credit_card, paypal, eft, wire_transfer, money_order, check, or other).
  * @property DateTime $collected_at Date payment was collected
  * @property string $product_code Merchant defined product code
  */
 class Recurly_Transaction extends Recurly_Resource
 {
- /**
-  * Get Tranasction by uuid
-  * 
-  * @param string $uuid
-  * @param Recurly_Client $client optional
-  * @return Recurly_Transaction
-  */
+  /**
+   * Get Transaction by uuid
+   *
+   * @param string $uuid
+   * @param Recurly_Client $client Optional client for the request, useful for mocking the client
+   * @return object Recurly_Transaction
+   * @throws Recurly_Error
+   */
   public static function get($uuid, $client = null) {
     return Recurly_Base::_get(Recurly_Transaction::uriForTransaction($uuid), $client);
   }
 
+  /**
+   * @throws Recurly_Error
+   */
   public function create() {
     $this->_save(Recurly_Client::POST, Recurly_Client::PATH_TRANSACTIONS);
   }
 
   /**
    * Refund a previous, successful transaction
+   *
+   * @param int $amountInCents
+   * @throws Recurly_Error
    */
   public function refund($amountInCents = null) {
     $uri = $this->uri();
@@ -65,12 +71,18 @@ class Recurly_Transaction extends Recurly_Resource
 
   /**
    * Attempt a void, otherwise refund
+   *
+   * @throws Recurly_Error
    */
   public function void() {
     trigger_error('Deprecated method: void(). Use refund() instead.', E_USER_NOTICE);
     $this->refund();
   }
 
+  /**
+   * @return null|string
+   * @throws Recurly_Error
+   */
   protected function uri() {
     if (!empty($this->_href))
       return $this->getHref();

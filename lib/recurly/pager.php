@@ -16,6 +16,7 @@ abstract class Recurly_Pager extends Recurly_Base implements Iterator, Countable
    * all records. Otherwise it'll return the count of the cached _objects.
    *
    * @return integer number of records in list
+   * @throws Recurly_Error
    */
   public function count() {
     if (isset($this->_href)) {
@@ -32,6 +33,8 @@ abstract class Recurly_Pager extends Recurly_Base implements Iterator, Countable
 
   /**
    * Rewind to the beginning
+   *
+   * @throws Recurly_Error
    */
   public function rewind() {
     $this->_loadFrom($this->_href);
@@ -40,7 +43,9 @@ abstract class Recurly_Pager extends Recurly_Base implements Iterator, Countable
 
   /**
    * The current object
+   *
    * @return Recurly_Resource the current object
+   * @throws Recurly_Error
    */
   public function current()
   {
@@ -85,6 +90,9 @@ abstract class Recurly_Pager extends Recurly_Base implements Iterator, Countable
 
   /**
    * Load another page of results into this pager.
+   *
+   * @param $uri
+   * @throws Recurly_Error
    */
   protected function _loadFrom($uri) {
     if (empty($uri)) {
@@ -115,6 +123,8 @@ abstract class Recurly_Pager extends Recurly_Base implements Iterator, Countable
   /**
    * The 'Links' header contains links to the next, previous, and starting pages.
    * This parses the links header into an array of links if the header is present.
+   *
+   * @param $response
    */
   private function _loadLinks($response) {
     $this->_links = array();

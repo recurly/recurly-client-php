@@ -21,9 +21,10 @@ class Recurly_Purchase extends Recurly_Resource
   /**
    * Send the purchase data to the server and creates an invoice.
    *
-   * @param Recurly_Purchase Our purchase data.
-   * @param RecurlyClient Optional client for the request, useful for mocking the client
-   * @return Recurly_InvoiceCollection
+   * @param $purchase Recurly_Purchase Our purchase data.
+   * @param Recurly_Client $client Optional client for the request, useful for mocking the client
+   * @return object Recurly_InvoiceCollection
+   * @throws Recurly_Error
    */
   public static function invoice($purchase, $client = null) {
     return Recurly_Base::_post('/purchases', $purchase->xml(), $client);
@@ -33,9 +34,10 @@ class Recurly_Purchase extends Recurly_Resource
    * Send the purchase data to the server and create a preview invoice. This runs
    * the validations but not the transactions.
    *
-   * @param Recurly_Purchase Our purchase data.
-   * @param RecurlyClient Optional client for the request, useful for mocking the client
-   * @return Recurly_InvoiceCollection
+   * @param $purchase Recurly_Purchase Our purchase data.
+   * @param Recurly_Client $client Optional client for the request, useful for mocking the client
+   * @return object Recurly_InvoiceCollection
+   * @throws Recurly_Error
    */
   public static function preview($purchase, $client = null) {
     return Recurly_Base::_post('/purchases/preview', $purchase->xml(), $client);
@@ -48,9 +50,10 @@ class Recurly_Purchase extends Recurly_Resource
    * has been completed on an external source (e.g. Adyen's Hosted
    * Payment Pages).
    *
-   * @param Recurly_Purchase Our purchase data.
-   * @param RecurlyClient Optional client for the request, useful for mocking the client
-   * @return Recurly_InvoiceCollection
+   * @param $purchase Recurly_Purchase Our purchase data.
+   * @param Recurly_Client $client Optional client for the request, useful for mocking the client
+   * @return object Recurly_InvoiceCollection
+   * @throws Recurly_Error
    */
   public static function authorize($purchase, $client = null) {
     return Recurly_Base::_post('/purchases/authorize', $purchase->xml(), $client);
@@ -60,9 +63,10 @@ class Recurly_Purchase extends Recurly_Resource
    * Use for Adyen HPP transaction requests. This runs
    * the validations but not the transactions.
    *
-   * @param Recurly_Purchase Our purchase data.
-   * @param RecurlyClient Optional client for the request, useful for mocking the client
-   * @return Recurly_InvoiceCollection
+   * @param $purchase Recurly_Purchase Our purchase data.
+   * @param Recurly_Client $client Optional client for the request, useful for mocking the client
+   * @return object Recurly_InvoiceCollection
+   * @throws Recurly_Error
    */
   public static function pending($purchase, $client = null) {
     return Recurly_Base::_post('/purchases/pending', $purchase->xml(), $client);

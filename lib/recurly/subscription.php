@@ -39,6 +39,9 @@
  * @property DateTime $next_bill_date Previously named next_renewal_date. Specifies a future date that the subscription’s next  billing period should be billed.
  * @property DateTime $current_term_started_at Start date of the subscription’s current term. Will equal the future start date if subscription was created in the future state.
  * @property DateTime $current_term_ends_at End date of the subscription’s current term. Will be null if subscription has future start date.
+ * @property Recurly_CustomFieldList $custom_fields Optional custom fields for the subscription.
+ * @property string $uuid Subscription's unique identifier.
+ * @property string $timeframe now for immediate, renewal to perform when the subscription renews. Defaults to now.
  */
 class Recurly_Subscription extends Recurly_Resource
 {
@@ -48,10 +51,19 @@ class Recurly_Subscription extends Recurly_Resource
     $this->custom_fields = new Recurly_CustomFieldList();
   }
 
+  /**
+   * @param $uuid
+   * @param Recurly_Client $client Optional client for the request, useful for mocking the client
+   * @return object
+   * @throws Recurly_Error
+   */
   public static function get($uuid, $client = null) {
     return Recurly_Base::_get(Recurly_Subscription::uriForSubscription($uuid), $client);
   }
 
+  /**
+   * @throws Recurly_Error
+   */
   public function create() {
     $this->_save(Recurly_Client::POST, Recurly_Client::PATH_SUBSCRIPTIONS);
   }
@@ -61,6 +73,8 @@ class Recurly_Subscription extends Recurly_Resource
    *
    * Note: once preview() has been called you will not be able to call create()
    * or save() without reassiging all the attributes.
+   *
+   * @throws Recurly_Error
    */
   public function preview() {
     if ($this->uuid) {
@@ -72,13 +86,18 @@ class Recurly_Subscription extends Recurly_Resource
 
   /**
    * Cancel the subscription; it will remain active until it renews.
+   *
+   * @throws Recurly_Error
    */
   public function cancel() {
     $this->_save(Recurly_Client::PUT, $this->uri() . '/cancel');
   }
+
   /**
    * Reactivate a canceled subscription. The subscription will return back to the active,
    * auto renewing state.
+   *
+   * @throws Recurly_Error
    */
   public function reactivate() {
     $this->_save(Recurly_Client::PUT, $this->uri() . '/reactivate');
@@ -86,6 +105,8 @@ class Recurly_Subscription extends Recurly_Resource
 
   /**
    * Make an update that takes effect immediately.
+   *
+   * @throws Recurly_Error
    */
   public function updateImmediately() {
     $this->timeframe = 'now';
@@ -94,6 +115,8 @@ class Recurly_Subscription extends Recurly_Resource
 
   /**
    * Make an update that applies when the subscription renews.
+   *
+   * @throws Recurly_Error
    */
   public function updateAtRenewal() {
     $this->timeframe = 'renewal';
@@ -103,22 +126,33 @@ class Recurly_Subscription extends Recurly_Resource
 
   /**
    * Terminate the subscription immediately and issue a full refund of the last renewal
+   *
+   * @throws Recurly_Error
    */
   public function terminateAndRefund() {
     $this->terminate('full');
   }
   /**
    * Terminate the subscription immediately and issue a prorated/partial refund of the last renewal
+   *
+   * @throws Recurly_Error
    */
   public function terminateAndPartialRefund() {
     $this->terminate('partial');
   }
   /**
    * Terminate the subscription immediately without a refund
+   *
+   * @throws Recurly_Error
    */
   public function terminateWithoutRefund() {
     $this->terminate('none');
   }
+
+  /**
+   * @param $refundType Types include none, partial, or full refund processed on the subscription charges
+   * @throws Recurly_Error
+   */
   private function terminate($refundType) {
     $this->_save(Recurly_Client::PUT, $this->uri() . '/terminate?refund=' . $refundType);
   }
@@ -126,9 +160,10 @@ class Recurly_Subscription extends Recurly_Resource
   /**
    * Postpone a subscription's renewal date.
    *
-   * @param String ISO8601 DateTime String, postpone the subscription to this date
-   * @param Boolean bulk is for making bulk updates, setting to true bypasses api check for accidental duplicate subscriptions.
-   **/
+   * @param string $nextRenewalDate ISO8601 DateTime String, postpone the subscription to this date
+   * @param bool $bulk for making bulk updates, setting to true bypasses api check for accidental duplicate subscriptions.
+   * @throws Recurly_Error
+   */
   public function postpone($nextRenewalDate, $bulk = false) {
     $this->_save(Recurly_Client::PUT, $this->uri() . '/postpone?next_renewal_date=' . $nextRenewalDate . '&bulk=' . ((bool) $bulk));
   }
@@ -136,27 +171,29 @@ class Recurly_Subscription extends Recurly_Resource
   /**
    * Updates the notes fields of the subscription without generating a SubscriptionChange.
    *
-   * @param array of notes, allowed keys: (customer_notes, terms_and_conditions, vat_reverse_charge_notes)
-   **/
+   * @param array $notes Array of notes, allowed keys: (customer_notes, terms_and_conditions, vat_reverse_charge_notes)
+   * @throws Recurly_Error
+   */
   public function updateNotes($notes) {
     $this->setValues($notes)->_save(Recurly_Client::PUT, $this->uri() . '/notes');
   }
 
   /**
-    * Pauses a subscription or cancels a scheduled pause.
-    *
-    * - For an active subscription without a pause scheduled already,
-    * this will schedule a pause period to begin at the next renewal
-    * date for the specified number of billing cycles (remaining_pause_cycles).
-    * - For an active subscription with a scheduled pause, this will update the remaining
-    * pause cycles with the new value sent. When zero (0) remaining_pause_cycles
-    * is sent for a subscription with a scheduled pause, the pause will be canceled.
-    * - For a paused subscription, the remaining_pause_cycles will adjust the
-    * length of the current pause period. Sending zero (0) in the remaining_pause_cycles
-    * field will cause the subscription to be resumed at the next renewal date.
-    *
-    * @param integer remaining_pause_cycles The number of billing cycles that the subscription will be paused.
-    **/
+   * Pauses a subscription or cancels a scheduled pause.
+   *
+   * - For an active subscription without a pause scheduled already,
+   * this will schedule a pause period to begin at the next renewal
+   * date for the specified number of billing cycles (remaining_pause_cycles).
+   * - For an active subscription with a scheduled pause, this will update the remaining
+   * pause cycles with the new value sent. When zero (0) remaining_pause_cycles
+   * is sent for a subscription with a scheduled pause, the pause will be canceled.
+   * - For a paused subscription, the remaining_pause_cycles will adjust the
+   * length of the current pause period. Sending zero (0) in the remaining_pause_cycles
+   * field will cause the subscription to be resumed at the next renewal date.
+   *
+   * @param integer $remaining_pause_cycles The number of billing cycles that the subscription will be paused.
+   * @throws Recurly_Error
+   */
   public function pause($remaining_pause_cycles) {
     $doc = $this->createDocument();
     $root = $doc->appendChild($doc->createElement($this->getNodeName()));
@@ -171,7 +208,9 @@ class Recurly_Subscription extends Recurly_Resource
    * from the pause, produce an invoice, and return the newly resumed subscription.
    * Any at-renewal subscription changes will be immediately applied
    * when the subscription resumes.
-   **/
+   *
+   * @throws Recurly_Error
+   */
   public function resume() {
     $this->_save(Recurly_Client::PUT, $this->uri() . '/resume');
   }
@@ -184,6 +223,10 @@ class Recurly_Subscription extends Recurly_Resource
     return Recurly_UsageList::get($this->uuid, $addOnCode, $params);
   }
 
+  /**
+   * @return null|string
+   * @throws Recurly_Error
+   */
   protected function uri() {
     if (!empty($this->_href))
       return $this->getHref();

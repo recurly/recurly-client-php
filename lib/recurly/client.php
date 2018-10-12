@@ -85,6 +85,13 @@ class Recurly_Client
     $this->_acceptLanguage = $acceptLanguage;
   }
 
+  /**
+   * @param string $method The HTTP method
+   * @param string $uri The URI
+   * @param string $data XML string to post to the URI
+   * @return Recurly_ClientResponse
+   * @throws Recurly_Error
+   */
   public function request($method, $uri, $data = null)
   {
     return $this->_sendRequest($method, $uri, $data);
@@ -103,14 +110,16 @@ class Recurly_Client
   }
 
   /**
-  * Sends an HTTP request to the Recurly API
-  *
-  * @param string  $method Specifies the HTTP method to be used for this request
-  * @param string  $uri    Target URI for this request (relative to the API root)
-  * @param mixed   $data   x-www-form-urlencoded data (or array) to be sent in a POST request body
-  *
-  * @return $code, $response
-  */
+   * Sends an HTTP request to the Recurly API
+   *
+   * @param string  $method Specifies the HTTP method to be used for this request
+   * @param string  $uri    Target URI for this request (relative to the API root)
+   * @param mixed   $data   x-www-form-urlencoded data (or array) to be sent in a POST request body
+   *
+   * @return Recurly_ClientResponse
+   *
+   * @throws Recurly_Error
+   */
   private function _sendRequest($method, $uri, $data = '')
   {
     if(function_exists('mb_internal_encoding'))
@@ -200,6 +209,11 @@ class Recurly_Client
     return $returnHeaders;
   }
 
+  /**
+   * @param int $errorNumber The curl error number
+   * @param string $message The error message
+   * @throws Recurly_Error
+   */
   private function _raiseCurlError($errorNumber, $message)
   {
     switch ($errorNumber) {
@@ -220,6 +234,7 @@ class Recurly_Client
    *
    * @param string    $uri          Target URI for the request (complete URL)
    * @param resource  $file_pointer Resourced returned from fopen() with write mode.
+   * @throws Recurly_Error
    */
   public function getFile($uri, $file_pointer) {
     $ch = curl_init();
@@ -254,6 +269,7 @@ class Recurly_Client
   * @param  string $uri      Target URI for this request (relative to the API root)
   * @param  string $locale   Locale for the PDF invoice (e.g. "en-GB", "en-US", "fr")
   * @return string $response PDF document
+  * @throws Recurly_Error
   */
   public function getPdf($uri, $locale = null)
   {

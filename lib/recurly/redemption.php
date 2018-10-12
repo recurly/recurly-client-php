@@ -13,15 +13,28 @@
  * @property string $coupon_code The coupon code of the coupon used.
  * @property DateTime $created_at The date and time the redemption was created in Recurly.
  * @property DateTime $updated_at The date and time the redemption was last updated.
+ * @property string $account_code The account code
+ * @property string $subscription_uuid The subscription UUID
  */
 class Recurly_CouponRedemption extends Recurly_Resource
 {
   protected static $_redeemUrl;
 
+  /**
+   * @param string $accountCode The account code
+   * @param Recurly_Client $client Optional client for the request, useful for mocking the client
+   * @return object
+   * @throws Recurly_Error
+   */
   public static function get($accountCode, $client = null) {
     return Recurly_Base::_get(Recurly_CouponRedemption::uriForAccount($accountCode), $client);
   }
 
+  /**
+   * @param string $accountCode The account code
+   * @return object
+   * @throws Recurly_Error
+   */
   public function delete($accountCode = null) {
     return Recurly_Base::_delete($this->uri($accountCode), $this->_client);
   }

@@ -13,6 +13,12 @@ class Recurly_MeasuredUnit extends Recurly_Resource
     $this->_save(Recurly_Client::POST, Recurly_Client::PATH_MEASURED_UNITS);
   }
 
+  /**
+   * @param $id
+   * @param Recurly_Client $client Optional client for the request, useful for mocking the client
+   * @return object
+   * @throws Recurly_Error
+   */
   public static function get($id, $client = null) {
     return Recurly_Base::_get(Recurly_MeasuredUnit::uriForMeasuredUnit($id), $client);
   }
@@ -21,7 +27,7 @@ class Recurly_MeasuredUnit extends Recurly_Resource
     if (!empty($this->_href))
       return $this->getHref();
     else
-      return Recurly_Addon::uriForMeasuredUnit($this->id);
+      return Recurly_MeasuredUnit::uriForMeasuredUnit($this->id);
   }
   protected static function uriForMeasuredUnit($id) {
     return Recurly_Client::PATH_MEASURED_UNITS . '/' . rawurlencode($id);
