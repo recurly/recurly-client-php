@@ -461,7 +461,31 @@ abstract class Recurly_Base
       return $new_obj;
     }
   }
+
+  /**
+   * Return the ID of a resource, using only the href property.
+   *
+   * This is most useful for stub objects that haven't been retrieved yet,
+   * where only the ID is needed instead of the full object.
+   *
+   * @throws Recurly_Href_Undefined_Exception
+   *   Thrown when an href was not set when constructing the object.
+   *
+   * @return string
+   *   The ID of the Recurly resource, such as a UUID or plan code.
+   */
+  public function idFromHref() {
+    if (!isset($this->_href)) {
+      throw new Recurly_Href_Undefined_Exception();
+    }
+
+    // This assumes that the end of _href is an ID.
+    $parts = parse_url($this->_href);
+    $path_parts = explode('/', $parts['path']);
+    return end($path_parts);
+  }
 }
 
 // In case node_class is not specified.
 class Recurly_Object {}
+class Recurly_Href_Undefined_Exception extends Exception {}
