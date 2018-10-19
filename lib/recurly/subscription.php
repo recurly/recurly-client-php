@@ -127,34 +127,39 @@ class Recurly_Subscription extends Recurly_Resource
   /**
    * Terminate the subscription immediately and issue a full refund of the last renewal
    *
+   * @param bool $charge If true, unbilled usage is billed on final invoice, else negative usage record created to zero out final invoice.
    * @throws Recurly_Error
    */
-  public function terminateAndRefund() {
-    $this->terminate('full');
+  public function terminateAndRefund($charge = true) {
+    $this->terminate('full', $charge);
   }
   /**
    * Terminate the subscription immediately and issue a prorated/partial refund of the last renewal
    *
+   * @param bool $charge If true, unbilled usage is billed on final invoice, else negative usage record created to zero out final invoice.
    * @throws Recurly_Error
    */
-  public function terminateAndPartialRefund() {
-    $this->terminate('partial');
+  public function terminateAndPartialRefund($charge = true) {
+    $this->terminate('partial', $charge);
   }
   /**
    * Terminate the subscription immediately without a refund
    *
+   * @param bool $charge If true, unbilled usage is billed on final invoice, else negative usage record created to zero out final invoice.
    * @throws Recurly_Error
    */
-  public function terminateWithoutRefund() {
-    $this->terminate('none');
+  public function terminateWithoutRefund($charge = true) {
+    $this->terminate('none', $charge);
   }
 
   /**
-   * @param $refundType Types include none, partial, or full refund processed on the subscription charges
+   * @param string $refundType Types include none, partial, or full refund processed on the subscription charges
+   * @param bool $charge If true, unbilled usage is billed on final invoice, else negative usage record created to zero out final invoice.
    * @throws Recurly_Error
    */
-  private function terminate($refundType) {
-    $this->_save(Recurly_Client::PUT, $this->uri() . '/terminate?refund=' . $refundType);
+  private function terminate($refundType, $charge) {
+    $chargeString = ($charge) ? 'true' : 'false';
+    $this->_save(Recurly_Client::PUT, $this->uri() . '/terminate?refund=' . $refundType . '&charge=' . $chargeString);
   }
 
   /**
