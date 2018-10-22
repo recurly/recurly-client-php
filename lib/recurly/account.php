@@ -104,7 +104,7 @@ class Recurly_Account extends Recurly_Resource
       'account_code', 'username', 'first_name', 'last_name', 'vat_number',
       'email', 'company_name', 'accept_language', 'billing_info', 'address',
       'tax_exempt', 'entity_use_code', 'cc_emails', 'shipping_addresses',
-      'preferred_locale', 'custom_fields'
+      'preferred_locale', 'custom_fields', 'account_acquisition'
     );
   }
   protected function getRequiredAttributes() {
