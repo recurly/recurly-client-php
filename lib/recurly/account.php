@@ -32,6 +32,7 @@
  * @property DateTime $created_at The date and time the account was created in Recurly.
  * @property DateTime $updated_at The date and time the account or its billing info was last updated.
  * @property DateTime $closed_at For closed accounts, the date and time it was closed.
+ * @property Recurly_AccountAcquisition $account_acquisition The nested account acquisition information: cost_in_cents, currency, channel, subchannel, campaign.
  */
 class Recurly_Account extends Recurly_Resource
 {
@@ -104,7 +105,7 @@ class Recurly_Account extends Recurly_Resource
       'account_code', 'username', 'first_name', 'last_name', 'vat_number',
       'email', 'company_name', 'accept_language', 'billing_info', 'address',
       'tax_exempt', 'entity_use_code', 'cc_emails', 'shipping_addresses',
-      'preferred_locale', 'custom_fields'
+      'preferred_locale', 'custom_fields', 'account_acquisition'
     );
   }
   protected function getRequiredAttributes() {
