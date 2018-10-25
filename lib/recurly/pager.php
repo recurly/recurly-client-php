@@ -59,6 +59,9 @@ abstract class Recurly_Pager extends Recurly_Base implements Iterator, Countable
         $this->_loadFrom($this->_links['next']);
         $this->_position = 0;
       }
+      else if (empty($this->_objects) && ($this->_position == 0)) {
+        return null;
+      }
       else {
         throw new Recurly_Error("Pager is not in a valid state");
       }
