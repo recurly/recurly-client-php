@@ -115,4 +115,24 @@ class Recurly_PagerTest extends Recurly_TestCase
     $this->assertIteratesCorrectly($pager, 4);
     $this->assertEquals(4, count($pager), 'Count is unchanged after iterating');
   }
+
+  public function testFromEmpty() {
+    $relative_url = '/mocks';
+    $this->client->addResponse('GET', $relative_url, 'pager/index-empty-200.xml');
+
+    $pager = new Mock_Pager($relative_url, $this->client);
+    $pager->_loadFrom($relative_url);
+
+    $this->assertEquals($pager->current(), null);
+  }
+
+  public function testFromEmptyNested() {
+    $relative_url = '/mocks';
+    $this->client->addResponse('GET', $relative_url, 'pager/show-empty-200.xml');
+
+    $pager = new Mock_Pager($relative_url, $this->client);
+    $pager->_loadFrom($relative_url);
+
+    $this->assertEquals($pager->current(), null);
+  }
 }
