@@ -1,5 +1,15 @@
 # Recurly PHP Client Library CHANGELOG
 
+## Version 2.10.6 (October 30th, 2018)
+
+This release will upgrade us to API version 2.16. There are no breaking changes.
+
+* Added `details` to error messages [372](https://github.com/recurly/recurly-client-php/pull/372)
+* Added `charge` parameter to subscription termination functions [374](https://github.com/recurly/recurly-client-php/pull/374)
+* Fixed errors reported by PHPStorm [375](https://github.com/recurly/recurly-client-php/pull/375)
+* Added `account_acquisition` attribute to `account` [377](https://github.com/recurly/recurly-client-php/pull/377)
+* Fixed pager so it does not break when there is no data [378](https://github.com/recurly/recurly-client-php/pull/378)
+
 ## Version 2.10.5 (September 25th, 2018)
 
 This release will upgrade us to API version 2.15. There are no breaking changes.
