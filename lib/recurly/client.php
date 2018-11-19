@@ -27,7 +27,7 @@ class Recurly_Client
   /**
    * API Version
    */
-  public static $apiVersion = '2.16';
+  public static $apiVersion = '2.17';
 
   /**
    * The path to your CA certs. Use only if needed (if you can't fix libcurl/php).
