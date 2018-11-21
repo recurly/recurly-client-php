@@ -18,6 +18,7 @@ Content-Type: application/xml; charset=utf-8
   <vat_number>ST-1937</vat_number>
   <entity_use_code>I</entity_use_code>
   <tax_exempt type="boolean">true</tax_exempt>
+  <exemption_certificate>Some Certificate</exemption_certificate>
   <preferred_locale>en-US</preferred_locale>
   <address>
     <address1>123 Main St.</address1>
