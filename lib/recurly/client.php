@@ -73,8 +73,6 @@ class Recurly_Client
   const PATH_MEASURED_UNITS = '/measured_units';
   const PATH_USAGE = '/usage';
 
-  const PATH_RECURLY_JS_RESULT = '/recurly_js/result';
-
   /**
    * Create a new Recurly Client
    * @param string API key. Do not specify to use the default API key (which must be set at the static variable)

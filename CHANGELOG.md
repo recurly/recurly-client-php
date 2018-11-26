@@ -1,5 +1,13 @@
 # Recurly PHP Client Library CHANGELOG
 
+## Unreleased
+* Remove Recurly.js v2 code
+
+### Upgrade Notes
+
+This release contains the following breaking changes:
+- Older Recurly.js token signing is not longer supported. You should upgrade to version 4 of Recurly.js: https://dev.recurly.com/docs/recurlyjs
+
 ## Version 2.10.6 (October 30th, 2018)
 
 This release will upgrade us to API version 2.16. There are no breaking changes.
