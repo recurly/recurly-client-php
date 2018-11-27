@@ -8,6 +8,7 @@ abstract class Recurly_Base
   protected $_links;
   protected $_values;
   protected $_errors;
+  protected $_headers;
 
   public function __construct($href = null, $client = null)
   {
@@ -177,6 +178,21 @@ abstract class Recurly_Base
     $this->_href = $href;
   }
 
+
+  /**
+   * @param array $headers
+   */
+  private function setHeaders($headers){
+        $this->_headers = $headers;
+  }
+
+  /**
+   * @return array|null
+   */
+  public function getHeaders(){
+      return $this->_headers;
+  }
+
   /** Refers to the `type` root xml attribute **/
   public function getType() {
     return $this->_type;
@@ -277,6 +293,7 @@ abstract class Recurly_Base
     Recurly_Resource::__parseXmlToObject($rootNode->firstChild, $obj);
     if ($obj instanceof self) {
       $obj->_afterParseResponse($response, $uri);
+      $obj->setHeaders($response->headers);
     }
     return $obj;
   }
