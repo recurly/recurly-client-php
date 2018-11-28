@@ -63,5 +63,4 @@ require_once(dirname(__FILE__) . '/recurly/gift_card_list.php');
 require_once(dirname(__FILE__) . '/recurly/delivery.php');
 
 require_once(dirname(__FILE__) . '/recurly/push_notification.php');
-require_once(dirname(__FILE__) . '/recurly/recurly_js.php');
 require_once(dirname(__FILE__) . '/recurly/util/hmac_hash.php');
