@@ -192,7 +192,7 @@ class Recurly_Client
   }
 
   private static function __userAgent() {
-    return "User-Agent: Recurly/" . self::API_CLIENT_VERSION . '; PHP ' . phpversion() . ' [' . php_uname('s') . ']';
+    return "User-Agent: Recurly/" . self::API_CLIENT_VERSION . '; PHP ' . phpversion() . ' [' . php_uname('s') . ']; ' . OPENSSL_VERSION_TEXT;
   }
 
   private function _getHeaders($headerText)
