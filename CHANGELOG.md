@@ -1,12 +1,17 @@
 # Recurly PHP Client Library CHANGELOG
 
-## Unreleased
-* Remove Recurly.js v2 code
+## Version 2.11.0 (December 11th, 2018)
+
+This release will upgrade us to API version 2.17.
+
+* Add `gateway_code` to Subscription and Invoice objects [PR](https://github.com/recurly/recurly-client-php/pull/380)
+* Add `exemption_certificate` to Account object [PR](https://github.com/recurly/recurly-client-php/pull/381)
+* Remove deprecated JS module [PR](https://github.com/recurly/recurly-client-php/pull/382)
+* Add `getHeaders()` method [PR](https://github.com/recurly/recurly-client-php/pull/383)
+* Add OpenSSL version to user agent [PR](https://github.com/recurly/recurly-client-php/pull/384)
 
 ### Upgrade Notes
-
-This release contains the following breaking changes:
-- Older Recurly.js token signing is not longer supported. You should upgrade to version 4 of Recurly.js: https://dev.recurly.com/docs/recurlyjs
+This release contains one breaking change. Older Recurly.js token signing is not longer supported. You should upgrade to version 4 of Recurly.js: https://dev.recurly.com/docs/recurlyjs
 
 ## Version 2.10.6 (October 30th, 2018)
 

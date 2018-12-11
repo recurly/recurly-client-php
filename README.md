@@ -22,7 +22,7 @@ section, there's a line that says something like:
 libcurl/7.19.5 OpenSSL/1.0.1g zlib/1.2.3.3 libidn/1.15
 ```
 
-Please ensure that your OpenSSL version supports TLS v1.1 or higher. At a minimum use v1.0.1g, however we recommend v1.1.0 and up.
+Please ensure that your OpenSSL version supports TLS v1.2 or higher.
 
 ### Timezone
 You will need to specify your server's timezone before using the Recurly PHP client. This is necessary for the library to properly handle datetime conversions. You can do this in your `php.ini` file:
@@ -43,12 +43,12 @@ date_default_timezone_set('America/Los_Angeles');
 
 If you're using [Composer](http://getcomposer.org/), you can simply add a
 dependency on `recurly/recurly-client` to your project's `composer.json` file.
-Here's an example of a dependency on 2.10:
+Here's an example of a dependency on 2.11:
 
 ```json
 {
     "require": {
-        "recurly/recurly-client": "2.10.*"
+        "recurly/recurly-client": "2.11.*"
     }
 }
 ```
