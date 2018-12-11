@@ -19,6 +19,7 @@
  * @property string $company_name The company name of the account.
  * @property string $vat_number The VAT number of the account (to avoid having the VAT applied).
  * @property boolean $tax_exempt The tax status of the account. true exempts tax on the account, false applies tax on the account.
+ * @property string $exemption_certificate Optional field for merchants taxing through Vertex. A string representing the exemption certificate. 1-30 characters in length.
  * @property Recurly_Address $address The nested address information of the account: address1, address2, city, state, zip, country, phone.
  * @property string $accept_language The ISO 639-1 language code from the user's browser, indicating their preferred language and locale.
  * @property string $hosted_login_token The unique token for automatically logging the account in to the hosted management pages. You may automatically log the user into their hosted management pages by directing the user to: https://:subdomain.recurly.com/account/:hosted_login_token.
@@ -105,7 +106,7 @@ class Recurly_Account extends Recurly_Resource
       'account_code', 'username', 'first_name', 'last_name', 'vat_number',
       'email', 'company_name', 'accept_language', 'billing_info', 'address',
       'tax_exempt', 'entity_use_code', 'cc_emails', 'shipping_addresses',
-      'preferred_locale', 'custom_fields', 'account_acquisition'
+      'preferred_locale', 'custom_fields', 'account_acquisition', 'exemption_certificate'
     );
   }
   protected function getRequiredAttributes() {

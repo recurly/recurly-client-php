@@ -27,6 +27,7 @@ class Recurly_AccountTest extends Recurly_TestCase
     $this->assertEquals($account->created_at->getTimestamp(), 1304164800);
     $this->assertEquals($account->getHref(),'https://api.recurly.com/v2/accounts/abcdef1234567890');
     $this->assertTrue($account->tax_exempt);
+    $this->assertEquals($account->exemption_certificate, 'Some Certificate');
     $this->assertEquals($account->entity_use_code, 'I');
     $this->assertEquals($account->vat_location_valid, true);
     $this->assertEquals($account->cc_emails, 'cheryl.hines@example.com,richard.lewis@example.com');
@@ -99,6 +100,7 @@ class Recurly_AccountTest extends Recurly_TestCase
     $account->first_name = 'Verena';
     $account->address->address1 = "123 Main St.";
     $account->tax_exempt = false;
+    $account->exemption_certificate = 'Some Certificate';
     $account->entity_use_code = 'I';
     $account->preferred_locale = 'en-US';
 
@@ -143,7 +145,7 @@ class Recurly_AccountTest extends Recurly_TestCase
     $account->custom_fields[] = new Recurly_CustomField("serial_number", "4567-8900-1234");
 
     $this->assertEquals(
-      "<?xml version=\"1.0\"?>\n<account><account_code>act123</account_code><first_name>Verena</first_name><address><address1>123 Main St.</address1></address><tax_exempt>false</tax_exempt><entity_use_code>I</entity_use_code><shipping_addresses><shipping_address><address1>123 Main St.</address1><city>San Francisco</city><state>CA</state><zip>94110</zip><country>US</country><phone>555-555-5555</phone><email>verena@example.com</email><nickname>Work</nickname><first_name>Verena</first_name><last_name>Example</last_name><company>Recurly Inc.</company></shipping_address><shipping_address><address1>123 Dolores St.</address1><city>San Francisco</city><state>CA</state><zip>94110</zip><country>US</country><phone>555-555-5555</phone><email>verena@example.com</email><nickname>Home</nickname><first_name>Verena</first_name><last_name>Example</last_name></shipping_address></shipping_addresses><preferred_locale>en-US</preferred_locale><custom_fields><custom_field><name>serial_number</name><value>4567-8900-1234</value></custom_field></custom_fields><account_acquisition><cost_in_cents>599</cost_in_cents><currency>USD</currency><channel>marketing_content</channel><subchannel>pickle sticks blog post</subchannel><campaign>mailchimp67a904de95.0914d8f4b4</campaign></account_acquisition></account>\n",
+      "<?xml version=\"1.0\"?>\n<account><account_code>act123</account_code><first_name>Verena</first_name><address><address1>123 Main St.</address1></address><tax_exempt>false</tax_exempt><entity_use_code>I</entity_use_code><shipping_addresses><shipping_address><address1>123 Main St.</address1><city>San Francisco</city><state>CA</state><zip>94110</zip><country>US</country><phone>555-555-5555</phone><email>verena@example.com</email><nickname>Work</nickname><first_name>Verena</first_name><last_name>Example</last_name><company>Recurly Inc.</company></shipping_address><shipping_address><address1>123 Dolores St.</address1><city>San Francisco</city><state>CA</state><zip>94110</zip><country>US</country><phone>555-555-5555</phone><email>verena@example.com</email><nickname>Home</nickname><first_name>Verena</first_name><last_name>Example</last_name></shipping_address></shipping_addresses><preferred_locale>en-US</preferred_locale><custom_fields><custom_field><name>serial_number</name><value>4567-8900-1234</value></custom_field></custom_fields><account_acquisition><cost_in_cents>599</cost_in_cents><currency>USD</currency><channel>marketing_content</channel><subchannel>pickle sticks blog post</subchannel><campaign>mailchimp67a904de95.0914d8f4b4</campaign></account_acquisition><exemption_certificate>Some Certificate</exemption_certificate></account>\n",
       $account->xml()
     );
   }

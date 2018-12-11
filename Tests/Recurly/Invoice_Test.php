@@ -189,9 +189,10 @@ class Recurly_InvoiceTest extends Recurly_TestCase
     $invoice->terms_and_conditions = 'Never disclose the location of the Krabby Patty secret formula.';
     $invoice->vat_reverse_charge_notes = "can't be changed when invoice was not a reverse charge";
     $invoice->net_terms = '60';
+    $invoice->gateway_code = 'A new gateway code';
 
     $this->assertEquals(
-      "<?xml version=\"1.0\"?>\n<invoice><address><first_name>Spongebob</first_name><last_name>Squarepants</last_name><name_on_account>Patrick Star</name_on_account><company>Krusty Krab</company><address1>124 Conch Street</address1><address2>Pineapple</address2><city>Bikini Bottom</city><state>Dead Eye Gulch</state><zip>96970</zip><country>Pacific Ocean</country><phone>509-990-3551</phone></address><terms_and_conditions>Never disclose the location of the Krabby Patty secret formula.</terms_and_conditions><customer_notes>Is this the Krusty Krab?</customer_notes><vat_reverse_charge_notes>can't be changed when invoice was not a reverse charge</vat_reverse_charge_notes><net_terms>60</net_terms><po_number>3699</po_number></invoice>\n",
+      "<?xml version=\"1.0\"?>\n<invoice><address><first_name>Spongebob</first_name><last_name>Squarepants</last_name><name_on_account>Patrick Star</name_on_account><company>Krusty Krab</company><address1>124 Conch Street</address1><address2>Pineapple</address2><city>Bikini Bottom</city><state>Dead Eye Gulch</state><zip>96970</zip><country>Pacific Ocean</country><phone>509-990-3551</phone></address><terms_and_conditions>Never disclose the location of the Krabby Patty secret formula.</terms_and_conditions><customer_notes>Is this the Krusty Krab?</customer_notes><vat_reverse_charge_notes>can't be changed when invoice was not a reverse charge</vat_reverse_charge_notes><net_terms>60</net_terms><po_number>3699</po_number><gateway_code>A new gateway code</gateway_code></invoice>\n",
       $invoice->xml()
     );
     $invoice->update();

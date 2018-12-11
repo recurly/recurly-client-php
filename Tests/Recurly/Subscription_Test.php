@@ -238,7 +238,7 @@ class Recurly_SubscriptionTest extends Recurly_TestCase
 
     $subscription = Recurly_Subscription::get('012345678901234567890123456789ab', $this->client);
 
-    $notes = array("customer_notes" => "New Customer Notes", "terms_and_condititions" => "New Terms", "vat_reverse_charge_notes" => "New VAT Notes");
+    $notes = array("customer_notes" => "New Customer Notes", "terms_and_condititions" => "New Terms", "vat_reverse_charge_notes" => "New VAT Notes", "gateway_code" => "A new gateway code");
 
     // You can also update custom fields through this endpoint
     $cf = $subscription->custom_fields["shasta"];

@@ -29,6 +29,7 @@
  * @property string $terms_and_conditions
  * @property string $vat_reverse_charge_notes
  * @property string $customer_notes
+ * @property string $gateway_code The unique identifier of a payment gateway used to specify which payment gateway you wish to process this invoices’ payments
  * @property string $tax_type
  * @property string $tax_region
  * @property float $tax_rate
@@ -226,7 +227,8 @@ class Recurly_Invoice extends Recurly_Resource
   protected function getWriteableAttributes() {
     return array(
       'address', 'terms_and_conditions', 'customer_notes', 'vat_reverse_charge_notes',
-      'collection_method', 'net_terms', 'po_number', 'currency', 'credit_customer_notes'
+      'collection_method', 'net_terms', 'po_number', 'currency', 'credit_customer_notes',
+      'gateway_code'
     );
   }
 

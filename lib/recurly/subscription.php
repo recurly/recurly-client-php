@@ -42,6 +42,7 @@
  * @property Recurly_CustomFieldList $custom_fields Optional custom fields for the subscription.
  * @property string $uuid Subscription's unique identifier.
  * @property string $timeframe now for immediate, renewal to perform when the subscription renews. Defaults to now.
+ * @property string $gateway_code The unique identifier of a payment gateway used to specify which payment gateway you wish to process this subscriptions’ payments
  */
 class Recurly_Subscription extends Recurly_Resource
 {
@@ -266,7 +267,7 @@ class Recurly_Subscription extends Recurly_Resource
       'bank_account_authorized_at', 'revenue_schedule_type', 'gift_card',
       'shipping_address', 'shipping_address_id', 'imported_trial',
       'remaining_pause_cycles', 'custom_fields', 'auto_renew',
-      'renewal_billing_cycles'
+      'renewal_billing_cycles', 'gateway_code'
     );
   }
 }
