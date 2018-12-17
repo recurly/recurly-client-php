@@ -8,6 +8,9 @@ class Recurly_PurchaseTest extends Recurly_TestCase
       array('POST', '/purchases/preview', 'purchases/preview-200.xml'),
       array('POST', '/purchases/authorize', 'purchases/authorize-200.xml'),
       array('POST', '/purchases/pending', 'purchases/pending-200.xml'),
+      /* Transaction IDs here come from the /fixtures/purchases/authorize-200.xml */
+      array('POST', '/purchases/transaction-uuid-a1b2c3d4e5f6g7h8i9j/cancel', 'purchases/cancel-200.xml'),
+      array('POST', '/purchases/transaction-uuid-a1b2c3d4e5f6g7h8i9j/capture', 'purchases/capture-200.xml'),
     );
   }
 
@@ -91,6 +94,34 @@ class Recurly_PurchaseTest extends Recurly_TestCase
     $this->assertInstanceOf('Recurly_InvoiceCollection', $collection);
     $this->assertInstanceOf('Recurly_Invoice', $collection->charge_invoice);
     $this->assertNull($collection->charge_invoice->uuid);
+  }
+
+  public function testAuthorizeAndCapturePurchase() {
+    $purchase = $this->mockPurchase();
+    $purchase->account->email = 'benjamin.dumonde@example.com';
+    $purchase->account->billing_info->external_hpp_type = 'adyen';
+    $authorizeCollection = Recurly_Purchase::authorize($purchase, $this->client);
+
+    $transactionUUID = $authorizeCollection->charge_invoice->transactions->current()->uuid;
+
+    $cancelCollection = Recurly_Purchase::cancel($transactionUUID, $this->client);
+
+    $this->assertInstanceOf('Recurly_InvoiceCollection', $cancelCollection);
+    $this->assertInstanceOf('Recurly_Invoice', $cancelCollection->charge_invoice);
+  }
+
+  public function testAuthorizeAndCancelPurchase() {
+    $purchase = $this->mockPurchase();
+    $purchase->account->email = 'benjamin.dumonde@example.com';
+    $purchase->account->billing_info->external_hpp_type = 'adyen';
+    $authorizeCollection = Recurly_Purchase::authorize($purchase, $this->client);
+
+    $transactionUUID = $authorizeCollection->charge_invoice->transactions->current()->uuid;
+
+    $cancelCollection = Recurly_Purchase::cancel($transactionUUID, $this->client);
+
+    $this->assertInstanceOf('Recurly_InvoiceCollection', $cancelCollection);
+    $this->assertInstanceOf('Recurly_Invoice', $cancelCollection->charge_invoice);
   }
 
   public function testPendingPurchase() {
