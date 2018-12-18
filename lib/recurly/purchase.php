@@ -62,7 +62,6 @@ class Recurly_Purchase extends Recurly_Resource
   }
 
   /**
-   *
    * Capture an open Authorization request
    *
    * @param $purchase Recurly_Purchase Our purchase data.
@@ -77,7 +76,6 @@ class Recurly_Purchase extends Recurly_Resource
   }
 
   /**
-   *
    * Cancel an open Authorization request
    *
    * @param $purchase Recurly_Purchase Our purchase data.
