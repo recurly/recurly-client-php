@@ -64,7 +64,7 @@ class Recurly_Purchase extends Recurly_Resource
   /**
    * Capture an open Authorization request
    *
-   * @param $purchase Recurly_Purchase Our purchase data.
+   * @param $transactionUUID string To get this uuid, do something like: $invoiceCollection->charge_invoice->transactions->current()->uuid;.
    * @param Recurly_Client $client Optional client for the request, useful for mocking the client
    * @return object Recurly_InvoiceCollection
    * @throws Recurly_Error
@@ -78,7 +78,7 @@ class Recurly_Purchase extends Recurly_Resource
   /**
    * Cancel an open Authorization request
    *
-   * @param $purchase Recurly_Purchase Our purchase data.
+   * @param $transactionUUID string To get this uuid, do something like: $invoiceCollection->charge_invoice->transactions->current()->uuid;.
    * @param Recurly_Client $client Optional client for the request, useful for mocking the client
    * @return object Recurly_InvoiceCollection
    * @throws Recurly_Error
