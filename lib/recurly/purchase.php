@@ -72,7 +72,7 @@ class Recurly_Purchase extends Recurly_Resource
    * Note: To use this endpoint, you may have to contact Recurly support to have it enabled on your subdomain.
    */
   public static function capture($transactionUUID, $client = null) {
-    return Recurly_Base::_post("/purchases/transaction-uuid-$transactionUUID/capture", null, $client);
+    return Recurly_Base::_post('/purchases/transaction-uuid-' . rawurlencode($transactionUUID) . '/capture', null, $client);
   }
 
   /**
@@ -86,7 +86,7 @@ class Recurly_Purchase extends Recurly_Resource
    * Note: To use this endpoint, you may have to contact Recurly support to have it enabled on your subdomain.
    */
   public static function cancel($transactionUUID, $client = null) {
-      return Recurly_Base::_post("/purchases/transaction-uuid-$transactionUUID/cancel", null, $client);
+    return Recurly_Base::_post('/purchases/transaction-uuid-' . rawurlencode($transactionUUID) . '/cancel', null, $client);
   }
 
   /**
