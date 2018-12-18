@@ -54,9 +54,39 @@ class Recurly_Purchase extends Recurly_Resource
    * @param Recurly_Client $client Optional client for the request, useful for mocking the client
    * @return object Recurly_InvoiceCollection
    * @throws Recurly_Error
+   *
+   * Note: To use this endpoint, you may have to contact Recurly support to have it enabled on your subdomain.
    */
   public static function authorize($purchase, $client = null) {
     return Recurly_Base::_post('/purchases/authorize', $purchase->xml(), $client);
+  }
+
+  /**
+   * Capture an open Authorization request
+   *
+   * @param $transactionUUID string To get this uuid, do something like: $invoiceCollection->charge_invoice->transactions->current()->uuid;.
+   * @param Recurly_Client $client Optional client for the request, useful for mocking the client
+   * @return object Recurly_InvoiceCollection
+   * @throws Recurly_Error
+   *
+   * Note: To use this endpoint, you may have to contact Recurly support to have it enabled on your subdomain.
+   */
+  public static function capture($transactionUUID, $client = null) {
+    return Recurly_Base::_post('/purchases/transaction-uuid-' . rawurlencode($transactionUUID) . '/capture', null, $client);
+  }
+
+  /**
+   * Cancel an open Authorization request
+   *
+   * @param $transactionUUID string To get this uuid, do something like: $invoiceCollection->charge_invoice->transactions->current()->uuid;.
+   * @param Recurly_Client $client Optional client for the request, useful for mocking the client
+   * @return object Recurly_InvoiceCollection
+   * @throws Recurly_Error
+   *
+   * Note: To use this endpoint, you may have to contact Recurly support to have it enabled on your subdomain.
+   */
+  public static function cancel($transactionUUID, $client = null) {
+    return Recurly_Base::_post('/purchases/transaction-uuid-' . rawurlencode($transactionUUID) . '/cancel', null, $client);
   }
 
   /**
