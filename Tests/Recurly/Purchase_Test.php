@@ -104,7 +104,7 @@ class Recurly_PurchaseTest extends Recurly_TestCase
 
     $transactionUUID = $authorizeCollection->charge_invoice->transactions->current()->uuid;
 
-    $cancelCollection = Recurly_Purchase::cancel($transactionUUID, $this->client);
+    $cancelCollection = Recurly_Purchase::capture($transactionUUID, $this->client);
 
     $this->assertInstanceOf('Recurly_InvoiceCollection', $cancelCollection);
     $this->assertInstanceOf('Recurly_Invoice', $cancelCollection->charge_invoice);
