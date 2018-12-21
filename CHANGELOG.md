@@ -190,6 +190,22 @@ Recurly_InvoiceList::getOpen()
 Recurly_InvoiceList::getPending()
 ```
 
+#### 6. Deprecated `Recurly_Invoice->subscription` and `Recurly_Transaction->subscription` removed
+
+If you are using `Recurly_Invoice->subscription` or `Recurly_Transaction->subscription` anywhere, you will now need to call `subscriptions` instead and take the first one.
+
+```php
+# Change this
+$subscription = $invoice->subscription->get();
+# To this
+$subscription = $invoice->subscriptions->get()->current();
+
+# Or this
+$subscription = $transaction->subscription->get();
+# To this
+$subscription = $transaction->subscriptions->get()->current();
+```
+
 ## Version 2.9.0 (October 6th, 2017)
 
 This release will upgrade us to API version 2.8.
