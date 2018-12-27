@@ -16,7 +16,7 @@ Location: https://api.recurly.com/v2/invoices
       <phone nil="nil"></phone>
     </address>
     <uuid nil="nil"></uuid>
-    <state>closed</state>
+    <state>failed</state>
     <invoice_number_prefix></invoice_number_prefix>
     <invoice_number nil="nil"></invoice_number>
     <po_number nil="nil"></po_number>
