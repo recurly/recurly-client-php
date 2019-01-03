@@ -63,6 +63,8 @@ class Recurly_Account extends Recurly_Resource
     $this->_save(Recurly_Client::POST, Recurly_Client::PATH_ACCOUNTS);
   }
   public function update() {
+    # Manually clear the `parent_account` because the attribute name is `parent_account_code`
+    $this->parent_account = null;
     $this->_save(Recurly_Client::PUT, $this->uri());
   }
 
@@ -106,7 +108,8 @@ class Recurly_Account extends Recurly_Resource
       'account_code', 'username', 'first_name', 'last_name', 'vat_number',
       'email', 'company_name', 'accept_language', 'billing_info', 'address',
       'tax_exempt', 'entity_use_code', 'cc_emails', 'shipping_addresses',
-      'preferred_locale', 'custom_fields', 'account_acquisition', 'exemption_certificate'
+      'preferred_locale', 'custom_fields', 'account_acquisition', 'exemption_certificate',
+      'parent_account_code'
     );
   }
   protected function getRequiredAttributes() {
