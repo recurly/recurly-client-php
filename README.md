@@ -22,7 +22,8 @@ section, there's a line that says something like:
 libcurl/7.19.5 OpenSSL/1.0.1g zlib/1.2.3.3 libidn/1.15
 ```
 
-Please ensure that your OpenSSL version supports TLS v1.2 or higher.
+Please ensure that your OpenSSL version supports TLS v1.2 (or higher) and that it meets [PHP's requirements for the OpenSSL cryptography extension](http://php.net/manual/en/openssl.requirements.php).
+Some older versions of OpenSSL will not necessarily work properly with the Recurly API. For security reasons, it is strongly encouraged to use the latest version of OpenSSL.
 
 ### Timezone
 You will need to specify your server's timezone before using the Recurly PHP client. This is necessary for the library to properly handle datetime conversions. You can do this in your `php.ini` file:
