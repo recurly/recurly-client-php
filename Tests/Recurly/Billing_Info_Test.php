@@ -38,6 +38,7 @@ class Recurly_BillingInfoTest extends Recurly_TestCase
     $this->assertEquals($billing_info->year, null);
     $this->assertEquals($billing_info->month, null);
     $this->assertEquals($billing_info->amazon_billing_agreement_id, null);
+    $this->assertEquals($billing_info->amazon_region, null);
     $this->assertEquals($billing_info->paypal_billing_agreement_id, 'abc123');
     $this->assertEquals($billing_info->getHref(), 'https://api.recurly.com/v2/accounts/paypal1234567890/billing_info');
   }
@@ -51,6 +52,7 @@ class Recurly_BillingInfoTest extends Recurly_TestCase
     $this->assertEquals($billing_info->month, null);
     $this->assertEquals($billing_info->paypal_billing_agreement_id, null);
     $this->assertEquals($billing_info->amazon_billing_agreement_id, 'C01-1234567-8901234');
+    $this->assertEquals($billing_info->amazon_region, 'us');
     $this->assertEquals($billing_info->getHref(), 'https://api.recurly.com/v2/accounts/amazon1234567890/billing_info');
   }
 
