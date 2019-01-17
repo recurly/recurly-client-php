@@ -1,5 +1,12 @@
 # Recurly PHP Client Library CHANGELOG
 
+## Version 2.11.1 (January 17th, 2019)
+
+* Adds missing properties to BillingInfo [PR](https://github.com/recurly/recurly-client-php/pull/395)
+* Handle HTTP headers in a case insensitive way [PR](https://github.com/recurly/recurly-client-php/pull/392)
+* Add OpenSSL support note to README [PR](https://github.com/recurly/recurly-client-php/pull/390)
+* Add Capture and Cancel Purchase endpoints [PR](https://github.com/recurly/recurly-client-php/pull/386) and [PR](https://github.com/recurly/recurly-client-php/pull/389)
+
 ## Version 2.11.0 (December 11th, 2018)
 
 This release will upgrade us to API version 2.17.
