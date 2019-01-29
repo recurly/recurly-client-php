@@ -1,5 +1,11 @@
 # Recurly PHP Client Library CHANGELOG
 
+## Version 2.11.2 (January 29th, 2019)
+
+This release will upgrade us to API version 2.18. There are no breaking changes.
+
+* Adds support for Account Hierarchy [PR](https://github.com/recurly/recurly-client-php/pull/393)
+
 ## Version 2.11.1 (January 17th, 2019)
 
 * Adds missing properties to BillingInfo [PR](https://github.com/recurly/recurly-client-php/pull/395)
