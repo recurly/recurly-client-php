@@ -248,6 +248,7 @@ class Recurly_Client
     curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 10);
     curl_setopt($ch, CURLOPT_HTTPHEADER, array(
       Recurly_Client::__userAgent(),
+      'X-Api-Version: ' . Recurly_Client::$apiVersion
     ));
     curl_setopt($ch, CURLOPT_FILE, $file_pointer);
 
@@ -292,7 +293,8 @@ class Recurly_Client
     curl_setopt($ch, CURLOPT_HTTPHEADER, array(
       'Accept: application/pdf',
       Recurly_Client::__userAgent(),
-      'Accept-Language: ' . $locale
+      'Accept-Language: ' . $locale,
+      'X-Api-Version: ' . Recurly_Client::$apiVersion
     ));
     curl_setopt($ch, CURLOPT_USERPWD, $this->apiKey());
 
