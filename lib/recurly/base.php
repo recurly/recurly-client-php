@@ -282,6 +282,10 @@ abstract class Recurly_Base
   // Use a valid Recurly_Response to populate a new object.
   protected static function __parseResponseToNewObject($response, $uri, $client) {
     $dom = new DOMDocument();
+
+    // Attempt to prevent XXE that could be exploited through loadXML()
+    libxml_disable_entity_loader(true);
+
     if (empty($response->body) || !$dom->loadXML($response->body, LIBXML_NOBLANKS)) {
       return null;
     }
@@ -305,6 +309,10 @@ abstract class Recurly_Base
   protected function __parseXmlToUpdateObject($xml)
   {
     $dom = new DOMDocument();
+
+    // Attempt to prevent XXE that could be exploited through loadXML()
+    libxml_disable_entity_loader(true);
+
     if (empty($xml) || !$dom->loadXML($xml, LIBXML_NOBLANKS)) return null;
 
     $rootNode = $dom->documentElement;

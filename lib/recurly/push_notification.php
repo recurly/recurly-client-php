@@ -98,6 +98,10 @@ class Recurly_PushNotification
 
   function parseXml($post_xml)
   {
+
+    // Attempt to prevent XXE that could be exploited through simplexml_load_string()
+    libxml_disable_entity_loader(true);
+
     if (!@simplexml_load_string ($post_xml)) {
       return;
     }
