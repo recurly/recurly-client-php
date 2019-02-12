@@ -6,7 +6,10 @@ php:
   - 5.6
   - 5.5
   - 5.4
-  - hhvm
+  - hhvm-4.0.0
+  - hhvm-3.30
+  - hhvm-3.27
+  - hhvm-3.24
 sudo: false
 dist: trusty
 install:
@@ -14,5 +17,9 @@ install:
 script: vendor/phpunit/phpunit/phpunit Tests
 matrix:
   allow_failures:
-    - php: 5.4
+    - php: hhvm-4.0.0
+    - php: hhvm-3.24
+    - php: 7.0
+    - php: 5.6
     - php: 5.5
+    - php: 5.4

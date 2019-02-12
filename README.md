@@ -115,6 +115,11 @@ $ vendor/bin/phpunit
 - [https://support.recurly.com](https://support.recurly.com)
 - [stackoverflow](http://stackoverflow.com/questions/tagged/recurly)
 
+## Supported Versions
+
+We support all ["currently supported versions" of PHP](http://php.net/supported-versions.php).
+We also support the LTS versions of [HHVM](https://docs.hhvm.com/hhvm/installation/release-schedule), but only those which support PHP and Composer.
+
 ## Contributing Guidelines
 
 Please refer to [CONTRIBUTING.md](CONTRIBUTING.md)
