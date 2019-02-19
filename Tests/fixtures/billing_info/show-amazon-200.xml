@@ -18,4 +18,5 @@ Content-Type: application/xml; charset=utf-8
   <ip_address>127.0.0.1</ip_address>
   <ip_address_country nil="nil"></ip_address_country>
   <amazon_billing_agreement_id>C01-1234567-8901234</amazon_billing_agreement_id>
+  <amazon_region>us</amazon_region>
 </billing_info>

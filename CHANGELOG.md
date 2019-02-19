@@ -1,5 +1,11 @@
 # Recurly PHP Client Library CHANGELOG
 
+## Version 2.11.2 (February 19th, 2019)
+
+* Adds support for Amazon Region [PR](https://github.com/recurly/recurly-client-php/pull/394)
+* Add note about HHVM support [PR](https://github.com/recurly/recurly-client-php/pull/399)
+* Adds X-API-Version header to getPdf() and getFile() in the client [PR](https://github.com/recurly/recurly-client-php/pull/398)
+
 ## Version 2.11.1 (January 17th, 2019)
 
 * Adds missing properties to BillingInfo [PR](https://github.com/recurly/recurly-client-php/pull/395)
