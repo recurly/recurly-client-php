@@ -44,6 +44,11 @@ class Recurly_Client
    */
   private $_acceptLanguage = 'en-US';
 
+  /**
+   * Valid Recurly domains
+   */
+  private static $valid_domains = ["recurly.com"];
+
   const API_CLIENT_VERSION = '2.11.2';
   const DEFAULT_ENCODING = 'UTF-8';
 
@@ -125,6 +130,8 @@ class Recurly_Client
 
     if (substr($uri,0,4) != 'http')
       $uri = $this->baseUri() . $uri;
+
+    $this->_verifyUri($uri);
 
     $ch = curl_init();
     curl_setopt($ch, CURLOPT_URL, $uri);
@@ -209,6 +216,13 @@ class Recurly_Client
     return $returnHeaders;
   }
 
+  private function _verifyUri($uri) {
+    $host = parse_url($uri, PHP_URL_HOST);
+
+    if (!in_array($host, Recurly_Client::$valid_domains))
+      throw new Recurly_Error("$host is not a valid Recurly domain!");
+  }
+
   /**
    * @param int $errorNumber The curl error number
    * @param string $message The error message
@@ -237,6 +251,8 @@ class Recurly_Client
    * @throws Recurly_Error
    */
   public function getFile($uri, $file_pointer) {
+    $this->_verifyUri($uri);
+
     $ch = curl_init();
     curl_setopt($ch, CURLOPT_URL, $uri);
     curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, TRUE);
@@ -276,6 +292,8 @@ class Recurly_Client
   {
     if (substr($uri,0,4) != 'http')
       $uri = $this->baseUri() . $uri;
+
+    $this->_verifyUri($uri);
 
     if (is_null($locale))
       $locale = $this->_acceptLanguage;

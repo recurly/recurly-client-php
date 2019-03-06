@@ -174,7 +174,7 @@ abstract class Recurly_Base
   public function getHref() {
     return $this->_href;
   }
-  public function setHref($href) {
+  protected function setHref($href) {
     $this->_href = $href;
   }
 
