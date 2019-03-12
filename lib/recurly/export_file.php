@@ -2,6 +2,9 @@
 
 class Recurly_ExportFile extends Recurly_Resource
 {
+
+  protected $download_url;
+
   /**
    * Look up a file by date and name.
    * @param string date
@@ -12,6 +15,10 @@ class Recurly_ExportFile extends Recurly_Resource
    */
   public static function get($date, $name, $client = null) {
     return self::_get('/export_dates/' . rawurlencode($date) . '/export_files/' . rawurlencode($name), $client);
+  }
+
+  public function getDownloadUrl() {
+    return $this->download_url;
   }
 
   protected function getNodeName() {

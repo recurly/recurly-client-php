@@ -1,5 +1,22 @@
 # Recurly PHP Client Library CHANGELOG
 
+## Version 2.12.0 (March 12th, 2019)
+
+This brings us up to API version 2.19
+
+* Adds support for Account Hierarchy [PR](https://github.com/recurly/recurly-client-php/pull/393)
+* Ensure that the client can only connect to recurly domains to improve security [878e844](https://github.com/recurly/recurly-client-php/pull/401/commits/878e8444ad7aa675fed956d610e8c44158787047)
+
+### Upgrade Notes
+If you are using the `Recurly_ExportFile` class, you must now use `getDownloadUrl()` to get the download url rather than accessing this property directly.
+```php
+# if you are accessing the download url directly
+$url = $export_file->download_url;
+# you'll now need to use a getter
+$url = $export_file->getDownloadUrl();
+```
+If you are using `$export_file->download($fp)` and not accessing the url directly, you should not be affected.
+
 ## Version 2.11.2 (February 19th, 2019)
 
 * Adds support for Amazon Region [PR](https://github.com/recurly/recurly-client-php/pull/394)

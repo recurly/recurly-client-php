@@ -201,4 +201,42 @@ class Recurly_AccountTest extends Recurly_TestCase
 
     $this->assertInstanceOf('Recurly_Account', $account);
   }
+
+  /**
+   * Tests regarding account hierarchy.
+   */
+  public function testAccountHierarchy() {
+    $this->client->addResponse('POST', '/accounts', 'accounts/hierarchy/create-201.xml');
+    $this->client->addResponse('GET', '/accounts/1234567890', 'accounts/hierarchy/show-parent-200.xml');
+    $this->client->addResponse('GET', '/accounts/abcdef1234567890', 'accounts/hierarchy/show-child-200.xml');
+    $this->client->addResponse('PUT', 'https://api.recurly.com/v2/accounts/abcdef1234567890', 'accounts/hierarchy/update-no-parent-200.xml');
+
+    # Create an account with a parent
+    $account = new Recurly_Account(null, $this->client);
+    $account->account_code = 'abcdef1234567890';
+    $account->parent_account_code = '1234567890';
+    $account->create();
+
+    $this->assertInstanceOf('Recurly_Stub', $account->parent_account);
+
+    # Get the parent account and verify it has child_accounts
+    $parent = Recurly_Account::get('1234567890', $this->client);
+
+    $this->assertInstanceOf('Recurly_Stub', $parent->child_accounts);
+
+    # Get an account that already has a parent and remove the parent
+    $orphan = Recurly_Account::get('abcdef1234567890', $this->client);
+    $orphan->parent_account_code = '';
+    $orphan->update();
+
+    $this->assertEquals($orphan->parent_account, null);
+
+    # Give it back its parent
+    $this->client->addResponse('PUT', 'https://api.recurly.com/v2/accounts/abcdef1234567890', 'accounts/hierarchy/update-200.xml');
+
+    $orphan->parent_account_code = '1234567890';
+    $orphan->update();
+
+    $this->assertInstanceOf('Recurly_Stub', $orphan->parent_account);
+  }
 }
