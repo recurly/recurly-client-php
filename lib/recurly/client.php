@@ -49,7 +49,7 @@ class Recurly_Client
    */
   private static $valid_domains = ["recurly.com"];
 
-  const API_CLIENT_VERSION = '2.11.2';
+  const API_CLIENT_VERSION = '2.12.0';
   const DEFAULT_ENCODING = 'UTF-8';
 
   const GET = 'GET';
