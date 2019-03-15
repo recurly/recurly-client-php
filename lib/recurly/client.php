@@ -219,6 +219,11 @@ class Recurly_Client
   private function _verifyUri($uri) {
     $host = parse_url($uri, PHP_URL_HOST);
 
+    // remove the subdomain from $host
+    if (count(explode('.', $host)) > 2) {
+      $host = substr($host, strpos($host, ".") + 1);
+    }
+
     if (!in_array($host, Recurly_Client::$valid_domains))
       throw new Recurly_Error("$host is not a valid Recurly domain!");
   }
