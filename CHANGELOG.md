@@ -1,8 +1,14 @@
 # Recurly PHP Client Library CHANGELOG
 
+## Version 2.12.1 (March 15th, 2019)
+
+* Fix issue with _verifyUri [PR](https://github.com/recurly/recurly-client-php/pull/402)
+
 ## Version 2.12.0 (March 12th, 2019)
 
 This brings us up to API version 2.19
+
+Note: This version contains a bug with the _verifyUri method. Please use 2.12.1 instead.
 
 * Adds support for Account Hierarchy [PR](https://github.com/recurly/recurly-client-php/pull/393)
 * Ensure that the client can only connect to recurly domains to improve security [878e844](https://github.com/recurly/recurly-client-php/pull/401/commits/878e8444ad7aa675fed956d610e8c44158787047)
