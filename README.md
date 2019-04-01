@@ -44,7 +44,6 @@ date_default_timezone_set('America/Los_Angeles');
 
 If you're using [Composer](http://getcomposer.org/), you can simply add a
 dependency on `recurly/recurly-client` to your project's `composer.json` file.
-Here's an example of a dependency on 2.11:
 
 ```json
 {
