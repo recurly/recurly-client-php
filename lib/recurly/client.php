@@ -79,6 +79,17 @@ class Recurly_Client
   const PATH_USAGE = '/usage';
 
   /**
+   * Adds a domain to the list of valid domains
+   *
+   * Should not be used in production environments
+   *
+   * @param string Domain
+   */
+  public static function addValidDomain($domain) {
+    static::$valid_domains[] = $domain;
+  }
+
+  /**
    * Create a new Recurly Client
    * @param string API key. Do not specify to use the default API key (which must be set at the static variable)
    * @param string "Accept-language" header variable from the current user's browser. Localizes validation messages.
