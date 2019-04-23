@@ -292,9 +292,8 @@ abstract class Recurly_Base
 
     $rootNode = $dom->documentElement;
 
-    $obj = Recurly_Resource::__createNodeObject($rootNode);
-    $obj->_client = $client;
-    Recurly_Resource::__parseXmlToObject($rootNode->firstChild, $obj);
+    $obj = Recurly_Resource::__createNodeObject($rootNode, $client);
+    Recurly_Resource::__parseXmlToObject($rootNode->firstChild, $obj, $client);
     if ($obj instanceof self) {
       $obj->_afterParseResponse($response, $uri);
       $obj->setHeaders($response->headers);
@@ -319,15 +318,15 @@ abstract class Recurly_Base
 
     if ($rootNode->nodeName == $this->getNodeName()) {
       // update the current object
-      Recurly_Resource::__parseXmlToObject($rootNode->firstChild, $this);
+      Recurly_Resource::__parseXmlToObject($rootNode->firstChild, $this, $this->_client);
     } else if ($rootNode->nodeName == 'errors') {
       // add element to existing object
-      Recurly_Resource::__parseXmlToObject($rootNode->firstChild, $this->_errors);
+      Recurly_Resource::__parseXmlToObject($rootNode->firstChild, $this->_errors, $this->_client);
     }
     $this->updateErrorAttributes();
   }
 
-  protected static function __parseXmlToObject($node, &$object)
+  protected static function __parseXmlToObject($node, &$object, $client)
   {
     while ($node) {
       //print "Node: {$node->nodeType} -- {$node->nodeName}\n";
@@ -343,10 +342,9 @@ abstract class Recurly_Base
         $nodeName = str_replace("-", "_", $node->nodeName);
 
         if ($object instanceof Recurly_Pager) {
-          $new_obj = Recurly_Resource::__createNodeObject($node);
-          $new_obj->_client = $object->_client;
+          $new_obj = Recurly_Resource::__createNodeObject($node, $object->_client);
           if (!is_null($new_obj)) {
-            Recurly_Resource::__parseXmlToObject($node->firstChild, $new_obj);
+            Recurly_Resource::__parseXmlToObject($node->firstChild, $new_obj, $object->_client);
             $object->_objects[] = $new_obj;
           }
           $node = $node->nextSibling;
@@ -366,10 +364,10 @@ abstract class Recurly_Base
             continue;
           }
 
-          $new_obj = Recurly_Resource::__createNodeObject($node);
+          $new_obj = Recurly_Resource::__createNodeObject($node, $client);
           if (!is_null($new_obj)) {
             if (is_object($new_obj) || is_array($new_obj)) {
-              Recurly_Resource::__parseXmlToObject($node->firstChild, $new_obj);
+              Recurly_Resource::__parseXmlToObject($node->firstChild, $new_obj, $client);
             }
             $object[] = $new_obj;
           }
@@ -397,9 +395,9 @@ abstract class Recurly_Base
           }
         } else if ($node->firstChild->nodeType == XML_ELEMENT_NODE) {
           // has element children, drop in and continue parsing
-          $new_obj = Recurly_Resource::__createNodeObject($node);
+          $new_obj = Recurly_Resource::__createNodeObject($node, $object->_client);
           if (!is_null($new_obj)) {
-            $object->$nodeName = Recurly_Resource::__parseXmlToObject($node->firstChild, $new_obj);
+            $object->$nodeName = Recurly_Resource::__parseXmlToObject($node->firstChild, $new_obj, $object->_client);
           }
         } else {
           // we have a single text child
@@ -449,7 +447,7 @@ abstract class Recurly_Base
     return $error;
   }
 
-  private static function __createNodeObject($node)
+  private static function __createNodeObject($node, $client)
   {
     $nodeName = str_replace("-", "_", $node->nodeName);
 
@@ -478,6 +476,7 @@ abstract class Recurly_Base
         $new_obj->_type = $typeAttribute;
       }
 
+      $new_obj->_client = $client;
       $href = $node->getAttribute('href');
       if (!empty($href)) {
         $new_obj->setHref($href);
