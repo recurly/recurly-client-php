@@ -20,11 +20,6 @@ class Recurly_Client
   public static $apiKey;
 
   /**
-   * Base API URL
-   */
-  public static $apiUrl = 'https://%s.recurly.com/v2';
-
-  /**
    * API Version
    */
   public static $apiVersion = '2.19';
@@ -48,6 +43,12 @@ class Recurly_Client
    * Valid Recurly domains
    */
   private static $valid_domains = ["recurly.com"];
+
+  /**
+   * Base API URL
+   */
+  private static $apiUrl = 'https://%s.recurly.com/v2';
+
 
   const API_CLIENT_VERSION = '2.12.1';
   const DEFAULT_ENCODING = 'UTF-8';
@@ -102,6 +103,14 @@ class Recurly_Client
 
   public function baseUri() {
     return sprintf(Recurly_Client::$apiUrl, Recurly_Client::$subdomain);
+  }
+
+  /**
+   * Current API Url
+   * @return string API url
+   */
+  public static function apiUrl() {
+    return Recurly_Client::$apiUrl;
   }
 
   /**
