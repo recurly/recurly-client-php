@@ -1,5 +1,10 @@
 # Recurly PHP Client Library CHANGELOG
 
+## Version 2.12.2 (April 26th, 2019)
+
+* Ensure nested resources have the same client as their parent [PR](https://github.com/recurly/recurly-client-php/pull/409)
+* Make `Recurly_Client::$apiUrl` private [PR](https://github.com/recurly/recurly-client-php/pull/410)
+
 ## Version 2.12.1 (March 15th, 2019)
 
 * Fix issue with _verifyUri [PR](https://github.com/recurly/recurly-client-php/pull/402)
@@ -14,7 +19,7 @@ Note: This version contains a bug with the _verifyUri method. Please use 2.12.1 
 * Ensure that the client can only connect to recurly domains to improve security [878e844](https://github.com/recurly/recurly-client-php/pull/401/commits/878e8444ad7aa675fed956d610e8c44158787047)
 
 ### Upgrade Notes
-If you are using the `Recurly_ExportFile` class, you must now use `getDownloadUrl()` to get the download url rather than accessing this property directly.
+1. If you are using the `Recurly_ExportFile` class, you must now use `getDownloadUrl()` to get the download url rather than accessing this property directly.
 ```php
 # if you are accessing the download url directly
 $url = $export_file->download_url;
@@ -22,6 +27,8 @@ $url = $export_file->download_url;
 $url = $export_file->getDownloadUrl();
 ```
 If you are using `$export_file->download($fp)` and not accessing the url directly, you should not be affected.
+
+2. If your test environment changes the `Recurly_Client::$apiUrl` property, it will no longer work due to domain whitelisting. For a workaround, please see [this conversation](https://github.com/recurly/recurly-client-php/pull/408#discussion_r274063679).
 
 ## Version 2.11.2 (February 19th, 2019)
 
