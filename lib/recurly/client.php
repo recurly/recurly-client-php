@@ -74,6 +74,7 @@ class Recurly_Client
   const PATH_INVOICES = '/invoices';
   const PATH_NOTES = '/notes';
   const PATH_PLANS = '/plans';
+  const PATH_SHIPPING_METHOD = '/shipping_methods';
   const PATH_SUBSCRIPTIONS = '/subscriptions';
   const PATH_TRANSACTIONS = '/transactions';
   const PATH_MEASURED_UNITS = '/measured_units';

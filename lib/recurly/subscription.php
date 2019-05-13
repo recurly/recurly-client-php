@@ -43,6 +43,8 @@
  * @property string $uuid Subscription's unique identifier.
  * @property string $timeframe now for immediate, renewal to perform when the subscription renews. Defaults to now.
  * @property string $gateway_code The unique identifier of a payment gateway used to specify which payment gateway you wish to process this subscriptions’ payments
+ * @property string $shipping_method_code The unique identifier of the shipping method for this subscription.
+ * @property integer $shipping_amount_in_cents The amount charged for shipping in cents.
  */
 class Recurly_Subscription extends Recurly_Resource
 {
@@ -267,7 +269,8 @@ class Recurly_Subscription extends Recurly_Resource
       'bank_account_authorized_at', 'revenue_schedule_type', 'gift_card',
       'shipping_address', 'shipping_address_id', 'imported_trial',
       'remaining_pause_cycles', 'custom_fields', 'auto_renew',
-      'renewal_billing_cycles', 'gateway_code'
+      'renewal_billing_cycles', 'gateway_code', 'shipping_method_code',
+      'shipping_amount_in_cents'
     );
   }
 }
