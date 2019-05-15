@@ -124,6 +124,15 @@ class Recurly_Subscription extends Recurly_Resource
     $this->_save(Recurly_Client::PUT, $this->uri());
   }
 
+  /**
+   * Make an update that applies at the next bill date of the subscription.
+   *
+   * @throws Recurly_Error
+   */
+  public function updateAtNextBillDate() {
+    $this->timeframe = 'bill_date';
+    $this->_save(Recurly_Client::PUT, $this->uri());
+  }
 
   /**
    * Terminate the subscription immediately and issue a full refund of the last renewal
