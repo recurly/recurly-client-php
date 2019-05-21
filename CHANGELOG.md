@@ -1,5 +1,12 @@
 # Recurly PHP Client Library CHANGELOG
 
+## Version 2.12.3 (May 21st, 2019)
+
+This brings us up to API version 2.20. There are no breaking changes
+
+* Add shipping fees [PR](https://github.com/recurly/recurly-client-php/pull/412)
+* Support updating a subscription at next bill date [PR](https://github.com/recurly/recurly-client-php/pull/413)
+
 ## Version 2.12.2 (April 26th, 2019)
 
 * Ensure nested resources have the same client as their parent [PR](https://github.com/recurly/recurly-client-php/pull/409)
