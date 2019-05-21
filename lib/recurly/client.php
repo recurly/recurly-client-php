@@ -22,7 +22,7 @@ class Recurly_Client
   /**
    * API Version
    */
-  public static $apiVersion = '2.19';
+  public static $apiVersion = '2.20';
 
   /**
    * The path to your CA certs. Use only if needed (if you can't fix libcurl/php).
@@ -50,7 +50,7 @@ class Recurly_Client
   private static $apiUrl = 'https://%s.recurly.com/v2';
 
 
-  const API_CLIENT_VERSION = '2.12.2';
+  const API_CLIENT_VERSION = '2.12.3';
   const DEFAULT_ENCODING = 'UTF-8';
 
   const GET = 'GET';
@@ -74,6 +74,7 @@ class Recurly_Client
   const PATH_INVOICES = '/invoices';
   const PATH_NOTES = '/notes';
   const PATH_PLANS = '/plans';
+  const PATH_SHIPPING_METHOD = '/shipping_methods';
   const PATH_SUBSCRIPTIONS = '/subscriptions';
   const PATH_TRANSACTIONS = '/transactions';
   const PATH_MEASURED_UNITS = '/measured_units';
