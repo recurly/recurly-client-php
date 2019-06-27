@@ -98,7 +98,8 @@ class Recurly_BillingInfo extends Recurly_Resource
       'account_number', 'routing_number', 'account_type',
       'paypal_billing_agreement_id', 'amazon_billing_agreement_id', 'currency',
       'token_id', 'external_hpp_type', 'gateway_token', 'gateway_code',
-      'braintree_payment_nonce', 'roku_billing_agreement_id'
+      'braintree_payment_nonce', 'roku_billing_agreement_id',
+      'three_d_secure_action_result_token_id'
     );
   }
 }

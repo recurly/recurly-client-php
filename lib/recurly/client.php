@@ -22,7 +22,7 @@ class Recurly_Client
   /**
    * API Version
    */
-  public static $apiVersion = '2.20';
+  public static $apiVersion = '2.21';
 
   /**
    * The path to your CA certs. Use only if needed (if you can't fix libcurl/php).
@@ -50,7 +50,7 @@ class Recurly_Client
   private static $apiUrl = 'https://%s.recurly.com/v2';
 
 
-  const API_CLIENT_VERSION = '2.12.3';
+  const API_CLIENT_VERSION = '2.12.4';
   const DEFAULT_ENCODING = 'UTF-8';
 
   const GET = 'GET';
