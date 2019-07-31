@@ -5,6 +5,7 @@
  * @property Recurly_Stub $gift_card The gift card object is required in order to redeem a redemption code.
  * @property string $redemption_code The redemption code for the gift card being redeemed.
  * @property string $plan_code plan_code for the subscription.
+ * @property-read Recurly_Plan $plan Nested plan_code and plan name
  * @property Recurly_Stub $account Nested account attributes.
  * @property string $currency Currency for the subscription.
  * @property mixed[] $subscription_add_ons Nested add-ons.
@@ -15,6 +16,9 @@
  * @property DateTime $starts_at If set, the subscription will begin in the future on this date. The subscription will apply the setup fee and trial period, unless the plan has no trial.
  * @property integer $total_billing_cycles Determines the length of the subscription’s initial term. Defaults to plan’s total billing cycles value unless overwritten when creating the subscription or editing subscription.
  * @property DateTime $first_renewal_date Indicates a date at which the first renewal should occur. Subsequent renewals will be offset from this date. The first invoice will be prorated appropriately so that the customer only pays for the portion of the first billing period for which the subscription applies. Useful for forcing a subscription to renew on the first of the month.
+ * @property string $tax_type Tax type as "vat" for VAT or "usst" for US Sales Tax
+ * @property string $tax_region Region where taxes are applied
+ * @property float $tax_rate Tax rate that will be applied to this subscription
  * @property string $collection_method Optional field to set the collection for an invoice as automatic or manual. The default is automatic if it's not set.
  * @property integer $net_terms Integer representing the number of days after an invoice's creation that the invoice will become past due. If an invoice's net terms are set to 0, it is due 'On Receipt' and will become past due 24 hours after it’s created. If an invoice is due net 30, it will become past due at 31 days exactly. Defaults to 0.
  * @property string $po_number Optional notes field. Attach a PO number to the invoice.
@@ -39,6 +43,8 @@
  * @property DateTime $next_bill_date Previously named next_renewal_date. Specifies a future date that the subscription’s next  billing period should be billed.
  * @property DateTime $current_term_started_at Start date of the subscription’s current term. Will equal the future start date if subscription was created in the future state.
  * @property DateTime $current_term_ends_at End date of the subscription’s current term. Will be null if subscription has future start date.
+ * @property-read DateTime $activated_at Date the subscription was activated
+ * @property-read DateTime $updated_at Date the subscription was last updated
  * @property Recurly_CustomFieldList $custom_fields Optional custom fields for the subscription.
  * @property string $uuid Subscription's unique identifier.
  * @property string $timeframe now for immediate, renewal to perform when the subscription renews. Defaults to now.
@@ -47,6 +53,8 @@
  * @property integer $shipping_amount_in_cents The amount charged for shipping in cents.
  * @property string $transaction_type Indicates type of resulting transaction. accepted_values: "moto".
  * @property Recurly_BillingInfo $billing_info
+ * @property-read string $state On of active, canceled, future, expired, paused
+ * @property-read Recurly_Subscription $pending_subscription Nested information about a pending subscription change at renewal
  */
 class Recurly_Subscription extends Recurly_Resource
 {
@@ -59,7 +67,7 @@ class Recurly_Subscription extends Recurly_Resource
   /**
    * @param $uuid
    * @param Recurly_Client $client Optional client for the request, useful for mocking the client
-   * @return object
+   * @return Recurly_Subscription|null
    * @throws Recurly_Error
    */
   public static function get($uuid, $client = null) {

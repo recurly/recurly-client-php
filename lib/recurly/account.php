@@ -13,7 +13,7 @@
  * @property string $state The state of accounts to return: active or closed.
  * @property string $username The username of the account.
  * @property string $email The email address of the account.
- * @property string[] $cc_emails Additional email address that should receive account correspondence. These should be separated only by commas. These CC emails will receive all emails that the email field also receives.
+ * @property string $cc_emails Additional email address that should receive account correspondence. These should be separated only by commas. These CC emails will receive all emails that the email field also receives.
  * @property string $first_name The first name of the account.
  * @property string $last_name The last name of the account.
  * @property string $company_name The company name of the account.

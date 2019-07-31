@@ -8,7 +8,7 @@
  * @property string $name Coupon name.
  * @property string $description Description of the coupon shown on the hosted payment pages.
  * @property string $discount_type The type of discount. Allowed values: [percent, dollars, free_trial].
- * @property int $discount_in_cents Mapping of discount amounts by currency if discount_type is dollars. Max 10000000.
+ * @property Recurly_CurrencyList $discount_in_cents Mapping of discount amounts by currency if discount_type is dollars. Max 10000000.
  * @property int $discount_percent Discount percentage if discount_type is percent. Example `coupon->discount_percent = 10; // 10%`
  * @property string $invoice_description Description of the coupon on the invoice.
  * @property int $max_redemptions Maximum number of accounts that may use the coupon before it can no longer be redeemed.
