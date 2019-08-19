@@ -41,7 +41,7 @@
  * @property DateTime $current_term_ends_at End date of the subscription’s current term. Will be null if subscription has future start date.
  * @property Recurly_CustomFieldList $custom_fields Optional custom fields for the subscription.
  * @property string $uuid Subscription's unique identifier.
- * @property string $timeframe now for immediate, renewal to perform when the subscription renews. Defaults to now.
+ * @property string $timeframe now for immediate, renewal to perform when the subscription renews. This must be one of 'now', 'bill_date', or 'term_end'. Defaults to 'now'
  * @property string $gateway_code The unique identifier of a payment gateway used to specify which payment gateway you wish to process this subscriptions’ payments
  * @property string $shipping_method_code The unique identifier of the shipping method for this subscription.
  * @property integer $shipping_amount_in_cents The amount charged for shipping in cents.
@@ -88,12 +88,17 @@ class Recurly_Subscription extends Recurly_Resource
   }
 
   /**
-   * Cancel the subscription; it will remain active until it renews.
+   * Cancel the subscription
    *
+   * @param string $timeframe The timeframe to apply the cancellation. This must be one of: 'bill_date' or 'term_end'.
    * @throws Recurly_Error
    */
-  public function cancel() {
-    $this->_save(Recurly_Client::PUT, $this->uri() . '/cancel');
+  public function cancel($timeframe = null) {
+    $path = '/cancel';
+    if ($timeframe != null) {
+      $path = $path . '?timeframe=' . $timeframe;
+    }
+    $this->_save(Recurly_Client::PUT, $this->uri() . $path);
   }
 
   /**
@@ -118,7 +123,9 @@ class Recurly_Subscription extends Recurly_Resource
 
   /**
    * Make an update that applies when the subscription renews.
+   * timeframe = 'renewal' was deprecated in API version 2.22.
    *
+   * @deprecated
    * @throws Recurly_Error
    */
   public function updateAtRenewal() {
