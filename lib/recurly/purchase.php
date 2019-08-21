@@ -16,6 +16,7 @@
  * @property integer $shipping_address_id Optional id of an existing ShippingAddress to be applied to all subscriptions and adjustments in purchase.
  * @property string $gateway_code Optional base36 encoded id for the gateway you wish to use for this transaction.
  * @property Recurly_ShippingFee[] $shipping_fees Optional array of shipping fees to apply to the purchase.
+ * @property string $transaction_type Indicates type of resulting transaction. accepted_values: "moto".
  */
 class Recurly_Purchase extends Recurly_Resource
 {
@@ -116,7 +117,7 @@ class Recurly_Purchase extends Recurly_Resource
       'account', 'adjustments', 'collection_method', 'currency', 'po_number',
       'net_terms', 'subscriptions', 'gift_card', 'coupon_codes', 'customer_notes',
       'terms_and_conditions', 'vat_reverse_charge_notes', 'shipping_address_id',
-      'gateway_code', 'shipping_fees'
+      'gateway_code', 'shipping_fees', 'transaction_type'
     );
   }
 }

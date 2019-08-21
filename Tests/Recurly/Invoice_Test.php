@@ -112,7 +112,7 @@ class Recurly_InvoiceTest extends Recurly_TestCase
     $this->client->addResponse('PUT', 'https://api.recurly.com/v2/invoices/1001/collect', 'invoices/force_collect-200.xml');
 
     $invoice = Recurly_Invoice::get('1001', $this->client);
-    $invoice->forceCollect();
+    $invoice->forceCollect('moto');
     $this->assertEquals($invoice->state, 'paid');
   }
 
