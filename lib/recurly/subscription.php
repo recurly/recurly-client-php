@@ -45,6 +45,7 @@
  * @property string $gateway_code The unique identifier of a payment gateway used to specify which payment gateway you wish to process this subscriptions’ payments
  * @property string $shipping_method_code The unique identifier of the shipping method for this subscription.
  * @property integer $shipping_amount_in_cents The amount charged for shipping in cents.
+ * @property string $transaction_type Indicates type of resulting transaction. accepted_values: "moto".
  */
 class Recurly_Subscription extends Recurly_Resource
 {
@@ -279,7 +280,7 @@ class Recurly_Subscription extends Recurly_Resource
       'shipping_address', 'shipping_address_id', 'imported_trial',
       'remaining_pause_cycles', 'custom_fields', 'auto_renew',
       'renewal_billing_cycles', 'gateway_code', 'shipping_method_code',
-      'shipping_amount_in_cents'
+      'shipping_amount_in_cents', 'transaction_type'
     );
   }
 }

@@ -151,6 +151,18 @@ class Recurly_AccountTest extends Recurly_TestCase
   }
 
   /**
+   * Test that transaction_type is rendered
+   */
+  public function testTransactionType() {
+    $account = Recurly_Account::get('abcdef1234567890', $this->client);
+    $account->transaction_type = 'moto';
+    $this->assertEquals(
+      "<?xml version=\"1.0\"?>\n<account><transaction_type>moto</transaction_type></account>\n",
+      $account->xml()
+    );
+  }
+
+  /**
    * Test that updates to nested account addresses are detected when generating
    * XML to send.
    */

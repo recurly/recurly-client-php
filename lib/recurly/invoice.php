@@ -125,8 +125,15 @@ class Recurly_Invoice extends Recurly_Resource
   /**
    * @throws Recurly_Error
    */
-  public function forceCollect() {
-    $this->_save(Recurly_Client::PUT, $this->uri() . '/collect');
+  public function forceCollect($transaction_type = null) {
+    $body = null;
+    if ($transaction_type != null) {
+      $doc = $this->createDocument();
+      $root = $doc->appendChild($doc->createElement('invoice'));
+      $root->appendChild($doc->createElement('transaction_type', $transaction_type));
+      $body = $this->renderXML($doc);
+    }
+    $this->_save(Recurly_Client::PUT, $this->uri() . '/collect', $body, $this->_client);
   }
 
   /**
