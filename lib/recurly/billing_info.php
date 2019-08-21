@@ -31,6 +31,7 @@
  * @property string $amazon_billing_agreement_id Amazon's billing agreement
  * @property string $braintree_payment_nonce Braintree's payment method nonce representing the Paypal billing agreement id. This is required when processing Paypal transactions through Braintree.
  * @property string $roku_billing_agreement_id Roku's CIB if billing through Roku
+ * @property string $transaction_type Indicates type of resulting transaction. accepted_values: "moto".
  */
 class Recurly_BillingInfo extends Recurly_Resource
 {
@@ -99,7 +100,7 @@ class Recurly_BillingInfo extends Recurly_Resource
       'paypal_billing_agreement_id', 'amazon_billing_agreement_id', 'currency',
       'token_id', 'external_hpp_type', 'gateway_token', 'gateway_code',
       'braintree_payment_nonce', 'roku_billing_agreement_id',
-      'three_d_secure_action_result_token_id'
+      'three_d_secure_action_result_token_id', 'transaction_type'
     );
   }
 }
