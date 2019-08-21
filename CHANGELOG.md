@@ -1,5 +1,11 @@
 # Recurly PHP Client Library CHANGELOG
 
+## Version 2.12.5 (August 21st, 2019)
+
+This brings us up to API version 2.22. There are no breaking changes
+
+* Moto transactions [PR](https://github.com/recurly/recurly-client-php/pull/420)
+
 ## Version 2.12.4 (June 27th, 2019)
 
 This brings us up to API version 2.21. There are no breaking changes
