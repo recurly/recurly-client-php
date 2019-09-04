@@ -104,16 +104,11 @@ class Recurly_ClientResponse
     $dom = new DOMDocument();
 
     // Attempt to prevent XXE that could be exploited through loadXML()
-    $xmlLoader = libxml_disable_entity_loader(true);
+    libxml_disable_entity_loader(true);
 
-    if (empty($xml) || !$dom->loadXML($xml)) {
-        libxml_disable_entity_loader($xmlLoader);
-        return null;
-    }
+    if (empty($xml) || !$dom->loadXML($xml)) return null;
 
     $rootNode = $dom->documentElement;
-
-    libxml_disable_entity_loader($xmlLoader);
     if ($rootNode->nodeName == 'error')
       return Recurly_ClientResponse::parseErrorNode($rootNode);
     else
