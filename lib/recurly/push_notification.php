@@ -98,11 +98,11 @@ class Recurly_PushNotification
 
   function parseXml($post_xml)
   {
-
     // Attempt to prevent XXE that could be exploited through simplexml_load_string()
-    libxml_disable_entity_loader(true);
+    $xmlLoader = libxml_disable_entity_loader(true);
 
     if (!@simplexml_load_string ($post_xml)) {
+      libxml_disable_entity_loader($xmlLoader);
       return;
     }
     $xml = new SimpleXMLElement ($post_xml);
@@ -139,5 +139,7 @@ class Recurly_PushNotification
           break;
       }
     }
+
+    libxml_disable_entity_loader($xmlLoader);
   }
 }

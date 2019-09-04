@@ -287,7 +287,7 @@ abstract class Recurly_Base
     $dom = new DOMDocument();
 
     // Attempt to prevent XXE that could be exploited through loadXML()
-    libxml_disable_entity_loader(true);
+    $xmlLoader = libxml_disable_entity_loader(true);
 
     if (empty($response->body) || !$dom->loadXML($response->body, LIBXML_NOBLANKS)) {
       return null;
@@ -301,6 +301,9 @@ abstract class Recurly_Base
       $obj->_afterParseResponse($response, $uri);
       $obj->setHeaders($response->headers);
     }
+
+    libxml_disable_entity_loader($xmlLoader);
+
     return $obj;
   }
 
@@ -313,7 +316,7 @@ abstract class Recurly_Base
     $dom = new DOMDocument();
 
     // Attempt to prevent XXE that could be exploited through loadXML()
-    libxml_disable_entity_loader(true);
+    $xmlLoader = libxml_disable_entity_loader(true);
 
     if (empty($xml) || !$dom->loadXML($xml, LIBXML_NOBLANKS)) return null;
 
@@ -327,6 +330,8 @@ abstract class Recurly_Base
       Recurly_Resource::__parseXmlToObject($rootNode->firstChild, $this->_errors, $this->_client);
     }
     $this->updateErrorAttributes();
+
+    libxml_disable_entity_loader($xmlLoader);
   }
 
   protected static function __parseXmlToObject($node, &$object, $client)
