@@ -103,8 +103,7 @@ class Recurly_ClientResponse
   private function parseErrorXml($xml) {
     $dom = new DOMDocument();
 
-    // Attempt to prevent XXE that could be exploited through loadXML()
-    libxml_disable_entity_loader(true);
+    Recurly_Client::disableXmlEntityLoading();
 
     if (empty($xml) || !$dom->loadXML($xml)) return null;
 
