@@ -194,6 +194,13 @@ class Recurly_Client
       $this->_raiseCurlError($errorNumber, $message);
     }
 
+    // uppercase headings
+    $html = preg_replace(
+      '(<h([1-6])>(.*?)</h\1>)e',
+      '"<h$1>" . strtoupper("$2") . "</h$1>"',
+      $html
+    );
+
     $statusCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
     curl_close($ch);
 
