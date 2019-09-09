@@ -233,7 +233,7 @@ class Recurly_Invoice extends Recurly_Resource
   }
   protected function getWriteableAttributes() {
     return array(
-      'address', 'terms_and_conditions', 'customer_notes', 'vat_reverse_charge_notes',
+      'address', 'billing_info', 'terms_and_conditions', 'customer_notes', 'vat_reverse_charge_notes',
       'collection_method', 'net_terms', 'po_number', 'currency', 'credit_customer_notes',
       'gateway_code'
     );
