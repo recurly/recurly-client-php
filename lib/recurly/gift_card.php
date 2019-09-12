@@ -83,7 +83,8 @@ class Recurly_GiftCard extends Recurly_Resource
     } else {
       return array(
         'product_code','unit_amount_in_cents','delivery',
-        'gifter_account','currency'
+        'gifter_account','currency',
+        'billing_info'
       );
     }
   }

@@ -270,7 +270,7 @@ class Recurly_Subscription extends Recurly_Resource
   }
   protected function getWriteableAttributes() {
     return array(
-      'account', 'plan_code', 'coupon_code', 'coupon_codes',
+      'account', 'billing_info', 'plan_code', 'coupon_code', 'coupon_codes',
       'unit_amount_in_cents', 'quantity', 'currency', 'starts_at',
       'trial_ends_at', 'total_billing_cycles', 'first_renewal_date',
       'timeframe', 'subscription_add_ons', 'net_terms', 'po_number',
