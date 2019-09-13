@@ -1,5 +1,11 @@
 # Recurly PHP Client Library CHANGELOG
 
+## Version 2.12.6 (September 13th, 2019)
+
+* Support billing_info on Subscription, Invoice & Gift card [PR](https://github.com/recurly/recurly-client-php/pull/424)
+* PSD2 billing info changes [PR](https://github.com/recurly/recurly-client-php/pull/426)
+* Restore libxml state when changed [PR](https://github.com/recurly/recurly-client-php/pull/423)
+
 ## Version 2.12.5 (August 21st, 2019)
 
 This brings us up to API version 2.22. There are no breaking changes
