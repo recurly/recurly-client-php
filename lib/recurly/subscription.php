@@ -46,6 +46,7 @@
  * @property string $shipping_method_code The unique identifier of the shipping method for this subscription.
  * @property integer $shipping_amount_in_cents The amount charged for shipping in cents.
  * @property string $transaction_type Indicates type of resulting transaction. accepted_values: "moto".
+ * @property Recurly_BillingInfo $billing_info
  */
 class Recurly_Subscription extends Recurly_Resource
 {
