@@ -5,6 +5,7 @@
  * @property Recurly_Stub $subscriptions
  * @property Recurly_Address $address
  * @property Recurly_ShippingAddress $shipping_address
+ * @property Recurly_BillingInfo $billing_info
  * @property string $uuid
  * @property string $state
  * @property int $invoice_number_prefix
