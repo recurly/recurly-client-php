@@ -115,6 +115,22 @@ class Recurly_Client
   }
 
   /**
+   * Attempt to prevent XXE that could be exploited through loadXML()
+   * unless requested not to
+   */
+  public static function disableXmlEntityLoading()
+  {
+    $disable = getenv('RECURLY_DISABLE_ENTITY_LOADING');
+    if ($disable === false) {
+        $disable = true;
+    } else {
+        $disable = (bool)$disable;
+    }
+
+    libxml_disable_entity_loader($disable);
+  }
+
+  /**
    * Current API key
    * @return string API key
    */
