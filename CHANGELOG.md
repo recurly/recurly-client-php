@@ -1,5 +1,10 @@
 # Recurly PHP Client Library CHANGELOG
 
+## Version 2.12.8 (October 22nd, 2019)
+
+* Add shipping address to Purchase [PR] (https://github.com/recurly/recurly-client-php/pull/435)
+* Subscription timeframe changes [PR] (https://github.com/recurly/recurly-client-php/pull/419)
+
 ## Version 2.12.7 (September 20th, 2019)
 
 * Fix issue with missing requires [PR](https://github.com/recurly/recurly-client-php/pull/434).
