@@ -22,7 +22,7 @@ class Recurly_Client
   /**
    * API Version
    */
-  public static $apiVersion = '2.22';
+  public static $apiVersion = '2.24';
 
   /**
    * The path to your CA certs. Use only if needed (if you can't fix libcurl/php).
@@ -72,6 +72,7 @@ class Recurly_Client
   const PATH_GIFT_CARDS = '/gift_cards';
   const PATH_UNIQUE_COUPONS = '/unique_coupon_codes';
   const PATH_INVOICES = '/invoices';
+  const PATH_ITEMS = '/items';
   const PATH_NOTES = '/notes';
   const PATH_PLANS = '/plans';
   const PATH_SHIPPING_METHOD = '/shipping_methods';

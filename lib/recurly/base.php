@@ -250,6 +250,7 @@ abstract class Recurly_Base
     'invoice' => 'Recurly_Invoice',
     'invoices' => 'Recurly_InvoiceList',
     'invoice_collection' => 'Recurly_InvoiceCollection',
+    'item' => 'Recurly_Item',
     'line_items' => 'array',
     'measured_unit' => 'Recurly_MeasuredUnit',
     'measured_units' => 'Recurly_MeasuredUnitList',
