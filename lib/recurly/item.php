@@ -34,6 +34,10 @@ class Recurly_Item extends Recurly_Resource
     $this->_save(Recurly_Client::POST, Recurly_Client::PATH_ITEMS);
   }
 
+  public function update() {
+    $this->_save(Recurly_Client::PUT, $this->uri());
+  }
+
   public function delete() {
     return Recurly_Base::_delete($this->uri(), $this->_client);
   }
