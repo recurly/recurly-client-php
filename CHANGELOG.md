@@ -1,5 +1,11 @@
 # Recurly PHP Client Library CHANGELOG
 
+## Version 2.12.9 (November 21, 2019)
+
+This brings us up to API version 2.24. There are no breaking changes
+
+* Add Item class [PR] (https://github.com/recurly/recurly-client-php/pull/441)
+
 ## Version 2.12.8 (October 22nd, 2019)
 
 * Add shipping address to Purchase [PR] (https://github.com/recurly/recurly-client-php/pull/435)
