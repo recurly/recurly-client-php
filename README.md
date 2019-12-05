@@ -14,7 +14,7 @@ be careful when upgrading.
 
 ### cURL and OpenSSL
 
-The PHP library depends on PHP 5.6 (or higher) and libcurl compiled with
+The PHP library depends on PHP 7.2 (or higher) and libcurl compiled with
 OpenSSL support. Open up a `phpinfo();` page and verify that under the curl
 section, there's a line that says something like:
 
@@ -117,7 +117,6 @@ $ vendor/bin/phpunit
 ## Supported Versions
 
 We support all ["currently supported versions" of PHP](http://php.net/supported-versions.php).
-We also support the LTS versions of [HHVM](https://docs.hhvm.com/hhvm/installation/release-schedule), but only those which support PHP and Composer.
 
 ## Contributing Guidelines
 
