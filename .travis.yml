@@ -13,8 +13,10 @@ matrix:
   include:
     - php: hhvm-4
       dist: trusty
+      sudo: required
     - php: hhvm-3
       dist: trusty
+      sudo: required
   allow_failures:
     - php: hhvm-4
     - php: hhvm-3
