@@ -26,5 +26,8 @@ matrix:
 install:
   - composer install --dev --no-interaction --prefer-dist
 
+before_script:
+  - phpenv config-rm xdebug.ini
+
 script:
   - vendor/phpunit/phpunit/phpunit Tests
