@@ -1,5 +1,6 @@
 <?php
 
+use PHPUnit\Framework\TestCase;
 
 error_reporting(E_ALL);
 ini_set('display_errors','On');
@@ -13,8 +14,8 @@ date_default_timezone_set('America/Los_Angeles');
  *
  * @property Recurly_MockClient $client
  */
-abstract class Recurly_TestCase extends PHPUnit_Framework_TestCase {
-  function setUp() {
+abstract class Recurly_TestCase extends TestCase {
+  function setUp(): void {
     $this->client = new Recurly_MockClient();
     foreach ($this->defaultResponses() as $request) {
       call_user_func_array(array($this->client, 'addResponse'), $request);

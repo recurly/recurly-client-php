@@ -51,7 +51,7 @@ class Recurly_CouponTest extends Recurly_TestCase
     $coupon = Recurly_Coupon::get('expired', $this->client);
     $this->assertEquals('expired', $coupon->state);
 
-    $this->setExpectedException('Recurly_Error', 'Coupon is not redeemable');
+    $this->expectException('Recurly_Error', 'Coupon is not redeemable');
     $redemption = $coupon->redeemCoupon('abcdef1234567890', 'USD');
   }
 
