@@ -15,23 +15,16 @@ matrix:
     # Current HHVM LTS releases
     #
     # https://docs.hhvm.com/hhvm/installation/release-schedule
-    - php: hhvm-4.8
-      dist: trusty
-      sudo: required
-    - php: hhvm-4.32
-      dist: trusty
-      sudo: required
-    - php: hhvm-nightly
+    - php: hhvm
       dist: trusty
       sudo: required
   allow_failures:
     - php: 7.0
     - php: 5.6
-    - php: hhvm-nightly
     - php: nightly
 
 install:
-  - composer install --dev --no-interaction --prefer-dist
+  - composer install --no-interaction --prefer-dist
 
 before_script:
   # Remove XDebug for better performance.
