@@ -7,21 +7,28 @@ php:
   - 7.1
   - 7.0
   - 5.6
+  - nightly
 
 matrix:
   fast_finish: true
   include:
-    - php: hhvm-4
+    # Current HHVM LTS releases
+    #
+    # https://docs.hhvm.com/hhvm/installation/release-schedule
+    - php: hhvm-4.8
       dist: trusty
       sudo: required
-    - php: hhvm-3
+    - php: hhvm-4.32
+      dist: trusty
+      sudo: required
+    - php: hhvm-nightly
       dist: trusty
       sudo: required
   allow_failures:
-    - php: hhvm-4
-    - php: hhvm-3
     - php: 7.0
     - php: 5.6
+    - php: hhvm-nightly
+    - php: nightly
 
 install:
   - composer install --dev --no-interaction --prefer-dist
