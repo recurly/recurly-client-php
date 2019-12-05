@@ -56,7 +56,7 @@ class Recurly_ErrorList implements ArrayAccess, Countable, IteratorAggregate
     foreach($this->errors as $error) {
       $values[] = strval($error);
     }
-    $values = implode($values, ', ');
+    $values = implode(', ', $values);
     return "<Recurly_ErrorList [$values] transaction=[{$this->transaction}] transaction_error=[{$this->transaction_error}]>";
   }
 }

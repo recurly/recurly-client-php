@@ -68,7 +68,7 @@ class Recurly_CurrencyList implements ArrayAccess, Countable, IteratorAggregate
       $amount = isset($currency->amount_in_cents) ? number_format($currency->amount(), 2) : 'null';
       $values[] = "{$currency->currencyCode}={$amount}";
     }
-    $values = implode($values, ', ');
+    $values = implode(', ', $values);
     return "<Recurly_CurrencyList [$values]>";
   }
 }

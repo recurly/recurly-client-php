@@ -84,7 +84,7 @@ class Recurly_MockClient {
     }
 
     if ($bodyLineNumber < sizeof($fixture))
-      $body = implode(array_slice($fixture, $bodyLineNumber), "\n");
+      $body = implode("\n", array_slice($fixture, $bodyLineNumber));
 
     return new Recurly_ClientResponse($statusCode, $headers, $body);
   }
