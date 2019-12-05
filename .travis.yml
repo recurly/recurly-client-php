@@ -27,7 +27,11 @@ install:
   - composer install --dev --no-interaction --prefer-dist
 
 before_script:
-  - phpenv config-rm xdebug.ini
+  # Remove XDebug for better performance.
+  - |
+    if [ -f ~/.phpenv/versions/$(phpenv version-name)/etc/conf.d/xdebug.ini ]; then
+      phpenv config-rm xdebug.ini
+    fi
 
 script:
   - vendor/phpunit/phpunit/phpunit Tests
