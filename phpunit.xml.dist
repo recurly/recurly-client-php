@@ -13,6 +13,12 @@
         </testsuite>
     </testsuites>
 
+    <filter>
+      <whitelist processUncoveredFilesFromWhitelist="true">
+        <directory suffix=".php">lib</directory>
+      </whitelist>
+    </filter>
+
     <php>
         <ini name="date.timezone" value="America/Los_Angeles" />
         <ini name="display_errors" value="on" />
