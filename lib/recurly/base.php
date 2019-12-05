@@ -122,7 +122,7 @@ abstract class Recurly_Base
       $vals[] = $k . '=' . urlencode($v);
     }
 
-    return $uri . '?' . implode($vals, '&');
+    return $uri . '?' . implode('&', $vals);
   }
 
   /**
@@ -159,7 +159,7 @@ abstract class Recurly_Base
         $innerValues = array();
         foreach ($value as $innerValue)
           $innerValues[] = strval($innerValue);
-        $innerValues = implode($innerValues, ', ');
+        $innerValues = implode(', ', $innerValues);
         $values[] = "$key=[$innerValues]";
       } else if ($value instanceof DateTime) {
         $values[] = "$key=\"" . $value->format('Y-m-d H:i:s P') . '"';
@@ -168,7 +168,7 @@ abstract class Recurly_Base
       }
     }
 
-    return implode($values, ', ');
+    return implode(', ', $values);
   }
 
   public function getHref() {
