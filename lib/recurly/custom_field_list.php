@@ -46,7 +46,7 @@ class Recurly_CustomFieldList extends ArrayObject
     foreach($this->getIterator() as $field) {
       $values[] = "{$field->name}={$field->value}";
     }
-    $values = implode($values, ', ');
+    $values = implode(', ', $values);
     return "<Recurly_CustomFieldList [$values]>";
   }
 }
