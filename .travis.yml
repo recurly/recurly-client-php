@@ -1,9 +1,26 @@
 language: php
+
 php:
   - 7.4
   - 7.3
   - 7.2
+  - nightly
+
+matrix:
+  fast_finish: true
+  allow_failures:
+    - php: nightly
+
 
 install:
-  - composer install --dev
-script: vendor/phpunit/phpunit/phpunit Tests
+  - composer install --no-interaction --prefer-dist
+
+before_script:
+  # Remove XDebug for better performance.
+  - |
+    if [ -f ~/.phpenv/versions/$(phpenv version-name)/etc/conf.d/xdebug.ini ]; then
+      phpenv config-rm xdebug.ini
+    fi
+
+script:
+  - ./vendor/bin/phpunit Tests
