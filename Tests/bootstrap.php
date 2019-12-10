@@ -2,13 +2,6 @@
 
 use PHPUnit\Framework\TestCase;
 
-error_reporting(E_ALL);
-ini_set('display_errors','On');
-
-// Setting timezone for time() function.
-date_default_timezone_set('America/Los_Angeles');
-
-
 /**
  * Base class for our tests that sets up a mock client.
  *
