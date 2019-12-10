@@ -1,13 +1,5 @@
 <?php
 
-
-error_reporting(E_ALL);
-ini_set('display_errors','On');
-
-// Setting timezone for time() function.
-date_default_timezone_set('America/Los_Angeles');
-
-
 /**
  * Base class for our tests that sets up a mock client.
  *
@@ -84,7 +76,7 @@ class Recurly_MockClient {
     }
 
     if ($bodyLineNumber < sizeof($fixture))
-      $body = implode(array_slice($fixture, $bodyLineNumber), "\n");
+      $body = implode("\n", array_slice($fixture, $bodyLineNumber));
 
     return new Recurly_ClientResponse($statusCode, $headers, $body);
   }
