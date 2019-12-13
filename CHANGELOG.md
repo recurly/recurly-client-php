@@ -1,5 +1,12 @@
 # Recurly PHP Client Library CHANGELOG
 
+## Version 2.12.10 (December 31, 2019)
+
+* Add vat_number to ShippingAddress class [PR] (https://github.com/recurly/recurly-client-php/pull/443)
+* Update the documentation and testing matrix for current PHP releases [PR] (https://github.com/recurly/recurly-client-php/pull/445)
+* Simplify the PHPUnit configuration [PR] (https://github.com/recurly/recurly-client-php/pull/446)
+* Ensure PHP 7.4 compatibility [PR] (https://github.com/recurly/recurly-client-php/pull/449)
+
 ## Version 2.12.9 (November 21, 2019)
 
 This brings us up to API version 2.24. There are no breaking changes
