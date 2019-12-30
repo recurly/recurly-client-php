@@ -51,16 +51,16 @@ class Recurly_BaseTest extends Recurly_TestCase {
     $this->client->addResponse('GET', 'accounts', 'accounts/index-200.xml');
     $accounts = Recurly_Base::_get('accounts', $this->client);
     $this->assertTrue(method_exists($accounts, 'getHeaders'),"Accounts Class does not have method getHeaders");
-    $this->assertIsArray($accounts->getHeaders());
+    $this->assertInternalType('array', $accounts->getHeaders());
 
     $this->client->addResponse('GET', 'subscriptions', 'subscriptions/index-200.xml');
     $subscriptions = Recurly_Base::_get('subscriptions', $this->client);
     $this->assertTrue(method_exists($subscriptions, 'getHeaders'),'Subscriptions Class does not have method getHeaders');
-    $this->assertIsArray($subscriptions->getHeaders());
+    $this->assertInternalType('array', $subscriptions->getHeaders());
 
     $this->client->addResponse('GET', 'abcdef1234567890', 'adjustments/show-200.xml');
     $adjustment = Recurly_Base::_get('abcdef1234567890', $this->client);
     $this->assertTrue(method_exists($adjustment, 'getHeaders'),'Adjustments Class does not have method getHeaders');
-    $this->assertIsArray($adjustment->getHeaders());
+    $this->assertInternalType('array', $adjustment->getHeaders());
   }
 }

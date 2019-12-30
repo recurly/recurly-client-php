@@ -2,6 +2,13 @@
 
 use PHPUnit\Framework\TestCase;
 
+require_once dirname(__DIR__) . '/vendor/autoload.php';
+
+// Load compatibility layers for PHP < 7.x.
+if (! class_exists(TestCase::class)) {
+  require_once __DIR__ . '/Compat/TestCase.php';
+}
+
 /**
  * Base class for our tests that sets up a mock client.
  *
