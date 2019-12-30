@@ -8,7 +8,7 @@ use PHPUnit\Framework\TestCase;
  * @property Recurly_MockClient $client
  */
 abstract class Recurly_TestCase extends TestCase {
-  function setUp(): void {
+  function setUp() {
     $this->client = new Recurly_MockClient();
     foreach ($this->defaultResponses() as $request) {
       call_user_func_array(array($this->client, 'addResponse'), $request);
