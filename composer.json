@@ -7,13 +7,13 @@
     "license": "MIT",
     "authors": [],
     "require": {
-        "php": ">= 5.6.0",
+        "php": ">=5.6",
         "ext-curl": "*"
     },
     "require-dev": {
         "dealerdirect/phpcodesniffer-composer-installer": "^0.5.0",
         "phpcompatibility/php-compatibility": "^9.3",
-        "phpunit/phpunit": "4.2.*",
+        "phpunit/phpunit": ">=5.7,<8",
         "squizlabs/php_codesniffer": "^3.5"
     },
     "autoload": {
