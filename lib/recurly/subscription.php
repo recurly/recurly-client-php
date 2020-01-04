@@ -60,7 +60,7 @@ class Recurly_Subscription extends Recurly_Resource
 {
   public function __construct($href = null, $client = null) {
     parent::__construct($href, $client);
-    $this->subscription_add_ons = array();
+    $this->subscription_add_ons = null;
     $this->custom_fields = new Recurly_CustomFieldList();
   }
 
@@ -78,6 +78,9 @@ class Recurly_Subscription extends Recurly_Resource
    * @throws Recurly_Error
    */
   public function create() {
+    if ($this->subscription_add_ons === null) {
+      unset($this->subscription_add_ons);
+    }
     $this->_save(Recurly_Client::POST, Recurly_Client::PATH_SUBSCRIPTIONS);
   }
 
