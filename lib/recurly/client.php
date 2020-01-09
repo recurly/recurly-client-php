@@ -283,8 +283,6 @@ class Recurly_Client
    * @throws Recurly_Error
    */
   public function getFile($uri, $file_pointer) {
-    $this->_verifyUri($uri);
-
     $ch = curl_init();
     curl_setopt($ch, CURLOPT_URL, $uri);
     curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, TRUE);
