@@ -6,10 +6,6 @@ The Recurly PHP Client library is an open source library to interact with
 Recurly's subscription management from your PHP website. The library interacts
 with Recurly's [REST API](https://dev.recurly.com/docs/getting-started).
 
-**Note:** This version uses Recurly API v2. There are substantial differences
-between this version of the client library and versions before _0.5.0_. Please
-be careful when upgrading.
-
 ## Requirements
 
 ### cURL and OpenSSL
