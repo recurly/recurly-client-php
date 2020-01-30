@@ -1,0 +1,516 @@
+<?php
+/**
+ * This file is automatically created by Recurly's OpenAPI generation process
+ * and thus any edits you make by hand will be lost. If you wish to make a
+ * change to this file, please create a Github issue explaining the changes you
+ * need and we will usher them to the appropriate places.
+ */
+namespace Recurly\Resources;
+
+use Recurly\RecurlyResource;
+
+// phpcs:disable
+class Plan extends RecurlyResource
+{
+        private $_accounting_code;
+        private $_auto_renew;
+        private $_code;
+        private $_created_at;
+        private $_currencies;
+        private $_deleted_at;
+        private $_description;
+        private $_hosted_pages;
+        private $_id;
+        private $_interval_length;
+        private $_interval_unit;
+        private $_name;
+        private $_object;
+        private $_setup_fee_accounting_code;
+        private $_state;
+        private $_tax_code;
+        private $_tax_exempt;
+        private $_total_billing_cycles;
+        private $_trial_length;
+        private $_trial_unit;
+        private $_updated_at;
+    
+    
+    /**
+    * Getter method for the accounting_code attribute.
+    *
+    * @return string Accounting code for invoice line items for the plan. If no value is provided, it defaults to plan's code.
+    */
+    public function getAccountingCode(): string
+    {
+        return $this->_accounting_code;
+    }
+
+    /**
+    * Setter method for the accounting_code attribute.
+    *
+    * @param string $accounting_code
+    *
+    * @return void
+    */
+    public function setAccountingCode(string $value): void
+    {
+        $this->_accounting_code = $value;
+    }
+
+    /**
+    * Getter method for the auto_renew attribute.
+    *
+    * @return bool Subscriptions will automatically inherit this value once they are active. If `auto_renew` is `true`, then a subscription will automatically renew its term at renewal. If `auto_renew` is `false`, then a subscription will expire at the end of its term. `auto_renew` can be overridden on the subscription record itself.
+    */
+    public function getAutoRenew(): bool
+    {
+        return $this->_auto_renew;
+    }
+
+    /**
+    * Setter method for the auto_renew attribute.
+    *
+    * @param bool $auto_renew
+    *
+    * @return void
+    */
+    public function setAutoRenew(bool $value): void
+    {
+        $this->_auto_renew = $value;
+    }
+
+    /**
+    * Getter method for the code attribute.
+    *
+    * @return string Unique code to identify the plan. This is used in Hosted Payment Page URLs and in the invoice exports.
+    */
+    public function getCode(): string
+    {
+        return $this->_code;
+    }
+
+    /**
+    * Setter method for the code attribute.
+    *
+    * @param string $code
+    *
+    * @return void
+    */
+    public function setCode(string $value): void
+    {
+        $this->_code = $value;
+    }
+
+    /**
+    * Getter method for the created_at attribute.
+    *
+    * @return string Created at
+    */
+    public function getCreatedAt(): string
+    {
+        return $this->_created_at;
+    }
+
+    /**
+    * Setter method for the created_at attribute.
+    *
+    * @param string $created_at
+    *
+    * @return void
+    */
+    public function setCreatedAt(string $value): void
+    {
+        $this->_created_at = $value;
+    }
+
+    /**
+    * Getter method for the currencies attribute.
+    *
+    * @return array Pricing
+    */
+    public function getCurrencies(): array
+    {
+        return $this->_currencies;
+    }
+
+    /**
+    * Setter method for the currencies attribute.
+    *
+    * @param array $currencies
+    *
+    * @return void
+    */
+    public function setCurrencies(array $value): void
+    {
+        $this->_currencies = $value;
+    }
+
+    /**
+    * Getter method for the deleted_at attribute.
+    *
+    * @return string Deleted at
+    */
+    public function getDeletedAt(): string
+    {
+        return $this->_deleted_at;
+    }
+
+    /**
+    * Setter method for the deleted_at attribute.
+    *
+    * @param string $deleted_at
+    *
+    * @return void
+    */
+    public function setDeletedAt(string $value): void
+    {
+        $this->_deleted_at = $value;
+    }
+
+    /**
+    * Getter method for the description attribute.
+    *
+    * @return string Optional description, not displayed.
+    */
+    public function getDescription(): string
+    {
+        return $this->_description;
+    }
+
+    /**
+    * Setter method for the description attribute.
+    *
+    * @param string $description
+    *
+    * @return void
+    */
+    public function setDescription(string $value): void
+    {
+        $this->_description = $value;
+    }
+
+    /**
+    * Getter method for the hosted_pages attribute.
+    *
+    * @return \Recurly\Resources\PlanHostedPages Hosted pages settings
+    */
+    public function getHostedPages(): \Recurly\Resources\PlanHostedPages
+    {
+        return $this->_hosted_pages;
+    }
+
+    /**
+    * Setter method for the hosted_pages attribute.
+    *
+    * @param \Recurly\Resources\PlanHostedPages $hosted_pages
+    *
+    * @return void
+    */
+    public function setHostedPages(\Recurly\Resources\PlanHostedPages $value): void
+    {
+        $this->_hosted_pages = $value;
+    }
+
+    /**
+    * Getter method for the id attribute.
+    *
+    * @return string Plan ID
+    */
+    public function getId(): string
+    {
+        return $this->_id;
+    }
+
+    /**
+    * Setter method for the id attribute.
+    *
+    * @param string $id
+    *
+    * @return void
+    */
+    public function setId(string $value): void
+    {
+        $this->_id = $value;
+    }
+
+    /**
+    * Getter method for the interval_length attribute.
+    *
+    * @return int Length of the plan's billing interval in `interval_unit`.
+    */
+    public function getIntervalLength(): int
+    {
+        return $this->_interval_length;
+    }
+
+    /**
+    * Setter method for the interval_length attribute.
+    *
+    * @param int $interval_length
+    *
+    * @return void
+    */
+    public function setIntervalLength(int $value): void
+    {
+        $this->_interval_length = $value;
+    }
+
+    /**
+    * Getter method for the interval_unit attribute.
+    *
+    * @return string Unit for the plan's billing interval.
+    */
+    public function getIntervalUnit(): string
+    {
+        return $this->_interval_unit;
+    }
+
+    /**
+    * Setter method for the interval_unit attribute.
+    *
+    * @param string $interval_unit
+    *
+    * @return void
+    */
+    public function setIntervalUnit(string $value): void
+    {
+        $this->_interval_unit = $value;
+    }
+
+    /**
+    * Getter method for the name attribute.
+    *
+    * @return string This name describes your plan and will appear on the Hosted Payment Page and the subscriber's invoice.
+    */
+    public function getName(): string
+    {
+        return $this->_name;
+    }
+
+    /**
+    * Setter method for the name attribute.
+    *
+    * @param string $name
+    *
+    * @return void
+    */
+    public function setName(string $value): void
+    {
+        $this->_name = $value;
+    }
+
+    /**
+    * Getter method for the object attribute.
+    *
+    * @return string Object type
+    */
+    public function getObject(): string
+    {
+        return $this->_object;
+    }
+
+    /**
+    * Setter method for the object attribute.
+    *
+    * @param string $object
+    *
+    * @return void
+    */
+    public function setObject(string $value): void
+    {
+        $this->_object = $value;
+    }
+
+    /**
+    * Getter method for the setup_fee_accounting_code attribute.
+    *
+    * @return string Accounting code for invoice line items for the plan's setup fee. If no value is provided, it defaults to plan's accounting code.
+    */
+    public function getSetupFeeAccountingCode(): string
+    {
+        return $this->_setup_fee_accounting_code;
+    }
+
+    /**
+    * Setter method for the setup_fee_accounting_code attribute.
+    *
+    * @param string $setup_fee_accounting_code
+    *
+    * @return void
+    */
+    public function setSetupFeeAccountingCode(string $value): void
+    {
+        $this->_setup_fee_accounting_code = $value;
+    }
+
+    /**
+    * Getter method for the state attribute.
+    *
+    * @return string The current state of the plan.
+    */
+    public function getState(): string
+    {
+        return $this->_state;
+    }
+
+    /**
+    * Setter method for the state attribute.
+    *
+    * @param string $state
+    *
+    * @return void
+    */
+    public function setState(string $value): void
+    {
+        $this->_state = $value;
+    }
+
+    /**
+    * Getter method for the tax_code attribute.
+    *
+    * @return string Used by Avalara, Vertex, and Recurly’s EU VAT tax feature. The tax code values are specific to each tax system. If you are using Recurly’s EU VAT feature you can use `unknown`, `physical`, or `digital`.
+    */
+    public function getTaxCode(): string
+    {
+        return $this->_tax_code;
+    }
+
+    /**
+    * Setter method for the tax_code attribute.
+    *
+    * @param string $tax_code
+    *
+    * @return void
+    */
+    public function setTaxCode(string $value): void
+    {
+        $this->_tax_code = $value;
+    }
+
+    /**
+    * Getter method for the tax_exempt attribute.
+    *
+    * @return bool `true` exempts tax on the plan, `false` applies tax on the plan.
+    */
+    public function getTaxExempt(): bool
+    {
+        return $this->_tax_exempt;
+    }
+
+    /**
+    * Setter method for the tax_exempt attribute.
+    *
+    * @param bool $tax_exempt
+    *
+    * @return void
+    */
+    public function setTaxExempt(bool $value): void
+    {
+        $this->_tax_exempt = $value;
+    }
+
+    /**
+    * Getter method for the total_billing_cycles attribute.
+    *
+    * @return int Automatically terminate subscriptions after a defined number of billing cycles. Number of billing cycles before the plan automatically stops renewing, defaults to `null` for continuous, automatic renewal.
+    */
+    public function getTotalBillingCycles(): int
+    {
+        return $this->_total_billing_cycles;
+    }
+
+    /**
+    * Setter method for the total_billing_cycles attribute.
+    *
+    * @param int $total_billing_cycles
+    *
+    * @return void
+    */
+    public function setTotalBillingCycles(int $value): void
+    {
+        $this->_total_billing_cycles = $value;
+    }
+
+    /**
+    * Getter method for the trial_length attribute.
+    *
+    * @return int Length of plan's trial period in `trial_units`. `0` means `no trial`.
+    */
+    public function getTrialLength(): int
+    {
+        return $this->_trial_length;
+    }
+
+    /**
+    * Setter method for the trial_length attribute.
+    *
+    * @param int $trial_length
+    *
+    * @return void
+    */
+    public function setTrialLength(int $value): void
+    {
+        $this->_trial_length = $value;
+    }
+
+    /**
+    * Getter method for the trial_unit attribute.
+    *
+    * @return string Units for the plan's trial period.
+    */
+    public function getTrialUnit(): string
+    {
+        return $this->_trial_unit;
+    }
+
+    /**
+    * Setter method for the trial_unit attribute.
+    *
+    * @param string $trial_unit
+    *
+    * @return void
+    */
+    public function setTrialUnit(string $value): void
+    {
+        $this->_trial_unit = $value;
+    }
+
+    /**
+    * Getter method for the updated_at attribute.
+    *
+    * @return string Last updated at
+    */
+    public function getUpdatedAt(): string
+    {
+        return $this->_updated_at;
+    }
+
+    /**
+    * Setter method for the updated_at attribute.
+    *
+    * @param string $updated_at
+    *
+    * @return void
+    */
+    public function setUpdatedAt(string $value): void
+    {
+        $this->_updated_at = $value;
+    }
+
+    /**
+     * The hintArrayType method will provide type hinting for setter methods that
+     * have array parameters.
+     * 
+     * @param string $key The property to get teh type hint for.
+     * 
+     * @return string The class name of the expected array type.
+     */
+    public static function hintArrayType($key): string
+    {
+        $array_hints = array(
+            'setCurrencies' => '\Recurly\Resources\PlanPricing',
+        );
+        return $array_hints[$key];
+    }
+
+}

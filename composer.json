@@ -1,0 +1,35 @@
+{
+    "name": "recurly/recurly-client",
+    "version": "4.0.0",
+    "type": "library",
+    "description": "The PHP client library for the Recurly API",
+    "keywords": ["recurly", "payments", "pay"],
+    "homepage": "https://github.com/recurly/recurly-client-php",
+    "license": "MIT",
+    "authors": [],
+    "require": {
+        "php": ">= 7.3.0"
+    },
+    "require-dev": {
+        "dealerdirect/phpcodesniffer-composer-installer": "^0.5.0",
+        "phpcompatibility/php-compatibility": "^9.3",
+        "phpunit/phpunit": "^8",
+        "squizlabs/php_codesniffer": "^3.5"
+    },
+    "autoload": {
+        "classmap": ["lib"]
+    },
+    "autoload-dev": {
+        "classmap": ["tests"]
+    },
+    "config": {
+        "preferred-install": "dist",
+        "sort-packages": true,
+        "optimize-autoloader": true
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-master": "2.4.x-dev"
+        }
+    }
+}

@@ -1,0 +1,34 @@
+<phpunit
+    bootstrap="tests/bootstrap.php"
+    backupGlobals="false"
+    colors="true"
+    convertErrorsToExceptions="true"
+    convertNoticesToExceptions="true"
+    convertWarningsToExceptions="true"
+    >
+
+    <testsuites>
+        <testsuite name="recurly-php">
+        <directory>tests</directory>
+        </testsuite>
+    </testsuites>
+
+    <filter>
+        <whitelist processUncoveredFilesFromWhitelist="true">
+            <directory suffix=".php">lib</directory>
+            <exclude>
+                <directory suffix=".php">lib/recurly/resources</directory>
+                <file>lib/recurly/client.php</file>
+            </exclude>
+        </whitelist>
+    </filter>
+
+    <logging>
+        <log type="coverage-html" target="coverage" />
+    </logging>
+
+    <php>
+        <ini name="date.timezone" value="America/Chicago" />
+        <ini name="display_errors" value="on" />
+    </php>
+</phpunit>

@@ -1,0 +1,14 @@
+{
+    "object": "account",
+    "first_name": "Douglas",
+    "last_name": "DuMonde",
+    "email": "dx@recurly.com",
+    "shipping_addresses": [
+        {
+            "object": "shipping_address",
+            "nickname": "nola",
+            "street1": "1 Tchoupitoulas",
+            "city": "New Orleans"
+        }
+    ]
+}

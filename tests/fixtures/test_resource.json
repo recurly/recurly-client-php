@@ -1,0 +1,10 @@
+{
+    "object": "test_resource",
+    "name": "test-resource",
+    "single_child": {
+        "name": "child-test-resource"
+    },
+    "array_children": [
+        { "name": "child-test-resource" }
+    ]
+}
