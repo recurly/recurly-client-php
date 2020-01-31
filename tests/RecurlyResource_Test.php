@@ -31,8 +31,38 @@ final class RecurlyResourceTest extends RecurlyTestCase
         );
 
         $this->expectError();
-        $this->expectErrorMessage("Could not find the Recurly Resource for key riverboat");
+        $this->expectErrorMessage("Could not find the Recurly class for key riverboat");
         $response = new \Recurly\Response('');
+        $result = RecurlyResource::fromJson($data, $response);
+    }
+
+    //public function testStrictModeErrors(): void
+    //{
+    //    $data = (object)array(
+    //        'object' => 'test_resource',
+    //        'unknown-key' => 'The Unknown Key'
+    //    );
+
+    //    $this->expectError();
+    //    $this->expectErrorMessage("Recurly\Resources\TestResource encountered json attribute unknown-key but it's unknown to it's schema");
+    //    $response = new \Recurly\Response('');
+    //    $result = RecurlyResource::fromJson($data, $response);
+    //}
+
+    public function testFromJsonErrorResponse(): void
+    {
+        $data = (object)array(
+            "error" => (object)array(
+                "object" => "error",
+                "type" => "test_error",
+                "message" => "The error message"
+            )
+        );
+
+        $this->expectException(\Recurly\Errors\TestError::class);
+        $this->expectExceptionMessage("The error message");
+        $response = new \Recurly\Response('');
+        $response->setHeaders([]);
         $result = RecurlyResource::fromJson($data, $response);
     }
 

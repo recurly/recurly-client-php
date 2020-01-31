@@ -1,4 +1,6 @@
 #!/usr/bin/env bash
 
 rm -f ./lib/recurly/resources/*
+rm -f ./lib/recurly/errors/*
+rm -f ./lib/client.php
 

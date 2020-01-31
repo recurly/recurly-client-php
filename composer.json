@@ -17,7 +17,8 @@
         "squizlabs/php_codesniffer": "^3.5"
     },
     "autoload": {
-        "classmap": ["lib"]
+        "classmap": ["lib"],
+        "files": ["lib/recurly.php"]
     },
     "autoload-dev": {
         "classmap": ["tests"]

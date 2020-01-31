@@ -4,6 +4,7 @@ namespace Recurly;
 
 class RecurlyError extends \Error
 {
+    use RecurlyTraits;
 
     private $_response;
 
@@ -44,7 +45,8 @@ class RecurlyError extends \Error
         //  ValidationError < CE
         //    3DSError < VE
         // ServerError < RE
-        return new static($json->error, $response);
+        $klass = static::resourceClass($json->error->type, '\\Recurly\\Errors\\');
+        return new $klass($json->error, $response);
     }
 
 }

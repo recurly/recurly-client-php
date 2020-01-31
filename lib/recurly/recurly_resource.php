@@ -59,7 +59,7 @@ abstract class RecurlyResource
         if (isset($json->error)) {
             throw \Recurly\RecurlyError::fromJson($json, $response);
         } else {
-            $klass_name = static::resourceClass($json->object);
+            $klass_name = static::resourceClass($json->object, "\\Recurly\\Resources\\");
         }
         $klass = $klass_name::cast($json);
 
@@ -85,26 +85,30 @@ abstract class RecurlyResource
             }
 
             $setter = static::titleize($key, 'set');
-            if (is_array($value)) {
-                //$klass->$setter(array_map('static::fromJson', $value));
-                $klass->$setter(
-                    array_map(
-                        function ($item) use ($setter) {
-                            if (property_exists($item, 'object')) {
-                                $item_class = static::resourceClass($item->object);
-                            } else {
-                                $item_class = static::hintArrayType($setter);
-                            }
-                            return $item_class::cast($item);
-                        }, $value
-                    )
-                );
-            } elseif (is_object($value)) {
-                $setter_class = static::setterParamClass($setter);
-                $param = new $setter_class();
-                $klass->$setter($param::cast($value));
-            } else {
-                $klass->$setter($value);
+            if (method_exists(static::class, $setter)) {
+                if (is_array($value)) {
+                    $klass->$setter(
+                        array_map(
+                            function ($item) use ($setter) {
+                                if (property_exists($item, 'object')) {
+                                    $item_class = static::resourceClass($item->object, "\\Recurly\\Resources\\");
+                                } else {
+                                    $item_class = static::hintArrayType($setter);
+                                }
+                                return $item_class::cast($item);
+                            }, $value
+                        )
+                    );
+                } elseif (is_object($value)) {
+                    $setter_class = static::setterParamClass($setter);
+                    $param = new $setter_class();
+                    $klass->$setter($param::cast($value));
+                } else {
+                    $klass->$setter($value);
+                }
+            } elseif (\Recurly\STRICT_MODE) {
+                $klass_name = static::class;
+                trigger_error("$klass_name encountered json attribute $key but it's unknown to it's schema");
             }
         }
         return $klass;
@@ -139,28 +143,6 @@ abstract class RecurlyResource
         $klass = new \Recurly\Resources\BinaryFile();
         $klass->setData($data);
         $klass->setResponse($response);
-        return $klass;
-    }
-
-    /**
-     * Converts a string into a representation of a Recurly Resource
-     *
-     * @param string $type A string to convert to a Recurly Resource
-     * 
-     * @return string The string representation of a Recurly Resource
-     */
-    protected static function resourceClass(string $type): string
-    {
-        if ($type == 'list') {
-            return "\\Recurly\\Page";
-        }
-
-        $klass = static::titleize($type, "\\Recurly\\Resources\\");
-        if (!class_exists($klass)) {
-            // TODO: This should only happen in strict mode?
-            // phpcs:ignore Generic.Files.LineLength.TooLong
-            trigger_error("Could not find the Recurly Resource for key {$type}", E_USER_ERROR);
-        }
         return $klass;
     }
 
