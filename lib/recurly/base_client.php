@@ -138,7 +138,7 @@ abstract class BaseClient
      */
     public function setApiUrl(string $url): void
     {
-        echo "[SECURITY WARNING] _SetApiUrl is for testing only and not supported in production." . PHP_EOL; // phpcs:ignore Generic.Files.LineLength.TooLong
+        echo "[SECURITY WARNING] setApiUrl is for testing only and not supported in production." . PHP_EOL; // phpcs:ignore Generic.Files.LineLength.TooLong
         if (getenv("RECURLY_INSECURE") == "true") {
             $this->_baseUrl = $url;
         } else {
