@@ -79,6 +79,23 @@ final class RecurlyResourceTest extends RecurlyTestCase
         $result = RecurlyResource::fromJson($data, $response);
     }
 
+    public function testFromJsonUnknownErrorResponse(): void
+    {
+        $data = (object)array(
+            "error" => (object)array(
+                "object" => "error",
+                "type" => "unknown_type",
+                "message" => "The error message"
+            )
+        );
+
+        $this->expectException(\Recurly\RecurlyError::class);
+        $this->expectExceptionMessage("The error message");
+        $response = new \Recurly\Response('');
+        $response->setHeaders([]);
+        $result = RecurlyResource::fromJson($data, $response);
+    }
+
     public function testFromJsonList(): void
     {
         $data = (object)array(

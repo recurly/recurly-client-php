@@ -45,7 +45,12 @@ class RecurlyError extends \Error
         //  ValidationError < CE
         //    3DSError < VE
         // ServerError < RE
-        $klass = static::resourceClass($json->error->type, '\\Recurly\\Errors\\');
+        $klass = static::titleize($json->error->type, '\\Recurly\\Errors\\');
+        if (!class_exists($klass)) {
+            // If the error class isn't valid, use the generic \Recurly\RecurlyError
+            // class instead. The errors must flow
+            $klass = static::class;
+        }
         return new $klass($json->error, $response);
     }
 
