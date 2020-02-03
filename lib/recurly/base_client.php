@@ -35,6 +35,13 @@ abstract class BaseClient
      */
     protected function makeRequest(string $method, string $path, ?array $body = [], ?array $params = []): \Recurly\RecurlyResource // phpcs:ignore Generic.Files.LineLength.TooLong
     {
+        $response = $this->_getResponse($method, $path, $body, $params);
+        $resource = $response->toResource();
+        return $resource;
+    }
+
+    private function _getResponse(string $method, string $path, ?array $body = [], ?array $params = []): \Recurly\Response
+    {
         $request = new \Recurly\Request($method, $path, $body, $params);
 
         $options = array(
@@ -54,10 +61,7 @@ abstract class BaseClient
         $response = new \Recurly\Response($result);
         $response->setHeaders($http_response_header);
 
-        $resource = $response->toResource();
-
-        return $resource;
-
+        return $response;
     }
 
     /**
@@ -72,6 +76,20 @@ abstract class BaseClient
     public function nextPage(string $path, ?array $params = []): \Recurly\Page
     {
         return $this->makeRequest('GET', $path, null, $params);
+    }
+
+    /**
+     * Used by the \Recurly\Pager to request requests from the API
+     * 
+     * @param string $path   The URL to make the pager request to
+     * @param ?array $params (optional) An associative array of query string
+     *                       parameters
+     * 
+     * @return \Recurly\Page
+     */
+    public function pagerCount(string $path, ?array $params = []): \Recurly\Response
+    {
+        return $this->_getResponse('HEAD', $path, null, $params);
     }
 
     /**

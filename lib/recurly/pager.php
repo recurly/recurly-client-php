@@ -25,6 +25,31 @@ class Pager implements \Iterator
     }
 
     /**
+     * Makes a HEAD request to the API to determine how many total records exist.
+     * 
+     * @return string
+     */
+    public function getCount()
+    {
+        $response = $this->_client->pagerCount($this->_path, $this->_params);
+        return $response->getRecordCount();
+    }
+
+    /**
+     * Performs a request with the pager `limit` set to 1.
+     * 
+     * @return ?\Recurly\RecurlyResource 
+     */
+    public function getFirst(): ?\Recurly\RecurlyResource
+    {
+        $params = array_merge([ 'limit' => 1 ], $this->_params);
+        $page = $this->_client->nextPage($this->_path, $params);
+        if ($page->valid()) {
+            return $page->current();
+        }
+    }
+
+    /**
      * Getter for the Recurly HTTP Response of the current Page
      * 
      * @return \Recurly\Response The Recurly HTTP Response

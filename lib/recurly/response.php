@@ -138,6 +138,11 @@ class Response
         return $parts[0];
     }
 
+    public function getRecordCount(): string
+    {
+        return $this->_getHeaderValue('Recurly-Total-Records');
+    }
+
     /**
      * Generic getter method for the HTTP response headers
      * 
