@@ -17,6 +17,7 @@ class Page extends RecurlyResource
     public function __construct()
     {
         $this->_cursor = 0;
+        $this->_data = [];
     }
 
     /**
