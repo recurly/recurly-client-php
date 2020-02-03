@@ -65,7 +65,7 @@ abstract class BaseClient
     }
 
     /**
-     * Used by the \Recurly\Pager to request requests from the API
+     * Used by the \Recurly\Pager to make requests to the API.
      * 
      * @param string $path   The URL to make the pager request to
      * @param ?array $params (optional) An associative array of query string
@@ -79,7 +79,7 @@ abstract class BaseClient
     }
 
     /**
-     * Used by the \Recurly\Pager to request requests from the API
+     * Used by the \Recurly\Pager to obtain total counts from the API.
      * 
      * @param string $path   The URL to make the pager request to
      * @param ?array $params (optional) An associative array of query string
