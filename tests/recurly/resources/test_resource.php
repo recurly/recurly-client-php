@@ -7,7 +7,8 @@ class TestResource extends \Recurly\RecurlyResource
     private $_object;
     private $_name;
     private $_single_child;
-    private $_array_children;
+    private $_resource_array;
+    private $_string_array;
 
     public function getObject(): string
     {
@@ -39,20 +40,31 @@ class TestResource extends \Recurly\RecurlyResource
         return $this->_single_child;
     }
 
-    public function setArrayChildren(array $array_children): void
+    public function setResourceArray(array $resource_array): void
     {
-        $this->_array_children = $array_children;
+        $this->_resource_array = $resource_array;
     }
 
-    public function getArrayChildren(): array
+    public function getResourceArray(): array
     {
-        return $this->_array_children;
+        return $this->_resource_array;
+    }
+
+    public function setStringArray(array $string_array): void
+    {
+        $this->_string_array = $string_array;
+    }
+
+    public function getStringArray(): array
+    {
+        return $this->_string_array;
     }
 
     public static function hintArrayType($key): string
     {
         $array_hints = array(
-            'setArrayChildren' => '\Recurly\Resources\TestResource',
+            'setResourceArray' => '\Recurly\Resources\TestResource',
+            'setStringArray' => 'string',
         );
         return $array_hints[$key];
     }

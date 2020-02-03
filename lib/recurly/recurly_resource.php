@@ -94,6 +94,9 @@ abstract class RecurlyResource
                                     $item_class = static::resourceClass($item->object, "\\Recurly\\Resources\\");
                                 } else {
                                     $item_class = static::hintArrayType($setter);
+                                    if (substr($item_class, 0, 8) != "\\Recurly") {
+                                        return $item;
+                                    }
                                 }
                                 return $item_class::cast($item);
                             }, $value
@@ -108,7 +111,7 @@ abstract class RecurlyResource
                 }
             } elseif (\Recurly\STRICT_MODE) {
                 $klass_name = static::class;
-                trigger_error("$klass_name encountered json attribute $key but it's unknown to it's schema");
+                trigger_error("$klass_name encountered json attribute $key but it's unknown to it's schema", E_USER_ERROR);
             }
         }
         return $klass;

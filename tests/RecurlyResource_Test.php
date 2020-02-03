@@ -15,7 +15,20 @@ final class RecurlyResourceTest extends RecurlyTestCase
 
     public function testFromJsonValidResource(): void
     {
-        $test_resource = $this->fixtures->loadJsonFixture('test_resource', ['type' => 'object']);
+        $test_resource = (object)array(
+            "object" => "test_resource",
+            "name" => "test-resource",
+            "single_child" => (object)array(
+                "name" => "child-test-resource"
+            ),
+            "resource_array" => [
+                (object)array( "name" => "child-test-resource" )
+            ],
+            "string_array" => [
+                "string-one",
+                "string-two",
+            ]
+        );
 
         $response = new \Recurly\Response('');
         $result = RecurlyResource::fromJson($test_resource, $response);

@@ -1,0 +1,7 @@
+{
+    "error": {
+        "object": "error",
+        "type": "bad_request",
+        "message": "The error message"
+    }
+}
