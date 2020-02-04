@@ -10,18 +10,18 @@ info:
     flexibility for Recurly to continue making improvements.
 
     The versions follow a format that incorporates the approximate date the
-    changes were released in a YYYY-MM-DD format, e.g. `v2020-01-01`.
+    changes were released in a YYYY-MM-DD format, e.g. `v2019-10-10`.
 
     > *WARNING*: Specifying a version is required to get a successful response.
 
     Each request should specify a version using the `Accept` header:
-    * `Accept: application/vnd.recurly.v2020-01-01`
-    * `Accept: application/vnd.recurly.v2020-01-01+json`
+    * `Accept: application/vnd.recurly.v2019-10-10`
+    * `Accept: application/vnd.recurly.v2019-10-10+json`
 
     All responses will include a `Recurly-Version` header with the API version
     used to process the request:
     ```
-    Recurly-Version: recurly.v2020-01-01
+    Recurly-Version: recurly.v2019-10-10
     ```
 
     ### Default Versions
@@ -63,8 +63,7 @@ info:
           "application/vnd.recurly.v2018-05-10",
           "application/vnd.recurly.v2018-06-06",
           "application/vnd.recurly.v2018-08-09",
-          "application/vnd.recurly.v2019-10-10",
-          "application/vnd.recurly.v2020-01-01"
+          "application/vnd.recurly.v2019-10-10"
         ]
       }
     }
@@ -143,19 +142,7 @@ info:
 
     ## Change Log
 
-    ### v2020-01-01
-
-    Moving all enum types to the schemas section for the purpose of code generation
-
     ### v2019-10-10
-    Support `gateway_token` and `gateway_code` for Billing Infos
-    * `BillingInfoCreate` request format:
-      * Added `gateway_token`
-      * Added `gateway_code`
-    * `PaymentMethod` response format:
-      * Added `gateway_token`
-      * Added `gateway_code`
-
     Adding fields to the `Account` schema to view `Subscription` and `Invoice` statuses without making multiple requests:
     * Subscription status fields:
       * `has_live_subscription`
@@ -642,7 +629,7 @@ info:
     ### v2016-01-01 (Removed)
 
     ### v2014-06-22 (Removed)
-  version: v2020-01-01
+  version: v2019-10-10
 security:
 - api_key: []
 x-tagGroups:
@@ -803,18 +790,6 @@ paths:
               schema:
                 "$ref": "#/components/schemas/Error"
       x-code-samples:
-      - lang: Php
-        source: |
-          try {
-            $params = ['limit' => 200];
-            $sites = $client->listSites($params);
-            foreach($sites as $site) {
-              echo 'Site: ' . $site->getSubdomain() . PHP_EOL;
-            }
-          } catch (\Recurly\RecurlyError $e) {
-            // Something bad happened... tell the user so that they can fix it?
-            echo 'Hey you! Something bad happened' . PHP_EOL;
-          }
       - lang: Java
         source: |
           QueryParams params = new QueryParams();
@@ -920,22 +895,6 @@ paths:
               schema:
                 "$ref": "#/components/schemas/Error"
       x-code-samples:
-      - lang: Php
-        source: |
-          try {
-              $params = ['limit' => 200];
-              $accounts = $client->listAccounts($params);
-
-              $count = 0;
-              foreach($accounts as $account) {
-                  $count = $count + 1;
-                  echo 'Account code: ' . $account->getCode() . PHP_EOL;
-              }
-              echo $count;
-          } catch (\Recurly\RecurlyError $e) {
-              // Something bad happened... tell the user so that they can fix it?
-              echo 'Hey you! Something bad happened' . PHP_EOL;
-          }
       - lang: Java
         source: |
           QueryParams params = new QueryParams();
@@ -1016,39 +975,6 @@ paths:
               schema:
                 "$ref": "#/components/schemas/Error"
       x-code-samples:
-      - lang: Php
-        source: |
-          try {
-              $account_create = array(
-                  "code" => $account_code,
-                  "first_name" => "Douglas",
-                  "last_name" => "DuMonde",
-                  "shipping_addresses" => [
-                      [
-                          "first_name" => "Douglas",
-                          "last_name" => "DuMonde",
-                          "nickname" => "nola",
-                          "street1" => "1 Tchoupitoulas",
-                          "city" => "New Orleans",
-                          "postal_code" => "70130",
-                          "country" => "US"
-                      ]
-                  ]
-              );
-
-              $account = $client->createAccount($account_create);
-
-              echo 'Created Account:' . PHP_EOL;
-              var_dump($account);
-          } catch (\Recurly\Errors\Validation $e) {
-              // If the request was not valid, you may want to tell your user
-              // why. You can find the invalid params and reasons in err.params
-              var_dump($e);
-          } catch (\Recurly\RecurlyError $e) {
-              // If we don't know what to do with the err, we should
-              // probably re-raise and let our web framework and logger handle it
-              var_dump($e);
-          }
       - lang: Java
         source: |
           try {
@@ -1229,22 +1155,6 @@ paths:
               schema:
                 "$ref": "#/components/schemas/Error"
       x-code-samples:
-      - lang: Php
-        source: |
-          try {
-              $account = $client->getAccount($account_id);
-
-              echo 'Got Account:' . PHP_EOL;
-              var_dump($account);
-          } catch (\Recurly\Errors\NotFound $e) {
-              // Could not find the resource, you may want to inform the user
-              // or just return a NULL
-              echo 'Could not find resource.' . PHP_EOL;
-              var_dump($e);
-          } catch (\Recurly\RecurlyError $e) {
-              // Something bad happened... tell the user so that they can fix it?
-              echo 'Some unexpected Recurly error happened. Try again later.' . PHP_EOL;
-          }
       - lang: Java
         source: |
           try {
@@ -1355,22 +1265,6 @@ paths:
               schema:
                 "$ref": "#/components/schemas/Error"
       x-code-samples:
-      - lang: Php
-        source: |
-          try {
-              $account_update = [
-              'first_name' => 'Douglas',
-              'last_name' => 'Du Monde',
-              ];
-
-              $account = $client->updateAccount($account_id, $account_update);
-
-              echo 'Updated Account:' . PHP_EOL;
-              var_dump($account);
-          } catch (\Recurly\RecurlyError $e) {
-              // Something bad happened... tell the user so that they can fix it?
-              echo 'Hey you! Something bad happened' . PHP_EOL;
-          }
       - lang: Java
         source: |
           try {
@@ -1490,22 +1384,6 @@ paths:
               schema:
                 "$ref": "#/components/schemas/Error"
       x-code-samples:
-      - lang: Php
-        source: |
-          try {
-              $account = $client->deactivateAccount($account_id);
-
-              echo 'Deactivated Account:' . PHP_EOL;
-              var_dump($account);
-          } catch (\Recurly\Errors\NotFound $e) {
-              // Could not find the resource, you may want to inform the user
-              // or just return a NULL
-              echo 'Could not find resource.' . PHP_EOL;
-              var_dump($e);
-          } catch (\Recurly\RecurlyError $e) {
-              // Something bad happened... tell the user so that they can fix it?
-              echo 'Some unexpected Recurly error happened. Try again later.' . PHP_EOL;
-          }
       - lang: Java
         source: |
           try {
@@ -1596,22 +1474,6 @@ paths:
               schema:
                 "$ref": "#/components/schemas/Error"
       x-code-samples:
-      - lang: Php
-        source: |
-          try {
-              $acquisition = $client->getAccountAcquisition($account_id);
-
-              echo 'Got Account Acquisition:' . PHP_EOL;
-              var_dump($acquisition);
-          } catch (\Recurly\Errors\NotFound $e) {
-              // Could not find the resource, you may want to inform the user
-              // or just return a NULL
-              echo 'Could not find resource.' . PHP_EOL;
-              var_dump($e);
-          } catch (\Recurly\RecurlyError $e) {
-              // Something bad happened... tell the user so that they can fix it?
-              echo 'Some unexpected Recurly error happened. Try again later.' . PHP_EOL;
-          }
       - lang: Java
         source: |
           try {
@@ -1914,22 +1776,6 @@ paths:
               schema:
                 "$ref": "#/components/schemas/Error"
       x-code-samples:
-      - lang: Php
-        source: |
-          try {
-              $account = $client->reactivateAccount($account_id);
-
-              echo 'Reactivated Account:' . PHP_EOL;
-              var_dump($account);
-          } catch (\Recurly\Errors\NotFound $e) {
-              // Could not find the resource, you may want to inform the user
-              // or just return a NULL
-              echo 'Could not find resource.' . PHP_EOL;
-              var_dump($e);
-          } catch (\Recurly\RecurlyError $e) {
-              // Something bad happened... tell the user so that they can fix it?
-              echo 'Some unexpected Recurly error happened. Try again later.' . PHP_EOL;
-          }
       - lang: Java
         source: |
           try {
@@ -2024,22 +1870,6 @@ paths:
               schema:
                 "$ref": "#/components/schemas/Error"
       x-code-samples:
-      - lang: Php
-        source: |
-          try {
-              $balance = $client->getAccountBalance($account_id);
-
-              echo 'Got Account Balance:' . PHP_EOL;
-              var_dump($balance);
-          } catch (\Recurly\Errors\NotFound $e) {
-              // Could not find the resource, you may want to inform the user
-              // or just return a NULL
-              echo 'Could not find resource.' . PHP_EOL;
-              var_dump($e);
-          } catch (\Recurly\RecurlyError $e) {
-              // Something bad happened... tell the user so that they can fix it?
-              echo 'Some unexpected Recurly error happened. Try again later.' . PHP_EOL;
-          }
       - lang: Java
         source: |
           try {
@@ -2137,22 +1967,6 @@ paths:
               schema:
                 "$ref": "#/components/schemas/Error"
       x-code-samples:
-      - lang: Php
-        source: |
-          try {
-              $binfo = $client->getBillingInfo($account_id);
-
-              echo 'Got BillingInfo:' . PHP_EOL;
-              var_dump($binfo);
-          } catch (\Recurly\Errors\NotFound $e) {
-              // Could not find the resource, you may want to inform the user
-              // or just return a NULL
-              echo 'Could not find resource.' . PHP_EOL;
-              var_dump($e);
-          } catch (\Recurly\RecurlyError $e) {
-              // Something bad happened... tell the user so that they can fix it?
-              echo 'Some unexpected Recurly error happened. Try again later.' . PHP_EOL;
-          }
       - lang: Java
         source: |
           try {
@@ -2235,13 +2049,6 @@ paths:
         - number
         - month
         - year
-
-        For tokenized payments you'll need the following required fields:
-
-        - first_name
-        - last_name
-        - gateway_token
-        - gateway_code
       parameters:
       - "$ref": "#/components/parameters/site_id"
       - "$ref": "#/components/parameters/account_id"
@@ -2488,20 +2295,6 @@ paths:
               schema:
                 "$ref": "#/components/schemas/Error"
       x-code-samples:
-      - lang: Php
-        source: |
-          try {
-            $params = ['limit' => 200];
-            $account_coupon_redemptions = $client->listAccountCouponRedemptions($account->getId(), $params);
-
-            foreach($account_coupon_redemptions as $coupon_redemption) {
-              echo 'Coupon redemption: ' . $coupon_redemption->getId() . PHP_EOL;
-            }
-
-          } catch (\Recurly\RecurlyError $e) {
-              // Something bad happened... tell the user so that they can fix it?
-              echo 'Hey you! Something bad happened' . PHP_EOL;
-          }
       - lang: Java
         source: |
           QueryParams params = new QueryParams();
@@ -2555,22 +2348,6 @@ paths:
               schema:
                 "$ref": "#/components/schemas/Error"
       x-code-samples:
-      - lang: Php
-        source: |
-          try {
-              $redemption = $client->getActiveCouponRedemption($account_id);
-
-              echo 'Got Redemption:' . PHP_EOL;
-              var_dump($redemption);
-          } catch (\Recurly\Errors\NotFound $e) {
-              // Could not find the resource, you may want to inform the user
-              // or just return a NULL
-              echo 'Could not find resource.' . PHP_EOL;
-              var_dump($e);
-          } catch (\Recurly\RecurlyError $e) {
-              // Something bad happened... tell the user so that they can fix it?
-              echo 'Some unexpected Recurly error happened. Try again later.' . PHP_EOL;
-          }
       - lang: Java
         source: |
           try {
@@ -2904,18 +2681,6 @@ paths:
               schema:
                 "$ref": "#/components/schemas/Error"
       x-code-samples:
-      - lang: Php
-        source: |-
-          try {
-            $params = ['limit' => 10];
-            $invoices = $client->listAccountInvoices($account->getId(), $params);
-            foreach($invoices as $invoice) {
-              echo 'Account invoice: ' . $invoice . PHP_EOL;
-            }
-          } catch (\Recurly\RecurlyError $e) {
-            // Something bad happened... tell the user so that they can fix it?
-            echo 'Hey you! Something bad happened' . PHP_EOL;
-          }
       - lang: Java
         source: |
           QueryParams params = new QueryParams();
@@ -2987,28 +2752,6 @@ paths:
               schema:
                 "$ref": "#/components/schemas/Error"
       x-code-samples:
-      - lang: Php
-        source: |-
-          try {
-              $invoice_create = array(
-                  "currency" => "USD",
-                  "collection_method" => "automatic"
-              );
-              $invoice_collection = $client->createInvoice(
-                  $account_id,
-                  $invoice_create
-              );
-              echo "Created Invoice:" . PHP_EOL;
-              var_dump($invoice_collection);
-          } catch (\Recurly\Errors\Validation $e) {
-              // If the request was not valid, you may want to tell your user
-              // why. You can find the invalid params and reasons in err.params
-              var_dump($e);
-          } catch (\Recurly\RecurlyError $e) {
-              // If we don't know what to do with the err, we should
-              // probably re-raise and let our web framework and logger handle it
-              var_dump($e);
-          }
       - lang: Java
         source: |
           try {
@@ -3290,14 +3033,6 @@ paths:
               schema:
                 "$ref": "#/components/schemas/Error"
       x-code-samples:
-      - lang: Php
-        source: |
-          $params = ['limit' => 200];
-          $account_line_items = $client->listAccountLineItems($account_id, $params);
-
-          foreach($account_line_items as $line_item) {
-            echo 'Account line item: ' . $line_item->getId() . PHP_EOL;
-          }
       - lang: Java
         source: |
           QueryParams params = new QueryParams();
@@ -3362,29 +3097,6 @@ paths:
               schema:
                 "$ref": "#/components/schemas/Error"
       x-code-samples:
-      - lang: Php
-        source: |-
-          try {
-              $line_item_create = [
-                  'currency' => 'USD',
-                  'unit_amount' => 1000,
-                  'type' => 'charge'
-              ];
-              $line_item = $client->createLineItem(
-                  $account->getId(),
-                  $line_item_create
-              );
-              echo 'Created Line Item:' . PHP_EOL;
-              var_dump($line_item);
-          } catch (\Recurly\Errors\Validation $e) {
-              // If the request was not valid, you may want to tell your user
-              // why. You can find the invalid params and reasons in err.params
-              var_dump($e);
-          } catch (\Recurly\RecurlyError $e) {
-              // If we don't know what to do with the err, we should
-              // probably re-raise and let our web framework and logger handle it
-              var_dump($e);
-          }
       - lang: Java
         source: |
           try {
@@ -3513,14 +3225,6 @@ paths:
               schema:
                 "$ref": "#/components/schemas/Error"
       x-code-samples:
-      - lang: Php
-        source: |
-          $params = ['limit' => 200];
-          $account_notes = $client->listAccountNotes($account_id, $params);
-
-          foreach($account_notes as $note) {
-            echo 'Account note: ' . $note->getMessage() . PHP_EOL;
-          }
       - lang: Java
         source: |
           QueryParams params = new QueryParams();
@@ -3591,22 +3295,6 @@ paths:
               schema:
                 "$ref": "#/components/schemas/Error"
       x-code-samples:
-      - lang: Php
-        source: |
-          try {
-              $note = $client->getAccountNote($account_id, $account_node_id);
-
-              echo 'Got Account Note:' . PHP_EOL;
-              var_dump($note);
-          } catch (\Recurly\Errors\NotFound $e) {
-              // Could not find the resource, you may want to inform the user
-              // or just return a NULL
-              echo 'Could not find resource.' . PHP_EOL;
-              var_dump($e);
-          } catch (\Recurly\RecurlyError $e) {
-              // Something bad happened... tell the user so that they can fix it?
-              echo 'Some unexpected Recurly error happened. Try again later.' . PHP_EOL;
-          }
       - lang: Java
         source: |
           try {
@@ -3915,22 +3603,6 @@ paths:
               schema:
                 "$ref": "#/components/schemas/Error"
       x-code-samples:
-      - lang: Php
-        source: |
-          try {
-              $shipping_address = $client->getShippingAddress($account_id, $shipping_address_id);
-
-              echo 'Got Shipping Address:' . PHP_EOL;
-              var_dump($shipping_address);
-          } catch (\Recurly\Errors\NotFound $e) {
-              // Could not find the resource, you may want to inform the user
-              // or just return a NULL
-              echo 'Could not find resource.' . PHP_EOL;
-              var_dump($e);
-          } catch (\Recurly\RecurlyError $e) {
-              // Something bad happened... tell the user so that they can fix it?
-              echo 'Some unexpected Recurly error happened. Try again later.' . PHP_EOL;
-          }
       - lang: Java
         source: |
           try {
@@ -4276,14 +3948,6 @@ paths:
               schema:
                 "$ref": "#/components/schemas/Error"
       x-code-samples:
-      - lang: Php
-        source: |
-          $params = ['limit' => 200];
-          $account_subscriptions = $client->listAccountSubscriptions($account_id, $params);
-
-          foreach($account_subscriptions as $sub) {
-              echo 'Account subscription: ' . $sub->getUuid() . PHP_EOL;
-          }
       - lang: Java
         source: |
           QueryParams params = new QueryParams();
@@ -4408,14 +4072,6 @@ paths:
               schema:
                 "$ref": "#/components/schemas/Error"
       x-code-samples:
-      - lang: Php
-        source: |
-          $params = ['limit' => 200];
-          $child_accounts = $client->listChildAccounts($account_id, $params);
-
-          foreach($child_accounts as $child_account) {
-            echo 'Child Account: ' . $child_account->getId() . PHP_EOL;
-          }
       - lang: Ruby
         source: |
           child_accounts = @client.list_child_accounts(
@@ -4465,14 +4121,6 @@ paths:
               schema:
                 "$ref": "#/components/schemas/Error"
       x-code-samples:
-      - lang: Php
-        source: |
-          $params = ['limit' => 200];
-          $account_acquisition = $client->listAccountAcquisition($params);
-
-          foreach($account_acquisition as $aa) {
-            echo 'Account acquisition: ' . $aa->getId() . PHP_EOL;
-          }
       - lang: Ruby
         source: |
           acquisitions = @client.list_account_acquisition(limit: 200)
@@ -4524,19 +4172,6 @@ paths:
               schema:
                 "$ref": "#/components/schemas/Error"
       x-code-samples:
-      - lang: Php
-        source: |
-          try {
-            $params = ['limit' => 200];
-            $coupons = $client->listCoupons($params);
-
-            foreach($coupons as $coupon) {
-              echo 'Coupon: ' . $coupon->getCode() . PHP_EOL;
-            }
-          } catch (\Recurly\RecurlyError $e) {
-            // Something bad happened... tell the user so that they can fix it?
-            echo 'Hey you! Something bad happened' . PHP_EOL;
-          }
       - lang: Java
         source: |
           QueryParams params = new QueryParams();
@@ -4616,32 +4251,6 @@ paths:
               schema:
                 "$ref": "#/components/schemas/Error"
       x-code-samples:
-      - lang: Php
-        source: |
-          try {
-              $coupon_create = array(
-                  "name" => "Promotional Coupon",
-                  "code" => $coupon_code,
-                  "discount_type" => "fixed",
-                  "currencies" => [
-                      "currency" => "USD",
-                      "discount" => 10
-                  ]
-              );
-
-              $coupon = $client->createCoupon($coupon_create);
-
-              echo 'Created Coupon:' . PHP_EOL;
-              var_dump($coupon);
-          } catch (\Recurly\Errors\Validation $e) {
-              // If the request was not valid, you may want to tell your user
-              // why. You can find the invalid params and reasons in err.params
-              var_dump($e);
-          } catch (\Recurly\RecurlyError $e) {
-              // If we don't know what to do with the err, we should
-              // probably re-raise and let our web framework and logger handle it
-              var_dump($e);
-          }
       - lang: Java
         source: |
           try {
@@ -4967,19 +4576,6 @@ paths:
               schema:
                 "$ref": "#/components/schemas/Error"
       x-code-samples:
-      - lang: Php
-        source: |
-          try {
-            $params = ['limit' => 200];
-            $credit_payments = $client->listCreditPayments($params);
-
-            foreach($credit_payments as $payment) {
-              echo 'Credit Payment: ' . $payment->getId() . PHP_EOL;
-            }
-          } catch (\Recurly\RecurlyError $e) {
-            // Something bad happened... tell the user so that they can fix it?
-            echo 'Hey you! Something bad happened' . PHP_EOL;
-          }
       - lang: Java
         source: |
           QueryParams params = new QueryParams();
@@ -5056,7 +4652,11 @@ paths:
         in: query
         description: Filter by related type.
         schema:
-          "$ref": "#/components/schemas/RelatedTypeEnum"
+          type: string
+          enum:
+          - account
+          - item
+          - subscription
       responses:
         '200':
           description: A list of the site's custom field definitions.
@@ -5083,19 +4683,6 @@ paths:
               schema:
                 "$ref": "#/components/schemas/Error"
       x-code-samples:
-      - lang: Php
-        source: |
-          try {
-            $params = ['limit' => 200];
-            $custom_field_definitions = $client->listCustomFieldDefinitions($params);
-
-            foreach($custom_field_definitions as $definition) {
-              echo 'Custom Field Definition: ' . $definition->getName() . PHP_EOL;
-            }
-          } catch (\Recurly\RecurlyError $e) {
-            // Something bad happened... tell the user so that they can fix it?
-            echo 'Hey you! Something bad happened' . PHP_EOL;
-          }
       - lang: Java
         source: |
           QueryParams params = new QueryParams();
@@ -5247,19 +4834,6 @@ paths:
               schema:
                 "$ref": "#/components/schemas/Error"
       x-code-samples:
-      - lang: Php
-        source: |
-          try {
-            $params = ['limit' => 200];
-            $items = $client->listItems($params);
-
-            foreach($items as $item) {
-              echo 'Item: ' . $item->getCode() . PHP_EOL;
-            }
-          } catch (\Recurly\RecurlyError $e) {
-            // Something bad happened... tell the user so that they can fix it?
-            echo 'Hey you! Something bad happened' . PHP_EOL;
-          }
       - lang: Java
         source: |
           QueryParams params = new QueryParams();
@@ -5504,22 +5078,6 @@ paths:
               schema:
                 "$ref": "#/components/schemas/Error"
       x-code-samples:
-      - lang: Php
-        source: |
-          try {
-              $item = $client->getItem($item_id);
-
-              echo 'Got Item:' . PHP_EOL;
-              var_dump($item);
-          } catch (\Recurly\Errors\NotFound $e) {
-              // Could not find the resource, you may want to inform the user
-              // or just return a NULL
-              echo 'Could not find resource.' . PHP_EOL;
-              var_dump($e);
-          } catch (\Recurly\RecurlyError $e) {
-              // Something bad happened... tell the user so that they can fix it?
-              echo 'Some unexpected Recurly error happened. Try again later.' . PHP_EOL;
-          }
       - lang: Java
         source: |
           try {
@@ -5755,22 +5313,6 @@ paths:
               schema:
                 "$ref": "#/components/schemas/Error"
       x-code-samples:
-      - lang: Php
-        source: |
-          try {
-              $item = $client->deactivateItem($item_id);
-
-              echo 'Deactivated Item:' . PHP_EOL;
-              var_dump($item);
-          } catch (\Recurly\Errors\NotFound $e) {
-              // Could not find the resource, you may want to inform the user
-              // or just return a NULL
-              echo 'Could not find resource.' . PHP_EOL;
-              var_dump($e);
-          } catch (\Recurly\RecurlyError $e) {
-              // Something bad happened... tell the user so that they can fix it?
-              echo 'Some unexpected Recurly error happened. Try again later.' . PHP_EOL;
-          }
       - lang: Java
         source: |
           try {
@@ -5873,22 +5415,6 @@ paths:
               schema:
                 "$ref": "#/components/schemas/Error"
       x-code-samples:
-      - lang: Php
-        source: |
-          try {
-              $item = $client->reactivateItem($item_id);
-
-              echo 'Reactivate Item:' . PHP_EOL;
-              var_dump($item);
-          } catch (\Recurly\Errors\NotFound $e) {
-              // Could not find the resource, you may want to inform the user
-              // or just return a NULL
-              echo 'Could not find resource.' . PHP_EOL;
-              var_dump($e);
-          } catch (\Recurly\RecurlyError $e) {
-              // Something bad happened... tell the user so that they can fix it?
-              echo 'Some unexpected Recurly error happened. Try again later.' . PHP_EOL;
-          }
       - lang: Java
         source: |
           try {
@@ -6058,22 +5584,6 @@ paths:
               schema:
                 "$ref": "#/components/schemas/Error"
       x-code-samples:
-      - lang: Php
-        source: |
-          try {
-              $invoice = $client->getInvoice($invoice_id);
-
-              echo 'Got Invoice:' . PHP_EOL;
-              var_dump($invoice);
-          } catch (\Recurly\Errors\NotFound $e) {
-              // Could not find the resource, you may want to inform the user
-              // or just return a NULL
-              echo 'Could not find resource.' . PHP_EOL;
-              var_dump($e);
-          } catch (\Recurly\RecurlyError $e) {
-              // Something bad happened... tell the user so that they can fix it?
-              echo 'Some unexpected Recurly error happened. Try again later.' . PHP_EOL;
-          }
       - lang: Java
         source: |
           try {
@@ -6265,24 +5775,6 @@ paths:
               schema:
                 "$ref": "#/components/schemas/Error"
       x-code-samples:
-      - lang: Php
-        source: |
-          try {
-              $invoice = $client->getInvoicePdf($invoice_id);
-              echo 'Got Invoice PDF:' . PHP_EOL;
-              var_dump($invoice);
-              $invoice_fp = fopen("php-invoice-" . $invoice_id . ".pdf", "w");
-              fwrite($invoice_fp, $invoice->getData());
-              fclose($invoice_fp);
-          } catch (\Recurly\Errors\NotFound $e) {
-              // Could not find the resource, you may want to inform the user
-              // or just return a NULL
-              echo 'Could not find resource.' . PHP_EOL;
-              var_dump($e);
-          } catch (\Recurly\RecurlyError $e) {
-              // Something bad happened... tell the user so that they can fix it?
-              echo 'Some unexpected Recurly error happened. Try again later.' . PHP_EOL;
-          }
       - lang: Java
         source: |
           try {
@@ -6514,22 +6006,6 @@ paths:
               schema:
                 "$ref": "#/components/schemas/Error"
       x-code-samples:
-      - lang: Php
-        source: |
-          try {
-              $invoice = $client->failInvoice($invoice_id);
-
-              echo 'Failed Invoice:' . PHP_EOL;
-              var_dump($invoice);
-          } catch (\Recurly\Errors\NotFound $e) {
-              // Could not find the resource, you may want to inform the user
-              // or just return a NULL
-              echo 'Could not find resource.' . PHP_EOL;
-              var_dump($e);
-          } catch (\Recurly\RecurlyError $e) {
-              // Something bad happened... tell the user so that they can fix it?
-              echo 'Some unexpected Recurly error happened. Try again later.' . PHP_EOL;
-          }
       - lang: Java
         source: |
           try {
@@ -7158,19 +6634,6 @@ paths:
               schema:
                 "$ref": "#/components/schemas/Error"
       x-code-samples:
-      - lang: Php
-        source: |
-          try {
-            $params = ['limit' => 200];
-            $line_items = $client->listLineItems($params);
-
-            foreach($line_items as $line_item) {
-              echo 'Line item: ' . $line_item->getId() . PHP_EOL;
-            }
-          } catch (\Recurly\RecurlyError $e) {
-            // Something bad happened... tell the user so that they can fix it?
-            echo 'Hey you! Something bad happened' . PHP_EOL;
-          }
       - lang: Java
         source: |
           QueryParams params = new QueryParams();
@@ -7228,22 +6691,6 @@ paths:
               schema:
                 "$ref": "#/components/schemas/Error"
       x-code-samples:
-      - lang: Php
-        source: |
-          try {
-              $line_item = $client->getLineItem($line_item_id);
-
-              echo 'Got LineItem:' . PHP_EOL;
-              var_dump($line_item);
-          } catch (\Recurly\Errors\NotFound $e) {
-              // Could not find the resource, you may want to inform the user
-              // or just return a NULL
-              echo 'Could not find resource.' . PHP_EOL;
-              var_dump($e);
-          } catch (\Recurly\RecurlyError $e) {
-              // Something bad happened... tell the user so that they can fix it?
-              echo 'Some unexpected Recurly error happened. Try again later.' . PHP_EOL;
-          }
       - lang: Java
         source: |
           try {
@@ -7449,12 +6896,6 @@ paths:
               schema:
                 "$ref": "#/components/schemas/Error"
       x-code-samples:
-      - lang: Php
-        source: "try {\n  $params = ['limit' => 200];\n  $plans = $client->listPlans($params);\n
-          \ \n  foreach($plans as $plan) {\n    echo 'Plan: ' . $plan->getCode() .
-          PHP_EOL;\n  }\n} catch (\\Recurly\\RecurlyError $e) {\n  // Something bad
-          happened... tell the user so that they can fix it?\n  echo 'Hey you! Something
-          bad happened' . PHP_EOL;\n}\n"
       - lang: Java
         source: |
           QueryParams params = new QueryParams();
@@ -7528,33 +6969,6 @@ paths:
               schema:
                 "$ref": "#/components/schemas/Error"
       x-code-samples:
-      - lang: Php
-        source: |
-          try {
-              $plan_create = array(
-                  "name" => "Monthly Coffee Subscription",
-                  "code" => $plan_code,
-                  "currencies" => [
-                      array(
-                          "currency" => "USD",
-                          "unit_amount" => 10000
-                      )
-                  ]
-              );
-
-              $plan = $client->createPlan($plan_create);
-
-              echo 'Created Plan:' . PHP_EOL;
-              var_dump($plan);
-          } catch (\Recurly\Errors\Validation $e) {
-              // If the request was not valid, you may want to tell your user
-              // why. You can find the invalid params and reasons in err.params
-              var_dump($e);
-          } catch (\Recurly\RecurlyError $e) {
-              // If we don't know what to do with the err, we should
-              // probably re-raise and let our web framework and logger handle it
-              var_dump($e);
-          }
       - lang: Java
         source: |
           try {
@@ -7707,22 +7121,6 @@ paths:
               schema:
                 "$ref": "#/components/schemas/Error"
       x-code-samples:
-      - lang: Php
-        source: |
-          try {
-              $plan = $client->getPlan($plan_id);
-
-              echo 'Got Plan:' . PHP_EOL;
-              var_dump($plan);
-          } catch (\Recurly\Errors\NotFound $e) {
-              // Could not find the resource, you may want to inform the user
-              // or just return a NULL
-              echo 'Could not find resource.' . PHP_EOL;
-              var_dump($e);
-          } catch (\Recurly\RecurlyError $e) {
-              // Something bad happened... tell the user so that they can fix it?
-              echo 'Some unexpected Recurly error happened. Try again later.' . PHP_EOL;
-          }
       - lang: Java
         source: |
           try {
@@ -7997,19 +7395,6 @@ paths:
               schema:
                 "$ref": "#/components/schemas/Error"
       x-code-samples:
-      - lang: Php
-        source: |
-          try {
-            $params = ['limit' => 200];
-            $plan_add_ons = $client->listPlanAddOns($plan_id, $params);
-
-            foreach($plan_add_ons as $add_on) {
-              echo 'Plan add-on: ' . $add_on->getCode() . PHP_EOL;
-            }
-          } catch (\Recurly\RecurlyError $e) {
-            // Something bad happened... tell the user so that they can fix it?
-            echo 'Hey you! Something bad happened' . PHP_EOL;
-          }
       - lang: Java
         source: |
           QueryParams params = new QueryParams();
@@ -8074,33 +7459,6 @@ paths:
               schema:
                 "$ref": "#/components/schemas/Error"
       x-code-samples:
-      - lang: Php
-        source: |
-          try {
-              $add_on_create = [
-                  "code" => $add_on_code,
-                  "name" => "Fresh beans shipped monthly",
-                  "currencies" => [
-                      array(
-                          "currency" => "USD",
-                          "unit_amount" => 10
-                      )
-                  ]
-              ];
-
-              $add_on = $client->createPlanAddOn($plan_id, $add_on_create);
-
-              echo 'Created Plan:' . PHP_EOL;
-              var_dump($plan);
-          } catch (\Recurly\Errors\Validation $e) {
-              // If the request was not valid, you may want to tell your user
-              // why. You can find the invalid params and reasons in err.params
-              var_dump($e);
-          } catch (\Recurly\RecurlyError $e) {
-              // If we don't know what to do with the err, we should
-              // probably re-raise and let our web framework and logger handle it
-              var_dump($e);
-          }
       - lang: Java
         source: |
           try {
@@ -8204,22 +7562,6 @@ paths:
               schema:
                 "$ref": "#/components/schemas/Error"
       x-code-samples:
-      - lang: Php
-        source: |
-          try {
-              $add_on = $client->getPlanAddOn($plan_id, $add_on_id);
-
-              echo 'Got Plan Add-On:' . PHP_EOL;
-              var_dump($add_on);
-          } catch (\Recurly\Errors\NotFound $e) {
-              // Could not find the resource, you may want to inform the user
-              // or just return a NULL
-              echo 'Could not find resource.' . PHP_EOL;
-              var_dump($e);
-          } catch (\Recurly\RecurlyError $e) {
-              // Something bad happened... tell the user so that they can fix it?
-              echo 'Some unexpected Recurly error happened. Try again later.' . PHP_EOL;
-          }
       - lang: Java
         source: |
           try {
@@ -8379,19 +7721,6 @@ paths:
               schema:
                 "$ref": "#/components/schemas/Error"
       x-code-samples:
-      - lang: Php
-        source: |
-          try {
-            $params = ['limit' => 200];
-            $add_ons = $client->listAddOns($params);
-
-            foreach($add_ons as $addon) {
-              echo 'Add-on: ' . $addon->getCode() . PHP_EOL;
-            }
-          } catch (\Recurly\RecurlyError $e) {
-            // Something bad happened... tell the user so that they can fix it?
-            echo 'Hey you! Something bad happened' . PHP_EOL;
-          }
       - lang: Java
         source: |
           QueryParams params = new QueryParams();
@@ -8476,20 +7805,7 @@ paths:
             application/json:
               schema:
                 "$ref": "#/components/schemas/Error"
-      x-code-samples:
-      - lang: Php
-        source: |
-          try {
-            $params = ['limit' => 200];
-            $shipping_methods = $client->listShippingMethods($params);
-
-            foreach($shipping_methods as $shipping_method) {
-              echo 'Shipping Method: ' . $shipping_method->getCode() . PHP_EOL;
-            }
-          } catch (\Recurly\RecurlyError $e) {
-            // Something bad happened... tell the user so that they can fix it?
-            echo 'Hey you! Something bad happened' . PHP_EOL;
-          }
+      x-code-samples: []
   "/sites/{site_id}/shipping_methods/{id}":
     get:
       tags:
@@ -8566,19 +7882,6 @@ paths:
               schema:
                 "$ref": "#/components/schemas/Error"
       x-code-samples:
-      - lang: Php
-        source: |
-          try {
-            $params = ['limit' => 200];
-            $subscriptions = $client->listSubscriptions($params);
-
-            foreach($subscriptions as $sub) {
-              echo 'Subscription: ' . $sub->getUuid() . PHP_EOL;
-            }
-          } catch (\Recurly\RecurlyError $e) {
-            // Something bad happened... tell the user so that they can fix it?
-            echo 'Hey you! Something bad happened' . PHP_EOL;
-          }
       - lang: Java
         source: |
           QueryParams params = new QueryParams();
@@ -8789,22 +8092,6 @@ paths:
               schema:
                 "$ref": "#/components/schemas/Error"
       x-code-samples:
-      - lang: Php
-        source: |
-          try {
-              $subscription = $client->getSubscription($subscription_id);
-
-              echo 'Got Subscription:' . PHP_EOL;
-              var_dump($subscription);
-          } catch (\Recurly\Errors\NotFound $e) {
-              // Could not find the resource, you may want to inform the user
-              // or just return a NULL
-              echo 'Could not find resource.' . PHP_EOL;
-              var_dump($e);
-          } catch (\Recurly\RecurlyError $e) {
-              // Something bad happened... tell the user so that they can fix it?
-              echo 'Some unexpected Recurly error happened. Try again later.' . PHP_EOL;
-          }
       - lang: Java
         source: |
           try {
@@ -9017,8 +8304,12 @@ paths:
 
           You may also terminate a subscription with no refund and then manually refund specific invoices.
         schema:
+          type: string
+          enum:
+          - full
+          - partial
+          - none
           default: none
-          "$ref": "#/components/schemas/RefundTypeEnum"
       responses:
         '200':
           description: An expired subscription.
@@ -9163,22 +8454,6 @@ paths:
               schema:
                 "$ref": "#/components/schemas/Error"
       x-code-samples:
-      - lang: Php
-        source: |
-          try {
-              $subscription = $client->cancelSubscription($subscription_id, []);
-
-              echo 'Canceled Subscription:' . PHP_EOL;
-              var_dump($subscription);
-          } catch (\Recurly\Errors\NotFound $e) {
-              // Could not find the resource, you may want to inform the user
-              // or just return a NULL
-              echo 'Could not find resource.' . PHP_EOL;
-              var_dump($e);
-          } catch (\Recurly\RecurlyError $e) {
-              // Something bad happened... tell the user so that they can fix it?
-              echo 'Some unexpected Recurly error happened. Try again later.' . PHP_EOL;
-          }
       - lang: Java
         source: |
           try {
@@ -9544,22 +8819,6 @@ paths:
               schema:
                 "$ref": "#/components/schemas/Error"
       x-code-samples:
-      - lang: Php
-        source: |
-          try {
-              $change = $client->getSubscriptionChange($subscription_id);
-
-              echo 'Got Pending Subscription Change:' . PHP_EOL;
-              var_dump($change);
-          } catch (\Recurly\Errors\NotFound $e) {
-              // Could not find the resource, you may want to inform the user
-              // or just return a NULL
-              echo 'Could not find resource.' . PHP_EOL;
-              var_dump($e);
-          } catch (\Recurly\RecurlyError $e) {
-              // Something bad happened... tell the user so that they can fix it?
-              echo 'Some unexpected Recurly error happened. Try again later.' . PHP_EOL;
-          }
       - lang: Java
         source: |
           try {
@@ -9966,14 +9225,6 @@ paths:
               schema:
                 "$ref": "#/components/schemas/Error"
       x-code-samples:
-      - lang: Php
-        source: |
-          $params = ['limit' => 200];
-          $subscription_line_items = $client->listSubscriptionLineItems($subscription_id, $params);
-
-          foreach($subscription_line_items as $line_item) {
-            echo 'Subscription Invoice: ' . $line_item->getId() . PHP_EOL;
-          }
       - lang: Java
         source: |
           QueryParams params = new QueryParams();
@@ -10096,19 +9347,6 @@ paths:
               schema:
                 "$ref": "#/components/schemas/Error"
       x-code-samples:
-      - lang: Php
-        source: |
-          try {
-            $params = ['limit' => 200];
-            $transactions = $client->listTransactions($params);
-
-            foreach($transactions as $transaction) {
-              echo 'Transaction: ' . $transaction->getUuid() . PHP_EOL;
-            }
-          } catch (\Recurly\RecurlyError $e) {
-            // Something bad happened... tell the user so that they can fix it?
-            echo 'Hey you! Something bad happened' . PHP_EOL;
-          }
       - lang: Java
         source: |
           QueryParams params = new QueryParams();
@@ -10369,37 +9607,6 @@ paths:
               schema:
                 "$ref": "#/components/schemas/Error"
       x-code-samples:
-      - lang: Php
-        source: |
-          try {
-              $purchase_create = array(
-                  "currency" => "USD",
-                  "account" => array(
-                      "code" => $account_code,
-                      "first_name" => "Douglas",
-                      "last_name" => "Du Monde",
-                      "billing_info" => array(
-                          "token_id" => $rjs_token_id
-                      ),
-                  ),
-                  "subscriptions" => [
-                      array(
-                          "plan_code" => $plan_code
-                      )
-                  ]
-              );
-              $invoice_collection = $client->createPurchase($purchase_create);
-              echo 'Created Invoices:' . PHP_EOL;
-              var_dump($invoice_collection);
-          } catch (\Recurly\Errors\Validation $e) {
-              // If the request was not valid, you may want to tell your user
-              // why. You can find the invalid params and reasons in err.params
-              var_dump($e);
-          } catch (\Recurly\RecurlyError $e) {
-              // If we don't know what to do with the err, we should
-              // probably re-raise and let our web framework and logger handle it
-              var_dump($e);
-          }
       - lang: Java
         source: |
           try {
@@ -10855,8 +10062,11 @@ components:
       in: query
       description: Sort order.
       schema:
+        type: string
+        enum:
+        - asc
+        - desc
         default: desc
-        "$ref": "#/components/schemas/AlphanumericSortEnum"
     sort_dates:
       name: sort
       in: query
@@ -10865,14 +10075,20 @@ components:
         order. In descending order updated records will move behind the cursor and could
         prevent some records from being returned.
       schema:
+        type: string
+        enum:
+        - created_at
+        - updated_at
         default: created_at
-        "$ref": "#/components/schemas/TimestampSortEnum"
     filter_state:
       name: state
       in: query
       description: Filter by state.
       schema:
-        "$ref": "#/components/schemas/ActiveStateEnum"
+        type: string
+        enum:
+        - active
+        - inactive
     filter_subscription_state:
       name: state
       in: query
@@ -10883,7 +10099,14 @@ components:
         - When `state=in_trial`, only subscriptions that have a trial_started_at date earlier than now and a trial_ends_at date later than now will be returned.
         - When `state=live`, only subscriptions that are in an active, canceled, or future state or are in trial will be returned.
       schema:
-        "$ref": "#/components/schemas/FilterSubscriptionStateEnum"
+        type: string
+        enum:
+        - active
+        - canceled
+        - expired
+        - future
+        - in_trial
+        - live
     filter_begin_time:
       name: begin_time
       in: query
@@ -10923,38 +10146,57 @@ components:
       in: query
       description: Filter for accounts with an invoice in the `past_due` state.
       schema:
-        "$ref": "#/components/schemas/TrueEnum"
+        type: string
+        enum:
+        - true
     filter_line_item_original:
       name: original
       in: query
       description: Filter by original field.
       schema:
-        "$ref": "#/components/schemas/TrueEnum"
+        type: string
+        enum:
+        - true
     filter_line_item_state:
       name: state
       in: query
       description: Filter by state field.
       schema:
-        "$ref": "#/components/schemas/LineItemStateEnum"
+        type: string
+        enum:
+        - invoiced
+        - pending
     filter_line_item_type:
       name: type
       in: query
       description: Filter by type field.
       schema:
-        "$ref": "#/components/schemas/LintItemTypeEnum"
+        type: string
+        enum:
+        - charge
+        - credit
     filter_transaction_type:
       name: type
       in: query
       description: Filter by type field. The value `payment` will return both `purchase`
         and `capture` transactions.
       schema:
-        "$ref": "#/components/schemas/FilterTransactionTypeEnum"
+        type: string
+        enum:
+        - verify
+        - authorization
+        - capture
+        - purchase
+        - refund
+        - payment
     filter_transaction_success:
       name: success
       in: query
       description: Filter by success field.
       schema:
-        "$ref": "#/components/schemas/TrueEnum"
+        type: string
+        enum:
+        - true
     filter_invoice_type:
       name: type
       in: query
@@ -10965,7 +10207,12 @@ components:
         - `type=non-legacy`, only charge and credit invoices will be returned.
         - `type=legacy`, only legacy invoices will be returned.
       schema:
-        "$ref": "#/components/schemas/FilterInvoiceTypeEnum"
+        type: string
+        enum:
+        - charge
+        - credit
+        - non-legacy
+        - legacy
   securitySchemes:
     api_key:
       type: http
@@ -11283,8 +10530,22 @@ components:
               description: The amount of the corresponding currency used to acquire
                 the account.
         channel:
+          type: string
           description: The channel through which the account was acquired.
-          "$ref": "#/components/schemas/ChannelEnum"
+          enum:
+          - referral
+          - social_media
+          - email
+          - paid_search
+          - organic_search
+          - direct_traffic
+          - marketing_content
+          - blog
+          - events
+          - outbound_sales
+          - advertising
+          - public_relations
+          - other
         subchannel:
           type: string
           description: An arbitrary subchannel string representing a distinction/subcategory
@@ -11328,9 +10589,12 @@ components:
           title: Object type
           readOnly: true
         state:
+          type: string
           description: Accounts can be either active or inactive.
           readOnly: true
-          "$ref": "#/components/schemas/ActiveStateEnum"
+          enum:
+          - active
+          - inactive
         hosted_login_token:
           type: string
           description: 'The unique token for automatically logging the account in
@@ -11429,10 +10693,33 @@ components:
             account management pages. This value does not need to be unique.
           maxLength: 255
         preferred_locale:
+          type: string
           description: Used to determine the language and locale of emails sent on
             behalf of the merchant to the customer. The list of locales is restricted
             to those the merchant has enabled on the site.
-          "$ref": "#/components/schemas/PreferredLocaleEnum"
+          enum:
+          - da-DK
+          - de-CH
+          - de-DE
+          - en-AU
+          - en-CA
+          - en-GB
+          - en-NZ
+          - en-US
+          - es-ES
+          - es-MX
+          - es-US
+          - fr-CA
+          - fr-FR
+          - hi-IN
+          - ja-JP
+          - nl-BE
+          - nl-NL
+          - pt-BR
+          - pt-PT
+          - ru-RU
+          - tr-TR
+          - zh-CN
         cc_emails:
           type: string
           description: Additional email address that should receive account correspondence.
@@ -11482,16 +10769,21 @@ components:
             of parent child relationship is allowed. You cannot assign a parent account
             that itself has a parent account.
         bill_to:
+          type: string
           maxLength: 6
           description: An enumerable describing the billing behavior of the account,
             specifically whether the account is self-paying or will rely on the parent
             account to pay.
-          "$ref": "#/components/schemas/BillToEnum"
+          enum:
+          - self
+          - parent
         transaction_type:
+          type: string
           description: An optional type designation for the payment gateway transaction
             created by this request. Supports 'moto' value, which is the acronym for
             mail order and telephone transactions.
-          "$ref": "#/components/schemas/GatewayTransactionTypeEnum"
+          enum:
+          - moto
         address:
           "$ref": "#/components/schemas/Address"
         billing_info:
@@ -11519,9 +10811,32 @@ components:
             account management pages. This value does not need to be unique.
           maxLength: 255
         preferred_locale:
+          type: string
           description: Used to determine the language and locale of emails sent on
             behalf of the merchant to the customer.
-          "$ref": "#/components/schemas/PreferredLocaleEnum"
+          enum:
+          - da-DK
+          - de-CH
+          - de-DE
+          - en-AU
+          - en-CA
+          - en-GB
+          - en-NZ
+          - en-US
+          - es-ES
+          - es-MX
+          - es-US
+          - fr-CA
+          - fr-FR
+          - hi-IN
+          - ja-JP
+          - nl-BE
+          - nl-NL
+          - pt-BR
+          - pt-PT
+          - ru-RU
+          - tr-TR
+          - zh-CN
         cc_emails:
           type: string
           description: Additional email address that should receive account correspondence.
@@ -11557,11 +10872,14 @@ components:
           maxLength: 13
           description: The UUID of the parent account associated with this account.
         bill_to:
+          type: string
           maxLength: 6
           description: An enumerable describing the billing behavior of the account,
             specifically whether the account is self-paying or will rely on the parent
             account to pay.
-          "$ref": "#/components/schemas/BillToEnum"
+          enum:
+          - self
+          - parent
         address:
           "$ref": "#/components/schemas/Address"
         billing_info:
@@ -11756,10 +11074,13 @@ components:
           description: The unique identifier for the add-on within its plan.
           maxLength: 50
         state:
+          type: string
           title: State
           description: Add-ons can be either active or inactive.
           readOnly: true
-          "$ref": "#/components/schemas/ActiveStateEnum"
+          enum:
+          - active
+          - inactive
         name:
           type: string
           title: Name
@@ -11794,7 +11115,7 @@ components:
           type: array
           title: Add-on pricing
           items:
-            "$ref": "#/components/schemas/Pricing"
+            "$ref": "#/components/schemas/AddOnPricing"
           minItems: 1
         created_at:
           type: string
@@ -11866,7 +11187,7 @@ components:
           type: array
           title: Add-on pricing
           items:
-            "$ref": "#/components/schemas/Pricing"
+            "$ref": "#/components/schemas/AddOnPricing"
           minItems: 1
       required:
       - code
@@ -11923,7 +11244,7 @@ components:
           type: array
           title: Add-on pricing
           items:
-            "$ref": "#/components/schemas/Pricing"
+            "$ref": "#/components/schemas/AddOnPricing"
           minItems: 1
     BillingInfo:
       type: object
@@ -11973,9 +11294,14 @@ components:
               minimum: 1
               maximum: 99
             decision:
+              type: string
               title: Kount decision
+              enum:
+              - approve
+              - review
+              - decline
+              - escalate
               maxLength: 10
-              "$ref": "#/components/schemas/KountDecisionEnum"
             risk_rules_triggered:
               type: object
               title: Kount rules
@@ -12050,16 +11376,6 @@ components:
           description: "*STRONGLY RECOMMENDED* Customer's IP address when updating
             their billing information."
           maxLength: 20
-        gateway_token:
-          type: string
-          title: A token used in place of a credit card in order to perform transactions.
-            Must be used in conjunction with `gateway_code`.
-          maxLength: 50
-        gateway_code:
-          type: string
-          title: An identifier for a specific payment gateway. Must be used in conjunction
-            with `gateway_token`.
-          maxLength: 12
         amazon_billing_agreement_id:
           type: string
           title: Amazon billing agreement ID
@@ -12070,10 +11386,12 @@ components:
           type: string
           title: Fraud Session ID
         transaction_type:
+          type: string
           description: An optional type designation for the payment gateway transaction
             created by this request. Supports 'moto' value, which is the acronym for
             mail order and telephone transactions.
-          "$ref": "#/components/schemas/GatewayTransactionTypeEnum"
+          enum:
+          - moto
         three_d_secure_action_result_token_id:
           type: string
           title: 3-D Secure action result token ID
@@ -12100,9 +11418,13 @@ components:
           title: Name
           description: The internal name for the coupon.
         state:
+          type: string
           title: State
           description: Indicates if the coupon is redeemable, and if it is not, why.
-          "$ref": "#/components/schemas/CouponStateEnum"
+          enum:
+          - redeemable
+          - maxed_out
+          - expired
         max_redemptions:
           type: integer
           title: Max redemptions
@@ -12127,11 +11449,15 @@ components:
           description: On a bulk coupon, the template from which unique coupon codes
             are generated.
         duration:
+          type: string
           title: Duration
           description: |
             - "single_use" coupons applies to the first invoice only.
             - "temporal" coupons will apply to invoices for the duration determined by the `temporal_unit` and `temporal_amount` attributes.
-          "$ref": "#/components/schemas/CouponDurationEnum"
+          enum:
+          - forever
+          - single_use
+          - temporal
         temporal_amount:
           type: integer
           title: Temporal amount
@@ -12139,16 +11465,25 @@ components:
             which is multiplied by `temporal_unit` to define the duration that the
             coupon will be applied to invoices for.
         temporal_unit:
+          type: string
           title: Temporal unit
           description: If `duration` is "temporal" than `temporal_unit` is multiplied
             by `temporal_amount` to define the duration that the coupon will be applied
             to invoices for.
-          "$ref": "#/components/schemas/TemporalUnitEnum"
+          enum:
+          - day
+          - week
+          - month
+          - year
         free_trial_unit:
+          type: string
           title: Free trial unit
           description: Description of the unit of time the coupon is for. Used with
             `free_trial_amount` to determine the duration of time the coupon is for.
-          "$ref": "#/components/schemas/FreeTrialUnitEnum"
+          enum:
+          - day
+          - week
+          - month
         free_trial_amount:
           type: integer
           title: Free trial amount
@@ -12180,19 +11515,25 @@ components:
           items:
             "$ref": "#/components/schemas/PlanMini"
         redemption_resource:
+          type: string
           title: Redemption resource
           description: Whether the discount is for all eligible charges on the account,
             or only a specific subscription.
+          enum:
+          - account
+          - subscription
           default: account
-          "$ref": "#/components/schemas/RedemptionResourceEnum"
         discount:
           "$ref": "#/components/schemas/CouponDiscount"
         coupon_type:
+          type: string
           title: 'Coupon type (TODO: implement coupon generation)'
           description: Whether the coupon is "single_code" or "bulk". Bulk coupons
             will require a `unique_code_template` and will generate unique codes through
             the `/generate` endpoint.
-          "$ref": "#/components/schemas/CouponTypeEnum"
+          enum:
+          - single_code
+          - bulk
         hosted_page_description:
           type: string
           title: Hosted Payment Pages description
@@ -12236,21 +11577,29 @@ components:
             title: Coupon code
             description: The code the customer enters to redeem the coupon.
           discount_type:
+            type: string
             title: Discount type
             description: The type of discount provided by the coupon (how the amount
               discounted is calculated)
-            "$ref": "#/components/schemas/DiscountTypeEnum"
+            enum:
+            - percent
+            - fixed
+            - free_trial
           discount_percent:
             type: integer
             title: Discount percent
             description: The percent of the price discounted by the coupon.  Required
               if `discount_type` is `percent`.
           free_trial_unit:
+            type: string
             title: Free trial unit
             description: Description of the unit of time the coupon is for. Used with
               `free_trial_amount` to determine the duration of time the coupon is
               for.  Required if `discount_type` is `free_trial`.
-            "$ref": "#/components/schemas/FreeTrialUnitEnum"
+            enum:
+            - day
+            - week
+            - month
           free_trial_amount:
             type: integer
             title: Free trial amount
@@ -12283,14 +11632,18 @@ components:
             items:
               type: string
           duration:
+            type: string
             title: Duration
             description: |
               This field does not apply when the discount_type is `free_trial`.
               - "single_use" coupons applies to the first invoice only.
               - "temporal" coupons will apply to invoices for the duration determined by the `temporal_unit` and `temporal_amount` attributes.
               - "forever" coupons will apply to invoices forever.
+            enum:
+            - forever
+            - single_use
+            - temporal
             default: forever
-            "$ref": "#/components/schemas/CouponDurationEnum"
           temporal_amount:
             type: integer
             title: Temporal amount
@@ -12298,17 +11651,25 @@ components:
               integer which is multiplied by `temporal_unit` to define the duration
               that the coupon will be applied to invoices for.
           temporal_unit:
+            type: string
             title: Temporal unit
             description: If `duration` is "temporal" than `temporal_unit` is multiplied
               by `temporal_amount` to define the duration that the coupon will be
               applied to invoices for.
-            "$ref": "#/components/schemas/TemporalUnitEnum"
+            enum:
+            - day
+            - week
+            - month
+            - year
           coupon_type:
+            type: string
             title: Coupon type
             description: Whether the coupon is "single_code" or "bulk". Bulk coupons
               will require a `unique_code_template` and will generate unique codes
               through the `/generate` endpoint.
-            "$ref": "#/components/schemas/CouponTypeEnum"
+            enum:
+            - single_code
+            - bulk
           unique_code_template:
             type: string
             title: Unique code template
@@ -12321,11 +11682,14 @@ components:
               - Use single quotes ' ' for characters that you want to remain static. These strings can be alphanumeric and may contain a - _ or +.
               For example: "'abc-'****'-def'"
           redemption_resource:
+            type: string
             title: Redemption resource
             description: Whether the discount is for all eligible charges on the account,
               or only a specific subscription.
+            enum:
+            - account
+            - subscription
             default: account
-            "$ref": "#/components/schemas/RedemptionResourceEnum"
         required:
         - code
         - discount_type
@@ -12347,7 +11711,11 @@ components:
         property and one of the following properties: `percent`, `fixed`, `trial`.
       properties:
         type:
-          "$ref": "#/components/schemas/DiscountTypeEnum"
+          type: string
+          enum:
+          - percent
+          - fixed
+          - free_trial
         percent:
           description: This is only present when `type=percent`.
           type: integer
@@ -12362,9 +11730,13 @@ components:
           description: This is only present when `type=free_trial`.
           properties:
             unit:
+              type: string
               title: Trial unit
               description: Temporal unit of the free trial
-              "$ref": "#/components/schemas/FreeTrialUnitEnum"
+              enum:
+              - day
+              - week
+              - month
             length:
               type: integer
               title: Trial length
@@ -12412,17 +11784,24 @@ components:
           title: Name
           description: The internal name for the coupon.
         state:
+          type: string
           title: State
           description: Indicates if the coupon is redeemable, and if it is not, why.
-          "$ref": "#/components/schemas/CouponStateEnum"
+          enum:
+          - redeemable
+          - maxed_out
+          - expired
         discount:
           "$ref": "#/components/schemas/CouponDiscount"
         coupon_type:
+          type: string
           title: 'Coupon type (TODO: implement coupon generation)'
           description: Whether the coupon is "single_code" or "bulk". Bulk coupons
             will require a `unique_code_template` and will generate unique codes through
             the `/generate` endpoint.
-          "$ref": "#/components/schemas/CouponTypeEnum"
+          enum:
+          - single_code
+          - bulk
         expired_at:
           type: string
           title: Expired at
@@ -12450,9 +11829,12 @@ components:
         coupon:
           "$ref": "#/components/schemas/Coupon"
         state:
+          type: string
           title: Coupon Redemption state
+          enum:
+          - active
+          - inactive
           default: active
-          "$ref": "#/components/schemas/ActiveStateEnum"
         currency:
           type: string
           title: Currency
@@ -12508,8 +11890,11 @@ components:
         coupon:
           "$ref": "#/components/schemas/CouponMini"
         state:
+          type: string
           title: Invoice state
-          "$ref": "#/components/schemas/ActiveStateEnum"
+          enum:
+          - active
+          - inactive
         discounted:
           type: number
           format: float
@@ -12573,9 +11958,14 @@ components:
             building URLs into Recurly's UI.
           maxLength: 32
         action:
+          type: string
           title: Action
           description: The action for which the credit was created.
-          "$ref": "#/components/schemas/CreditPaymentActionEnum"
+          enum:
+          - payment
+          - refund
+          - reduction
+          - write_off
         account:
           "$ref": "#/components/schemas/AccountMini"
         applied_to_invoice:
@@ -12656,8 +12046,12 @@ components:
           title: Object type
           readOnly: true
         related_type:
+          type: string
           title: Related Recurly object type
-          "$ref": "#/components/schemas/RelatedTypeEnum"
+          enum:
+          - account
+          - item
+          - subscription
         name:
           type: string
           title: Name
@@ -12666,6 +12060,7 @@ components:
           pattern: "/^[a-z0-9_-]+$/i"
           maxLength: 50
         user_access:
+          type: string
           title: User access
           description: |
             The access control applied inside Recurly's admin UI:
@@ -12673,7 +12068,10 @@ components:
             - `read_only` - Users with the Customers role will be able to view this field's data via the admin UI, but
               editing will only be available via the API.
             - `write` - Users with the Customers role will be able to view and edit this field's data via the admin UI.
-          "$ref": "#/components/schemas/UserAccessEnum"
+          enum:
+          - api_only
+          - read_only
+          - write
         display_name:
           type: string
           title: Display name
@@ -12725,10 +12123,13 @@ components:
           pattern: "/^[a-z0-9_+-]+$/"
           maxLength: 50
         state:
+          type: string
           title: State
           description: The current state of the item.
           readOnly: true
-          "$ref": "#/components/schemas/ActiveStateEnum"
+          enum:
+          - active
+          - inactive
         name:
           type: string
           title: Name
@@ -12752,8 +12153,13 @@ components:
           pattern: "/^[a-z0-9_+-]+$/"
           maxLength: 20
         revenue_schedule_type:
+          type: string
           title: Revenue schedule type
-          "$ref": "#/components/schemas/RevenueScheduleTypeEnum"
+          enum:
+          - never
+          - evenly
+          - at_range_end
+          - at_range_start
         tax_code:
           type: string
           title: Tax code
@@ -12820,8 +12226,13 @@ components:
           pattern: "/^[a-z0-9_+-]+$/"
           maxLength: 20
         revenue_schedule_type:
+          type: string
           title: Revenue schedule type
-          "$ref": "#/components/schemas/RevenueScheduleTypeEnum"
+          enum:
+          - never
+          - evenly
+          - at_range_end
+          - at_range_start
         tax_code:
           type: string
           title: Tax code
@@ -12876,8 +12287,13 @@ components:
           pattern: "/^[a-z0-9_+-]+$/"
           maxLength: 20
         revenue_schedule_type:
+          type: string
           title: Revenue schedule type
-          "$ref": "#/components/schemas/RevenueScheduleTypeEnum"
+          enum:
+          - never
+          - evenly
+          - at_range_end
+          - at_range_start
         tax_code:
           type: string
           title: Tax code
@@ -12909,16 +12325,36 @@ components:
           title: Object type
           readOnly: true
         type:
+          type: string
           title: Invoice type
           description: Invoices are either charge, credit, or legacy invoices.
-          "$ref": "#/components/schemas/InvoiceTypeEnum"
+          enum:
+          - charge
+          - credit
+          - legacy
         origin:
+          type: string
           title: Origin
           description: The event that created the invoice.
-          "$ref": "#/components/schemas/OriginEnum"
+          enum:
+          - purchase
+          - line_item_refund
+          - open_amount_refund
+          - renewal
+          - immediate_change
+          - termination
+          - credit
+          - gift_card
+          - write_off
         state:
+          type: string
           title: Invoice state
-          "$ref": "#/components/schemas/InvoiceStateEnum"
+          enum:
+          - pending
+          - processing
+          - past_due
+          - paid
+          - failed
         account:
           "$ref": "#/components/schemas/AccountMini"
         subscription_ids:
@@ -12944,6 +12380,7 @@ components:
             billed to EU countries (ex: FR1001). Non-EU invoices will continue to
             use the site-level invoice number sequence.'
         collection_method:
+          type: string
           title: Collection method
           description: An automatic invoice means a corresponding transaction is run
             using the account's billing information at the same time the invoice is
@@ -12951,8 +12388,10 @@ components:
             The merchant must enter a manual payment transaction or have the customer
             pay the invoice with an automatic method, like credit card, PayPal, Amazon,
             or ACH bank payment.
+          enum:
+          - automatic
+          - manual
           default: automatic
-          "$ref": "#/components/schemas/CollectionMethodEnum"
         po_number:
           type: string
           title: Purchase order number
@@ -13086,6 +12525,7 @@ components:
           description: 3-letter ISO 4217 currency code.
           maxLength: 3
         collection_method:
+          type: string
           title: Collection method
           description: An automatic invoice means a corresponding transaction is run
             using the account's billing information at the same time the invoice is
@@ -13093,8 +12533,10 @@ components:
             The merchant must enter a manual payment transaction or have the customer
             pay the invoice with an automatic method, like credit card, PayPal, Amazon,
             or ACH bank payment.
+          enum:
+          - automatic
+          - manual
           default: automatic
-          "$ref": "#/components/schemas/CollectionMethodEnum"
         charge_customer_notes:
           type: string
           title: Charge customer notes
@@ -13150,10 +12592,12 @@ components:
             device fingerprinting or authentication challenge.
           maxLength: 22
         transaction_type:
+          type: string
           description: An optional type designation for the payment gateway transaction
             created by this request. Supports 'moto' value, which is the acronym for
             mail order and telephone transactions.
-          "$ref": "#/components/schemas/GatewayTransactionTypeEnum"
+          enum:
+          - moto
     InvoiceCollection:
       type: object
       title: Invoice collection
@@ -13216,20 +12660,33 @@ components:
           type: string
           title: Invoice number
         type:
+          type: string
           title: Invoice type
-          "$ref": "#/components/schemas/InvoiceTypeEnum"
+          enum:
+          - charge
+          - credit
+          - legacy
         state:
+          type: string
           title: Invoice state
-          "$ref": "#/components/schemas/InvoiceStateEnum"
+          enum:
+          - pending
+          - processing
+          - past_due
+          - paid
+          - failed
     InvoiceRefund:
       type: object
       title: Invoice refund
       properties:
         type:
+          type: string
           title: Type
           description: The type of refund. Amount and line items cannot both be specified
             in the request.
-          "$ref": "#/components/schemas/InvoiceRefundTypeEnum"
+          enum:
+          - amount
+          - line_items
         amount:
           type: integer
           title: Amount
@@ -13243,6 +12700,7 @@ components:
           items:
             "$ref": "#/components/schemas/LineItemRefund"
         refund_method:
+          type: string
           title: Refund method
           description: |
             Indicates how the invoice should be refunded when both a credit and transaction are present on the invoice:
@@ -13250,8 +12708,12 @@ components:
             - `credit_first` – Issues credit back to the account first, then refunds any remaining amount back to the transaction. Default value when Credit Invoices feature is not enabled.
             - `all_credit` – Issues credit to the account for the entire amount of the refund. Only available when the Credit Invoices feature is enabled.
             - `all_transaction` – Refunds the entire amount back to transactions, using transactions from previous invoices if necessary. Only available when the Credit Invoices feature is enabled.
+          enum:
+          - transaction_first
+          - credit_first
+          - all_credit
+          - all_transaction
           default: credit_first
-          "$ref": "#/components/schemas/RefuneMethodEnum"
         credit_customer_notes:
           type: string
           title: Credit customer notes
@@ -13273,9 +12735,22 @@ components:
             This field can only be included when the Credit Invoices feature is enabled.
           properties:
             payment_method:
+              type: string
               title: Payment Method
               description: Payment method used for external refund transaction.
-              "$ref": "#/components/schemas/ExternalPaymentMethodEnum"
+              enum:
+              - credit_card
+              - paypal
+              - amazon
+              - roku
+              - ach
+              - apple_pay
+              - sepadirectdebit
+              - eft
+              - wire_transfer
+              - money_order
+              - check
+              - other
             description:
               type: string
               title: Description
@@ -13309,10 +12784,13 @@ components:
             building URLs into Recurly's UI.
           maxLength: 32
         type:
+          type: string
           title: Line item type
           description: Charges are positive line items that debit the account. Credits
             are negative line items that credit the account.
-          "$ref": "#/components/schemas/LintItemTypeEnum"
+          enum:
+          - charge
+          - credit
         item_code:
           type: string
           title: Item Code
@@ -13326,15 +12804,25 @@ components:
           description: Available when the Catalog feature is enabled.
           maxLength: 13
         revenue_schedule_type:
+          type: string
           title: Revenue schedule type
-          "$ref": "#/components/schemas/LineItemRevenueScheduleTypeEnum"
+          enum:
+          - never
+          - evenly
+          - at_range_end
+          - at_range_start
+          - at_invoice
         state:
+          type: string
           title: Current state of the line item
           description: Pending line items are charges or credits on an account that
             have not been applied to an invoice yet. Invoiced line items will always
             have an `invoice_id` value.
-          "$ref": "#/components/schemas/LineItemStateEnum"
+          enum:
+          - pending
+          - invoiced
         legacy_category:
+          type: string
           title: Legacy category
           description: |
             Category to describe the role of a line item on a legacy invoice:
@@ -13342,7 +12830,11 @@ components:
             - "credits" refers to refund or proration credits. This portion of the invoice can be considered a credit memo.
             - "applied_credits" refers to previous credits applied to this invoice. See their original_line_item_id to determine where the credit first originated.
             - "carryforwards" can be ignored. They exist to consume any remaining credit balance. A new credit with the same amount will be created and placed back on the account.
-          "$ref": "#/components/schemas/LegacyCategoryEnum"
+          enum:
+          - charge
+          - credit
+          - applied_credit
+          - carryforward
         account:
           "$ref": "#/components/schemas/AccountMini"
         subscription_id:
@@ -13403,10 +12895,21 @@ components:
             credit was created from a charge refund.
           maxLength: 13
         origin:
+          type: string
           title: Origin of line item
           description: A credit created from an original charge will have the value
             of the charge's origin.
-          "$ref": "#/components/schemas/LineItemOriginEnum"
+          enum:
+          - plan
+          - plan_trial
+          - setup_fee
+          - add_on_trial
+          - add_on
+          - debit
+          - one_time
+          - credit
+          - coupon
+          - carryforward
         accounting_code:
           type: string
           title: Accounting code
@@ -13424,10 +12927,17 @@ components:
             line itmes it will be the item's `external_sku`.
           maxLength: 50
         credit_reason_code:
+          type: string
           title: Credit reason code
           description: The reason the credit was given when line item is `type=credit`.
+          enum:
+          - general
+          - service
+          - promotional
+          - refund
+          - gift_card
+          - write_off
           default: general
-          "$ref": "#/components/schemas/FullCreditReasonCodeEnum"
         currency:
           type: string
           title: Currency
@@ -13601,22 +13111,35 @@ components:
           description: Available when the Catalog feature is enabled.
           maxLength: 13
         revenue_schedule_type:
+          type: string
           title: Revenue schedule type
-          "$ref": "#/components/schemas/LineItemRevenueScheduleTypeEnum"
+          enum:
+          - never
+          - evenly
+          - at_range_end
+          - at_range_start
+          - at_invoice
         type:
+          type: string
           title: Type
           description: Line item type. If `item_code`/`item_id` is present then `type`
             should not be present. If `item_code`/`item_id` is not present then `type`
             is required.
-          "$ref": "#/components/schemas/LintItemTypeEnum"
+          enum:
+          - charge
+          - credit
         credit_reason_code:
+          type: string
           title: Credit reason code
           description: The reason the credit was given when line item is `type=credit`.
             When the Credit Invoices feature is enabled, the value can be set and
             will default to `general`. When the Credit Invoices feature is not enabled,
             the value will always be `null`.
+          enum:
+          - general
+          - service
+          - promotional
           default: general
-          "$ref": "#/components/schemas/PartialCreditReasonCodeEnum"
         accounting_code:
           type: string
           title: Accounting Code
@@ -13650,12 +13173,14 @@ components:
             be absent.
           maxLength: 50
         origin:
+          type: string
           title: Origin
           description: Only allowed if the Gift Cards feature is enabled on your site
             and `type` is `credit`. Can only have a value of `external_gift_card`.
             Set this value in order to track gift card credits from external gift
             cards (like InComm). It also skips billing information requirements.
-          "$ref": "#/components/schemas/GiftCodeOriginEnum"
+          enum:
+          - external_gift_card
         start_date:
           type: string
           format: date-time
@@ -13720,10 +13245,13 @@ components:
           pattern: "/^[a-z0-9_+-]+$/i"
           maxLength: 50
         state:
+          type: string
           title: State
           description: The current state of the plan.
           readOnly: true
-          "$ref": "#/components/schemas/ActiveStateEnum"
+          enum:
+          - active
+          - inactive
         name:
           type: string
           title: Name
@@ -13735,10 +13263,13 @@ components:
           title: Description
           description: Optional description, not displayed.
         interval_unit:
+          type: string
           title: Interval unit
           description: Unit for the plan's billing interval.
+          enum:
+          - days
+          - months
           default: months
-          "$ref": "#/components/schemas/IntervalUnitEnum"
         interval_length:
           type: integer
           title: Interval length
@@ -13746,10 +13277,13 @@ components:
           default: 1
           minimum: 1
         trial_unit:
+          type: string
           title: Trial unit
           description: Units for the plan's trial period.
+          enum:
+          - days
+          - months
           default: months
-          "$ref": "#/components/schemas/IntervalUnitEnum"
         trial_length:
           type: integer
           title: Trial length
@@ -13855,10 +13389,13 @@ components:
           pattern: "/^[a-z0-9_+-]+$/"
           maxLength: 20
         interval_unit:
+          type: string
           title: Interval unit
           description: Unit for the plan's billing interval.
+          enum:
+          - days
+          - months
           default: months
-          "$ref": "#/components/schemas/IntervalUnitEnum"
         interval_length:
           type: integer
           title: Interval length
@@ -13866,10 +13403,13 @@ components:
           default: 1
           minimum: 1
         trial_unit:
+          type: string
           title: Trial unit
           description: Units for the plan's trial period.
+          enum:
+          - days
+          - months
           default: months
-          "$ref": "#/components/schemas/IntervalUnitEnum"
         trial_length:
           type: integer
           title: Trial length
@@ -14011,10 +13551,13 @@ components:
           pattern: "/^[a-z0-9_+-]+$/"
           maxLength: 20
         trial_unit:
+          type: string
           title: Trial unit
           description: Units for the plan's trial period.
+          enum:
+          - days
+          - months
           default: months
-          "$ref": "#/components/schemas/IntervalUnitEnum"
         trial_length:
           type: integer
           title: Trial length
@@ -14073,6 +13616,23 @@ components:
           title: Add Ons
           items:
             "$ref": "#/components/schemas/AddOnCreate"
+    AddOnPricing:
+      type: object
+      properties:
+        currency:
+          type: string
+          title: Currency
+          description: 3-letter ISO 4217 currency code.
+          maxLength: 3
+        unit_amount:
+          type: number
+          format: float
+          title: Unit price
+          minimum: 0
+          maximum: 100000
+      required:
+      - currency
+      - unit_amount
     Pricing:
       type: object
       properties:
@@ -14094,13 +13654,18 @@ components:
       type: object
       properties:
         billing_address_requirement:
+          type: string
           description: |
             - full:      Full Address (Street, City, State, Postal Code and Country)
             - streetzip: Street and Postal Code only
             - zip:       Postal Code only
             - none:      No Address
+          enum:
+          - full
+          - streetzip
+          - zip
+          - none
           readOnly: true
-          "$ref": "#/components/schemas/AddressRequirementEnum"
         accepted_currencies:
           type: array
           items:
@@ -14421,10 +13986,14 @@ components:
           description: This value is used to configure RecurlyJS to submit tokenized
             billing information.
         mode:
+          type: string
           title: Mode
+          enum:
+          - development
+          - production
+          - sandbox
           maxLength: 15
           readOnly: true
-          "$ref": "#/components/schemas/SiteModeEnum"
         address:
           "$ref": "#/components/schemas/Address"
         settings:
@@ -14434,8 +14003,13 @@ components:
           title: Features
           description: A list of features enabled for the site.
           items:
+            type: string
+            enum:
+            - credit_memos
+            - manual_invoicing
+            - only_bill_what_changed
+            - subscription_terms
             readOnly: true
-            "$ref": "#/components/schemas/FeaturesEnum"
         created_at:
           type: string
           format: date-time
@@ -14472,8 +14046,15 @@ components:
         plan:
           "$ref": "#/components/schemas/PlanMini"
         state:
+          type: string
           title: State
-          "$ref": "#/components/schemas/SubscriptionStateEnum"
+          enum:
+          - active
+          - canceled
+          - expired
+          - failed
+          - future
+          - paused
         shipping:
           "$ref": "#/components/schemas/SubscriptionShipping"
         coupon_redemptions:
@@ -14574,9 +14155,12 @@ components:
           title: Estimated total, before tax.
           minimum: 0
         collection_method:
+          type: string
           title: Collection method
+          enum:
+          - automatic
+          - manual
           default: automatic
-          "$ref": "#/components/schemas/CollectionMethodEnum"
         po_number:
           type: string
           title: Purchase order number
@@ -14717,6 +14301,7 @@ components:
       type: object
       properties:
         timeframe:
+          type: string
           title: Timeframe
           description: The timeframe parameter controls when the expiration takes
             place. The `bill_date` timeframe causes the subscription to expire when
@@ -14724,7 +14309,9 @@ components:
             the subscription to continue to bill until the end of the subscription
             term, then expire.
           default: term_end
-          "$ref": "#/components/schemas/TimeframeEnum"
+          enum:
+          - bill_date
+          - term_end
     SubscriptionChange:
       type: object
       title: Subscription Change
@@ -14786,6 +14373,7 @@ components:
       type: object
       properties:
         timeframe:
+          type: string
           title: Timeframe
           description: The timeframe parameter controls when the upgrade or downgrade
             takes place. The subscription change can occur now, when the subscription
@@ -14795,7 +14383,11 @@ components:
             or `bill_date` so the change takes effect at a scheduled billing date.
             The `renewal` timeframe option is accepted as an alias for `term_end`.
           default: now
-          "$ref": "#/components/schemas/ChangeTimeframeEnum"
+          enum:
+          - now
+          - bill_date
+          - term_end
+          - renewal
         plan_id:
           type: string
           title: Plan ID
@@ -14843,9 +14435,12 @@ components:
           items:
             "$ref": "#/components/schemas/SubscriptionAddOnUpdate"
         collection_method:
+          type: string
           title: Collection method
+          enum:
+          - automatic
+          - manual
           default: automatic
-          "$ref": "#/components/schemas/CollectionMethodEnum"
         po_number:
           type: string
           title: Purchase order number
@@ -14863,10 +14458,12 @@ components:
           minimum: 0
           default: 0
         transaction_type:
+          type: string
           description: An optional type designation for the payment gateway transaction
             created by this request. Supports 'moto' value, which is the acronym for
             mail order and telephone transactions.
-          "$ref": "#/components/schemas/GatewayTransactionTypeEnum"
+          enum:
+          - moto
     SubscriptionChangeShippingCreate:
       type: object
       title: Shipping details that will be changed on a subscription
@@ -14915,9 +14512,12 @@ components:
             subscription.
           "$ref": "#/components/schemas/SubscriptionShippingCreate"
         collection_method:
+          type: string
           title: Collection method
+          enum:
+          - automatic
+          - manual
           default: automatic
-          "$ref": "#/components/schemas/CollectionMethodEnum"
         currency:
           type: string
           title: Currency
@@ -15029,10 +14629,12 @@ components:
           minimum: 0
           default: 0
         transaction_type:
+          type: string
           description: An optional type designation for the payment gateway transaction
             created by this request. Supports 'moto' value, which is the acronym for
             mail order and telephone transactions.
-          "$ref": "#/components/schemas/GatewayTransactionTypeEnum"
+          enum:
+          - moto
       required:
       - plan_code
       - currency
@@ -15115,8 +14717,11 @@ components:
       type: object
       properties:
         collection_method:
+          type: string
           title: Change collection method
-          "$ref": "#/components/schemas/CollectionMethodEnum"
+          enum:
+          - automatic
+          - manual
         custom_fields:
           "$ref": "#/components/schemas/CustomFields"
         remaining_billing_cycles:
@@ -15325,6 +14930,7 @@ components:
             title: Subscription ID
             maxLength: 13
         type:
+          type: string
           title: Transaction type
           description: |
             - `authorization` – verifies billing information and places a hold on money in the customer's account.
@@ -15332,11 +14938,27 @@ components:
             - `purchase` – combines the authorization and capture in one transaction.
             - `refund` – returns all or a portion of the money collected in a previous transaction to the customer.
             - `verify` – a $0 or $1 transaction used to verify billing information which is immediately voided.
-          "$ref": "#/components/schemas/TransactionTypeEnum"
+          enum:
+          - authorization
+          - capture
+          - purchase
+          - refund
+          - verify
         origin:
+          type: string
           title: Origin of transaction
           description: Describes how the transaction was triggered.
-          "$ref": "#/components/schemas/TransactionOriginEnum"
+          enum:
+          - api
+          - hpp
+          - merchant
+          - recurly_admin
+          - recurlyjs
+          - recurring
+          - transparent
+          - force_collect
+          - refunded_externally
+          - chargeback
         currency:
           type: string
           title: Currency
@@ -15348,11 +14970,20 @@ components:
           title: Amount
           description: Total transaction amount sent to the payment gateway.
         status:
+          type: string
           title: Transaction status
           description: The current transaction status. Note that the status may change,
             e.g. a `pending` transaction may become `declined` or `success` may later
             become `void`.
-          "$ref": "#/components/schemas/TransactionStatusEnum"
+          enum:
+          - pending
+          - scheduled
+          - processing
+          - success
+          - void
+          - declined
+          - error
+          - chargeback
         success:
           type: boolean
           title: Success?
@@ -15364,8 +14995,11 @@ components:
         billing_address:
           "$ref": "#/components/schemas/Address"
         collection_method:
+          type: string
           description: The method by which the payment was collected.
-          "$ref": "#/components/schemas/CollectionMethodEnum"
+          enum:
+          - automatic
+          - manual
         payment_method:
           "$ref": "#/components/schemas/PaymentMethod"
         ip_address_v4:
@@ -15434,15 +15068,51 @@ components:
           title: Gateway response values
           description: The values in this field will vary from gateway to gateway.
         cvv_check:
+          type: string
           title: CVV check
           description: When processed, result from checking the CVV/CVC value on the
             transaction.
-          "$ref": "#/components/schemas/CvvCheckEnum"
+          enum:
+          - D
+          - I
+          - M
+          - N
+          - P
+          - S
+          - U
+          - X
         avs_check:
+          type: string
           title: AVS check
           description: When processed, result from checking the overall AVS on the
             transaction.
-          "$ref": "#/components/schemas/AvsCheckEnum"
+          enum:
+          - A
+          - B
+          - C
+          - D
+          - E
+          - F
+          - G
+          - H
+          - I
+          - J
+          - K
+          - L
+          - M
+          - N
+          - O
+          - P
+          - Q
+          - R
+          - S
+          - T
+          - U
+          - V
+          - W
+          - X
+          - Y
+          - Z
         created_at:
           type: string
           format: date-time
@@ -15472,9 +15142,14 @@ components:
           title: Coupon code
           description: The code the customer enters to redeem the coupon.
         state:
+          type: string
           title: State
           description: Indicates if the unique coupon code is redeemable or why not.
-          "$ref": "#/components/schemas/CouponCodeStateEnum"
+          enum:
+          - redeemable
+          - maxed_out
+          - expired
+          - inactive
         created_at:
           type: string
           title: Created at
@@ -15554,12 +15229,15 @@ components:
         account:
           "$ref": "#/components/schemas/AccountPurchase"
         collection_method:
+          type: string
           title: Collection method
           description: Must be set to manual in order to preview a purchase for an
             Account that does not have payment information associated with the Billing
             Info.
+          enum:
+          - automatic
+          - manual
           default: automatic
-          "$ref": "#/components/schemas/CollectionMethodEnum"
         po_number:
           type: string
           title: Purchase order number
@@ -15645,20 +15323,50 @@ components:
           description: A gift card redemption code to be redeemed on the purchase
             invoice.
         transaction_type:
+          type: string
           description: An optional type designation for the payment gateway transaction
             created by this request. Supports 'moto' value, which is the acronym for
             mail order and telephone transactions.
-          "$ref": "#/components/schemas/GatewayTransactionTypeEnum"
+          enum:
+          - moto
       required:
       - currency
       - account
     PaymentMethod:
       properties:
         object:
-          "$ref": "#/components/schemas/PaymentMethodEnum"
+          type: string
+          enum:
+          - credit_card
+          - paypal
+          - amazon
+          - roku
+          - bank_account_info
+          - apple_pay
+          - sepadirectdebit
+          - eft
+          - wire_transfer
+          - money_order
+          - check
+          - amazon_billing_agreement
+          - paypal_billing_agreement
+          - other
         card_type:
+          type: string
           description: Visa, MasterCard, American Express, Discover, JCB, etc.
-          "$ref": "#/components/schemas/CardTypeEnum"
+          enum:
+          - American Express
+          - Dankort
+          - Diners Club
+          - Discover
+          - Forbrugsforeningen
+          - JCB
+          - Laser
+          - Maestro
+          - MasterCard
+          - Test Card
+          - Unknown
+          - Visa
         first_six:
           type: string
           description: Credit card number's first six digits.
@@ -15676,22 +15384,16 @@ components:
           type: integer
           description: Expiration year.
           maxLength: 4
-        gateway_token:
-          type: string
-          description: A token used in place of a credit card in order to perform
-            transactions.
-          maxLength: 50
-        gateway_code:
-          type: string
-          description: An identifier for a specific payment gateway.
-          maxLength: 13
         billing_agreement_id:
           type: string
           description: Billing Agreement identifier. Only present for Amazon or Paypal
             payment methods.
         account_type:
+          type: string
           description: The bank account type. Only present for ACH payment methods.
-          "$ref": "#/components/schemas/AccountTypeEnum"
+          enum:
+          - checking
+          - savings
         routing_number:
           type: string
           description: The bank account's routing number. Only present for ACH payment
@@ -15703,8 +15405,26 @@ components:
       type: object
       properties:
         type:
+          type: string
           title: Type
-          "$ref": "#/components/schemas/ErrorTypeEnum"
+          enum:
+          - bad_request
+          - internal_server_error
+          - immutable_subscription
+          - invalid_api_key
+          - invalid_api_version
+          - invalid_content_type
+          - invalid_permissions
+          - invalid_token
+          - not_found
+          - simultaneous_request
+          - transaction
+          - unauthorized
+          - unavailable_in_api_version
+          - unknown_api_version
+          - validation
+          - missing_feature
+          - rate_limited
         message:
           type: string
           title: Message
@@ -15735,11 +15455,149 @@ components:
                 title: Transaction ID
                 maxLength: 13
               category:
+                type: string
                 title: Category
-                "$ref": "#/components/schemas/ErrorCategoryEnum"
+                enum:
+                - 3d_secure_required
+                - amazon
+                - api_error
+                - approved
+                - communication
+                - configuration
+                - duplicate
+                - fraud
+                - hard
+                - invalid
+                - not_enabled
+                - not_supported
+                - recurly
+                - referral
+                - skles
+                - soft
+                - unknown
               code:
+                type: string
                 title: Code
-                "$ref": "#/components/schemas/ErrorCodeEnum"
+                enum:
+                - ach_cancel
+                - ach_chargeback
+                - ach_credit_return
+                - ach_exception
+                - ach_return
+                - ach_transactions_not_supported
+                - ach_validation_exception
+                - amazon_amount_exceeded
+                - amazon_invalid_authorization_status
+                - amazon_invalid_close_attempt
+                - amazon_invalid_create_order_reference
+                - amazon_invalid_order_status
+                - amazon_not_authorized
+                - amazon_order_not_modifiable
+                - amazon_transaction_count_exceeded
+                - api_error
+                - approved
+                - approved_fraud_review
+                - authorization_already_captured
+                - authorization_amount_depleted
+                - authorization_expired
+                - batch_processing_error
+                - billing_agreement_already_accepted
+                - billing_agreement_not_accepted
+                - call_issuer
+                - call_issuer_update_cardholder_data
+                - cannot_refund_unsettled_transactions
+                - card_not_activated
+                - card_type_not_accepted
+                - cardholder_requested_stop
+                - contact_gateway
+                - currency_not_supported
+                - customer_canceled_transaction
+                - cvv_required
+                - declined
+                - declined_card_number
+                - declined_exception
+                - declined_expiration_date
+                - declined_missing_data
+                - declined_saveable
+                - declined_security_code
+                - deposit_referenced_chargeback
+                - duplicate_transaction
+                - exceeds_daily_limit
+                - expired_card
+                - finbot_unavailable
+                - fraud_address
+                - fraud_address_recurly
+                - fraud_advanced_verification
+                - fraud_gateway
+                - fraud_generic
+                - fraud_ip_address
+                - fraud_risk_check
+                - fraud_security_code
+                - fraud_stolen_card
+                - fraud_too_many_attempts
+                - fraud_velocity
+                - gateway_error
+                - gateway_rate_limited
+                - gateway_timeout
+                - gateway_token_not_found
+                - gateway_unavailable
+                - insufficient_funds
+                - invalid_account_number
+                - invalid_amount
+                - invalid_card_number
+                - invalid_data
+                - invalid_email
+                - invalid_gateway_configuration
+                - invalid_issuer
+                - invalid_login
+                - invalid_merchant_type
+                - invalid_transaction
+                - issuer_unavailable
+                - merch_max_transaction_limit_exceeded
+                - moneybot_unavailable
+                - no_billing_information
+                - no_gateway
+                - no_gateway_found_for_transaction_amount
+                - partial_approval
+                - partial_credits_not_supported
+                - payment_cannot_void_authorization
+                - payment_not_accepted
+                - paypal_account_issue
+                - paypal_cannot_pay_self
+                - paypal_declined_use_alternate
+                - paypal_expired_reference_id
+                - paypal_hard_decline
+                - paypal_invalid_billing_agreement
+                - paypal_primary_declined
+                - processor_unavailable
+                - recurly_error
+                - recurly_failed_to_get_token
+                - recurly_token_mismatch
+                - recurly_token_not_found
+                - reference_transactions_not_enabled
+                - restricted_card
+                - restricted_card_chargeback
+                - simultaneous
+                - ssl_error
+                - temporary_hold
+                - three_d_secure_authentication
+                - three_d_secure_not_supported
+                - too_many_attempts
+                - total_credit_exceeds_capture
+                - transaction_already_refunded
+                - transaction_already_voided
+                - transaction_cannot_be_authorized
+                - transaction_cannot_be_refunded
+                - transaction_cannot_be_refunded_currently
+                - transaction_cannot_be_voided
+                - transaction_failed_to_settle
+                - transaction_not_found
+                - transaction_settled
+                - transaction_stale_at_gateway
+                - try_again
+                - unknown
+                - vaultly_service_unavailable
+                - zero_dollar_auth_not_supported
               message:
                 type: string
                 title: Customer message
@@ -15753,617 +15611,3 @@ components:
                   a transaction. Pass this value to Recurly.js so it can continue
                   the challenge flow.
                 maxLength: 22
-    RelatedTypeEnum:
-      type: string
-      enum:
-      - account
-      - item
-      - subscription
-    RefundTypeEnum:
-      type: string
-      enum:
-      - full
-      - none
-      - partial
-    AlphanumericSortEnum:
-      type: string
-      enum:
-      - asc
-      - desc
-    TimestampSortEnum:
-      type: string
-      enum:
-      - created_at
-      - updated_at
-    ActiveStateEnum:
-      type: string
-      enum:
-      - active
-      - inactive
-    FilterSubscriptionStateEnum:
-      type: string
-      enum:
-      - active
-      - canceled
-      - expired
-      - future
-      - in_trial
-      - live
-    TrueEnum:
-      type: string
-      enum:
-      - true
-    LineItemStateEnum:
-      type: string
-      enum:
-      - invoiced
-      - pending
-    LintItemTypeEnum:
-      type: string
-      enum:
-      - charge
-      - credit
-    FilterTransactionTypeEnum:
-      type: string
-      enum:
-      - authorization
-      - capture
-      - payment
-      - purchase
-      - refund
-      - verify
-    FilterInvoiceTypeEnum:
-      type: string
-      enum:
-      - charge
-      - credit
-      - legacy
-      - non-legacy
-    ChannelEnum:
-      type: string
-      enum:
-      - advertising
-      - blog
-      - direct_traffic
-      - email
-      - events
-      - marketing_content
-      - organic_search
-      - other
-      - outbound_sales
-      - paid_search
-      - public_relations
-      - referral
-      - social_media
-    PreferredLocaleEnum:
-      type: string
-      enum:
-      - da-DK
-      - de-CH
-      - de-DE
-      - en-AU
-      - en-CA
-      - en-GB
-      - en-NZ
-      - en-US
-      - es-ES
-      - es-MX
-      - es-US
-      - fr-CA
-      - fr-FR
-      - hi-IN
-      - ja-JP
-      - nl-BE
-      - nl-NL
-      - pt-BR
-      - pt-PT
-      - ru-RU
-      - tr-TR
-      - zh-CN
-    BillToEnum:
-      type: string
-      enum:
-      - parent
-      - self
-    GatewayTransactionTypeEnum:
-      type: string
-      enum:
-      - moto
-    KountDecisionEnum:
-      type: string
-      enum:
-      - approve
-      - decline
-      - escalate
-      - review
-    CouponStateEnum:
-      type: string
-      enum:
-      - expired
-      - maxed_out
-      - redeemable
-    CouponDurationEnum:
-      type: string
-      enum:
-      - forever
-      - single_use
-      - temporal
-    TemporalUnitEnum:
-      type: string
-      enum:
-      - day
-      - month
-      - week
-      - year
-    FreeTrialUnitEnum:
-      type: string
-      enum:
-      - day
-      - month
-      - week
-    RedemptionResourceEnum:
-      type: string
-      enum:
-      - account
-      - subscription
-    CouponTypeEnum:
-      type: string
-      enum:
-      - bulk
-      - single_code
-    DiscountTypeEnum:
-      type: string
-      enum:
-      - fixed
-      - free_trial
-      - percent
-    CreditPaymentActionEnum:
-      type: string
-      enum:
-      - payment
-      - reduction
-      - refund
-      - write_off
-    UserAccessEnum:
-      type: string
-      enum:
-      - api_only
-      - read_only
-      - write
-    RevenueScheduleTypeEnum:
-      type: string
-      enum:
-      - at_range_end
-      - at_range_start
-      - evenly
-      - never
-    InvoiceTypeEnum:
-      type: string
-      enum:
-      - charge
-      - credit
-      - legacy
-    OriginEnum:
-      type: string
-      enum:
-      - credit
-      - gift_card
-      - immediate_change
-      - line_item_refund
-      - open_amount_refund
-      - purchase
-      - renewal
-      - termination
-      - write_off
-    InvoiceStateEnum:
-      type: string
-      enum:
-      - failed
-      - paid
-      - past_due
-      - pending
-      - processing
-    CollectionMethodEnum:
-      type: string
-      enum:
-      - automatic
-      - manual
-    InvoiceRefundTypeEnum:
-      type: string
-      enum:
-      - amount
-      - line_items
-    RefuneMethodEnum:
-      type: string
-      enum:
-      - all_credit
-      - all_transaction
-      - credit_first
-      - transaction_first
-    ExternalPaymentMethodEnum:
-      type: string
-      enum:
-      - ach
-      - amazon
-      - apple_pay
-      - check
-      - credit_card
-      - eft
-      - money_order
-      - other
-      - paypal
-      - roku
-      - sepadirectdebit
-      - wire_transfer
-    LineItemRevenueScheduleTypeEnum:
-      type: string
-      enum:
-      - at_invoice
-      - at_range_end
-      - at_range_start
-      - evenly
-      - never
-    LegacyCategoryEnum:
-      type: string
-      enum:
-      - applied_credit
-      - carryforward
-      - charge
-      - credit
-    LineItemOriginEnum:
-      type: string
-      enum:
-      - add_on
-      - add_on_trial
-      - carryforward
-      - coupon
-      - credit
-      - debit
-      - one_time
-      - plan
-      - plan_trial
-      - setup_fee
-    FullCreditReasonCodeEnum:
-      type: string
-      enum:
-      - general
-      - gift_card
-      - promotional
-      - refund
-      - service
-      - write_off
-    PartialCreditReasonCodeEnum:
-      type: string
-      enum:
-      - general
-      - promotional
-      - service
-    GiftCodeOriginEnum:
-      type: string
-      enum:
-      - external_gift_card
-    IntervalUnitEnum:
-      type: string
-      enum:
-      - days
-      - months
-    AddressRequirementEnum:
-      type: string
-      enum:
-      - full
-      - none
-      - streetzip
-      - zip
-    SiteModeEnum:
-      type: string
-      enum:
-      - development
-      - production
-      - sandbox
-    FeaturesEnum:
-      type: string
-      enum:
-      - credit_memos
-      - manual_invoicing
-      - only_bill_what_changed
-      - subscription_terms
-    SubscriptionStateEnum:
-      type: string
-      enum:
-      - active
-      - canceled
-      - expired
-      - failed
-      - future
-      - paused
-    TimeframeEnum:
-      type: string
-      enum:
-      - bill_date
-      - term_end
-    ChangeTimeframeEnum:
-      type: string
-      enum:
-      - bill_date
-      - now
-      - renewal
-      - term_end
-    TransactionTypeEnum:
-      type: string
-      enum:
-      - authorization
-      - capture
-      - purchase
-      - refund
-      - verify
-    TransactionOriginEnum:
-      type: string
-      enum:
-      - api
-      - chargeback
-      - force_collect
-      - hpp
-      - merchant
-      - recurly_admin
-      - recurlyjs
-      - recurring
-      - refunded_externally
-      - transparent
-    TransactionStatusEnum:
-      type: string
-      enum:
-      - chargeback
-      - declined
-      - error
-      - pending
-      - processing
-      - scheduled
-      - success
-      - void
-    CvvCheckEnum:
-      type: string
-      enum:
-      - D
-      - I
-      - M
-      - N
-      - P
-      - S
-      - U
-      - X
-    AvsCheckEnum:
-      type: string
-      enum:
-      - A
-      - B
-      - C
-      - D
-      - E
-      - F
-      - G
-      - H
-      - I
-      - J
-      - K
-      - L
-      - M
-      - N
-      - O
-      - P
-      - Q
-      - R
-      - S
-      - T
-      - U
-      - V
-      - W
-      - X
-      - Y
-      - Z
-    CouponCodeStateEnum:
-      type: string
-      enum:
-      - expired
-      - inactive
-      - maxed_out
-      - redeemable
-    PaymentMethodEnum:
-      type: string
-      enum:
-      - amazon
-      - amazon_billing_agreement
-      - apple_pay
-      - bank_account_info
-      - check
-      - credit_card
-      - eft
-      - gateway_token
-      - money_order
-      - other
-      - paypal
-      - paypal_billing_agreement
-      - roku
-      - sepadirectdebit
-      - wire_transfer
-    CardTypeEnum:
-      type: string
-      enum:
-      - American Express
-      - Dankort
-      - Diners Club
-      - Discover
-      - Forbrugsforeningen
-      - JCB
-      - Laser
-      - Maestro
-      - MasterCard
-      - Test Card
-      - Unknown
-      - Visa
-    AccountTypeEnum:
-      type: string
-      enum:
-      - checking
-      - savings
-    ErrorTypeEnum:
-      type: string
-      enum:
-      - bad_request
-      - immutable_subscription
-      - internal_server_error
-      - invalid_api_key
-      - invalid_api_version
-      - invalid_content_type
-      - invalid_permissions
-      - invalid_token
-      - missing_feature
-      - not_found
-      - rate_limited
-      - simultaneous_request
-      - transaction
-      - unauthorized
-      - unavailable_in_api_version
-      - unknown_api_version
-      - validation
-    ErrorCategoryEnum:
-      type: string
-      enum:
-      - 3d_secure_required
-      - amazon
-      - api_error
-      - approved
-      - communication
-      - configuration
-      - duplicate
-      - fraud
-      - hard
-      - invalid
-      - not_enabled
-      - not_supported
-      - recurly
-      - referral
-      - skles
-      - soft
-      - unknown
-    ErrorCodeEnum:
-      type: string
-      enum:
-      - ach_cancel
-      - ach_chargeback
-      - ach_credit_return
-      - ach_exception
-      - ach_return
-      - ach_transactions_not_supported
-      - ach_validation_exception
-      - amazon_amount_exceeded
-      - amazon_invalid_authorization_status
-      - amazon_invalid_close_attempt
-      - amazon_invalid_create_order_reference
-      - amazon_invalid_order_status
-      - amazon_not_authorized
-      - amazon_order_not_modifiable
-      - amazon_transaction_count_exceeded
-      - api_error
-      - approved
-      - approved_fraud_review
-      - authorization_already_captured
-      - authorization_amount_depleted
-      - authorization_expired
-      - batch_processing_error
-      - billing_agreement_already_accepted
-      - billing_agreement_not_accepted
-      - call_issuer
-      - call_issuer_update_cardholder_data
-      - cannot_refund_unsettled_transactions
-      - card_not_activated
-      - card_type_not_accepted
-      - cardholder_requested_stop
-      - contact_gateway
-      - currency_not_supported
-      - customer_canceled_transaction
-      - cvv_required
-      - declined
-      - declined_card_number
-      - declined_exception
-      - declined_expiration_date
-      - declined_missing_data
-      - declined_saveable
-      - declined_security_code
-      - deposit_referenced_chargeback
-      - duplicate_transaction
-      - exceeds_daily_limit
-      - expired_card
-      - finbot_unavailable
-      - fraud_address
-      - fraud_address_recurly
-      - fraud_advanced_verification
-      - fraud_gateway
-      - fraud_generic
-      - fraud_ip_address
-      - fraud_risk_check
-      - fraud_security_code
-      - fraud_stolen_card
-      - fraud_too_many_attempts
-      - fraud_velocity
-      - gateway_error
-      - gateway_rate_limited
-      - gateway_timeout
-      - gateway_token_not_found
-      - gateway_unavailable
-      - insufficient_funds
-      - invalid_account_number
-      - invalid_amount
-      - invalid_card_number
-      - invalid_data
-      - invalid_email
-      - invalid_gateway_configuration
-      - invalid_issuer
-      - invalid_login
-      - invalid_merchant_type
-      - invalid_transaction
-      - issuer_unavailable
-      - merch_max_transaction_limit_exceeded
-      - moneybot_unavailable
-      - no_billing_information
-      - no_gateway
-      - no_gateway_found_for_transaction_amount
-      - partial_approval
-      - partial_credits_not_supported
-      - payment_cannot_void_authorization
-      - payment_not_accepted
-      - paypal_account_issue
-      - paypal_cannot_pay_self
-      - paypal_declined_use_alternate
-      - paypal_expired_reference_id
-      - paypal_hard_decline
-      - paypal_invalid_billing_agreement
-      - paypal_primary_declined
-      - processor_unavailable
-      - recurly_error
-      - recurly_failed_to_get_token
-      - recurly_token_mismatch
-      - recurly_token_not_found
-      - reference_transactions_not_enabled
-      - restricted_card
-      - restricted_card_chargeback
-      - simultaneous
-      - ssl_error
-      - temporary_hold
-      - three_d_secure_authentication
-      - three_d_secure_not_supported
-      - too_many_attempts
-      - total_credit_exceeds_capture
-      - transaction_already_refunded
-      - transaction_already_voided
-      - transaction_cannot_be_authorized
-      - transaction_cannot_be_refunded
-      - transaction_cannot_be_refunded_currently
-      - transaction_cannot_be_voided
-      - transaction_failed_to_settle
-      - transaction_not_found
-      - transaction_settled
-      - transaction_stale_at_gateway
-      - try_again
-      - unknown
-      - vaultly_service_unavailable
-      - zero_dollar_auth_not_supported

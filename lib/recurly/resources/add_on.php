@@ -347,7 +347,7 @@ class AddOn extends RecurlyResource
     public static function hintArrayType($key): string
     {
         $array_hints = array(
-            'setCurrencies' => '\Recurly\Resources\Pricing',
+            'setCurrencies' => '\Recurly\Resources\AddOnPricing',
         );
         return $array_hints[$key];
     }

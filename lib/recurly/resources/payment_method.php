@@ -18,8 +18,6 @@ class PaymentMethod extends RecurlyResource
         private $_exp_month;
         private $_exp_year;
         private $_first_six;
-        private $_gateway_code;
-        private $_gateway_token;
         private $_last_four;
         private $_object;
         private $_routing_number;
@@ -156,50 +154,6 @@ class PaymentMethod extends RecurlyResource
     public function setFirstSix(string $value): void
     {
         $this->_first_six = $value;
-    }
-
-    /**
-    * Getter method for the gateway_code attribute.
-    *
-    * @return string An identifier for a specific payment gateway.
-    */
-    public function getGatewayCode(): string
-    {
-        return $this->_gateway_code;
-    }
-
-    /**
-    * Setter method for the gateway_code attribute.
-    *
-    * @param string $gateway_code
-    *
-    * @return void
-    */
-    public function setGatewayCode(string $value): void
-    {
-        $this->_gateway_code = $value;
-    }
-
-    /**
-    * Getter method for the gateway_token attribute.
-    *
-    * @return string A token used in place of a credit card in order to perform transactions.
-    */
-    public function getGatewayToken(): string
-    {
-        return $this->_gateway_token;
-    }
-
-    /**
-    * Setter method for the gateway_token attribute.
-    *
-    * @param string $gateway_token
-    *
-    * @return void
-    */
-    public function setGatewayToken(string $value): void
-    {
-        $this->_gateway_token = $value;
     }
 
     /**

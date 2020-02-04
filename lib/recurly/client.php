@@ -16,7 +16,7 @@ class Client extends BaseClient
      */
     protected function apiVersion(): string
     {
-        return "v2020-01-01";
+        return "v2019-10-10";
     }
 
   
@@ -196,12 +196,12 @@ class Client extends BaseClient
      *
      * @param string $account_id Account ID or code. For ID no prefix is used e.g. `e28zov4fw0v2`. For code use prefix `code-`, e.g. `code-bob`.
      *
-     * @return void
+     * @return \Recurly\EmptyResource
      */
-    public function removeAccountAcquisition(string $account_id): void // phpcs:ignore Generic.Files.LineLength.TooLong
+    public function removeAccountAcquisition(string $account_id): \Recurly\EmptyResource // phpcs:ignore Generic.Files.LineLength.TooLong
     {
         $path = $this->interpolatePath("/accounts/{account_id}/acquisition", ['account_id' => $account_id]); // phpcs:ignore Generic.Files.LineLength.TooLong
-        $this->makeRequest('DELETE', $path, null, null);
+        return $this->makeRequest('DELETE', $path, null, null);
     }
   
     /**
@@ -262,12 +262,12 @@ class Client extends BaseClient
      *
      * @param string $account_id Account ID or code. For ID no prefix is used e.g. `e28zov4fw0v2`. For code use prefix `code-`, e.g. `code-bob`.
      *
-     * @return void
+     * @return \Recurly\EmptyResource
      */
-    public function removeBillingInfo(string $account_id): void // phpcs:ignore Generic.Files.LineLength.TooLong
+    public function removeBillingInfo(string $account_id): \Recurly\EmptyResource // phpcs:ignore Generic.Files.LineLength.TooLong
     {
         $path = $this->interpolatePath("/accounts/{account_id}/billing_info", ['account_id' => $account_id]); // phpcs:ignore Generic.Files.LineLength.TooLong
-        $this->makeRequest('DELETE', $path, null, null);
+        return $this->makeRequest('DELETE', $path, null, null);
     }
   
     /**
@@ -639,12 +639,12 @@ class Client extends BaseClient
      * @param string $account_id          Account ID or code. For ID no prefix is used e.g. `e28zov4fw0v2`. For code use prefix `code-`, e.g. `code-bob`.
      * @param string $shipping_address_id Shipping Address ID.
      *
-     * @return void
+     * @return \Recurly\EmptyResource
      */
-    public function removeShippingAddress(string $account_id, string $shipping_address_id): void // phpcs:ignore Generic.Files.LineLength.TooLong
+    public function removeShippingAddress(string $account_id, string $shipping_address_id): \Recurly\EmptyResource // phpcs:ignore Generic.Files.LineLength.TooLong
     {
         $path = $this->interpolatePath("/accounts/{account_id}/shipping_addresses/{shipping_address_id}", ['account_id' => $account_id, 'shipping_address_id' => $shipping_address_id]); // phpcs:ignore Generic.Files.LineLength.TooLong
-        $this->makeRequest('DELETE', $path, null, null);
+        return $this->makeRequest('DELETE', $path, null, null);
     }
   
     /**
@@ -1466,12 +1466,12 @@ class Client extends BaseClient
      *
      * @param string $line_item_id Line Item ID.
      *
-     * @return void
+     * @return \Recurly\EmptyResource
      */
-    public function removeLineItem(string $line_item_id): void // phpcs:ignore Generic.Files.LineLength.TooLong
+    public function removeLineItem(string $line_item_id): \Recurly\EmptyResource // phpcs:ignore Generic.Files.LineLength.TooLong
     {
         $path = $this->interpolatePath("/line_items/{line_item_id}", ['line_item_id' => $line_item_id]); // phpcs:ignore Generic.Files.LineLength.TooLong
-        $this->makeRequest('DELETE', $path, null, null);
+        return $this->makeRequest('DELETE', $path, null, null);
     }
   
     /**
@@ -1974,12 +1974,12 @@ class Client extends BaseClient
      *
      * @param string $subscription_id Subscription ID or UUID. For ID no prefix is used e.g. `e28zov4fw0v2`. For UUID use prefix `uuid-`, e.g. `uuid-123457890`.
      *
-     * @return void
+     * @return \Recurly\EmptyResource
      */
-    public function removeSubscriptionChange(string $subscription_id): void // phpcs:ignore Generic.Files.LineLength.TooLong
+    public function removeSubscriptionChange(string $subscription_id): \Recurly\EmptyResource // phpcs:ignore Generic.Files.LineLength.TooLong
     {
         $path = $this->interpolatePath("/subscriptions/{subscription_id}/change", ['subscription_id' => $subscription_id]); // phpcs:ignore Generic.Files.LineLength.TooLong
-        $this->makeRequest('DELETE', $path, null, null);
+        return $this->makeRequest('DELETE', $path, null, null);
     }
   
     /**

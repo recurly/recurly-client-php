@@ -315,9 +315,9 @@ class Invoice extends RecurlyResource
     /**
     * Getter method for the line_items attribute.
     *
-    * @return \Recurly\Resources\LineItem 
+    * @return \Recurly\Resources\LineItemList 
     */
-    public function getLineItems(): \Recurly\Resources\LineItem
+    public function getLineItems(): \Recurly\Resources\LineItemList
     {
         return $this->_line_items;
     }
@@ -325,11 +325,11 @@ class Invoice extends RecurlyResource
     /**
     * Setter method for the line_items attribute.
     *
-    * @param \Recurly\Resources\LineItem $line_items
+    * @param \Recurly\Resources\LineItemList $line_items
     *
     * @return void
     */
-    public function setLineItems(\Recurly\Resources\LineItem $value): void
+    public function setLineItems(\Recurly\Resources\LineItemList $value): void
     {
         $this->_line_items = $value;
     }
