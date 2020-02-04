@@ -47,6 +47,24 @@ abstract class RecurlyResource
     }
 
     /**
+     * Returns a \Recurly\EmptyResource for API requests that do not have a response
+     * body.
+     * 
+     * @param \Recurly\Response $response (optional) The Recurly HTTP Response
+     * 
+     * @return \Recurly\EmptyResource
+     */
+    public static function fromEmpty(\Recurly\Response $response): \Recurly\EmptyResource
+    {
+        $klass = new \Recurly\EmptyResource();
+
+        if ($response) {
+            $klass->setResponse($response);
+        }
+        return $klass;
+    }
+
+    /**
      * Converts a JSON response object into a \Recurly\RecurlyResource.
      * 
      * @param object            $json     PHP Object containing the decoded JSON

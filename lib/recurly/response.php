@@ -38,7 +38,9 @@ class Response
      */
     public function toResource(): \Recurly\RecurlyResource
     {
-        if (in_array($this->getContentType(), static::BINARY_TYPES)) {
+        if (empty($this->_response)) {
+            return \Recurly\RecurlyResource::fromEmpty($this);
+        } elseif (in_array($this->getContentType(), static::BINARY_TYPES)) {
             return \Recurly\RecurlyResource::fromBinary($this->_response, $this);
         } else {
             $json_response = json_decode($this->_response);

@@ -2,9 +2,7 @@
 
 namespace Recurly;
 
-use Recurly\RecurlyResource;
-
-class Page extends RecurlyResource
+class Page extends \Recurly\RecurlyResource
 {
     private $_data;
     private $_has_more;
