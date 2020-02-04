@@ -405,9 +405,9 @@ class Transaction extends RecurlyResource
     /**
     * Getter method for the gateway_response_values attribute.
     *
-    * @return Map The values in this field will vary from gateway to gateway.
+    * @return object The values in this field will vary from gateway to gateway.
     */
-    public function getGatewayResponseValues(): Map
+    public function getGatewayResponseValues(): object
     {
         return $this->_gateway_response_values;
     }
@@ -415,11 +415,11 @@ class Transaction extends RecurlyResource
     /**
     * Setter method for the gateway_response_values attribute.
     *
-    * @param Map $gateway_response_values
+    * @param object $gateway_response_values
     *
     * @return void
     */
-    public function setGatewayResponseValues(Map $value): void
+    public function setGatewayResponseValues(object $value): void
     {
         $this->_gateway_response_values = $value;
     }

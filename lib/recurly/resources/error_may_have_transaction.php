@@ -117,7 +117,7 @@ class ErrorMayHaveTransaction extends RecurlyResource
     public static function hintArrayType($key): string
     {
         $array_hints = array(
-            'setParams' => 'Map',
+            'setParams' => 'object',
         );
         return $array_hints[$key];
     }

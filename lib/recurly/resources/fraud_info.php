@@ -42,9 +42,9 @@ class FraudInfo extends RecurlyResource
     /**
     * Getter method for the risk_rules_triggered attribute.
     *
-    * @return Map Kount rules
+    * @return object Kount rules
     */
-    public function getRiskRulesTriggered(): Map
+    public function getRiskRulesTriggered(): object
     {
         return $this->_risk_rules_triggered;
     }
@@ -52,11 +52,11 @@ class FraudInfo extends RecurlyResource
     /**
     * Setter method for the risk_rules_triggered attribute.
     *
-    * @param Map $risk_rules_triggered
+    * @param object $risk_rules_triggered
     *
     * @return void
     */
-    public function setRiskRulesTriggered(Map $value): void
+    public function setRiskRulesTriggered(object $value): void
     {
         $this->_risk_rules_triggered = $value;
     }

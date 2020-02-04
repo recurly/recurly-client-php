@@ -94,7 +94,7 @@ abstract class RecurlyResource
                                     $item_class = static::resourceClass($item->object);
                                 } else {
                                     $item_class = static::hintArrayType($setter);
-                                    if (substr($item_class, 0, 8) != "\\Recurly") {
+                                    if (!preg_match('/^Recurly/', $item_class)) {
                                         return $item;
                                     }
                                 }
@@ -104,8 +104,12 @@ abstract class RecurlyResource
                     );
                 } elseif (is_object($value)) {
                     $setter_class = static::setterParamClass($setter);
-                    $param = new $setter_class();
-                    $klass->$setter($param::cast($value));
+                    if (preg_match('/^Recurly/', $setter_class)) {
+                        $param = new $setter_class();
+                        $klass->$setter($param::cast($value));
+                    } else {
+                        $klass->$setter($value);
+                    }
                 } else {
                     $klass->$setter($value);
                 }

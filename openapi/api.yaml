@@ -803,6 +803,18 @@ paths:
               schema:
                 "$ref": "#/components/schemas/Error"
       x-code-samples:
+      - lang: Php
+        source: |
+          try {
+            $params = ['limit' => 200];
+            $sites = $client->listSites($params);
+            foreach($sites as $site) {
+              echo 'Site: ' . $site->getSubdomain() . PHP_EOL;
+            }
+          } catch (\Recurly\RecurlyError $e) {
+            // Something bad happened... tell the user so that they can fix it?
+            echo 'Hey you! Something bad happened' . PHP_EOL;
+          }
       - lang: Java
         source: |
           QueryParams params = new QueryParams();
@@ -914,9 +926,12 @@ paths:
               $params = ['limit' => 200];
               $accounts = $client->listAccounts($params);
 
+              $count = 0;
               foreach($accounts as $account) {
+                  $count = $count + 1;
                   echo 'Account code: ' . $account->getCode() . PHP_EOL;
               }
+              echo $count;
           } catch (\Recurly\RecurlyError $e) {
               // Something bad happened... tell the user so that they can fix it?
               echo 'Hey you! Something bad happened' . PHP_EOL;
@@ -1025,9 +1040,14 @@ paths:
 
               echo 'Created Account:' . PHP_EOL;
               var_dump($account);
+          } catch (\Recurly\Errors\Validation $e) {
+              // If the request was not valid, you may want to tell your user
+              // why. You can find the invalid params and reasons in err.params
+              var_dump($e);
           } catch (\Recurly\RecurlyError $e) {
-              // Something bad happened... tell the user so that they can fix it?
-              echo 'Hey you! Something bad happened' . PHP_EOL;
+              // If we don't know what to do with the err, we should
+              // probably re-raise and let our web framework and logger handle it
+              var_dump($e);
           }
       - lang: Java
         source: |
@@ -1216,9 +1236,14 @@ paths:
 
               echo 'Got Account:' . PHP_EOL;
               var_dump($account);
+          } catch (\Recurly\Errors\NotFound $e) {
+              // Could not find the resource, you may want to inform the user
+              // or just return a NULL
+              echo 'Could not find resource.' . PHP_EOL;
+              var_dump($e);
           } catch (\Recurly\RecurlyError $e) {
               // Something bad happened... tell the user so that they can fix it?
-              echo 'Hey you! Something bad happened' . PHP_EOL;
+              echo 'Some unexpected Recurly error happened. Try again later.' . PHP_EOL;
           }
       - lang: Java
         source: |
@@ -1465,6 +1490,22 @@ paths:
               schema:
                 "$ref": "#/components/schemas/Error"
       x-code-samples:
+      - lang: Php
+        source: |
+          try {
+              $account = $client->deactivateAccount($account_id);
+
+              echo 'Deactivated Account:' . PHP_EOL;
+              var_dump($account);
+          } catch (\Recurly\Errors\NotFound $e) {
+              // Could not find the resource, you may want to inform the user
+              // or just return a NULL
+              echo 'Could not find resource.' . PHP_EOL;
+              var_dump($e);
+          } catch (\Recurly\RecurlyError $e) {
+              // Something bad happened... tell the user so that they can fix it?
+              echo 'Some unexpected Recurly error happened. Try again later.' . PHP_EOL;
+          }
       - lang: Java
         source: |
           try {
@@ -1555,6 +1596,22 @@ paths:
               schema:
                 "$ref": "#/components/schemas/Error"
       x-code-samples:
+      - lang: Php
+        source: |
+          try {
+              $acquisition = $client->getAccountAcquisition($account_id);
+
+              echo 'Got Account Acquisition:' . PHP_EOL;
+              var_dump($acquisition);
+          } catch (\Recurly\Errors\NotFound $e) {
+              // Could not find the resource, you may want to inform the user
+              // or just return a NULL
+              echo 'Could not find resource.' . PHP_EOL;
+              var_dump($e);
+          } catch (\Recurly\RecurlyError $e) {
+              // Something bad happened... tell the user so that they can fix it?
+              echo 'Some unexpected Recurly error happened. Try again later.' . PHP_EOL;
+          }
       - lang: Java
         source: |
           try {
@@ -1857,6 +1914,22 @@ paths:
               schema:
                 "$ref": "#/components/schemas/Error"
       x-code-samples:
+      - lang: Php
+        source: |
+          try {
+              $account = $client->reactivateAccount($account_id);
+
+              echo 'Reactivated Account:' . PHP_EOL;
+              var_dump($account);
+          } catch (\Recurly\Errors\NotFound $e) {
+              // Could not find the resource, you may want to inform the user
+              // or just return a NULL
+              echo 'Could not find resource.' . PHP_EOL;
+              var_dump($e);
+          } catch (\Recurly\RecurlyError $e) {
+              // Something bad happened... tell the user so that they can fix it?
+              echo 'Some unexpected Recurly error happened. Try again later.' . PHP_EOL;
+          }
       - lang: Java
         source: |
           try {
@@ -1951,6 +2024,22 @@ paths:
               schema:
                 "$ref": "#/components/schemas/Error"
       x-code-samples:
+      - lang: Php
+        source: |
+          try {
+              $balance = $client->getAccountBalance($account_id);
+
+              echo 'Got Account Balance:' . PHP_EOL;
+              var_dump($balance);
+          } catch (\Recurly\Errors\NotFound $e) {
+              // Could not find the resource, you may want to inform the user
+              // or just return a NULL
+              echo 'Could not find resource.' . PHP_EOL;
+              var_dump($e);
+          } catch (\Recurly\RecurlyError $e) {
+              // Something bad happened... tell the user so that they can fix it?
+              echo 'Some unexpected Recurly error happened. Try again later.' . PHP_EOL;
+          }
       - lang: Java
         source: |
           try {
@@ -2048,6 +2137,22 @@ paths:
               schema:
                 "$ref": "#/components/schemas/Error"
       x-code-samples:
+      - lang: Php
+        source: |
+          try {
+              $binfo = $client->getBillingInfo($account_id);
+
+              echo 'Got BillingInfo:' . PHP_EOL;
+              var_dump($binfo);
+          } catch (\Recurly\Errors\NotFound $e) {
+              // Could not find the resource, you may want to inform the user
+              // or just return a NULL
+              echo 'Could not find resource.' . PHP_EOL;
+              var_dump($e);
+          } catch (\Recurly\RecurlyError $e) {
+              // Something bad happened... tell the user so that they can fix it?
+              echo 'Some unexpected Recurly error happened. Try again later.' . PHP_EOL;
+          }
       - lang: Java
         source: |
           try {
@@ -2383,6 +2488,20 @@ paths:
               schema:
                 "$ref": "#/components/schemas/Error"
       x-code-samples:
+      - lang: Php
+        source: |
+          try {
+            $params = ['limit' => 200];
+            $account_coupon_redemptions = $client->listAccountCouponRedemptions($account->getId(), $params);
+
+            foreach($account_coupon_redemptions as $coupon_redemption) {
+              echo 'Coupon redemption: ' . $coupon_redemption->getId() . PHP_EOL;
+            }
+
+          } catch (\Recurly\RecurlyError $e) {
+              // Something bad happened... tell the user so that they can fix it?
+              echo 'Hey you! Something bad happened' . PHP_EOL;
+          }
       - lang: Java
         source: |
           QueryParams params = new QueryParams();
@@ -2436,6 +2555,22 @@ paths:
               schema:
                 "$ref": "#/components/schemas/Error"
       x-code-samples:
+      - lang: Php
+        source: |
+          try {
+              $redemption = $client->getActiveCouponRedemption($account_id);
+
+              echo 'Got Redemption:' . PHP_EOL;
+              var_dump($redemption);
+          } catch (\Recurly\Errors\NotFound $e) {
+              // Could not find the resource, you may want to inform the user
+              // or just return a NULL
+              echo 'Could not find resource.' . PHP_EOL;
+              var_dump($e);
+          } catch (\Recurly\RecurlyError $e) {
+              // Something bad happened... tell the user so that they can fix it?
+              echo 'Some unexpected Recurly error happened. Try again later.' . PHP_EOL;
+          }
       - lang: Java
         source: |
           try {
@@ -2769,6 +2904,18 @@ paths:
               schema:
                 "$ref": "#/components/schemas/Error"
       x-code-samples:
+      - lang: Php
+        source: |-
+          try {
+            $params = ['limit' => 10];
+            $invoices = $client->listAccountInvoices($account->getId(), $params);
+            foreach($invoices as $invoice) {
+              echo 'Account invoice: ' . $invoice . PHP_EOL;
+            }
+          } catch (\Recurly\RecurlyError $e) {
+            // Something bad happened... tell the user so that they can fix it?
+            echo 'Hey you! Something bad happened' . PHP_EOL;
+          }
       - lang: Java
         source: |
           QueryParams params = new QueryParams();
@@ -2840,6 +2987,28 @@ paths:
               schema:
                 "$ref": "#/components/schemas/Error"
       x-code-samples:
+      - lang: Php
+        source: |-
+          try {
+              $invoice_create = array(
+                  "currency" => "USD",
+                  "collection_method" => "automatic"
+              );
+              $invoice_collection = $client->createInvoice(
+                  $account_id,
+                  $invoice_create
+              );
+              echo "Created Invoice:" . PHP_EOL;
+              var_dump($invoice_collection);
+          } catch (\Recurly\Errors\Validation $e) {
+              // If the request was not valid, you may want to tell your user
+              // why. You can find the invalid params and reasons in err.params
+              var_dump($e);
+          } catch (\Recurly\RecurlyError $e) {
+              // If we don't know what to do with the err, we should
+              // probably re-raise and let our web framework and logger handle it
+              var_dump($e);
+          }
       - lang: Java
         source: |
           try {
@@ -3121,6 +3290,14 @@ paths:
               schema:
                 "$ref": "#/components/schemas/Error"
       x-code-samples:
+      - lang: Php
+        source: |
+          $params = ['limit' => 200];
+          $account_line_items = $client->listAccountLineItems($account_id, $params);
+
+          foreach($account_line_items as $line_item) {
+            echo 'Account line item: ' . $line_item->getId() . PHP_EOL;
+          }
       - lang: Java
         source: |
           QueryParams params = new QueryParams();
@@ -3185,6 +3362,29 @@ paths:
               schema:
                 "$ref": "#/components/schemas/Error"
       x-code-samples:
+      - lang: Php
+        source: |-
+          try {
+              $line_item_create = [
+                  'currency' => 'USD',
+                  'unit_amount' => 1000,
+                  'type' => 'charge'
+              ];
+              $line_item = $client->createLineItem(
+                  $account->getId(),
+                  $line_item_create
+              );
+              echo 'Created Line Item:' . PHP_EOL;
+              var_dump($line_item);
+          } catch (\Recurly\Errors\Validation $e) {
+              // If the request was not valid, you may want to tell your user
+              // why. You can find the invalid params and reasons in err.params
+              var_dump($e);
+          } catch (\Recurly\RecurlyError $e) {
+              // If we don't know what to do with the err, we should
+              // probably re-raise and let our web framework and logger handle it
+              var_dump($e);
+          }
       - lang: Java
         source: |
           try {
@@ -3313,6 +3513,14 @@ paths:
               schema:
                 "$ref": "#/components/schemas/Error"
       x-code-samples:
+      - lang: Php
+        source: |
+          $params = ['limit' => 200];
+          $account_notes = $client->listAccountNotes($account_id, $params);
+
+          foreach($account_notes as $note) {
+            echo 'Account note: ' . $note->getMessage() . PHP_EOL;
+          }
       - lang: Java
         source: |
           QueryParams params = new QueryParams();
@@ -3383,6 +3591,22 @@ paths:
               schema:
                 "$ref": "#/components/schemas/Error"
       x-code-samples:
+      - lang: Php
+        source: |
+          try {
+              $note = $client->getAccountNote($account_id, $account_node_id);
+
+              echo 'Got Account Note:' . PHP_EOL;
+              var_dump($note);
+          } catch (\Recurly\Errors\NotFound $e) {
+              // Could not find the resource, you may want to inform the user
+              // or just return a NULL
+              echo 'Could not find resource.' . PHP_EOL;
+              var_dump($e);
+          } catch (\Recurly\RecurlyError $e) {
+              // Something bad happened... tell the user so that they can fix it?
+              echo 'Some unexpected Recurly error happened. Try again later.' . PHP_EOL;
+          }
       - lang: Java
         source: |
           try {
@@ -3691,6 +3915,22 @@ paths:
               schema:
                 "$ref": "#/components/schemas/Error"
       x-code-samples:
+      - lang: Php
+        source: |
+          try {
+              $shipping_address = $client->getShippingAddress($account_id, $shipping_address_id);
+
+              echo 'Got Shipping Address:' . PHP_EOL;
+              var_dump($shipping_address);
+          } catch (\Recurly\Errors\NotFound $e) {
+              // Could not find the resource, you may want to inform the user
+              // or just return a NULL
+              echo 'Could not find resource.' . PHP_EOL;
+              var_dump($e);
+          } catch (\Recurly\RecurlyError $e) {
+              // Something bad happened... tell the user so that they can fix it?
+              echo 'Some unexpected Recurly error happened. Try again later.' . PHP_EOL;
+          }
       - lang: Java
         source: |
           try {
@@ -4036,6 +4276,14 @@ paths:
               schema:
                 "$ref": "#/components/schemas/Error"
       x-code-samples:
+      - lang: Php
+        source: |
+          $params = ['limit' => 200];
+          $account_subscriptions = $client->listAccountSubscriptions($account_id, $params);
+
+          foreach($account_subscriptions as $sub) {
+              echo 'Account subscription: ' . $sub->getUuid() . PHP_EOL;
+          }
       - lang: Java
         source: |
           QueryParams params = new QueryParams();
@@ -4160,6 +4408,14 @@ paths:
               schema:
                 "$ref": "#/components/schemas/Error"
       x-code-samples:
+      - lang: Php
+        source: |
+          $params = ['limit' => 200];
+          $child_accounts = $client->listChildAccounts($account_id, $params);
+
+          foreach($child_accounts as $child_account) {
+            echo 'Child Account: ' . $child_account->getId() . PHP_EOL;
+          }
       - lang: Ruby
         source: |
           child_accounts = @client.list_child_accounts(
@@ -4209,6 +4465,14 @@ paths:
               schema:
                 "$ref": "#/components/schemas/Error"
       x-code-samples:
+      - lang: Php
+        source: |
+          $params = ['limit' => 200];
+          $account_acquisition = $client->listAccountAcquisition($params);
+
+          foreach($account_acquisition as $aa) {
+            echo 'Account acquisition: ' . $aa->getId() . PHP_EOL;
+          }
       - lang: Ruby
         source: |
           acquisitions = @client.list_account_acquisition(limit: 200)
@@ -4260,6 +4524,19 @@ paths:
               schema:
                 "$ref": "#/components/schemas/Error"
       x-code-samples:
+      - lang: Php
+        source: |
+          try {
+            $params = ['limit' => 200];
+            $coupons = $client->listCoupons($params);
+
+            foreach($coupons as $coupon) {
+              echo 'Coupon: ' . $coupon->getCode() . PHP_EOL;
+            }
+          } catch (\Recurly\RecurlyError $e) {
+            // Something bad happened... tell the user so that they can fix it?
+            echo 'Hey you! Something bad happened' . PHP_EOL;
+          }
       - lang: Java
         source: |
           QueryParams params = new QueryParams();
@@ -4339,6 +4616,32 @@ paths:
               schema:
                 "$ref": "#/components/schemas/Error"
       x-code-samples:
+      - lang: Php
+        source: |
+          try {
+              $coupon_create = array(
+                  "name" => "Promotional Coupon",
+                  "code" => $coupon_code,
+                  "discount_type" => "fixed",
+                  "currencies" => [
+                      "currency" => "USD",
+                      "discount" => 10
+                  ]
+              );
+
+              $coupon = $client->createCoupon($coupon_create);
+
+              echo 'Created Coupon:' . PHP_EOL;
+              var_dump($coupon);
+          } catch (\Recurly\Errors\Validation $e) {
+              // If the request was not valid, you may want to tell your user
+              // why. You can find the invalid params and reasons in err.params
+              var_dump($e);
+          } catch (\Recurly\RecurlyError $e) {
+              // If we don't know what to do with the err, we should
+              // probably re-raise and let our web framework and logger handle it
+              var_dump($e);
+          }
       - lang: Java
         source: |
           try {
@@ -4664,6 +4967,19 @@ paths:
               schema:
                 "$ref": "#/components/schemas/Error"
       x-code-samples:
+      - lang: Php
+        source: |
+          try {
+            $params = ['limit' => 200];
+            $credit_payments = $client->listCreditPayments($params);
+
+            foreach($credit_payments as $payment) {
+              echo 'Credit Payment: ' . $payment->getId() . PHP_EOL;
+            }
+          } catch (\Recurly\RecurlyError $e) {
+            // Something bad happened... tell the user so that they can fix it?
+            echo 'Hey you! Something bad happened' . PHP_EOL;
+          }
       - lang: Java
         source: |
           QueryParams params = new QueryParams();
@@ -4767,6 +5083,19 @@ paths:
               schema:
                 "$ref": "#/components/schemas/Error"
       x-code-samples:
+      - lang: Php
+        source: |
+          try {
+            $params = ['limit' => 200];
+            $custom_field_definitions = $client->listCustomFieldDefinitions($params);
+
+            foreach($custom_field_definitions as $definition) {
+              echo 'Custom Field Definition: ' . $definition->getName() . PHP_EOL;
+            }
+          } catch (\Recurly\RecurlyError $e) {
+            // Something bad happened... tell the user so that they can fix it?
+            echo 'Hey you! Something bad happened' . PHP_EOL;
+          }
       - lang: Java
         source: |
           QueryParams params = new QueryParams();
@@ -4918,6 +5247,19 @@ paths:
               schema:
                 "$ref": "#/components/schemas/Error"
       x-code-samples:
+      - lang: Php
+        source: |
+          try {
+            $params = ['limit' => 200];
+            $items = $client->listItems($params);
+
+            foreach($items as $item) {
+              echo 'Item: ' . $item->getCode() . PHP_EOL;
+            }
+          } catch (\Recurly\RecurlyError $e) {
+            // Something bad happened... tell the user so that they can fix it?
+            echo 'Hey you! Something bad happened' . PHP_EOL;
+          }
       - lang: Java
         source: |
           QueryParams params = new QueryParams();
@@ -5162,6 +5504,22 @@ paths:
               schema:
                 "$ref": "#/components/schemas/Error"
       x-code-samples:
+      - lang: Php
+        source: |
+          try {
+              $item = $client->getItem($item_id);
+
+              echo 'Got Item:' . PHP_EOL;
+              var_dump($item);
+          } catch (\Recurly\Errors\NotFound $e) {
+              // Could not find the resource, you may want to inform the user
+              // or just return a NULL
+              echo 'Could not find resource.' . PHP_EOL;
+              var_dump($e);
+          } catch (\Recurly\RecurlyError $e) {
+              // Something bad happened... tell the user so that they can fix it?
+              echo 'Some unexpected Recurly error happened. Try again later.' . PHP_EOL;
+          }
       - lang: Java
         source: |
           try {
@@ -5397,6 +5755,22 @@ paths:
               schema:
                 "$ref": "#/components/schemas/Error"
       x-code-samples:
+      - lang: Php
+        source: |
+          try {
+              $item = $client->deactivateItem($item_id);
+
+              echo 'Deactivated Item:' . PHP_EOL;
+              var_dump($item);
+          } catch (\Recurly\Errors\NotFound $e) {
+              // Could not find the resource, you may want to inform the user
+              // or just return a NULL
+              echo 'Could not find resource.' . PHP_EOL;
+              var_dump($e);
+          } catch (\Recurly\RecurlyError $e) {
+              // Something bad happened... tell the user so that they can fix it?
+              echo 'Some unexpected Recurly error happened. Try again later.' . PHP_EOL;
+          }
       - lang: Java
         source: |
           try {
@@ -5499,6 +5873,22 @@ paths:
               schema:
                 "$ref": "#/components/schemas/Error"
       x-code-samples:
+      - lang: Php
+        source: |
+          try {
+              $item = $client->reactivateItem($item_id);
+
+              echo 'Reactivate Item:' . PHP_EOL;
+              var_dump($item);
+          } catch (\Recurly\Errors\NotFound $e) {
+              // Could not find the resource, you may want to inform the user
+              // or just return a NULL
+              echo 'Could not find resource.' . PHP_EOL;
+              var_dump($e);
+          } catch (\Recurly\RecurlyError $e) {
+              // Something bad happened... tell the user so that they can fix it?
+              echo 'Some unexpected Recurly error happened. Try again later.' . PHP_EOL;
+          }
       - lang: Java
         source: |
           try {
@@ -5668,6 +6058,22 @@ paths:
               schema:
                 "$ref": "#/components/schemas/Error"
       x-code-samples:
+      - lang: Php
+        source: |
+          try {
+              $invoice = $client->getInvoice($invoice_id);
+
+              echo 'Got Invoice:' . PHP_EOL;
+              var_dump($invoice);
+          } catch (\Recurly\Errors\NotFound $e) {
+              // Could not find the resource, you may want to inform the user
+              // or just return a NULL
+              echo 'Could not find resource.' . PHP_EOL;
+              var_dump($e);
+          } catch (\Recurly\RecurlyError $e) {
+              // Something bad happened... tell the user so that they can fix it?
+              echo 'Some unexpected Recurly error happened. Try again later.' . PHP_EOL;
+          }
       - lang: Java
         source: |
           try {
@@ -5859,6 +6265,24 @@ paths:
               schema:
                 "$ref": "#/components/schemas/Error"
       x-code-samples:
+      - lang: Php
+        source: |
+          try {
+              $invoice = $client->getInvoicePdf($invoice_id);
+              echo 'Got Invoice PDF:' . PHP_EOL;
+              var_dump($invoice);
+              $invoice_fp = fopen("php-invoice-" . $invoice_id . ".pdf", "w");
+              fwrite($invoice_fp, $invoice->getData());
+              fclose($invoice_fp);
+          } catch (\Recurly\Errors\NotFound $e) {
+              // Could not find the resource, you may want to inform the user
+              // or just return a NULL
+              echo 'Could not find resource.' . PHP_EOL;
+              var_dump($e);
+          } catch (\Recurly\RecurlyError $e) {
+              // Something bad happened... tell the user so that they can fix it?
+              echo 'Some unexpected Recurly error happened. Try again later.' . PHP_EOL;
+          }
       - lang: Java
         source: |
           try {
@@ -6090,6 +6514,22 @@ paths:
               schema:
                 "$ref": "#/components/schemas/Error"
       x-code-samples:
+      - lang: Php
+        source: |
+          try {
+              $invoice = $client->failInvoice($invoice_id);
+
+              echo 'Failed Invoice:' . PHP_EOL;
+              var_dump($invoice);
+          } catch (\Recurly\Errors\NotFound $e) {
+              // Could not find the resource, you may want to inform the user
+              // or just return a NULL
+              echo 'Could not find resource.' . PHP_EOL;
+              var_dump($e);
+          } catch (\Recurly\RecurlyError $e) {
+              // Something bad happened... tell the user so that they can fix it?
+              echo 'Some unexpected Recurly error happened. Try again later.' . PHP_EOL;
+          }
       - lang: Java
         source: |
           try {
@@ -6718,6 +7158,19 @@ paths:
               schema:
                 "$ref": "#/components/schemas/Error"
       x-code-samples:
+      - lang: Php
+        source: |
+          try {
+            $params = ['limit' => 200];
+            $line_items = $client->listLineItems($params);
+
+            foreach($line_items as $line_item) {
+              echo 'Line item: ' . $line_item->getId() . PHP_EOL;
+            }
+          } catch (\Recurly\RecurlyError $e) {
+            // Something bad happened... tell the user so that they can fix it?
+            echo 'Hey you! Something bad happened' . PHP_EOL;
+          }
       - lang: Java
         source: |
           QueryParams params = new QueryParams();
@@ -6775,6 +7228,22 @@ paths:
               schema:
                 "$ref": "#/components/schemas/Error"
       x-code-samples:
+      - lang: Php
+        source: |
+          try {
+              $line_item = $client->getLineItem($line_item_id);
+
+              echo 'Got LineItem:' . PHP_EOL;
+              var_dump($line_item);
+          } catch (\Recurly\Errors\NotFound $e) {
+              // Could not find the resource, you may want to inform the user
+              // or just return a NULL
+              echo 'Could not find resource.' . PHP_EOL;
+              var_dump($e);
+          } catch (\Recurly\RecurlyError $e) {
+              // Something bad happened... tell the user so that they can fix it?
+              echo 'Some unexpected Recurly error happened. Try again later.' . PHP_EOL;
+          }
       - lang: Java
         source: |
           try {
@@ -6980,6 +7449,12 @@ paths:
               schema:
                 "$ref": "#/components/schemas/Error"
       x-code-samples:
+      - lang: Php
+        source: "try {\n  $params = ['limit' => 200];\n  $plans = $client->listPlans($params);\n
+          \ \n  foreach($plans as $plan) {\n    echo 'Plan: ' . $plan->getCode() .
+          PHP_EOL;\n  }\n} catch (\\Recurly\\RecurlyError $e) {\n  // Something bad
+          happened... tell the user so that they can fix it?\n  echo 'Hey you! Something
+          bad happened' . PHP_EOL;\n}\n"
       - lang: Java
         source: |
           QueryParams params = new QueryParams();
@@ -7071,9 +7546,14 @@ paths:
 
               echo 'Created Plan:' . PHP_EOL;
               var_dump($plan);
+          } catch (\Recurly\Errors\Validation $e) {
+              // If the request was not valid, you may want to tell your user
+              // why. You can find the invalid params and reasons in err.params
+              var_dump($e);
           } catch (\Recurly\RecurlyError $e) {
-              // Something bad happened... tell the user so that they can fix it?
-              echo 'Hey you! Something bad happened' . PHP_EOL;
+              // If we don't know what to do with the err, we should
+              // probably re-raise and let our web framework and logger handle it
+              var_dump($e);
           }
       - lang: Java
         source: |
@@ -7227,6 +7707,22 @@ paths:
               schema:
                 "$ref": "#/components/schemas/Error"
       x-code-samples:
+      - lang: Php
+        source: |
+          try {
+              $plan = $client->getPlan($plan_id);
+
+              echo 'Got Plan:' . PHP_EOL;
+              var_dump($plan);
+          } catch (\Recurly\Errors\NotFound $e) {
+              // Could not find the resource, you may want to inform the user
+              // or just return a NULL
+              echo 'Could not find resource.' . PHP_EOL;
+              var_dump($e);
+          } catch (\Recurly\RecurlyError $e) {
+              // Something bad happened... tell the user so that they can fix it?
+              echo 'Some unexpected Recurly error happened. Try again later.' . PHP_EOL;
+          }
       - lang: Java
         source: |
           try {
@@ -7501,6 +7997,19 @@ paths:
               schema:
                 "$ref": "#/components/schemas/Error"
       x-code-samples:
+      - lang: Php
+        source: |
+          try {
+            $params = ['limit' => 200];
+            $plan_add_ons = $client->listPlanAddOns($plan_id, $params);
+
+            foreach($plan_add_ons as $add_on) {
+              echo 'Plan add-on: ' . $add_on->getCode() . PHP_EOL;
+            }
+          } catch (\Recurly\RecurlyError $e) {
+            // Something bad happened... tell the user so that they can fix it?
+            echo 'Hey you! Something bad happened' . PHP_EOL;
+          }
       - lang: Java
         source: |
           QueryParams params = new QueryParams();
@@ -7565,6 +8074,33 @@ paths:
               schema:
                 "$ref": "#/components/schemas/Error"
       x-code-samples:
+      - lang: Php
+        source: |
+          try {
+              $add_on_create = [
+                  "code" => $add_on_code,
+                  "name" => "Fresh beans shipped monthly",
+                  "currencies" => [
+                      array(
+                          "currency" => "USD",
+                          "unit_amount" => 10
+                      )
+                  ]
+              ];
+
+              $add_on = $client->createPlanAddOn($plan_id, $add_on_create);
+
+              echo 'Created Plan:' . PHP_EOL;
+              var_dump($plan);
+          } catch (\Recurly\Errors\Validation $e) {
+              // If the request was not valid, you may want to tell your user
+              // why. You can find the invalid params and reasons in err.params
+              var_dump($e);
+          } catch (\Recurly\RecurlyError $e) {
+              // If we don't know what to do with the err, we should
+              // probably re-raise and let our web framework and logger handle it
+              var_dump($e);
+          }
       - lang: Java
         source: |
           try {
@@ -7668,6 +8204,22 @@ paths:
               schema:
                 "$ref": "#/components/schemas/Error"
       x-code-samples:
+      - lang: Php
+        source: |
+          try {
+              $add_on = $client->getPlanAddOn($plan_id, $add_on_id);
+
+              echo 'Got Plan Add-On:' . PHP_EOL;
+              var_dump($add_on);
+          } catch (\Recurly\Errors\NotFound $e) {
+              // Could not find the resource, you may want to inform the user
+              // or just return a NULL
+              echo 'Could not find resource.' . PHP_EOL;
+              var_dump($e);
+          } catch (\Recurly\RecurlyError $e) {
+              // Something bad happened... tell the user so that they can fix it?
+              echo 'Some unexpected Recurly error happened. Try again later.' . PHP_EOL;
+          }
       - lang: Java
         source: |
           try {
@@ -7827,6 +8379,19 @@ paths:
               schema:
                 "$ref": "#/components/schemas/Error"
       x-code-samples:
+      - lang: Php
+        source: |
+          try {
+            $params = ['limit' => 200];
+            $add_ons = $client->listAddOns($params);
+
+            foreach($add_ons as $addon) {
+              echo 'Add-on: ' . $addon->getCode() . PHP_EOL;
+            }
+          } catch (\Recurly\RecurlyError $e) {
+            // Something bad happened... tell the user so that they can fix it?
+            echo 'Hey you! Something bad happened' . PHP_EOL;
+          }
       - lang: Java
         source: |
           QueryParams params = new QueryParams();
@@ -7911,7 +8476,20 @@ paths:
             application/json:
               schema:
                 "$ref": "#/components/schemas/Error"
-      x-code-samples: []
+      x-code-samples:
+      - lang: Php
+        source: |
+          try {
+            $params = ['limit' => 200];
+            $shipping_methods = $client->listShippingMethods($params);
+
+            foreach($shipping_methods as $shipping_method) {
+              echo 'Shipping Method: ' . $shipping_method->getCode() . PHP_EOL;
+            }
+          } catch (\Recurly\RecurlyError $e) {
+            // Something bad happened... tell the user so that they can fix it?
+            echo 'Hey you! Something bad happened' . PHP_EOL;
+          }
   "/sites/{site_id}/shipping_methods/{id}":
     get:
       tags:
@@ -7988,6 +8566,19 @@ paths:
               schema:
                 "$ref": "#/components/schemas/Error"
       x-code-samples:
+      - lang: Php
+        source: |
+          try {
+            $params = ['limit' => 200];
+            $subscriptions = $client->listSubscriptions($params);
+
+            foreach($subscriptions as $sub) {
+              echo 'Subscription: ' . $sub->getUuid() . PHP_EOL;
+            }
+          } catch (\Recurly\RecurlyError $e) {
+            // Something bad happened... tell the user so that they can fix it?
+            echo 'Hey you! Something bad happened' . PHP_EOL;
+          }
       - lang: Java
         source: |
           QueryParams params = new QueryParams();
@@ -8198,6 +8789,22 @@ paths:
               schema:
                 "$ref": "#/components/schemas/Error"
       x-code-samples:
+      - lang: Php
+        source: |
+          try {
+              $subscription = $client->getSubscription($subscription_id);
+
+              echo 'Got Subscription:' . PHP_EOL;
+              var_dump($subscription);
+          } catch (\Recurly\Errors\NotFound $e) {
+              // Could not find the resource, you may want to inform the user
+              // or just return a NULL
+              echo 'Could not find resource.' . PHP_EOL;
+              var_dump($e);
+          } catch (\Recurly\RecurlyError $e) {
+              // Something bad happened... tell the user so that they can fix it?
+              echo 'Some unexpected Recurly error happened. Try again later.' . PHP_EOL;
+          }
       - lang: Java
         source: |
           try {
@@ -8556,6 +9163,22 @@ paths:
               schema:
                 "$ref": "#/components/schemas/Error"
       x-code-samples:
+      - lang: Php
+        source: |
+          try {
+              $subscription = $client->cancelSubscription($subscription_id, []);
+
+              echo 'Canceled Subscription:' . PHP_EOL;
+              var_dump($subscription);
+          } catch (\Recurly\Errors\NotFound $e) {
+              // Could not find the resource, you may want to inform the user
+              // or just return a NULL
+              echo 'Could not find resource.' . PHP_EOL;
+              var_dump($e);
+          } catch (\Recurly\RecurlyError $e) {
+              // Something bad happened... tell the user so that they can fix it?
+              echo 'Some unexpected Recurly error happened. Try again later.' . PHP_EOL;
+          }
       - lang: Java
         source: |
           try {
@@ -8921,6 +9544,22 @@ paths:
               schema:
                 "$ref": "#/components/schemas/Error"
       x-code-samples:
+      - lang: Php
+        source: |
+          try {
+              $change = $client->getSubscriptionChange($subscription_id);
+
+              echo 'Got Pending Subscription Change:' . PHP_EOL;
+              var_dump($change);
+          } catch (\Recurly\Errors\NotFound $e) {
+              // Could not find the resource, you may want to inform the user
+              // or just return a NULL
+              echo 'Could not find resource.' . PHP_EOL;
+              var_dump($e);
+          } catch (\Recurly\RecurlyError $e) {
+              // Something bad happened... tell the user so that they can fix it?
+              echo 'Some unexpected Recurly error happened. Try again later.' . PHP_EOL;
+          }
       - lang: Java
         source: |
           try {
@@ -9327,6 +9966,14 @@ paths:
               schema:
                 "$ref": "#/components/schemas/Error"
       x-code-samples:
+      - lang: Php
+        source: |
+          $params = ['limit' => 200];
+          $subscription_line_items = $client->listSubscriptionLineItems($subscription_id, $params);
+
+          foreach($subscription_line_items as $line_item) {
+            echo 'Subscription Invoice: ' . $line_item->getId() . PHP_EOL;
+          }
       - lang: Java
         source: |
           QueryParams params = new QueryParams();
@@ -9449,6 +10096,19 @@ paths:
               schema:
                 "$ref": "#/components/schemas/Error"
       x-code-samples:
+      - lang: Php
+        source: |
+          try {
+            $params = ['limit' => 200];
+            $transactions = $client->listTransactions($params);
+
+            foreach($transactions as $transaction) {
+              echo 'Transaction: ' . $transaction->getUuid() . PHP_EOL;
+            }
+          } catch (\Recurly\RecurlyError $e) {
+            // Something bad happened... tell the user so that they can fix it?
+            echo 'Hey you! Something bad happened' . PHP_EOL;
+          }
       - lang: Java
         source: |
           QueryParams params = new QueryParams();
@@ -9709,6 +10369,37 @@ paths:
               schema:
                 "$ref": "#/components/schemas/Error"
       x-code-samples:
+      - lang: Php
+        source: |
+          try {
+              $purchase_create = array(
+                  "currency" => "USD",
+                  "account" => array(
+                      "code" => $account_code,
+                      "first_name" => "Douglas",
+                      "last_name" => "Du Monde",
+                      "billing_info" => array(
+                          "token_id" => $rjs_token_id
+                      ),
+                  ),
+                  "subscriptions" => [
+                      array(
+                          "plan_code" => $plan_code
+                      )
+                  ]
+              );
+              $invoice_collection = $client->createPurchase($purchase_create);
+              echo 'Created Invoices:' . PHP_EOL;
+              var_dump($invoice_collection);
+          } catch (\Recurly\Errors\Validation $e) {
+              // If the request was not valid, you may want to tell your user
+              // why. You can find the invalid params and reasons in err.params
+              var_dump($e);
+          } catch (\Recurly\RecurlyError $e) {
+              // If we don't know what to do with the err, we should
+              // probably re-raise and let our web framework and logger handle it
+              var_dump($e);
+          }
       - lang: Java
         source: |
           try {
