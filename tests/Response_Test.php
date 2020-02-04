@@ -94,6 +94,17 @@ final class ResponseTest extends TestCase
         );
     }
 
+    public function testRecordCountHeader(): void
+    {
+        $count = 325;
+        $response = new Response('');
+        $response->setHeaders(array("Recurly-Total-Records: $count"));
+        $this->assertEquals(
+            $count,
+            $response->getRecordCount()
+        );
+    }
+
     public function testToResponseBinary(): void
     {
         $data = 'binary file data';

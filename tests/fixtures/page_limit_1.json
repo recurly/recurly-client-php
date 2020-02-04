@@ -1,0 +1,8 @@
+{
+    "object": "list",
+    "has_more": true,
+    "next": "page_two",
+    "data": [
+        { "object": "test_resource", "name": "resource one" }
+    ]
+}

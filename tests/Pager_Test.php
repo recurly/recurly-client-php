@@ -8,11 +8,21 @@ final class PagerTest extends RecurlyTestCase
     {
         parent::setUp();
 
+        $this->count = 3;
         $client_stub = $this->createMock(\Recurly\BaseClient::class);
         $client_stub->method('nextPage')->will($this->returnCallback(function($name, $params) {
+            if (is_array($params) && array_key_exists('limit', $params) && $params['limit'] == 1) {
+                $name = 'page_limit_1';
+            }
             $json_string = $this->fixtures->loadJsonFixture($name, ['type' => 'string']);
             $response = new \Recurly\Response($json_string);
+            $response->setHeaders(array("Recurly-Total-Records: {$this->count}"));
             return $response->toResource();
+        }));
+        $client_stub->method('pagerCount')->will($this->returnCallback(function($name, $params) {
+            $response = new \Recurly\Response('');
+            $response->setHeaders(array("Recurly-Total-Records: {$this->count}"));
+            return $response;
         }));
 
         $this->pager = new \Recurly\Pager($client_stub, 'page_one');
@@ -22,6 +32,19 @@ final class PagerTest extends RecurlyTestCase
     {
         $this->pager->rewind();
         $this->assertInstanceOf(\Recurly\Response::class, $this->pager->getResponse());
+    }
+
+    public function testGetFirst(): void
+    {
+        $this->assertInstanceOf(
+            \Recurly\Resources\TestResource::class,
+            $this->pager->getFirst()
+        );
+    }
+
+    public function testGetCount(): void
+    {
+        $this->assertEquals($this->count, $this->pager->getCount());
     }
 
     public function testGetResponseChanges(): void
