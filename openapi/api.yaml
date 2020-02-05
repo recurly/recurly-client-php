@@ -859,7 +859,23 @@ paths:
             application/json:
               schema:
                 "$ref": "#/components/schemas/Error"
-      x-code-samples: []
+      x-code-samples:
+      - lang: Php
+        source: |
+          try {
+              $site = $client->getSite($site_id);
+
+              echo 'Got Site:' . PHP_EOL;
+              var_dump($site);
+          } catch (\Recurly\Errors\NotFound $e) {
+              // Could not find the resource, you may want to inform the user
+              // or just return a NULL
+              echo 'Could not find resource.' . PHP_EOL;
+              var_dump($e);
+          } catch (\Recurly\RecurlyError $e) {
+              // Something bad happened... tell the user so that they can fix it?
+              echo 'Some unexpected Recurly error happened. Try again later.' . PHP_EOL;
+          }
   "/sites/{site_id}/accounts":
     get:
       tags:
@@ -9530,7 +9546,7 @@ paths:
       - lang: Php
         source: |
           try {
-              $subscription = $client->cancelSubscription($subscription_id, []);
+              $subscription = $client->cancelSubscription($subscription_id);
 
               echo 'Canceled Subscription:' . PHP_EOL;
               var_dump($subscription);
