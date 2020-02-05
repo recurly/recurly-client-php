@@ -47,7 +47,7 @@ class Client extends BaseClient
      *
      * @return \Recurly\Pager
      */
-    public function listSites(array $options): \Recurly\Pager // phpcs:ignore Generic.Files.LineLength.TooLong
+    public function listSites(array $options = []): \Recurly\Pager // phpcs:ignore Generic.Files.LineLength.TooLong
     {
         $path = $this->interpolatePath("/sites", []); // phpcs:ignore Generic.Files.LineLength.TooLong
         return new \Recurly\Pager($this, $path, $options);
@@ -105,7 +105,7 @@ class Client extends BaseClient
      *
      * @return \Recurly\Pager
      */
-    public function listAccounts(array $options): \Recurly\Pager // phpcs:ignore Generic.Files.LineLength.TooLong
+    public function listAccounts(array $options = []): \Recurly\Pager // phpcs:ignore Generic.Files.LineLength.TooLong
     {
         $path = $this->interpolatePath("/accounts", []); // phpcs:ignore Generic.Files.LineLength.TooLong
         return new \Recurly\Pager($this, $path, $options);
@@ -302,7 +302,7 @@ class Client extends BaseClient
      *
      * @return \Recurly\Pager
      */
-    public function listAccountCouponRedemptions(string $account_id, array $options): \Recurly\Pager // phpcs:ignore Generic.Files.LineLength.TooLong
+    public function listAccountCouponRedemptions(string $account_id, array $options = []): \Recurly\Pager // phpcs:ignore Generic.Files.LineLength.TooLong
     {
         $path = $this->interpolatePath("/accounts/{account_id}/coupon_redemptions", ['account_id' => $account_id]); // phpcs:ignore Generic.Files.LineLength.TooLong
         return new \Recurly\Pager($this, $path, $options);
@@ -370,7 +370,7 @@ class Client extends BaseClient
      *
      * @return \Recurly\Pager
      */
-    public function listAccountCreditPayments(string $account_id, array $options): \Recurly\Pager // phpcs:ignore Generic.Files.LineLength.TooLong
+    public function listAccountCreditPayments(string $account_id, array $options = []): \Recurly\Pager // phpcs:ignore Generic.Files.LineLength.TooLong
     {
         $path = $this->interpolatePath("/accounts/{account_id}/credit_payments", ['account_id' => $account_id]); // phpcs:ignore Generic.Files.LineLength.TooLong
         return new \Recurly\Pager($this, $path, $options);
@@ -416,7 +416,7 @@ class Client extends BaseClient
      *
      * @return \Recurly\Pager
      */
-    public function listAccountInvoices(string $account_id, array $options): \Recurly\Pager // phpcs:ignore Generic.Files.LineLength.TooLong
+    public function listAccountInvoices(string $account_id, array $options = []): \Recurly\Pager // phpcs:ignore Generic.Files.LineLength.TooLong
     {
         $path = $this->interpolatePath("/accounts/{account_id}/invoices", ['account_id' => $account_id]); // phpcs:ignore Generic.Files.LineLength.TooLong
         return new \Recurly\Pager($this, $path, $options);
@@ -488,7 +488,7 @@ class Client extends BaseClient
      *
      * @return \Recurly\Pager
      */
-    public function listAccountLineItems(string $account_id, array $options): \Recurly\Pager // phpcs:ignore Generic.Files.LineLength.TooLong
+    public function listAccountLineItems(string $account_id, array $options = []): \Recurly\Pager // phpcs:ignore Generic.Files.LineLength.TooLong
     {
         $path = $this->interpolatePath("/accounts/{account_id}/line_items", ['account_id' => $account_id]); // phpcs:ignore Generic.Files.LineLength.TooLong
         return new \Recurly\Pager($this, $path, $options);
@@ -530,7 +530,7 @@ class Client extends BaseClient
      *
      * @return \Recurly\Pager
      */
-    public function listAccountNotes(string $account_id, array $options): \Recurly\Pager // phpcs:ignore Generic.Files.LineLength.TooLong
+    public function listAccountNotes(string $account_id, array $options = []): \Recurly\Pager // phpcs:ignore Generic.Files.LineLength.TooLong
     {
         $path = $this->interpolatePath("/accounts/{account_id}/notes", ['account_id' => $account_id]); // phpcs:ignore Generic.Files.LineLength.TooLong
         return new \Recurly\Pager($this, $path, $options);
@@ -584,7 +584,7 @@ class Client extends BaseClient
      *
      * @return \Recurly\Pager
      */
-    public function listShippingAddresses(string $account_id, array $options): \Recurly\Pager // phpcs:ignore Generic.Files.LineLength.TooLong
+    public function listShippingAddresses(string $account_id, array $options = []): \Recurly\Pager // phpcs:ignore Generic.Files.LineLength.TooLong
     {
         $path = $this->interpolatePath("/accounts/{account_id}/shipping_addresses", ['account_id' => $account_id]); // phpcs:ignore Generic.Files.LineLength.TooLong
         return new \Recurly\Pager($this, $path, $options);
@@ -687,7 +687,7 @@ class Client extends BaseClient
      *
      * @return \Recurly\Pager
      */
-    public function listAccountSubscriptions(string $account_id, array $options): \Recurly\Pager // phpcs:ignore Generic.Files.LineLength.TooLong
+    public function listAccountSubscriptions(string $account_id, array $options = []): \Recurly\Pager // phpcs:ignore Generic.Files.LineLength.TooLong
     {
         $path = $this->interpolatePath("/accounts/{account_id}/subscriptions", ['account_id' => $account_id]); // phpcs:ignore Generic.Files.LineLength.TooLong
         return new \Recurly\Pager($this, $path, $options);
@@ -730,7 +730,7 @@ class Client extends BaseClient
      *
      * @return \Recurly\Pager
      */
-    public function listAccountTransactions(string $account_id, array $options): \Recurly\Pager // phpcs:ignore Generic.Files.LineLength.TooLong
+    public function listAccountTransactions(string $account_id, array $options = []): \Recurly\Pager // phpcs:ignore Generic.Files.LineLength.TooLong
     {
         $path = $this->interpolatePath("/accounts/{account_id}/transactions", ['account_id' => $account_id]); // phpcs:ignore Generic.Files.LineLength.TooLong
         return new \Recurly\Pager($this, $path, $options);
@@ -776,7 +776,7 @@ class Client extends BaseClient
      *
      * @return \Recurly\Pager
      */
-    public function listChildAccounts(string $account_id, array $options): \Recurly\Pager // phpcs:ignore Generic.Files.LineLength.TooLong
+    public function listChildAccounts(string $account_id, array $options = []): \Recurly\Pager // phpcs:ignore Generic.Files.LineLength.TooLong
     {
         $path = $this->interpolatePath("/accounts/{account_id}/accounts", ['account_id' => $account_id]); // phpcs:ignore Generic.Files.LineLength.TooLong
         return new \Recurly\Pager($this, $path, $options);
@@ -815,7 +815,7 @@ class Client extends BaseClient
      *
      * @return \Recurly\Pager
      */
-    public function listAccountAcquisition(array $options): \Recurly\Pager // phpcs:ignore Generic.Files.LineLength.TooLong
+    public function listAccountAcquisition(array $options = []): \Recurly\Pager // phpcs:ignore Generic.Files.LineLength.TooLong
     {
         $path = $this->interpolatePath("/acquisitions", []); // phpcs:ignore Generic.Files.LineLength.TooLong
         return new \Recurly\Pager($this, $path, $options);
@@ -854,7 +854,7 @@ class Client extends BaseClient
      *
      * @return \Recurly\Pager
      */
-    public function listCoupons(array $options): \Recurly\Pager // phpcs:ignore Generic.Files.LineLength.TooLong
+    public function listCoupons(array $options = []): \Recurly\Pager // phpcs:ignore Generic.Files.LineLength.TooLong
     {
         $path = $this->interpolatePath("/coupons", []); // phpcs:ignore Generic.Files.LineLength.TooLong
         return new \Recurly\Pager($this, $path, $options);
@@ -934,7 +934,7 @@ class Client extends BaseClient
      *
      * @return \Recurly\Pager
      */
-    public function listUniqueCouponCodes(string $coupon_id, array $options): \Recurly\Pager // phpcs:ignore Generic.Files.LineLength.TooLong
+    public function listUniqueCouponCodes(string $coupon_id, array $options = []): \Recurly\Pager // phpcs:ignore Generic.Files.LineLength.TooLong
     {
         $path = $this->interpolatePath("/coupons/{coupon_id}/unique_coupon_codes", ['coupon_id' => $coupon_id]); // phpcs:ignore Generic.Files.LineLength.TooLong
         return new \Recurly\Pager($this, $path, $options);
@@ -961,7 +961,7 @@ class Client extends BaseClient
      *
      * @return \Recurly\Pager
      */
-    public function listCreditPayments(array $options): \Recurly\Pager // phpcs:ignore Generic.Files.LineLength.TooLong
+    public function listCreditPayments(array $options = []): \Recurly\Pager // phpcs:ignore Generic.Files.LineLength.TooLong
     {
         $path = $this->interpolatePath("/credit_payments", []); // phpcs:ignore Generic.Files.LineLength.TooLong
         return new \Recurly\Pager($this, $path, $options);
@@ -1015,7 +1015,7 @@ class Client extends BaseClient
      *
      * @return \Recurly\Pager
      */
-    public function listCustomFieldDefinitions(array $options): \Recurly\Pager // phpcs:ignore Generic.Files.LineLength.TooLong
+    public function listCustomFieldDefinitions(array $options = []): \Recurly\Pager // phpcs:ignore Generic.Files.LineLength.TooLong
     {
         $path = $this->interpolatePath("/custom_field_definitions", []); // phpcs:ignore Generic.Files.LineLength.TooLong
         return new \Recurly\Pager($this, $path, $options);
@@ -1069,7 +1069,7 @@ class Client extends BaseClient
      *
      * @return \Recurly\Pager
      */
-    public function listItems(array $options): \Recurly\Pager // phpcs:ignore Generic.Files.LineLength.TooLong
+    public function listItems(array $options = []): \Recurly\Pager // phpcs:ignore Generic.Files.LineLength.TooLong
     {
         $path = $this->interpolatePath("/items", []); // phpcs:ignore Generic.Files.LineLength.TooLong
         return new \Recurly\Pager($this, $path, $options);
@@ -1180,7 +1180,7 @@ class Client extends BaseClient
      *
      * @return \Recurly\Pager
      */
-    public function listInvoices(array $options): \Recurly\Pager // phpcs:ignore Generic.Files.LineLength.TooLong
+    public function listInvoices(array $options = []): \Recurly\Pager // phpcs:ignore Generic.Files.LineLength.TooLong
     {
         $path = $this->interpolatePath("/invoices", []); // phpcs:ignore Generic.Files.LineLength.TooLong
         return new \Recurly\Pager($this, $path, $options);
@@ -1229,16 +1229,12 @@ class Client extends BaseClient
     /**
      * Collect a pending or past due, automatic invoice
      *
-     * Supported optional parameters:
-     *
-     * 'body' (array): The body of the request.
-     *
      * @param string $invoice_id Invoice ID or number. For ID no prefix is used e.g. `e28zov4fw0v2`. For number use prefix `number-`, e.g. `number-1000`.
-     * @param array  $options    Associative array of optional parameters:
+     * @param array  $body       The body of the request.
      *
      * @return \Recurly\Resources\Invoice
      */
-    public function collectInvoice(string $invoice_id, array $options): \Recurly\Resources\Invoice // phpcs:ignore Generic.Files.LineLength.TooLong
+    public function collectInvoice(string $invoice_id, array $body = []): \Recurly\Resources\Invoice // phpcs:ignore Generic.Files.LineLength.TooLong
     {
         $path = $this->interpolatePath("/invoices/{invoice_id}/collect", ['invoice_id' => $invoice_id]); // phpcs:ignore Generic.Files.LineLength.TooLong
         return $this->makeRequest('PUT', $path, null, $options);
@@ -1334,7 +1330,7 @@ class Client extends BaseClient
      *
      * @return \Recurly\Pager
      */
-    public function listInvoiceLineItems(string $invoice_id, array $options): \Recurly\Pager // phpcs:ignore Generic.Files.LineLength.TooLong
+    public function listInvoiceLineItems(string $invoice_id, array $options = []): \Recurly\Pager // phpcs:ignore Generic.Files.LineLength.TooLong
     {
         $path = $this->interpolatePath("/invoices/{invoice_id}/line_items", ['invoice_id' => $invoice_id]); // phpcs:ignore Generic.Files.LineLength.TooLong
         return new \Recurly\Pager($this, $path, $options);
@@ -1372,7 +1368,7 @@ class Client extends BaseClient
      *
      * @return \Recurly\Pager
      */
-    public function listInvoiceCouponRedemptions(string $invoice_id, array $options): \Recurly\Pager // phpcs:ignore Generic.Files.LineLength.TooLong
+    public function listInvoiceCouponRedemptions(string $invoice_id, array $options = []): \Recurly\Pager // phpcs:ignore Generic.Files.LineLength.TooLong
     {
         $path = $this->interpolatePath("/invoices/{invoice_id}/coupon_redemptions", ['invoice_id' => $invoice_id]); // phpcs:ignore Generic.Files.LineLength.TooLong
         return new \Recurly\Pager($this, $path, $options);
@@ -1442,7 +1438,7 @@ class Client extends BaseClient
      *
      * @return \Recurly\Pager
      */
-    public function listLineItems(array $options): \Recurly\Pager // phpcs:ignore Generic.Files.LineLength.TooLong
+    public function listLineItems(array $options = []): \Recurly\Pager // phpcs:ignore Generic.Files.LineLength.TooLong
     {
         $path = $this->interpolatePath("/line_items", []); // phpcs:ignore Generic.Files.LineLength.TooLong
         return new \Recurly\Pager($this, $path, $options);
@@ -1509,7 +1505,7 @@ class Client extends BaseClient
      *
      * @return \Recurly\Pager
      */
-    public function listPlans(array $options): \Recurly\Pager // phpcs:ignore Generic.Files.LineLength.TooLong
+    public function listPlans(array $options = []): \Recurly\Pager // phpcs:ignore Generic.Files.LineLength.TooLong
     {
         $path = $this->interpolatePath("/plans", []); // phpcs:ignore Generic.Files.LineLength.TooLong
         return new \Recurly\Pager($this, $path, $options);
@@ -1604,7 +1600,7 @@ class Client extends BaseClient
      *
      * @return \Recurly\Pager
      */
-    public function listPlanAddOns(string $plan_id, array $options): \Recurly\Pager // phpcs:ignore Generic.Files.LineLength.TooLong
+    public function listPlanAddOns(string $plan_id, array $options = []): \Recurly\Pager // phpcs:ignore Generic.Files.LineLength.TooLong
     {
         $path = $this->interpolatePath("/plans/{plan_id}/add_ons", ['plan_id' => $plan_id]); // phpcs:ignore Generic.Files.LineLength.TooLong
         return new \Recurly\Pager($this, $path, $options);
@@ -1702,7 +1698,7 @@ class Client extends BaseClient
      *
      * @return \Recurly\Pager
      */
-    public function listAddOns(array $options): \Recurly\Pager // phpcs:ignore Generic.Files.LineLength.TooLong
+    public function listAddOns(array $options = []): \Recurly\Pager // phpcs:ignore Generic.Files.LineLength.TooLong
     {
         $path = $this->interpolatePath("/add_ons", []); // phpcs:ignore Generic.Files.LineLength.TooLong
         return new \Recurly\Pager($this, $path, $options);
@@ -1754,7 +1750,7 @@ class Client extends BaseClient
      *
      * @return \Recurly\Pager
      */
-    public function listShippingMethods(array $options): \Recurly\Pager // phpcs:ignore Generic.Files.LineLength.TooLong
+    public function listShippingMethods(array $options = []): \Recurly\Pager // phpcs:ignore Generic.Files.LineLength.TooLong
     {
         $path = $this->interpolatePath("/shipping_methods", []); // phpcs:ignore Generic.Files.LineLength.TooLong
         return new \Recurly\Pager($this, $path, $options);
@@ -1812,7 +1808,7 @@ class Client extends BaseClient
      *
      * @return \Recurly\Pager
      */
-    public function listSubscriptions(array $options): \Recurly\Pager // phpcs:ignore Generic.Files.LineLength.TooLong
+    public function listSubscriptions(array $options = []): \Recurly\Pager // phpcs:ignore Generic.Files.LineLength.TooLong
     {
         $path = $this->interpolatePath("/subscriptions", []); // phpcs:ignore Generic.Files.LineLength.TooLong
         return new \Recurly\Pager($this, $path, $options);
@@ -1878,7 +1874,7 @@ class Client extends BaseClient
      *
      * @return \Recurly\Resources\Subscription
      */
-    public function terminateSubscription(string $subscription_id, array $options): \Recurly\Resources\Subscription // phpcs:ignore Generic.Files.LineLength.TooLong
+    public function terminateSubscription(string $subscription_id, array $options = []): \Recurly\Resources\Subscription // phpcs:ignore Generic.Files.LineLength.TooLong
     {
         $path = $this->interpolatePath("/subscriptions/{subscription_id}", ['subscription_id' => $subscription_id]); // phpcs:ignore Generic.Files.LineLength.TooLong
         return $this->makeRequest('DELETE', $path, null, $options);
@@ -1887,16 +1883,12 @@ class Client extends BaseClient
     /**
      * Cancel a subscription
      *
-     * Supported optional parameters:
-     *
-     * 'body' (array): The body of the request.
-     *
      * @param string $subscription_id Subscription ID or UUID. For ID no prefix is used e.g. `e28zov4fw0v2`. For UUID use prefix `uuid-`, e.g. `uuid-123457890`.
-     * @param array  $options         Associative array of optional parameters:
+     * @param array  $body            The body of the request.
      *
      * @return \Recurly\Resources\Subscription
      */
-    public function cancelSubscription(string $subscription_id, array $options): \Recurly\Resources\Subscription // phpcs:ignore Generic.Files.LineLength.TooLong
+    public function cancelSubscription(string $subscription_id, array $body = []): \Recurly\Resources\Subscription // phpcs:ignore Generic.Files.LineLength.TooLong
     {
         $path = $this->interpolatePath("/subscriptions/{subscription_id}/cancel", ['subscription_id' => $subscription_id]); // phpcs:ignore Generic.Files.LineLength.TooLong
         return $this->makeRequest('PUT', $path, null, $options);
@@ -2022,7 +2014,7 @@ class Client extends BaseClient
      *
      * @return \Recurly\Pager
      */
-    public function listSubscriptionInvoices(string $subscription_id, array $options): \Recurly\Pager // phpcs:ignore Generic.Files.LineLength.TooLong
+    public function listSubscriptionInvoices(string $subscription_id, array $options = []): \Recurly\Pager // phpcs:ignore Generic.Files.LineLength.TooLong
     {
         $path = $this->interpolatePath("/subscriptions/{subscription_id}/invoices", ['subscription_id' => $subscription_id]); // phpcs:ignore Generic.Files.LineLength.TooLong
         return new \Recurly\Pager($this, $path, $options);
@@ -2066,7 +2058,7 @@ class Client extends BaseClient
      *
      * @return \Recurly\Pager
      */
-    public function listSubscriptionLineItems(string $subscription_id, array $options): \Recurly\Pager // phpcs:ignore Generic.Files.LineLength.TooLong
+    public function listSubscriptionLineItems(string $subscription_id, array $options = []): \Recurly\Pager // phpcs:ignore Generic.Files.LineLength.TooLong
     {
         $path = $this->interpolatePath("/subscriptions/{subscription_id}/line_items", ['subscription_id' => $subscription_id]); // phpcs:ignore Generic.Files.LineLength.TooLong
         return new \Recurly\Pager($this, $path, $options);
@@ -2104,7 +2096,7 @@ class Client extends BaseClient
      *
      * @return \Recurly\Pager
      */
-    public function listSubscriptionCouponRedemptions(string $subscription_id, array $options): \Recurly\Pager // phpcs:ignore Generic.Files.LineLength.TooLong
+    public function listSubscriptionCouponRedemptions(string $subscription_id, array $options = []): \Recurly\Pager // phpcs:ignore Generic.Files.LineLength.TooLong
     {
         $path = $this->interpolatePath("/subscriptions/{subscription_id}/coupon_redemptions", ['subscription_id' => $subscription_id]); // phpcs:ignore Generic.Files.LineLength.TooLong
         return new \Recurly\Pager($this, $path, $options);
@@ -2146,7 +2138,7 @@ class Client extends BaseClient
      *
      * @return \Recurly\Pager
      */
-    public function listTransactions(array $options): \Recurly\Pager // phpcs:ignore Generic.Files.LineLength.TooLong
+    public function listTransactions(array $options = []): \Recurly\Pager // phpcs:ignore Generic.Files.LineLength.TooLong
     {
         $path = $this->interpolatePath("/transactions", []); // phpcs:ignore Generic.Files.LineLength.TooLong
         return new \Recurly\Pager($this, $path, $options);
