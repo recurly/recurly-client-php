@@ -131,6 +131,13 @@ final class ResponseTest extends TestCase
         $this->assertInstanceOf(\Recurly\Resources\Account::class, $result);
     }
 
+    public function testToResponseEmpty(): void
+    {
+        $response = new Response('');
+        $result = $response->toResource();
+        $this->assertInstanceOf(\Recurly\EmptyResource::class, $result);
+    }
+
     public function testGetRawResponse(): void
     {
         $raw_response = 'raw-response';

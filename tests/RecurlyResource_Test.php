@@ -79,23 +79,6 @@ final class RecurlyResourceTest extends RecurlyTestCase
         $result = RecurlyResource::fromJson($data, $response);
     }
 
-    public function testFromJsonUnknownErrorResponse(): void
-    {
-        $data = (object)array(
-            "error" => (object)array(
-                "object" => "error",
-                "type" => "unknown_type",
-                "message" => "The error message"
-            )
-        );
-
-        $this->expectException(\Recurly\RecurlyError::class);
-        $this->expectExceptionMessage("The error message");
-        $response = new \Recurly\Response('');
-        $response->setHeaders([]);
-        $result = RecurlyResource::fromJson($data, $response);
-    }
-
     public function testFromJsonList(): void
     {
         $data = (object)array(
@@ -114,6 +97,14 @@ final class RecurlyResourceTest extends RecurlyTestCase
         $response = new \Recurly\Response('');
         $result = RecurlyResource::fromBinary($data, $response);
         $this->assertInstanceOf(\Recurly\Resources\BinaryFile::class, $result);
+        $this->assertEquals($response, $result->getResponse());
+    }
+
+    public function testFromEmpty(): void
+    {
+        $response = new \Recurly\Response('');
+        $result = RecurlyResource::fromEmpty($response);
+        $this->assertInstanceOf(\Recurly\EmptyResource::class, $result);
         $this->assertEquals($response, $result->getResponse());
     }
 }
