@@ -6,6 +6,8 @@
  * @property Recurly_Stub $account The URL of the account for the specified adjustment.
  * @property Recurly_Stub $invoice The URL of the invoice for the specified adjustment.
  * @property Recurly_Stub $item The URL of the item for the specified adjustment.
+ * @property string $item_code The item_code for the item associated with the adjustment, if there is one. Associates the adjustment with an item and sets related attributes on the adjustment from the default values on the item. <description>, <product_code>, <accounting_code>, <tax_exempt> and <tax_code> are not accepted when <item_code> is present.
+ * @property string $external_sku Only shows if adjustment is created with an item_code with an external_sku.
  * @property string $uuid The unique identifier of the adjustment.
  * @property string $state The state of the adjustments to return: pending or invoiced.
  * @property string $description Description of the adjustment for the adjustment. Max 255 characters.
@@ -105,7 +107,7 @@ class Recurly_Adjustment extends Recurly_Resource
       'currency', 'unit_amount_in_cents', 'quantity', 'description',
       'accounting_code', 'tax_exempt', 'tax_code', 'start_date', 'end_date',
       'revenue_schedule_type', 'origin', 'product_code', 'credit_reason_code',
-      'shipping_address', 'shipping_address_id', 'item_code'
+      'shipping_address', 'shipping_address_id', 'item_code', 'external_sku'
     );
   }
 }
