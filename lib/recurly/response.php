@@ -94,7 +94,6 @@ class Response
         return $this->_getHeaderValue('X-Request-Id');
     }
 
-
     /**
      * Getter method for the X-RateLimit-Limit HTTP response header
      * 
@@ -104,7 +103,6 @@ class Response
     {
         return $this->_getHeaderValue('X-RateLimit-Limit');
     }
-
 
     /**
      * Getter method for the X-RateLimit-Remaining HTTP response header
@@ -116,7 +114,6 @@ class Response
         return $this->_getHeaderValue('X-RateLimit-Remaining');
     }
 
-
     /**
      * Getter method for the X-RateLimit-Reset HTTP response header
      * 
@@ -126,7 +123,6 @@ class Response
     {
         return $this->_getHeaderValue('X-RateLimit-Reset');
     }
-
 
     /**
      * Getter method for the Content-Type HTTP response header
@@ -140,6 +136,11 @@ class Response
         return $parts[0];
     }
 
+    /**
+     * Getter method for the Recurly-Total-Records HTTP response header
+     * 
+     * @return string The Recurly-Total-Records header value
+     */
     public function getRecordCount(): string
     {
         return $this->_getHeaderValue('Recurly-Total-Records');

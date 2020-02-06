@@ -24,7 +24,7 @@ abstract class BaseClient
     abstract protected function apiVersion(): string;
 
     /**
-     * Performs the HTTP request to the Recurly API
+     * Performs API requests and processes the response into a Recurly Resource
      * 
      * @param string $method HTTP method to use
      * @param string $path   Tokenized path to request
@@ -40,6 +40,17 @@ abstract class BaseClient
         return $resource;
     }
 
+
+    /**
+     * Performs the HTTP request to the Recurly API
+     * 
+     * @param string $method HTTP method to use
+     * @param string $path   Tokenized path to request
+     * @param array  $body   The request body
+     * @param array  $params Query string parameters
+     * 
+     * @return \Recurly\Response A Recurly Response object
+     */
     private function _getResponse(string $method, string $path, ?array $body = [], ?array $params = []): \Recurly\Response
     {
         $request = new \Recurly\Request($method, $path, $body, $params);
