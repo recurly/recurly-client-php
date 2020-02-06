@@ -132,8 +132,10 @@ abstract class RecurlyResource
                     $klass->$setter($value);
                 }
             } elseif (\Recurly\STRICT_MODE) {
+                // @codeCoverageIgnoreStart
                 $klass_name = static::class;
                 trigger_error("$klass_name encountered json attribute $key but it's unknown to it's schema", E_USER_ERROR);
+                // @codeCoverageIgnoreEnd
             }
         }
         return $klass;
@@ -188,7 +190,9 @@ abstract class RecurlyResource
         if (!class_exists($klass)) {
             // phpcs:ignore Generic.Files.LineLength.TooLong
             if (\Recurly\STRICT_MODE) {
+                // @codeCoverageIgnoreStart
                 trigger_error("Could not find the Recurly class for key {$type}", E_USER_ERROR);
+                // @codeCoverageIgnoreEnd
             }
         }
         return $klass;
