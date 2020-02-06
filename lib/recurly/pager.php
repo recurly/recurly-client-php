@@ -47,6 +47,7 @@ class Pager implements \Iterator
         if ($page->valid()) {
             return $page->current();
         }
+        return null;
     }
 
     /**

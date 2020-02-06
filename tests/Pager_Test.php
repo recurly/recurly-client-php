@@ -42,6 +42,17 @@ final class PagerTest extends RecurlyTestCase
         );
     }
 
+    public function testGetFirstNoResults(): void
+    {
+        $json_string = $this->fixtures->loadJsonFixture('page_limit_1_empty', ['type' => 'string']);
+        $response = new \Recurly\Response($json_string);
+        $client_stub = $this->createMock(\Recurly\BaseClient::class);
+        $client_stub->method('nextPage')->willReturn($response->toResource());
+        $pager = new \Recurly\Pager($client_stub, 'page_one');
+
+        $this->assertNull($pager->getFirst());
+    }
+
     public function testGetCount(): void
     {
         $this->assertEquals($this->count, $this->pager->getCount());
