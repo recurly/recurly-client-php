@@ -24,6 +24,7 @@ class LineItem extends RecurlyResource
         private $_description;
         private $_discount;
         private $_end_date;
+        private $_external_sku;
         private $_id;
         private $_invoice_id;
         private $_invoice_number;
@@ -320,6 +321,28 @@ class LineItem extends RecurlyResource
     public function setEndDate(string $value): void
     {
         $this->_end_date = $value;
+    }
+
+    /**
+    * Getter method for the external_sku attribute.
+    *
+    * @return string Optional Stock Keeping Unit assigned to an item, when the Catalog feature is enabled.
+    */
+    public function getExternalSku(): string
+    {
+        return $this->_external_sku;
+    }
+
+    /**
+    * Setter method for the external_sku attribute.
+    *
+    * @param string $external_sku
+    *
+    * @return void
+    */
+    public function setExternalSku(string $value): void
+    {
+        $this->_external_sku = $value;
     }
 
     /**
