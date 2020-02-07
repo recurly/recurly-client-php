@@ -12,25 +12,28 @@ use Recurly\RecurlyResource;
 // phpcs:disable
 class ShippingAddress extends RecurlyResource
 {
-        private $_account_id;
-        private $_city;
-        private $_company;
-        private $_country;
-        private $_created_at;
-        private $_email;
-        private $_first_name;
-        private $_id;
-        private $_last_name;
-        private $_nickname;
-        private $_object;
-        private $_phone;
-        private $_postal_code;
-        private $_region;
-        private $_street1;
-        private $_street2;
-        private $_updated_at;
-        private $_vat_number;
-    
+    private $_account_id;
+    private $_city;
+    private $_company;
+    private $_country;
+    private $_created_at;
+    private $_email;
+    private $_first_name;
+    private $_id;
+    private $_last_name;
+    private $_nickname;
+    private $_object;
+    private $_phone;
+    private $_postal_code;
+    private $_region;
+    private $_street1;
+    private $_street2;
+    private $_updated_at;
+    private $_vat_number;
+
+    protected static $array_hints = array(
+    );
+
     
     /**
     * Getter method for the account_id attribute.
@@ -427,20 +430,4 @@ class ShippingAddress extends RecurlyResource
     {
         $this->_vat_number = $value;
     }
-
-    /**
-     * The hintArrayType method will provide type hinting for setter methods that
-     * have array parameters.
-     * 
-     * @param string $key The property to get teh type hint for.
-     * 
-     * @return string The class name of the expected array type.
-     */
-    public static function hintArrayType($key): string
-    {
-        $array_hints = array(
-        );
-        return $array_hints[$key];
-    }
-
 }

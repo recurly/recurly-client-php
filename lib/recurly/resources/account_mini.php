@@ -12,16 +12,19 @@ use Recurly\RecurlyResource;
 // phpcs:disable
 class AccountMini extends RecurlyResource
 {
-        private $_bill_to;
-        private $_code;
-        private $_company;
-        private $_email;
-        private $_first_name;
-        private $_id;
-        private $_last_name;
-        private $_object;
-        private $_parent_account_id;
-    
+    private $_bill_to;
+    private $_code;
+    private $_company;
+    private $_email;
+    private $_first_name;
+    private $_id;
+    private $_last_name;
+    private $_object;
+    private $_parent_account_id;
+
+    protected static $array_hints = array(
+    );
+
     
     /**
     * Getter method for the bill_to attribute.
@@ -220,20 +223,4 @@ class AccountMini extends RecurlyResource
     {
         $this->_parent_account_id = $value;
     }
-
-    /**
-     * The hintArrayType method will provide type hinting for setter methods that
-     * have array parameters.
-     * 
-     * @param string $key The property to get teh type hint for.
-     * 
-     * @return string The class name of the expected array type.
-     */
-    public static function hintArrayType($key): string
-    {
-        $array_hints = array(
-        );
-        return $array_hints[$key];
-    }
-
 }

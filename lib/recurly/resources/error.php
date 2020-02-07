@@ -12,10 +12,14 @@ use Recurly\RecurlyResource;
 // phpcs:disable
 class Error extends RecurlyResource
 {
-        private $_message;
-        private $_params;
-        private $_type;
-    
+    private $_message;
+    private $_params;
+    private $_type;
+
+    protected static $array_hints = array(
+        'setParams' => 'object',
+    );
+
     
     /**
     * Getter method for the message attribute.
@@ -82,21 +86,4 @@ class Error extends RecurlyResource
     {
         $this->_type = $value;
     }
-
-    /**
-     * The hintArrayType method will provide type hinting for setter methods that
-     * have array parameters.
-     * 
-     * @param string $key The property to get teh type hint for.
-     * 
-     * @return string The class name of the expected array type.
-     */
-    public static function hintArrayType($key): string
-    {
-        $array_hints = array(
-            'setParams' => 'object',
-        );
-        return $array_hints[$key];
-    }
-
 }

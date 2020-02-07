@@ -7,6 +7,14 @@ abstract class RecurlyResource
     use RecurlyTraits;
 
     private $_response;
+    protected static $array_hints = [];
+
+    /**
+     * Constructor
+     */
+    public final function __construct()
+    {
+    }
 
     /**
      * Getter for the Recurly HTTP Response
@@ -54,7 +62,7 @@ abstract class RecurlyResource
      * 
      * @return \Recurly\EmptyResource
      */
-    public static function fromEmpty(\Recurly\Response $response): \Recurly\EmptyResource
+    public static function fromEmpty(\Recurly\Response $response): \Recurly\EmptyResource // phpcs:ignore Generic.Files.LineLength.TooLong
     {
         $klass = new \Recurly\EmptyResource();
 
@@ -109,8 +117,9 @@ abstract class RecurlyResource
                         array_map(
                             function ($item) use ($setter) {
                                 if (property_exists($item, 'object')) {
-                                    $item_class = static::resourceClass($item->object);
+                                    $item_class = static::resourceClass($item->object); // phpcs:ignore Generic.Files.LineLength.TooLong
                                 } else {
+                                    // TODO: Ensure that there is a hintArrayType method
                                     $item_class = static::hintArrayType($setter);
                                     if (!preg_match('/^Recurly/', $item_class)) {
                                         return $item;
@@ -134,7 +143,7 @@ abstract class RecurlyResource
             } elseif (\Recurly\STRICT_MODE) {
                 // @codeCoverageIgnoreStart
                 $klass_name = static::class;
-                trigger_error("$klass_name encountered json attribute $key but it's unknown to it's schema", E_USER_ERROR);
+                trigger_error("$klass_name encountered json attribute $key but it's unknown to it's schema", E_USER_ERROR); // phpcs:ignore Generic.Files.LineLength.TooLong
                 // @codeCoverageIgnoreEnd
             }
         }
@@ -191,11 +200,24 @@ abstract class RecurlyResource
             // phpcs:ignore Generic.Files.LineLength.TooLong
             if (\Recurly\STRICT_MODE) {
                 // @codeCoverageIgnoreStart
-                trigger_error("Could not find the Recurly class for key {$type}", E_USER_ERROR);
+                trigger_error("Could not find the Recurly class for key {$type}", E_USER_ERROR); // phpcs:ignore Generic.Files.LineLength.TooLong
                 // @codeCoverageIgnoreEnd
             }
         }
         return $klass;
+    }
+
+    /**
+     * The hintArrayType method will provide type hinting for setter methods that
+     * have array parameters.
+     * 
+     * @param string $key The property to get teh type hint for.
+     * 
+     * @return string The class name of the expected array type.
+     */
+    protected static function hintArrayType($key): string
+    {
+        return static::$array_hints[$key];
     }
 
     /**
@@ -211,6 +233,9 @@ abstract class RecurlyResource
         return array_reduce(
             $class->getProperties(),
             function ($carry, $property) {
+                if ($property->name == '_array_hints') {
+                    return $carry;
+                }
                 $private = $property->isPrivate();
                 if ($private) {
                     $property->setAccessible(true);

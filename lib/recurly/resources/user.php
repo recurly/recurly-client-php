@@ -12,15 +12,18 @@ use Recurly\RecurlyResource;
 // phpcs:disable
 class User extends RecurlyResource
 {
-        private $_created_at;
-        private $_deleted_at;
-        private $_email;
-        private $_first_name;
-        private $_id;
-        private $_last_name;
-        private $_object;
-        private $_time_zone;
-    
+    private $_created_at;
+    private $_deleted_at;
+    private $_email;
+    private $_first_name;
+    private $_id;
+    private $_last_name;
+    private $_object;
+    private $_time_zone;
+
+    protected static $array_hints = array(
+    );
+
     
     /**
     * Getter method for the created_at attribute.
@@ -197,20 +200,4 @@ class User extends RecurlyResource
     {
         $this->_time_zone = $value;
     }
-
-    /**
-     * The hintArrayType method will provide type hinting for setter methods that
-     * have array parameters.
-     * 
-     * @param string $key The property to get teh type hint for.
-     * 
-     * @return string The class name of the expected array type.
-     */
-    public static function hintArrayType($key): string
-    {
-        $array_hints = array(
-        );
-        return $array_hints[$key];
-    }
-
 }

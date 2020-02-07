@@ -12,20 +12,24 @@ use Recurly\RecurlyResource;
 // phpcs:disable
 class SubscriptionChange extends RecurlyResource
 {
-        private $_activate_at;
-        private $_activated;
-        private $_add_ons;
-        private $_created_at;
-        private $_deleted_at;
-        private $_id;
-        private $_object;
-        private $_plan;
-        private $_quantity;
-        private $_shipping;
-        private $_subscription_id;
-        private $_unit_amount;
-        private $_updated_at;
-    
+    private $_activate_at;
+    private $_activated;
+    private $_add_ons;
+    private $_created_at;
+    private $_deleted_at;
+    private $_id;
+    private $_object;
+    private $_plan;
+    private $_quantity;
+    private $_shipping;
+    private $_subscription_id;
+    private $_unit_amount;
+    private $_updated_at;
+
+    protected static $array_hints = array(
+        'setAddOns' => '\Recurly\Resources\SubscriptionAddOn',
+    );
+
     
     /**
     * Getter method for the activate_at attribute.
@@ -312,21 +316,4 @@ class SubscriptionChange extends RecurlyResource
     {
         $this->_updated_at = $value;
     }
-
-    /**
-     * The hintArrayType method will provide type hinting for setter methods that
-     * have array parameters.
-     * 
-     * @param string $key The property to get teh type hint for.
-     * 
-     * @return string The class name of the expected array type.
-     */
-    public static function hintArrayType($key): string
-    {
-        $array_hints = array(
-            'setAddOns' => '\Recurly\Resources\SubscriptionAddOn',
-        );
-        return $array_hints[$key];
-    }
-
 }

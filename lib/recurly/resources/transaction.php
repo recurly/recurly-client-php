@@ -12,43 +12,47 @@ use Recurly\RecurlyResource;
 // phpcs:disable
 class Transaction extends RecurlyResource
 {
-        private $_account;
-        private $_amount;
-        private $_avs_check;
-        private $_billing_address;
-        private $_collected_at;
-        private $_collection_method;
-        private $_created_at;
-        private $_currency;
-        private $_customer_message;
-        private $_customer_message_locale;
-        private $_cvv_check;
-        private $_gateway_approval_code;
-        private $_gateway_message;
-        private $_gateway_reference;
-        private $_gateway_response_code;
-        private $_gateway_response_time;
-        private $_gateway_response_values;
-        private $_id;
-        private $_invoice;
-        private $_ip_address_country;
-        private $_ip_address_v4;
-        private $_object;
-        private $_origin;
-        private $_original_transaction_id;
-        private $_payment_gateway;
-        private $_payment_method;
-        private $_refunded;
-        private $_status;
-        private $_status_code;
-        private $_status_message;
-        private $_subscription_ids;
-        private $_success;
-        private $_type;
-        private $_uuid;
-        private $_voided_at;
-        private $_voided_by_invoice;
-    
+    private $_account;
+    private $_amount;
+    private $_avs_check;
+    private $_billing_address;
+    private $_collected_at;
+    private $_collection_method;
+    private $_created_at;
+    private $_currency;
+    private $_customer_message;
+    private $_customer_message_locale;
+    private $_cvv_check;
+    private $_gateway_approval_code;
+    private $_gateway_message;
+    private $_gateway_reference;
+    private $_gateway_response_code;
+    private $_gateway_response_time;
+    private $_gateway_response_values;
+    private $_id;
+    private $_invoice;
+    private $_ip_address_country;
+    private $_ip_address_v4;
+    private $_object;
+    private $_origin;
+    private $_original_transaction_id;
+    private $_payment_gateway;
+    private $_payment_method;
+    private $_refunded;
+    private $_status;
+    private $_status_code;
+    private $_status_message;
+    private $_subscription_ids;
+    private $_success;
+    private $_type;
+    private $_uuid;
+    private $_voided_at;
+    private $_voided_by_invoice;
+
+    protected static $array_hints = array(
+        'setSubscriptionIds' => 'string',
+    );
+
     
     /**
     * Getter method for the account attribute.
@@ -851,21 +855,4 @@ class Transaction extends RecurlyResource
     {
         $this->_voided_by_invoice = $value;
     }
-
-    /**
-     * The hintArrayType method will provide type hinting for setter methods that
-     * have array parameters.
-     * 
-     * @param string $key The property to get teh type hint for.
-     * 
-     * @return string The class name of the expected array type.
-     */
-    public static function hintArrayType($key): string
-    {
-        $array_hints = array(
-            'setSubscriptionIds' => 'string',
-        );
-        return $array_hints[$key];
-    }
-
 }

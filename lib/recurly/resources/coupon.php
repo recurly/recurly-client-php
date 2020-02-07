@@ -12,34 +12,39 @@ use Recurly\RecurlyResource;
 // phpcs:disable
 class Coupon extends RecurlyResource
 {
-        private $_applies_to_all_plans;
-        private $_applies_to_non_plan_charges;
-        private $_code;
-        private $_coupon_type;
-        private $_created_at;
-        private $_discount;
-        private $_duration;
-        private $_expired_at;
-        private $_free_trial_amount;
-        private $_free_trial_unit;
-        private $_hosted_page_description;
-        private $_id;
-        private $_invoice_description;
-        private $_max_redemptions;
-        private $_max_redemptions_per_account;
-        private $_name;
-        private $_object;
-        private $_plans;
-        private $_plans_names;
-        private $_redeem_by;
-        private $_redemption_resource;
-        private $_state;
-        private $_temporal_amount;
-        private $_temporal_unit;
-        private $_unique_code_template;
-        private $_unique_coupon_codes_count;
-        private $_updated_at;
-    
+    private $_applies_to_all_plans;
+    private $_applies_to_non_plan_charges;
+    private $_code;
+    private $_coupon_type;
+    private $_created_at;
+    private $_discount;
+    private $_duration;
+    private $_expired_at;
+    private $_free_trial_amount;
+    private $_free_trial_unit;
+    private $_hosted_page_description;
+    private $_id;
+    private $_invoice_description;
+    private $_max_redemptions;
+    private $_max_redemptions_per_account;
+    private $_name;
+    private $_object;
+    private $_plans;
+    private $_plans_names;
+    private $_redeem_by;
+    private $_redemption_resource;
+    private $_state;
+    private $_temporal_amount;
+    private $_temporal_unit;
+    private $_unique_code_template;
+    private $_unique_coupon_codes_count;
+    private $_updated_at;
+
+    protected static $array_hints = array(
+        'setPlans' => '\Recurly\Resources\PlanMini',
+        'setPlansNames' => 'string',
+    );
+
     
     /**
     * Getter method for the applies_to_all_plans attribute.
@@ -638,22 +643,4 @@ property and one of the following properties: `percent`, `fixed`, `trial`.
     {
         $this->_updated_at = $value;
     }
-
-    /**
-     * The hintArrayType method will provide type hinting for setter methods that
-     * have array parameters.
-     * 
-     * @param string $key The property to get teh type hint for.
-     * 
-     * @return string The class name of the expected array type.
-     */
-    public static function hintArrayType($key): string
-    {
-        $array_hints = array(
-            'setPlans' => '\Recurly\Resources\PlanMini',
-            'setPlansNames' => 'string',
-        );
-        return $array_hints[$key];
-    }
-
 }

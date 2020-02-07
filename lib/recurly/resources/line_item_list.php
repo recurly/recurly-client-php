@@ -12,11 +12,15 @@ use Recurly\RecurlyResource;
 // phpcs:disable
 class LineItemList extends RecurlyResource
 {
-        private $_data;
-        private $_has_more;
-        private $_next;
-        private $_object;
-    
+    private $_data;
+    private $_has_more;
+    private $_next;
+    private $_object;
+
+    protected static $array_hints = array(
+        'setData' => '\Recurly\Resources\LineItem',
+    );
+
     
     /**
     * Getter method for the data attribute.
@@ -105,21 +109,4 @@ class LineItemList extends RecurlyResource
     {
         $this->_object = $value;
     }
-
-    /**
-     * The hintArrayType method will provide type hinting for setter methods that
-     * have array parameters.
-     * 
-     * @param string $key The property to get teh type hint for.
-     * 
-     * @return string The class name of the expected array type.
-     */
-    public static function hintArrayType($key): string
-    {
-        $array_hints = array(
-            'setData' => '\Recurly\Resources\LineItem',
-        );
-        return $array_hints[$key];
-    }
-
 }

@@ -12,47 +12,53 @@ use Recurly\RecurlyResource;
 // phpcs:disable
 class Subscription extends RecurlyResource
 {
-        private $_account;
-        private $_activated_at;
-        private $_add_ons;
-        private $_add_ons_total;
-        private $_auto_renew;
-        private $_bank_account_authorized_at;
-        private $_canceled_at;
-        private $_collection_method;
-        private $_coupon_redemptions;
-        private $_created_at;
-        private $_currency;
-        private $_current_period_ends_at;
-        private $_current_period_started_at;
-        private $_current_term_ends_at;
-        private $_current_term_started_at;
-        private $_custom_fields;
-        private $_customer_notes;
-        private $_expiration_reason;
-        private $_expires_at;
-        private $_id;
-        private $_net_terms;
-        private $_object;
-        private $_paused_at;
-        private $_pending_change;
-        private $_plan;
-        private $_po_number;
-        private $_quantity;
-        private $_remaining_billing_cycles;
-        private $_remaining_pause_cycles;
-        private $_renewal_billing_cycles;
-        private $_shipping;
-        private $_state;
-        private $_subtotal;
-        private $_terms_and_conditions;
-        private $_total_billing_cycles;
-        private $_trial_ends_at;
-        private $_trial_started_at;
-        private $_unit_amount;
-        private $_updated_at;
-        private $_uuid;
-    
+    private $_account;
+    private $_activated_at;
+    private $_add_ons;
+    private $_add_ons_total;
+    private $_auto_renew;
+    private $_bank_account_authorized_at;
+    private $_canceled_at;
+    private $_collection_method;
+    private $_coupon_redemptions;
+    private $_created_at;
+    private $_currency;
+    private $_current_period_ends_at;
+    private $_current_period_started_at;
+    private $_current_term_ends_at;
+    private $_current_term_started_at;
+    private $_custom_fields;
+    private $_customer_notes;
+    private $_expiration_reason;
+    private $_expires_at;
+    private $_id;
+    private $_net_terms;
+    private $_object;
+    private $_paused_at;
+    private $_pending_change;
+    private $_plan;
+    private $_po_number;
+    private $_quantity;
+    private $_remaining_billing_cycles;
+    private $_remaining_pause_cycles;
+    private $_renewal_billing_cycles;
+    private $_shipping;
+    private $_state;
+    private $_subtotal;
+    private $_terms_and_conditions;
+    private $_total_billing_cycles;
+    private $_trial_ends_at;
+    private $_trial_started_at;
+    private $_unit_amount;
+    private $_updated_at;
+    private $_uuid;
+
+    protected static $array_hints = array(
+        'setAddOns' => '\Recurly\Resources\SubscriptionAddOn',
+        'setCouponRedemptions' => '\Recurly\Resources\CouponRedemptionMini',
+        'setCustomFields' => '\Recurly\Resources\CustomField',
+    );
+
     
     /**
     * Getter method for the account attribute.
@@ -933,23 +939,4 @@ class Subscription extends RecurlyResource
     {
         $this->_uuid = $value;
     }
-
-    /**
-     * The hintArrayType method will provide type hinting for setter methods that
-     * have array parameters.
-     * 
-     * @param string $key The property to get teh type hint for.
-     * 
-     * @return string The class name of the expected array type.
-     */
-    public static function hintArrayType($key): string
-    {
-        $array_hints = array(
-            'setAddOns' => '\Recurly\Resources\SubscriptionAddOn',
-            'setCouponRedemptions' => '\Recurly\Resources\CouponRedemptionMini',
-            'setCustomFields' => '\Recurly\Resources\CustomField',
-        );
-        return $array_hints[$key];
-    }
-
 }

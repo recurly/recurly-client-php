@@ -12,21 +12,24 @@ use Recurly\RecurlyResource;
 // phpcs:disable
 class CreditPayment extends RecurlyResource
 {
-        private $_account;
-        private $_action;
-        private $_amount;
-        private $_applied_to_invoice;
-        private $_created_at;
-        private $_currency;
-        private $_id;
-        private $_object;
-        private $_original_credit_payment_id;
-        private $_original_invoice;
-        private $_refund_transaction;
-        private $_updated_at;
-        private $_uuid;
-        private $_voided_at;
-    
+    private $_account;
+    private $_action;
+    private $_amount;
+    private $_applied_to_invoice;
+    private $_created_at;
+    private $_currency;
+    private $_id;
+    private $_object;
+    private $_original_credit_payment_id;
+    private $_original_invoice;
+    private $_refund_transaction;
+    private $_updated_at;
+    private $_uuid;
+    private $_voided_at;
+
+    protected static $array_hints = array(
+    );
+
     
     /**
     * Getter method for the account attribute.
@@ -335,20 +338,4 @@ class CreditPayment extends RecurlyResource
     {
         $this->_voided_at = $value;
     }
-
-    /**
-     * The hintArrayType method will provide type hinting for setter methods that
-     * have array parameters.
-     * 
-     * @param string $key The property to get teh type hint for.
-     * 
-     * @return string The class name of the expected array type.
-     */
-    public static function hintArrayType($key): string
-    {
-        $array_hints = array(
-        );
-        return $array_hints[$key];
-    }
-
 }

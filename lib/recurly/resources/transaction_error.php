@@ -12,14 +12,17 @@ use Recurly\RecurlyResource;
 // phpcs:disable
 class TransactionError extends RecurlyResource
 {
-        private $_category;
-        private $_code;
-        private $_merchant_advice;
-        private $_message;
-        private $_object;
-        private $_three_d_secure_action_token_id;
-        private $_transaction_id;
-    
+    private $_category;
+    private $_code;
+    private $_merchant_advice;
+    private $_message;
+    private $_object;
+    private $_three_d_secure_action_token_id;
+    private $_transaction_id;
+
+    protected static $array_hints = array(
+    );
+
     
     /**
     * Getter method for the category attribute.
@@ -174,20 +177,4 @@ class TransactionError extends RecurlyResource
     {
         $this->_transaction_id = $value;
     }
-
-    /**
-     * The hintArrayType method will provide type hinting for setter methods that
-     * have array parameters.
-     * 
-     * @param string $key The property to get teh type hint for.
-     * 
-     * @return string The class name of the expected array type.
-     */
-    public static function hintArrayType($key): string
-    {
-        $array_hints = array(
-        );
-        return $array_hints[$key];
-    }
-
 }

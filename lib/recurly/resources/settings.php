@@ -12,10 +12,14 @@ use Recurly\RecurlyResource;
 // phpcs:disable
 class Settings extends RecurlyResource
 {
-        private $_accepted_currencies;
-        private $_billing_address_requirement;
-        private $_default_currency;
-    
+    private $_accepted_currencies;
+    private $_billing_address_requirement;
+    private $_default_currency;
+
+    protected static $array_hints = array(
+        'setAcceptedCurrencies' => 'string',
+    );
+
     
     /**
     * Getter method for the accepted_currencies attribute.
@@ -86,21 +90,4 @@ class Settings extends RecurlyResource
     {
         $this->_default_currency = $value;
     }
-
-    /**
-     * The hintArrayType method will provide type hinting for setter methods that
-     * have array parameters.
-     * 
-     * @param string $key The property to get teh type hint for.
-     * 
-     * @return string The class name of the expected array type.
-     */
-    public static function hintArrayType($key): string
-    {
-        $array_hints = array(
-            'setAcceptedCurrencies' => 'string',
-        );
-        return $array_hints[$key];
-    }
-
 }

@@ -12,52 +12,55 @@ use Recurly\RecurlyResource;
 // phpcs:disable
 class LineItem extends RecurlyResource
 {
-        private $_account;
-        private $_accounting_code;
-        private $_add_on_code;
-        private $_add_on_id;
-        private $_amount;
-        private $_created_at;
-        private $_credit_applied;
-        private $_credit_reason_code;
-        private $_currency;
-        private $_description;
-        private $_discount;
-        private $_end_date;
-        private $_external_sku;
-        private $_id;
-        private $_invoice_id;
-        private $_invoice_number;
-        private $_item_code;
-        private $_item_id;
-        private $_legacy_category;
-        private $_object;
-        private $_origin;
-        private $_original_line_item_invoice_id;
-        private $_plan_code;
-        private $_plan_id;
-        private $_previous_line_item_id;
-        private $_product_code;
-        private $_proration_rate;
-        private $_quantity;
-        private $_refund;
-        private $_refunded_quantity;
-        private $_revenue_schedule_type;
-        private $_shipping_address;
-        private $_start_date;
-        private $_state;
-        private $_subscription_id;
-        private $_subtotal;
-        private $_tax;
-        private $_tax_code;
-        private $_tax_exempt;
-        private $_tax_info;
-        private $_taxable;
-        private $_type;
-        private $_unit_amount;
-        private $_updated_at;
-        private $_uuid;
-    
+    private $_account;
+    private $_accounting_code;
+    private $_add_on_code;
+    private $_add_on_id;
+    private $_amount;
+    private $_created_at;
+    private $_credit_applied;
+    private $_credit_reason_code;
+    private $_currency;
+    private $_description;
+    private $_discount;
+    private $_end_date;
+    private $_external_sku;
+    private $_id;
+    private $_invoice_id;
+    private $_invoice_number;
+    private $_item_code;
+    private $_item_id;
+    private $_legacy_category;
+    private $_object;
+    private $_origin;
+    private $_original_line_item_invoice_id;
+    private $_plan_code;
+    private $_plan_id;
+    private $_previous_line_item_id;
+    private $_product_code;
+    private $_proration_rate;
+    private $_quantity;
+    private $_refund;
+    private $_refunded_quantity;
+    private $_revenue_schedule_type;
+    private $_shipping_address;
+    private $_start_date;
+    private $_state;
+    private $_subscription_id;
+    private $_subtotal;
+    private $_tax;
+    private $_tax_code;
+    private $_tax_exempt;
+    private $_tax_info;
+    private $_taxable;
+    private $_type;
+    private $_unit_amount;
+    private $_updated_at;
+    private $_uuid;
+
+    protected static $array_hints = array(
+    );
+
     
     /**
     * Getter method for the account attribute.
@@ -1053,20 +1056,4 @@ class LineItem extends RecurlyResource
     {
         $this->_uuid = $value;
     }
-
-    /**
-     * The hintArrayType method will provide type hinting for setter methods that
-     * have array parameters.
-     * 
-     * @param string $key The property to get teh type hint for.
-     * 
-     * @return string The class name of the expected array type.
-     */
-    public static function hintArrayType($key): string
-    {
-        $array_hints = array(
-        );
-        return $array_hints[$key];
-    }
-
 }

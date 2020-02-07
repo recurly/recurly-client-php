@@ -12,13 +12,16 @@ use Recurly\RecurlyResource;
 // phpcs:disable
 class CouponRedemptionMini extends RecurlyResource
 {
-        private $_coupon;
-        private $_created_at;
-        private $_discounted;
-        private $_id;
-        private $_object;
-        private $_state;
-    
+    private $_coupon;
+    private $_created_at;
+    private $_discounted;
+    private $_id;
+    private $_object;
+    private $_state;
+
+    protected static $array_hints = array(
+    );
+
     
     /**
     * Getter method for the coupon attribute.
@@ -151,20 +154,4 @@ class CouponRedemptionMini extends RecurlyResource
     {
         $this->_state = $value;
     }
-
-    /**
-     * The hintArrayType method will provide type hinting for setter methods that
-     * have array parameters.
-     * 
-     * @param string $key The property to get teh type hint for.
-     * 
-     * @return string The class name of the expected array type.
-     */
-    public static function hintArrayType($key): string
-    {
-        $array_hints = array(
-        );
-        return $array_hints[$key];
-    }
-
 }

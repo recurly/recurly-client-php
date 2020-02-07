@@ -12,11 +12,15 @@ use Recurly\RecurlyResource;
 // phpcs:disable
 class AccountBalance extends RecurlyResource
 {
-        private $_account;
-        private $_balances;
-        private $_object;
-        private $_past_due;
-    
+    private $_account;
+    private $_balances;
+    private $_object;
+    private $_past_due;
+
+    protected static $array_hints = array(
+        'setBalances' => '\Recurly\Resources\AccountBalanceAmount',
+    );
+
     
     /**
     * Getter method for the account attribute.
@@ -105,21 +109,4 @@ class AccountBalance extends RecurlyResource
     {
         $this->_past_due = $value;
     }
-
-    /**
-     * The hintArrayType method will provide type hinting for setter methods that
-     * have array parameters.
-     * 
-     * @param string $key The property to get teh type hint for.
-     * 
-     * @return string The class name of the expected array type.
-     */
-    public static function hintArrayType($key): string
-    {
-        $array_hints = array(
-            'setBalances' => '\Recurly\Resources\AccountBalanceAmount',
-        );
-        return $array_hints[$key];
-    }
-
 }

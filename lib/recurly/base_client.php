@@ -5,6 +5,7 @@ namespace Recurly;
 abstract class BaseClient
 {
     private $_baseUrl = 'https://v3.recurly.com';
+    private $_api_key;
 
     /**
      * Constructor
@@ -13,7 +14,7 @@ abstract class BaseClient
      */
     public function __construct(string $api_key)
     {
-        $this->api_key = $api_key;
+        $this->_api_key = $api_key;
     }
 
     /**
@@ -147,7 +148,7 @@ abstract class BaseClient
     {
         $php_version = phpversion();
         $client_version = \Recurly\Version::CURRENT;
-        $auth_token = base64_encode("{$this->api_key}:");
+        $auth_token = base64_encode("{$this->_api_key}:");
         $headers = array(
             "User-Agent: Recurly/{$client_version}; php {$php_version}",
             "Authorization: Basic {$auth_token}",

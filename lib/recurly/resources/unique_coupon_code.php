@@ -12,15 +12,18 @@ use Recurly\RecurlyResource;
 // phpcs:disable
 class UniqueCouponCode extends RecurlyResource
 {
-        private $_code;
-        private $_created_at;
-        private $_expired_at;
-        private $_id;
-        private $_object;
-        private $_redeemed_at;
-        private $_state;
-        private $_updated_at;
-    
+    private $_code;
+    private $_created_at;
+    private $_expired_at;
+    private $_id;
+    private $_object;
+    private $_redeemed_at;
+    private $_state;
+    private $_updated_at;
+
+    protected static $array_hints = array(
+    );
+
     
     /**
     * Getter method for the code attribute.
@@ -197,20 +200,4 @@ class UniqueCouponCode extends RecurlyResource
     {
         $this->_updated_at = $value;
     }
-
-    /**
-     * The hintArrayType method will provide type hinting for setter methods that
-     * have array parameters.
-     * 
-     * @param string $key The property to get teh type hint for.
-     * 
-     * @return string The class name of the expected array type.
-     */
-    public static function hintArrayType($key): string
-    {
-        $array_hints = array(
-        );
-        return $array_hints[$key];
-    }
-
 }

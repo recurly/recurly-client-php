@@ -12,17 +12,20 @@ use Recurly\RecurlyResource;
 // phpcs:disable
 class CustomFieldDefinition extends RecurlyResource
 {
-        private $_created_at;
-        private $_deleted_at;
-        private $_display_name;
-        private $_id;
-        private $_name;
-        private $_object;
-        private $_related_type;
-        private $_tooltip;
-        private $_updated_at;
-        private $_user_access;
-    
+    private $_created_at;
+    private $_deleted_at;
+    private $_display_name;
+    private $_id;
+    private $_name;
+    private $_object;
+    private $_related_type;
+    private $_tooltip;
+    private $_updated_at;
+    private $_user_access;
+
+    protected static $array_hints = array(
+    );
+
     
     /**
     * Getter method for the created_at attribute.
@@ -248,20 +251,4 @@ class CustomFieldDefinition extends RecurlyResource
     {
         $this->_user_access = $value;
     }
-
-    /**
-     * The hintArrayType method will provide type hinting for setter methods that
-     * have array parameters.
-     * 
-     * @param string $key The property to get teh type hint for.
-     * 
-     * @return string The class name of the expected array type.
-     */
-    public static function hintArrayType($key): string
-    {
-        $array_hints = array(
-        );
-        return $array_hints[$key];
-    }
-
 }

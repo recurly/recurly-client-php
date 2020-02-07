@@ -12,11 +12,14 @@ use Recurly\RecurlyResource;
 // phpcs:disable
 class PlanHostedPages extends RecurlyResource
 {
-        private $_bypass_confirmation;
-        private $_cancel_url;
-        private $_display_quantity;
-        private $_success_url;
-    
+    private $_bypass_confirmation;
+    private $_cancel_url;
+    private $_display_quantity;
+    private $_success_url;
+
+    protected static $array_hints = array(
+    );
+
     
     /**
     * Getter method for the bypass_confirmation attribute.
@@ -105,20 +108,4 @@ class PlanHostedPages extends RecurlyResource
     {
         $this->_success_url = $value;
     }
-
-    /**
-     * The hintArrayType method will provide type hinting for setter methods that
-     * have array parameters.
-     * 
-     * @param string $key The property to get teh type hint for.
-     * 
-     * @return string The class name of the expected array type.
-     */
-    public static function hintArrayType($key): string
-    {
-        $array_hints = array(
-        );
-        return $array_hints[$key];
-    }
-
 }

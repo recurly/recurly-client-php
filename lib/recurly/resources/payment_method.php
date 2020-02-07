@@ -12,19 +12,22 @@ use Recurly\RecurlyResource;
 // phpcs:disable
 class PaymentMethod extends RecurlyResource
 {
-        private $_account_type;
-        private $_billing_agreement_id;
-        private $_card_type;
-        private $_exp_month;
-        private $_exp_year;
-        private $_first_six;
-        private $_gateway_code;
-        private $_gateway_token;
-        private $_last_four;
-        private $_object;
-        private $_routing_number;
-        private $_routing_number_bank;
-    
+    private $_account_type;
+    private $_billing_agreement_id;
+    private $_card_type;
+    private $_exp_month;
+    private $_exp_year;
+    private $_first_six;
+    private $_gateway_code;
+    private $_gateway_token;
+    private $_last_four;
+    private $_object;
+    private $_routing_number;
+    private $_routing_number_bank;
+
+    protected static $array_hints = array(
+    );
+
     
     /**
     * Getter method for the account_type attribute.
@@ -289,20 +292,4 @@ class PaymentMethod extends RecurlyResource
     {
         $this->_routing_number_bank = $value;
     }
-
-    /**
-     * The hintArrayType method will provide type hinting for setter methods that
-     * have array parameters.
-     * 
-     * @param string $key The property to get teh type hint for.
-     * 
-     * @return string The class name of the expected array type.
-     */
-    public static function hintArrayType($key): string
-    {
-        $array_hints = array(
-        );
-        return $array_hints[$key];
-    }
-
 }

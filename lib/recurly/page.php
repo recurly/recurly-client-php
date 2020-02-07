@@ -4,19 +4,11 @@ namespace Recurly;
 
 class Page extends \Recurly\RecurlyResource
 {
-    private $_data;
+    private $_data = [];
     private $_has_more;
     private $_next;
-    private $_cursor;
+    private $_cursor = 0;
 
-    /**
-     * Constructor
-     */
-    public function __construct()
-    {
-        $this->_cursor = 0;
-        $this->_data = [];
-    }
 
     /**
      * Setter method for the Page results.

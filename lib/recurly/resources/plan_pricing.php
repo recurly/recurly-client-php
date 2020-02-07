@@ -12,10 +12,13 @@ use Recurly\RecurlyResource;
 // phpcs:disable
 class PlanPricing extends RecurlyResource
 {
-        private $_currency;
-        private $_setup_fee;
-        private $_unit_amount;
-    
+    private $_currency;
+    private $_setup_fee;
+    private $_unit_amount;
+
+    protected static $array_hints = array(
+    );
+
     
     /**
     * Getter method for the currency attribute.
@@ -82,20 +85,4 @@ class PlanPricing extends RecurlyResource
     {
         $this->_unit_amount = $value;
     }
-
-    /**
-     * The hintArrayType method will provide type hinting for setter methods that
-     * have array parameters.
-     * 
-     * @param string $key The property to get teh type hint for.
-     * 
-     * @return string The class name of the expected array type.
-     */
-    public static function hintArrayType($key): string
-    {
-        $array_hints = array(
-        );
-        return $array_hints[$key];
-    }
-
 }

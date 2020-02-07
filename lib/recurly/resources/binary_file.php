@@ -12,8 +12,11 @@ use Recurly\RecurlyResource;
 // phpcs:disable
 class BinaryFile extends RecurlyResource
 {
-        private $_data;
-    
+    private $_data;
+
+    protected static $array_hints = array(
+    );
+
     
     /**
     * Getter method for the data attribute.
@@ -36,20 +39,4 @@ class BinaryFile extends RecurlyResource
     {
         $this->_data = $value;
     }
-
-    /**
-     * The hintArrayType method will provide type hinting for setter methods that
-     * have array parameters.
-     * 
-     * @param string $key The property to get teh type hint for.
-     * 
-     * @return string The class name of the expected array type.
-     */
-    public static function hintArrayType($key): string
-    {
-        $array_hints = array(
-        );
-        return $array_hints[$key];
-    }
-
 }

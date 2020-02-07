@@ -12,10 +12,14 @@ use Recurly\RecurlyResource;
 // phpcs:disable
 class InvoiceCollection extends RecurlyResource
 {
-        private $_charge_invoice;
-        private $_credit_invoices;
-        private $_object;
-    
+    private $_charge_invoice;
+    private $_credit_invoices;
+    private $_object;
+
+    protected static $array_hints = array(
+        'setCreditInvoices' => '\Recurly\Resources\Invoice',
+    );
+
     
     /**
     * Getter method for the charge_invoice attribute.
@@ -82,21 +86,4 @@ class InvoiceCollection extends RecurlyResource
     {
         $this->_object = $value;
     }
-
-    /**
-     * The hintArrayType method will provide type hinting for setter methods that
-     * have array parameters.
-     * 
-     * @param string $key The property to get teh type hint for.
-     * 
-     * @return string The class name of the expected array type.
-     */
-    public static function hintArrayType($key): string
-    {
-        $array_hints = array(
-            'setCreditInvoices' => '\Recurly\Resources\Invoice',
-        );
-        return $array_hints[$key];
-    }
-
 }

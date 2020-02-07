@@ -12,37 +12,42 @@ use Recurly\RecurlyResource;
 // phpcs:disable
 class Account extends RecurlyResource
 {
-        private $_address;
-        private $_bill_to;
-        private $_billing_info;
-        private $_cc_emails;
-        private $_code;
-        private $_company;
-        private $_created_at;
-        private $_custom_fields;
-        private $_deleted_at;
-        private $_email;
-        private $_exemption_certificate;
-        private $_first_name;
-        private $_has_active_subscription;
-        private $_has_canceled_subscription;
-        private $_has_future_subscription;
-        private $_has_live_subscription;
-        private $_has_past_due_invoice;
-        private $_has_paused_subscription;
-        private $_hosted_login_token;
-        private $_id;
-        private $_last_name;
-        private $_object;
-        private $_parent_account_id;
-        private $_preferred_locale;
-        private $_shipping_addresses;
-        private $_state;
-        private $_tax_exempt;
-        private $_updated_at;
-        private $_username;
-        private $_vat_number;
-    
+    private $_address;
+    private $_bill_to;
+    private $_billing_info;
+    private $_cc_emails;
+    private $_code;
+    private $_company;
+    private $_created_at;
+    private $_custom_fields;
+    private $_deleted_at;
+    private $_email;
+    private $_exemption_certificate;
+    private $_first_name;
+    private $_has_active_subscription;
+    private $_has_canceled_subscription;
+    private $_has_future_subscription;
+    private $_has_live_subscription;
+    private $_has_past_due_invoice;
+    private $_has_paused_subscription;
+    private $_hosted_login_token;
+    private $_id;
+    private $_last_name;
+    private $_object;
+    private $_parent_account_id;
+    private $_preferred_locale;
+    private $_shipping_addresses;
+    private $_state;
+    private $_tax_exempt;
+    private $_updated_at;
+    private $_username;
+    private $_vat_number;
+
+    protected static $array_hints = array(
+        'setCustomFields' => '\Recurly\Resources\CustomField',
+        'setShippingAddresses' => '\Recurly\Resources\ShippingAddress',
+    );
+
     
     /**
     * Getter method for the address attribute.
@@ -703,22 +708,4 @@ class Account extends RecurlyResource
     {
         $this->_vat_number = $value;
     }
-
-    /**
-     * The hintArrayType method will provide type hinting for setter methods that
-     * have array parameters.
-     * 
-     * @param string $key The property to get teh type hint for.
-     * 
-     * @return string The class name of the expected array type.
-     */
-    public static function hintArrayType($key): string
-    {
-        $array_hints = array(
-            'setCustomFields' => '\Recurly\Resources\CustomField',
-            'setShippingAddresses' => '\Recurly\Resources\ShippingAddress',
-        );
-        return $array_hints[$key];
-    }
-
 }

@@ -12,10 +12,13 @@ use Recurly\RecurlyResource;
 // phpcs:disable
 class TaxInfo extends RecurlyResource
 {
-        private $_rate;
-        private $_region;
-        private $_type;
-    
+    private $_rate;
+    private $_region;
+    private $_type;
+
+    protected static $array_hints = array(
+    );
+
     
     /**
     * Getter method for the rate attribute.
@@ -82,20 +85,4 @@ class TaxInfo extends RecurlyResource
     {
         $this->_type = $value;
     }
-
-    /**
-     * The hintArrayType method will provide type hinting for setter methods that
-     * have array parameters.
-     * 
-     * @param string $key The property to get teh type hint for.
-     * 
-     * @return string The class name of the expected array type.
-     */
-    public static function hintArrayType($key): string
-    {
-        $array_hints = array(
-        );
-        return $array_hints[$key];
-    }
-
 }

@@ -12,21 +12,25 @@ use Recurly\RecurlyResource;
 // phpcs:disable
 class AddOn extends RecurlyResource
 {
-        private $_accounting_code;
-        private $_code;
-        private $_created_at;
-        private $_currencies;
-        private $_default_quantity;
-        private $_deleted_at;
-        private $_display_quantity;
-        private $_id;
-        private $_name;
-        private $_object;
-        private $_plan_id;
-        private $_state;
-        private $_tax_code;
-        private $_updated_at;
-    
+    private $_accounting_code;
+    private $_code;
+    private $_created_at;
+    private $_currencies;
+    private $_default_quantity;
+    private $_deleted_at;
+    private $_display_quantity;
+    private $_id;
+    private $_name;
+    private $_object;
+    private $_plan_id;
+    private $_state;
+    private $_tax_code;
+    private $_updated_at;
+
+    protected static $array_hints = array(
+        'setCurrencies' => '\Recurly\Resources\AddOnPricing',
+    );
+
     
     /**
     * Getter method for the accounting_code attribute.
@@ -335,21 +339,4 @@ class AddOn extends RecurlyResource
     {
         $this->_updated_at = $value;
     }
-
-    /**
-     * The hintArrayType method will provide type hinting for setter methods that
-     * have array parameters.
-     * 
-     * @param string $key The property to get teh type hint for.
-     * 
-     * @return string The class name of the expected array type.
-     */
-    public static function hintArrayType($key): string
-    {
-        $array_hints = array(
-            'setCurrencies' => '\Recurly\Resources\AddOnPricing',
-        );
-        return $array_hints[$key];
-    }
-
 }

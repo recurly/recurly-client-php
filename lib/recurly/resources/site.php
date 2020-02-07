@@ -12,18 +12,22 @@ use Recurly\RecurlyResource;
 // phpcs:disable
 class Site extends RecurlyResource
 {
-        private $_address;
-        private $_created_at;
-        private $_deleted_at;
-        private $_features;
-        private $_id;
-        private $_mode;
-        private $_object;
-        private $_public_api_key;
-        private $_settings;
-        private $_subdomain;
-        private $_updated_at;
-    
+    private $_address;
+    private $_created_at;
+    private $_deleted_at;
+    private $_features;
+    private $_id;
+    private $_mode;
+    private $_object;
+    private $_public_api_key;
+    private $_settings;
+    private $_subdomain;
+    private $_updated_at;
+
+    protected static $array_hints = array(
+        'setFeatures' => 'string',
+    );
+
     
     /**
     * Getter method for the address attribute.
@@ -266,21 +270,4 @@ class Site extends RecurlyResource
     {
         $this->_updated_at = $value;
     }
-
-    /**
-     * The hintArrayType method will provide type hinting for setter methods that
-     * have array parameters.
-     * 
-     * @param string $key The property to get teh type hint for.
-     * 
-     * @return string The class name of the expected array type.
-     */
-    public static function hintArrayType($key): string
-    {
-        $array_hints = array(
-            'setFeatures' => 'string',
-        );
-        return $array_hints[$key];
-    }
-
 }

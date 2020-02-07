@@ -12,15 +12,18 @@ use Recurly\RecurlyResource;
 // phpcs:disable
 class CouponMini extends RecurlyResource
 {
-        private $_code;
-        private $_coupon_type;
-        private $_discount;
-        private $_expired_at;
-        private $_id;
-        private $_name;
-        private $_object;
-        private $_state;
-    
+    private $_code;
+    private $_coupon_type;
+    private $_discount;
+    private $_expired_at;
+    private $_id;
+    private $_name;
+    private $_object;
+    private $_state;
+
+    protected static $array_hints = array(
+    );
+
     
     /**
     * Getter method for the code attribute.
@@ -199,20 +202,4 @@ property and one of the following properties: `percent`, `fixed`, `trial`.
     {
         $this->_state = $value;
     }
-
-    /**
-     * The hintArrayType method will provide type hinting for setter methods that
-     * have array parameters.
-     * 
-     * @param string $key The property to get teh type hint for.
-     * 
-     * @return string The class name of the expected array type.
-     */
-    public static function hintArrayType($key): string
-    {
-        $array_hints = array(
-        );
-        return $array_hints[$key];
-    }
-
 }

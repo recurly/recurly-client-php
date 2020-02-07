@@ -12,41 +12,47 @@ use Recurly\RecurlyResource;
 // phpcs:disable
 class Invoice extends RecurlyResource
 {
-        private $_account;
-        private $_address;
-        private $_balance;
-        private $_closed_at;
-        private $_collection_method;
-        private $_created_at;
-        private $_credit_payments;
-        private $_currency;
-        private $_customer_notes;
-        private $_discount;
-        private $_due_at;
-        private $_id;
-        private $_line_items;
-        private $_net_terms;
-        private $_number;
-        private $_object;
-        private $_origin;
-        private $_paid;
-        private $_po_number;
-        private $_previous_invoice_id;
-        private $_refundable_amount;
-        private $_shipping_address;
-        private $_state;
-        private $_subscription_ids;
-        private $_subtotal;
-        private $_tax;
-        private $_tax_info;
-        private $_terms_and_conditions;
-        private $_total;
-        private $_transactions;
-        private $_type;
-        private $_updated_at;
-        private $_vat_number;
-        private $_vat_reverse_charge_notes;
-    
+    private $_account;
+    private $_address;
+    private $_balance;
+    private $_closed_at;
+    private $_collection_method;
+    private $_created_at;
+    private $_credit_payments;
+    private $_currency;
+    private $_customer_notes;
+    private $_discount;
+    private $_due_at;
+    private $_id;
+    private $_line_items;
+    private $_net_terms;
+    private $_number;
+    private $_object;
+    private $_origin;
+    private $_paid;
+    private $_po_number;
+    private $_previous_invoice_id;
+    private $_refundable_amount;
+    private $_shipping_address;
+    private $_state;
+    private $_subscription_ids;
+    private $_subtotal;
+    private $_tax;
+    private $_tax_info;
+    private $_terms_and_conditions;
+    private $_total;
+    private $_transactions;
+    private $_type;
+    private $_updated_at;
+    private $_vat_number;
+    private $_vat_reverse_charge_notes;
+
+    protected static $array_hints = array(
+        'setCreditPayments' => '\Recurly\Resources\CreditPayment',
+        'setSubscriptionIds' => 'string',
+        'setTransactions' => '\Recurly\Resources\Transaction',
+    );
+
     
     /**
     * Getter method for the account attribute.
@@ -795,23 +801,4 @@ class Invoice extends RecurlyResource
     {
         $this->_vat_reverse_charge_notes = $value;
     }
-
-    /**
-     * The hintArrayType method will provide type hinting for setter methods that
-     * have array parameters.
-     * 
-     * @param string $key The property to get teh type hint for.
-     * 
-     * @return string The class name of the expected array type.
-     */
-    public static function hintArrayType($key): string
-    {
-        $array_hints = array(
-            'setCreditPayments' => '\Recurly\Resources\CreditPayment',
-            'setSubscriptionIds' => 'string',
-            'setTransactions' => '\Recurly\Resources\Transaction',
-        );
-        return $array_hints[$key];
-    }
-
 }

@@ -12,23 +12,28 @@ use Recurly\RecurlyResource;
 // phpcs:disable
 class Item extends RecurlyResource
 {
-        private $_accounting_code;
-        private $_code;
-        private $_created_at;
-        private $_currencies;
-        private $_custom_fields;
-        private $_deleted_at;
-        private $_description;
-        private $_external_sku;
-        private $_id;
-        private $_name;
-        private $_object;
-        private $_revenue_schedule_type;
-        private $_state;
-        private $_tax_code;
-        private $_tax_exempt;
-        private $_updated_at;
-    
+    private $_accounting_code;
+    private $_code;
+    private $_created_at;
+    private $_currencies;
+    private $_custom_fields;
+    private $_deleted_at;
+    private $_description;
+    private $_external_sku;
+    private $_id;
+    private $_name;
+    private $_object;
+    private $_revenue_schedule_type;
+    private $_state;
+    private $_tax_code;
+    private $_tax_exempt;
+    private $_updated_at;
+
+    protected static $array_hints = array(
+        'setCurrencies' => '\Recurly\Resources\Pricing',
+        'setCustomFields' => '\Recurly\Resources\CustomField',
+    );
+
     
     /**
     * Getter method for the accounting_code attribute.
@@ -381,22 +386,4 @@ class Item extends RecurlyResource
     {
         $this->_updated_at = $value;
     }
-
-    /**
-     * The hintArrayType method will provide type hinting for setter methods that
-     * have array parameters.
-     * 
-     * @param string $key The property to get teh type hint for.
-     * 
-     * @return string The class name of the expected array type.
-     */
-    public static function hintArrayType($key): string
-    {
-        $array_hints = array(
-            'setCurrencies' => '\Recurly\Resources\Pricing',
-            'setCustomFields' => '\Recurly\Resources\CustomField',
-        );
-        return $array_hints[$key];
-    }
-
 }

@@ -12,13 +12,16 @@ use Recurly\RecurlyResource;
 // phpcs:disable
 class AccountNote extends RecurlyResource
 {
-        private $_account_id;
-        private $_created_at;
-        private $_id;
-        private $_message;
-        private $_object;
-        private $_user;
-    
+    private $_account_id;
+    private $_created_at;
+    private $_id;
+    private $_message;
+    private $_object;
+    private $_user;
+
+    protected static $array_hints = array(
+    );
+
     
     /**
     * Getter method for the account_id attribute.
@@ -151,20 +154,4 @@ class AccountNote extends RecurlyResource
     {
         $this->_user = $value;
     }
-
-    /**
-     * The hintArrayType method will provide type hinting for setter methods that
-     * have array parameters.
-     * 
-     * @param string $key The property to get teh type hint for.
-     * 
-     * @return string The class name of the expected array type.
-     */
-    public static function hintArrayType($key): string
-    {
-        $array_hints = array(
-        );
-        return $array_hints[$key];
-    }
-
 }

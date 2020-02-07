@@ -12,28 +12,32 @@ use Recurly\RecurlyResource;
 // phpcs:disable
 class Plan extends RecurlyResource
 {
-        private $_accounting_code;
-        private $_auto_renew;
-        private $_code;
-        private $_created_at;
-        private $_currencies;
-        private $_deleted_at;
-        private $_description;
-        private $_hosted_pages;
-        private $_id;
-        private $_interval_length;
-        private $_interval_unit;
-        private $_name;
-        private $_object;
-        private $_setup_fee_accounting_code;
-        private $_state;
-        private $_tax_code;
-        private $_tax_exempt;
-        private $_total_billing_cycles;
-        private $_trial_length;
-        private $_trial_unit;
-        private $_updated_at;
-    
+    private $_accounting_code;
+    private $_auto_renew;
+    private $_code;
+    private $_created_at;
+    private $_currencies;
+    private $_deleted_at;
+    private $_description;
+    private $_hosted_pages;
+    private $_id;
+    private $_interval_length;
+    private $_interval_unit;
+    private $_name;
+    private $_object;
+    private $_setup_fee_accounting_code;
+    private $_state;
+    private $_tax_code;
+    private $_tax_exempt;
+    private $_total_billing_cycles;
+    private $_trial_length;
+    private $_trial_unit;
+    private $_updated_at;
+
+    protected static $array_hints = array(
+        'setCurrencies' => '\Recurly\Resources\PlanPricing',
+    );
+
     
     /**
     * Getter method for the accounting_code attribute.
@@ -496,21 +500,4 @@ class Plan extends RecurlyResource
     {
         $this->_updated_at = $value;
     }
-
-    /**
-     * The hintArrayType method will provide type hinting for setter methods that
-     * have array parameters.
-     * 
-     * @param string $key The property to get teh type hint for.
-     * 
-     * @return string The class name of the expected array type.
-     */
-    public static function hintArrayType($key): string
-    {
-        $array_hints = array(
-            'setCurrencies' => '\Recurly\Resources\PlanPricing',
-        );
-        return $array_hints[$key];
-    }
-
 }

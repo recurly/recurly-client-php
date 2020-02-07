@@ -12,10 +12,13 @@ use Recurly\RecurlyResource;
 // phpcs:disable
 class FraudInfo extends RecurlyResource
 {
-        private $_decision;
-        private $_risk_rules_triggered;
-        private $_score;
-    
+    private $_decision;
+    private $_risk_rules_triggered;
+    private $_score;
+
+    protected static $array_hints = array(
+    );
+
     
     /**
     * Getter method for the decision attribute.
@@ -82,20 +85,4 @@ class FraudInfo extends RecurlyResource
     {
         $this->_score = $value;
     }
-
-    /**
-     * The hintArrayType method will provide type hinting for setter methods that
-     * have array parameters.
-     * 
-     * @param string $key The property to get teh type hint for.
-     * 
-     * @return string The class name of the expected array type.
-     */
-    public static function hintArrayType($key): string
-    {
-        $array_hints = array(
-        );
-        return $array_hints[$key];
-    }
-
 }
