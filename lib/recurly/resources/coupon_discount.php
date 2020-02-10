@@ -39,9 +39,9 @@ class CouponDiscount extends RecurlyResource
     *
     * @return void
     */
-    public function setCurrencies(array $value): void
+    public function setCurrencies(array $currencies): void
     {
-        $this->_currencies = $value;
+        $this->_currencies = $currencies;
     }
 
     /**
@@ -61,9 +61,9 @@ class CouponDiscount extends RecurlyResource
     *
     * @return void
     */
-    public function setPercent(int $value): void
+    public function setPercent(int $percent): void
     {
-        $this->_percent = $value;
+        $this->_percent = $percent;
     }
 
     /**
@@ -83,9 +83,9 @@ class CouponDiscount extends RecurlyResource
     *
     * @return void
     */
-    public function setTrial(\Recurly\Resources\CouponDiscountTrial $value): void
+    public function setTrial(\Recurly\Resources\CouponDiscountTrial $trial): void
     {
-        $this->_trial = $value;
+        $this->_trial = $trial;
     }
 
     /**
@@ -105,8 +105,8 @@ class CouponDiscount extends RecurlyResource
     *
     * @return void
     */
-    public function setType(string $value): void
+    public function setType(string $type): void
     {
-        $this->_type = $value;
+        $this->_type = $type;
     }
 }

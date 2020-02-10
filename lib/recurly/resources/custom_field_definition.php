@@ -44,9 +44,9 @@ class CustomFieldDefinition extends RecurlyResource
     *
     * @return void
     */
-    public function setCreatedAt(string $value): void
+    public function setCreatedAt(string $created_at): void
     {
-        $this->_created_at = $value;
+        $this->_created_at = $created_at;
     }
 
     /**
@@ -66,9 +66,9 @@ class CustomFieldDefinition extends RecurlyResource
     *
     * @return void
     */
-    public function setDeletedAt(string $value): void
+    public function setDeletedAt(string $deleted_at): void
     {
-        $this->_deleted_at = $value;
+        $this->_deleted_at = $deleted_at;
     }
 
     /**
@@ -88,9 +88,9 @@ class CustomFieldDefinition extends RecurlyResource
     *
     * @return void
     */
-    public function setDisplayName(string $value): void
+    public function setDisplayName(string $display_name): void
     {
-        $this->_display_name = $value;
+        $this->_display_name = $display_name;
     }
 
     /**
@@ -110,9 +110,9 @@ class CustomFieldDefinition extends RecurlyResource
     *
     * @return void
     */
-    public function setId(string $value): void
+    public function setId(string $id): void
     {
-        $this->_id = $value;
+        $this->_id = $id;
     }
 
     /**
@@ -132,9 +132,9 @@ class CustomFieldDefinition extends RecurlyResource
     *
     * @return void
     */
-    public function setName(string $value): void
+    public function setName(string $name): void
     {
-        $this->_name = $value;
+        $this->_name = $name;
     }
 
     /**
@@ -154,9 +154,9 @@ class CustomFieldDefinition extends RecurlyResource
     *
     * @return void
     */
-    public function setObject(string $value): void
+    public function setObject(string $object): void
     {
-        $this->_object = $value;
+        $this->_object = $object;
     }
 
     /**
@@ -176,9 +176,9 @@ class CustomFieldDefinition extends RecurlyResource
     *
     * @return void
     */
-    public function setRelatedType(string $value): void
+    public function setRelatedType(string $related_type): void
     {
-        $this->_related_type = $value;
+        $this->_related_type = $related_type;
     }
 
     /**
@@ -198,9 +198,9 @@ class CustomFieldDefinition extends RecurlyResource
     *
     * @return void
     */
-    public function setTooltip(string $value): void
+    public function setTooltip(string $tooltip): void
     {
-        $this->_tooltip = $value;
+        $this->_tooltip = $tooltip;
     }
 
     /**
@@ -220,9 +220,9 @@ class CustomFieldDefinition extends RecurlyResource
     *
     * @return void
     */
-    public function setUpdatedAt(string $value): void
+    public function setUpdatedAt(string $updated_at): void
     {
-        $this->_updated_at = $value;
+        $this->_updated_at = $updated_at;
     }
 
     /**
@@ -247,8 +247,8 @@ class CustomFieldDefinition extends RecurlyResource
     *
     * @return void
     */
-    public function setUserAccess(string $value): void
+    public function setUserAccess(string $user_access): void
     {
-        $this->_user_access = $value;
+        $this->_user_access = $user_access;
     }
 }

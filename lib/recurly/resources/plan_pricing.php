@@ -37,9 +37,9 @@ class PlanPricing extends RecurlyResource
     *
     * @return void
     */
-    public function setCurrency(string $value): void
+    public function setCurrency(string $currency): void
     {
-        $this->_currency = $value;
+        $this->_currency = $currency;
     }
 
     /**
@@ -59,9 +59,9 @@ class PlanPricing extends RecurlyResource
     *
     * @return void
     */
-    public function setSetupFee(float $value): void
+    public function setSetupFee(float $setup_fee): void
     {
-        $this->_setup_fee = $value;
+        $this->_setup_fee = $setup_fee;
     }
 
     /**
@@ -81,8 +81,8 @@ class PlanPricing extends RecurlyResource
     *
     * @return void
     */
-    public function setUnitAmount(float $value): void
+    public function setUnitAmount(float $unit_amount): void
     {
-        $this->_unit_amount = $value;
+        $this->_unit_amount = $unit_amount;
     }
 }

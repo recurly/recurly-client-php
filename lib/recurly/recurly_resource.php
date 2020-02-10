@@ -66,9 +66,7 @@ abstract class RecurlyResource
     {
         $klass = new \Recurly\EmptyResource();
 
-        if ($response) {
-            $klass->setResponse($response);
-        }
+        $klass->setResponse($response);
         return $klass;
     }
 
@@ -89,9 +87,7 @@ abstract class RecurlyResource
         }
         $klass = $klass_name::cast($json);
 
-        if ($response) {
-            $klass->setResponse($response);
-        }
+        $klass->setResponse($response);
         return $klass;
     }
 

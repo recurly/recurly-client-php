@@ -56,9 +56,9 @@ class Plan extends RecurlyResource
     *
     * @return void
     */
-    public function setAccountingCode(string $value): void
+    public function setAccountingCode(string $accounting_code): void
     {
-        $this->_accounting_code = $value;
+        $this->_accounting_code = $accounting_code;
     }
 
     /**
@@ -78,9 +78,9 @@ class Plan extends RecurlyResource
     *
     * @return void
     */
-    public function setAutoRenew(bool $value): void
+    public function setAutoRenew(bool $auto_renew): void
     {
-        $this->_auto_renew = $value;
+        $this->_auto_renew = $auto_renew;
     }
 
     /**
@@ -100,9 +100,9 @@ class Plan extends RecurlyResource
     *
     * @return void
     */
-    public function setCode(string $value): void
+    public function setCode(string $code): void
     {
-        $this->_code = $value;
+        $this->_code = $code;
     }
 
     /**
@@ -122,9 +122,9 @@ class Plan extends RecurlyResource
     *
     * @return void
     */
-    public function setCreatedAt(string $value): void
+    public function setCreatedAt(string $created_at): void
     {
-        $this->_created_at = $value;
+        $this->_created_at = $created_at;
     }
 
     /**
@@ -144,9 +144,9 @@ class Plan extends RecurlyResource
     *
     * @return void
     */
-    public function setCurrencies(array $value): void
+    public function setCurrencies(array $currencies): void
     {
-        $this->_currencies = $value;
+        $this->_currencies = $currencies;
     }
 
     /**
@@ -166,9 +166,9 @@ class Plan extends RecurlyResource
     *
     * @return void
     */
-    public function setDeletedAt(string $value): void
+    public function setDeletedAt(string $deleted_at): void
     {
-        $this->_deleted_at = $value;
+        $this->_deleted_at = $deleted_at;
     }
 
     /**
@@ -188,9 +188,9 @@ class Plan extends RecurlyResource
     *
     * @return void
     */
-    public function setDescription(string $value): void
+    public function setDescription(string $description): void
     {
-        $this->_description = $value;
+        $this->_description = $description;
     }
 
     /**
@@ -210,9 +210,9 @@ class Plan extends RecurlyResource
     *
     * @return void
     */
-    public function setHostedPages(\Recurly\Resources\PlanHostedPages $value): void
+    public function setHostedPages(\Recurly\Resources\PlanHostedPages $hosted_pages): void
     {
-        $this->_hosted_pages = $value;
+        $this->_hosted_pages = $hosted_pages;
     }
 
     /**
@@ -232,9 +232,9 @@ class Plan extends RecurlyResource
     *
     * @return void
     */
-    public function setId(string $value): void
+    public function setId(string $id): void
     {
-        $this->_id = $value;
+        $this->_id = $id;
     }
 
     /**
@@ -254,9 +254,9 @@ class Plan extends RecurlyResource
     *
     * @return void
     */
-    public function setIntervalLength(int $value): void
+    public function setIntervalLength(int $interval_length): void
     {
-        $this->_interval_length = $value;
+        $this->_interval_length = $interval_length;
     }
 
     /**
@@ -276,9 +276,9 @@ class Plan extends RecurlyResource
     *
     * @return void
     */
-    public function setIntervalUnit(string $value): void
+    public function setIntervalUnit(string $interval_unit): void
     {
-        $this->_interval_unit = $value;
+        $this->_interval_unit = $interval_unit;
     }
 
     /**
@@ -298,9 +298,9 @@ class Plan extends RecurlyResource
     *
     * @return void
     */
-    public function setName(string $value): void
+    public function setName(string $name): void
     {
-        $this->_name = $value;
+        $this->_name = $name;
     }
 
     /**
@@ -320,9 +320,9 @@ class Plan extends RecurlyResource
     *
     * @return void
     */
-    public function setObject(string $value): void
+    public function setObject(string $object): void
     {
-        $this->_object = $value;
+        $this->_object = $object;
     }
 
     /**
@@ -342,9 +342,9 @@ class Plan extends RecurlyResource
     *
     * @return void
     */
-    public function setSetupFeeAccountingCode(string $value): void
+    public function setSetupFeeAccountingCode(string $setup_fee_accounting_code): void
     {
-        $this->_setup_fee_accounting_code = $value;
+        $this->_setup_fee_accounting_code = $setup_fee_accounting_code;
     }
 
     /**
@@ -364,9 +364,9 @@ class Plan extends RecurlyResource
     *
     * @return void
     */
-    public function setState(string $value): void
+    public function setState(string $state): void
     {
-        $this->_state = $value;
+        $this->_state = $state;
     }
 
     /**
@@ -386,9 +386,9 @@ class Plan extends RecurlyResource
     *
     * @return void
     */
-    public function setTaxCode(string $value): void
+    public function setTaxCode(string $tax_code): void
     {
-        $this->_tax_code = $value;
+        $this->_tax_code = $tax_code;
     }
 
     /**
@@ -408,9 +408,9 @@ class Plan extends RecurlyResource
     *
     * @return void
     */
-    public function setTaxExempt(bool $value): void
+    public function setTaxExempt(bool $tax_exempt): void
     {
-        $this->_tax_exempt = $value;
+        $this->_tax_exempt = $tax_exempt;
     }
 
     /**
@@ -430,9 +430,9 @@ class Plan extends RecurlyResource
     *
     * @return void
     */
-    public function setTotalBillingCycles(int $value): void
+    public function setTotalBillingCycles(int $total_billing_cycles): void
     {
-        $this->_total_billing_cycles = $value;
+        $this->_total_billing_cycles = $total_billing_cycles;
     }
 
     /**
@@ -452,9 +452,9 @@ class Plan extends RecurlyResource
     *
     * @return void
     */
-    public function setTrialLength(int $value): void
+    public function setTrialLength(int $trial_length): void
     {
-        $this->_trial_length = $value;
+        $this->_trial_length = $trial_length;
     }
 
     /**
@@ -474,9 +474,9 @@ class Plan extends RecurlyResource
     *
     * @return void
     */
-    public function setTrialUnit(string $value): void
+    public function setTrialUnit(string $trial_unit): void
     {
-        $this->_trial_unit = $value;
+        $this->_trial_unit = $trial_unit;
     }
 
     /**
@@ -496,8 +496,8 @@ class Plan extends RecurlyResource
     *
     * @return void
     */
-    public function setUpdatedAt(string $value): void
+    public function setUpdatedAt(string $updated_at): void
     {
-        $this->_updated_at = $value;
+        $this->_updated_at = $updated_at;
     }
 }

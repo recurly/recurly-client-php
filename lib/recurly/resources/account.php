@@ -66,9 +66,9 @@ class Account extends RecurlyResource
     *
     * @return void
     */
-    public function setAddress(\Recurly\Resources\Address $value): void
+    public function setAddress(\Recurly\Resources\Address $address): void
     {
-        $this->_address = $value;
+        $this->_address = $address;
     }
 
     /**
@@ -88,9 +88,9 @@ class Account extends RecurlyResource
     *
     * @return void
     */
-    public function setBillTo(string $value): void
+    public function setBillTo(string $bill_to): void
     {
-        $this->_bill_to = $value;
+        $this->_bill_to = $bill_to;
     }
 
     /**
@@ -110,9 +110,9 @@ class Account extends RecurlyResource
     *
     * @return void
     */
-    public function setBillingInfo(\Recurly\Resources\BillingInfo $value): void
+    public function setBillingInfo(\Recurly\Resources\BillingInfo $billing_info): void
     {
-        $this->_billing_info = $value;
+        $this->_billing_info = $billing_info;
     }
 
     /**
@@ -132,9 +132,9 @@ class Account extends RecurlyResource
     *
     * @return void
     */
-    public function setCcEmails(string $value): void
+    public function setCcEmails(string $cc_emails): void
     {
-        $this->_cc_emails = $value;
+        $this->_cc_emails = $cc_emails;
     }
 
     /**
@@ -154,9 +154,9 @@ class Account extends RecurlyResource
     *
     * @return void
     */
-    public function setCode(string $value): void
+    public function setCode(string $code): void
     {
-        $this->_code = $value;
+        $this->_code = $code;
     }
 
     /**
@@ -176,9 +176,9 @@ class Account extends RecurlyResource
     *
     * @return void
     */
-    public function setCompany(string $value): void
+    public function setCompany(string $company): void
     {
-        $this->_company = $value;
+        $this->_company = $company;
     }
 
     /**
@@ -198,9 +198,9 @@ class Account extends RecurlyResource
     *
     * @return void
     */
-    public function setCreatedAt(string $value): void
+    public function setCreatedAt(string $created_at): void
     {
-        $this->_created_at = $value;
+        $this->_created_at = $created_at;
     }
 
     /**
@@ -220,9 +220,9 @@ class Account extends RecurlyResource
     *
     * @return void
     */
-    public function setCustomFields(array $value): void
+    public function setCustomFields(array $custom_fields): void
     {
-        $this->_custom_fields = $value;
+        $this->_custom_fields = $custom_fields;
     }
 
     /**
@@ -242,9 +242,9 @@ class Account extends RecurlyResource
     *
     * @return void
     */
-    public function setDeletedAt(string $value): void
+    public function setDeletedAt(string $deleted_at): void
     {
-        $this->_deleted_at = $value;
+        $this->_deleted_at = $deleted_at;
     }
 
     /**
@@ -264,9 +264,9 @@ class Account extends RecurlyResource
     *
     * @return void
     */
-    public function setEmail(string $value): void
+    public function setEmail(string $email): void
     {
-        $this->_email = $value;
+        $this->_email = $email;
     }
 
     /**
@@ -286,9 +286,9 @@ class Account extends RecurlyResource
     *
     * @return void
     */
-    public function setExemptionCertificate(string $value): void
+    public function setExemptionCertificate(string $exemption_certificate): void
     {
-        $this->_exemption_certificate = $value;
+        $this->_exemption_certificate = $exemption_certificate;
     }
 
     /**
@@ -308,9 +308,9 @@ class Account extends RecurlyResource
     *
     * @return void
     */
-    public function setFirstName(string $value): void
+    public function setFirstName(string $first_name): void
     {
-        $this->_first_name = $value;
+        $this->_first_name = $first_name;
     }
 
     /**
@@ -330,9 +330,9 @@ class Account extends RecurlyResource
     *
     * @return void
     */
-    public function setHasActiveSubscription(bool $value): void
+    public function setHasActiveSubscription(bool $has_active_subscription): void
     {
-        $this->_has_active_subscription = $value;
+        $this->_has_active_subscription = $has_active_subscription;
     }
 
     /**
@@ -352,9 +352,9 @@ class Account extends RecurlyResource
     *
     * @return void
     */
-    public function setHasCanceledSubscription(bool $value): void
+    public function setHasCanceledSubscription(bool $has_canceled_subscription): void
     {
-        $this->_has_canceled_subscription = $value;
+        $this->_has_canceled_subscription = $has_canceled_subscription;
     }
 
     /**
@@ -374,9 +374,9 @@ class Account extends RecurlyResource
     *
     * @return void
     */
-    public function setHasFutureSubscription(bool $value): void
+    public function setHasFutureSubscription(bool $has_future_subscription): void
     {
-        $this->_has_future_subscription = $value;
+        $this->_has_future_subscription = $has_future_subscription;
     }
 
     /**
@@ -396,9 +396,9 @@ class Account extends RecurlyResource
     *
     * @return void
     */
-    public function setHasLiveSubscription(bool $value): void
+    public function setHasLiveSubscription(bool $has_live_subscription): void
     {
-        $this->_has_live_subscription = $value;
+        $this->_has_live_subscription = $has_live_subscription;
     }
 
     /**
@@ -418,9 +418,9 @@ class Account extends RecurlyResource
     *
     * @return void
     */
-    public function setHasPastDueInvoice(bool $value): void
+    public function setHasPastDueInvoice(bool $has_past_due_invoice): void
     {
-        $this->_has_past_due_invoice = $value;
+        $this->_has_past_due_invoice = $has_past_due_invoice;
     }
 
     /**
@@ -440,9 +440,9 @@ class Account extends RecurlyResource
     *
     * @return void
     */
-    public function setHasPausedSubscription(bool $value): void
+    public function setHasPausedSubscription(bool $has_paused_subscription): void
     {
-        $this->_has_paused_subscription = $value;
+        $this->_has_paused_subscription = $has_paused_subscription;
     }
 
     /**
@@ -462,9 +462,9 @@ class Account extends RecurlyResource
     *
     * @return void
     */
-    public function setHostedLoginToken(string $value): void
+    public function setHostedLoginToken(string $hosted_login_token): void
     {
-        $this->_hosted_login_token = $value;
+        $this->_hosted_login_token = $hosted_login_token;
     }
 
     /**
@@ -484,9 +484,9 @@ class Account extends RecurlyResource
     *
     * @return void
     */
-    public function setId(string $value): void
+    public function setId(string $id): void
     {
-        $this->_id = $value;
+        $this->_id = $id;
     }
 
     /**
@@ -506,9 +506,9 @@ class Account extends RecurlyResource
     *
     * @return void
     */
-    public function setLastName(string $value): void
+    public function setLastName(string $last_name): void
     {
-        $this->_last_name = $value;
+        $this->_last_name = $last_name;
     }
 
     /**
@@ -528,9 +528,9 @@ class Account extends RecurlyResource
     *
     * @return void
     */
-    public function setObject(string $value): void
+    public function setObject(string $object): void
     {
-        $this->_object = $value;
+        $this->_object = $object;
     }
 
     /**
@@ -550,9 +550,9 @@ class Account extends RecurlyResource
     *
     * @return void
     */
-    public function setParentAccountId(string $value): void
+    public function setParentAccountId(string $parent_account_id): void
     {
-        $this->_parent_account_id = $value;
+        $this->_parent_account_id = $parent_account_id;
     }
 
     /**
@@ -572,9 +572,9 @@ class Account extends RecurlyResource
     *
     * @return void
     */
-    public function setPreferredLocale(string $value): void
+    public function setPreferredLocale(string $preferred_locale): void
     {
-        $this->_preferred_locale = $value;
+        $this->_preferred_locale = $preferred_locale;
     }
 
     /**
@@ -594,9 +594,9 @@ class Account extends RecurlyResource
     *
     * @return void
     */
-    public function setShippingAddresses(array $value): void
+    public function setShippingAddresses(array $shipping_addresses): void
     {
-        $this->_shipping_addresses = $value;
+        $this->_shipping_addresses = $shipping_addresses;
     }
 
     /**
@@ -616,9 +616,9 @@ class Account extends RecurlyResource
     *
     * @return void
     */
-    public function setState(string $value): void
+    public function setState(string $state): void
     {
-        $this->_state = $value;
+        $this->_state = $state;
     }
 
     /**
@@ -638,9 +638,9 @@ class Account extends RecurlyResource
     *
     * @return void
     */
-    public function setTaxExempt(bool $value): void
+    public function setTaxExempt(bool $tax_exempt): void
     {
-        $this->_tax_exempt = $value;
+        $this->_tax_exempt = $tax_exempt;
     }
 
     /**
@@ -660,9 +660,9 @@ class Account extends RecurlyResource
     *
     * @return void
     */
-    public function setUpdatedAt(string $value): void
+    public function setUpdatedAt(string $updated_at): void
     {
-        $this->_updated_at = $value;
+        $this->_updated_at = $updated_at;
     }
 
     /**
@@ -682,9 +682,9 @@ class Account extends RecurlyResource
     *
     * @return void
     */
-    public function setUsername(string $value): void
+    public function setUsername(string $username): void
     {
-        $this->_username = $value;
+        $this->_username = $username;
     }
 
     /**
@@ -704,8 +704,8 @@ class Account extends RecurlyResource
     *
     * @return void
     */
-    public function setVatNumber(string $value): void
+    public function setVatNumber(string $vat_number): void
     {
-        $this->_vat_number = $value;
+        $this->_vat_number = $vat_number;
     }
 }

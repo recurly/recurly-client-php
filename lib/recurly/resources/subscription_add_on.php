@@ -43,9 +43,9 @@ class SubscriptionAddOn extends RecurlyResource
     *
     * @return void
     */
-    public function setAddOn(\Recurly\Resources\AddOnMini $value): void
+    public function setAddOn(\Recurly\Resources\AddOnMini $add_on): void
     {
-        $this->_add_on = $value;
+        $this->_add_on = $add_on;
     }
 
     /**
@@ -65,9 +65,9 @@ class SubscriptionAddOn extends RecurlyResource
     *
     * @return void
     */
-    public function setCreatedAt(string $value): void
+    public function setCreatedAt(string $created_at): void
     {
-        $this->_created_at = $value;
+        $this->_created_at = $created_at;
     }
 
     /**
@@ -87,9 +87,9 @@ class SubscriptionAddOn extends RecurlyResource
     *
     * @return void
     */
-    public function setExpiredAt(string $value): void
+    public function setExpiredAt(string $expired_at): void
     {
-        $this->_expired_at = $value;
+        $this->_expired_at = $expired_at;
     }
 
     /**
@@ -109,9 +109,9 @@ class SubscriptionAddOn extends RecurlyResource
     *
     * @return void
     */
-    public function setId(string $value): void
+    public function setId(string $id): void
     {
-        $this->_id = $value;
+        $this->_id = $id;
     }
 
     /**
@@ -131,9 +131,9 @@ class SubscriptionAddOn extends RecurlyResource
     *
     * @return void
     */
-    public function setObject(string $value): void
+    public function setObject(string $object): void
     {
-        $this->_object = $value;
+        $this->_object = $object;
     }
 
     /**
@@ -153,9 +153,9 @@ class SubscriptionAddOn extends RecurlyResource
     *
     * @return void
     */
-    public function setQuantity(int $value): void
+    public function setQuantity(int $quantity): void
     {
-        $this->_quantity = $value;
+        $this->_quantity = $quantity;
     }
 
     /**
@@ -175,9 +175,9 @@ class SubscriptionAddOn extends RecurlyResource
     *
     * @return void
     */
-    public function setSubscriptionId(string $value): void
+    public function setSubscriptionId(string $subscription_id): void
     {
-        $this->_subscription_id = $value;
+        $this->_subscription_id = $subscription_id;
     }
 
     /**
@@ -197,9 +197,9 @@ class SubscriptionAddOn extends RecurlyResource
     *
     * @return void
     */
-    public function setUnitAmount(float $value): void
+    public function setUnitAmount(float $unit_amount): void
     {
-        $this->_unit_amount = $value;
+        $this->_unit_amount = $unit_amount;
     }
 
     /**
@@ -219,8 +219,8 @@ class SubscriptionAddOn extends RecurlyResource
     *
     * @return void
     */
-    public function setUpdatedAt(string $value): void
+    public function setUpdatedAt(string $updated_at): void
     {
-        $this->_updated_at = $value;
+        $this->_updated_at = $updated_at;
     }
 }

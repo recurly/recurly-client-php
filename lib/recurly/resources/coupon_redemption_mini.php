@@ -40,9 +40,9 @@ class CouponRedemptionMini extends RecurlyResource
     *
     * @return void
     */
-    public function setCoupon(\Recurly\Resources\CouponMini $value): void
+    public function setCoupon(\Recurly\Resources\CouponMini $coupon): void
     {
-        $this->_coupon = $value;
+        $this->_coupon = $coupon;
     }
 
     /**
@@ -62,9 +62,9 @@ class CouponRedemptionMini extends RecurlyResource
     *
     * @return void
     */
-    public function setCreatedAt(string $value): void
+    public function setCreatedAt(string $created_at): void
     {
-        $this->_created_at = $value;
+        $this->_created_at = $created_at;
     }
 
     /**
@@ -84,9 +84,9 @@ class CouponRedemptionMini extends RecurlyResource
     *
     * @return void
     */
-    public function setDiscounted(float $value): void
+    public function setDiscounted(float $discounted): void
     {
-        $this->_discounted = $value;
+        $this->_discounted = $discounted;
     }
 
     /**
@@ -106,9 +106,9 @@ class CouponRedemptionMini extends RecurlyResource
     *
     * @return void
     */
-    public function setId(string $value): void
+    public function setId(string $id): void
     {
-        $this->_id = $value;
+        $this->_id = $id;
     }
 
     /**
@@ -128,9 +128,9 @@ class CouponRedemptionMini extends RecurlyResource
     *
     * @return void
     */
-    public function setObject(string $value): void
+    public function setObject(string $object): void
     {
-        $this->_object = $value;
+        $this->_object = $object;
     }
 
     /**
@@ -150,8 +150,8 @@ class CouponRedemptionMini extends RecurlyResource
     *
     * @return void
     */
-    public function setState(string $value): void
+    public function setState(string $state): void
     {
-        $this->_state = $value;
+        $this->_state = $state;
     }
 }

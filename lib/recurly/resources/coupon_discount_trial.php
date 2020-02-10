@@ -36,9 +36,9 @@ class CouponDiscountTrial extends RecurlyResource
     *
     * @return void
     */
-    public function setLength(int $value): void
+    public function setLength(int $length): void
     {
-        $this->_length = $value;
+        $this->_length = $length;
     }
 
     /**
@@ -58,8 +58,8 @@ class CouponDiscountTrial extends RecurlyResource
     *
     * @return void
     */
-    public function setUnit(string $value): void
+    public function setUnit(string $unit): void
     {
-        $this->_unit = $value;
+        $this->_unit = $unit;
     }
 }

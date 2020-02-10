@@ -36,9 +36,9 @@ class Pricing extends RecurlyResource
     *
     * @return void
     */
-    public function setCurrency(string $value): void
+    public function setCurrency(string $currency): void
     {
-        $this->_currency = $value;
+        $this->_currency = $currency;
     }
 
     /**
@@ -58,8 +58,8 @@ class Pricing extends RecurlyResource
     *
     * @return void
     */
-    public function setUnitAmount(float $value): void
+    public function setUnitAmount(float $unit_amount): void
     {
-        $this->_unit_amount = $value;
+        $this->_unit_amount = $unit_amount;
     }
 }

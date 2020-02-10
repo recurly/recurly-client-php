@@ -45,9 +45,9 @@ class InvoiceAddress extends RecurlyResource
     *
     * @return void
     */
-    public function setCity(string $value): void
+    public function setCity(string $city): void
     {
-        $this->_city = $value;
+        $this->_city = $city;
     }
 
     /**
@@ -67,9 +67,9 @@ class InvoiceAddress extends RecurlyResource
     *
     * @return void
     */
-    public function setCompany(string $value): void
+    public function setCompany(string $company): void
     {
-        $this->_company = $value;
+        $this->_company = $company;
     }
 
     /**
@@ -89,9 +89,9 @@ class InvoiceAddress extends RecurlyResource
     *
     * @return void
     */
-    public function setCountry(string $value): void
+    public function setCountry(string $country): void
     {
-        $this->_country = $value;
+        $this->_country = $country;
     }
 
     /**
@@ -111,9 +111,9 @@ class InvoiceAddress extends RecurlyResource
     *
     * @return void
     */
-    public function setFirstName(string $value): void
+    public function setFirstName(string $first_name): void
     {
-        $this->_first_name = $value;
+        $this->_first_name = $first_name;
     }
 
     /**
@@ -133,9 +133,9 @@ class InvoiceAddress extends RecurlyResource
     *
     * @return void
     */
-    public function setLastName(string $value): void
+    public function setLastName(string $last_name): void
     {
-        $this->_last_name = $value;
+        $this->_last_name = $last_name;
     }
 
     /**
@@ -155,9 +155,9 @@ class InvoiceAddress extends RecurlyResource
     *
     * @return void
     */
-    public function setNameOnAccount(string $value): void
+    public function setNameOnAccount(string $name_on_account): void
     {
-        $this->_name_on_account = $value;
+        $this->_name_on_account = $name_on_account;
     }
 
     /**
@@ -177,9 +177,9 @@ class InvoiceAddress extends RecurlyResource
     *
     * @return void
     */
-    public function setPhone(string $value): void
+    public function setPhone(string $phone): void
     {
-        $this->_phone = $value;
+        $this->_phone = $phone;
     }
 
     /**
@@ -199,9 +199,9 @@ class InvoiceAddress extends RecurlyResource
     *
     * @return void
     */
-    public function setPostalCode(string $value): void
+    public function setPostalCode(string $postal_code): void
     {
-        $this->_postal_code = $value;
+        $this->_postal_code = $postal_code;
     }
 
     /**
@@ -221,9 +221,9 @@ class InvoiceAddress extends RecurlyResource
     *
     * @return void
     */
-    public function setRegion(string $value): void
+    public function setRegion(string $region): void
     {
-        $this->_region = $value;
+        $this->_region = $region;
     }
 
     /**
@@ -243,9 +243,9 @@ class InvoiceAddress extends RecurlyResource
     *
     * @return void
     */
-    public function setStreet1(string $value): void
+    public function setStreet1(string $street1): void
     {
-        $this->_street1 = $value;
+        $this->_street1 = $street1;
     }
 
     /**
@@ -265,8 +265,8 @@ class InvoiceAddress extends RecurlyResource
     *
     * @return void
     */
-    public function setStreet2(string $value): void
+    public function setStreet2(string $street2): void
     {
-        $this->_street2 = $value;
+        $this->_street2 = $street2;
     }
 }

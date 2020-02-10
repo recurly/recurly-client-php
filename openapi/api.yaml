@@ -1911,7 +1911,7 @@ paths:
         source: |-
           try {
               $client->removeAccountAcquisition($account_id);
-              echo "Removed Account Acquisition:" . PHP_EOL;
+              echo "Removed Account Acquisition: " . $account_id . PHP_EOL;
           } catch (\Recurly\Errors\Validation $e) {
               // If the request was not valid, you may want to tell your user
               // why. You can find the invalid params and reasons in err.params
@@ -2518,6 +2518,20 @@ paths:
               # If the resource was not found, you may want to alert the user or
               # just return nil
               print("Resource Not Found")
+      - lang: Php
+        source: |-
+          try {
+              $client->removeBillingInfo($account_id);
+              echo "Removed Billing Info: " . $account_id . PHP_EOL;
+          } catch (\Recurly\Errors\Validation $e) {
+              // If the request was not valid, you may want to tell your user
+              // why. You can find the invalid params and reasons in err.params
+              var_dump($e);
+          } catch (\Recurly\RecurlyError $e) {
+              // If we don't know what to do with the err, we should
+              // probably re-raise and let our web framework and logger handle it
+              var_dump($e);
+          }
   "/sites/{site_id}/accounts/{account_id}/coupon_redemptions":
     get:
       tags:
@@ -2780,6 +2794,25 @@ paths:
               # why. You can find the invalid params and reasons in e.error.params
               print("ValidationError: %s" % e.error.message)
               print(e.error.params)
+      - lang: Php
+        source: |-
+          try {
+              $redemption_create = array(
+                  "currency" => "USD",
+                  "coupon_id" => "code-$coupon_code"
+              );
+              $redemption = $client->createCouponRedemption($account_id, $redemption_create);
+              echo "Created Redemption:" . PHP_EOL;
+              var_dump($redemption);
+          } catch (\Recurly\Errors\Validation $e) {
+              // If the request was not valid, you may want to tell your user
+              // why. You can find the invalid params and reasons in err.params
+              var_dump($e);
+          } catch (\Recurly\RecurlyError $e) {
+              // If we don't know what to do with the err, we should
+              // probably re-raise and let our web framework and logger handle it
+              var_dump($e);
+          }
     delete:
       tags:
       - account
@@ -2841,6 +2874,21 @@ paths:
               # If the resource was not found, you may want to alert the user or
               # just return nil
               print("Resource Not Found")
+      - lang: Php
+        source: |-
+          try {
+              $redemption = $client->removeCouponRedemption($account_id);
+              echo "Removed Active Coupon Redemption:" . PHP_EOL;
+              var_dump($redemption);
+          } catch (\Recurly\Errors\Validation $e) {
+              // If the request was not valid, you may want to tell your user
+              // why. You can find the invalid params and reasons in err.params
+              var_dump($e);
+          } catch (\Recurly\RecurlyError $e) {
+              // If we don't know what to do with the err, we should
+              // probably re-raise and let our web framework and logger handle it
+              var_dump($e);
+          }
   "/sites/{site_id}/accounts/{account_id}/credit_payments":
     get:
       tags:
@@ -5009,7 +5057,26 @@ paths:
             application/json:
               schema:
                 "$ref": "#/components/schemas/Error"
-      x-code-samples: []
+      x-code-samples:
+      - lang: Php
+        source: |
+          try {
+              $coupon_update = array(
+                  "name" => "New Coupon Name"
+              );
+              $coupon = $client->updateCoupon($coupon_id, $coupon_update);
+
+              echo 'Updated Coupon:' . PHP_EOL;
+              var_dump($coupon);
+          } catch (\Recurly\Errors\Validation $e) {
+              // If the request was not valid, you may want to tell your user
+              // why. You can find the invalid params and reasons in err.params
+              var_dump($e);
+          } catch (\Recurly\RecurlyError $e) {
+              // If we don't know what to do with the err, we should
+              // probably re-raise and let our web framework and logger handle it
+              var_dump($e);
+          }
   "/sites/{site_id}/coupons/{coupon_id}/generate":
     post:
       tags:
@@ -7087,7 +7154,23 @@ paths:
             application/json:
               schema:
                 "$ref": "#/components/schemas/Error"
-      x-code-samples: []
+      x-code-samples:
+      - lang: Php
+        source: |
+          try {
+              $invoice = $client->voidInvoice($invoice_id);
+
+              echo 'Voided Invoice:' . PHP_EOL;
+              var_dump($invoice);
+          } catch (\Recurly\Errors\Validation $e) {
+              // If the request was not valid, you may want to tell your user
+              // why. You can find the invalid params and reasons in err.params
+              var_dump($e);
+          } catch (\Recurly\RecurlyError $e) {
+              // If we don't know what to do with the err, we should
+              // probably re-raise and let our web framework and logger handle it
+              var_dump($e);
+          }
   "/sites/{site_id}/invoices/{invoice_id}/line_items":
     get:
       tags:
@@ -8659,7 +8742,26 @@ paths:
             application/json:
               schema:
                 "$ref": "#/components/schemas/Error"
-      x-code-samples: []
+      x-code-samples:
+      - lang: Php
+        source: |
+          try {
+              $add_on_update = array(
+                  "name" => "New AddOn Name",
+              );
+              $add_on = $client->updatePlanAddOn($plan_id, $add_on_id, $add_on_update);
+
+              echo ' Updated Plan AddOn:' . PHP_EOL;
+              var_dump($add_on);
+          } catch (\Recurly\Errors\Validation $e) {
+              // If the request was not valid, you may want to tell your user
+              // why. You can find the invalid params and reasons in err.params
+              var_dump($e);
+          } catch (\Recurly\RecurlyError $e) {
+              // If we don't know what to do with the err, we should
+              // probably re-raise and let our web framework and logger handle it
+              var_dump($e);
+          }
     delete:
       tags:
       - plan
@@ -8683,7 +8785,23 @@ paths:
             application/json:
               schema:
                 "$ref": "#/components/schemas/Error"
-      x-code-samples: []
+      x-code-samples:
+      - lang: Php
+        source: |
+          try {
+              $add_on = $client->removePlanAddOn($plan_id, $add_on_id);
+
+              echo 'Removed Plan AddOn:' . PHP_EOL;
+              var_dump($add_on);
+          } catch (\Recurly\Errors\Validation $e) {
+              // If the request was not valid, you may want to tell your user
+              // why. You can find the invalid params and reasons in err.params
+              var_dump($e);
+          } catch (\Recurly\RecurlyError $e) {
+              // If we don't know what to do with the err, we should
+              // probably re-raise and let our web framework and logger handle it
+              var_dump($e);
+          }
   "/sites/{site_id}/add_ons":
     get:
       tags:
@@ -8777,7 +8895,23 @@ paths:
             application/json:
               schema:
                 "$ref": "#/components/schemas/Error"
-      x-code-samples: []
+      x-code-samples:
+      - lang: Php
+        source: |
+          try {
+              $add_on = $client->getAddOn($add_on_id);
+
+              echo 'Got Plan Add-On:' . PHP_EOL;
+              var_dump($add_on);
+          } catch (\Recurly\Errors\NotFound $e) {
+              // Could not find the resource, you may want to inform the user
+              // or just return a NULL
+              echo 'Could not find resource.' . PHP_EOL;
+              var_dump($e);
+          } catch (\Recurly\RecurlyError $e) {
+              // Something bad happened... tell the user so that they can fix it?
+              echo 'Some unexpected Recurly error happened. Try again later.' . PHP_EOL;
+          }
   "/sites/{site_id}/shipping_methods":
     get:
       tags:
@@ -9744,6 +9878,22 @@ paths:
               console.log('Unknown Error: ', err)
             }
           }
+      - lang: Php
+        source: |
+          try {
+              $subscription = $client->reactivateSubscription($subscription_id);
+
+              echo 'Reactivated Subscription:' . PHP_EOL;
+              var_dump($subscription);
+          } catch (\Recurly\Errors\Validation $e) {
+              // If the request was not valid, you may want to tell your user
+              // why. You can find the invalid params and reasons in err.params
+              var_dump($e);
+          } catch (\Recurly\RecurlyError $e) {
+              // If we don't know what to do with the err, we should
+              // probably re-raise and let our web framework and logger handle it
+              var_dump($e);
+          }
   "/sites/{site_id}/subscriptions/{subscription_id}/pause":
     put:
       tags:
@@ -9835,6 +9985,22 @@ paths:
               # why. You can find the invalid params and reasons in e.error.params
               print("ValidationError: %s" % e.error.message)
               print(e.error.params)
+      - lang: Php
+        source: |
+          try {
+              $subscription = $client->pauseSubscription($subscription_id);
+
+              echo 'Paused Subscription:' . PHP_EOL;
+              var_dump($subscription);
+          } catch (\Recurly\Errors\Validation $e) {
+              // If the request was not valid, you may want to tell your user
+              // why. You can find the invalid params and reasons in err.params
+              var_dump($e);
+          } catch (\Recurly\RecurlyError $e) {
+              // If we don't know what to do with the err, we should
+              // probably re-raise and let our web framework and logger handle it
+              var_dump($e);
+          }
   "/sites/{site_id}/subscriptions/{subscription_id}/resume":
     put:
       tags:
@@ -9898,6 +10064,22 @@ paths:
               # why. You can find the invalid params and reasons in e.error.params
               print("ValidationError: %s" % e.error.message)
               print(e.error.params)
+      - lang: Php
+        source: |
+          try {
+              $subscription = $client->resumeSubscription($subscription_id);
+
+              echo 'Resumed Subscription:' . PHP_EOL;
+              var_dump($subscription);
+          } catch (\Recurly\Errors\Validation $e) {
+              // If the request was not valid, you may want to tell your user
+              // why. You can find the invalid params and reasons in err.params
+              var_dump($e);
+          } catch (\Recurly\RecurlyError $e) {
+              // If we don't know what to do with the err, we should
+              // probably re-raise and let our web framework and logger handle it
+              var_dump($e);
+          }
   "/sites/{site_id}/subscriptions/{subscription_id}/change":
     get:
       tags:

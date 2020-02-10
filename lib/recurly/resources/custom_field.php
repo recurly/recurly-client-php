@@ -36,9 +36,9 @@ class CustomField extends RecurlyResource
     *
     * @return void
     */
-    public function setName(string $value): void
+    public function setName(string $name): void
     {
-        $this->_name = $value;
+        $this->_name = $name;
     }
 
     /**

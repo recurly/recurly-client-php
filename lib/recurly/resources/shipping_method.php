@@ -42,9 +42,9 @@ class ShippingMethod extends RecurlyResource
     *
     * @return void
     */
-    public function setCode(string $value): void
+    public function setCode(string $code): void
     {
-        $this->_code = $value;
+        $this->_code = $code;
     }
 
     /**
@@ -64,9 +64,9 @@ class ShippingMethod extends RecurlyResource
     *
     * @return void
     */
-    public function setCreatedAt(string $value): void
+    public function setCreatedAt(string $created_at): void
     {
-        $this->_created_at = $value;
+        $this->_created_at = $created_at;
     }
 
     /**
@@ -86,9 +86,9 @@ class ShippingMethod extends RecurlyResource
     *
     * @return void
     */
-    public function setDeletedAt(string $value): void
+    public function setDeletedAt(string $deleted_at): void
     {
-        $this->_deleted_at = $value;
+        $this->_deleted_at = $deleted_at;
     }
 
     /**
@@ -108,9 +108,9 @@ class ShippingMethod extends RecurlyResource
     *
     * @return void
     */
-    public function setId(string $value): void
+    public function setId(string $id): void
     {
-        $this->_id = $value;
+        $this->_id = $id;
     }
 
     /**
@@ -130,9 +130,9 @@ class ShippingMethod extends RecurlyResource
     *
     * @return void
     */
-    public function setName(string $value): void
+    public function setName(string $name): void
     {
-        $this->_name = $value;
+        $this->_name = $name;
     }
 
     /**
@@ -152,9 +152,9 @@ class ShippingMethod extends RecurlyResource
     *
     * @return void
     */
-    public function setObject(string $value): void
+    public function setObject(string $object): void
     {
-        $this->_object = $value;
+        $this->_object = $object;
     }
 
     /**
@@ -185,9 +185,9 @@ built-in taxes the values are:
     *
     * @return void
     */
-    public function setTaxCode(string $value): void
+    public function setTaxCode(string $tax_code): void
     {
-        $this->_tax_code = $value;
+        $this->_tax_code = $tax_code;
     }
 
     /**
@@ -207,8 +207,8 @@ built-in taxes the values are:
     *
     * @return void
     */
-    public function setUpdatedAt(string $value): void
+    public function setUpdatedAt(string $updated_at): void
     {
-        $this->_updated_at = $value;
+        $this->_updated_at = $updated_at;
     }
 }

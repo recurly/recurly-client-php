@@ -39,9 +39,9 @@ class AccountBalance extends RecurlyResource
     *
     * @return void
     */
-    public function setAccount(\Recurly\Resources\AccountMini $value): void
+    public function setAccount(\Recurly\Resources\AccountMini $account): void
     {
-        $this->_account = $value;
+        $this->_account = $account;
     }
 
     /**
@@ -61,9 +61,9 @@ class AccountBalance extends RecurlyResource
     *
     * @return void
     */
-    public function setBalances(array $value): void
+    public function setBalances(array $balances): void
     {
-        $this->_balances = $value;
+        $this->_balances = $balances;
     }
 
     /**
@@ -83,9 +83,9 @@ class AccountBalance extends RecurlyResource
     *
     * @return void
     */
-    public function setObject(string $value): void
+    public function setObject(string $object): void
     {
-        $this->_object = $value;
+        $this->_object = $object;
     }
 
     /**
@@ -105,8 +105,8 @@ class AccountBalance extends RecurlyResource
     *
     * @return void
     */
-    public function setPastDue(bool $value): void
+    public function setPastDue(bool $past_due): void
     {
-        $this->_past_due = $value;
+        $this->_past_due = $past_due;
     }
 }

@@ -36,9 +36,9 @@ class AccountAcquisitionCost extends RecurlyResource
     *
     * @return void
     */
-    public function setAmount(float $value): void
+    public function setAmount(float $amount): void
     {
-        $this->_amount = $value;
+        $this->_amount = $amount;
     }
 
     /**
@@ -58,8 +58,8 @@ class AccountAcquisitionCost extends RecurlyResource
     *
     * @return void
     */
-    public function setCurrency(string $value): void
+    public function setCurrency(string $currency): void
     {
-        $this->_currency = $value;
+        $this->_currency = $currency;
     }
 }

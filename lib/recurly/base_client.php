@@ -97,7 +97,7 @@ abstract class BaseClient
      * @param ?array $params (optional) An associative array of query string
      *                       parameters
      * 
-     * @return \Recurly\Page
+     * @return \Recurly\Response
      */
     public function pagerCount(string $path, ?array $params = []): \Recurly\Response
     {

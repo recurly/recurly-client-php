@@ -42,9 +42,9 @@ class User extends RecurlyResource
     *
     * @return void
     */
-    public function setCreatedAt(string $value): void
+    public function setCreatedAt(string $created_at): void
     {
-        $this->_created_at = $value;
+        $this->_created_at = $created_at;
     }
 
     /**
@@ -64,9 +64,9 @@ class User extends RecurlyResource
     *
     * @return void
     */
-    public function setDeletedAt(string $value): void
+    public function setDeletedAt(string $deleted_at): void
     {
-        $this->_deleted_at = $value;
+        $this->_deleted_at = $deleted_at;
     }
 
     /**
@@ -86,9 +86,9 @@ class User extends RecurlyResource
     *
     * @return void
     */
-    public function setEmail(string $value): void
+    public function setEmail(string $email): void
     {
-        $this->_email = $value;
+        $this->_email = $email;
     }
 
     /**
@@ -108,9 +108,9 @@ class User extends RecurlyResource
     *
     * @return void
     */
-    public function setFirstName(string $value): void
+    public function setFirstName(string $first_name): void
     {
-        $this->_first_name = $value;
+        $this->_first_name = $first_name;
     }
 
     /**
@@ -130,9 +130,9 @@ class User extends RecurlyResource
     *
     * @return void
     */
-    public function setId(string $value): void
+    public function setId(string $id): void
     {
-        $this->_id = $value;
+        $this->_id = $id;
     }
 
     /**
@@ -152,9 +152,9 @@ class User extends RecurlyResource
     *
     * @return void
     */
-    public function setLastName(string $value): void
+    public function setLastName(string $last_name): void
     {
-        $this->_last_name = $value;
+        $this->_last_name = $last_name;
     }
 
     /**
@@ -174,9 +174,9 @@ class User extends RecurlyResource
     *
     * @return void
     */
-    public function setObject(string $value): void
+    public function setObject(string $object): void
     {
-        $this->_object = $value;
+        $this->_object = $object;
     }
 
     /**
@@ -196,8 +196,8 @@ class User extends RecurlyResource
     *
     * @return void
     */
-    public function setTimeZone(string $value): void
+    public function setTimeZone(string $time_zone): void
     {
-        $this->_time_zone = $value;
+        $this->_time_zone = $time_zone;
     }
 }

@@ -79,9 +79,9 @@ class LineItem extends RecurlyResource
     *
     * @return void
     */
-    public function setAccount(\Recurly\Resources\AccountMini $value): void
+    public function setAccount(\Recurly\Resources\AccountMini $account): void
     {
-        $this->_account = $value;
+        $this->_account = $account;
     }
 
     /**
@@ -101,9 +101,9 @@ class LineItem extends RecurlyResource
     *
     * @return void
     */
-    public function setAccountingCode(string $value): void
+    public function setAccountingCode(string $accounting_code): void
     {
-        $this->_accounting_code = $value;
+        $this->_accounting_code = $accounting_code;
     }
 
     /**
@@ -123,9 +123,9 @@ class LineItem extends RecurlyResource
     *
     * @return void
     */
-    public function setAddOnCode(string $value): void
+    public function setAddOnCode(string $add_on_code): void
     {
-        $this->_add_on_code = $value;
+        $this->_add_on_code = $add_on_code;
     }
 
     /**
@@ -145,9 +145,9 @@ class LineItem extends RecurlyResource
     *
     * @return void
     */
-    public function setAddOnId(string $value): void
+    public function setAddOnId(string $add_on_id): void
     {
-        $this->_add_on_id = $value;
+        $this->_add_on_id = $add_on_id;
     }
 
     /**
@@ -167,9 +167,9 @@ class LineItem extends RecurlyResource
     *
     * @return void
     */
-    public function setAmount(float $value): void
+    public function setAmount(float $amount): void
     {
-        $this->_amount = $value;
+        $this->_amount = $amount;
     }
 
     /**
@@ -189,9 +189,9 @@ class LineItem extends RecurlyResource
     *
     * @return void
     */
-    public function setCreatedAt(string $value): void
+    public function setCreatedAt(string $created_at): void
     {
-        $this->_created_at = $value;
+        $this->_created_at = $created_at;
     }
 
     /**
@@ -211,9 +211,9 @@ class LineItem extends RecurlyResource
     *
     * @return void
     */
-    public function setCreditApplied(float $value): void
+    public function setCreditApplied(float $credit_applied): void
     {
-        $this->_credit_applied = $value;
+        $this->_credit_applied = $credit_applied;
     }
 
     /**
@@ -233,9 +233,9 @@ class LineItem extends RecurlyResource
     *
     * @return void
     */
-    public function setCreditReasonCode(string $value): void
+    public function setCreditReasonCode(string $credit_reason_code): void
     {
-        $this->_credit_reason_code = $value;
+        $this->_credit_reason_code = $credit_reason_code;
     }
 
     /**
@@ -255,9 +255,9 @@ class LineItem extends RecurlyResource
     *
     * @return void
     */
-    public function setCurrency(string $value): void
+    public function setCurrency(string $currency): void
     {
-        $this->_currency = $value;
+        $this->_currency = $currency;
     }
 
     /**
@@ -277,9 +277,9 @@ class LineItem extends RecurlyResource
     *
     * @return void
     */
-    public function setDescription(string $value): void
+    public function setDescription(string $description): void
     {
-        $this->_description = $value;
+        $this->_description = $description;
     }
 
     /**
@@ -299,9 +299,9 @@ class LineItem extends RecurlyResource
     *
     * @return void
     */
-    public function setDiscount(float $value): void
+    public function setDiscount(float $discount): void
     {
-        $this->_discount = $value;
+        $this->_discount = $discount;
     }
 
     /**
@@ -321,9 +321,9 @@ class LineItem extends RecurlyResource
     *
     * @return void
     */
-    public function setEndDate(string $value): void
+    public function setEndDate(string $end_date): void
     {
-        $this->_end_date = $value;
+        $this->_end_date = $end_date;
     }
 
     /**
@@ -343,9 +343,9 @@ class LineItem extends RecurlyResource
     *
     * @return void
     */
-    public function setExternalSku(string $value): void
+    public function setExternalSku(string $external_sku): void
     {
-        $this->_external_sku = $value;
+        $this->_external_sku = $external_sku;
     }
 
     /**
@@ -365,9 +365,9 @@ class LineItem extends RecurlyResource
     *
     * @return void
     */
-    public function setId(string $value): void
+    public function setId(string $id): void
     {
-        $this->_id = $value;
+        $this->_id = $id;
     }
 
     /**
@@ -387,9 +387,9 @@ class LineItem extends RecurlyResource
     *
     * @return void
     */
-    public function setInvoiceId(string $value): void
+    public function setInvoiceId(string $invoice_id): void
     {
-        $this->_invoice_id = $value;
+        $this->_invoice_id = $invoice_id;
     }
 
     /**
@@ -409,9 +409,9 @@ class LineItem extends RecurlyResource
     *
     * @return void
     */
-    public function setInvoiceNumber(string $value): void
+    public function setInvoiceNumber(string $invoice_number): void
     {
-        $this->_invoice_number = $value;
+        $this->_invoice_number = $invoice_number;
     }
 
     /**
@@ -431,9 +431,9 @@ class LineItem extends RecurlyResource
     *
     * @return void
     */
-    public function setItemCode(string $value): void
+    public function setItemCode(string $item_code): void
     {
-        $this->_item_code = $value;
+        $this->_item_code = $item_code;
     }
 
     /**
@@ -453,9 +453,9 @@ class LineItem extends RecurlyResource
     *
     * @return void
     */
-    public function setItemId(string $value): void
+    public function setItemId(string $item_id): void
     {
-        $this->_item_id = $value;
+        $this->_item_id = $item_id;
     }
 
     /**
@@ -480,9 +480,9 @@ class LineItem extends RecurlyResource
     *
     * @return void
     */
-    public function setLegacyCategory(string $value): void
+    public function setLegacyCategory(string $legacy_category): void
     {
-        $this->_legacy_category = $value;
+        $this->_legacy_category = $legacy_category;
     }
 
     /**
@@ -502,9 +502,9 @@ class LineItem extends RecurlyResource
     *
     * @return void
     */
-    public function setObject(string $value): void
+    public function setObject(string $object): void
     {
-        $this->_object = $value;
+        $this->_object = $object;
     }
 
     /**
@@ -524,9 +524,9 @@ class LineItem extends RecurlyResource
     *
     * @return void
     */
-    public function setOrigin(string $value): void
+    public function setOrigin(string $origin): void
     {
-        $this->_origin = $value;
+        $this->_origin = $origin;
     }
 
     /**
@@ -546,9 +546,9 @@ class LineItem extends RecurlyResource
     *
     * @return void
     */
-    public function setOriginalLineItemInvoiceId(string $value): void
+    public function setOriginalLineItemInvoiceId(string $original_line_item_invoice_id): void
     {
-        $this->_original_line_item_invoice_id = $value;
+        $this->_original_line_item_invoice_id = $original_line_item_invoice_id;
     }
 
     /**
@@ -568,9 +568,9 @@ class LineItem extends RecurlyResource
     *
     * @return void
     */
-    public function setPlanCode(string $value): void
+    public function setPlanCode(string $plan_code): void
     {
-        $this->_plan_code = $value;
+        $this->_plan_code = $plan_code;
     }
 
     /**
@@ -590,9 +590,9 @@ class LineItem extends RecurlyResource
     *
     * @return void
     */
-    public function setPlanId(string $value): void
+    public function setPlanId(string $plan_id): void
     {
-        $this->_plan_id = $value;
+        $this->_plan_id = $plan_id;
     }
 
     /**
@@ -612,9 +612,9 @@ class LineItem extends RecurlyResource
     *
     * @return void
     */
-    public function setPreviousLineItemId(string $value): void
+    public function setPreviousLineItemId(string $previous_line_item_id): void
     {
-        $this->_previous_line_item_id = $value;
+        $this->_previous_line_item_id = $previous_line_item_id;
     }
 
     /**
@@ -634,9 +634,9 @@ class LineItem extends RecurlyResource
     *
     * @return void
     */
-    public function setProductCode(string $value): void
+    public function setProductCode(string $product_code): void
     {
-        $this->_product_code = $value;
+        $this->_product_code = $product_code;
     }
 
     /**
@@ -656,9 +656,9 @@ class LineItem extends RecurlyResource
     *
     * @return void
     */
-    public function setProrationRate(float $value): void
+    public function setProrationRate(float $proration_rate): void
     {
-        $this->_proration_rate = $value;
+        $this->_proration_rate = $proration_rate;
     }
 
     /**
@@ -678,9 +678,9 @@ class LineItem extends RecurlyResource
     *
     * @return void
     */
-    public function setQuantity(int $value): void
+    public function setQuantity(int $quantity): void
     {
-        $this->_quantity = $value;
+        $this->_quantity = $quantity;
     }
 
     /**
@@ -700,9 +700,9 @@ class LineItem extends RecurlyResource
     *
     * @return void
     */
-    public function setRefund(bool $value): void
+    public function setRefund(bool $refund): void
     {
-        $this->_refund = $value;
+        $this->_refund = $refund;
     }
 
     /**
@@ -722,9 +722,9 @@ class LineItem extends RecurlyResource
     *
     * @return void
     */
-    public function setRefundedQuantity(int $value): void
+    public function setRefundedQuantity(int $refunded_quantity): void
     {
-        $this->_refunded_quantity = $value;
+        $this->_refunded_quantity = $refunded_quantity;
     }
 
     /**
@@ -744,9 +744,9 @@ class LineItem extends RecurlyResource
     *
     * @return void
     */
-    public function setRevenueScheduleType(string $value): void
+    public function setRevenueScheduleType(string $revenue_schedule_type): void
     {
-        $this->_revenue_schedule_type = $value;
+        $this->_revenue_schedule_type = $revenue_schedule_type;
     }
 
     /**
@@ -766,9 +766,9 @@ class LineItem extends RecurlyResource
     *
     * @return void
     */
-    public function setShippingAddress(\Recurly\Resources\ShippingAddress $value): void
+    public function setShippingAddress(\Recurly\Resources\ShippingAddress $shipping_address): void
     {
-        $this->_shipping_address = $value;
+        $this->_shipping_address = $shipping_address;
     }
 
     /**
@@ -788,9 +788,9 @@ class LineItem extends RecurlyResource
     *
     * @return void
     */
-    public function setStartDate(string $value): void
+    public function setStartDate(string $start_date): void
     {
-        $this->_start_date = $value;
+        $this->_start_date = $start_date;
     }
 
     /**
@@ -810,9 +810,9 @@ class LineItem extends RecurlyResource
     *
     * @return void
     */
-    public function setState(string $value): void
+    public function setState(string $state): void
     {
-        $this->_state = $value;
+        $this->_state = $state;
     }
 
     /**
@@ -832,9 +832,9 @@ class LineItem extends RecurlyResource
     *
     * @return void
     */
-    public function setSubscriptionId(string $value): void
+    public function setSubscriptionId(string $subscription_id): void
     {
-        $this->_subscription_id = $value;
+        $this->_subscription_id = $subscription_id;
     }
 
     /**
@@ -854,9 +854,9 @@ class LineItem extends RecurlyResource
     *
     * @return void
     */
-    public function setSubtotal(float $value): void
+    public function setSubtotal(float $subtotal): void
     {
-        $this->_subtotal = $value;
+        $this->_subtotal = $subtotal;
     }
 
     /**
@@ -876,9 +876,9 @@ class LineItem extends RecurlyResource
     *
     * @return void
     */
-    public function setTax(float $value): void
+    public function setTax(float $tax): void
     {
-        $this->_tax = $value;
+        $this->_tax = $tax;
     }
 
     /**
@@ -898,9 +898,9 @@ class LineItem extends RecurlyResource
     *
     * @return void
     */
-    public function setTaxCode(string $value): void
+    public function setTaxCode(string $tax_code): void
     {
-        $this->_tax_code = $value;
+        $this->_tax_code = $tax_code;
     }
 
     /**
@@ -920,9 +920,9 @@ class LineItem extends RecurlyResource
     *
     * @return void
     */
-    public function setTaxExempt(bool $value): void
+    public function setTaxExempt(bool $tax_exempt): void
     {
-        $this->_tax_exempt = $value;
+        $this->_tax_exempt = $tax_exempt;
     }
 
     /**
@@ -942,9 +942,9 @@ class LineItem extends RecurlyResource
     *
     * @return void
     */
-    public function setTaxInfo(\Recurly\Resources\TaxInfo $value): void
+    public function setTaxInfo(\Recurly\Resources\TaxInfo $tax_info): void
     {
-        $this->_tax_info = $value;
+        $this->_tax_info = $tax_info;
     }
 
     /**
@@ -964,9 +964,9 @@ class LineItem extends RecurlyResource
     *
     * @return void
     */
-    public function setTaxable(bool $value): void
+    public function setTaxable(bool $taxable): void
     {
-        $this->_taxable = $value;
+        $this->_taxable = $taxable;
     }
 
     /**
@@ -986,9 +986,9 @@ class LineItem extends RecurlyResource
     *
     * @return void
     */
-    public function setType(string $value): void
+    public function setType(string $type): void
     {
-        $this->_type = $value;
+        $this->_type = $type;
     }
 
     /**
@@ -1008,9 +1008,9 @@ class LineItem extends RecurlyResource
     *
     * @return void
     */
-    public function setUnitAmount(float $value): void
+    public function setUnitAmount(float $unit_amount): void
     {
-        $this->_unit_amount = $value;
+        $this->_unit_amount = $unit_amount;
     }
 
     /**
@@ -1030,9 +1030,9 @@ class LineItem extends RecurlyResource
     *
     * @return void
     */
-    public function setUpdatedAt(string $value): void
+    public function setUpdatedAt(string $updated_at): void
     {
-        $this->_updated_at = $value;
+        $this->_updated_at = $updated_at;
     }
 
     /**
@@ -1052,8 +1052,8 @@ class LineItem extends RecurlyResource
     *
     * @return void
     */
-    public function setUuid(string $value): void
+    public function setUuid(string $uuid): void
     {
-        $this->_uuid = $value;
+        $this->_uuid = $uuid;
     }
 }

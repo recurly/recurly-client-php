@@ -46,9 +46,9 @@ class Site extends RecurlyResource
     *
     * @return void
     */
-    public function setAddress(\Recurly\Resources\Address $value): void
+    public function setAddress(\Recurly\Resources\Address $address): void
     {
-        $this->_address = $value;
+        $this->_address = $address;
     }
 
     /**
@@ -68,9 +68,9 @@ class Site extends RecurlyResource
     *
     * @return void
     */
-    public function setCreatedAt(string $value): void
+    public function setCreatedAt(string $created_at): void
     {
-        $this->_created_at = $value;
+        $this->_created_at = $created_at;
     }
 
     /**
@@ -90,9 +90,9 @@ class Site extends RecurlyResource
     *
     * @return void
     */
-    public function setDeletedAt(string $value): void
+    public function setDeletedAt(string $deleted_at): void
     {
-        $this->_deleted_at = $value;
+        $this->_deleted_at = $deleted_at;
     }
 
     /**
@@ -112,9 +112,9 @@ class Site extends RecurlyResource
     *
     * @return void
     */
-    public function setFeatures(array $value): void
+    public function setFeatures(array $features): void
     {
-        $this->_features = $value;
+        $this->_features = $features;
     }
 
     /**
@@ -134,9 +134,9 @@ class Site extends RecurlyResource
     *
     * @return void
     */
-    public function setId(string $value): void
+    public function setId(string $id): void
     {
-        $this->_id = $value;
+        $this->_id = $id;
     }
 
     /**
@@ -156,9 +156,9 @@ class Site extends RecurlyResource
     *
     * @return void
     */
-    public function setMode(string $value): void
+    public function setMode(string $mode): void
     {
-        $this->_mode = $value;
+        $this->_mode = $mode;
     }
 
     /**
@@ -178,9 +178,9 @@ class Site extends RecurlyResource
     *
     * @return void
     */
-    public function setObject(string $value): void
+    public function setObject(string $object): void
     {
-        $this->_object = $value;
+        $this->_object = $object;
     }
 
     /**
@@ -200,9 +200,9 @@ class Site extends RecurlyResource
     *
     * @return void
     */
-    public function setPublicApiKey(string $value): void
+    public function setPublicApiKey(string $public_api_key): void
     {
-        $this->_public_api_key = $value;
+        $this->_public_api_key = $public_api_key;
     }
 
     /**
@@ -222,9 +222,9 @@ class Site extends RecurlyResource
     *
     * @return void
     */
-    public function setSettings(\Recurly\Resources\Settings $value): void
+    public function setSettings(\Recurly\Resources\Settings $settings): void
     {
-        $this->_settings = $value;
+        $this->_settings = $settings;
     }
 
     /**
@@ -244,9 +244,9 @@ class Site extends RecurlyResource
     *
     * @return void
     */
-    public function setSubdomain(string $value): void
+    public function setSubdomain(string $subdomain): void
     {
-        $this->_subdomain = $value;
+        $this->_subdomain = $subdomain;
     }
 
     /**
@@ -266,8 +266,8 @@ class Site extends RecurlyResource
     *
     * @return void
     */
-    public function setUpdatedAt(string $value): void
+    public function setUpdatedAt(string $updated_at): void
     {
-        $this->_updated_at = $value;
+        $this->_updated_at = $updated_at;
     }
 }

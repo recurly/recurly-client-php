@@ -42,9 +42,9 @@ class UniqueCouponCode extends RecurlyResource
     *
     * @return void
     */
-    public function setCode(string $value): void
+    public function setCode(string $code): void
     {
-        $this->_code = $value;
+        $this->_code = $code;
     }
 
     /**
@@ -64,9 +64,9 @@ class UniqueCouponCode extends RecurlyResource
     *
     * @return void
     */
-    public function setCreatedAt(string $value): void
+    public function setCreatedAt(string $created_at): void
     {
-        $this->_created_at = $value;
+        $this->_created_at = $created_at;
     }
 
     /**
@@ -86,9 +86,9 @@ class UniqueCouponCode extends RecurlyResource
     *
     * @return void
     */
-    public function setExpiredAt(string $value): void
+    public function setExpiredAt(string $expired_at): void
     {
-        $this->_expired_at = $value;
+        $this->_expired_at = $expired_at;
     }
 
     /**
@@ -108,9 +108,9 @@ class UniqueCouponCode extends RecurlyResource
     *
     * @return void
     */
-    public function setId(string $value): void
+    public function setId(string $id): void
     {
-        $this->_id = $value;
+        $this->_id = $id;
     }
 
     /**
@@ -130,9 +130,9 @@ class UniqueCouponCode extends RecurlyResource
     *
     * @return void
     */
-    public function setObject(string $value): void
+    public function setObject(string $object): void
     {
-        $this->_object = $value;
+        $this->_object = $object;
     }
 
     /**
@@ -152,9 +152,9 @@ class UniqueCouponCode extends RecurlyResource
     *
     * @return void
     */
-    public function setRedeemedAt(string $value): void
+    public function setRedeemedAt(string $redeemed_at): void
     {
-        $this->_redeemed_at = $value;
+        $this->_redeemed_at = $redeemed_at;
     }
 
     /**
@@ -174,9 +174,9 @@ class UniqueCouponCode extends RecurlyResource
     *
     * @return void
     */
-    public function setState(string $value): void
+    public function setState(string $state): void
     {
-        $this->_state = $value;
+        $this->_state = $state;
     }
 
     /**
@@ -196,8 +196,8 @@ class UniqueCouponCode extends RecurlyResource
     *
     * @return void
     */
-    public function setUpdatedAt(string $value): void
+    public function setUpdatedAt(string $updated_at): void
     {
-        $this->_updated_at = $value;
+        $this->_updated_at = $updated_at;
     }
 }

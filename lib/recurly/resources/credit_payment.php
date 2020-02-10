@@ -48,9 +48,9 @@ class CreditPayment extends RecurlyResource
     *
     * @return void
     */
-    public function setAccount(\Recurly\Resources\AccountMini $value): void
+    public function setAccount(\Recurly\Resources\AccountMini $account): void
     {
-        $this->_account = $value;
+        $this->_account = $account;
     }
 
     /**
@@ -70,9 +70,9 @@ class CreditPayment extends RecurlyResource
     *
     * @return void
     */
-    public function setAction(string $value): void
+    public function setAction(string $action): void
     {
-        $this->_action = $value;
+        $this->_action = $action;
     }
 
     /**
@@ -92,9 +92,9 @@ class CreditPayment extends RecurlyResource
     *
     * @return void
     */
-    public function setAmount(float $value): void
+    public function setAmount(float $amount): void
     {
-        $this->_amount = $value;
+        $this->_amount = $amount;
     }
 
     /**
@@ -114,9 +114,9 @@ class CreditPayment extends RecurlyResource
     *
     * @return void
     */
-    public function setAppliedToInvoice(\Recurly\Resources\InvoiceMini $value): void
+    public function setAppliedToInvoice(\Recurly\Resources\InvoiceMini $applied_to_invoice): void
     {
-        $this->_applied_to_invoice = $value;
+        $this->_applied_to_invoice = $applied_to_invoice;
     }
 
     /**
@@ -136,9 +136,9 @@ class CreditPayment extends RecurlyResource
     *
     * @return void
     */
-    public function setCreatedAt(string $value): void
+    public function setCreatedAt(string $created_at): void
     {
-        $this->_created_at = $value;
+        $this->_created_at = $created_at;
     }
 
     /**
@@ -158,9 +158,9 @@ class CreditPayment extends RecurlyResource
     *
     * @return void
     */
-    public function setCurrency(string $value): void
+    public function setCurrency(string $currency): void
     {
-        $this->_currency = $value;
+        $this->_currency = $currency;
     }
 
     /**
@@ -180,9 +180,9 @@ class CreditPayment extends RecurlyResource
     *
     * @return void
     */
-    public function setId(string $value): void
+    public function setId(string $id): void
     {
-        $this->_id = $value;
+        $this->_id = $id;
     }
 
     /**
@@ -202,9 +202,9 @@ class CreditPayment extends RecurlyResource
     *
     * @return void
     */
-    public function setObject(string $value): void
+    public function setObject(string $object): void
     {
-        $this->_object = $value;
+        $this->_object = $object;
     }
 
     /**
@@ -224,9 +224,9 @@ class CreditPayment extends RecurlyResource
     *
     * @return void
     */
-    public function setOriginalCreditPaymentId(string $value): void
+    public function setOriginalCreditPaymentId(string $original_credit_payment_id): void
     {
-        $this->_original_credit_payment_id = $value;
+        $this->_original_credit_payment_id = $original_credit_payment_id;
     }
 
     /**
@@ -246,9 +246,9 @@ class CreditPayment extends RecurlyResource
     *
     * @return void
     */
-    public function setOriginalInvoice(\Recurly\Resources\InvoiceMini $value): void
+    public function setOriginalInvoice(\Recurly\Resources\InvoiceMini $original_invoice): void
     {
-        $this->_original_invoice = $value;
+        $this->_original_invoice = $original_invoice;
     }
 
     /**
@@ -268,9 +268,9 @@ class CreditPayment extends RecurlyResource
     *
     * @return void
     */
-    public function setRefundTransaction(\Recurly\Resources\Transaction $value): void
+    public function setRefundTransaction(\Recurly\Resources\Transaction $refund_transaction): void
     {
-        $this->_refund_transaction = $value;
+        $this->_refund_transaction = $refund_transaction;
     }
 
     /**
@@ -290,9 +290,9 @@ class CreditPayment extends RecurlyResource
     *
     * @return void
     */
-    public function setUpdatedAt(string $value): void
+    public function setUpdatedAt(string $updated_at): void
     {
-        $this->_updated_at = $value;
+        $this->_updated_at = $updated_at;
     }
 
     /**
@@ -312,9 +312,9 @@ class CreditPayment extends RecurlyResource
     *
     * @return void
     */
-    public function setUuid(string $value): void
+    public function setUuid(string $uuid): void
     {
-        $this->_uuid = $value;
+        $this->_uuid = $uuid;
     }
 
     /**
@@ -334,8 +334,8 @@ class CreditPayment extends RecurlyResource
     *
     * @return void
     */
-    public function setVoidedAt(string $value): void
+    public function setVoidedAt(string $voided_at): void
     {
-        $this->_voided_at = $value;
+        $this->_voided_at = $voided_at;
     }
 }

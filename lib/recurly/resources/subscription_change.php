@@ -48,9 +48,9 @@ class SubscriptionChange extends RecurlyResource
     *
     * @return void
     */
-    public function setActivateAt(string $value): void
+    public function setActivateAt(string $activate_at): void
     {
-        $this->_activate_at = $value;
+        $this->_activate_at = $activate_at;
     }
 
     /**
@@ -70,9 +70,9 @@ class SubscriptionChange extends RecurlyResource
     *
     * @return void
     */
-    public function setActivated(bool $value): void
+    public function setActivated(bool $activated): void
     {
-        $this->_activated = $value;
+        $this->_activated = $activated;
     }
 
     /**
@@ -92,9 +92,9 @@ class SubscriptionChange extends RecurlyResource
     *
     * @return void
     */
-    public function setAddOns(array $value): void
+    public function setAddOns(array $add_ons): void
     {
-        $this->_add_ons = $value;
+        $this->_add_ons = $add_ons;
     }
 
     /**
@@ -114,9 +114,9 @@ class SubscriptionChange extends RecurlyResource
     *
     * @return void
     */
-    public function setCreatedAt(string $value): void
+    public function setCreatedAt(string $created_at): void
     {
-        $this->_created_at = $value;
+        $this->_created_at = $created_at;
     }
 
     /**
@@ -136,9 +136,9 @@ class SubscriptionChange extends RecurlyResource
     *
     * @return void
     */
-    public function setDeletedAt(string $value): void
+    public function setDeletedAt(string $deleted_at): void
     {
-        $this->_deleted_at = $value;
+        $this->_deleted_at = $deleted_at;
     }
 
     /**
@@ -158,9 +158,9 @@ class SubscriptionChange extends RecurlyResource
     *
     * @return void
     */
-    public function setId(string $value): void
+    public function setId(string $id): void
     {
-        $this->_id = $value;
+        $this->_id = $id;
     }
 
     /**
@@ -180,9 +180,9 @@ class SubscriptionChange extends RecurlyResource
     *
     * @return void
     */
-    public function setObject(string $value): void
+    public function setObject(string $object): void
     {
-        $this->_object = $value;
+        $this->_object = $object;
     }
 
     /**
@@ -202,9 +202,9 @@ class SubscriptionChange extends RecurlyResource
     *
     * @return void
     */
-    public function setPlan(\Recurly\Resources\PlanMini $value): void
+    public function setPlan(\Recurly\Resources\PlanMini $plan): void
     {
-        $this->_plan = $value;
+        $this->_plan = $plan;
     }
 
     /**
@@ -224,9 +224,9 @@ class SubscriptionChange extends RecurlyResource
     *
     * @return void
     */
-    public function setQuantity(int $value): void
+    public function setQuantity(int $quantity): void
     {
-        $this->_quantity = $value;
+        $this->_quantity = $quantity;
     }
 
     /**
@@ -246,9 +246,9 @@ class SubscriptionChange extends RecurlyResource
     *
     * @return void
     */
-    public function setShipping(\Recurly\Resources\SubscriptionShipping $value): void
+    public function setShipping(\Recurly\Resources\SubscriptionShipping $shipping): void
     {
-        $this->_shipping = $value;
+        $this->_shipping = $shipping;
     }
 
     /**
@@ -268,9 +268,9 @@ class SubscriptionChange extends RecurlyResource
     *
     * @return void
     */
-    public function setSubscriptionId(string $value): void
+    public function setSubscriptionId(string $subscription_id): void
     {
-        $this->_subscription_id = $value;
+        $this->_subscription_id = $subscription_id;
     }
 
     /**
@@ -290,9 +290,9 @@ class SubscriptionChange extends RecurlyResource
     *
     * @return void
     */
-    public function setUnitAmount(float $value): void
+    public function setUnitAmount(float $unit_amount): void
     {
-        $this->_unit_amount = $value;
+        $this->_unit_amount = $unit_amount;
     }
 
     /**
@@ -312,8 +312,8 @@ class SubscriptionChange extends RecurlyResource
     *
     * @return void
     */
-    public function setUpdatedAt(string $value): void
+    public function setUpdatedAt(string $updated_at): void
     {
-        $this->_updated_at = $value;
+        $this->_updated_at = $updated_at;
     }
 }

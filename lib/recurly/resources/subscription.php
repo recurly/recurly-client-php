@@ -77,9 +77,9 @@ class Subscription extends RecurlyResource
     *
     * @return void
     */
-    public function setAccount(\Recurly\Resources\AccountMini $value): void
+    public function setAccount(\Recurly\Resources\AccountMini $account): void
     {
-        $this->_account = $value;
+        $this->_account = $account;
     }
 
     /**
@@ -99,9 +99,9 @@ class Subscription extends RecurlyResource
     *
     * @return void
     */
-    public function setActivatedAt(string $value): void
+    public function setActivatedAt(string $activated_at): void
     {
-        $this->_activated_at = $value;
+        $this->_activated_at = $activated_at;
     }
 
     /**
@@ -121,9 +121,9 @@ class Subscription extends RecurlyResource
     *
     * @return void
     */
-    public function setAddOns(array $value): void
+    public function setAddOns(array $add_ons): void
     {
-        $this->_add_ons = $value;
+        $this->_add_ons = $add_ons;
     }
 
     /**
@@ -143,9 +143,9 @@ class Subscription extends RecurlyResource
     *
     * @return void
     */
-    public function setAddOnsTotal(float $value): void
+    public function setAddOnsTotal(float $add_ons_total): void
     {
-        $this->_add_ons_total = $value;
+        $this->_add_ons_total = $add_ons_total;
     }
 
     /**
@@ -165,9 +165,9 @@ class Subscription extends RecurlyResource
     *
     * @return void
     */
-    public function setAutoRenew(bool $value): void
+    public function setAutoRenew(bool $auto_renew): void
     {
-        $this->_auto_renew = $value;
+        $this->_auto_renew = $auto_renew;
     }
 
     /**
@@ -187,9 +187,9 @@ class Subscription extends RecurlyResource
     *
     * @return void
     */
-    public function setBankAccountAuthorizedAt(string $value): void
+    public function setBankAccountAuthorizedAt(string $bank_account_authorized_at): void
     {
-        $this->_bank_account_authorized_at = $value;
+        $this->_bank_account_authorized_at = $bank_account_authorized_at;
     }
 
     /**
@@ -209,9 +209,9 @@ class Subscription extends RecurlyResource
     *
     * @return void
     */
-    public function setCanceledAt(string $value): void
+    public function setCanceledAt(string $canceled_at): void
     {
-        $this->_canceled_at = $value;
+        $this->_canceled_at = $canceled_at;
     }
 
     /**
@@ -231,9 +231,9 @@ class Subscription extends RecurlyResource
     *
     * @return void
     */
-    public function setCollectionMethod(string $value): void
+    public function setCollectionMethod(string $collection_method): void
     {
-        $this->_collection_method = $value;
+        $this->_collection_method = $collection_method;
     }
 
     /**
@@ -253,9 +253,9 @@ class Subscription extends RecurlyResource
     *
     * @return void
     */
-    public function setCouponRedemptions(array $value): void
+    public function setCouponRedemptions(array $coupon_redemptions): void
     {
-        $this->_coupon_redemptions = $value;
+        $this->_coupon_redemptions = $coupon_redemptions;
     }
 
     /**
@@ -275,9 +275,9 @@ class Subscription extends RecurlyResource
     *
     * @return void
     */
-    public function setCreatedAt(string $value): void
+    public function setCreatedAt(string $created_at): void
     {
-        $this->_created_at = $value;
+        $this->_created_at = $created_at;
     }
 
     /**
@@ -297,9 +297,9 @@ class Subscription extends RecurlyResource
     *
     * @return void
     */
-    public function setCurrency(string $value): void
+    public function setCurrency(string $currency): void
     {
-        $this->_currency = $value;
+        $this->_currency = $currency;
     }
 
     /**
@@ -319,9 +319,9 @@ class Subscription extends RecurlyResource
     *
     * @return void
     */
-    public function setCurrentPeriodEndsAt(string $value): void
+    public function setCurrentPeriodEndsAt(string $current_period_ends_at): void
     {
-        $this->_current_period_ends_at = $value;
+        $this->_current_period_ends_at = $current_period_ends_at;
     }
 
     /**
@@ -341,9 +341,9 @@ class Subscription extends RecurlyResource
     *
     * @return void
     */
-    public function setCurrentPeriodStartedAt(string $value): void
+    public function setCurrentPeriodStartedAt(string $current_period_started_at): void
     {
-        $this->_current_period_started_at = $value;
+        $this->_current_period_started_at = $current_period_started_at;
     }
 
     /**
@@ -363,9 +363,9 @@ class Subscription extends RecurlyResource
     *
     * @return void
     */
-    public function setCurrentTermEndsAt(string $value): void
+    public function setCurrentTermEndsAt(string $current_term_ends_at): void
     {
-        $this->_current_term_ends_at = $value;
+        $this->_current_term_ends_at = $current_term_ends_at;
     }
 
     /**
@@ -385,9 +385,9 @@ class Subscription extends RecurlyResource
     *
     * @return void
     */
-    public function setCurrentTermStartedAt(string $value): void
+    public function setCurrentTermStartedAt(string $current_term_started_at): void
     {
-        $this->_current_term_started_at = $value;
+        $this->_current_term_started_at = $current_term_started_at;
     }
 
     /**
@@ -407,9 +407,9 @@ class Subscription extends RecurlyResource
     *
     * @return void
     */
-    public function setCustomFields(array $value): void
+    public function setCustomFields(array $custom_fields): void
     {
-        $this->_custom_fields = $value;
+        $this->_custom_fields = $custom_fields;
     }
 
     /**
@@ -429,9 +429,9 @@ class Subscription extends RecurlyResource
     *
     * @return void
     */
-    public function setCustomerNotes(string $value): void
+    public function setCustomerNotes(string $customer_notes): void
     {
-        $this->_customer_notes = $value;
+        $this->_customer_notes = $customer_notes;
     }
 
     /**
@@ -451,9 +451,9 @@ class Subscription extends RecurlyResource
     *
     * @return void
     */
-    public function setExpirationReason(string $value): void
+    public function setExpirationReason(string $expiration_reason): void
     {
-        $this->_expiration_reason = $value;
+        $this->_expiration_reason = $expiration_reason;
     }
 
     /**
@@ -473,9 +473,9 @@ class Subscription extends RecurlyResource
     *
     * @return void
     */
-    public function setExpiresAt(string $value): void
+    public function setExpiresAt(string $expires_at): void
     {
-        $this->_expires_at = $value;
+        $this->_expires_at = $expires_at;
     }
 
     /**
@@ -495,9 +495,9 @@ class Subscription extends RecurlyResource
     *
     * @return void
     */
-    public function setId(string $value): void
+    public function setId(string $id): void
     {
-        $this->_id = $value;
+        $this->_id = $id;
     }
 
     /**
@@ -517,9 +517,9 @@ class Subscription extends RecurlyResource
     *
     * @return void
     */
-    public function setNetTerms(int $value): void
+    public function setNetTerms(int $net_terms): void
     {
-        $this->_net_terms = $value;
+        $this->_net_terms = $net_terms;
     }
 
     /**
@@ -539,9 +539,9 @@ class Subscription extends RecurlyResource
     *
     * @return void
     */
-    public function setObject(string $value): void
+    public function setObject(string $object): void
     {
-        $this->_object = $value;
+        $this->_object = $object;
     }
 
     /**
@@ -561,9 +561,9 @@ class Subscription extends RecurlyResource
     *
     * @return void
     */
-    public function setPausedAt(string $value): void
+    public function setPausedAt(string $paused_at): void
     {
-        $this->_paused_at = $value;
+        $this->_paused_at = $paused_at;
     }
 
     /**
@@ -583,9 +583,9 @@ class Subscription extends RecurlyResource
     *
     * @return void
     */
-    public function setPendingChange(\Recurly\Resources\SubscriptionChange $value): void
+    public function setPendingChange(\Recurly\Resources\SubscriptionChange $pending_change): void
     {
-        $this->_pending_change = $value;
+        $this->_pending_change = $pending_change;
     }
 
     /**
@@ -605,9 +605,9 @@ class Subscription extends RecurlyResource
     *
     * @return void
     */
-    public function setPlan(\Recurly\Resources\PlanMini $value): void
+    public function setPlan(\Recurly\Resources\PlanMini $plan): void
     {
-        $this->_plan = $value;
+        $this->_plan = $plan;
     }
 
     /**
@@ -627,9 +627,9 @@ class Subscription extends RecurlyResource
     *
     * @return void
     */
-    public function setPoNumber(string $value): void
+    public function setPoNumber(string $po_number): void
     {
-        $this->_po_number = $value;
+        $this->_po_number = $po_number;
     }
 
     /**
@@ -649,9 +649,9 @@ class Subscription extends RecurlyResource
     *
     * @return void
     */
-    public function setQuantity(int $value): void
+    public function setQuantity(int $quantity): void
     {
-        $this->_quantity = $value;
+        $this->_quantity = $quantity;
     }
 
     /**
@@ -671,9 +671,9 @@ class Subscription extends RecurlyResource
     *
     * @return void
     */
-    public function setRemainingBillingCycles(int $value): void
+    public function setRemainingBillingCycles(int $remaining_billing_cycles): void
     {
-        $this->_remaining_billing_cycles = $value;
+        $this->_remaining_billing_cycles = $remaining_billing_cycles;
     }
 
     /**
@@ -693,9 +693,9 @@ class Subscription extends RecurlyResource
     *
     * @return void
     */
-    public function setRemainingPauseCycles(int $value): void
+    public function setRemainingPauseCycles(int $remaining_pause_cycles): void
     {
-        $this->_remaining_pause_cycles = $value;
+        $this->_remaining_pause_cycles = $remaining_pause_cycles;
     }
 
     /**
@@ -715,9 +715,9 @@ class Subscription extends RecurlyResource
     *
     * @return void
     */
-    public function setRenewalBillingCycles(int $value): void
+    public function setRenewalBillingCycles(int $renewal_billing_cycles): void
     {
-        $this->_renewal_billing_cycles = $value;
+        $this->_renewal_billing_cycles = $renewal_billing_cycles;
     }
 
     /**
@@ -737,9 +737,9 @@ class Subscription extends RecurlyResource
     *
     * @return void
     */
-    public function setShipping(\Recurly\Resources\SubscriptionShipping $value): void
+    public function setShipping(\Recurly\Resources\SubscriptionShipping $shipping): void
     {
-        $this->_shipping = $value;
+        $this->_shipping = $shipping;
     }
 
     /**
@@ -759,9 +759,9 @@ class Subscription extends RecurlyResource
     *
     * @return void
     */
-    public function setState(string $value): void
+    public function setState(string $state): void
     {
-        $this->_state = $value;
+        $this->_state = $state;
     }
 
     /**
@@ -781,9 +781,9 @@ class Subscription extends RecurlyResource
     *
     * @return void
     */
-    public function setSubtotal(float $value): void
+    public function setSubtotal(float $subtotal): void
     {
-        $this->_subtotal = $value;
+        $this->_subtotal = $subtotal;
     }
 
     /**
@@ -803,9 +803,9 @@ class Subscription extends RecurlyResource
     *
     * @return void
     */
-    public function setTermsAndConditions(string $value): void
+    public function setTermsAndConditions(string $terms_and_conditions): void
     {
-        $this->_terms_and_conditions = $value;
+        $this->_terms_and_conditions = $terms_and_conditions;
     }
 
     /**
@@ -825,9 +825,9 @@ class Subscription extends RecurlyResource
     *
     * @return void
     */
-    public function setTotalBillingCycles(int $value): void
+    public function setTotalBillingCycles(int $total_billing_cycles): void
     {
-        $this->_total_billing_cycles = $value;
+        $this->_total_billing_cycles = $total_billing_cycles;
     }
 
     /**
@@ -847,9 +847,9 @@ class Subscription extends RecurlyResource
     *
     * @return void
     */
-    public function setTrialEndsAt(string $value): void
+    public function setTrialEndsAt(string $trial_ends_at): void
     {
-        $this->_trial_ends_at = $value;
+        $this->_trial_ends_at = $trial_ends_at;
     }
 
     /**
@@ -869,9 +869,9 @@ class Subscription extends RecurlyResource
     *
     * @return void
     */
-    public function setTrialStartedAt(string $value): void
+    public function setTrialStartedAt(string $trial_started_at): void
     {
-        $this->_trial_started_at = $value;
+        $this->_trial_started_at = $trial_started_at;
     }
 
     /**
@@ -891,9 +891,9 @@ class Subscription extends RecurlyResource
     *
     * @return void
     */
-    public function setUnitAmount(float $value): void
+    public function setUnitAmount(float $unit_amount): void
     {
-        $this->_unit_amount = $value;
+        $this->_unit_amount = $unit_amount;
     }
 
     /**
@@ -913,9 +913,9 @@ class Subscription extends RecurlyResource
     *
     * @return void
     */
-    public function setUpdatedAt(string $value): void
+    public function setUpdatedAt(string $updated_at): void
     {
-        $this->_updated_at = $value;
+        $this->_updated_at = $updated_at;
     }
 
     /**
@@ -935,8 +935,8 @@ class Subscription extends RecurlyResource
     *
     * @return void
     */
-    public function setUuid(string $value): void
+    public function setUuid(string $uuid): void
     {
-        $this->_uuid = $value;
+        $this->_uuid = $uuid;
     }
 }

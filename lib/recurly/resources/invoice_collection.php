@@ -38,9 +38,9 @@ class InvoiceCollection extends RecurlyResource
     *
     * @return void
     */
-    public function setChargeInvoice(\Recurly\Resources\Invoice $value): void
+    public function setChargeInvoice(\Recurly\Resources\Invoice $charge_invoice): void
     {
-        $this->_charge_invoice = $value;
+        $this->_charge_invoice = $charge_invoice;
     }
 
     /**
@@ -60,9 +60,9 @@ class InvoiceCollection extends RecurlyResource
     *
     * @return void
     */
-    public function setCreditInvoices(array $value): void
+    public function setCreditInvoices(array $credit_invoices): void
     {
-        $this->_credit_invoices = $value;
+        $this->_credit_invoices = $credit_invoices;
     }
 
     /**
@@ -82,8 +82,8 @@ class InvoiceCollection extends RecurlyResource
     *
     * @return void
     */
-    public function setObject(string $value): void
+    public function setObject(string $object): void
     {
-        $this->_object = $value;
+        $this->_object = $object;
     }
 }

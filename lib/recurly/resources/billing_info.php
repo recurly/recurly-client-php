@@ -48,9 +48,9 @@ class BillingInfo extends RecurlyResource
     *
     * @return void
     */
-    public function setAccountId(string $value): void
+    public function setAccountId(string $account_id): void
     {
-        $this->_account_id = $value;
+        $this->_account_id = $account_id;
     }
 
     /**
@@ -70,9 +70,9 @@ class BillingInfo extends RecurlyResource
     *
     * @return void
     */
-    public function setAddress(\Recurly\Resources\Address $value): void
+    public function setAddress(\Recurly\Resources\Address $address): void
     {
-        $this->_address = $value;
+        $this->_address = $address;
     }
 
     /**
@@ -92,9 +92,9 @@ class BillingInfo extends RecurlyResource
     *
     * @return void
     */
-    public function setCompany(string $value): void
+    public function setCompany(string $company): void
     {
-        $this->_company = $value;
+        $this->_company = $company;
     }
 
     /**
@@ -114,9 +114,9 @@ class BillingInfo extends RecurlyResource
     *
     * @return void
     */
-    public function setCreatedAt(string $value): void
+    public function setCreatedAt(string $created_at): void
     {
-        $this->_created_at = $value;
+        $this->_created_at = $created_at;
     }
 
     /**
@@ -136,9 +136,9 @@ class BillingInfo extends RecurlyResource
     *
     * @return void
     */
-    public function setFirstName(string $value): void
+    public function setFirstName(string $first_name): void
     {
-        $this->_first_name = $value;
+        $this->_first_name = $first_name;
     }
 
     /**
@@ -158,9 +158,9 @@ class BillingInfo extends RecurlyResource
     *
     * @return void
     */
-    public function setFraud(\Recurly\Resources\FraudInfo $value): void
+    public function setFraud(\Recurly\Resources\FraudInfo $fraud): void
     {
-        $this->_fraud = $value;
+        $this->_fraud = $fraud;
     }
 
     /**
@@ -180,9 +180,9 @@ class BillingInfo extends RecurlyResource
     *
     * @return void
     */
-    public function setId(string $value): void
+    public function setId(string $id): void
     {
-        $this->_id = $value;
+        $this->_id = $id;
     }
 
     /**
@@ -202,9 +202,9 @@ class BillingInfo extends RecurlyResource
     *
     * @return void
     */
-    public function setLastName(string $value): void
+    public function setLastName(string $last_name): void
     {
-        $this->_last_name = $value;
+        $this->_last_name = $last_name;
     }
 
     /**
@@ -224,9 +224,9 @@ class BillingInfo extends RecurlyResource
     *
     * @return void
     */
-    public function setObject(string $value): void
+    public function setObject(string $object): void
     {
-        $this->_object = $value;
+        $this->_object = $object;
     }
 
     /**
@@ -246,9 +246,9 @@ class BillingInfo extends RecurlyResource
     *
     * @return void
     */
-    public function setPaymentMethod(\Recurly\Resources\PaymentMethod $value): void
+    public function setPaymentMethod(\Recurly\Resources\PaymentMethod $payment_method): void
     {
-        $this->_payment_method = $value;
+        $this->_payment_method = $payment_method;
     }
 
     /**
@@ -268,9 +268,9 @@ class BillingInfo extends RecurlyResource
     *
     * @return void
     */
-    public function setUpdatedAt(string $value): void
+    public function setUpdatedAt(string $updated_at): void
     {
-        $this->_updated_at = $value;
+        $this->_updated_at = $updated_at;
     }
 
     /**
@@ -290,9 +290,9 @@ class BillingInfo extends RecurlyResource
     *
     * @return void
     */
-    public function setUpdatedBy(\Recurly\Resources\BillingInfoUpdatedBy $value): void
+    public function setUpdatedBy(\Recurly\Resources\BillingInfoUpdatedBy $updated_by): void
     {
-        $this->_updated_by = $value;
+        $this->_updated_by = $updated_by;
     }
 
     /**
@@ -312,9 +312,9 @@ class BillingInfo extends RecurlyResource
     *
     * @return void
     */
-    public function setValid(bool $value): void
+    public function setValid(bool $valid): void
     {
-        $this->_valid = $value;
+        $this->_valid = $valid;
     }
 
     /**
@@ -334,8 +334,8 @@ class BillingInfo extends RecurlyResource
     *
     * @return void
     */
-    public function setVatNumber(string $value): void
+    public function setVatNumber(string $vat_number): void
     {
-        $this->_vat_number = $value;
+        $this->_vat_number = $vat_number;
     }
 }

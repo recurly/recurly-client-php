@@ -43,9 +43,9 @@ class AccountMini extends RecurlyResource
     *
     * @return void
     */
-    public function setBillTo(string $value): void
+    public function setBillTo(string $bill_to): void
     {
-        $this->_bill_to = $value;
+        $this->_bill_to = $bill_to;
     }
 
     /**
@@ -65,9 +65,9 @@ class AccountMini extends RecurlyResource
     *
     * @return void
     */
-    public function setCode(string $value): void
+    public function setCode(string $code): void
     {
-        $this->_code = $value;
+        $this->_code = $code;
     }
 
     /**
@@ -87,9 +87,9 @@ class AccountMini extends RecurlyResource
     *
     * @return void
     */
-    public function setCompany(string $value): void
+    public function setCompany(string $company): void
     {
-        $this->_company = $value;
+        $this->_company = $company;
     }
 
     /**
@@ -109,9 +109,9 @@ class AccountMini extends RecurlyResource
     *
     * @return void
     */
-    public function setEmail(string $value): void
+    public function setEmail(string $email): void
     {
-        $this->_email = $value;
+        $this->_email = $email;
     }
 
     /**
@@ -131,9 +131,9 @@ class AccountMini extends RecurlyResource
     *
     * @return void
     */
-    public function setFirstName(string $value): void
+    public function setFirstName(string $first_name): void
     {
-        $this->_first_name = $value;
+        $this->_first_name = $first_name;
     }
 
     /**
@@ -153,9 +153,9 @@ class AccountMini extends RecurlyResource
     *
     * @return void
     */
-    public function setId(string $value): void
+    public function setId(string $id): void
     {
-        $this->_id = $value;
+        $this->_id = $id;
     }
 
     /**
@@ -175,9 +175,9 @@ class AccountMini extends RecurlyResource
     *
     * @return void
     */
-    public function setLastName(string $value): void
+    public function setLastName(string $last_name): void
     {
-        $this->_last_name = $value;
+        $this->_last_name = $last_name;
     }
 
     /**
@@ -197,9 +197,9 @@ class AccountMini extends RecurlyResource
     *
     * @return void
     */
-    public function setObject(string $value): void
+    public function setObject(string $object): void
     {
-        $this->_object = $value;
+        $this->_object = $object;
     }
 
     /**
@@ -219,8 +219,8 @@ class AccountMini extends RecurlyResource
     *
     * @return void
     */
-    public function setParentAccountId(string $value): void
+    public function setParentAccountId(string $parent_account_id): void
     {
-        $this->_parent_account_id = $value;
+        $this->_parent_account_id = $parent_account_id;
     }
 }

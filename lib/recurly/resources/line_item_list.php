@@ -39,9 +39,9 @@ class LineItemList extends RecurlyResource
     *
     * @return void
     */
-    public function setData(array $value): void
+    public function setData(array $data): void
     {
-        $this->_data = $value;
+        $this->_data = $data;
     }
 
     /**
@@ -61,9 +61,9 @@ class LineItemList extends RecurlyResource
     *
     * @return void
     */
-    public function setHasMore(bool $value): void
+    public function setHasMore(bool $has_more): void
     {
-        $this->_has_more = $value;
+        $this->_has_more = $has_more;
     }
 
     /**
@@ -83,9 +83,9 @@ class LineItemList extends RecurlyResource
     *
     * @return void
     */
-    public function setNext(string $value): void
+    public function setNext(string $next): void
     {
-        $this->_next = $value;
+        $this->_next = $next;
     }
 
     /**
@@ -105,8 +105,8 @@ class LineItemList extends RecurlyResource
     *
     * @return void
     */
-    public function setObject(string $value): void
+    public function setObject(string $object): void
     {
-        $this->_object = $value;
+        $this->_object = $object;
     }
 }

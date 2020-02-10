@@ -1237,7 +1237,7 @@ class Client extends BaseClient
     public function collectInvoice(string $invoice_id, array $body = []): \Recurly\Resources\Invoice // phpcs:ignore Generic.Files.LineLength.TooLong
     {
         $path = $this->interpolatePath("/invoices/{invoice_id}/collect", ['invoice_id' => $invoice_id]); // phpcs:ignore Generic.Files.LineLength.TooLong
-        return $this->makeRequest('PUT', $path, null, $options);
+        return $this->makeRequest('PUT', $path, $body, null);
     }
   
     /**
@@ -1384,7 +1384,7 @@ class Client extends BaseClient
     public function listRelatedInvoices(string $invoice_id): \Recurly\Pager // phpcs:ignore Generic.Files.LineLength.TooLong
     {
         $path = $this->interpolatePath("/invoices/{invoice_id}/related_invoices", ['invoice_id' => $invoice_id]); // phpcs:ignore Generic.Files.LineLength.TooLong
-        return new \Recurly\Pager($this, $path, $options);
+        return new \Recurly\Pager($this, $path, null);
     }
   
     /**
@@ -1891,7 +1891,7 @@ class Client extends BaseClient
     public function cancelSubscription(string $subscription_id, array $body = []): \Recurly\Resources\Subscription // phpcs:ignore Generic.Files.LineLength.TooLong
     {
         $path = $this->interpolatePath("/subscriptions/{subscription_id}/cancel", ['subscription_id' => $subscription_id]); // phpcs:ignore Generic.Files.LineLength.TooLong
-        return $this->makeRequest('PUT', $path, null, $options);
+        return $this->makeRequest('PUT', $path, $body, null);
     }
   
     /**

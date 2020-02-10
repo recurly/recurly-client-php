@@ -42,9 +42,9 @@ class CouponMini extends RecurlyResource
     *
     * @return void
     */
-    public function setCode(string $value): void
+    public function setCode(string $code): void
     {
-        $this->_code = $value;
+        $this->_code = $code;
     }
 
     /**
@@ -64,9 +64,9 @@ class CouponMini extends RecurlyResource
     *
     * @return void
     */
-    public function setCouponType(string $value): void
+    public function setCouponType(string $coupon_type): void
     {
-        $this->_coupon_type = $value;
+        $this->_coupon_type = $coupon_type;
     }
 
     /**
@@ -88,9 +88,9 @@ property and one of the following properties: `percent`, `fixed`, `trial`.
     *
     * @return void
     */
-    public function setDiscount(\Recurly\Resources\CouponDiscount $value): void
+    public function setDiscount(\Recurly\Resources\CouponDiscount $discount): void
     {
-        $this->_discount = $value;
+        $this->_discount = $discount;
     }
 
     /**
@@ -110,9 +110,9 @@ property and one of the following properties: `percent`, `fixed`, `trial`.
     *
     * @return void
     */
-    public function setExpiredAt(string $value): void
+    public function setExpiredAt(string $expired_at): void
     {
-        $this->_expired_at = $value;
+        $this->_expired_at = $expired_at;
     }
 
     /**
@@ -132,9 +132,9 @@ property and one of the following properties: `percent`, `fixed`, `trial`.
     *
     * @return void
     */
-    public function setId(string $value): void
+    public function setId(string $id): void
     {
-        $this->_id = $value;
+        $this->_id = $id;
     }
 
     /**
@@ -154,9 +154,9 @@ property and one of the following properties: `percent`, `fixed`, `trial`.
     *
     * @return void
     */
-    public function setName(string $value): void
+    public function setName(string $name): void
     {
-        $this->_name = $value;
+        $this->_name = $name;
     }
 
     /**
@@ -176,9 +176,9 @@ property and one of the following properties: `percent`, `fixed`, `trial`.
     *
     * @return void
     */
-    public function setObject(string $value): void
+    public function setObject(string $object): void
     {
-        $this->_object = $value;
+        $this->_object = $object;
     }
 
     /**
@@ -198,8 +198,8 @@ property and one of the following properties: `percent`, `fixed`, `trial`.
     *
     * @return void
     */
-    public function setState(string $value): void
+    public function setState(string $state): void
     {
-        $this->_state = $value;
+        $this->_state = $state;
     }
 }

@@ -63,9 +63,9 @@ class Coupon extends RecurlyResource
     *
     * @return void
     */
-    public function setAppliesToAllPlans(bool $value): void
+    public function setAppliesToAllPlans(bool $applies_to_all_plans): void
     {
-        $this->_applies_to_all_plans = $value;
+        $this->_applies_to_all_plans = $applies_to_all_plans;
     }
 
     /**
@@ -85,9 +85,9 @@ class Coupon extends RecurlyResource
     *
     * @return void
     */
-    public function setAppliesToNonPlanCharges(bool $value): void
+    public function setAppliesToNonPlanCharges(bool $applies_to_non_plan_charges): void
     {
-        $this->_applies_to_non_plan_charges = $value;
+        $this->_applies_to_non_plan_charges = $applies_to_non_plan_charges;
     }
 
     /**
@@ -107,9 +107,9 @@ class Coupon extends RecurlyResource
     *
     * @return void
     */
-    public function setCode(string $value): void
+    public function setCode(string $code): void
     {
-        $this->_code = $value;
+        $this->_code = $code;
     }
 
     /**
@@ -129,9 +129,9 @@ class Coupon extends RecurlyResource
     *
     * @return void
     */
-    public function setCouponType(string $value): void
+    public function setCouponType(string $coupon_type): void
     {
-        $this->_coupon_type = $value;
+        $this->_coupon_type = $coupon_type;
     }
 
     /**
@@ -151,9 +151,9 @@ class Coupon extends RecurlyResource
     *
     * @return void
     */
-    public function setCreatedAt(string $value): void
+    public function setCreatedAt(string $created_at): void
     {
-        $this->_created_at = $value;
+        $this->_created_at = $created_at;
     }
 
     /**
@@ -175,9 +175,9 @@ property and one of the following properties: `percent`, `fixed`, `trial`.
     *
     * @return void
     */
-    public function setDiscount(\Recurly\Resources\CouponDiscount $value): void
+    public function setDiscount(\Recurly\Resources\CouponDiscount $discount): void
     {
-        $this->_discount = $value;
+        $this->_discount = $discount;
     }
 
     /**
@@ -199,9 +199,9 @@ property and one of the following properties: `percent`, `fixed`, `trial`.
     *
     * @return void
     */
-    public function setDuration(string $value): void
+    public function setDuration(string $duration): void
     {
-        $this->_duration = $value;
+        $this->_duration = $duration;
     }
 
     /**
@@ -221,9 +221,9 @@ property and one of the following properties: `percent`, `fixed`, `trial`.
     *
     * @return void
     */
-    public function setExpiredAt(string $value): void
+    public function setExpiredAt(string $expired_at): void
     {
-        $this->_expired_at = $value;
+        $this->_expired_at = $expired_at;
     }
 
     /**
@@ -243,9 +243,9 @@ property and one of the following properties: `percent`, `fixed`, `trial`.
     *
     * @return void
     */
-    public function setFreeTrialAmount(int $value): void
+    public function setFreeTrialAmount(int $free_trial_amount): void
     {
-        $this->_free_trial_amount = $value;
+        $this->_free_trial_amount = $free_trial_amount;
     }
 
     /**
@@ -265,9 +265,9 @@ property and one of the following properties: `percent`, `fixed`, `trial`.
     *
     * @return void
     */
-    public function setFreeTrialUnit(string $value): void
+    public function setFreeTrialUnit(string $free_trial_unit): void
     {
-        $this->_free_trial_unit = $value;
+        $this->_free_trial_unit = $free_trial_unit;
     }
 
     /**
@@ -287,9 +287,9 @@ property and one of the following properties: `percent`, `fixed`, `trial`.
     *
     * @return void
     */
-    public function setHostedPageDescription(string $value): void
+    public function setHostedPageDescription(string $hosted_page_description): void
     {
-        $this->_hosted_page_description = $value;
+        $this->_hosted_page_description = $hosted_page_description;
     }
 
     /**
@@ -309,9 +309,9 @@ property and one of the following properties: `percent`, `fixed`, `trial`.
     *
     * @return void
     */
-    public function setId(string $value): void
+    public function setId(string $id): void
     {
-        $this->_id = $value;
+        $this->_id = $id;
     }
 
     /**
@@ -331,9 +331,9 @@ property and one of the following properties: `percent`, `fixed`, `trial`.
     *
     * @return void
     */
-    public function setInvoiceDescription(string $value): void
+    public function setInvoiceDescription(string $invoice_description): void
     {
-        $this->_invoice_description = $value;
+        $this->_invoice_description = $invoice_description;
     }
 
     /**
@@ -353,9 +353,9 @@ property and one of the following properties: `percent`, `fixed`, `trial`.
     *
     * @return void
     */
-    public function setMaxRedemptions(int $value): void
+    public function setMaxRedemptions(int $max_redemptions): void
     {
-        $this->_max_redemptions = $value;
+        $this->_max_redemptions = $max_redemptions;
     }
 
     /**
@@ -375,9 +375,9 @@ property and one of the following properties: `percent`, `fixed`, `trial`.
     *
     * @return void
     */
-    public function setMaxRedemptionsPerAccount(int $value): void
+    public function setMaxRedemptionsPerAccount(int $max_redemptions_per_account): void
     {
-        $this->_max_redemptions_per_account = $value;
+        $this->_max_redemptions_per_account = $max_redemptions_per_account;
     }
 
     /**
@@ -397,9 +397,9 @@ property and one of the following properties: `percent`, `fixed`, `trial`.
     *
     * @return void
     */
-    public function setName(string $value): void
+    public function setName(string $name): void
     {
-        $this->_name = $value;
+        $this->_name = $name;
     }
 
     /**
@@ -419,9 +419,9 @@ property and one of the following properties: `percent`, `fixed`, `trial`.
     *
     * @return void
     */
-    public function setObject(string $value): void
+    public function setObject(string $object): void
     {
-        $this->_object = $value;
+        $this->_object = $object;
     }
 
     /**
@@ -441,9 +441,9 @@ property and one of the following properties: `percent`, `fixed`, `trial`.
     *
     * @return void
     */
-    public function setPlans(array $value): void
+    public function setPlans(array $plans): void
     {
-        $this->_plans = $value;
+        $this->_plans = $plans;
     }
 
     /**
@@ -463,9 +463,9 @@ property and one of the following properties: `percent`, `fixed`, `trial`.
     *
     * @return void
     */
-    public function setPlansNames(array $value): void
+    public function setPlansNames(array $plans_names): void
     {
-        $this->_plans_names = $value;
+        $this->_plans_names = $plans_names;
     }
 
     /**
@@ -485,9 +485,9 @@ property and one of the following properties: `percent`, `fixed`, `trial`.
     *
     * @return void
     */
-    public function setRedeemBy(string $value): void
+    public function setRedeemBy(string $redeem_by): void
     {
-        $this->_redeem_by = $value;
+        $this->_redeem_by = $redeem_by;
     }
 
     /**
@@ -507,9 +507,9 @@ property and one of the following properties: `percent`, `fixed`, `trial`.
     *
     * @return void
     */
-    public function setRedemptionResource(string $value): void
+    public function setRedemptionResource(string $redemption_resource): void
     {
-        $this->_redemption_resource = $value;
+        $this->_redemption_resource = $redemption_resource;
     }
 
     /**
@@ -529,9 +529,9 @@ property and one of the following properties: `percent`, `fixed`, `trial`.
     *
     * @return void
     */
-    public function setState(string $value): void
+    public function setState(string $state): void
     {
-        $this->_state = $value;
+        $this->_state = $state;
     }
 
     /**
@@ -551,9 +551,9 @@ property and one of the following properties: `percent`, `fixed`, `trial`.
     *
     * @return void
     */
-    public function setTemporalAmount(int $value): void
+    public function setTemporalAmount(int $temporal_amount): void
     {
-        $this->_temporal_amount = $value;
+        $this->_temporal_amount = $temporal_amount;
     }
 
     /**
@@ -573,9 +573,9 @@ property and one of the following properties: `percent`, `fixed`, `trial`.
     *
     * @return void
     */
-    public function setTemporalUnit(string $value): void
+    public function setTemporalUnit(string $temporal_unit): void
     {
-        $this->_temporal_unit = $value;
+        $this->_temporal_unit = $temporal_unit;
     }
 
     /**
@@ -595,9 +595,9 @@ property and one of the following properties: `percent`, `fixed`, `trial`.
     *
     * @return void
     */
-    public function setUniqueCodeTemplate(string $value): void
+    public function setUniqueCodeTemplate(string $unique_code_template): void
     {
-        $this->_unique_code_template = $value;
+        $this->_unique_code_template = $unique_code_template;
     }
 
     /**
@@ -617,9 +617,9 @@ property and one of the following properties: `percent`, `fixed`, `trial`.
     *
     * @return void
     */
-    public function setUniqueCouponCodesCount(int $value): void
+    public function setUniqueCouponCodesCount(int $unique_coupon_codes_count): void
     {
-        $this->_unique_coupon_codes_count = $value;
+        $this->_unique_coupon_codes_count = $unique_coupon_codes_count;
     }
 
     /**
@@ -639,8 +639,8 @@ property and one of the following properties: `percent`, `fixed`, `trial`.
     *
     * @return void
     */
-    public function setUpdatedAt(string $value): void
+    public function setUpdatedAt(string $updated_at): void
     {
-        $this->_updated_at = $value;
+        $this->_updated_at = $updated_at;
     }
 }

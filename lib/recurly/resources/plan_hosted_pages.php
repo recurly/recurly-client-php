@@ -38,9 +38,9 @@ class PlanHostedPages extends RecurlyResource
     *
     * @return void
     */
-    public function setBypassConfirmation(bool $value): void
+    public function setBypassConfirmation(bool $bypass_confirmation): void
     {
-        $this->_bypass_confirmation = $value;
+        $this->_bypass_confirmation = $bypass_confirmation;
     }
 
     /**
@@ -60,9 +60,9 @@ class PlanHostedPages extends RecurlyResource
     *
     * @return void
     */
-    public function setCancelUrl(string $value): void
+    public function setCancelUrl(string $cancel_url): void
     {
-        $this->_cancel_url = $value;
+        $this->_cancel_url = $cancel_url;
     }
 
     /**
@@ -82,9 +82,9 @@ class PlanHostedPages extends RecurlyResource
     *
     * @return void
     */
-    public function setDisplayQuantity(bool $value): void
+    public function setDisplayQuantity(bool $display_quantity): void
     {
-        $this->_display_quantity = $value;
+        $this->_display_quantity = $display_quantity;
     }
 
     /**
@@ -104,8 +104,8 @@ class PlanHostedPages extends RecurlyResource
     *
     * @return void
     */
-    public function setSuccessUrl(string $value): void
+    public function setSuccessUrl(string $success_url): void
     {
-        $this->_success_url = $value;
+        $this->_success_url = $success_url;
     }
 }

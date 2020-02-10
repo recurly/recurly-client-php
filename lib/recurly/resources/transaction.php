@@ -71,9 +71,9 @@ class Transaction extends RecurlyResource
     *
     * @return void
     */
-    public function setAccount(\Recurly\Resources\AccountMini $value): void
+    public function setAccount(\Recurly\Resources\AccountMini $account): void
     {
-        $this->_account = $value;
+        $this->_account = $account;
     }
 
     /**
@@ -93,9 +93,9 @@ class Transaction extends RecurlyResource
     *
     * @return void
     */
-    public function setAmount(float $value): void
+    public function setAmount(float $amount): void
     {
-        $this->_amount = $value;
+        $this->_amount = $amount;
     }
 
     /**
@@ -115,9 +115,9 @@ class Transaction extends RecurlyResource
     *
     * @return void
     */
-    public function setAvsCheck(string $value): void
+    public function setAvsCheck(string $avs_check): void
     {
-        $this->_avs_check = $value;
+        $this->_avs_check = $avs_check;
     }
 
     /**
@@ -137,9 +137,9 @@ class Transaction extends RecurlyResource
     *
     * @return void
     */
-    public function setBillingAddress(\Recurly\Resources\Address $value): void
+    public function setBillingAddress(\Recurly\Resources\Address $billing_address): void
     {
-        $this->_billing_address = $value;
+        $this->_billing_address = $billing_address;
     }
 
     /**
@@ -159,9 +159,9 @@ class Transaction extends RecurlyResource
     *
     * @return void
     */
-    public function setCollectedAt(string $value): void
+    public function setCollectedAt(string $collected_at): void
     {
-        $this->_collected_at = $value;
+        $this->_collected_at = $collected_at;
     }
 
     /**
@@ -181,9 +181,9 @@ class Transaction extends RecurlyResource
     *
     * @return void
     */
-    public function setCollectionMethod(string $value): void
+    public function setCollectionMethod(string $collection_method): void
     {
-        $this->_collection_method = $value;
+        $this->_collection_method = $collection_method;
     }
 
     /**
@@ -203,9 +203,9 @@ class Transaction extends RecurlyResource
     *
     * @return void
     */
-    public function setCreatedAt(string $value): void
+    public function setCreatedAt(string $created_at): void
     {
-        $this->_created_at = $value;
+        $this->_created_at = $created_at;
     }
 
     /**
@@ -225,9 +225,9 @@ class Transaction extends RecurlyResource
     *
     * @return void
     */
-    public function setCurrency(string $value): void
+    public function setCurrency(string $currency): void
     {
-        $this->_currency = $value;
+        $this->_currency = $currency;
     }
 
     /**
@@ -247,9 +247,9 @@ class Transaction extends RecurlyResource
     *
     * @return void
     */
-    public function setCustomerMessage(string $value): void
+    public function setCustomerMessage(string $customer_message): void
     {
-        $this->_customer_message = $value;
+        $this->_customer_message = $customer_message;
     }
 
     /**
@@ -269,9 +269,9 @@ class Transaction extends RecurlyResource
     *
     * @return void
     */
-    public function setCustomerMessageLocale(string $value): void
+    public function setCustomerMessageLocale(string $customer_message_locale): void
     {
-        $this->_customer_message_locale = $value;
+        $this->_customer_message_locale = $customer_message_locale;
     }
 
     /**
@@ -291,9 +291,9 @@ class Transaction extends RecurlyResource
     *
     * @return void
     */
-    public function setCvvCheck(string $value): void
+    public function setCvvCheck(string $cvv_check): void
     {
-        $this->_cvv_check = $value;
+        $this->_cvv_check = $cvv_check;
     }
 
     /**
@@ -313,9 +313,9 @@ class Transaction extends RecurlyResource
     *
     * @return void
     */
-    public function setGatewayApprovalCode(string $value): void
+    public function setGatewayApprovalCode(string $gateway_approval_code): void
     {
-        $this->_gateway_approval_code = $value;
+        $this->_gateway_approval_code = $gateway_approval_code;
     }
 
     /**
@@ -335,9 +335,9 @@ class Transaction extends RecurlyResource
     *
     * @return void
     */
-    public function setGatewayMessage(string $value): void
+    public function setGatewayMessage(string $gateway_message): void
     {
-        $this->_gateway_message = $value;
+        $this->_gateway_message = $gateway_message;
     }
 
     /**
@@ -357,9 +357,9 @@ class Transaction extends RecurlyResource
     *
     * @return void
     */
-    public function setGatewayReference(string $value): void
+    public function setGatewayReference(string $gateway_reference): void
     {
-        $this->_gateway_reference = $value;
+        $this->_gateway_reference = $gateway_reference;
     }
 
     /**
@@ -379,9 +379,9 @@ class Transaction extends RecurlyResource
     *
     * @return void
     */
-    public function setGatewayResponseCode(string $value): void
+    public function setGatewayResponseCode(string $gateway_response_code): void
     {
-        $this->_gateway_response_code = $value;
+        $this->_gateway_response_code = $gateway_response_code;
     }
 
     /**
@@ -401,9 +401,9 @@ class Transaction extends RecurlyResource
     *
     * @return void
     */
-    public function setGatewayResponseTime(float $value): void
+    public function setGatewayResponseTime(float $gateway_response_time): void
     {
-        $this->_gateway_response_time = $value;
+        $this->_gateway_response_time = $gateway_response_time;
     }
 
     /**
@@ -423,9 +423,9 @@ class Transaction extends RecurlyResource
     *
     * @return void
     */
-    public function setGatewayResponseValues(object $value): void
+    public function setGatewayResponseValues(object $gateway_response_values): void
     {
-        $this->_gateway_response_values = $value;
+        $this->_gateway_response_values = $gateway_response_values;
     }
 
     /**
@@ -445,9 +445,9 @@ class Transaction extends RecurlyResource
     *
     * @return void
     */
-    public function setId(string $value): void
+    public function setId(string $id): void
     {
-        $this->_id = $value;
+        $this->_id = $id;
     }
 
     /**
@@ -467,9 +467,9 @@ class Transaction extends RecurlyResource
     *
     * @return void
     */
-    public function setInvoice(\Recurly\Resources\InvoiceMini $value): void
+    public function setInvoice(\Recurly\Resources\InvoiceMini $invoice): void
     {
-        $this->_invoice = $value;
+        $this->_invoice = $invoice;
     }
 
     /**
@@ -489,9 +489,9 @@ class Transaction extends RecurlyResource
     *
     * @return void
     */
-    public function setIpAddressCountry(string $value): void
+    public function setIpAddressCountry(string $ip_address_country): void
     {
-        $this->_ip_address_country = $value;
+        $this->_ip_address_country = $ip_address_country;
     }
 
     /**
@@ -516,9 +516,9 @@ class Transaction extends RecurlyResource
     *
     * @return void
     */
-    public function setIpAddressV4(string $value): void
+    public function setIpAddressV4(string $ip_address_v4): void
     {
-        $this->_ip_address_v4 = $value;
+        $this->_ip_address_v4 = $ip_address_v4;
     }
 
     /**
@@ -538,9 +538,9 @@ class Transaction extends RecurlyResource
     *
     * @return void
     */
-    public function setObject(string $value): void
+    public function setObject(string $object): void
     {
-        $this->_object = $value;
+        $this->_object = $object;
     }
 
     /**
@@ -560,9 +560,9 @@ class Transaction extends RecurlyResource
     *
     * @return void
     */
-    public function setOrigin(string $value): void
+    public function setOrigin(string $origin): void
     {
-        $this->_origin = $value;
+        $this->_origin = $origin;
     }
 
     /**
@@ -582,9 +582,9 @@ class Transaction extends RecurlyResource
     *
     * @return void
     */
-    public function setOriginalTransactionId(string $value): void
+    public function setOriginalTransactionId(string $original_transaction_id): void
     {
-        $this->_original_transaction_id = $value;
+        $this->_original_transaction_id = $original_transaction_id;
     }
 
     /**
@@ -604,9 +604,9 @@ class Transaction extends RecurlyResource
     *
     * @return void
     */
-    public function setPaymentGateway(\Recurly\Resources\TransactionPaymentGateway $value): void
+    public function setPaymentGateway(\Recurly\Resources\TransactionPaymentGateway $payment_gateway): void
     {
-        $this->_payment_gateway = $value;
+        $this->_payment_gateway = $payment_gateway;
     }
 
     /**
@@ -626,9 +626,9 @@ class Transaction extends RecurlyResource
     *
     * @return void
     */
-    public function setPaymentMethod(\Recurly\Resources\PaymentMethod $value): void
+    public function setPaymentMethod(\Recurly\Resources\PaymentMethod $payment_method): void
     {
-        $this->_payment_method = $value;
+        $this->_payment_method = $payment_method;
     }
 
     /**
@@ -648,9 +648,9 @@ class Transaction extends RecurlyResource
     *
     * @return void
     */
-    public function setRefunded(bool $value): void
+    public function setRefunded(bool $refunded): void
     {
-        $this->_refunded = $value;
+        $this->_refunded = $refunded;
     }
 
     /**
@@ -670,9 +670,9 @@ class Transaction extends RecurlyResource
     *
     * @return void
     */
-    public function setStatus(string $value): void
+    public function setStatus(string $status): void
     {
-        $this->_status = $value;
+        $this->_status = $status;
     }
 
     /**
@@ -692,9 +692,9 @@ class Transaction extends RecurlyResource
     *
     * @return void
     */
-    public function setStatusCode(string $value): void
+    public function setStatusCode(string $status_code): void
     {
-        $this->_status_code = $value;
+        $this->_status_code = $status_code;
     }
 
     /**
@@ -714,9 +714,9 @@ class Transaction extends RecurlyResource
     *
     * @return void
     */
-    public function setStatusMessage(string $value): void
+    public function setStatusMessage(string $status_message): void
     {
-        $this->_status_message = $value;
+        $this->_status_message = $status_message;
     }
 
     /**
@@ -736,9 +736,9 @@ class Transaction extends RecurlyResource
     *
     * @return void
     */
-    public function setSubscriptionIds(array $value): void
+    public function setSubscriptionIds(array $subscription_ids): void
     {
-        $this->_subscription_ids = $value;
+        $this->_subscription_ids = $subscription_ids;
     }
 
     /**
@@ -758,9 +758,9 @@ class Transaction extends RecurlyResource
     *
     * @return void
     */
-    public function setSuccess(bool $value): void
+    public function setSuccess(bool $success): void
     {
-        $this->_success = $value;
+        $this->_success = $success;
     }
 
     /**
@@ -785,9 +785,9 @@ class Transaction extends RecurlyResource
     *
     * @return void
     */
-    public function setType(string $value): void
+    public function setType(string $type): void
     {
-        $this->_type = $value;
+        $this->_type = $type;
     }
 
     /**
@@ -807,9 +807,9 @@ class Transaction extends RecurlyResource
     *
     * @return void
     */
-    public function setUuid(string $value): void
+    public function setUuid(string $uuid): void
     {
-        $this->_uuid = $value;
+        $this->_uuid = $uuid;
     }
 
     /**
@@ -829,9 +829,9 @@ class Transaction extends RecurlyResource
     *
     * @return void
     */
-    public function setVoidedAt(string $value): void
+    public function setVoidedAt(string $voided_at): void
     {
-        $this->_voided_at = $value;
+        $this->_voided_at = $voided_at;
     }
 
     /**
@@ -851,8 +851,8 @@ class Transaction extends RecurlyResource
     *
     * @return void
     */
-    public function setVoidedByInvoice(\Recurly\Resources\InvoiceMini $value): void
+    public function setVoidedByInvoice(\Recurly\Resources\InvoiceMini $voided_by_invoice): void
     {
-        $this->_voided_by_invoice = $value;
+        $this->_voided_by_invoice = $voided_by_invoice;
     }
 }

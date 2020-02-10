@@ -38,9 +38,9 @@ class Settings extends RecurlyResource
     *
     * @return void
     */
-    public function setAcceptedCurrencies(array $value): void
+    public function setAcceptedCurrencies(array $accepted_currencies): void
     {
-        $this->_accepted_currencies = $value;
+        $this->_accepted_currencies = $accepted_currencies;
     }
 
     /**
@@ -64,9 +64,9 @@ class Settings extends RecurlyResource
     *
     * @return void
     */
-    public function setBillingAddressRequirement(string $value): void
+    public function setBillingAddressRequirement(string $billing_address_requirement): void
     {
-        $this->_billing_address_requirement = $value;
+        $this->_billing_address_requirement = $billing_address_requirement;
     }
 
     /**
@@ -86,8 +86,8 @@ class Settings extends RecurlyResource
     *
     * @return void
     */
-    public function setDefaultCurrency(string $value): void
+    public function setDefaultCurrency(string $default_currency): void
     {
-        $this->_default_currency = $value;
+        $this->_default_currency = $default_currency;
     }
 }

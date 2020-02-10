@@ -35,8 +35,8 @@ class BinaryFile extends RecurlyResource
     *
     * @return void
     */
-    public function setData(string $value): void
+    public function setData(string $data): void
     {
-        $this->_data = $value;
+        $this->_data = $data;
     }
 }

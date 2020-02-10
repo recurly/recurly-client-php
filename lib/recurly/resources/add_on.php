@@ -49,9 +49,9 @@ class AddOn extends RecurlyResource
     *
     * @return void
     */
-    public function setAccountingCode(string $value): void
+    public function setAccountingCode(string $accounting_code): void
     {
-        $this->_accounting_code = $value;
+        $this->_accounting_code = $accounting_code;
     }
 
     /**
@@ -71,9 +71,9 @@ class AddOn extends RecurlyResource
     *
     * @return void
     */
-    public function setCode(string $value): void
+    public function setCode(string $code): void
     {
-        $this->_code = $value;
+        $this->_code = $code;
     }
 
     /**
@@ -93,9 +93,9 @@ class AddOn extends RecurlyResource
     *
     * @return void
     */
-    public function setCreatedAt(string $value): void
+    public function setCreatedAt(string $created_at): void
     {
-        $this->_created_at = $value;
+        $this->_created_at = $created_at;
     }
 
     /**
@@ -115,9 +115,9 @@ class AddOn extends RecurlyResource
     *
     * @return void
     */
-    public function setCurrencies(array $value): void
+    public function setCurrencies(array $currencies): void
     {
-        $this->_currencies = $value;
+        $this->_currencies = $currencies;
     }
 
     /**
@@ -137,9 +137,9 @@ class AddOn extends RecurlyResource
     *
     * @return void
     */
-    public function setDefaultQuantity(int $value): void
+    public function setDefaultQuantity(int $default_quantity): void
     {
-        $this->_default_quantity = $value;
+        $this->_default_quantity = $default_quantity;
     }
 
     /**
@@ -159,9 +159,9 @@ class AddOn extends RecurlyResource
     *
     * @return void
     */
-    public function setDeletedAt(string $value): void
+    public function setDeletedAt(string $deleted_at): void
     {
-        $this->_deleted_at = $value;
+        $this->_deleted_at = $deleted_at;
     }
 
     /**
@@ -181,9 +181,9 @@ class AddOn extends RecurlyResource
     *
     * @return void
     */
-    public function setDisplayQuantity(bool $value): void
+    public function setDisplayQuantity(bool $display_quantity): void
     {
-        $this->_display_quantity = $value;
+        $this->_display_quantity = $display_quantity;
     }
 
     /**
@@ -203,9 +203,9 @@ class AddOn extends RecurlyResource
     *
     * @return void
     */
-    public function setId(string $value): void
+    public function setId(string $id): void
     {
-        $this->_id = $value;
+        $this->_id = $id;
     }
 
     /**
@@ -225,9 +225,9 @@ class AddOn extends RecurlyResource
     *
     * @return void
     */
-    public function setName(string $value): void
+    public function setName(string $name): void
     {
-        $this->_name = $value;
+        $this->_name = $name;
     }
 
     /**
@@ -247,9 +247,9 @@ class AddOn extends RecurlyResource
     *
     * @return void
     */
-    public function setObject(string $value): void
+    public function setObject(string $object): void
     {
-        $this->_object = $value;
+        $this->_object = $object;
     }
 
     /**
@@ -269,9 +269,9 @@ class AddOn extends RecurlyResource
     *
     * @return void
     */
-    public function setPlanId(string $value): void
+    public function setPlanId(string $plan_id): void
     {
-        $this->_plan_id = $value;
+        $this->_plan_id = $plan_id;
     }
 
     /**
@@ -291,9 +291,9 @@ class AddOn extends RecurlyResource
     *
     * @return void
     */
-    public function setState(string $value): void
+    public function setState(string $state): void
     {
-        $this->_state = $value;
+        $this->_state = $state;
     }
 
     /**
@@ -313,9 +313,9 @@ class AddOn extends RecurlyResource
     *
     * @return void
     */
-    public function setTaxCode(string $value): void
+    public function setTaxCode(string $tax_code): void
     {
-        $this->_tax_code = $value;
+        $this->_tax_code = $tax_code;
     }
 
     /**
@@ -335,8 +335,8 @@ class AddOn extends RecurlyResource
     *
     * @return void
     */
-    public function setUpdatedAt(string $value): void
+    public function setUpdatedAt(string $updated_at): void
     {
-        $this->_updated_at = $value;
+        $this->_updated_at = $updated_at;
     }
 }

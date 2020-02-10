@@ -39,9 +39,9 @@ class ErrorMayHaveTransaction extends RecurlyResource
     *
     * @return void
     */
-    public function setMessage(string $value): void
+    public function setMessage(string $message): void
     {
-        $this->_message = $value;
+        $this->_message = $message;
     }
 
     /**
@@ -61,9 +61,9 @@ class ErrorMayHaveTransaction extends RecurlyResource
     *
     * @return void
     */
-    public function setParams(array $value): void
+    public function setParams(array $params): void
     {
-        $this->_params = $value;
+        $this->_params = $params;
     }
 
     /**
@@ -83,9 +83,9 @@ class ErrorMayHaveTransaction extends RecurlyResource
     *
     * @return void
     */
-    public function setTransactionError(\Recurly\Resources\TransactionError $value): void
+    public function setTransactionError(\Recurly\Resources\TransactionError $transaction_error): void
     {
-        $this->_transaction_error = $value;
+        $this->_transaction_error = $transaction_error;
     }
 
     /**
@@ -105,8 +105,8 @@ class ErrorMayHaveTransaction extends RecurlyResource
     *
     * @return void
     */
-    public function setType(string $value): void
+    public function setType(string $type): void
     {
-        $this->_type = $value;
+        $this->_type = $type;
     }
 }

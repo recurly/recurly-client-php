@@ -52,9 +52,9 @@ class Item extends RecurlyResource
     *
     * @return void
     */
-    public function setAccountingCode(string $value): void
+    public function setAccountingCode(string $accounting_code): void
     {
-        $this->_accounting_code = $value;
+        $this->_accounting_code = $accounting_code;
     }
 
     /**
@@ -74,9 +74,9 @@ class Item extends RecurlyResource
     *
     * @return void
     */
-    public function setCode(string $value): void
+    public function setCode(string $code): void
     {
-        $this->_code = $value;
+        $this->_code = $code;
     }
 
     /**
@@ -96,9 +96,9 @@ class Item extends RecurlyResource
     *
     * @return void
     */
-    public function setCreatedAt(string $value): void
+    public function setCreatedAt(string $created_at): void
     {
-        $this->_created_at = $value;
+        $this->_created_at = $created_at;
     }
 
     /**
@@ -118,9 +118,9 @@ class Item extends RecurlyResource
     *
     * @return void
     */
-    public function setCurrencies(array $value): void
+    public function setCurrencies(array $currencies): void
     {
-        $this->_currencies = $value;
+        $this->_currencies = $currencies;
     }
 
     /**
@@ -140,9 +140,9 @@ class Item extends RecurlyResource
     *
     * @return void
     */
-    public function setCustomFields(array $value): void
+    public function setCustomFields(array $custom_fields): void
     {
-        $this->_custom_fields = $value;
+        $this->_custom_fields = $custom_fields;
     }
 
     /**
@@ -162,9 +162,9 @@ class Item extends RecurlyResource
     *
     * @return void
     */
-    public function setDeletedAt(string $value): void
+    public function setDeletedAt(string $deleted_at): void
     {
-        $this->_deleted_at = $value;
+        $this->_deleted_at = $deleted_at;
     }
 
     /**
@@ -184,9 +184,9 @@ class Item extends RecurlyResource
     *
     * @return void
     */
-    public function setDescription(string $value): void
+    public function setDescription(string $description): void
     {
-        $this->_description = $value;
+        $this->_description = $description;
     }
 
     /**
@@ -206,9 +206,9 @@ class Item extends RecurlyResource
     *
     * @return void
     */
-    public function setExternalSku(string $value): void
+    public function setExternalSku(string $external_sku): void
     {
-        $this->_external_sku = $value;
+        $this->_external_sku = $external_sku;
     }
 
     /**
@@ -228,9 +228,9 @@ class Item extends RecurlyResource
     *
     * @return void
     */
-    public function setId(string $value): void
+    public function setId(string $id): void
     {
-        $this->_id = $value;
+        $this->_id = $id;
     }
 
     /**
@@ -250,9 +250,9 @@ class Item extends RecurlyResource
     *
     * @return void
     */
-    public function setName(string $value): void
+    public function setName(string $name): void
     {
-        $this->_name = $value;
+        $this->_name = $name;
     }
 
     /**
@@ -272,9 +272,9 @@ class Item extends RecurlyResource
     *
     * @return void
     */
-    public function setObject(string $value): void
+    public function setObject(string $object): void
     {
-        $this->_object = $value;
+        $this->_object = $object;
     }
 
     /**
@@ -294,9 +294,9 @@ class Item extends RecurlyResource
     *
     * @return void
     */
-    public function setRevenueScheduleType(string $value): void
+    public function setRevenueScheduleType(string $revenue_schedule_type): void
     {
-        $this->_revenue_schedule_type = $value;
+        $this->_revenue_schedule_type = $revenue_schedule_type;
     }
 
     /**
@@ -316,9 +316,9 @@ class Item extends RecurlyResource
     *
     * @return void
     */
-    public function setState(string $value): void
+    public function setState(string $state): void
     {
-        $this->_state = $value;
+        $this->_state = $state;
     }
 
     /**
@@ -338,9 +338,9 @@ class Item extends RecurlyResource
     *
     * @return void
     */
-    public function setTaxCode(string $value): void
+    public function setTaxCode(string $tax_code): void
     {
-        $this->_tax_code = $value;
+        $this->_tax_code = $tax_code;
     }
 
     /**
@@ -360,9 +360,9 @@ class Item extends RecurlyResource
     *
     * @return void
     */
-    public function setTaxExempt(bool $value): void
+    public function setTaxExempt(bool $tax_exempt): void
     {
-        $this->_tax_exempt = $value;
+        $this->_tax_exempt = $tax_exempt;
     }
 
     /**
@@ -382,8 +382,8 @@ class Item extends RecurlyResource
     *
     * @return void
     */
-    public function setUpdatedAt(string $value): void
+    public function setUpdatedAt(string $updated_at): void
     {
-        $this->_updated_at = $value;
+        $this->_updated_at = $updated_at;
     }
 }

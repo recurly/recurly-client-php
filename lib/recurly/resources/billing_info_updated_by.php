@@ -36,9 +36,9 @@ class BillingInfoUpdatedBy extends RecurlyResource
     *
     * @return void
     */
-    public function setCountry(string $value): void
+    public function setCountry(string $country): void
     {
-        $this->_country = $value;
+        $this->_country = $country;
     }
 
     /**
@@ -58,8 +58,8 @@ class BillingInfoUpdatedBy extends RecurlyResource
     *
     * @return void
     */
-    public function setIp(string $value): void
+    public function setIp(string $ip): void
     {
-        $this->_ip = $value;
+        $this->_ip = $ip;
     }
 }

@@ -37,9 +37,9 @@ class FraudInfo extends RecurlyResource
     *
     * @return void
     */
-    public function setDecision(string $value): void
+    public function setDecision(string $decision): void
     {
-        $this->_decision = $value;
+        $this->_decision = $decision;
     }
 
     /**
@@ -59,9 +59,9 @@ class FraudInfo extends RecurlyResource
     *
     * @return void
     */
-    public function setRiskRulesTriggered(object $value): void
+    public function setRiskRulesTriggered(object $risk_rules_triggered): void
     {
-        $this->_risk_rules_triggered = $value;
+        $this->_risk_rules_triggered = $risk_rules_triggered;
     }
 
     /**
@@ -81,8 +81,8 @@ class FraudInfo extends RecurlyResource
     *
     * @return void
     */
-    public function setScore(int $value): void
+    public function setScore(int $score): void
     {
-        $this->_score = $value;
+        $this->_score = $score;
     }
 }

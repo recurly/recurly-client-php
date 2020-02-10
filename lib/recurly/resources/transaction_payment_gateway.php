@@ -38,9 +38,9 @@ class TransactionPaymentGateway extends RecurlyResource
     *
     * @return void
     */
-    public function setId(string $value): void
+    public function setId(string $id): void
     {
-        $this->_id = $value;
+        $this->_id = $id;
     }
 
     /**
@@ -60,9 +60,9 @@ class TransactionPaymentGateway extends RecurlyResource
     *
     * @return void
     */
-    public function setName(string $value): void
+    public function setName(string $name): void
     {
-        $this->_name = $value;
+        $this->_name = $name;
     }
 
     /**
@@ -82,9 +82,9 @@ class TransactionPaymentGateway extends RecurlyResource
     *
     * @return void
     */
-    public function setObject(string $value): void
+    public function setObject(string $object): void
     {
-        $this->_object = $value;
+        $this->_object = $object;
     }
 
     /**
@@ -104,8 +104,8 @@ class TransactionPaymentGateway extends RecurlyResource
     *
     * @return void
     */
-    public function setType(string $value): void
+    public function setType(string $type): void
     {
-        $this->_type = $value;
+        $this->_type = $type;
     }
 }

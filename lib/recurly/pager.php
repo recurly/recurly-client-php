@@ -88,10 +88,10 @@ class Pager implements \Iterator
      * Implementation of the Iterator interfaces `key` method.
      * Will return NULL for every iteration.
      * 
-     * @return             NULL
+     * @return             void
      * @codeCoverageIgnore
      */
-    public function key(): scalar
+    public function key(): void
     {
         //NOOP
     }
@@ -110,7 +110,7 @@ class Pager implements \Iterator
     /**
      * Implementation of the Iterator interfaces `valid` method.
      * 
-     * @return void
+     * @return bool
      */
     public function valid(): bool
     {

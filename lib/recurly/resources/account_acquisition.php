@@ -43,9 +43,9 @@ class AccountAcquisition extends RecurlyResource
     *
     * @return void
     */
-    public function setAccount(\Recurly\Resources\AccountMini $value): void
+    public function setAccount(\Recurly\Resources\AccountMini $account): void
     {
-        $this->_account = $value;
+        $this->_account = $account;
     }
 
     /**
@@ -65,9 +65,9 @@ class AccountAcquisition extends RecurlyResource
     *
     * @return void
     */
-    public function setCampaign(string $value): void
+    public function setCampaign(string $campaign): void
     {
-        $this->_campaign = $value;
+        $this->_campaign = $campaign;
     }
 
     /**
@@ -87,9 +87,9 @@ class AccountAcquisition extends RecurlyResource
     *
     * @return void
     */
-    public function setChannel(string $value): void
+    public function setChannel(string $channel): void
     {
-        $this->_channel = $value;
+        $this->_channel = $channel;
     }
 
     /**
@@ -109,9 +109,9 @@ class AccountAcquisition extends RecurlyResource
     *
     * @return void
     */
-    public function setCost(\Recurly\Resources\AccountAcquisitionCost $value): void
+    public function setCost(\Recurly\Resources\AccountAcquisitionCost $cost): void
     {
-        $this->_cost = $value;
+        $this->_cost = $cost;
     }
 
     /**
@@ -131,9 +131,9 @@ class AccountAcquisition extends RecurlyResource
     *
     * @return void
     */
-    public function setCreatedAt(string $value): void
+    public function setCreatedAt(string $created_at): void
     {
-        $this->_created_at = $value;
+        $this->_created_at = $created_at;
     }
 
     /**
@@ -153,9 +153,9 @@ class AccountAcquisition extends RecurlyResource
     *
     * @return void
     */
-    public function setId(string $value): void
+    public function setId(string $id): void
     {
-        $this->_id = $value;
+        $this->_id = $id;
     }
 
     /**
@@ -175,9 +175,9 @@ class AccountAcquisition extends RecurlyResource
     *
     * @return void
     */
-    public function setObject(string $value): void
+    public function setObject(string $object): void
     {
-        $this->_object = $value;
+        $this->_object = $object;
     }
 
     /**
@@ -197,9 +197,9 @@ class AccountAcquisition extends RecurlyResource
     *
     * @return void
     */
-    public function setSubchannel(string $value): void
+    public function setSubchannel(string $subchannel): void
     {
-        $this->_subchannel = $value;
+        $this->_subchannel = $subchannel;
     }
 
     /**
@@ -219,8 +219,8 @@ class AccountAcquisition extends RecurlyResource
     *
     * @return void
     */
-    public function setUpdatedAt(string $value): void
+    public function setUpdatedAt(string $updated_at): void
     {
-        $this->_updated_at = $value;
+        $this->_updated_at = $updated_at;
     }
 }

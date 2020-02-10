@@ -38,9 +38,9 @@ class SubscriptionShipping extends RecurlyResource
     *
     * @return void
     */
-    public function setAddress(\Recurly\Resources\ShippingAddress $value): void
+    public function setAddress(\Recurly\Resources\ShippingAddress $address): void
     {
-        $this->_address = $value;
+        $this->_address = $address;
     }
 
     /**
@@ -60,9 +60,9 @@ class SubscriptionShipping extends RecurlyResource
     *
     * @return void
     */
-    public function setAmount(float $value): void
+    public function setAmount(float $amount): void
     {
-        $this->_amount = $value;
+        $this->_amount = $amount;
     }
 
     /**
@@ -82,9 +82,9 @@ class SubscriptionShipping extends RecurlyResource
     *
     * @return void
     */
-    public function setMethod(\Recurly\Resources\ShippingMethodMini $value): void
+    public function setMethod(\Recurly\Resources\ShippingMethodMini $method): void
     {
-        $this->_method = $value;
+        $this->_method = $method;
     }
 
     /**
@@ -104,8 +104,8 @@ class SubscriptionShipping extends RecurlyResource
     *
     * @return void
     */
-    public function setObject(string $value): void
+    public function setObject(string $object): void
     {
-        $this->_object = $value;
+        $this->_object = $object;
     }
 }

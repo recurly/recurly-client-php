@@ -39,9 +39,9 @@ class InvoiceMini extends RecurlyResource
     *
     * @return void
     */
-    public function setId(string $value): void
+    public function setId(string $id): void
     {
-        $this->_id = $value;
+        $this->_id = $id;
     }
 
     /**
@@ -61,9 +61,9 @@ class InvoiceMini extends RecurlyResource
     *
     * @return void
     */
-    public function setNumber(string $value): void
+    public function setNumber(string $number): void
     {
-        $this->_number = $value;
+        $this->_number = $number;
     }
 
     /**
@@ -83,9 +83,9 @@ class InvoiceMini extends RecurlyResource
     *
     * @return void
     */
-    public function setObject(string $value): void
+    public function setObject(string $object): void
     {
-        $this->_object = $value;
+        $this->_object = $object;
     }
 
     /**
@@ -105,9 +105,9 @@ class InvoiceMini extends RecurlyResource
     *
     * @return void
     */
-    public function setState(string $value): void
+    public function setState(string $state): void
     {
-        $this->_state = $value;
+        $this->_state = $state;
     }
 
     /**
@@ -127,8 +127,8 @@ class InvoiceMini extends RecurlyResource
     *
     * @return void
     */
-    public function setType(string $value): void
+    public function setType(string $type): void
     {
-        $this->_type = $value;
+        $this->_type = $type;
     }
 }

@@ -10,6 +10,11 @@ class TestResource extends \Recurly\RecurlyResource
     private $_resource_array;
     private $_string_array;
 
+    protected static $array_hints = array(
+        'setResourceArray' => '\Recurly\Resources\TestResource',
+        'setStringArray' => 'string',
+    );
+
     public function getObject(): string
     {
         return $this->_object;
@@ -58,14 +63,5 @@ class TestResource extends \Recurly\RecurlyResource
     public function getStringArray(): array
     {
         return $this->_string_array;
-    }
-
-    public static function hintArrayType($key): string
-    {
-        $array_hints = array(
-            'setResourceArray' => '\Recurly\Resources\TestResource',
-            'setStringArray' => 'string',
-        );
-        return $array_hints[$key];
     }
 }

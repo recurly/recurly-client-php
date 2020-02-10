@@ -38,9 +38,9 @@ class Error extends RecurlyResource
     *
     * @return void
     */
-    public function setMessage(string $value): void
+    public function setMessage(string $message): void
     {
-        $this->_message = $value;
+        $this->_message = $message;
     }
 
     /**
@@ -60,9 +60,9 @@ class Error extends RecurlyResource
     *
     * @return void
     */
-    public function setParams(array $value): void
+    public function setParams(array $params): void
     {
-        $this->_params = $value;
+        $this->_params = $params;
     }
 
     /**
@@ -82,8 +82,8 @@ class Error extends RecurlyResource
     *
     * @return void
     */
-    public function setType(string $value): void
+    public function setType(string $type): void
     {
-        $this->_type = $value;
+        $this->_type = $type;
     }
 }

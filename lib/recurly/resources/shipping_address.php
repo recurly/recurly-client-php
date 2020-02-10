@@ -52,9 +52,9 @@ class ShippingAddress extends RecurlyResource
     *
     * @return void
     */
-    public function setAccountId(string $value): void
+    public function setAccountId(string $account_id): void
     {
-        $this->_account_id = $value;
+        $this->_account_id = $account_id;
     }
 
     /**
@@ -74,9 +74,9 @@ class ShippingAddress extends RecurlyResource
     *
     * @return void
     */
-    public function setCity(string $value): void
+    public function setCity(string $city): void
     {
-        $this->_city = $value;
+        $this->_city = $city;
     }
 
     /**
@@ -96,9 +96,9 @@ class ShippingAddress extends RecurlyResource
     *
     * @return void
     */
-    public function setCompany(string $value): void
+    public function setCompany(string $company): void
     {
-        $this->_company = $value;
+        $this->_company = $company;
     }
 
     /**
@@ -118,9 +118,9 @@ class ShippingAddress extends RecurlyResource
     *
     * @return void
     */
-    public function setCountry(string $value): void
+    public function setCountry(string $country): void
     {
-        $this->_country = $value;
+        $this->_country = $country;
     }
 
     /**
@@ -140,9 +140,9 @@ class ShippingAddress extends RecurlyResource
     *
     * @return void
     */
-    public function setCreatedAt(string $value): void
+    public function setCreatedAt(string $created_at): void
     {
-        $this->_created_at = $value;
+        $this->_created_at = $created_at;
     }
 
     /**
@@ -162,9 +162,9 @@ class ShippingAddress extends RecurlyResource
     *
     * @return void
     */
-    public function setEmail(string $value): void
+    public function setEmail(string $email): void
     {
-        $this->_email = $value;
+        $this->_email = $email;
     }
 
     /**
@@ -184,9 +184,9 @@ class ShippingAddress extends RecurlyResource
     *
     * @return void
     */
-    public function setFirstName(string $value): void
+    public function setFirstName(string $first_name): void
     {
-        $this->_first_name = $value;
+        $this->_first_name = $first_name;
     }
 
     /**
@@ -206,9 +206,9 @@ class ShippingAddress extends RecurlyResource
     *
     * @return void
     */
-    public function setId(string $value): void
+    public function setId(string $id): void
     {
-        $this->_id = $value;
+        $this->_id = $id;
     }
 
     /**
@@ -228,9 +228,9 @@ class ShippingAddress extends RecurlyResource
     *
     * @return void
     */
-    public function setLastName(string $value): void
+    public function setLastName(string $last_name): void
     {
-        $this->_last_name = $value;
+        $this->_last_name = $last_name;
     }
 
     /**
@@ -250,9 +250,9 @@ class ShippingAddress extends RecurlyResource
     *
     * @return void
     */
-    public function setNickname(string $value): void
+    public function setNickname(string $nickname): void
     {
-        $this->_nickname = $value;
+        $this->_nickname = $nickname;
     }
 
     /**
@@ -272,9 +272,9 @@ class ShippingAddress extends RecurlyResource
     *
     * @return void
     */
-    public function setObject(string $value): void
+    public function setObject(string $object): void
     {
-        $this->_object = $value;
+        $this->_object = $object;
     }
 
     /**
@@ -294,9 +294,9 @@ class ShippingAddress extends RecurlyResource
     *
     * @return void
     */
-    public function setPhone(string $value): void
+    public function setPhone(string $phone): void
     {
-        $this->_phone = $value;
+        $this->_phone = $phone;
     }
 
     /**
@@ -316,9 +316,9 @@ class ShippingAddress extends RecurlyResource
     *
     * @return void
     */
-    public function setPostalCode(string $value): void
+    public function setPostalCode(string $postal_code): void
     {
-        $this->_postal_code = $value;
+        $this->_postal_code = $postal_code;
     }
 
     /**
@@ -338,9 +338,9 @@ class ShippingAddress extends RecurlyResource
     *
     * @return void
     */
-    public function setRegion(string $value): void
+    public function setRegion(string $region): void
     {
-        $this->_region = $value;
+        $this->_region = $region;
     }
 
     /**
@@ -360,9 +360,9 @@ class ShippingAddress extends RecurlyResource
     *
     * @return void
     */
-    public function setStreet1(string $value): void
+    public function setStreet1(string $street1): void
     {
-        $this->_street1 = $value;
+        $this->_street1 = $street1;
     }
 
     /**
@@ -382,9 +382,9 @@ class ShippingAddress extends RecurlyResource
     *
     * @return void
     */
-    public function setStreet2(string $value): void
+    public function setStreet2(string $street2): void
     {
-        $this->_street2 = $value;
+        $this->_street2 = $street2;
     }
 
     /**
@@ -404,9 +404,9 @@ class ShippingAddress extends RecurlyResource
     *
     * @return void
     */
-    public function setUpdatedAt(string $value): void
+    public function setUpdatedAt(string $updated_at): void
     {
-        $this->_updated_at = $value;
+        $this->_updated_at = $updated_at;
     }
 
     /**
@@ -426,8 +426,8 @@ class ShippingAddress extends RecurlyResource
     *
     * @return void
     */
-    public function setVatNumber(string $value): void
+    public function setVatNumber(string $vat_number): void
     {
-        $this->_vat_number = $value;
+        $this->_vat_number = $vat_number;
     }
 }

@@ -37,9 +37,9 @@ class TaxInfo extends RecurlyResource
     *
     * @return void
     */
-    public function setRate(float $value): void
+    public function setRate(float $rate): void
     {
-        $this->_rate = $value;
+        $this->_rate = $rate;
     }
 
     /**
@@ -59,9 +59,9 @@ class TaxInfo extends RecurlyResource
     *
     * @return void
     */
-    public function setRegion(string $value): void
+    public function setRegion(string $region): void
     {
-        $this->_region = $value;
+        $this->_region = $region;
     }
 
     /**
@@ -81,8 +81,8 @@ class TaxInfo extends RecurlyResource
     *
     * @return void
     */
-    public function setType(string $value): void
+    public function setType(string $type): void
     {
-        $this->_type = $value;
+        $this->_type = $type;
     }
 }

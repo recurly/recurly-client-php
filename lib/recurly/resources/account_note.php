@@ -40,9 +40,9 @@ class AccountNote extends RecurlyResource
     *
     * @return void
     */
-    public function setAccountId(string $value): void
+    public function setAccountId(string $account_id): void
     {
-        $this->_account_id = $value;
+        $this->_account_id = $account_id;
     }
 
     /**
@@ -62,9 +62,9 @@ class AccountNote extends RecurlyResource
     *
     * @return void
     */
-    public function setCreatedAt(string $value): void
+    public function setCreatedAt(string $created_at): void
     {
-        $this->_created_at = $value;
+        $this->_created_at = $created_at;
     }
 
     /**
@@ -84,9 +84,9 @@ class AccountNote extends RecurlyResource
     *
     * @return void
     */
-    public function setId(string $value): void
+    public function setId(string $id): void
     {
-        $this->_id = $value;
+        $this->_id = $id;
     }
 
     /**
@@ -106,9 +106,9 @@ class AccountNote extends RecurlyResource
     *
     * @return void
     */
-    public function setMessage(string $value): void
+    public function setMessage(string $message): void
     {
-        $this->_message = $value;
+        $this->_message = $message;
     }
 
     /**
@@ -128,9 +128,9 @@ class AccountNote extends RecurlyResource
     *
     * @return void
     */
-    public function setObject(string $value): void
+    public function setObject(string $object): void
     {
-        $this->_object = $value;
+        $this->_object = $object;
     }
 
     /**
@@ -150,8 +150,8 @@ class AccountNote extends RecurlyResource
     *
     * @return void
     */
-    public function setUser(\Recurly\Resources\User $value): void
+    public function setUser(\Recurly\Resources\User $user): void
     {
-        $this->_user = $value;
+        $this->_user = $user;
     }
 }

@@ -71,9 +71,9 @@ class Invoice extends RecurlyResource
     *
     * @return void
     */
-    public function setAccount(\Recurly\Resources\AccountMini $value): void
+    public function setAccount(\Recurly\Resources\AccountMini $account): void
     {
-        $this->_account = $value;
+        $this->_account = $account;
     }
 
     /**
@@ -93,9 +93,9 @@ class Invoice extends RecurlyResource
     *
     * @return void
     */
-    public function setAddress(\Recurly\Resources\InvoiceAddress $value): void
+    public function setAddress(\Recurly\Resources\InvoiceAddress $address): void
     {
-        $this->_address = $value;
+        $this->_address = $address;
     }
 
     /**
@@ -115,9 +115,9 @@ class Invoice extends RecurlyResource
     *
     * @return void
     */
-    public function setBalance(float $value): void
+    public function setBalance(float $balance): void
     {
-        $this->_balance = $value;
+        $this->_balance = $balance;
     }
 
     /**
@@ -137,9 +137,9 @@ class Invoice extends RecurlyResource
     *
     * @return void
     */
-    public function setClosedAt(string $value): void
+    public function setClosedAt(string $closed_at): void
     {
-        $this->_closed_at = $value;
+        $this->_closed_at = $closed_at;
     }
 
     /**
@@ -159,9 +159,9 @@ class Invoice extends RecurlyResource
     *
     * @return void
     */
-    public function setCollectionMethod(string $value): void
+    public function setCollectionMethod(string $collection_method): void
     {
-        $this->_collection_method = $value;
+        $this->_collection_method = $collection_method;
     }
 
     /**
@@ -181,9 +181,9 @@ class Invoice extends RecurlyResource
     *
     * @return void
     */
-    public function setCreatedAt(string $value): void
+    public function setCreatedAt(string $created_at): void
     {
-        $this->_created_at = $value;
+        $this->_created_at = $created_at;
     }
 
     /**
@@ -203,9 +203,9 @@ class Invoice extends RecurlyResource
     *
     * @return void
     */
-    public function setCreditPayments(array $value): void
+    public function setCreditPayments(array $credit_payments): void
     {
-        $this->_credit_payments = $value;
+        $this->_credit_payments = $credit_payments;
     }
 
     /**
@@ -225,9 +225,9 @@ class Invoice extends RecurlyResource
     *
     * @return void
     */
-    public function setCurrency(string $value): void
+    public function setCurrency(string $currency): void
     {
-        $this->_currency = $value;
+        $this->_currency = $currency;
     }
 
     /**
@@ -247,9 +247,9 @@ class Invoice extends RecurlyResource
     *
     * @return void
     */
-    public function setCustomerNotes(string $value): void
+    public function setCustomerNotes(string $customer_notes): void
     {
-        $this->_customer_notes = $value;
+        $this->_customer_notes = $customer_notes;
     }
 
     /**
@@ -269,9 +269,9 @@ class Invoice extends RecurlyResource
     *
     * @return void
     */
-    public function setDiscount(float $value): void
+    public function setDiscount(float $discount): void
     {
-        $this->_discount = $value;
+        $this->_discount = $discount;
     }
 
     /**
@@ -291,9 +291,9 @@ class Invoice extends RecurlyResource
     *
     * @return void
     */
-    public function setDueAt(string $value): void
+    public function setDueAt(string $due_at): void
     {
-        $this->_due_at = $value;
+        $this->_due_at = $due_at;
     }
 
     /**
@@ -313,9 +313,9 @@ class Invoice extends RecurlyResource
     *
     * @return void
     */
-    public function setId(string $value): void
+    public function setId(string $id): void
     {
-        $this->_id = $value;
+        $this->_id = $id;
     }
 
     /**
@@ -335,9 +335,9 @@ class Invoice extends RecurlyResource
     *
     * @return void
     */
-    public function setLineItems(\Recurly\Resources\LineItemList $value): void
+    public function setLineItems(\Recurly\Resources\LineItemList $line_items): void
     {
-        $this->_line_items = $value;
+        $this->_line_items = $line_items;
     }
 
     /**
@@ -357,9 +357,9 @@ class Invoice extends RecurlyResource
     *
     * @return void
     */
-    public function setNetTerms(int $value): void
+    public function setNetTerms(int $net_terms): void
     {
-        $this->_net_terms = $value;
+        $this->_net_terms = $net_terms;
     }
 
     /**
@@ -379,9 +379,9 @@ class Invoice extends RecurlyResource
     *
     * @return void
     */
-    public function setNumber(string $value): void
+    public function setNumber(string $number): void
     {
-        $this->_number = $value;
+        $this->_number = $number;
     }
 
     /**
@@ -401,9 +401,9 @@ class Invoice extends RecurlyResource
     *
     * @return void
     */
-    public function setObject(string $value): void
+    public function setObject(string $object): void
     {
-        $this->_object = $value;
+        $this->_object = $object;
     }
 
     /**
@@ -423,9 +423,9 @@ class Invoice extends RecurlyResource
     *
     * @return void
     */
-    public function setOrigin(string $value): void
+    public function setOrigin(string $origin): void
     {
-        $this->_origin = $value;
+        $this->_origin = $origin;
     }
 
     /**
@@ -445,9 +445,9 @@ class Invoice extends RecurlyResource
     *
     * @return void
     */
-    public function setPaid(float $value): void
+    public function setPaid(float $paid): void
     {
-        $this->_paid = $value;
+        $this->_paid = $paid;
     }
 
     /**
@@ -467,9 +467,9 @@ class Invoice extends RecurlyResource
     *
     * @return void
     */
-    public function setPoNumber(string $value): void
+    public function setPoNumber(string $po_number): void
     {
-        $this->_po_number = $value;
+        $this->_po_number = $po_number;
     }
 
     /**
@@ -489,9 +489,9 @@ class Invoice extends RecurlyResource
     *
     * @return void
     */
-    public function setPreviousInvoiceId(string $value): void
+    public function setPreviousInvoiceId(string $previous_invoice_id): void
     {
-        $this->_previous_invoice_id = $value;
+        $this->_previous_invoice_id = $previous_invoice_id;
     }
 
     /**
@@ -511,9 +511,9 @@ class Invoice extends RecurlyResource
     *
     * @return void
     */
-    public function setRefundableAmount(float $value): void
+    public function setRefundableAmount(float $refundable_amount): void
     {
-        $this->_refundable_amount = $value;
+        $this->_refundable_amount = $refundable_amount;
     }
 
     /**
@@ -533,9 +533,9 @@ class Invoice extends RecurlyResource
     *
     * @return void
     */
-    public function setShippingAddress(\Recurly\Resources\ShippingAddress $value): void
+    public function setShippingAddress(\Recurly\Resources\ShippingAddress $shipping_address): void
     {
-        $this->_shipping_address = $value;
+        $this->_shipping_address = $shipping_address;
     }
 
     /**
@@ -555,9 +555,9 @@ class Invoice extends RecurlyResource
     *
     * @return void
     */
-    public function setState(string $value): void
+    public function setState(string $state): void
     {
-        $this->_state = $value;
+        $this->_state = $state;
     }
 
     /**
@@ -577,9 +577,9 @@ class Invoice extends RecurlyResource
     *
     * @return void
     */
-    public function setSubscriptionIds(array $value): void
+    public function setSubscriptionIds(array $subscription_ids): void
     {
-        $this->_subscription_ids = $value;
+        $this->_subscription_ids = $subscription_ids;
     }
 
     /**
@@ -599,9 +599,9 @@ class Invoice extends RecurlyResource
     *
     * @return void
     */
-    public function setSubtotal(float $value): void
+    public function setSubtotal(float $subtotal): void
     {
-        $this->_subtotal = $value;
+        $this->_subtotal = $subtotal;
     }
 
     /**
@@ -621,9 +621,9 @@ class Invoice extends RecurlyResource
     *
     * @return void
     */
-    public function setTax(float $value): void
+    public function setTax(float $tax): void
     {
-        $this->_tax = $value;
+        $this->_tax = $tax;
     }
 
     /**
@@ -643,9 +643,9 @@ class Invoice extends RecurlyResource
     *
     * @return void
     */
-    public function setTaxInfo(\Recurly\Resources\TaxInfo $value): void
+    public function setTaxInfo(\Recurly\Resources\TaxInfo $tax_info): void
     {
-        $this->_tax_info = $value;
+        $this->_tax_info = $tax_info;
     }
 
     /**
@@ -665,9 +665,9 @@ class Invoice extends RecurlyResource
     *
     * @return void
     */
-    public function setTermsAndConditions(string $value): void
+    public function setTermsAndConditions(string $terms_and_conditions): void
     {
-        $this->_terms_and_conditions = $value;
+        $this->_terms_and_conditions = $terms_and_conditions;
     }
 
     /**
@@ -687,9 +687,9 @@ class Invoice extends RecurlyResource
     *
     * @return void
     */
-    public function setTotal(float $value): void
+    public function setTotal(float $total): void
     {
-        $this->_total = $value;
+        $this->_total = $total;
     }
 
     /**
@@ -709,9 +709,9 @@ class Invoice extends RecurlyResource
     *
     * @return void
     */
-    public function setTransactions(array $value): void
+    public function setTransactions(array $transactions): void
     {
-        $this->_transactions = $value;
+        $this->_transactions = $transactions;
     }
 
     /**
@@ -731,9 +731,9 @@ class Invoice extends RecurlyResource
     *
     * @return void
     */
-    public function setType(string $value): void
+    public function setType(string $type): void
     {
-        $this->_type = $value;
+        $this->_type = $type;
     }
 
     /**
@@ -753,9 +753,9 @@ class Invoice extends RecurlyResource
     *
     * @return void
     */
-    public function setUpdatedAt(string $value): void
+    public function setUpdatedAt(string $updated_at): void
     {
-        $this->_updated_at = $value;
+        $this->_updated_at = $updated_at;
     }
 
     /**
@@ -775,9 +775,9 @@ class Invoice extends RecurlyResource
     *
     * @return void
     */
-    public function setVatNumber(string $value): void
+    public function setVatNumber(string $vat_number): void
     {
-        $this->_vat_number = $value;
+        $this->_vat_number = $vat_number;
     }
 
     /**
@@ -797,8 +797,8 @@ class Invoice extends RecurlyResource
     *
     * @return void
     */
-    public function setVatReverseChargeNotes(string $value): void
+    public function setVatReverseChargeNotes(string $vat_reverse_charge_notes): void
     {
-        $this->_vat_reverse_charge_notes = $value;
+        $this->_vat_reverse_charge_notes = $vat_reverse_charge_notes;
     }
 }

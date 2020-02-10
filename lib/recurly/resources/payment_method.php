@@ -46,9 +46,9 @@ class PaymentMethod extends RecurlyResource
     *
     * @return void
     */
-    public function setAccountType(string $value): void
+    public function setAccountType(string $account_type): void
     {
-        $this->_account_type = $value;
+        $this->_account_type = $account_type;
     }
 
     /**
@@ -68,9 +68,9 @@ class PaymentMethod extends RecurlyResource
     *
     * @return void
     */
-    public function setBillingAgreementId(string $value): void
+    public function setBillingAgreementId(string $billing_agreement_id): void
     {
-        $this->_billing_agreement_id = $value;
+        $this->_billing_agreement_id = $billing_agreement_id;
     }
 
     /**
@@ -90,9 +90,9 @@ class PaymentMethod extends RecurlyResource
     *
     * @return void
     */
-    public function setCardType(string $value): void
+    public function setCardType(string $card_type): void
     {
-        $this->_card_type = $value;
+        $this->_card_type = $card_type;
     }
 
     /**
@@ -112,9 +112,9 @@ class PaymentMethod extends RecurlyResource
     *
     * @return void
     */
-    public function setExpMonth(int $value): void
+    public function setExpMonth(int $exp_month): void
     {
-        $this->_exp_month = $value;
+        $this->_exp_month = $exp_month;
     }
 
     /**
@@ -134,9 +134,9 @@ class PaymentMethod extends RecurlyResource
     *
     * @return void
     */
-    public function setExpYear(int $value): void
+    public function setExpYear(int $exp_year): void
     {
-        $this->_exp_year = $value;
+        $this->_exp_year = $exp_year;
     }
 
     /**
@@ -156,9 +156,9 @@ class PaymentMethod extends RecurlyResource
     *
     * @return void
     */
-    public function setFirstSix(string $value): void
+    public function setFirstSix(string $first_six): void
     {
-        $this->_first_six = $value;
+        $this->_first_six = $first_six;
     }
 
     /**
@@ -178,9 +178,9 @@ class PaymentMethod extends RecurlyResource
     *
     * @return void
     */
-    public function setGatewayCode(string $value): void
+    public function setGatewayCode(string $gateway_code): void
     {
-        $this->_gateway_code = $value;
+        $this->_gateway_code = $gateway_code;
     }
 
     /**
@@ -200,9 +200,9 @@ class PaymentMethod extends RecurlyResource
     *
     * @return void
     */
-    public function setGatewayToken(string $value): void
+    public function setGatewayToken(string $gateway_token): void
     {
-        $this->_gateway_token = $value;
+        $this->_gateway_token = $gateway_token;
     }
 
     /**
@@ -222,9 +222,9 @@ class PaymentMethod extends RecurlyResource
     *
     * @return void
     */
-    public function setLastFour(string $value): void
+    public function setLastFour(string $last_four): void
     {
-        $this->_last_four = $value;
+        $this->_last_four = $last_four;
     }
 
     /**
@@ -244,9 +244,9 @@ class PaymentMethod extends RecurlyResource
     *
     * @return void
     */
-    public function setObject(string $value): void
+    public function setObject(string $object): void
     {
-        $this->_object = $value;
+        $this->_object = $object;
     }
 
     /**
@@ -266,9 +266,9 @@ class PaymentMethod extends RecurlyResource
     *
     * @return void
     */
-    public function setRoutingNumber(string $value): void
+    public function setRoutingNumber(string $routing_number): void
     {
-        $this->_routing_number = $value;
+        $this->_routing_number = $routing_number;
     }
 
     /**
@@ -288,8 +288,8 @@ class PaymentMethod extends RecurlyResource
     *
     * @return void
     */
-    public function setRoutingNumberBank(string $value): void
+    public function setRoutingNumberBank(string $routing_number_bank): void
     {
-        $this->_routing_number_bank = $value;
+        $this->_routing_number_bank = $routing_number_bank;
     }
 }

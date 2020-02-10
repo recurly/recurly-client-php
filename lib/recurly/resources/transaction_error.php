@@ -41,9 +41,9 @@ class TransactionError extends RecurlyResource
     *
     * @return void
     */
-    public function setCategory(string $value): void
+    public function setCategory(string $category): void
     {
-        $this->_category = $value;
+        $this->_category = $category;
     }
 
     /**
@@ -63,9 +63,9 @@ class TransactionError extends RecurlyResource
     *
     * @return void
     */
-    public function setCode(string $value): void
+    public function setCode(string $code): void
     {
-        $this->_code = $value;
+        $this->_code = $code;
     }
 
     /**
@@ -85,9 +85,9 @@ class TransactionError extends RecurlyResource
     *
     * @return void
     */
-    public function setMerchantAdvice(string $value): void
+    public function setMerchantAdvice(string $merchant_advice): void
     {
-        $this->_merchant_advice = $value;
+        $this->_merchant_advice = $merchant_advice;
     }
 
     /**
@@ -107,9 +107,9 @@ class TransactionError extends RecurlyResource
     *
     * @return void
     */
-    public function setMessage(string $value): void
+    public function setMessage(string $message): void
     {
-        $this->_message = $value;
+        $this->_message = $message;
     }
 
     /**
@@ -129,9 +129,9 @@ class TransactionError extends RecurlyResource
     *
     * @return void
     */
-    public function setObject(string $value): void
+    public function setObject(string $object): void
     {
-        $this->_object = $value;
+        $this->_object = $object;
     }
 
     /**
@@ -151,9 +151,9 @@ class TransactionError extends RecurlyResource
     *
     * @return void
     */
-    public function setThreeDSecureActionTokenId(string $value): void
+    public function setThreeDSecureActionTokenId(string $three_d_secure_action_token_id): void
     {
-        $this->_three_d_secure_action_token_id = $value;
+        $this->_three_d_secure_action_token_id = $three_d_secure_action_token_id;
     }
 
     /**
@@ -173,8 +173,8 @@ class TransactionError extends RecurlyResource
     *
     * @return void
     */
-    public function setTransactionId(string $value): void
+    public function setTransactionId(string $transaction_id): void
     {
-        $this->_transaction_id = $value;
+        $this->_transaction_id = $transaction_id;
     }
 }
