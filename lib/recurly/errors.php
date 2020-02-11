@@ -64,8 +64,7 @@ class MethodNotAllowed extends ClientError {}
 # The request content type was not acceptable.
 #
 # If this is raised, there may be a bug with the client library or with
-# the server. Please contact support@recurly.com or
-# {file a bug}[https://github.com/recurly/recurly-client-ruby/issues].
+# the server.
 class NotAcceptable extends ClientError {}
 
 # === 412 Precondition Failed
@@ -87,6 +86,12 @@ class UnsupportedMediaType extends ClientError {}
 #
 # Could not process a POST or PUT request because the request is invalid.
 # See the response body for more details.
+class Unprocessable extends ClientError {}
+
+# === 429 Too Many Requests
+#
+# Too many requests from this client. You are being rate limited.
+# See the rate limiting section of the docs https://developers.recurly.com/api/latest/index.html#section/Getting-Started/Limits
 class Unprocessable extends ClientError {}
 
 # === 5xx Server Error
@@ -115,6 +120,36 @@ class ServiceUnavailable extends ServerError {}
 # The gateway was unable to reach the service in time. Please try the request again.
 class GatewayTimeout extends ServerError {}
 
+## Recurly-Specific Errors
+
+class InvalidApiKey extends Forbidden {}
+
+class InvalidPermissions extends Forbidden {}
+
+class ValidationError extends Unprocessable {}
+
+class MissingFeature extends Unprocessable {}
+
+class RateLimitedError extends TooManyRequests {}
+
+class UnkownApiVersion extends NotAcceptable {}
+
+class UnavailableInApiVersion extends NotAcceptable {}
+
+class InvalidApiVersion extends NotAcceptable {}
+
+class Transaction extends Unprocessable {}
+
+class SimultaneousRequest extends Unprocessable {}
+
+class ImmutableSubscription extends Unprocessable {}
+
+class InvalidToken extends Unprocessable {}
+
+class InvalidContentType extends BadRequest {}
+
+class UnknownApiVersion extends NotAcceptable {}
+
 $status_mappings = array(
     304 => NotModified,
     400 => BadRequest,
@@ -131,9 +166,15 @@ $status_mappings = array(
     503 => ServiceUnavailable
 );
 
-function getErrorClass(int $status_code) : \Recurly\RecurlyError
+function getErrorClass(\Recurly\Response $response) : \Recurly\RecurlyError
 {
-    if (array_key_exists($status_code, $status_mappings)) {
+    $status_code = $response->getStatusCode();
+    $body = $response->toResource();
+    
+    // if body has `type` and we can find an error with that type
+    if (false) {
+
+    } else if (array_key_exists($status_code, $status_mappings)) {
         return $status_mappings[$status_code];
     } else {
         if ($status_code >= 400 && $status_code < 500) {
