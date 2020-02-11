@@ -1,124 +1,50 @@
-# Recurly PHP Client
+# Recurly
 
-[![Build Status](https://travis-ci.org/recurly/recurly-client-php.png?branch=master)](https://travis-ci.org/recurly/recurly-client-php)
+This repository houses the official dotnet client for Recurly's V3 API.
 
-The Recurly PHP Client library is an open source library to interact with
-Recurly's subscription management from your PHP website. The library interacts
-with Recurly's [REST API](https://dev.recurly.com/docs/getting-started).
+> *Note*:
+> If you were looking for the V2 client, see the [v2 branch](https://github.com/recurly/recurly-client-php/tree/v2).
 
-**Note:** This version uses Recurly API v2. There are substantial differences
-between this version of the client library and versions before _0.5.0_. Please
-be careful when upgrading.
+Documentation for the HTTP API and example code can be found
+[on our Developer Portal](https://developers.recurly.com/api/v2019-10-10/).
 
-## Requirements
+## Getting Started
 
-### cURL and OpenSSL
+### Installing
 
-The PHP library depends on PHP 5.6 (or higher) and libcurl compiled with
-OpenSSL support. Open up a `phpinfo();` page and verify that under the curl
-section, there's a line that says something like:
-
-```
-libcurl/7.19.5 OpenSSL/1.0.1g zlib/1.2.3.3 libidn/1.15
-```
-
-Please ensure that your OpenSSL version supports TLS v1.2 (or higher) and that it meets [PHP's requirements for the OpenSSL cryptography extension](http://php.net/manual/en/openssl.requirements.php).
-Some older versions of OpenSSL will not necessarily work properly with the Recurly API. For security reasons, it is strongly encouraged to use the latest version of OpenSSL.
-
-### Timezone
-You will need to specify your server's timezone before using the Recurly PHP client. This is necessary for the library to properly handle datetime conversions. You can do this in your `php.ini` file:
-
-```php
-date.timezone = 'America/Los_Angeles'
-```
-
-or in your PHP script:
-
-```php
-date_default_timezone_set('America/Los_Angeles');
-```
-
-## Installation
-
-### Composer
-
-If you're using [Composer](http://getcomposer.org/), you can simply add a
-dependency on `recurly/recurly-client` to your project's `composer.json` file.
+This package is published on Packagist under the name [recurly/recurly-client](https://packagist.org/packages/recurly/recurly-client) and can be added as a dependency to your project's `composer.json` file. We recommend using [Composer](http://getcomposer.org/) to install and maintain this dependency.
 
 ```json
 {
     "require": {
-        "recurly/recurly-client": "2.12.*"
+        "recurly/recurly-client": "3.0.*"
     }
 }
 ```
 
-### Git
+> *Note*: We try to follow [semantic versioning](https://semver.org/) and will only apply breaking changes to major versions.
 
-If you already have git, the easiest way to download the Recurly PHP Client is
-with the git command:
+### Creating a Client
 
-```
-git clone git://github.com/recurly/recurly-client-php.git /path/to/include/recurly
-```
-
-### By Hand
-
-Alternatively, you may download the PHP files in the `lib/` directory and place
-them within your PHP project.
-
-## Initialization
-
-Load the Recurly library files and set your subdomain and API Key globally:
+Client instances provide one place where every operation on the Recurly API can be found (rather than having them spread out amongst classes). A new client can be initialized with its constructor. It only requires an API key which can be obtained on the [API Credentials Page](https://app.recurly.com/go/integrations/api_keys).
 
 ```php
-<?php
-require_once('./lib/recurly.php');
-
-/* https://<your-subdomain>.recurly.com */
-Recurly_Client::$subdomain = 'your-subdomain';
-/* your private API key */
-Recurly_Client::$apiKey = '012345678901234567890123456789ab';
+$api_key = '83749879bbde395b5fe0cc1a5abf8e5';
+$client = new \Recurly\Client($api_key);
 ```
 
-If you are getting certificate verification errors that look like this:
+### Operations
 
-```
-Fatal error: Uncaught exception 'Recurly_ConnectionError' with message 'Could not verify Recurly's SSL certificate.'
-```
+The `\Recurly\Client` contains every operation you can perform on the site as a list of methods. Each method is documented explaining the types and descriptions for each input and return type.
 
-Then there is likely a problem with your php or libcurl package and it cannot find your system's root CA certificates.
-Ideally you would want to fix your installation but if you cannot you can override the path manually:
+### Pagination
+
+Pagination is accomplished using the `\Recurly\Pager` object. A pager is created by the `list*` operations of the client. The Pager implements [PHP's Iterator](https://www.php.net/manual/en/class.iterator.php) interface, so it can be used in a `foreach` loop. 
 
 ```php
-// Example on my OS X system, the path will be dependent on your system so ask your sysadmin
-Recurly_Client::$CACertPath = '/usr/local/etc/openssl/cert.pem';
+$accounts = $client->listAccounts();
+
+foreach($accounts as $account) {
+    echo 'Account code: ' . $account->getCode() . PHP_EOL;
+}
 ```
-
-## API Documentation
-
-Please see the [Recurly API](https://dev.recurly.com/docs/getting-started) for more information.
-
-## Unit tests
-
-You can run our unit tests by using Composer to install PHPUnit:
-
-```
-$ curl -s https://getcomposer.org/installer | php
-$ php composer.phar install
-$ vendor/bin/phpunit
-```
-
-## Support
-
-- [https://support.recurly.com](https://support.recurly.com)
-- [stackoverflow](http://stackoverflow.com/questions/tagged/recurly)
-
-## Supported Versions
-
-We support all ["currently supported versions" of PHP](http://php.net/supported-versions.php).
-We also support the LTS versions of [HHVM](https://docs.hhvm.com/hhvm/installation/release-schedule), but only those which support PHP and Composer.
-
-## Contributing Guidelines
-
-Please refer to [CONTRIBUTING.md](CONTRIBUTING.md)
