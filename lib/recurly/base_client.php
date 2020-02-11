@@ -61,7 +61,7 @@ abstract class BaseClient
                 'ignore_errors' => true, // Allows for returning error bodies
                 'method' => $method,
                 'header' => $this->_headers(),
-                'content' => isset($body) ? json_encode($body) : null
+                'content' => isset($body) && !empty($body) ? json_encode($body) : null
             )
         );
 
