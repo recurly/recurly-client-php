@@ -229,7 +229,7 @@ abstract class RecurlyResource
         return array_reduce(
             $class->getProperties(),
             function ($carry, $property) {
-                if ($property->name == '_array_hints') {
+                if ($property->name == 'array_hints') {
                     return $carry;
                 }
                 $private = $property->isPrivate();
