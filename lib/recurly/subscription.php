@@ -249,6 +249,31 @@ class Recurly_Subscription extends Recurly_Resource
     $this->_save(Recurly_Client::PUT, $this->uri() . '/resume');
   }
 
+  /**
+   * Converts trial to paid subscription when transaction_type == "moto"
+   */
+  public function convertTrialMoto() {
+    $doc = $this->createDocument();
+    $root = $doc->appendChild($doc->createElement($this->getNodeName()));
+    $root->appendChild($doc->createElement('transaction_type', "moto"));
+    $this->_save(Recurly_Client::PUT, $this->uri() . '/convert_trial', $this->renderXML($doc));
+  }
+
+  /**
+   * Converts trial to paid subscription.
+   */
+  public function convertTrial($three_d_secure_action_result_token_id = null) {
+    if ($three_d_secure_action_result_token_id != null) {
+      $doc = $this->createDocument();
+      $root = $doc->appendChild($doc->createElement($this->getNodeName()));
+      $account = $root->appendChild($doc->createElement("account"));
+      $billingInfo = $account->appendChild($doc->createElement("billing_info"));
+      $billingInfo->appendChild($doc->createElement("three_d_secure_action_result_token_id", $three_d_secure_action_result_token_id));
+      $this->_save(Recurly_Client::PUT, $this->uri() . '/convert_trial', $this->renderXML($doc));    
+    }
+    $this->_save(Recurly_Client::PUT, $this->uri() . '/convert_trial');
+  }
+
   public function buildUsage($addOnCode, $client = null) {
     return Recurly_Usage::build($this->uuid, $addOnCode, $client);
   }
