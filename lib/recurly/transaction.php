@@ -5,7 +5,7 @@
  * @property Recurly_Stub $account The URL of the account associated with the transaction.  Run get() to pull back a Recurly_Account
  * @property Recurly_Stub $invoice The URL of the invoice associated with the transaction.  Run get() to pull back a Recurly_Invoice
  * @property Recurly_Stub $subscriptions The URL of the subscriptions associated with the transaction.
- * @property string $original_transaction For refund transactions, the URL of the original transaction.  Run get() to pull back a Recurly_Transaction
+ * @property Recurly_Transaction $original_transaction For refund transactions, the URL of the original transaction.  Run get() to pull back a Recurly_Transaction
  * @property string $action purchase, verify or refund.
  * @property integer $amount_in_cents Total transaction amount in cents.
  * @property integer $tax_in_cents Amount of tax or VAT within the transaction, in cents.
@@ -24,15 +24,14 @@
  * @property string $avs_result_postal AVS result for the postal code.
  * @property DateTime $created_at Date the transaction took place.
  * @property DateTime $updated_at Date the transaction was last modified.
- * @property mixed[] $details Nested account and billing information submitted at the time of the transaction. When writing a client library, do not map these directly to Account or Billing Info objects.  Retrieve data by accessing the array details[0]->fieldname i.e. details[0]->email 
- * @property string $error_code For declined transactions, the error code (if applicable).
- * @property string $error_category For declined transactions, the error category (if applicable).
- * @property string $merchant_message For declined transactions, the message displayed to the merchant (if applicable).
- * @property string $customer_message For declined transactions, the message displayed to the customer (if applicable).
- * @property string $gateway_error_code For declined transactions, this field lists the gateway error code sent to us from the gateway (if applicable).
+ * @property mixed[] $details Nested account and billing information submitted at the time of the transaction. When writing a client library, do not map these directly to Account or Billing Info objects.  Retrieve data by accessing the array details[0]->fieldname i.e. details[0]->email
  * @property string $payment_method The method of payment: (credit_card, paypal, eft, wire_transfer, money_order, check, or other).
  * @property DateTime $collected_at Date payment was collected
- * @property string $product_code Merchant defined product code
+ * @property string $origin Describes how the transaction was triggered
+ * @property string $gateway_type Identifies the payment gateway used to process the transaction
+ * @property string $message The message from the gateway
+ * @property string $description The description that gets sent to the gateway, if applicable.
+ * @property null|Recurly_TransactionError $transaction_error
  */
 class Recurly_Transaction extends Recurly_Resource
 {
