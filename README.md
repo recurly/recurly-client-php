@@ -71,7 +71,7 @@ $params = array(
     'order' => 'asc', // asc or desc order
     'begin_time' => '2020-01-01T01:00:00Z', // don't include accounts before 2020-01-01
     'end_time' => '2020-02-01T01:00:00Z', // don't include accounts after 2020-02-01
-    // the following params are specific to account
+    // the following params are specific to the list_account endpoint
     'email' => 'admin@email.com', // only accounts with this email
     'subscriber' => true, // only accounts with a subscription in the active, canceled, or future state
     'past_due' => false // no accounts with an invoice in the past_due state
