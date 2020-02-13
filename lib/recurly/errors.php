@@ -163,14 +163,15 @@ $status_mappings = array(
     422 => UnprocessableEntity,
     500 => InternalServerError,
     502 => GatewayError,
-    503 => ServiceUnavailable
+    503 => ServiceUnavailable,
+    504 => GatewayTimeout
 );
 
 function getErrorClass(\Recurly\Response $response) : \Recurly\RecurlyError
 {
     $status_code = $response->getStatusCode();
     $body = $response->toResource();
-    
+
     // if body has `type` and we can find an error with that type
     if (false) {
 
