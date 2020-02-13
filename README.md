@@ -57,7 +57,7 @@ foreach($accounts as $account) {
 }
 ```
 
-#### Query Params
+#### Sorting and Filtering
 
 When calling the `list*` methods and constructing Pagers, you can pass in optional query parameters to help you sort
 or filter the resulting resources in the list. The query params are documented on the method and can be found in the docs
@@ -112,4 +112,69 @@ If you want to fetch the last account in this scenario, invert the order from `d
 $accounts = $client->listAccounts([ 'order' => 'asc', 'past_due' => true ]);
 // fetch only the last account with past due invoice
 $account = $accounts->getFirst();
+```
+
+### Creating Resources
+
+For creating or updating resources, pass a plain associative array to one of the `create*` or `update*` methods:
+
+```php
+$plan_create = array(
+    "name" => "Monthly Coffee Subscription",
+    "code" => "coffee-monthly",
+    "currencies" => [
+        array(
+            "currency" => "USD",
+            "unit_amount" => 20.0
+        )
+    ]
+);
+
+$plan = $client->createPlan($plan_create);
+
+echo 'Created Plan:' . PHP_EOL;
+var_dump($plan);
+```
+
+### Error Handling
+
+```php
+try {
+    $account = $client->deactivateAccount($account_id);
+} catch (\Recurly\Errors\Validation $e) {
+    // If the request was not valid, you may want to tell your user
+    // why. You can find the invalid params and reasons in err.params
+    // TODO show how to get params
+    var_dump($e);
+} catch (\Recurly\Errors\NotFound $e) {
+    // You'll receive a NotFound error if one of the identifiers in your request
+    // was incorrect. In this case, it's possible the $account_id is incorrect or
+    // the associated account does not exist
+    var_dump($e);
+} catch (\Recurly\RecurlyError $e) {
+    // All errors inherit from this base class, so this should catch
+    // any error that this library throws. If we don't know what to
+    // do with the err, we should probably re-raise and let
+    // our web framework and logger handle it
+    var_dump($e);
+}
+```
+
+Sometimes you might want to get some additional information about the underlying HTTP request and response. Instead of returning this information directly and forcing the programmer to unwrap it, we inject this metadata into the top level resource that was returned. You can access the response by calling `getResponse()` on any Resource.
+
+> **Warning**:
+> Do not log or render whole requests or responses as they may contain PII or sensitive data.
+
+```php
+$account = $client->getAccount("code-douglas");
+$response = $account->getResponse();
+echo "Request ID:" . $response->getRequestId() . PHP_EOL;
+echo "Rate limit remaining:" . $response->getRateLimitRemaining() . PHP_EOL;
+```
+
+This also works on `Empty` resources (for when there is no return body):
+
+```php
+$response = $client->removeLineItem("a959576b2b10b012")->getResponse();
+echo "Request ID:" . $response->getRequestId() . PHP_EOL;
 ```
