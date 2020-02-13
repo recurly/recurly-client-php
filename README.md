@@ -38,6 +38,7 @@ $client = new \Recurly\Client($api_key);
 The `\Recurly\Client` contains every operation you can perform on the site as a list of methods. Each method is documented explaining the types and descriptions for each input and return type. For example, to use the [get_plan](https://developers.recurly.com/api/latest/index.html#operation/get_plan) endpoint, call the `Client#getPlan()` method:
 
 ```php
+$plan_code = "gold";
 $plan = $client->getPlan("code-$plan_code");
 ```
 
