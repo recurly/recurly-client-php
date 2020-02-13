@@ -6,7 +6,7 @@ This repository houses the official php client for Recurly's V3 API.
 > If you were looking for the V2 client, see the [v2 branch](https://github.com/recurly/recurly-client-php/tree/v2).
 
 Documentation for the HTTP API and example code can be found
-[on our Developer Portal](https://developers.recurly.com/api/v2019-10-10/).
+[on our Developer Portal](https://developers.recurly.com/api/latest/).
 
 ## Getting Started
 
