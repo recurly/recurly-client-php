@@ -7,6 +7,6 @@
  */
 namespace Recurly\Errors;
 
-class ImmutableSubscription extends \Recurly\RecurlyError
+class ImmutableSubscription extends \Recurly\Errors\UnprocessableEntity
 {
 }

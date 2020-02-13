@@ -5,6 +5,7 @@ namespace Recurly;
 class RecurlyError extends \Error
 {
     use RecurlyTraits;
+    use ErrorTraits;
 
     private $_api_error;
 
@@ -46,6 +47,7 @@ class RecurlyError extends \Error
             // class instead. The errors must flow
             $klass = static::class;
         }
+        echo "Error?: " . static::errorFromStatus($response->getStatusCode()) . PHP_EOL;
         $error = $json->error;
         $error->object = 'error_may_have_transaction';
         $api_error = \Recurly\Resources\ErrorMayHaveTransaction::fromJson($error, $response);

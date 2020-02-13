@@ -7,6 +7,6 @@
  */
 namespace Recurly\Errors;
 
-class InternalServerError extends \Recurly\RecurlyError
+class InternalServerError extends \Recurly\Errors\ServerError
 {
 }

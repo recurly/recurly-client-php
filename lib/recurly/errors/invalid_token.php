@@ -7,6 +7,6 @@
  */
 namespace Recurly\Errors;
 
-class InvalidToken extends \Recurly\RecurlyError
+class InvalidToken extends \Recurly\Errors\UnprocessableEntity
 {
 }

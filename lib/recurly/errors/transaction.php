@@ -7,6 +7,6 @@
  */
 namespace Recurly\Errors;
 
-class Transaction extends \Recurly\RecurlyError
+class Transaction extends \Recurly\Errors\UnprocessableEntity
 {
 }

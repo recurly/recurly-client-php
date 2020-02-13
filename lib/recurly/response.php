@@ -48,6 +48,19 @@ class Response
         }
     }
 
+    public function toResource2(): string
+    {
+        if ($this->_status_code >= 200 && $this->_status_code < 300) {
+            //original toResource?
+        } elseif ($this->_status_code >= 400 && $this->_status_code < 500) {
+            return '4xx';
+        } elseif ($this->_status_code >= 500) {
+            return '5xx';
+        } else {
+            return 'boom';
+        }
+    }
+
     /**
      * Parses the HTTP response headers. If the $headers param is null
      * then a 400 Bad Request is assumed.

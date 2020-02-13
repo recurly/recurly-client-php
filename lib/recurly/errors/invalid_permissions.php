@@ -7,6 +7,6 @@
  */
 namespace Recurly\Errors;
 
-class InvalidPermissions extends \Recurly\RecurlyError
+class InvalidPermissions extends \Recurly\Errors\Forbidden
 {
 }

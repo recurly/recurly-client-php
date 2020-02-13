@@ -7,6 +7,6 @@
  */
 namespace Recurly\Errors;
 
-class MissingFeature extends \Recurly\Errors\UnprocessableEntity
+class ServiceUnavailable extends \Recurly\Errors\ServerError
 {
 }

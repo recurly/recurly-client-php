@@ -7,6 +7,6 @@
  */
 namespace Recurly\Errors;
 
-class NotFound extends \Recurly\RecurlyError
+class NotFound extends \Recurly\Errors\ClientError
 {
 }

@@ -7,6 +7,6 @@
  */
 namespace Recurly\Errors;
 
-class SimultaneousRequest extends \Recurly\RecurlyError
+class SimultaneousRequest extends \Recurly\Errors\UnprocessableEntity
 {
 }

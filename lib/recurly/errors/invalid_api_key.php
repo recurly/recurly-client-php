@@ -7,6 +7,6 @@
  */
 namespace Recurly\Errors;
 
-class InvalidApiKey extends \Recurly\RecurlyError
+class InvalidApiKey extends \Recurly\Errors\Forbidden
 {
 }

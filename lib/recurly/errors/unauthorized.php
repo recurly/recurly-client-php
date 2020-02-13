@@ -7,6 +7,6 @@
  */
 namespace Recurly\Errors;
 
-class Unauthorized extends \Recurly\RecurlyError
+class Unauthorized extends \Recurly\Errors\ClientError
 {
 }

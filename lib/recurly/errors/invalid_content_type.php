@@ -7,6 +7,6 @@
  */
 namespace Recurly\Errors;
 
-class InvalidContentType extends \Recurly\RecurlyError
+class InvalidContentType extends \Recurly\Errors\BadRequest
 {
 }

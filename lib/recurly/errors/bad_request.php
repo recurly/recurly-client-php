@@ -7,6 +7,6 @@
  */
 namespace Recurly\Errors;
 
-class BadRequest extends \Recurly\RecurlyError
+class BadRequest extends \Recurly\Errors\ClientError
 {
 }
