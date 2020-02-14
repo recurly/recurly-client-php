@@ -31,6 +31,11 @@ class Response
         return $this->_response;
     }
 
+    public function getJsonResponse(): ?object
+    {
+        return json_decode($this->_response);
+    }
+
     /**
      * Converts the Response into a \Recurly\RecurlyResource
      * 
@@ -38,26 +43,16 @@ class Response
      */
     public function toResource(): \Recurly\RecurlyResource
     {
-        if (empty($this->_response)) {
-            return \Recurly\RecurlyResource::fromEmpty($this);
-        } elseif (in_array($this->getContentType(), static::BINARY_TYPES)) {
-            return \Recurly\RecurlyResource::fromBinary($this->_response, $this);
-        } else {
-            $json_response = json_decode($this->_response);
-            return \Recurly\RecurlyResource::fromJson($json_response, $this);
-        }
-    }
-
-    public function toResource2(): string
-    {
         if ($this->_status_code >= 200 && $this->_status_code < 300) {
-            //original toResource?
-        } elseif ($this->_status_code >= 400 && $this->_status_code < 500) {
-            return '4xx';
-        } elseif ($this->_status_code >= 500) {
-            return '5xx';
+            if (empty($this->_response)) {
+                return \Recurly\RecurlyResource::fromEmpty($this);
+            } elseif (in_array($this->getContentType(), static::BINARY_TYPES)) {
+                return \Recurly\RecurlyResource::fromBinary($this->_response, $this);
+            } else {
+                return \Recurly\RecurlyResource::fromResponse($this);
+            }
         } else {
-            return 'boom';
+            throw \Recurly\RecurlyError::fromResponse($this);
         }
     }
 

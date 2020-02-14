@@ -31,7 +31,8 @@ final class RecurlyResourceTest extends RecurlyTestCase
         );
 
         $response = new \Recurly\Response('');
-        $result = RecurlyResource::fromJson($test_resource, $response);
+        $response->setHeaders(array('HTTP/1.1 200 OK'));
+        $result = RecurlyResource::fromResponse($response);
         $this->assertInstanceOf(\Recurly\Resources\TestResource::class, $result);
         $this->assertEquals($response, $result->getResponse());
         $this->assertInstanceOf(\Recurly\Resources\TestResource::class, $result->getSingleChild());
@@ -46,7 +47,8 @@ final class RecurlyResourceTest extends RecurlyTestCase
         );
 
         $response = new \Recurly\Response('');
-        $result = RecurlyResource::fromJson($test_resource, $response);
+        $response->setHeaders(array('HTTP/1.1 200 OK'));
+        $result = RecurlyResource::fromResponse($response);
         $this->assertInstanceOf(\Recurly\Resources\TestResource::class, $result);
     }
 
@@ -59,7 +61,7 @@ final class RecurlyResourceTest extends RecurlyTestCase
     //    $this->expectError();
     //    $this->expectErrorMessage("Could not find the Recurly class for key riverboat");
     //    $response = new \Recurly\Response('');
-    //    $result = RecurlyResource::fromJson($data, $response);
+    //    $result = RecurlyResource::fromResponse($response);
     //}
 
     //public function testStrictModeErrors(): void
@@ -72,7 +74,7 @@ final class RecurlyResourceTest extends RecurlyTestCase
     //    $this->expectError();
     //    $this->expectErrorMessage("Recurly\Resources\TestResource encountered json attribute unknown-key but it's unknown to it's schema");
     //    $response = new \Recurly\Response('');
-    //    $result = RecurlyResource::fromJson($data, $response);
+    //    $result = RecurlyResource::fromResponse($response);
     //}
 
     public function testFromJsonErrorResponse(): void
@@ -88,8 +90,9 @@ final class RecurlyResourceTest extends RecurlyTestCase
         $this->expectException(\Recurly\Errors\TestError::class);
         $this->expectExceptionMessage("The error message");
         $response = new \Recurly\Response('');
+        $response->setHeaders(array('HTTP/1.1 200 OK'));
         $response->setHeaders([]);
-        $result = RecurlyResource::fromJson($data, $response);
+        $result = RecurlyResource::fromResponse($response);
     }
 
     public function testFromJsonList(): void
@@ -99,7 +102,8 @@ final class RecurlyResourceTest extends RecurlyTestCase
         );
 
         $response = new \Recurly\Response('');
-        $result = RecurlyResource::fromJson($data, $response);
+        $response->setHeaders(array('HTTP/1.1 200 OK'));
+        $result = RecurlyResource::fromResponse($response);
         $this->assertInstanceOf(\Recurly\Page::class, $result);
     }
 
@@ -108,6 +112,7 @@ final class RecurlyResourceTest extends RecurlyTestCase
         $data = 'binary file data';
 
         $response = new \Recurly\Response('');
+        $response->setHeaders(array('HTTP/1.1 200 OK'));
         $result = RecurlyResource::fromBinary($data, $response);
         $this->assertInstanceOf(\Recurly\Resources\BinaryFile::class, $result);
         $this->assertEquals($response, $result->getResponse());
@@ -116,6 +121,7 @@ final class RecurlyResourceTest extends RecurlyTestCase
     public function testFromEmpty(): void
     {
         $response = new \Recurly\Response('');
+        $response->setHeaders(array('HTTP/1.1 200 OK'));
         $result = RecurlyResource::fromEmpty($response);
         $this->assertInstanceOf(\Recurly\EmptyResource::class, $result);
         $this->assertEquals($response, $result->getResponse());

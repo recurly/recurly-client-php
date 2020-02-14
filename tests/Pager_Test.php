@@ -16,12 +16,18 @@ final class PagerTest extends RecurlyTestCase
             }
             $json_string = $this->fixtures->loadJsonFixture($name, ['type' => 'string']);
             $response = new \Recurly\Response($json_string);
-            $response->setHeaders(array("Recurly-Total-Records: {$this->count}"));
+            $response->setHeaders(array(
+                'HTTP/1.1 200 OK',
+                "Recurly-Total-Records: {$this->count}"
+            ));
             return $response->toResource();
         }));
         $client_stub->method('pagerCount')->will($this->returnCallback(function($name, $params) {
             $response = new \Recurly\Response('');
-            $response->setHeaders(array("Recurly-Total-Records: {$this->count}"));
+            $response->setHeaders(array(
+                'HTTP/1.1 200 OK',
+                "Recurly-Total-Records: {$this->count}"
+            ));
             return $response;
         }));
 

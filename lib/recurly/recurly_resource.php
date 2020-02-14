@@ -71,20 +71,16 @@ abstract class RecurlyResource
     }
 
     /**
-     * Converts a JSON response object into a \Recurly\RecurlyResource.
+     * Converts a Recurly response object into a \Recurly\RecurlyResource.
      * 
-     * @param object            $json     PHP Object containing the decoded JSON
      * @param \Recurly\Response $response (optional) The Recurly HTTP Response
      * 
      * @return \Recurly\RecurlyResource An instance of a Recurly Resource
      */
-    public static function fromJson(object $json, \Recurly\Response $response): \Recurly\RecurlyResource // phpcs:ignore Generic.Files.LineLength.TooLong
+    public static function fromResponse(\Recurly\Response $response): \Recurly\RecurlyResource // phpcs:ignore Generic.Files.LineLength.TooLong
     {
-        if (isset($json->error)) {
-            throw \Recurly\RecurlyError::fromJson($json, $response);
-        } else {
-            $klass_name = static::resourceClass($json->object);
-        }
+        $json = $response->getJsonResponse();
+        $klass_name = static::resourceClass($json->object);
         $klass = $klass_name::cast($json);
 
         $klass->setResponse($response);

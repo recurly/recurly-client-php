@@ -13,7 +13,9 @@ final class RecurlyErrorTest extends RecurlyTestCase
         );
 
         $response = new \Recurly\Response('');
-        $response->setHeaders([]);
+        $response->setHeaders(array(
+            'HTTP/1.1 500 Internal Server Error',
+        ));
         $result = \Recurly\RecurlyError::fromJson($data, $response);
         $this->assertInstanceOf(
             \Recurly\RecurlyError::class,
@@ -32,7 +34,9 @@ final class RecurlyErrorTest extends RecurlyTestCase
         );
 
         $response = new \Recurly\Response('');
-        $response->setHeaders([]);
+        $response->setHeaders(array(
+            'HTTP/1.1 500 Internal Server Error',
+        ));
         $result = \Recurly\RecurlyError::fromJson($data, $response);
         $this->assertInstanceOf(
             \Recurly\Resources\ErrorMayHaveTransaction::class,
