@@ -19,9 +19,12 @@ class AddOn extends RecurlyResource
     private $_default_quantity;
     private $_deleted_at;
     private $_display_quantity;
+    private $_external_sku;
     private $_id;
+    private $_item;
     private $_name;
     private $_object;
+    private $_optional;
     private $_plan_id;
     private $_state;
     private $_tax_code;
@@ -187,6 +190,28 @@ class AddOn extends RecurlyResource
     }
 
     /**
+    * Getter method for the external_sku attribute.
+    *
+    * @return string Optional, stock keeping unit to link the item to other inventory systems.
+    */
+    public function getExternalSku(): string
+    {
+        return $this->_external_sku;
+    }
+
+    /**
+    * Setter method for the external_sku attribute.
+    *
+    * @param string $external_sku
+    *
+    * @return void
+    */
+    public function setExternalSku(string $external_sku): void
+    {
+        $this->_external_sku = $external_sku;
+    }
+
+    /**
     * Getter method for the id attribute.
     *
     * @return string Add-on ID
@@ -206,6 +231,28 @@ class AddOn extends RecurlyResource
     public function setId(string $id): void
     {
         $this->_id = $id;
+    }
+
+    /**
+    * Getter method for the item attribute.
+    *
+    * @return \Recurly\Resources\ItemMini Just the important parts.
+    */
+    public function getItem(): \Recurly\Resources\ItemMini
+    {
+        return $this->_item;
+    }
+
+    /**
+    * Setter method for the item attribute.
+    *
+    * @param \Recurly\Resources\ItemMini $item
+    *
+    * @return void
+    */
+    public function setItem(\Recurly\Resources\ItemMini $item): void
+    {
+        $this->_item = $item;
     }
 
     /**
@@ -250,6 +297,28 @@ class AddOn extends RecurlyResource
     public function setObject(string $object): void
     {
         $this->_object = $object;
+    }
+
+    /**
+    * Getter method for the optional attribute.
+    *
+    * @return bool Whether the add-on is optional for the customer to include in their purchase on the hosted payment page. If false, the add-on will be included when a subscription is created through the Recurly UI. However, the add-on will not be included when a subscription is created through the API.
+    */
+    public function getOptional(): bool
+    {
+        return $this->_optional;
+    }
+
+    /**
+    * Setter method for the optional attribute.
+    *
+    * @param bool $optional
+    *
+    * @return void
+    */
+    public function setOptional(bool $optional): void
+    {
+        $this->_optional = $optional;
     }
 
     /**

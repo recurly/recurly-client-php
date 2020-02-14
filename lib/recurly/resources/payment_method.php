@@ -21,6 +21,7 @@ class PaymentMethod extends RecurlyResource
     private $_gateway_code;
     private $_gateway_token;
     private $_last_four;
+    private $_last_two;
     private $_object;
     private $_routing_number;
     private $_routing_number_bank;
@@ -225,6 +226,28 @@ class PaymentMethod extends RecurlyResource
     public function setLastFour(string $last_four): void
     {
         $this->_last_four = $last_four;
+    }
+
+    /**
+    * Getter method for the last_two attribute.
+    *
+    * @return string The IBAN bank account's last two digits.
+    */
+    public function getLastTwo(): string
+    {
+        return $this->_last_two;
+    }
+
+    /**
+    * Setter method for the last_two attribute.
+    *
+    * @param string $last_two
+    *
+    * @return void
+    */
+    public function setLastTwo(string $last_two): void
+    {
+        $this->_last_two = $last_two;
     }
 
     /**
