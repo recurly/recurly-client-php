@@ -41,27 +41,18 @@ class RecurlyError extends \Error
      */
     public static function fromResponse(\Recurly\Response $response): \Recurly\RecurlyError // phpcs:ignore Generic.Files.LineLength.TooLong
     {
-        if ($response->getStatusCode() >= 400 && $response->getStatusCode() < 500) {
-            $default = \Recurly\Errors\ClientError::class;
-        } elseif ($response->getStatusCode() >= 500) {
-            $default = \Recurly\Errors\ServerError::class;
-        } else {
-            // The errors must flow
-            $default = \Recurly\RecurlyError::class;
-        }
 
         if ($response->getContentType() == 'application/json') {
             $json = $response->getJsonResponse();
             if (isset($json->error)) {
-                $klass = static::titleize($json->error->type, '\\Recurly\\Errors\\');
-                if (!class_exists($klass)) {
-                    $klass = $default;
-                }
                 $error = $json->error;
+                $klass = static::titleize($error->type, '\\Recurly\\Errors\\');
+                if (!class_exists($klass)) {
+                    $klass = static::defaultErrorType($response);
+                }
                 $error->object = 'error_may_have_transaction';
-                $api_error = \Recurly\Resources\ErrorMayHaveTransaction::fromJson($error, $response);
-                //$api_error = \Recurly\Resources\ErrorMayHaveTransaction::fromResponse($response, $error);
-                return new $klass($json->error->message, $api_error);
+                $api_error = \Recurly\Resources\ErrorMayHaveTransaction::fromResponse($response, $error);
+                return new $klass($error->message, $api_error);
             }
         } else {
             $error_type = static::errorFromStatus($response->getStatusCode());
@@ -70,8 +61,21 @@ class RecurlyError extends \Error
                 return new $klass('An unexpected error has occurred');
             }
         }
-        return new $default('An unexpected error has occurred');
+        $klass = static::defaultErrorType($response);
+        return new $klass('An unexpected error has occurred');
 
+    }
+
+    private static function defaultErrorType(\Recurly\Response $response): string
+    {
+        if ($response->getStatusCode() >= 400 && $response->getStatusCode() < 500) {
+            return \Recurly\Errors\ClientError::class;
+        } elseif ($response->getStatusCode() >= 500) {
+            return \Recurly\Errors\ServerError::class;
+        } else {
+            // The errors must flow
+            return \Recurly\RecurlyError::class;
+        }
     }
 
 }
