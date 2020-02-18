@@ -60,6 +60,7 @@ class RecurlyError extends \Error
                 $error = $json->error;
                 $error->object = 'error_may_have_transaction';
                 $api_error = \Recurly\Resources\ErrorMayHaveTransaction::fromJson($error, $response);
+                //$api_error = \Recurly\Resources\ErrorMayHaveTransaction::fromResponse($response, $error);
                 return new $klass($json->error->message, $api_error);
             }
         } else {

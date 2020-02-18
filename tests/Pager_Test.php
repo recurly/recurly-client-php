@@ -52,6 +52,7 @@ final class PagerTest extends RecurlyTestCase
     {
         $json_string = $this->fixtures->loadJsonFixture('page_limit_1_empty', ['type' => 'string']);
         $response = new \Recurly\Response($json_string);
+        $response->setHeaders(array('HTTP/1.1 200 OK'));
         $client_stub = $this->createMock(\Recurly\BaseClient::class);
         $client_stub->method('nextPage')->willReturn($response->toResource());
         $pager = new \Recurly\Pager($client_stub, 'page_one');
