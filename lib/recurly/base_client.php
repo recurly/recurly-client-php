@@ -6,6 +6,7 @@ abstract class BaseClient
 {
     private $_baseUrl = 'https://v3.recurly.com';
     private $_api_key;
+    public $_http;
 
     /**
      * Constructor
@@ -15,6 +16,7 @@ abstract class BaseClient
     public function __construct(string $api_key)
     {
         $this->_api_key = $api_key;
+        $this->_http = new Http;
     }
 
     /**
@@ -56,22 +58,13 @@ abstract class BaseClient
     {
         $request = new \Recurly\Request($method, $path, $body, $params);
 
-        $options = array(
-            'http' => array(
-                'ignore_errors' => true, // Allows for returning error bodies
-                'method' => $method,
-                'header' => $this->_headers(),
-                'content' => isset($body) && !empty($body) ? json_encode($body) : null
-            )
-        );
-
-        $context = stream_context_create($options);
+        $body = isset($body) && !empty($body) ? json_encode($body) : null;
         $url = $this->_buildPath($path, $params);
-        $result = file_get_contents($url, false, $context);
+        list($result, $response_header) = $this->_http->execute($method, $url, $body, $this->_headers());
 
         // TODO: The $request should be added to the $response
         $response = new \Recurly\Response($result);
-        $response->setHeaders($http_response_header);
+        $response->setHeaders($response_header);
 
         return $response;
     }
@@ -142,20 +135,18 @@ abstract class BaseClient
     /**
      * Generates headers to be sent with the HTTP request
      * 
-     * @return string String representation of the HTTP headers
+     * @return array Array representation of the HTTP headers
      */
-    private function _headers(): string
+    private function _headers(): array
     {
-        $php_version = phpversion();
-        $client_version = \Recurly\Version::CURRENT;
-        $auth_token = base64_encode("{$this->_api_key}:");
-        $headers = array(
-            "User-Agent: Recurly/{$client_version}; php {$php_version}",
-            "Authorization: Basic {$auth_token}",
-            "Accept: application/vnd.recurly.{$this->apiVersion()}",
-            "Content-Type: application/json",
+        $auth_token = Utils::encodeApiKey($this->_api_key);
+        $agent = Utils::getUserAgent();
+        return array(
+            "User-Agent" => $agent,
+            "Authorization" => "Basic {$auth_token}",
+            "Accept" => "application/vnd.recurly.{$this->apiVersion()}",
+            "Content-Type" => "application/json",
         );
-        return join("\r\n", $headers);
     }
 
     /**
