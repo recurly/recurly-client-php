@@ -31,6 +31,11 @@ class Response
         return $this->_response;
     }
 
+    /**
+     * Decodes and returns the raw response as JSON
+     * 
+     * @return object Parsed JSON body
+     */
     public function getJsonResponse(): ?object
     {
         return json_decode($this->_response);

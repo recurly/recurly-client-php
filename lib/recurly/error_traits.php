@@ -10,7 +10,14 @@ namespace Recurly;
 trait ErrorTraits
 {
 
-    protected static function errorFromStatus(int $status_code): ?string
+    /**
+     * Returns an error type for a given $status_code or an empty string.
+     * 
+     * @param int $status_code A HTTP status code
+     * 
+     * @return string A key that can be used to determine an error class
+     */
+    protected static function errorFromStatus(int $status_code): string
     {
         $error_map = array(
             500 => 'internal_server_error',
@@ -31,5 +38,6 @@ trait ErrorTraits
         if (array_key_exists($status_code, $error_map)) {
             return $error_map[$status_code];
         }
+        return '';
     }
 }

@@ -129,7 +129,7 @@ final class ResponseTest extends TestCase
         );
     }
 
-    public function testToResponseBinary(): void
+    public function testToResourceBinary(): void
     {
         $data = 'binary file data';
 
@@ -143,7 +143,7 @@ final class ResponseTest extends TestCase
         $this->assertInstanceOf(\Recurly\Resources\BinaryFile::class, $result);
     }
 
-    public function testToResponseJson(): void
+    public function testToResourceJson(): void
     {
         $account = (object)array(
             'object' => 'account',
@@ -161,12 +161,20 @@ final class ResponseTest extends TestCase
         $this->assertInstanceOf(\Recurly\Resources\Account::class, $result);
     }
 
-    public function testToResponseEmpty(): void
+    public function testToResourceEmpty(): void
     {
         $response = new Response('');
         $response->setHeaders(array('HTTP/1.1 200 OK'));
         $result = $response->toResource();
         $this->assertInstanceOf(\Recurly\EmptyResource::class, $result);
+    }
+
+    public function testToResourceError(): void
+    {
+        $this->expectException(\Recurly\RecurlyError::class);
+        $response = new Response('');
+        $response->setHeaders(array('HTTP/1.1 403 Forbidden'));
+        $result = $response->toResource();
     }
 
     public function testGetRawResponse(): void

@@ -48,7 +48,7 @@ class RecurlyError extends \Error
                 $error = $json->error;
                 $klass = static::titleize($error->type, '\\Recurly\\Errors\\');
                 if (!class_exists($klass)) {
-                    $klass = static::defaultErrorType($response);
+                    $klass = static::_defaultErrorType($response);
                 }
                 $error->object = 'error_may_have_transaction';
                 $api_error = \Recurly\Resources\ErrorMayHaveTransaction::fromResponse($response, $error);
@@ -61,12 +61,20 @@ class RecurlyError extends \Error
                 return new $klass('An unexpected error has occurred');
             }
         }
-        $klass = static::defaultErrorType($response);
+        $klass = static::_defaultErrorType($response);
         return new $klass('An unexpected error has occurred');
 
     }
 
-    private static function defaultErrorType(\Recurly\Response $response): string
+    /**
+     * Inspects the $response's HTTP status code and determines the default error
+     * type to be used if a more suitable class is not found.
+     * 
+     * @param \Recurly\Response $response The \Recurly\Response object
+     * 
+     * @return string Default error class name
+     */
+    private static function _defaultErrorType(\Recurly\Response $response): string
     {
         if ($response->getStatusCode() >= 400 && $response->getStatusCode() < 500) {
             return \Recurly\Errors\ClientError::class;
