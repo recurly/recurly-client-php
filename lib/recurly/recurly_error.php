@@ -15,7 +15,7 @@ class RecurlyError extends \Error
      * @param string                                     $message   The error message from the API response
      * @param \Recurly\Resources\ErrorMayHaveTransaction $api_error The error from the API response
      */
-    public function __construct(string $message, \Recurly\Resources\ErrorMayHaveTransaction $api_error = null) // phpcs:ignore Generic.Files.LineLength.TooLong
+    public function __construct(string $message, \Recurly\Resources\ErrorMayHaveTransaction $api_error = null)
     {
         parent::__construct($message);
         $this->_api_error = $api_error;
@@ -39,7 +39,7 @@ class RecurlyError extends \Error
      * 
      * @return \Recurly\RecurlyError
      */
-    public static function fromResponse(\Recurly\Response $response): \Recurly\RecurlyError // phpcs:ignore Generic.Files.LineLength.TooLong
+    public static function fromResponse(\Recurly\Response $response): \Recurly\RecurlyError
     {
 
         if ($response->getContentType() == 'application/json') {

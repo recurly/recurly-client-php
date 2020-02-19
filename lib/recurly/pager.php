@@ -17,7 +17,7 @@ class Pager implements \Iterator
      * @param string              $path   Tokenized path to request
      * @param array               $params (optional) Query string parameters
      */
-    public function __construct(\Recurly\BaseClient $client, string $path, ?array $params = []) // phpcs:ignore Generic.Files.LineLength.TooLong
+    public function __construct(\Recurly\BaseClient $client, string $path, ?array $params = [])
     {
         $this->_client = $client;
         $this->_path = $path;

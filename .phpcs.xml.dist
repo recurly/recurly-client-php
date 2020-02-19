@@ -17,6 +17,7 @@
         <exclude name="PEAR.Commenting.FileComment.MissingLicenseTag"/>
         <exclude name="PEAR.Commenting.FileComment.MissingLinkTag"/>
         <exclude name="PEAR.Commenting.FunctionComment.ParamCommentAlignment"/>
+        <exclude name="Generic.Files.LineLength.TooLong"/>
     </rule>
 
     <!-- How to scan -->

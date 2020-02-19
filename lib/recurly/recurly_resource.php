@@ -62,7 +62,7 @@ abstract class RecurlyResource
      * 
      * @return \Recurly\EmptyResource
      */
-    public static function fromEmpty(\Recurly\Response $response): \Recurly\EmptyResource // phpcs:ignore Generic.Files.LineLength.TooLong
+    public static function fromEmpty(\Recurly\Response $response): \Recurly\EmptyResource
     {
         $klass = new \Recurly\EmptyResource();
 
@@ -79,7 +79,7 @@ abstract class RecurlyResource
      * 
      * @return \Recurly\RecurlyResource An instance of a Recurly Resource
      */
-    public static function fromResponse(\Recurly\Response $response, object $json = null): \Recurly\RecurlyResource // phpcs:ignore Generic.Files.LineLength.TooLong
+    public static function fromResponse(\Recurly\Response $response, object $json = null): \Recurly\RecurlyResource
     {
         $json = is_null($json) ? $response->getJsonResponse() : $json;
         $klass_name = static::resourceClass($json->object);
@@ -96,7 +96,7 @@ abstract class RecurlyResource
      * 
      * @return \Recurly\RecurlyResource An instance of a Recurly Resource
      */
-    public static function cast(object $data): \Recurly\RecurlyResource // phpcs:ignore Generic.Files.LineLength.TooLong
+    public static function cast(object $data): \Recurly\RecurlyResource
     {
         $klass = new static();
         foreach ($data as $key => $value) {
@@ -111,7 +111,7 @@ abstract class RecurlyResource
                         array_map(
                             function ($item) use ($setter) {
                                 if (property_exists($item, 'object')) {
-                                    $item_class = static::resourceClass($item->object); // phpcs:ignore Generic.Files.LineLength.TooLong
+                                    $item_class = static::resourceClass($item->object);
                                 } else {
                                     // TODO: Ensure that there is a hintArrayType method
                                     $item_class = static::hintArrayType($setter);
@@ -137,7 +137,7 @@ abstract class RecurlyResource
             } elseif (\Recurly\STRICT_MODE) {
                 // @codeCoverageIgnoreStart
                 $klass_name = static::class;
-                trigger_error("$klass_name encountered json attribute $key but it's unknown to it's schema", E_USER_ERROR); // phpcs:ignore Generic.Files.LineLength.TooLong
+                trigger_error("$klass_name encountered json attribute $key but it's unknown to it's schema", E_USER_ERROR);
                 // @codeCoverageIgnoreEnd
             }
         }
@@ -168,7 +168,7 @@ abstract class RecurlyResource
      * 
      * @return \Recurly\Resources\BinaryFile An instance of a Recurly BinaryFile
      */
-    public static function fromBinary(string $data, \Recurly\Response $response): \Recurly\Resources\BinaryFile // phpcs:ignore Generic.Files.LineLength.TooLong
+    public static function fromBinary(string $data, \Recurly\Response $response): \Recurly\Resources\BinaryFile
     {
         $klass = new \Recurly\Resources\BinaryFile();
         $klass->setData($data);
@@ -191,10 +191,9 @@ abstract class RecurlyResource
 
         $klass = static::titleize($type, "\\Recurly\\Resources\\");
         if (!class_exists($klass)) {
-            // phpcs:ignore Generic.Files.LineLength.TooLong
             // @codeCoverageIgnoreStart
             if (\Recurly\STRICT_MODE) {
-                trigger_error("Could not find the Recurly class for key {$type}", E_USER_ERROR); // phpcs:ignore Generic.Files.LineLength.TooLong
+                trigger_error("Could not find the Recurly class for key {$type}", E_USER_ERROR);
             }
             // @codeCoverageIgnoreEnd
         }
@@ -234,7 +233,7 @@ abstract class RecurlyResource
                 if ($private) {
                     $property->setAccessible(true);
                 }
-                $display_name = $private ? substr($property->name, 1) : $property->name; // phpcs:ignore Generic.Files.LineLength.TooLong
+                $display_name = $private ? substr($property->name, 1) : $property->name;
                 $carry[$display_name] = $property->getValue($this);
                 if ($private) {
                     $property->setAccessible(false);

@@ -34,7 +34,7 @@ abstract class BaseClient
      * 
      * @return \Recurly\RecurlyResource A Recurly Resource
      */
-    protected function makeRequest(string $method, string $path, ?array $body = [], ?array $params = []): \Recurly\RecurlyResource // phpcs:ignore Generic.Files.LineLength.TooLong
+    protected function makeRequest(string $method, string $path, ?array $body = [], ?array $params = []): \Recurly\RecurlyResource
     {
         $response = $this->_getResponse($method, $path, $body, $params);
         $resource = $response->toResource();
@@ -168,11 +168,11 @@ abstract class BaseClient
      */
     public function setApiUrl(string $url): void
     {
-        echo "[SECURITY WARNING] setApiUrl is for testing only and not supported in production." . PHP_EOL; // phpcs:ignore Generic.Files.LineLength.TooLong
+        echo "[SECURITY WARNING] setApiUrl is for testing only and not supported in production." . PHP_EOL;
         if (getenv("RECURLY_INSECURE") == "true") {
             $this->_baseUrl = $url;
         } else {
-            echo "ApiUrl not changed. To change, set the environment variable RECURLY_INSECURE to true" . PHP_EOL; // phpcs:ignore Generic.Files.LineLength.TooLong
+            echo "ApiUrl not changed. To change, set the environment variable RECURLY_INSECURE to true" . PHP_EOL;
         }
     }
 

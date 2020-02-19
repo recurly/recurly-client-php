@@ -46,10 +46,11 @@ class Client extends BaseClient
      * @param array $options Associative array of optional parameters:
      *
      * @return \Recurly\Pager
+     * @link   https://developers.recurly.com/api/v2019-10-10#operation/list_sites
      */
-    public function listSites(array $options = []): \Recurly\Pager // phpcs:ignore Generic.Files.LineLength.TooLong
+    public function listSites(array $options = []): \Recurly\Pager
     {
-        $path = $this->interpolatePath("/sites", []); // phpcs:ignore Generic.Files.LineLength.TooLong
+        $path = $this->interpolatePath("/sites", []);
         return new \Recurly\Pager($this, $path, $options);
     }
   
@@ -59,10 +60,11 @@ class Client extends BaseClient
      * @param string $site_id Site ID or subdomain. For ID no prefix is used e.g. `e28zov4fw0v2`. For subdomain use prefix `subdomain-`, e.g. `subdomain-recurly`.
      *
      * @return \Recurly\Resources\Site
+     * @link   https://developers.recurly.com/api/v2019-10-10#operation/get_site
      */
-    public function getSite(string $site_id): \Recurly\Resources\Site // phpcs:ignore Generic.Files.LineLength.TooLong
+    public function getSite(string $site_id): \Recurly\Resources\Site
     {
-        $path = $this->interpolatePath("/sites/{site_id}", ['site_id' => $site_id]); // phpcs:ignore Generic.Files.LineLength.TooLong
+        $path = $this->interpolatePath("/sites/{site_id}", ['site_id' => $site_id]);
         return $this->makeRequest('GET', $path, null, null);
     }
   
@@ -104,10 +106,11 @@ class Client extends BaseClient
      * @param array $options Associative array of optional parameters:
      *
      * @return \Recurly\Pager
+     * @link   https://developers.recurly.com/api/v2019-10-10#operation/list_accounts
      */
-    public function listAccounts(array $options = []): \Recurly\Pager // phpcs:ignore Generic.Files.LineLength.TooLong
+    public function listAccounts(array $options = []): \Recurly\Pager
     {
-        $path = $this->interpolatePath("/accounts", []); // phpcs:ignore Generic.Files.LineLength.TooLong
+        $path = $this->interpolatePath("/accounts", []);
         return new \Recurly\Pager($this, $path, $options);
     }
   
@@ -117,10 +120,11 @@ class Client extends BaseClient
      * @param array $body The body of the request.
      *
      * @return \Recurly\Resources\Account
+     * @link   https://developers.recurly.com/api/v2019-10-10#operation/create_account
      */
-    public function createAccount(array $body): \Recurly\Resources\Account // phpcs:ignore Generic.Files.LineLength.TooLong
+    public function createAccount(array $body): \Recurly\Resources\Account
     {
-        $path = $this->interpolatePath("/accounts", []); // phpcs:ignore Generic.Files.LineLength.TooLong
+        $path = $this->interpolatePath("/accounts", []);
         return $this->makeRequest('POST', $path, $body, null);
     }
   
@@ -130,10 +134,11 @@ class Client extends BaseClient
      * @param string $account_id Account ID or code. For ID no prefix is used e.g. `e28zov4fw0v2`. For code use prefix `code-`, e.g. `code-bob`.
      *
      * @return \Recurly\Resources\Account
+     * @link   https://developers.recurly.com/api/v2019-10-10#operation/get_account
      */
-    public function getAccount(string $account_id): \Recurly\Resources\Account // phpcs:ignore Generic.Files.LineLength.TooLong
+    public function getAccount(string $account_id): \Recurly\Resources\Account
     {
-        $path = $this->interpolatePath("/accounts/{account_id}", ['account_id' => $account_id]); // phpcs:ignore Generic.Files.LineLength.TooLong
+        $path = $this->interpolatePath("/accounts/{account_id}", ['account_id' => $account_id]);
         return $this->makeRequest('GET', $path, null, null);
     }
   
@@ -144,10 +149,11 @@ class Client extends BaseClient
      * @param array  $body       The body of the request.
      *
      * @return \Recurly\Resources\Account
+     * @link   https://developers.recurly.com/api/v2019-10-10#operation/update_account
      */
-    public function updateAccount(string $account_id, array $body): \Recurly\Resources\Account // phpcs:ignore Generic.Files.LineLength.TooLong
+    public function updateAccount(string $account_id, array $body): \Recurly\Resources\Account
     {
-        $path = $this->interpolatePath("/accounts/{account_id}", ['account_id' => $account_id]); // phpcs:ignore Generic.Files.LineLength.TooLong
+        $path = $this->interpolatePath("/accounts/{account_id}", ['account_id' => $account_id]);
         return $this->makeRequest('PUT', $path, $body, null);
     }
   
@@ -157,10 +163,11 @@ class Client extends BaseClient
      * @param string $account_id Account ID or code. For ID no prefix is used e.g. `e28zov4fw0v2`. For code use prefix `code-`, e.g. `code-bob`.
      *
      * @return \Recurly\Resources\Account
+     * @link   https://developers.recurly.com/api/v2019-10-10#operation/deactivate_account
      */
-    public function deactivateAccount(string $account_id): \Recurly\Resources\Account // phpcs:ignore Generic.Files.LineLength.TooLong
+    public function deactivateAccount(string $account_id): \Recurly\Resources\Account
     {
-        $path = $this->interpolatePath("/accounts/{account_id}", ['account_id' => $account_id]); // phpcs:ignore Generic.Files.LineLength.TooLong
+        $path = $this->interpolatePath("/accounts/{account_id}", ['account_id' => $account_id]);
         return $this->makeRequest('DELETE', $path, null, null);
     }
   
@@ -170,10 +177,11 @@ class Client extends BaseClient
      * @param string $account_id Account ID or code. For ID no prefix is used e.g. `e28zov4fw0v2`. For code use prefix `code-`, e.g. `code-bob`.
      *
      * @return \Recurly\Resources\AccountAcquisition
+     * @link   https://developers.recurly.com/api/v2019-10-10#operation/get_account_acquisition
      */
-    public function getAccountAcquisition(string $account_id): \Recurly\Resources\AccountAcquisition // phpcs:ignore Generic.Files.LineLength.TooLong
+    public function getAccountAcquisition(string $account_id): \Recurly\Resources\AccountAcquisition
     {
-        $path = $this->interpolatePath("/accounts/{account_id}/acquisition", ['account_id' => $account_id]); // phpcs:ignore Generic.Files.LineLength.TooLong
+        $path = $this->interpolatePath("/accounts/{account_id}/acquisition", ['account_id' => $account_id]);
         return $this->makeRequest('GET', $path, null, null);
     }
   
@@ -184,10 +192,11 @@ class Client extends BaseClient
      * @param array  $body       The body of the request.
      *
      * @return \Recurly\Resources\AccountAcquisition
+     * @link   https://developers.recurly.com/api/v2019-10-10#operation/update_account_acquisition
      */
-    public function updateAccountAcquisition(string $account_id, array $body): \Recurly\Resources\AccountAcquisition // phpcs:ignore Generic.Files.LineLength.TooLong
+    public function updateAccountAcquisition(string $account_id, array $body): \Recurly\Resources\AccountAcquisition
     {
-        $path = $this->interpolatePath("/accounts/{account_id}/acquisition", ['account_id' => $account_id]); // phpcs:ignore Generic.Files.LineLength.TooLong
+        $path = $this->interpolatePath("/accounts/{account_id}/acquisition", ['account_id' => $account_id]);
         return $this->makeRequest('PUT', $path, $body, null);
     }
   
@@ -197,10 +206,11 @@ class Client extends BaseClient
      * @param string $account_id Account ID or code. For ID no prefix is used e.g. `e28zov4fw0v2`. For code use prefix `code-`, e.g. `code-bob`.
      *
      * @return \Recurly\EmptyResource
+     * @link   https://developers.recurly.com/api/v2019-10-10#operation/remove_account_acquisition
      */
-    public function removeAccountAcquisition(string $account_id): \Recurly\EmptyResource // phpcs:ignore Generic.Files.LineLength.TooLong
+    public function removeAccountAcquisition(string $account_id): \Recurly\EmptyResource
     {
-        $path = $this->interpolatePath("/accounts/{account_id}/acquisition", ['account_id' => $account_id]); // phpcs:ignore Generic.Files.LineLength.TooLong
+        $path = $this->interpolatePath("/accounts/{account_id}/acquisition", ['account_id' => $account_id]);
         return $this->makeRequest('DELETE', $path, null, null);
     }
   
@@ -210,10 +220,11 @@ class Client extends BaseClient
      * @param string $account_id Account ID or code. For ID no prefix is used e.g. `e28zov4fw0v2`. For code use prefix `code-`, e.g. `code-bob`.
      *
      * @return \Recurly\Resources\Account
+     * @link   https://developers.recurly.com/api/v2019-10-10#operation/reactivate_account
      */
-    public function reactivateAccount(string $account_id): \Recurly\Resources\Account // phpcs:ignore Generic.Files.LineLength.TooLong
+    public function reactivateAccount(string $account_id): \Recurly\Resources\Account
     {
-        $path = $this->interpolatePath("/accounts/{account_id}/reactivate", ['account_id' => $account_id]); // phpcs:ignore Generic.Files.LineLength.TooLong
+        $path = $this->interpolatePath("/accounts/{account_id}/reactivate", ['account_id' => $account_id]);
         return $this->makeRequest('PUT', $path, null, null);
     }
   
@@ -223,10 +234,11 @@ class Client extends BaseClient
      * @param string $account_id Account ID or code. For ID no prefix is used e.g. `e28zov4fw0v2`. For code use prefix `code-`, e.g. `code-bob`.
      *
      * @return \Recurly\Resources\AccountBalance
+     * @link   https://developers.recurly.com/api/v2019-10-10#operation/get_account_balance
      */
-    public function getAccountBalance(string $account_id): \Recurly\Resources\AccountBalance // phpcs:ignore Generic.Files.LineLength.TooLong
+    public function getAccountBalance(string $account_id): \Recurly\Resources\AccountBalance
     {
-        $path = $this->interpolatePath("/accounts/{account_id}/balance", ['account_id' => $account_id]); // phpcs:ignore Generic.Files.LineLength.TooLong
+        $path = $this->interpolatePath("/accounts/{account_id}/balance", ['account_id' => $account_id]);
         return $this->makeRequest('GET', $path, null, null);
     }
   
@@ -236,10 +248,11 @@ class Client extends BaseClient
      * @param string $account_id Account ID or code. For ID no prefix is used e.g. `e28zov4fw0v2`. For code use prefix `code-`, e.g. `code-bob`.
      *
      * @return \Recurly\Resources\BillingInfo
+     * @link   https://developers.recurly.com/api/v2019-10-10#operation/get_billing_info
      */
-    public function getBillingInfo(string $account_id): \Recurly\Resources\BillingInfo // phpcs:ignore Generic.Files.LineLength.TooLong
+    public function getBillingInfo(string $account_id): \Recurly\Resources\BillingInfo
     {
-        $path = $this->interpolatePath("/accounts/{account_id}/billing_info", ['account_id' => $account_id]); // phpcs:ignore Generic.Files.LineLength.TooLong
+        $path = $this->interpolatePath("/accounts/{account_id}/billing_info", ['account_id' => $account_id]);
         return $this->makeRequest('GET', $path, null, null);
     }
   
@@ -250,10 +263,11 @@ class Client extends BaseClient
      * @param array  $body       The body of the request.
      *
      * @return \Recurly\Resources\BillingInfo
+     * @link   https://developers.recurly.com/api/v2019-10-10#operation/update_billing_info
      */
-    public function updateBillingInfo(string $account_id, array $body): \Recurly\Resources\BillingInfo // phpcs:ignore Generic.Files.LineLength.TooLong
+    public function updateBillingInfo(string $account_id, array $body): \Recurly\Resources\BillingInfo
     {
-        $path = $this->interpolatePath("/accounts/{account_id}/billing_info", ['account_id' => $account_id]); // phpcs:ignore Generic.Files.LineLength.TooLong
+        $path = $this->interpolatePath("/accounts/{account_id}/billing_info", ['account_id' => $account_id]);
         return $this->makeRequest('PUT', $path, $body, null);
     }
   
@@ -263,10 +277,11 @@ class Client extends BaseClient
      * @param string $account_id Account ID or code. For ID no prefix is used e.g. `e28zov4fw0v2`. For code use prefix `code-`, e.g. `code-bob`.
      *
      * @return \Recurly\EmptyResource
+     * @link   https://developers.recurly.com/api/v2019-10-10#operation/remove_billing_info
      */
-    public function removeBillingInfo(string $account_id): \Recurly\EmptyResource // phpcs:ignore Generic.Files.LineLength.TooLong
+    public function removeBillingInfo(string $account_id): \Recurly\EmptyResource
     {
-        $path = $this->interpolatePath("/accounts/{account_id}/billing_info", ['account_id' => $account_id]); // phpcs:ignore Generic.Files.LineLength.TooLong
+        $path = $this->interpolatePath("/accounts/{account_id}/billing_info", ['account_id' => $account_id]);
         return $this->makeRequest('DELETE', $path, null, null);
     }
   
@@ -301,10 +316,11 @@ class Client extends BaseClient
      * @param array  $options    Associative array of optional parameters:
      *
      * @return \Recurly\Pager
+     * @link   https://developers.recurly.com/api/v2019-10-10#operation/list_account_coupon_redemptions
      */
-    public function listAccountCouponRedemptions(string $account_id, array $options = []): \Recurly\Pager // phpcs:ignore Generic.Files.LineLength.TooLong
+    public function listAccountCouponRedemptions(string $account_id, array $options = []): \Recurly\Pager
     {
-        $path = $this->interpolatePath("/accounts/{account_id}/coupon_redemptions", ['account_id' => $account_id]); // phpcs:ignore Generic.Files.LineLength.TooLong
+        $path = $this->interpolatePath("/accounts/{account_id}/coupon_redemptions", ['account_id' => $account_id]);
         return new \Recurly\Pager($this, $path, $options);
     }
   
@@ -314,10 +330,11 @@ class Client extends BaseClient
      * @param string $account_id Account ID or code. For ID no prefix is used e.g. `e28zov4fw0v2`. For code use prefix `code-`, e.g. `code-bob`.
      *
      * @return \Recurly\Resources\CouponRedemption
+     * @link   https://developers.recurly.com/api/v2019-10-10#operation/get_active_coupon_redemption
      */
-    public function getActiveCouponRedemption(string $account_id): \Recurly\Resources\CouponRedemption // phpcs:ignore Generic.Files.LineLength.TooLong
+    public function getActiveCouponRedemption(string $account_id): \Recurly\Resources\CouponRedemption
     {
-        $path = $this->interpolatePath("/accounts/{account_id}/coupon_redemptions/active", ['account_id' => $account_id]); // phpcs:ignore Generic.Files.LineLength.TooLong
+        $path = $this->interpolatePath("/accounts/{account_id}/coupon_redemptions/active", ['account_id' => $account_id]);
         return $this->makeRequest('GET', $path, null, null);
     }
   
@@ -328,10 +345,11 @@ class Client extends BaseClient
      * @param array  $body       The body of the request.
      *
      * @return \Recurly\Resources\CouponRedemption
+     * @link   https://developers.recurly.com/api/v2019-10-10#operation/create_coupon_redemption
      */
-    public function createCouponRedemption(string $account_id, array $body): \Recurly\Resources\CouponRedemption // phpcs:ignore Generic.Files.LineLength.TooLong
+    public function createCouponRedemption(string $account_id, array $body): \Recurly\Resources\CouponRedemption
     {
-        $path = $this->interpolatePath("/accounts/{account_id}/coupon_redemptions/active", ['account_id' => $account_id]); // phpcs:ignore Generic.Files.LineLength.TooLong
+        $path = $this->interpolatePath("/accounts/{account_id}/coupon_redemptions/active", ['account_id' => $account_id]);
         return $this->makeRequest('POST', $path, $body, null);
     }
   
@@ -341,10 +359,11 @@ class Client extends BaseClient
      * @param string $account_id Account ID or code. For ID no prefix is used e.g. `e28zov4fw0v2`. For code use prefix `code-`, e.g. `code-bob`.
      *
      * @return \Recurly\Resources\CouponRedemption
+     * @link   https://developers.recurly.com/api/v2019-10-10#operation/remove_coupon_redemption
      */
-    public function removeCouponRedemption(string $account_id): \Recurly\Resources\CouponRedemption // phpcs:ignore Generic.Files.LineLength.TooLong
+    public function removeCouponRedemption(string $account_id): \Recurly\Resources\CouponRedemption
     {
-        $path = $this->interpolatePath("/accounts/{account_id}/coupon_redemptions/active", ['account_id' => $account_id]); // phpcs:ignore Generic.Files.LineLength.TooLong
+        $path = $this->interpolatePath("/accounts/{account_id}/coupon_redemptions/active", ['account_id' => $account_id]);
         return $this->makeRequest('DELETE', $path, null, null);
     }
   
@@ -369,10 +388,11 @@ class Client extends BaseClient
      * @param array  $options    Associative array of optional parameters:
      *
      * @return \Recurly\Pager
+     * @link   https://developers.recurly.com/api/v2019-10-10#operation/list_account_credit_payments
      */
-    public function listAccountCreditPayments(string $account_id, array $options = []): \Recurly\Pager // phpcs:ignore Generic.Files.LineLength.TooLong
+    public function listAccountCreditPayments(string $account_id, array $options = []): \Recurly\Pager
     {
-        $path = $this->interpolatePath("/accounts/{account_id}/credit_payments", ['account_id' => $account_id]); // phpcs:ignore Generic.Files.LineLength.TooLong
+        $path = $this->interpolatePath("/accounts/{account_id}/credit_payments", ['account_id' => $account_id]);
         return new \Recurly\Pager($this, $path, $options);
     }
   
@@ -415,10 +435,11 @@ class Client extends BaseClient
      * @param array  $options    Associative array of optional parameters:
      *
      * @return \Recurly\Pager
+     * @link   https://developers.recurly.com/api/v2019-10-10#operation/list_account_invoices
      */
-    public function listAccountInvoices(string $account_id, array $options = []): \Recurly\Pager // phpcs:ignore Generic.Files.LineLength.TooLong
+    public function listAccountInvoices(string $account_id, array $options = []): \Recurly\Pager
     {
-        $path = $this->interpolatePath("/accounts/{account_id}/invoices", ['account_id' => $account_id]); // phpcs:ignore Generic.Files.LineLength.TooLong
+        $path = $this->interpolatePath("/accounts/{account_id}/invoices", ['account_id' => $account_id]);
         return new \Recurly\Pager($this, $path, $options);
     }
   
@@ -429,10 +450,11 @@ class Client extends BaseClient
      * @param array  $body       The body of the request.
      *
      * @return \Recurly\Resources\InvoiceCollection
+     * @link   https://developers.recurly.com/api/v2019-10-10#operation/create_invoice
      */
-    public function createInvoice(string $account_id, array $body): \Recurly\Resources\InvoiceCollection // phpcs:ignore Generic.Files.LineLength.TooLong
+    public function createInvoice(string $account_id, array $body): \Recurly\Resources\InvoiceCollection
     {
-        $path = $this->interpolatePath("/accounts/{account_id}/invoices", ['account_id' => $account_id]); // phpcs:ignore Generic.Files.LineLength.TooLong
+        $path = $this->interpolatePath("/accounts/{account_id}/invoices", ['account_id' => $account_id]);
         return $this->makeRequest('POST', $path, $body, null);
     }
   
@@ -443,10 +465,11 @@ class Client extends BaseClient
      * @param array  $body       The body of the request.
      *
      * @return \Recurly\Resources\InvoiceCollection
+     * @link   https://developers.recurly.com/api/v2019-10-10#operation/preview_invoice
      */
-    public function previewInvoice(string $account_id, array $body): \Recurly\Resources\InvoiceCollection // phpcs:ignore Generic.Files.LineLength.TooLong
+    public function previewInvoice(string $account_id, array $body): \Recurly\Resources\InvoiceCollection
     {
-        $path = $this->interpolatePath("/accounts/{account_id}/invoices/preview", ['account_id' => $account_id]); // phpcs:ignore Generic.Files.LineLength.TooLong
+        $path = $this->interpolatePath("/accounts/{account_id}/invoices/preview", ['account_id' => $account_id]);
         return $this->makeRequest('POST', $path, $body, null);
     }
   
@@ -487,10 +510,11 @@ class Client extends BaseClient
      * @param array  $options    Associative array of optional parameters:
      *
      * @return \Recurly\Pager
+     * @link   https://developers.recurly.com/api/v2019-10-10#operation/list_account_line_items
      */
-    public function listAccountLineItems(string $account_id, array $options = []): \Recurly\Pager // phpcs:ignore Generic.Files.LineLength.TooLong
+    public function listAccountLineItems(string $account_id, array $options = []): \Recurly\Pager
     {
-        $path = $this->interpolatePath("/accounts/{account_id}/line_items", ['account_id' => $account_id]); // phpcs:ignore Generic.Files.LineLength.TooLong
+        $path = $this->interpolatePath("/accounts/{account_id}/line_items", ['account_id' => $account_id]);
         return new \Recurly\Pager($this, $path, $options);
     }
   
@@ -501,10 +525,11 @@ class Client extends BaseClient
      * @param array  $body       The body of the request.
      *
      * @return \Recurly\Resources\LineItem
+     * @link   https://developers.recurly.com/api/v2019-10-10#operation/create_line_item
      */
-    public function createLineItem(string $account_id, array $body): \Recurly\Resources\LineItem // phpcs:ignore Generic.Files.LineLength.TooLong
+    public function createLineItem(string $account_id, array $body): \Recurly\Resources\LineItem
     {
-        $path = $this->interpolatePath("/accounts/{account_id}/line_items", ['account_id' => $account_id]); // phpcs:ignore Generic.Files.LineLength.TooLong
+        $path = $this->interpolatePath("/accounts/{account_id}/line_items", ['account_id' => $account_id]);
         return $this->makeRequest('POST', $path, $body, null);
     }
   
@@ -529,10 +554,11 @@ class Client extends BaseClient
      * @param array  $options    Associative array of optional parameters:
      *
      * @return \Recurly\Pager
+     * @link   https://developers.recurly.com/api/v2019-10-10#operation/list_account_notes
      */
-    public function listAccountNotes(string $account_id, array $options = []): \Recurly\Pager // phpcs:ignore Generic.Files.LineLength.TooLong
+    public function listAccountNotes(string $account_id, array $options = []): \Recurly\Pager
     {
-        $path = $this->interpolatePath("/accounts/{account_id}/notes", ['account_id' => $account_id]); // phpcs:ignore Generic.Files.LineLength.TooLong
+        $path = $this->interpolatePath("/accounts/{account_id}/notes", ['account_id' => $account_id]);
         return new \Recurly\Pager($this, $path, $options);
     }
   
@@ -543,10 +569,11 @@ class Client extends BaseClient
      * @param string $account_note_id Account Note ID.
      *
      * @return \Recurly\Resources\AccountNote
+     * @link   https://developers.recurly.com/api/v2019-10-10#operation/get_account_note
      */
-    public function getAccountNote(string $account_id, string $account_note_id): \Recurly\Resources\AccountNote // phpcs:ignore Generic.Files.LineLength.TooLong
+    public function getAccountNote(string $account_id, string $account_note_id): \Recurly\Resources\AccountNote
     {
-        $path = $this->interpolatePath("/accounts/{account_id}/notes/{account_note_id}", ['account_id' => $account_id, 'account_note_id' => $account_note_id]); // phpcs:ignore Generic.Files.LineLength.TooLong
+        $path = $this->interpolatePath("/accounts/{account_id}/notes/{account_note_id}", ['account_id' => $account_id, 'account_note_id' => $account_note_id]);
         return $this->makeRequest('GET', $path, null, null);
     }
   
@@ -583,10 +610,11 @@ class Client extends BaseClient
      * @param array  $options    Associative array of optional parameters:
      *
      * @return \Recurly\Pager
+     * @link   https://developers.recurly.com/api/v2019-10-10#operation/list_shipping_addresses
      */
-    public function listShippingAddresses(string $account_id, array $options = []): \Recurly\Pager // phpcs:ignore Generic.Files.LineLength.TooLong
+    public function listShippingAddresses(string $account_id, array $options = []): \Recurly\Pager
     {
-        $path = $this->interpolatePath("/accounts/{account_id}/shipping_addresses", ['account_id' => $account_id]); // phpcs:ignore Generic.Files.LineLength.TooLong
+        $path = $this->interpolatePath("/accounts/{account_id}/shipping_addresses", ['account_id' => $account_id]);
         return new \Recurly\Pager($this, $path, $options);
     }
   
@@ -597,10 +625,11 @@ class Client extends BaseClient
      * @param array  $body       The body of the request.
      *
      * @return \Recurly\Resources\ShippingAddress
+     * @link   https://developers.recurly.com/api/v2019-10-10#operation/create_shipping_address
      */
-    public function createShippingAddress(string $account_id, array $body): \Recurly\Resources\ShippingAddress // phpcs:ignore Generic.Files.LineLength.TooLong
+    public function createShippingAddress(string $account_id, array $body): \Recurly\Resources\ShippingAddress
     {
-        $path = $this->interpolatePath("/accounts/{account_id}/shipping_addresses", ['account_id' => $account_id]); // phpcs:ignore Generic.Files.LineLength.TooLong
+        $path = $this->interpolatePath("/accounts/{account_id}/shipping_addresses", ['account_id' => $account_id]);
         return $this->makeRequest('POST', $path, $body, null);
     }
   
@@ -611,10 +640,11 @@ class Client extends BaseClient
      * @param string $shipping_address_id Shipping Address ID.
      *
      * @return \Recurly\Resources\ShippingAddress
+     * @link   https://developers.recurly.com/api/v2019-10-10#operation/get_shipping_address
      */
-    public function getShippingAddress(string $account_id, string $shipping_address_id): \Recurly\Resources\ShippingAddress // phpcs:ignore Generic.Files.LineLength.TooLong
+    public function getShippingAddress(string $account_id, string $shipping_address_id): \Recurly\Resources\ShippingAddress
     {
-        $path = $this->interpolatePath("/accounts/{account_id}/shipping_addresses/{shipping_address_id}", ['account_id' => $account_id, 'shipping_address_id' => $shipping_address_id]); // phpcs:ignore Generic.Files.LineLength.TooLong
+        $path = $this->interpolatePath("/accounts/{account_id}/shipping_addresses/{shipping_address_id}", ['account_id' => $account_id, 'shipping_address_id' => $shipping_address_id]);
         return $this->makeRequest('GET', $path, null, null);
     }
   
@@ -626,10 +656,11 @@ class Client extends BaseClient
      * @param array  $body                The body of the request.
      *
      * @return \Recurly\Resources\ShippingAddress
+     * @link   https://developers.recurly.com/api/v2019-10-10#operation/update_shipping_address
      */
-    public function updateShippingAddress(string $account_id, string $shipping_address_id, array $body): \Recurly\Resources\ShippingAddress // phpcs:ignore Generic.Files.LineLength.TooLong
+    public function updateShippingAddress(string $account_id, string $shipping_address_id, array $body): \Recurly\Resources\ShippingAddress
     {
-        $path = $this->interpolatePath("/accounts/{account_id}/shipping_addresses/{shipping_address_id}", ['account_id' => $account_id, 'shipping_address_id' => $shipping_address_id]); // phpcs:ignore Generic.Files.LineLength.TooLong
+        $path = $this->interpolatePath("/accounts/{account_id}/shipping_addresses/{shipping_address_id}", ['account_id' => $account_id, 'shipping_address_id' => $shipping_address_id]);
         return $this->makeRequest('PUT', $path, $body, null);
     }
   
@@ -640,10 +671,11 @@ class Client extends BaseClient
      * @param string $shipping_address_id Shipping Address ID.
      *
      * @return \Recurly\EmptyResource
+     * @link   https://developers.recurly.com/api/v2019-10-10#operation/remove_shipping_address
      */
-    public function removeShippingAddress(string $account_id, string $shipping_address_id): \Recurly\EmptyResource // phpcs:ignore Generic.Files.LineLength.TooLong
+    public function removeShippingAddress(string $account_id, string $shipping_address_id): \Recurly\EmptyResource
     {
-        $path = $this->interpolatePath("/accounts/{account_id}/shipping_addresses/{shipping_address_id}", ['account_id' => $account_id, 'shipping_address_id' => $shipping_address_id]); // phpcs:ignore Generic.Files.LineLength.TooLong
+        $path = $this->interpolatePath("/accounts/{account_id}/shipping_addresses/{shipping_address_id}", ['account_id' => $account_id, 'shipping_address_id' => $shipping_address_id]);
         return $this->makeRequest('DELETE', $path, null, null);
     }
   
@@ -686,10 +718,11 @@ class Client extends BaseClient
      * @param array  $options    Associative array of optional parameters:
      *
      * @return \Recurly\Pager
+     * @link   https://developers.recurly.com/api/v2019-10-10#operation/list_account_subscriptions
      */
-    public function listAccountSubscriptions(string $account_id, array $options = []): \Recurly\Pager // phpcs:ignore Generic.Files.LineLength.TooLong
+    public function listAccountSubscriptions(string $account_id, array $options = []): \Recurly\Pager
     {
-        $path = $this->interpolatePath("/accounts/{account_id}/subscriptions", ['account_id' => $account_id]); // phpcs:ignore Generic.Files.LineLength.TooLong
+        $path = $this->interpolatePath("/accounts/{account_id}/subscriptions", ['account_id' => $account_id]);
         return new \Recurly\Pager($this, $path, $options);
     }
   
@@ -729,10 +762,11 @@ class Client extends BaseClient
      * @param array  $options    Associative array of optional parameters:
      *
      * @return \Recurly\Pager
+     * @link   https://developers.recurly.com/api/v2019-10-10#operation/list_account_transactions
      */
-    public function listAccountTransactions(string $account_id, array $options = []): \Recurly\Pager // phpcs:ignore Generic.Files.LineLength.TooLong
+    public function listAccountTransactions(string $account_id, array $options = []): \Recurly\Pager
     {
-        $path = $this->interpolatePath("/accounts/{account_id}/transactions", ['account_id' => $account_id]); // phpcs:ignore Generic.Files.LineLength.TooLong
+        $path = $this->interpolatePath("/accounts/{account_id}/transactions", ['account_id' => $account_id]);
         return new \Recurly\Pager($this, $path, $options);
     }
   
@@ -775,10 +809,11 @@ class Client extends BaseClient
      * @param array  $options    Associative array of optional parameters:
      *
      * @return \Recurly\Pager
+     * @link   https://developers.recurly.com/api/v2019-10-10#operation/list_child_accounts
      */
-    public function listChildAccounts(string $account_id, array $options = []): \Recurly\Pager // phpcs:ignore Generic.Files.LineLength.TooLong
+    public function listChildAccounts(string $account_id, array $options = []): \Recurly\Pager
     {
-        $path = $this->interpolatePath("/accounts/{account_id}/accounts", ['account_id' => $account_id]); // phpcs:ignore Generic.Files.LineLength.TooLong
+        $path = $this->interpolatePath("/accounts/{account_id}/accounts", ['account_id' => $account_id]);
         return new \Recurly\Pager($this, $path, $options);
     }
   
@@ -814,10 +849,11 @@ class Client extends BaseClient
      * @param array $options Associative array of optional parameters:
      *
      * @return \Recurly\Pager
+     * @link   https://developers.recurly.com/api/v2019-10-10#operation/list_account_acquisition
      */
-    public function listAccountAcquisition(array $options = []): \Recurly\Pager // phpcs:ignore Generic.Files.LineLength.TooLong
+    public function listAccountAcquisition(array $options = []): \Recurly\Pager
     {
-        $path = $this->interpolatePath("/acquisitions", []); // phpcs:ignore Generic.Files.LineLength.TooLong
+        $path = $this->interpolatePath("/acquisitions", []);
         return new \Recurly\Pager($this, $path, $options);
     }
   
@@ -853,10 +889,11 @@ class Client extends BaseClient
      * @param array $options Associative array of optional parameters:
      *
      * @return \Recurly\Pager
+     * @link   https://developers.recurly.com/api/v2019-10-10#operation/list_coupons
      */
-    public function listCoupons(array $options = []): \Recurly\Pager // phpcs:ignore Generic.Files.LineLength.TooLong
+    public function listCoupons(array $options = []): \Recurly\Pager
     {
-        $path = $this->interpolatePath("/coupons", []); // phpcs:ignore Generic.Files.LineLength.TooLong
+        $path = $this->interpolatePath("/coupons", []);
         return new \Recurly\Pager($this, $path, $options);
     }
   
@@ -866,10 +903,11 @@ class Client extends BaseClient
      * @param array $body The body of the request.
      *
      * @return \Recurly\Resources\Coupon
+     * @link   https://developers.recurly.com/api/v2019-10-10#operation/create_coupon
      */
-    public function createCoupon(array $body): \Recurly\Resources\Coupon // phpcs:ignore Generic.Files.LineLength.TooLong
+    public function createCoupon(array $body): \Recurly\Resources\Coupon
     {
-        $path = $this->interpolatePath("/coupons", []); // phpcs:ignore Generic.Files.LineLength.TooLong
+        $path = $this->interpolatePath("/coupons", []);
         return $this->makeRequest('POST', $path, $body, null);
     }
   
@@ -879,10 +917,11 @@ class Client extends BaseClient
      * @param string $coupon_id Coupon ID or code. For ID no prefix is used e.g. `e28zov4fw0v2`. For code use prefix `code-`, e.g. `code-10off`.
      *
      * @return \Recurly\Resources\Coupon
+     * @link   https://developers.recurly.com/api/v2019-10-10#operation/get_coupon
      */
-    public function getCoupon(string $coupon_id): \Recurly\Resources\Coupon // phpcs:ignore Generic.Files.LineLength.TooLong
+    public function getCoupon(string $coupon_id): \Recurly\Resources\Coupon
     {
-        $path = $this->interpolatePath("/coupons/{coupon_id}", ['coupon_id' => $coupon_id]); // phpcs:ignore Generic.Files.LineLength.TooLong
+        $path = $this->interpolatePath("/coupons/{coupon_id}", ['coupon_id' => $coupon_id]);
         return $this->makeRequest('GET', $path, null, null);
     }
   
@@ -893,10 +932,11 @@ class Client extends BaseClient
      * @param array  $body      The body of the request.
      *
      * @return \Recurly\Resources\Coupon
+     * @link   https://developers.recurly.com/api/v2019-10-10#operation/update_coupon
      */
-    public function updateCoupon(string $coupon_id, array $body): \Recurly\Resources\Coupon // phpcs:ignore Generic.Files.LineLength.TooLong
+    public function updateCoupon(string $coupon_id, array $body): \Recurly\Resources\Coupon
     {
-        $path = $this->interpolatePath("/coupons/{coupon_id}", ['coupon_id' => $coupon_id]); // phpcs:ignore Generic.Files.LineLength.TooLong
+        $path = $this->interpolatePath("/coupons/{coupon_id}", ['coupon_id' => $coupon_id]);
         return $this->makeRequest('PUT', $path, $body, null);
     }
   
@@ -933,10 +973,11 @@ class Client extends BaseClient
      * @param array  $options   Associative array of optional parameters:
      *
      * @return \Recurly\Pager
+     * @link   https://developers.recurly.com/api/v2019-10-10#operation/list_unique_coupon_codes
      */
-    public function listUniqueCouponCodes(string $coupon_id, array $options = []): \Recurly\Pager // phpcs:ignore Generic.Files.LineLength.TooLong
+    public function listUniqueCouponCodes(string $coupon_id, array $options = []): \Recurly\Pager
     {
-        $path = $this->interpolatePath("/coupons/{coupon_id}/unique_coupon_codes", ['coupon_id' => $coupon_id]); // phpcs:ignore Generic.Files.LineLength.TooLong
+        $path = $this->interpolatePath("/coupons/{coupon_id}/unique_coupon_codes", ['coupon_id' => $coupon_id]);
         return new \Recurly\Pager($this, $path, $options);
     }
   
@@ -960,10 +1001,11 @@ class Client extends BaseClient
      * @param array $options Associative array of optional parameters:
      *
      * @return \Recurly\Pager
+     * @link   https://developers.recurly.com/api/v2019-10-10#operation/list_credit_payments
      */
-    public function listCreditPayments(array $options = []): \Recurly\Pager // phpcs:ignore Generic.Files.LineLength.TooLong
+    public function listCreditPayments(array $options = []): \Recurly\Pager
     {
-        $path = $this->interpolatePath("/credit_payments", []); // phpcs:ignore Generic.Files.LineLength.TooLong
+        $path = $this->interpolatePath("/credit_payments", []);
         return new \Recurly\Pager($this, $path, $options);
     }
   
@@ -973,10 +1015,11 @@ class Client extends BaseClient
      * @param string $credit_payment_id Credit Payment ID or UUID. For ID no prefix is used e.g. `e28zov4fw0v2`. For UUID use prefix `uuid-`, e.g. `uuid-123457890`.
      *
      * @return \Recurly\Resources\CreditPayment
+     * @link   https://developers.recurly.com/api/v2019-10-10#operation/get_credit_payment
      */
-    public function getCreditPayment(string $credit_payment_id): \Recurly\Resources\CreditPayment // phpcs:ignore Generic.Files.LineLength.TooLong
+    public function getCreditPayment(string $credit_payment_id): \Recurly\Resources\CreditPayment
     {
-        $path = $this->interpolatePath("/credit_payments/{credit_payment_id}", ['credit_payment_id' => $credit_payment_id]); // phpcs:ignore Generic.Files.LineLength.TooLong
+        $path = $this->interpolatePath("/credit_payments/{credit_payment_id}", ['credit_payment_id' => $credit_payment_id]);
         return $this->makeRequest('GET', $path, null, null);
     }
   
@@ -1014,10 +1057,11 @@ class Client extends BaseClient
      * @param array $options Associative array of optional parameters:
      *
      * @return \Recurly\Pager
+     * @link   https://developers.recurly.com/api/v2019-10-10#operation/list_custom_field_definitions
      */
-    public function listCustomFieldDefinitions(array $options = []): \Recurly\Pager // phpcs:ignore Generic.Files.LineLength.TooLong
+    public function listCustomFieldDefinitions(array $options = []): \Recurly\Pager
     {
-        $path = $this->interpolatePath("/custom_field_definitions", []); // phpcs:ignore Generic.Files.LineLength.TooLong
+        $path = $this->interpolatePath("/custom_field_definitions", []);
         return new \Recurly\Pager($this, $path, $options);
     }
   
@@ -1027,10 +1071,11 @@ class Client extends BaseClient
      * @param string $custom_field_definition_id Custom Field Definition ID
      *
      * @return \Recurly\Resources\CustomFieldDefinition
+     * @link   https://developers.recurly.com/api/v2019-10-10#operation/get_custom_field_definition
      */
-    public function getCustomFieldDefinition(string $custom_field_definition_id): \Recurly\Resources\CustomFieldDefinition // phpcs:ignore Generic.Files.LineLength.TooLong
+    public function getCustomFieldDefinition(string $custom_field_definition_id): \Recurly\Resources\CustomFieldDefinition
     {
-        $path = $this->interpolatePath("/custom_field_definitions/{custom_field_definition_id}", ['custom_field_definition_id' => $custom_field_definition_id]); // phpcs:ignore Generic.Files.LineLength.TooLong
+        $path = $this->interpolatePath("/custom_field_definitions/{custom_field_definition_id}", ['custom_field_definition_id' => $custom_field_definition_id]);
         return $this->makeRequest('GET', $path, null, null);
     }
   
@@ -1068,10 +1113,11 @@ class Client extends BaseClient
      * @param array $options Associative array of optional parameters:
      *
      * @return \Recurly\Pager
+     * @link   https://developers.recurly.com/api/v2019-10-10#operation/list_items
      */
-    public function listItems(array $options = []): \Recurly\Pager // phpcs:ignore Generic.Files.LineLength.TooLong
+    public function listItems(array $options = []): \Recurly\Pager
     {
-        $path = $this->interpolatePath("/items", []); // phpcs:ignore Generic.Files.LineLength.TooLong
+        $path = $this->interpolatePath("/items", []);
         return new \Recurly\Pager($this, $path, $options);
     }
   
@@ -1081,10 +1127,11 @@ class Client extends BaseClient
      * @param array $body The body of the request.
      *
      * @return \Recurly\Resources\Item
+     * @link   https://developers.recurly.com/api/v2019-10-10#operation/create_item
      */
-    public function createItem(array $body): \Recurly\Resources\Item // phpcs:ignore Generic.Files.LineLength.TooLong
+    public function createItem(array $body): \Recurly\Resources\Item
     {
-        $path = $this->interpolatePath("/items", []); // phpcs:ignore Generic.Files.LineLength.TooLong
+        $path = $this->interpolatePath("/items", []);
         return $this->makeRequest('POST', $path, $body, null);
     }
   
@@ -1094,10 +1141,11 @@ class Client extends BaseClient
      * @param string $item_id Item ID or code. For ID no prefix is used e.g. `e28zov4fw0v2`. For code use prefix `code-`, e.g. `code-red`.
      *
      * @return \Recurly\Resources\Item
+     * @link   https://developers.recurly.com/api/v2019-10-10#operation/get_item
      */
-    public function getItem(string $item_id): \Recurly\Resources\Item // phpcs:ignore Generic.Files.LineLength.TooLong
+    public function getItem(string $item_id): \Recurly\Resources\Item
     {
-        $path = $this->interpolatePath("/items/{item_id}", ['item_id' => $item_id]); // phpcs:ignore Generic.Files.LineLength.TooLong
+        $path = $this->interpolatePath("/items/{item_id}", ['item_id' => $item_id]);
         return $this->makeRequest('GET', $path, null, null);
     }
   
@@ -1108,10 +1156,11 @@ class Client extends BaseClient
      * @param array  $body    The body of the request.
      *
      * @return \Recurly\Resources\Item
+     * @link   https://developers.recurly.com/api/v2019-10-10#operation/update_item
      */
-    public function updateItem(string $item_id, array $body): \Recurly\Resources\Item // phpcs:ignore Generic.Files.LineLength.TooLong
+    public function updateItem(string $item_id, array $body): \Recurly\Resources\Item
     {
-        $path = $this->interpolatePath("/items/{item_id}", ['item_id' => $item_id]); // phpcs:ignore Generic.Files.LineLength.TooLong
+        $path = $this->interpolatePath("/items/{item_id}", ['item_id' => $item_id]);
         return $this->makeRequest('PUT', $path, $body, null);
     }
   
@@ -1121,10 +1170,11 @@ class Client extends BaseClient
      * @param string $item_id Item ID or code. For ID no prefix is used e.g. `e28zov4fw0v2`. For code use prefix `code-`, e.g. `code-red`.
      *
      * @return \Recurly\Resources\Item
+     * @link   https://developers.recurly.com/api/v2019-10-10#operation/deactivate_item
      */
-    public function deactivateItem(string $item_id): \Recurly\Resources\Item // phpcs:ignore Generic.Files.LineLength.TooLong
+    public function deactivateItem(string $item_id): \Recurly\Resources\Item
     {
-        $path = $this->interpolatePath("/items/{item_id}", ['item_id' => $item_id]); // phpcs:ignore Generic.Files.LineLength.TooLong
+        $path = $this->interpolatePath("/items/{item_id}", ['item_id' => $item_id]);
         return $this->makeRequest('DELETE', $path, null, null);
     }
   
@@ -1134,10 +1184,11 @@ class Client extends BaseClient
      * @param string $item_id Item ID or code. For ID no prefix is used e.g. `e28zov4fw0v2`. For code use prefix `code-`, e.g. `code-red`.
      *
      * @return \Recurly\Resources\Item
+     * @link   https://developers.recurly.com/api/v2019-10-10#operation/reactivate_item
      */
-    public function reactivateItem(string $item_id): \Recurly\Resources\Item // phpcs:ignore Generic.Files.LineLength.TooLong
+    public function reactivateItem(string $item_id): \Recurly\Resources\Item
     {
-        $path = $this->interpolatePath("/items/{item_id}/reactivate", ['item_id' => $item_id]); // phpcs:ignore Generic.Files.LineLength.TooLong
+        $path = $this->interpolatePath("/items/{item_id}/reactivate", ['item_id' => $item_id]);
         return $this->makeRequest('PUT', $path, null, null);
     }
   
@@ -1179,10 +1230,11 @@ class Client extends BaseClient
      * @param array $options Associative array of optional parameters:
      *
      * @return \Recurly\Pager
+     * @link   https://developers.recurly.com/api/v2019-10-10#operation/list_invoices
      */
-    public function listInvoices(array $options = []): \Recurly\Pager // phpcs:ignore Generic.Files.LineLength.TooLong
+    public function listInvoices(array $options = []): \Recurly\Pager
     {
-        $path = $this->interpolatePath("/invoices", []); // phpcs:ignore Generic.Files.LineLength.TooLong
+        $path = $this->interpolatePath("/invoices", []);
         return new \Recurly\Pager($this, $path, $options);
     }
   
@@ -1192,10 +1244,11 @@ class Client extends BaseClient
      * @param string $invoice_id Invoice ID or number. For ID no prefix is used e.g. `e28zov4fw0v2`. For number use prefix `number-`, e.g. `number-1000`.
      *
      * @return \Recurly\Resources\Invoice
+     * @link   https://developers.recurly.com/api/v2019-10-10#operation/get_invoice
      */
-    public function getInvoice(string $invoice_id): \Recurly\Resources\Invoice // phpcs:ignore Generic.Files.LineLength.TooLong
+    public function getInvoice(string $invoice_id): \Recurly\Resources\Invoice
     {
-        $path = $this->interpolatePath("/invoices/{invoice_id}", ['invoice_id' => $invoice_id]); // phpcs:ignore Generic.Files.LineLength.TooLong
+        $path = $this->interpolatePath("/invoices/{invoice_id}", ['invoice_id' => $invoice_id]);
         return $this->makeRequest('GET', $path, null, null);
     }
   
@@ -1206,10 +1259,11 @@ class Client extends BaseClient
      * @param array  $body       The body of the request.
      *
      * @return \Recurly\Resources\Invoice
+     * @link   https://developers.recurly.com/api/v2019-10-10#operation/put_invoice
      */
-    public function putInvoice(string $invoice_id, array $body): \Recurly\Resources\Invoice // phpcs:ignore Generic.Files.LineLength.TooLong
+    public function putInvoice(string $invoice_id, array $body): \Recurly\Resources\Invoice
     {
-        $path = $this->interpolatePath("/invoices/{invoice_id}", ['invoice_id' => $invoice_id]); // phpcs:ignore Generic.Files.LineLength.TooLong
+        $path = $this->interpolatePath("/invoices/{invoice_id}", ['invoice_id' => $invoice_id]);
         return $this->makeRequest('PUT', $path, $body, null);
     }
   
@@ -1219,10 +1273,11 @@ class Client extends BaseClient
      * @param string $invoice_id Invoice ID or number. For ID no prefix is used e.g. `e28zov4fw0v2`. For number use prefix `number-`, e.g. `number-1000`.
      *
      * @return \Recurly\Resources\BinaryFile
+     * @link   https://developers.recurly.com/api/v2019-10-10#operation/get_invoice_pdf
      */
-    public function getInvoicePdf(string $invoice_id): \Recurly\Resources\BinaryFile // phpcs:ignore Generic.Files.LineLength.TooLong
+    public function getInvoicePdf(string $invoice_id): \Recurly\Resources\BinaryFile
     {
-        $path = $this->interpolatePath("/invoices/{invoice_id}.pdf", ['invoice_id' => $invoice_id]); // phpcs:ignore Generic.Files.LineLength.TooLong
+        $path = $this->interpolatePath("/invoices/{invoice_id}.pdf", ['invoice_id' => $invoice_id]);
         return $this->makeRequest('GET', $path, null, null);
     }
   
@@ -1233,10 +1288,11 @@ class Client extends BaseClient
      * @param array  $body       The body of the request.
      *
      * @return \Recurly\Resources\Invoice
+     * @link   https://developers.recurly.com/api/v2019-10-10#operation/collect_invoice
      */
-    public function collectInvoice(string $invoice_id, array $body = []): \Recurly\Resources\Invoice // phpcs:ignore Generic.Files.LineLength.TooLong
+    public function collectInvoice(string $invoice_id, array $body = []): \Recurly\Resources\Invoice
     {
-        $path = $this->interpolatePath("/invoices/{invoice_id}/collect", ['invoice_id' => $invoice_id]); // phpcs:ignore Generic.Files.LineLength.TooLong
+        $path = $this->interpolatePath("/invoices/{invoice_id}/collect", ['invoice_id' => $invoice_id]);
         return $this->makeRequest('PUT', $path, $body, null);
     }
   
@@ -1246,10 +1302,11 @@ class Client extends BaseClient
      * @param string $invoice_id Invoice ID or number. For ID no prefix is used e.g. `e28zov4fw0v2`. For number use prefix `number-`, e.g. `number-1000`.
      *
      * @return \Recurly\Resources\Invoice
+     * @link   https://developers.recurly.com/api/v2019-10-10#operation/fail_invoice
      */
-    public function failInvoice(string $invoice_id): \Recurly\Resources\Invoice // phpcs:ignore Generic.Files.LineLength.TooLong
+    public function failInvoice(string $invoice_id): \Recurly\Resources\Invoice
     {
-        $path = $this->interpolatePath("/invoices/{invoice_id}/mark_failed", ['invoice_id' => $invoice_id]); // phpcs:ignore Generic.Files.LineLength.TooLong
+        $path = $this->interpolatePath("/invoices/{invoice_id}/mark_failed", ['invoice_id' => $invoice_id]);
         return $this->makeRequest('PUT', $path, null, null);
     }
   
@@ -1259,10 +1316,11 @@ class Client extends BaseClient
      * @param string $invoice_id Invoice ID or number. For ID no prefix is used e.g. `e28zov4fw0v2`. For number use prefix `number-`, e.g. `number-1000`.
      *
      * @return \Recurly\Resources\Invoice
+     * @link   https://developers.recurly.com/api/v2019-10-10#operation/mark_invoice_successful
      */
-    public function markInvoiceSuccessful(string $invoice_id): \Recurly\Resources\Invoice // phpcs:ignore Generic.Files.LineLength.TooLong
+    public function markInvoiceSuccessful(string $invoice_id): \Recurly\Resources\Invoice
     {
-        $path = $this->interpolatePath("/invoices/{invoice_id}/mark_successful", ['invoice_id' => $invoice_id]); // phpcs:ignore Generic.Files.LineLength.TooLong
+        $path = $this->interpolatePath("/invoices/{invoice_id}/mark_successful", ['invoice_id' => $invoice_id]);
         return $this->makeRequest('PUT', $path, null, null);
     }
   
@@ -1272,10 +1330,11 @@ class Client extends BaseClient
      * @param string $invoice_id Invoice ID or number. For ID no prefix is used e.g. `e28zov4fw0v2`. For number use prefix `number-`, e.g. `number-1000`.
      *
      * @return \Recurly\Resources\Invoice
+     * @link   https://developers.recurly.com/api/v2019-10-10#operation/reopen_invoice
      */
-    public function reopenInvoice(string $invoice_id): \Recurly\Resources\Invoice // phpcs:ignore Generic.Files.LineLength.TooLong
+    public function reopenInvoice(string $invoice_id): \Recurly\Resources\Invoice
     {
-        $path = $this->interpolatePath("/invoices/{invoice_id}/reopen", ['invoice_id' => $invoice_id]); // phpcs:ignore Generic.Files.LineLength.TooLong
+        $path = $this->interpolatePath("/invoices/{invoice_id}/reopen", ['invoice_id' => $invoice_id]);
         return $this->makeRequest('PUT', $path, null, null);
     }
   
@@ -1285,10 +1344,11 @@ class Client extends BaseClient
      * @param string $invoice_id Invoice ID or number. For ID no prefix is used e.g. `e28zov4fw0v2`. For number use prefix `number-`, e.g. `number-1000`.
      *
      * @return \Recurly\Resources\Invoice
+     * @link   https://developers.recurly.com/api/v2019-10-10#operation/void_invoice
      */
-    public function voidInvoice(string $invoice_id): \Recurly\Resources\Invoice // phpcs:ignore Generic.Files.LineLength.TooLong
+    public function voidInvoice(string $invoice_id): \Recurly\Resources\Invoice
     {
-        $path = $this->interpolatePath("/invoices/{invoice_id}/void", ['invoice_id' => $invoice_id]); // phpcs:ignore Generic.Files.LineLength.TooLong
+        $path = $this->interpolatePath("/invoices/{invoice_id}/void", ['invoice_id' => $invoice_id]);
         return $this->makeRequest('PUT', $path, null, null);
     }
   
@@ -1329,10 +1389,11 @@ class Client extends BaseClient
      * @param array  $options    Associative array of optional parameters:
      *
      * @return \Recurly\Pager
+     * @link   https://developers.recurly.com/api/v2019-10-10#operation/list_invoice_line_items
      */
-    public function listInvoiceLineItems(string $invoice_id, array $options = []): \Recurly\Pager // phpcs:ignore Generic.Files.LineLength.TooLong
+    public function listInvoiceLineItems(string $invoice_id, array $options = []): \Recurly\Pager
     {
-        $path = $this->interpolatePath("/invoices/{invoice_id}/line_items", ['invoice_id' => $invoice_id]); // phpcs:ignore Generic.Files.LineLength.TooLong
+        $path = $this->interpolatePath("/invoices/{invoice_id}/line_items", ['invoice_id' => $invoice_id]);
         return new \Recurly\Pager($this, $path, $options);
     }
   
@@ -1367,10 +1428,11 @@ class Client extends BaseClient
      * @param array  $options    Associative array of optional parameters:
      *
      * @return \Recurly\Pager
+     * @link   https://developers.recurly.com/api/v2019-10-10#operation/list_invoice_coupon_redemptions
      */
-    public function listInvoiceCouponRedemptions(string $invoice_id, array $options = []): \Recurly\Pager // phpcs:ignore Generic.Files.LineLength.TooLong
+    public function listInvoiceCouponRedemptions(string $invoice_id, array $options = []): \Recurly\Pager
     {
-        $path = $this->interpolatePath("/invoices/{invoice_id}/coupon_redemptions", ['invoice_id' => $invoice_id]); // phpcs:ignore Generic.Files.LineLength.TooLong
+        $path = $this->interpolatePath("/invoices/{invoice_id}/coupon_redemptions", ['invoice_id' => $invoice_id]);
         return new \Recurly\Pager($this, $path, $options);
     }
   
@@ -1380,10 +1442,11 @@ class Client extends BaseClient
      * @param string $invoice_id Invoice ID or number. For ID no prefix is used e.g. `e28zov4fw0v2`. For number use prefix `number-`, e.g. `number-1000`.
      *
      * @return \Recurly\Pager
+     * @link   https://developers.recurly.com/api/v2019-10-10#operation/list_related_invoices
      */
-    public function listRelatedInvoices(string $invoice_id): \Recurly\Pager // phpcs:ignore Generic.Files.LineLength.TooLong
+    public function listRelatedInvoices(string $invoice_id): \Recurly\Pager
     {
-        $path = $this->interpolatePath("/invoices/{invoice_id}/related_invoices", ['invoice_id' => $invoice_id]); // phpcs:ignore Generic.Files.LineLength.TooLong
+        $path = $this->interpolatePath("/invoices/{invoice_id}/related_invoices", ['invoice_id' => $invoice_id]);
         return new \Recurly\Pager($this, $path, null);
     }
   
@@ -1394,10 +1457,11 @@ class Client extends BaseClient
      * @param array  $body       The body of the request.
      *
      * @return \Recurly\Resources\Invoice
+     * @link   https://developers.recurly.com/api/v2019-10-10#operation/refund_invoice
      */
-    public function refundInvoice(string $invoice_id, array $body): \Recurly\Resources\Invoice // phpcs:ignore Generic.Files.LineLength.TooLong
+    public function refundInvoice(string $invoice_id, array $body): \Recurly\Resources\Invoice
     {
-        $path = $this->interpolatePath("/invoices/{invoice_id}/refund", ['invoice_id' => $invoice_id]); // phpcs:ignore Generic.Files.LineLength.TooLong
+        $path = $this->interpolatePath("/invoices/{invoice_id}/refund", ['invoice_id' => $invoice_id]);
         return $this->makeRequest('POST', $path, $body, null);
     }
   
@@ -1437,10 +1501,11 @@ class Client extends BaseClient
      * @param array $options Associative array of optional parameters:
      *
      * @return \Recurly\Pager
+     * @link   https://developers.recurly.com/api/v2019-10-10#operation/list_line_items
      */
-    public function listLineItems(array $options = []): \Recurly\Pager // phpcs:ignore Generic.Files.LineLength.TooLong
+    public function listLineItems(array $options = []): \Recurly\Pager
     {
-        $path = $this->interpolatePath("/line_items", []); // phpcs:ignore Generic.Files.LineLength.TooLong
+        $path = $this->interpolatePath("/line_items", []);
         return new \Recurly\Pager($this, $path, $options);
     }
   
@@ -1450,10 +1515,11 @@ class Client extends BaseClient
      * @param string $line_item_id Line Item ID.
      *
      * @return \Recurly\Resources\LineItem
+     * @link   https://developers.recurly.com/api/v2019-10-10#operation/get_line_item
      */
-    public function getLineItem(string $line_item_id): \Recurly\Resources\LineItem // phpcs:ignore Generic.Files.LineLength.TooLong
+    public function getLineItem(string $line_item_id): \Recurly\Resources\LineItem
     {
-        $path = $this->interpolatePath("/line_items/{line_item_id}", ['line_item_id' => $line_item_id]); // phpcs:ignore Generic.Files.LineLength.TooLong
+        $path = $this->interpolatePath("/line_items/{line_item_id}", ['line_item_id' => $line_item_id]);
         return $this->makeRequest('GET', $path, null, null);
     }
   
@@ -1463,10 +1529,11 @@ class Client extends BaseClient
      * @param string $line_item_id Line Item ID.
      *
      * @return \Recurly\EmptyResource
+     * @link   https://developers.recurly.com/api/v2019-10-10#operation/remove_line_item
      */
-    public function removeLineItem(string $line_item_id): \Recurly\EmptyResource // phpcs:ignore Generic.Files.LineLength.TooLong
+    public function removeLineItem(string $line_item_id): \Recurly\EmptyResource
     {
-        $path = $this->interpolatePath("/line_items/{line_item_id}", ['line_item_id' => $line_item_id]); // phpcs:ignore Generic.Files.LineLength.TooLong
+        $path = $this->interpolatePath("/line_items/{line_item_id}", ['line_item_id' => $line_item_id]);
         return $this->makeRequest('DELETE', $path, null, null);
     }
   
@@ -1504,10 +1571,11 @@ class Client extends BaseClient
      * @param array $options Associative array of optional parameters:
      *
      * @return \Recurly\Pager
+     * @link   https://developers.recurly.com/api/v2019-10-10#operation/list_plans
      */
-    public function listPlans(array $options = []): \Recurly\Pager // phpcs:ignore Generic.Files.LineLength.TooLong
+    public function listPlans(array $options = []): \Recurly\Pager
     {
-        $path = $this->interpolatePath("/plans", []); // phpcs:ignore Generic.Files.LineLength.TooLong
+        $path = $this->interpolatePath("/plans", []);
         return new \Recurly\Pager($this, $path, $options);
     }
   
@@ -1517,10 +1585,11 @@ class Client extends BaseClient
      * @param array $body The body of the request.
      *
      * @return \Recurly\Resources\Plan
+     * @link   https://developers.recurly.com/api/v2019-10-10#operation/create_plan
      */
-    public function createPlan(array $body): \Recurly\Resources\Plan // phpcs:ignore Generic.Files.LineLength.TooLong
+    public function createPlan(array $body): \Recurly\Resources\Plan
     {
-        $path = $this->interpolatePath("/plans", []); // phpcs:ignore Generic.Files.LineLength.TooLong
+        $path = $this->interpolatePath("/plans", []);
         return $this->makeRequest('POST', $path, $body, null);
     }
   
@@ -1530,10 +1599,11 @@ class Client extends BaseClient
      * @param string $plan_id Plan ID or code. For ID no prefix is used e.g. `e28zov4fw0v2`. For code use prefix `code-`, e.g. `code-gold`.
      *
      * @return \Recurly\Resources\Plan
+     * @link   https://developers.recurly.com/api/v2019-10-10#operation/get_plan
      */
-    public function getPlan(string $plan_id): \Recurly\Resources\Plan // phpcs:ignore Generic.Files.LineLength.TooLong
+    public function getPlan(string $plan_id): \Recurly\Resources\Plan
     {
-        $path = $this->interpolatePath("/plans/{plan_id}", ['plan_id' => $plan_id]); // phpcs:ignore Generic.Files.LineLength.TooLong
+        $path = $this->interpolatePath("/plans/{plan_id}", ['plan_id' => $plan_id]);
         return $this->makeRequest('GET', $path, null, null);
     }
   
@@ -1544,10 +1614,11 @@ class Client extends BaseClient
      * @param array  $body    The body of the request.
      *
      * @return \Recurly\Resources\Plan
+     * @link   https://developers.recurly.com/api/v2019-10-10#operation/update_plan
      */
-    public function updatePlan(string $plan_id, array $body): \Recurly\Resources\Plan // phpcs:ignore Generic.Files.LineLength.TooLong
+    public function updatePlan(string $plan_id, array $body): \Recurly\Resources\Plan
     {
-        $path = $this->interpolatePath("/plans/{plan_id}", ['plan_id' => $plan_id]); // phpcs:ignore Generic.Files.LineLength.TooLong
+        $path = $this->interpolatePath("/plans/{plan_id}", ['plan_id' => $plan_id]);
         return $this->makeRequest('PUT', $path, $body, null);
     }
   
@@ -1557,10 +1628,11 @@ class Client extends BaseClient
      * @param string $plan_id Plan ID or code. For ID no prefix is used e.g. `e28zov4fw0v2`. For code use prefix `code-`, e.g. `code-gold`.
      *
      * @return \Recurly\Resources\Plan
+     * @link   https://developers.recurly.com/api/v2019-10-10#operation/remove_plan
      */
-    public function removePlan(string $plan_id): \Recurly\Resources\Plan // phpcs:ignore Generic.Files.LineLength.TooLong
+    public function removePlan(string $plan_id): \Recurly\Resources\Plan
     {
-        $path = $this->interpolatePath("/plans/{plan_id}", ['plan_id' => $plan_id]); // phpcs:ignore Generic.Files.LineLength.TooLong
+        $path = $this->interpolatePath("/plans/{plan_id}", ['plan_id' => $plan_id]);
         return $this->makeRequest('DELETE', $path, null, null);
     }
   
@@ -1599,10 +1671,11 @@ class Client extends BaseClient
      * @param array  $options Associative array of optional parameters:
      *
      * @return \Recurly\Pager
+     * @link   https://developers.recurly.com/api/v2019-10-10#operation/list_plan_add_ons
      */
-    public function listPlanAddOns(string $plan_id, array $options = []): \Recurly\Pager // phpcs:ignore Generic.Files.LineLength.TooLong
+    public function listPlanAddOns(string $plan_id, array $options = []): \Recurly\Pager
     {
-        $path = $this->interpolatePath("/plans/{plan_id}/add_ons", ['plan_id' => $plan_id]); // phpcs:ignore Generic.Files.LineLength.TooLong
+        $path = $this->interpolatePath("/plans/{plan_id}/add_ons", ['plan_id' => $plan_id]);
         return new \Recurly\Pager($this, $path, $options);
     }
   
@@ -1613,10 +1686,11 @@ class Client extends BaseClient
      * @param array  $body    The body of the request.
      *
      * @return \Recurly\Resources\AddOn
+     * @link   https://developers.recurly.com/api/v2019-10-10#operation/create_plan_add_on
      */
-    public function createPlanAddOn(string $plan_id, array $body): \Recurly\Resources\AddOn // phpcs:ignore Generic.Files.LineLength.TooLong
+    public function createPlanAddOn(string $plan_id, array $body): \Recurly\Resources\AddOn
     {
-        $path = $this->interpolatePath("/plans/{plan_id}/add_ons", ['plan_id' => $plan_id]); // phpcs:ignore Generic.Files.LineLength.TooLong
+        $path = $this->interpolatePath("/plans/{plan_id}/add_ons", ['plan_id' => $plan_id]);
         return $this->makeRequest('POST', $path, $body, null);
     }
   
@@ -1627,10 +1701,11 @@ class Client extends BaseClient
      * @param string $add_on_id Add-on ID or code. For ID no prefix is used e.g. `e28zov4fw0v2`. For code use prefix `code-`, e.g. `code-gold`.
      *
      * @return \Recurly\Resources\AddOn
+     * @link   https://developers.recurly.com/api/v2019-10-10#operation/get_plan_add_on
      */
-    public function getPlanAddOn(string $plan_id, string $add_on_id): \Recurly\Resources\AddOn // phpcs:ignore Generic.Files.LineLength.TooLong
+    public function getPlanAddOn(string $plan_id, string $add_on_id): \Recurly\Resources\AddOn
     {
-        $path = $this->interpolatePath("/plans/{plan_id}/add_ons/{add_on_id}", ['plan_id' => $plan_id, 'add_on_id' => $add_on_id]); // phpcs:ignore Generic.Files.LineLength.TooLong
+        $path = $this->interpolatePath("/plans/{plan_id}/add_ons/{add_on_id}", ['plan_id' => $plan_id, 'add_on_id' => $add_on_id]);
         return $this->makeRequest('GET', $path, null, null);
     }
   
@@ -1642,10 +1717,11 @@ class Client extends BaseClient
      * @param array  $body      The body of the request.
      *
      * @return \Recurly\Resources\AddOn
+     * @link   https://developers.recurly.com/api/v2019-10-10#operation/update_plan_add_on
      */
-    public function updatePlanAddOn(string $plan_id, string $add_on_id, array $body): \Recurly\Resources\AddOn // phpcs:ignore Generic.Files.LineLength.TooLong
+    public function updatePlanAddOn(string $plan_id, string $add_on_id, array $body): \Recurly\Resources\AddOn
     {
-        $path = $this->interpolatePath("/plans/{plan_id}/add_ons/{add_on_id}", ['plan_id' => $plan_id, 'add_on_id' => $add_on_id]); // phpcs:ignore Generic.Files.LineLength.TooLong
+        $path = $this->interpolatePath("/plans/{plan_id}/add_ons/{add_on_id}", ['plan_id' => $plan_id, 'add_on_id' => $add_on_id]);
         return $this->makeRequest('PUT', $path, $body, null);
     }
   
@@ -1656,10 +1732,11 @@ class Client extends BaseClient
      * @param string $add_on_id Add-on ID or code. For ID no prefix is used e.g. `e28zov4fw0v2`. For code use prefix `code-`, e.g. `code-gold`.
      *
      * @return \Recurly\Resources\AddOn
+     * @link   https://developers.recurly.com/api/v2019-10-10#operation/remove_plan_add_on
      */
-    public function removePlanAddOn(string $plan_id, string $add_on_id): \Recurly\Resources\AddOn // phpcs:ignore Generic.Files.LineLength.TooLong
+    public function removePlanAddOn(string $plan_id, string $add_on_id): \Recurly\Resources\AddOn
     {
-        $path = $this->interpolatePath("/plans/{plan_id}/add_ons/{add_on_id}", ['plan_id' => $plan_id, 'add_on_id' => $add_on_id]); // phpcs:ignore Generic.Files.LineLength.TooLong
+        $path = $this->interpolatePath("/plans/{plan_id}/add_ons/{add_on_id}", ['plan_id' => $plan_id, 'add_on_id' => $add_on_id]);
         return $this->makeRequest('DELETE', $path, null, null);
     }
   
@@ -1697,10 +1774,11 @@ class Client extends BaseClient
      * @param array $options Associative array of optional parameters:
      *
      * @return \Recurly\Pager
+     * @link   https://developers.recurly.com/api/v2019-10-10#operation/list_add_ons
      */
-    public function listAddOns(array $options = []): \Recurly\Pager // phpcs:ignore Generic.Files.LineLength.TooLong
+    public function listAddOns(array $options = []): \Recurly\Pager
     {
-        $path = $this->interpolatePath("/add_ons", []); // phpcs:ignore Generic.Files.LineLength.TooLong
+        $path = $this->interpolatePath("/add_ons", []);
         return new \Recurly\Pager($this, $path, $options);
     }
   
@@ -1710,10 +1788,11 @@ class Client extends BaseClient
      * @param string $add_on_id Add-on ID or code. For ID no prefix is used e.g. `e28zov4fw0v2`. For code use prefix `code-`, e.g. `code-gold`.
      *
      * @return \Recurly\Resources\AddOn
+     * @link   https://developers.recurly.com/api/v2019-10-10#operation/get_add_on
      */
-    public function getAddOn(string $add_on_id): \Recurly\Resources\AddOn // phpcs:ignore Generic.Files.LineLength.TooLong
+    public function getAddOn(string $add_on_id): \Recurly\Resources\AddOn
     {
-        $path = $this->interpolatePath("/add_ons/{add_on_id}", ['add_on_id' => $add_on_id]); // phpcs:ignore Generic.Files.LineLength.TooLong
+        $path = $this->interpolatePath("/add_ons/{add_on_id}", ['add_on_id' => $add_on_id]);
         return $this->makeRequest('GET', $path, null, null);
     }
   
@@ -1749,10 +1828,11 @@ class Client extends BaseClient
      * @param array $options Associative array of optional parameters:
      *
      * @return \Recurly\Pager
+     * @link   https://developers.recurly.com/api/v2019-10-10#operation/list_shipping_methods
      */
-    public function listShippingMethods(array $options = []): \Recurly\Pager // phpcs:ignore Generic.Files.LineLength.TooLong
+    public function listShippingMethods(array $options = []): \Recurly\Pager
     {
-        $path = $this->interpolatePath("/shipping_methods", []); // phpcs:ignore Generic.Files.LineLength.TooLong
+        $path = $this->interpolatePath("/shipping_methods", []);
         return new \Recurly\Pager($this, $path, $options);
     }
   
@@ -1762,10 +1842,11 @@ class Client extends BaseClient
      * @param string $id Shipping Method ID or code. For ID no prefix is used e.g. `e28zov4fw0v2`. For code use prefix `code-`, e.g. `code-usps_2-day`.
      *
      * @return \Recurly\Resources\ShippingMethod
+     * @link   https://developers.recurly.com/api/v2019-10-10#operation/get_shipping_method
      */
-    public function getShippingMethod(string $id): \Recurly\Resources\ShippingMethod // phpcs:ignore Generic.Files.LineLength.TooLong
+    public function getShippingMethod(string $id): \Recurly\Resources\ShippingMethod
     {
-        $path = $this->interpolatePath("/shipping_methods/{id}", ['id' => $id]); // phpcs:ignore Generic.Files.LineLength.TooLong
+        $path = $this->interpolatePath("/shipping_methods/{id}", ['id' => $id]);
         return $this->makeRequest('GET', $path, null, null);
     }
   
@@ -1807,10 +1888,11 @@ class Client extends BaseClient
      * @param array $options Associative array of optional parameters:
      *
      * @return \Recurly\Pager
+     * @link   https://developers.recurly.com/api/v2019-10-10#operation/list_subscriptions
      */
-    public function listSubscriptions(array $options = []): \Recurly\Pager // phpcs:ignore Generic.Files.LineLength.TooLong
+    public function listSubscriptions(array $options = []): \Recurly\Pager
     {
-        $path = $this->interpolatePath("/subscriptions", []); // phpcs:ignore Generic.Files.LineLength.TooLong
+        $path = $this->interpolatePath("/subscriptions", []);
         return new \Recurly\Pager($this, $path, $options);
     }
   
@@ -1820,10 +1902,11 @@ class Client extends BaseClient
      * @param array $body The body of the request.
      *
      * @return \Recurly\Resources\Subscription
+     * @link   https://developers.recurly.com/api/v2019-10-10#operation/create_subscription
      */
-    public function createSubscription(array $body): \Recurly\Resources\Subscription // phpcs:ignore Generic.Files.LineLength.TooLong
+    public function createSubscription(array $body): \Recurly\Resources\Subscription
     {
-        $path = $this->interpolatePath("/subscriptions", []); // phpcs:ignore Generic.Files.LineLength.TooLong
+        $path = $this->interpolatePath("/subscriptions", []);
         return $this->makeRequest('POST', $path, $body, null);
     }
   
@@ -1833,10 +1916,11 @@ class Client extends BaseClient
      * @param string $subscription_id Subscription ID or UUID. For ID no prefix is used e.g. `e28zov4fw0v2`. For UUID use prefix `uuid-`, e.g. `uuid-123457890`.
      *
      * @return \Recurly\Resources\Subscription
+     * @link   https://developers.recurly.com/api/v2019-10-10#operation/get_subscription
      */
-    public function getSubscription(string $subscription_id): \Recurly\Resources\Subscription // phpcs:ignore Generic.Files.LineLength.TooLong
+    public function getSubscription(string $subscription_id): \Recurly\Resources\Subscription
     {
-        $path = $this->interpolatePath("/subscriptions/{subscription_id}", ['subscription_id' => $subscription_id]); // phpcs:ignore Generic.Files.LineLength.TooLong
+        $path = $this->interpolatePath("/subscriptions/{subscription_id}", ['subscription_id' => $subscription_id]);
         return $this->makeRequest('GET', $path, null, null);
     }
   
@@ -1847,10 +1931,11 @@ class Client extends BaseClient
      * @param array  $body            The body of the request.
      *
      * @return \Recurly\Resources\Subscription
+     * @link   https://developers.recurly.com/api/v2019-10-10#operation/modify_subscription
      */
-    public function modifySubscription(string $subscription_id, array $body): \Recurly\Resources\Subscription // phpcs:ignore Generic.Files.LineLength.TooLong
+    public function modifySubscription(string $subscription_id, array $body): \Recurly\Resources\Subscription
     {
-        $path = $this->interpolatePath("/subscriptions/{subscription_id}", ['subscription_id' => $subscription_id]); // phpcs:ignore Generic.Files.LineLength.TooLong
+        $path = $this->interpolatePath("/subscriptions/{subscription_id}", ['subscription_id' => $subscription_id]);
         return $this->makeRequest('PUT', $path, $body, null);
     }
   
@@ -1873,10 +1958,11 @@ class Client extends BaseClient
      * @param array  $options         Associative array of optional parameters:
      *
      * @return \Recurly\Resources\Subscription
+     * @link   https://developers.recurly.com/api/v2019-10-10#operation/terminate_subscription
      */
-    public function terminateSubscription(string $subscription_id, array $options = []): \Recurly\Resources\Subscription // phpcs:ignore Generic.Files.LineLength.TooLong
+    public function terminateSubscription(string $subscription_id, array $options = []): \Recurly\Resources\Subscription
     {
-        $path = $this->interpolatePath("/subscriptions/{subscription_id}", ['subscription_id' => $subscription_id]); // phpcs:ignore Generic.Files.LineLength.TooLong
+        $path = $this->interpolatePath("/subscriptions/{subscription_id}", ['subscription_id' => $subscription_id]);
         return $this->makeRequest('DELETE', $path, null, $options);
     }
   
@@ -1887,10 +1973,11 @@ class Client extends BaseClient
      * @param array  $body            The body of the request.
      *
      * @return \Recurly\Resources\Subscription
+     * @link   https://developers.recurly.com/api/v2019-10-10#operation/cancel_subscription
      */
-    public function cancelSubscription(string $subscription_id, array $body = []): \Recurly\Resources\Subscription // phpcs:ignore Generic.Files.LineLength.TooLong
+    public function cancelSubscription(string $subscription_id, array $body = []): \Recurly\Resources\Subscription
     {
-        $path = $this->interpolatePath("/subscriptions/{subscription_id}/cancel", ['subscription_id' => $subscription_id]); // phpcs:ignore Generic.Files.LineLength.TooLong
+        $path = $this->interpolatePath("/subscriptions/{subscription_id}/cancel", ['subscription_id' => $subscription_id]);
         return $this->makeRequest('PUT', $path, $body, null);
     }
   
@@ -1900,10 +1987,11 @@ class Client extends BaseClient
      * @param string $subscription_id Subscription ID or UUID. For ID no prefix is used e.g. `e28zov4fw0v2`. For UUID use prefix `uuid-`, e.g. `uuid-123457890`.
      *
      * @return \Recurly\Resources\Subscription
+     * @link   https://developers.recurly.com/api/v2019-10-10#operation/reactivate_subscription
      */
-    public function reactivateSubscription(string $subscription_id): \Recurly\Resources\Subscription // phpcs:ignore Generic.Files.LineLength.TooLong
+    public function reactivateSubscription(string $subscription_id): \Recurly\Resources\Subscription
     {
-        $path = $this->interpolatePath("/subscriptions/{subscription_id}/reactivate", ['subscription_id' => $subscription_id]); // phpcs:ignore Generic.Files.LineLength.TooLong
+        $path = $this->interpolatePath("/subscriptions/{subscription_id}/reactivate", ['subscription_id' => $subscription_id]);
         return $this->makeRequest('PUT', $path, null, null);
     }
   
@@ -1914,10 +2002,11 @@ class Client extends BaseClient
      * @param array  $body            The body of the request.
      *
      * @return \Recurly\Resources\Subscription
+     * @link   https://developers.recurly.com/api/v2019-10-10#operation/pause_subscription
      */
-    public function pauseSubscription(string $subscription_id, array $body): \Recurly\Resources\Subscription // phpcs:ignore Generic.Files.LineLength.TooLong
+    public function pauseSubscription(string $subscription_id, array $body): \Recurly\Resources\Subscription
     {
-        $path = $this->interpolatePath("/subscriptions/{subscription_id}/pause", ['subscription_id' => $subscription_id]); // phpcs:ignore Generic.Files.LineLength.TooLong
+        $path = $this->interpolatePath("/subscriptions/{subscription_id}/pause", ['subscription_id' => $subscription_id]);
         return $this->makeRequest('PUT', $path, $body, null);
     }
   
@@ -1927,10 +2016,11 @@ class Client extends BaseClient
      * @param string $subscription_id Subscription ID or UUID. For ID no prefix is used e.g. `e28zov4fw0v2`. For UUID use prefix `uuid-`, e.g. `uuid-123457890`.
      *
      * @return \Recurly\Resources\Subscription
+     * @link   https://developers.recurly.com/api/v2019-10-10#operation/resume_subscription
      */
-    public function resumeSubscription(string $subscription_id): \Recurly\Resources\Subscription // phpcs:ignore Generic.Files.LineLength.TooLong
+    public function resumeSubscription(string $subscription_id): \Recurly\Resources\Subscription
     {
-        $path = $this->interpolatePath("/subscriptions/{subscription_id}/resume", ['subscription_id' => $subscription_id]); // phpcs:ignore Generic.Files.LineLength.TooLong
+        $path = $this->interpolatePath("/subscriptions/{subscription_id}/resume", ['subscription_id' => $subscription_id]);
         return $this->makeRequest('PUT', $path, null, null);
     }
   
@@ -1940,10 +2030,11 @@ class Client extends BaseClient
      * @param string $subscription_id Subscription ID or UUID. For ID no prefix is used e.g. `e28zov4fw0v2`. For UUID use prefix `uuid-`, e.g. `uuid-123457890`.
      *
      * @return \Recurly\Resources\SubscriptionChange
+     * @link   https://developers.recurly.com/api/v2019-10-10#operation/get_subscription_change
      */
-    public function getSubscriptionChange(string $subscription_id): \Recurly\Resources\SubscriptionChange // phpcs:ignore Generic.Files.LineLength.TooLong
+    public function getSubscriptionChange(string $subscription_id): \Recurly\Resources\SubscriptionChange
     {
-        $path = $this->interpolatePath("/subscriptions/{subscription_id}/change", ['subscription_id' => $subscription_id]); // phpcs:ignore Generic.Files.LineLength.TooLong
+        $path = $this->interpolatePath("/subscriptions/{subscription_id}/change", ['subscription_id' => $subscription_id]);
         return $this->makeRequest('GET', $path, null, null);
     }
   
@@ -1954,10 +2045,11 @@ class Client extends BaseClient
      * @param array  $body            The body of the request.
      *
      * @return \Recurly\Resources\SubscriptionChange
+     * @link   https://developers.recurly.com/api/v2019-10-10#operation/create_subscription_change
      */
-    public function createSubscriptionChange(string $subscription_id, array $body): \Recurly\Resources\SubscriptionChange // phpcs:ignore Generic.Files.LineLength.TooLong
+    public function createSubscriptionChange(string $subscription_id, array $body): \Recurly\Resources\SubscriptionChange
     {
-        $path = $this->interpolatePath("/subscriptions/{subscription_id}/change", ['subscription_id' => $subscription_id]); // phpcs:ignore Generic.Files.LineLength.TooLong
+        $path = $this->interpolatePath("/subscriptions/{subscription_id}/change", ['subscription_id' => $subscription_id]);
         return $this->makeRequest('POST', $path, $body, null);
     }
   
@@ -1967,10 +2059,11 @@ class Client extends BaseClient
      * @param string $subscription_id Subscription ID or UUID. For ID no prefix is used e.g. `e28zov4fw0v2`. For UUID use prefix `uuid-`, e.g. `uuid-123457890`.
      *
      * @return \Recurly\EmptyResource
+     * @link   https://developers.recurly.com/api/v2019-10-10#operation/remove_subscription_change
      */
-    public function removeSubscriptionChange(string $subscription_id): \Recurly\EmptyResource // phpcs:ignore Generic.Files.LineLength.TooLong
+    public function removeSubscriptionChange(string $subscription_id): \Recurly\EmptyResource
     {
-        $path = $this->interpolatePath("/subscriptions/{subscription_id}/change", ['subscription_id' => $subscription_id]); // phpcs:ignore Generic.Files.LineLength.TooLong
+        $path = $this->interpolatePath("/subscriptions/{subscription_id}/change", ['subscription_id' => $subscription_id]);
         return $this->makeRequest('DELETE', $path, null, null);
     }
   
@@ -2013,10 +2106,11 @@ class Client extends BaseClient
      * @param array  $options         Associative array of optional parameters:
      *
      * @return \Recurly\Pager
+     * @link   https://developers.recurly.com/api/v2019-10-10#operation/list_subscription_invoices
      */
-    public function listSubscriptionInvoices(string $subscription_id, array $options = []): \Recurly\Pager // phpcs:ignore Generic.Files.LineLength.TooLong
+    public function listSubscriptionInvoices(string $subscription_id, array $options = []): \Recurly\Pager
     {
-        $path = $this->interpolatePath("/subscriptions/{subscription_id}/invoices", ['subscription_id' => $subscription_id]); // phpcs:ignore Generic.Files.LineLength.TooLong
+        $path = $this->interpolatePath("/subscriptions/{subscription_id}/invoices", ['subscription_id' => $subscription_id]);
         return new \Recurly\Pager($this, $path, $options);
     }
   
@@ -2057,10 +2151,11 @@ class Client extends BaseClient
      * @param array  $options         Associative array of optional parameters:
      *
      * @return \Recurly\Pager
+     * @link   https://developers.recurly.com/api/v2019-10-10#operation/list_subscription_line_items
      */
-    public function listSubscriptionLineItems(string $subscription_id, array $options = []): \Recurly\Pager // phpcs:ignore Generic.Files.LineLength.TooLong
+    public function listSubscriptionLineItems(string $subscription_id, array $options = []): \Recurly\Pager
     {
-        $path = $this->interpolatePath("/subscriptions/{subscription_id}/line_items", ['subscription_id' => $subscription_id]); // phpcs:ignore Generic.Files.LineLength.TooLong
+        $path = $this->interpolatePath("/subscriptions/{subscription_id}/line_items", ['subscription_id' => $subscription_id]);
         return new \Recurly\Pager($this, $path, $options);
     }
   
@@ -2095,10 +2190,11 @@ class Client extends BaseClient
      * @param array  $options         Associative array of optional parameters:
      *
      * @return \Recurly\Pager
+     * @link   https://developers.recurly.com/api/v2019-10-10#operation/list_subscription_coupon_redemptions
      */
-    public function listSubscriptionCouponRedemptions(string $subscription_id, array $options = []): \Recurly\Pager // phpcs:ignore Generic.Files.LineLength.TooLong
+    public function listSubscriptionCouponRedemptions(string $subscription_id, array $options = []): \Recurly\Pager
     {
-        $path = $this->interpolatePath("/subscriptions/{subscription_id}/coupon_redemptions", ['subscription_id' => $subscription_id]); // phpcs:ignore Generic.Files.LineLength.TooLong
+        $path = $this->interpolatePath("/subscriptions/{subscription_id}/coupon_redemptions", ['subscription_id' => $subscription_id]);
         return new \Recurly\Pager($this, $path, $options);
     }
   
@@ -2137,10 +2233,11 @@ class Client extends BaseClient
      * @param array $options Associative array of optional parameters:
      *
      * @return \Recurly\Pager
+     * @link   https://developers.recurly.com/api/v2019-10-10#operation/list_transactions
      */
-    public function listTransactions(array $options = []): \Recurly\Pager // phpcs:ignore Generic.Files.LineLength.TooLong
+    public function listTransactions(array $options = []): \Recurly\Pager
     {
-        $path = $this->interpolatePath("/transactions", []); // phpcs:ignore Generic.Files.LineLength.TooLong
+        $path = $this->interpolatePath("/transactions", []);
         return new \Recurly\Pager($this, $path, $options);
     }
   
@@ -2150,10 +2247,11 @@ class Client extends BaseClient
      * @param string $transaction_id Transaction ID or UUID. For ID no prefix is used e.g. `e28zov4fw0v2`. For UUID use prefix `uuid-`, e.g. `uuid-123457890`.
      *
      * @return \Recurly\Resources\Transaction
+     * @link   https://developers.recurly.com/api/v2019-10-10#operation/get_transaction
      */
-    public function getTransaction(string $transaction_id): \Recurly\Resources\Transaction // phpcs:ignore Generic.Files.LineLength.TooLong
+    public function getTransaction(string $transaction_id): \Recurly\Resources\Transaction
     {
-        $path = $this->interpolatePath("/transactions/{transaction_id}", ['transaction_id' => $transaction_id]); // phpcs:ignore Generic.Files.LineLength.TooLong
+        $path = $this->interpolatePath("/transactions/{transaction_id}", ['transaction_id' => $transaction_id]);
         return $this->makeRequest('GET', $path, null, null);
     }
   
@@ -2163,10 +2261,11 @@ class Client extends BaseClient
      * @param string $unique_coupon_code_id Unique Coupon Code ID or code. For ID no prefix is used e.g. `e28zov4fw0v2`. For code use prefix `code-`, e.g. `code-abc-8dh2-def`.
      *
      * @return \Recurly\Resources\UniqueCouponCode
+     * @link   https://developers.recurly.com/api/v2019-10-10#operation/get_unique_coupon_code
      */
-    public function getUniqueCouponCode(string $unique_coupon_code_id): \Recurly\Resources\UniqueCouponCode // phpcs:ignore Generic.Files.LineLength.TooLong
+    public function getUniqueCouponCode(string $unique_coupon_code_id): \Recurly\Resources\UniqueCouponCode
     {
-        $path = $this->interpolatePath("/unique_coupon_codes/{unique_coupon_code_id}", ['unique_coupon_code_id' => $unique_coupon_code_id]); // phpcs:ignore Generic.Files.LineLength.TooLong
+        $path = $this->interpolatePath("/unique_coupon_codes/{unique_coupon_code_id}", ['unique_coupon_code_id' => $unique_coupon_code_id]);
         return $this->makeRequest('GET', $path, null, null);
     }
   
@@ -2176,10 +2275,11 @@ class Client extends BaseClient
      * @param string $unique_coupon_code_id Unique Coupon Code ID or code. For ID no prefix is used e.g. `e28zov4fw0v2`. For code use prefix `code-`, e.g. `code-abc-8dh2-def`.
      *
      * @return \Recurly\Resources\UniqueCouponCode
+     * @link   https://developers.recurly.com/api/v2019-10-10#operation/deactivate_unique_coupon_code
      */
-    public function deactivateUniqueCouponCode(string $unique_coupon_code_id): \Recurly\Resources\UniqueCouponCode // phpcs:ignore Generic.Files.LineLength.TooLong
+    public function deactivateUniqueCouponCode(string $unique_coupon_code_id): \Recurly\Resources\UniqueCouponCode
     {
-        $path = $this->interpolatePath("/unique_coupon_codes/{unique_coupon_code_id}", ['unique_coupon_code_id' => $unique_coupon_code_id]); // phpcs:ignore Generic.Files.LineLength.TooLong
+        $path = $this->interpolatePath("/unique_coupon_codes/{unique_coupon_code_id}", ['unique_coupon_code_id' => $unique_coupon_code_id]);
         return $this->makeRequest('DELETE', $path, null, null);
     }
   
@@ -2189,10 +2289,11 @@ class Client extends BaseClient
      * @param string $unique_coupon_code_id Unique Coupon Code ID or code. For ID no prefix is used e.g. `e28zov4fw0v2`. For code use prefix `code-`, e.g. `code-abc-8dh2-def`.
      *
      * @return \Recurly\Resources\UniqueCouponCode
+     * @link   https://developers.recurly.com/api/v2019-10-10#operation/reactivate_unique_coupon_code
      */
-    public function reactivateUniqueCouponCode(string $unique_coupon_code_id): \Recurly\Resources\UniqueCouponCode // phpcs:ignore Generic.Files.LineLength.TooLong
+    public function reactivateUniqueCouponCode(string $unique_coupon_code_id): \Recurly\Resources\UniqueCouponCode
     {
-        $path = $this->interpolatePath("/unique_coupon_codes/{unique_coupon_code_id}/restore", ['unique_coupon_code_id' => $unique_coupon_code_id]); // phpcs:ignore Generic.Files.LineLength.TooLong
+        $path = $this->interpolatePath("/unique_coupon_codes/{unique_coupon_code_id}/restore", ['unique_coupon_code_id' => $unique_coupon_code_id]);
         return $this->makeRequest('PUT', $path, null, null);
     }
   
@@ -2202,10 +2303,11 @@ class Client extends BaseClient
      * @param array $body The body of the request.
      *
      * @return \Recurly\Resources\InvoiceCollection
+     * @link   https://developers.recurly.com/api/v2019-10-10#operation/create_purchase
      */
-    public function createPurchase(array $body): \Recurly\Resources\InvoiceCollection // phpcs:ignore Generic.Files.LineLength.TooLong
+    public function createPurchase(array $body): \Recurly\Resources\InvoiceCollection
     {
-        $path = $this->interpolatePath("/purchases", []); // phpcs:ignore Generic.Files.LineLength.TooLong
+        $path = $this->interpolatePath("/purchases", []);
         return $this->makeRequest('POST', $path, $body, null);
     }
   
@@ -2215,10 +2317,11 @@ class Client extends BaseClient
      * @param array $body The body of the request.
      *
      * @return \Recurly\Resources\InvoiceCollection
+     * @link   https://developers.recurly.com/api/v2019-10-10#operation/preview_purchase
      */
-    public function previewPurchase(array $body): \Recurly\Resources\InvoiceCollection // phpcs:ignore Generic.Files.LineLength.TooLong
+    public function previewPurchase(array $body): \Recurly\Resources\InvoiceCollection
     {
-        $path = $this->interpolatePath("/purchases/preview", []); // phpcs:ignore Generic.Files.LineLength.TooLong
+        $path = $this->interpolatePath("/purchases/preview", []);
         return $this->makeRequest('POST', $path, $body, null);
     }
   

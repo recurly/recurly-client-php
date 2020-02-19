@@ -17,7 +17,7 @@ class Request
      * @param array  $body   The request body
      * @param array  $params Query string parameters
      */
-    public function __construct(string $method, string $path, ?array $body, ?array $params) // phpcs:ignore Generic.Files.LineLength.TooLong
+    public function __construct(string $method, string $path, ?array $body, ?array $params)
     {
         $this->_method = $method;
         $this->_path = $path;
