@@ -2,7 +2,7 @@
 
 namespace Recurly;
 
-class Http
+class HttpAdapter
 {
     private static $_default_options = [
         'ignore_errors' => true

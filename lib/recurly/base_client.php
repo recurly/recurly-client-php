@@ -16,7 +16,7 @@ abstract class BaseClient
     public function __construct(string $api_key)
     {
         $this->_api_key = $api_key;
-        $this->_http = new Http;
+        $this->_http = new HttpAdapter;
     }
 
     /**
