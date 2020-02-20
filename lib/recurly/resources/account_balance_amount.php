@@ -21,8 +21,9 @@ class AccountBalanceAmount extends RecurlyResource
     
     /**
     * Getter method for the amount attribute.
+    * Total amount the account is past due.
     *
-    * @return float Total amount the account is past due.
+    * @return float
     */
     public function getAmount(): float
     {
@@ -43,8 +44,9 @@ class AccountBalanceAmount extends RecurlyResource
 
     /**
     * Getter method for the currency attribute.
+    * 3-letter ISO 4217 currency code.
     *
-    * @return string 3-letter ISO 4217 currency code.
+    * @return string
     */
     public function getCurrency(): string
     {

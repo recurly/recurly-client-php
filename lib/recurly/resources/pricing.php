@@ -21,8 +21,9 @@ class Pricing extends RecurlyResource
     
     /**
     * Getter method for the currency attribute.
+    * 3-letter ISO 4217 currency code.
     *
-    * @return string 3-letter ISO 4217 currency code.
+    * @return string
     */
     public function getCurrency(): string
     {
@@ -43,8 +44,9 @@ class Pricing extends RecurlyResource
 
     /**
     * Getter method for the unit_amount attribute.
+    * Unit price
     *
-    * @return float Unit price
+    * @return float
     */
     public function getUnitAmount(): float
     {

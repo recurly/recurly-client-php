@@ -22,8 +22,9 @@ class TaxInfo extends RecurlyResource
     
     /**
     * Getter method for the rate attribute.
+    * Rate
     *
-    * @return float Rate
+    * @return float
     */
     public function getRate(): float
     {
@@ -44,8 +45,9 @@ class TaxInfo extends RecurlyResource
 
     /**
     * Getter method for the region attribute.
+    * Provides the tax region applied on an invoice. For U.S. Sales Tax, this will be the 2 letter state code. For EU VAT this will be the 2 letter country code. For all country level tax types, this will display the regional tax, like VAT, GST, or PST.
     *
-    * @return string Provides the tax region applied on an invoice. For U.S. Sales Tax, this will be the 2 letter state code. For EU VAT this will be the 2 letter country code. For all country level tax types, this will display the regional tax, like VAT, GST, or PST.
+    * @return string
     */
     public function getRegion(): string
     {
@@ -66,8 +68,9 @@ class TaxInfo extends RecurlyResource
 
     /**
     * Getter method for the type attribute.
+    * Provides the tax type as "vat" for EU VAT, "usst" for U.S. Sales Tax, or the 2 letter country code for country level tax types like Canada, Australia, New Zealand, Israel, and all non-EU European countries.
     *
-    * @return string Provides the tax type as "vat" for EU VAT, "usst" for U.S. Sales Tax, or the 2 letter country code for country level tax types like Canada, Australia, New Zealand, Israel, and all non-EU European countries.
+    * @return string
     */
     public function getType(): string
     {

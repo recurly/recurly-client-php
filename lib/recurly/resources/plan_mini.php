@@ -23,8 +23,9 @@ class PlanMini extends RecurlyResource
     
     /**
     * Getter method for the code attribute.
+    * Unique code to identify the plan. This is used in Hosted Payment Page URLs and in the invoice exports.
     *
-    * @return string Unique code to identify the plan. This is used in Hosted Payment Page URLs and in the invoice exports.
+    * @return string
     */
     public function getCode(): string
     {
@@ -45,8 +46,9 @@ class PlanMini extends RecurlyResource
 
     /**
     * Getter method for the id attribute.
+    * Plan ID
     *
-    * @return string Plan ID
+    * @return string
     */
     public function getId(): string
     {
@@ -67,8 +69,9 @@ class PlanMini extends RecurlyResource
 
     /**
     * Getter method for the name attribute.
+    * This name describes your plan and will appear on the Hosted Payment Page and the subscriber's invoice.
     *
-    * @return string This name describes your plan and will appear on the Hosted Payment Page and the subscriber's invoice.
+    * @return string
     */
     public function getName(): string
     {
@@ -89,8 +92,9 @@ class PlanMini extends RecurlyResource
 
     /**
     * Getter method for the object attribute.
+    * Object type
     *
-    * @return string Object type
+    * @return string
     */
     public function getObject(): string
     {

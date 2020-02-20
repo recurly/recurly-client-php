@@ -24,8 +24,9 @@ class AddOnMini extends RecurlyResource
     
     /**
     * Getter method for the accounting_code attribute.
+    * Accounting code for invoice line items for this add-on. If no value is provided, it defaults to add-on's code.
     *
-    * @return string Accounting code for invoice line items for this add-on. If no value is provided, it defaults to add-on's code.
+    * @return string
     */
     public function getAccountingCode(): string
     {
@@ -46,8 +47,9 @@ class AddOnMini extends RecurlyResource
 
     /**
     * Getter method for the code attribute.
+    * The unique identifier for the add-on within its plan.
     *
-    * @return string The unique identifier for the add-on within its plan.
+    * @return string
     */
     public function getCode(): string
     {
@@ -68,8 +70,9 @@ class AddOnMini extends RecurlyResource
 
     /**
     * Getter method for the id attribute.
+    * Add-on ID
     *
-    * @return string Add-on ID
+    * @return string
     */
     public function getId(): string
     {
@@ -90,8 +93,9 @@ class AddOnMini extends RecurlyResource
 
     /**
     * Getter method for the name attribute.
+    * Describes your add-on and will appear in subscribers' invoices.
     *
-    * @return string Describes your add-on and will appear in subscribers' invoices.
+    * @return string
     */
     public function getName(): string
     {
@@ -112,8 +116,9 @@ class AddOnMini extends RecurlyResource
 
     /**
     * Getter method for the object attribute.
+    * Object type
     *
-    * @return string Object type
+    * @return string
     */
     public function getObject(): string
     {

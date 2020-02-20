@@ -24,8 +24,9 @@ class AccountBalance extends RecurlyResource
     
     /**
     * Getter method for the account attribute.
+    * Account mini details
     *
-    * @return \Recurly\Resources\AccountMini Account mini details
+    * @return \Recurly\Resources\AccountMini
     */
     public function getAccount(): \Recurly\Resources\AccountMini
     {
@@ -46,8 +47,9 @@ class AccountBalance extends RecurlyResource
 
     /**
     * Getter method for the balances attribute.
+    * 
     *
-    * @return array 
+    * @return array
     */
     public function getBalances(): array
     {
@@ -68,8 +70,9 @@ class AccountBalance extends RecurlyResource
 
     /**
     * Getter method for the object attribute.
+    * Object type
     *
-    * @return string Object type
+    * @return string
     */
     public function getObject(): string
     {
@@ -90,8 +93,9 @@ class AccountBalance extends RecurlyResource
 
     /**
     * Getter method for the past_due attribute.
+    * 
     *
-    * @return bool 
+    * @return bool
     */
     public function getPastDue(): bool
     {

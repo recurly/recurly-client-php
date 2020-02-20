@@ -28,8 +28,9 @@ class AccountAcquisition extends RecurlyResource
     
     /**
     * Getter method for the account attribute.
+    * Account mini details
     *
-    * @return \Recurly\Resources\AccountMini Account mini details
+    * @return \Recurly\Resources\AccountMini
     */
     public function getAccount(): \Recurly\Resources\AccountMini
     {
@@ -50,8 +51,9 @@ class AccountAcquisition extends RecurlyResource
 
     /**
     * Getter method for the campaign attribute.
+    * An arbitrary identifier for the marketing campaign that led to the acquisition of this account.
     *
-    * @return string An arbitrary identifier for the marketing campaign that led to the acquisition of this account.
+    * @return string
     */
     public function getCampaign(): string
     {
@@ -72,8 +74,9 @@ class AccountAcquisition extends RecurlyResource
 
     /**
     * Getter method for the channel attribute.
+    * The channel through which the account was acquired.
     *
-    * @return string The channel through which the account was acquired.
+    * @return string
     */
     public function getChannel(): string
     {
@@ -94,8 +97,9 @@ class AccountAcquisition extends RecurlyResource
 
     /**
     * Getter method for the cost attribute.
+    * Account balance
     *
-    * @return \Recurly\Resources\AccountAcquisitionCost Account balance
+    * @return \Recurly\Resources\AccountAcquisitionCost
     */
     public function getCost(): \Recurly\Resources\AccountAcquisitionCost
     {
@@ -116,8 +120,9 @@ class AccountAcquisition extends RecurlyResource
 
     /**
     * Getter method for the created_at attribute.
+    * When the account acquisition data was created.
     *
-    * @return string When the account acquisition data was created.
+    * @return string
     */
     public function getCreatedAt(): string
     {
@@ -138,8 +143,9 @@ class AccountAcquisition extends RecurlyResource
 
     /**
     * Getter method for the id attribute.
+    * 
     *
-    * @return string 
+    * @return string
     */
     public function getId(): string
     {
@@ -160,8 +166,9 @@ class AccountAcquisition extends RecurlyResource
 
     /**
     * Getter method for the object attribute.
+    * Object type
     *
-    * @return string Object type
+    * @return string
     */
     public function getObject(): string
     {
@@ -182,8 +189,9 @@ class AccountAcquisition extends RecurlyResource
 
     /**
     * Getter method for the subchannel attribute.
+    * An arbitrary subchannel string representing a distinction/subcategory within a broader channel.
     *
-    * @return string An arbitrary subchannel string representing a distinction/subcategory within a broader channel.
+    * @return string
     */
     public function getSubchannel(): string
     {
@@ -204,8 +212,9 @@ class AccountAcquisition extends RecurlyResource
 
     /**
     * Getter method for the updated_at attribute.
+    * When the account acquisition data was last changed.
     *
-    * @return string When the account acquisition data was last changed.
+    * @return string
     */
     public function getUpdatedAt(): string
     {

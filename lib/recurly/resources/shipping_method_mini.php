@@ -23,8 +23,9 @@ class ShippingMethodMini extends RecurlyResource
     
     /**
     * Getter method for the code attribute.
+    * The internal name used identify the shipping method.
     *
-    * @return string The internal name used identify the shipping method.
+    * @return string
     */
     public function getCode(): string
     {
@@ -45,8 +46,9 @@ class ShippingMethodMini extends RecurlyResource
 
     /**
     * Getter method for the id attribute.
+    * Shipping Method ID
     *
-    * @return string Shipping Method ID
+    * @return string
     */
     public function getId(): string
     {
@@ -67,8 +69,9 @@ class ShippingMethodMini extends RecurlyResource
 
     /**
     * Getter method for the name attribute.
+    * The name of the shipping method displayed to customers.
     *
-    * @return string The name of the shipping method displayed to customers.
+    * @return string
     */
     public function getName(): string
     {
@@ -89,8 +92,9 @@ class ShippingMethodMini extends RecurlyResource
 
     /**
     * Getter method for the object attribute.
+    * Object type
     *
-    * @return string Object type
+    * @return string
     */
     public function getObject(): string
     {

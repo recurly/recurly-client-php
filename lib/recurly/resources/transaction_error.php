@@ -26,8 +26,9 @@ class TransactionError extends RecurlyResource
     
     /**
     * Getter method for the category attribute.
+    * Category
     *
-    * @return string Category
+    * @return string
     */
     public function getCategory(): string
     {
@@ -48,8 +49,9 @@ class TransactionError extends RecurlyResource
 
     /**
     * Getter method for the code attribute.
+    * Code
     *
-    * @return string Code
+    * @return string
     */
     public function getCode(): string
     {
@@ -70,8 +72,9 @@ class TransactionError extends RecurlyResource
 
     /**
     * Getter method for the merchant_advice attribute.
+    * Merchant message
     *
-    * @return string Merchant message
+    * @return string
     */
     public function getMerchantAdvice(): string
     {
@@ -92,8 +95,9 @@ class TransactionError extends RecurlyResource
 
     /**
     * Getter method for the message attribute.
+    * Customer message
     *
-    * @return string Customer message
+    * @return string
     */
     public function getMessage(): string
     {
@@ -114,8 +118,9 @@ class TransactionError extends RecurlyResource
 
     /**
     * Getter method for the object attribute.
+    * Object type
     *
-    * @return string Object type
+    * @return string
     */
     public function getObject(): string
     {
@@ -136,8 +141,9 @@ class TransactionError extends RecurlyResource
 
     /**
     * Getter method for the three_d_secure_action_token_id attribute.
+    * Returned when 3-D Secure authentication is required for a transaction. Pass this value to Recurly.js so it can continue the challenge flow.
     *
-    * @return string Returned when 3-D Secure authentication is required for a transaction. Pass this value to Recurly.js so it can continue the challenge flow.
+    * @return string
     */
     public function getThreeDSecureActionTokenId(): string
     {
@@ -158,8 +164,9 @@ class TransactionError extends RecurlyResource
 
     /**
     * Getter method for the transaction_id attribute.
+    * Transaction ID
     *
-    * @return string Transaction ID
+    * @return string
     */
     public function getTransactionId(): string
     {

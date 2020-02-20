@@ -23,8 +23,9 @@ class InvoiceCollection extends RecurlyResource
     
     /**
     * Getter method for the charge_invoice attribute.
+    * 
     *
-    * @return \Recurly\Resources\Invoice 
+    * @return \Recurly\Resources\Invoice
     */
     public function getChargeInvoice(): \Recurly\Resources\Invoice
     {
@@ -45,8 +46,9 @@ class InvoiceCollection extends RecurlyResource
 
     /**
     * Getter method for the credit_invoices attribute.
+    * Credit invoices
     *
-    * @return array Credit invoices
+    * @return array
     */
     public function getCreditInvoices(): array
     {
@@ -67,8 +69,9 @@ class InvoiceCollection extends RecurlyResource
 
     /**
     * Getter method for the object attribute.
+    * Object type
     *
-    * @return string Object type
+    * @return string
     */
     public function getObject(): string
     {

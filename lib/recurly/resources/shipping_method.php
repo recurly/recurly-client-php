@@ -27,8 +27,9 @@ class ShippingMethod extends RecurlyResource
     
     /**
     * Getter method for the code attribute.
+    * The internal name used identify the shipping method.
     *
-    * @return string The internal name used identify the shipping method.
+    * @return string
     */
     public function getCode(): string
     {
@@ -49,8 +50,9 @@ class ShippingMethod extends RecurlyResource
 
     /**
     * Getter method for the created_at attribute.
+    * Created at
     *
-    * @return string Created at
+    * @return string
     */
     public function getCreatedAt(): string
     {
@@ -71,8 +73,9 @@ class ShippingMethod extends RecurlyResource
 
     /**
     * Getter method for the deleted_at attribute.
+    * Deleted at
     *
-    * @return string Deleted at
+    * @return string
     */
     public function getDeletedAt(): string
     {
@@ -93,8 +96,9 @@ class ShippingMethod extends RecurlyResource
 
     /**
     * Getter method for the id attribute.
+    * Shipping Method ID
     *
-    * @return string Shipping Method ID
+    * @return string
     */
     public function getId(): string
     {
@@ -115,8 +119,9 @@ class ShippingMethod extends RecurlyResource
 
     /**
     * Getter method for the name attribute.
+    * The name of the shipping method displayed to customers.
     *
-    * @return string The name of the shipping method displayed to customers.
+    * @return string
     */
     public function getName(): string
     {
@@ -137,8 +142,9 @@ class ShippingMethod extends RecurlyResource
 
     /**
     * Getter method for the object attribute.
+    * Object type
     *
-    * @return string Object type
+    * @return string
     */
     public function getObject(): string
     {
@@ -159,8 +165,7 @@ class ShippingMethod extends RecurlyResource
 
     /**
     * Getter method for the tax_code attribute.
-    *
-    * @return string Used by Avalara, Vertex, and Recurly’s built-in tax feature. The tax
+    * Used by Avalara, Vertex, and Recurly’s built-in tax feature. The tax
 code values are specific to each tax system. If you are using Recurly’s
 built-in taxes the values are:
 
@@ -172,6 +177,8 @@ built-in taxes the values are:
 - `FR010200` – Delivery by Company Vehicle After Passage of Title
 - `NT` – Non-Taxable
 
+    *
+    * @return string
     */
     public function getTaxCode(): string
     {
@@ -192,8 +199,9 @@ built-in taxes the values are:
 
     /**
     * Getter method for the updated_at attribute.
+    * Last updated at
     *
-    * @return string Last updated at
+    * @return string
     */
     public function getUpdatedAt(): string
     {

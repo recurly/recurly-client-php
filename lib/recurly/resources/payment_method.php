@@ -32,8 +32,9 @@ class PaymentMethod extends RecurlyResource
     
     /**
     * Getter method for the account_type attribute.
+    * The bank account type. Only present for ACH payment methods.
     *
-    * @return string The bank account type. Only present for ACH payment methods.
+    * @return string
     */
     public function getAccountType(): string
     {
@@ -54,8 +55,9 @@ class PaymentMethod extends RecurlyResource
 
     /**
     * Getter method for the billing_agreement_id attribute.
+    * Billing Agreement identifier. Only present for Amazon or Paypal payment methods.
     *
-    * @return string Billing Agreement identifier. Only present for Amazon or Paypal payment methods.
+    * @return string
     */
     public function getBillingAgreementId(): string
     {
@@ -76,8 +78,9 @@ class PaymentMethod extends RecurlyResource
 
     /**
     * Getter method for the card_type attribute.
+    * Visa, MasterCard, American Express, Discover, JCB, etc.
     *
-    * @return string Visa, MasterCard, American Express, Discover, JCB, etc.
+    * @return string
     */
     public function getCardType(): string
     {
@@ -98,8 +101,9 @@ class PaymentMethod extends RecurlyResource
 
     /**
     * Getter method for the exp_month attribute.
+    * Expiration month.
     *
-    * @return int Expiration month.
+    * @return int
     */
     public function getExpMonth(): int
     {
@@ -120,8 +124,9 @@ class PaymentMethod extends RecurlyResource
 
     /**
     * Getter method for the exp_year attribute.
+    * Expiration year.
     *
-    * @return int Expiration year.
+    * @return int
     */
     public function getExpYear(): int
     {
@@ -142,8 +147,9 @@ class PaymentMethod extends RecurlyResource
 
     /**
     * Getter method for the first_six attribute.
+    * Credit card number's first six digits.
     *
-    * @return string Credit card number's first six digits.
+    * @return string
     */
     public function getFirstSix(): string
     {
@@ -164,8 +170,9 @@ class PaymentMethod extends RecurlyResource
 
     /**
     * Getter method for the gateway_code attribute.
+    * An identifier for a specific payment gateway.
     *
-    * @return string An identifier for a specific payment gateway.
+    * @return string
     */
     public function getGatewayCode(): string
     {
@@ -186,8 +193,9 @@ class PaymentMethod extends RecurlyResource
 
     /**
     * Getter method for the gateway_token attribute.
+    * A token used in place of a credit card in order to perform transactions.
     *
-    * @return string A token used in place of a credit card in order to perform transactions.
+    * @return string
     */
     public function getGatewayToken(): string
     {
@@ -208,8 +216,9 @@ class PaymentMethod extends RecurlyResource
 
     /**
     * Getter method for the last_four attribute.
+    * Credit card number's last four digits. Will refer to bank account if payment method is ACH.
     *
-    * @return string Credit card number's last four digits. Will refer to bank account if payment method is ACH.
+    * @return string
     */
     public function getLastFour(): string
     {
@@ -230,8 +239,9 @@ class PaymentMethod extends RecurlyResource
 
     /**
     * Getter method for the last_two attribute.
+    * The IBAN bank account's last two digits.
     *
-    * @return string The IBAN bank account's last two digits.
+    * @return string
     */
     public function getLastTwo(): string
     {
@@ -252,8 +262,9 @@ class PaymentMethod extends RecurlyResource
 
     /**
     * Getter method for the object attribute.
+    * 
     *
-    * @return string 
+    * @return string
     */
     public function getObject(): string
     {
@@ -274,8 +285,9 @@ class PaymentMethod extends RecurlyResource
 
     /**
     * Getter method for the routing_number attribute.
+    * The bank account's routing number. Only present for ACH payment methods.
     *
-    * @return string The bank account's routing number. Only present for ACH payment methods.
+    * @return string
     */
     public function getRoutingNumber(): string
     {
@@ -296,8 +308,9 @@ class PaymentMethod extends RecurlyResource
 
     /**
     * Getter method for the routing_number_bank attribute.
+    * The bank name of this routing number.
     *
-    * @return string The bank name of this routing number.
+    * @return string
     */
     public function getRoutingNumberBank(): string
     {

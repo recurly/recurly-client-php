@@ -30,8 +30,9 @@ class InvoiceAddress extends RecurlyResource
     
     /**
     * Getter method for the city attribute.
+    * City
     *
-    * @return string City
+    * @return string
     */
     public function getCity(): string
     {
@@ -52,8 +53,9 @@ class InvoiceAddress extends RecurlyResource
 
     /**
     * Getter method for the company attribute.
+    * Company
     *
-    * @return string Company
+    * @return string
     */
     public function getCompany(): string
     {
@@ -74,8 +76,9 @@ class InvoiceAddress extends RecurlyResource
 
     /**
     * Getter method for the country attribute.
+    * Country, 2-letter ISO code.
     *
-    * @return string Country, 2-letter ISO code.
+    * @return string
     */
     public function getCountry(): string
     {
@@ -96,8 +99,9 @@ class InvoiceAddress extends RecurlyResource
 
     /**
     * Getter method for the first_name attribute.
+    * First name
     *
-    * @return string First name
+    * @return string
     */
     public function getFirstName(): string
     {
@@ -118,8 +122,9 @@ class InvoiceAddress extends RecurlyResource
 
     /**
     * Getter method for the last_name attribute.
+    * Last name
     *
-    * @return string Last name
+    * @return string
     */
     public function getLastName(): string
     {
@@ -140,8 +145,9 @@ class InvoiceAddress extends RecurlyResource
 
     /**
     * Getter method for the name_on_account attribute.
+    * Name on account
     *
-    * @return string Name on account
+    * @return string
     */
     public function getNameOnAccount(): string
     {
@@ -162,8 +168,9 @@ class InvoiceAddress extends RecurlyResource
 
     /**
     * Getter method for the phone attribute.
+    * Phone number
     *
-    * @return string Phone number
+    * @return string
     */
     public function getPhone(): string
     {
@@ -184,8 +191,9 @@ class InvoiceAddress extends RecurlyResource
 
     /**
     * Getter method for the postal_code attribute.
+    * Zip or postal code.
     *
-    * @return string Zip or postal code.
+    * @return string
     */
     public function getPostalCode(): string
     {
@@ -206,8 +214,9 @@ class InvoiceAddress extends RecurlyResource
 
     /**
     * Getter method for the region attribute.
+    * State or province.
     *
-    * @return string State or province.
+    * @return string
     */
     public function getRegion(): string
     {
@@ -228,8 +237,9 @@ class InvoiceAddress extends RecurlyResource
 
     /**
     * Getter method for the street1 attribute.
+    * Street 1
     *
-    * @return string Street 1
+    * @return string
     */
     public function getStreet1(): string
     {
@@ -250,8 +260,9 @@ class InvoiceAddress extends RecurlyResource
 
     /**
     * Getter method for the street2 attribute.
+    * Street 2
     *
-    * @return string Street 2
+    * @return string
     */
     public function getStreet2(): string
     {

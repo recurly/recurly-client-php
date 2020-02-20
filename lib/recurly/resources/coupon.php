@@ -48,8 +48,9 @@ class Coupon extends RecurlyResource
     
     /**
     * Getter method for the applies_to_all_plans attribute.
+    * The coupon is valid for all plans if true. If false then `plans` and `plans_names` will list the applicable plans.
     *
-    * @return bool The coupon is valid for all plans if true. If false then `plans` and `plans_names` will list the applicable plans.
+    * @return bool
     */
     public function getAppliesToAllPlans(): bool
     {
@@ -70,8 +71,9 @@ class Coupon extends RecurlyResource
 
     /**
     * Getter method for the applies_to_non_plan_charges attribute.
+    * The coupon is valid for one-time, non-plan charges if true.
     *
-    * @return bool The coupon is valid for one-time, non-plan charges if true.
+    * @return bool
     */
     public function getAppliesToNonPlanCharges(): bool
     {
@@ -92,8 +94,9 @@ class Coupon extends RecurlyResource
 
     /**
     * Getter method for the code attribute.
+    * The code the customer enters to redeem the coupon.
     *
-    * @return string The code the customer enters to redeem the coupon.
+    * @return string
     */
     public function getCode(): string
     {
@@ -114,8 +117,9 @@ class Coupon extends RecurlyResource
 
     /**
     * Getter method for the coupon_type attribute.
+    * Whether the coupon is "single_code" or "bulk". Bulk coupons will require a `unique_code_template` and will generate unique codes through the `/generate` endpoint.
     *
-    * @return string Whether the coupon is "single_code" or "bulk". Bulk coupons will require a `unique_code_template` and will generate unique codes through the `/generate` endpoint.
+    * @return string
     */
     public function getCouponType(): string
     {
@@ -136,8 +140,9 @@ class Coupon extends RecurlyResource
 
     /**
     * Getter method for the created_at attribute.
+    * Created at
     *
-    * @return string Created at
+    * @return string
     */
     public function getCreatedAt(): string
     {
@@ -158,10 +163,11 @@ class Coupon extends RecurlyResource
 
     /**
     * Getter method for the discount attribute.
-    *
-    * @return \Recurly\Resources\CouponDiscount Details of the discount a coupon applies. Will contain a `type`
+    * Details of the discount a coupon applies. Will contain a `type`
 property and one of the following properties: `percent`, `fixed`, `trial`.
 
+    *
+    * @return \Recurly\Resources\CouponDiscount
     */
     public function getDiscount(): \Recurly\Resources\CouponDiscount
     {
@@ -182,10 +188,11 @@ property and one of the following properties: `percent`, `fixed`, `trial`.
 
     /**
     * Getter method for the duration attribute.
-    *
-    * @return string - "single_use" coupons applies to the first invoice only.
+    * - "single_use" coupons applies to the first invoice only.
 - "temporal" coupons will apply to invoices for the duration determined by the `temporal_unit` and `temporal_amount` attributes.
 
+    *
+    * @return string
     */
     public function getDuration(): string
     {
@@ -206,8 +213,9 @@ property and one of the following properties: `percent`, `fixed`, `trial`.
 
     /**
     * Getter method for the expired_at attribute.
+    * The date and time the coupon was expired early or reached its `max_redemptions`.
     *
-    * @return string The date and time the coupon was expired early or reached its `max_redemptions`.
+    * @return string
     */
     public function getExpiredAt(): string
     {
@@ -228,8 +236,9 @@ property and one of the following properties: `percent`, `fixed`, `trial`.
 
     /**
     * Getter method for the free_trial_amount attribute.
+    * Sets the duration of time the `free_trial_unit` is for.
     *
-    * @return int Sets the duration of time the `free_trial_unit` is for.
+    * @return int
     */
     public function getFreeTrialAmount(): int
     {
@@ -250,8 +259,9 @@ property and one of the following properties: `percent`, `fixed`, `trial`.
 
     /**
     * Getter method for the free_trial_unit attribute.
+    * Description of the unit of time the coupon is for. Used with `free_trial_amount` to determine the duration of time the coupon is for.
     *
-    * @return string Description of the unit of time the coupon is for. Used with `free_trial_amount` to determine the duration of time the coupon is for.
+    * @return string
     */
     public function getFreeTrialUnit(): string
     {
@@ -272,8 +282,9 @@ property and one of the following properties: `percent`, `fixed`, `trial`.
 
     /**
     * Getter method for the hosted_page_description attribute.
+    * This description will show up when a customer redeems a coupon on your Hosted Payment Pages, or if you choose to show the description on your own checkout page.
     *
-    * @return string This description will show up when a customer redeems a coupon on your Hosted Payment Pages, or if you choose to show the description on your own checkout page.
+    * @return string
     */
     public function getHostedPageDescription(): string
     {
@@ -294,8 +305,9 @@ property and one of the following properties: `percent`, `fixed`, `trial`.
 
     /**
     * Getter method for the id attribute.
+    * Coupon ID
     *
-    * @return string Coupon ID
+    * @return string
     */
     public function getId(): string
     {
@@ -316,8 +328,9 @@ property and one of the following properties: `percent`, `fixed`, `trial`.
 
     /**
     * Getter method for the invoice_description attribute.
+    * Description of the coupon on the invoice.
     *
-    * @return string Description of the coupon on the invoice.
+    * @return string
     */
     public function getInvoiceDescription(): string
     {
@@ -338,8 +351,9 @@ property and one of the following properties: `percent`, `fixed`, `trial`.
 
     /**
     * Getter method for the max_redemptions attribute.
+    * A maximum number of redemptions for the coupon. The coupon will expire when it hits its maximum redemptions.
     *
-    * @return int A maximum number of redemptions for the coupon. The coupon will expire when it hits its maximum redemptions.
+    * @return int
     */
     public function getMaxRedemptions(): int
     {
@@ -360,8 +374,9 @@ property and one of the following properties: `percent`, `fixed`, `trial`.
 
     /**
     * Getter method for the max_redemptions_per_account attribute.
+    * Redemptions per account is the number of times a specific account can redeem the coupon. Set redemptions per account to `1` if you want to keep customers from gaming the system and getting more than one discount from the coupon campaign.
     *
-    * @return int Redemptions per account is the number of times a specific account can redeem the coupon. Set redemptions per account to `1` if you want to keep customers from gaming the system and getting more than one discount from the coupon campaign.
+    * @return int
     */
     public function getMaxRedemptionsPerAccount(): int
     {
@@ -382,8 +397,9 @@ property and one of the following properties: `percent`, `fixed`, `trial`.
 
     /**
     * Getter method for the name attribute.
+    * The internal name for the coupon.
     *
-    * @return string The internal name for the coupon.
+    * @return string
     */
     public function getName(): string
     {
@@ -404,8 +420,9 @@ property and one of the following properties: `percent`, `fixed`, `trial`.
 
     /**
     * Getter method for the object attribute.
+    * Object type
     *
-    * @return string Object type
+    * @return string
     */
     public function getObject(): string
     {
@@ -426,8 +443,9 @@ property and one of the following properties: `percent`, `fixed`, `trial`.
 
     /**
     * Getter method for the plans attribute.
+    * A list of plans for which this coupon applies. This will be `null` if `applies_to_all_plans=true`.
     *
-    * @return array A list of plans for which this coupon applies. This will be `null` if `applies_to_all_plans=true`.
+    * @return array
     */
     public function getPlans(): array
     {
@@ -448,8 +466,9 @@ property and one of the following properties: `percent`, `fixed`, `trial`.
 
     /**
     * Getter method for the plans_names attribute.
+    * TODO
     *
-    * @return array TODO
+    * @return array
     */
     public function getPlansNames(): array
     {
@@ -470,8 +489,9 @@ property and one of the following properties: `percent`, `fixed`, `trial`.
 
     /**
     * Getter method for the redeem_by attribute.
+    * The date and time the coupon will expire and can no longer be redeemed. Time is always 11:59:59, the end-of-day Pacific time.
     *
-    * @return string The date and time the coupon will expire and can no longer be redeemed. Time is always 11:59:59, the end-of-day Pacific time.
+    * @return string
     */
     public function getRedeemBy(): string
     {
@@ -492,8 +512,9 @@ property and one of the following properties: `percent`, `fixed`, `trial`.
 
     /**
     * Getter method for the redemption_resource attribute.
+    * Whether the discount is for all eligible charges on the account, or only a specific subscription.
     *
-    * @return string Whether the discount is for all eligible charges on the account, or only a specific subscription.
+    * @return string
     */
     public function getRedemptionResource(): string
     {
@@ -514,8 +535,9 @@ property and one of the following properties: `percent`, `fixed`, `trial`.
 
     /**
     * Getter method for the state attribute.
+    * Indicates if the coupon is redeemable, and if it is not, why.
     *
-    * @return string Indicates if the coupon is redeemable, and if it is not, why.
+    * @return string
     */
     public function getState(): string
     {
@@ -536,8 +558,9 @@ property and one of the following properties: `percent`, `fixed`, `trial`.
 
     /**
     * Getter method for the temporal_amount attribute.
+    * If `duration` is "temporal" than `temporal_amount` is an integer which is multiplied by `temporal_unit` to define the duration that the coupon will be applied to invoices for.
     *
-    * @return int If `duration` is "temporal" than `temporal_amount` is an integer which is multiplied by `temporal_unit` to define the duration that the coupon will be applied to invoices for.
+    * @return int
     */
     public function getTemporalAmount(): int
     {
@@ -558,8 +581,9 @@ property and one of the following properties: `percent`, `fixed`, `trial`.
 
     /**
     * Getter method for the temporal_unit attribute.
+    * If `duration` is "temporal" than `temporal_unit` is multiplied by `temporal_amount` to define the duration that the coupon will be applied to invoices for.
     *
-    * @return string If `duration` is "temporal" than `temporal_unit` is multiplied by `temporal_amount` to define the duration that the coupon will be applied to invoices for.
+    * @return string
     */
     public function getTemporalUnit(): string
     {
@@ -580,8 +604,9 @@ property and one of the following properties: `percent`, `fixed`, `trial`.
 
     /**
     * Getter method for the unique_code_template attribute.
+    * On a bulk coupon, the template from which unique coupon codes are generated.
     *
-    * @return string On a bulk coupon, the template from which unique coupon codes are generated.
+    * @return string
     */
     public function getUniqueCodeTemplate(): string
     {
@@ -602,8 +627,9 @@ property and one of the following properties: `percent`, `fixed`, `trial`.
 
     /**
     * Getter method for the unique_coupon_codes_count attribute.
+    * When this number reaches `max_redemptions` the coupon will no longer be redeemable.
     *
-    * @return int When this number reaches `max_redemptions` the coupon will no longer be redeemable.
+    * @return int
     */
     public function getUniqueCouponCodesCount(): int
     {
@@ -624,8 +650,9 @@ property and one of the following properties: `percent`, `fixed`, `trial`.
 
     /**
     * Getter method for the updated_at attribute.
+    * Last updated at
     *
-    * @return string Last updated at
+    * @return string
     */
     public function getUpdatedAt(): string
     {

@@ -56,8 +56,9 @@ class Transaction extends RecurlyResource
     
     /**
     * Getter method for the account attribute.
+    * Account mini details
     *
-    * @return \Recurly\Resources\AccountMini Account mini details
+    * @return \Recurly\Resources\AccountMini
     */
     public function getAccount(): \Recurly\Resources\AccountMini
     {
@@ -78,8 +79,9 @@ class Transaction extends RecurlyResource
 
     /**
     * Getter method for the amount attribute.
+    * Total transaction amount sent to the payment gateway.
     *
-    * @return float Total transaction amount sent to the payment gateway.
+    * @return float
     */
     public function getAmount(): float
     {
@@ -100,8 +102,9 @@ class Transaction extends RecurlyResource
 
     /**
     * Getter method for the avs_check attribute.
+    * When processed, result from checking the overall AVS on the transaction.
     *
-    * @return string When processed, result from checking the overall AVS on the transaction.
+    * @return string
     */
     public function getAvsCheck(): string
     {
@@ -122,8 +125,9 @@ class Transaction extends RecurlyResource
 
     /**
     * Getter method for the billing_address attribute.
+    * 
     *
-    * @return \Recurly\Resources\Address 
+    * @return \Recurly\Resources\Address
     */
     public function getBillingAddress(): \Recurly\Resources\Address
     {
@@ -144,8 +148,9 @@ class Transaction extends RecurlyResource
 
     /**
     * Getter method for the collected_at attribute.
+    * Collected at, or if not collected yet, the time the transaction was created.
     *
-    * @return string Collected at, or if not collected yet, the time the transaction was created.
+    * @return string
     */
     public function getCollectedAt(): string
     {
@@ -166,8 +171,9 @@ class Transaction extends RecurlyResource
 
     /**
     * Getter method for the collection_method attribute.
+    * The method by which the payment was collected.
     *
-    * @return string The method by which the payment was collected.
+    * @return string
     */
     public function getCollectionMethod(): string
     {
@@ -188,8 +194,9 @@ class Transaction extends RecurlyResource
 
     /**
     * Getter method for the created_at attribute.
+    * Created at
     *
-    * @return string Created at
+    * @return string
     */
     public function getCreatedAt(): string
     {
@@ -210,8 +217,9 @@ class Transaction extends RecurlyResource
 
     /**
     * Getter method for the currency attribute.
+    * 3-letter ISO 4217 currency code.
     *
-    * @return string 3-letter ISO 4217 currency code.
+    * @return string
     */
     public function getCurrency(): string
     {
@@ -232,8 +240,9 @@ class Transaction extends RecurlyResource
 
     /**
     * Getter method for the customer_message attribute.
+    * For declined (`success=false`) transactions, the message displayed to the customer.
     *
-    * @return string For declined (`success=false`) transactions, the message displayed to the customer.
+    * @return string
     */
     public function getCustomerMessage(): string
     {
@@ -254,8 +263,9 @@ class Transaction extends RecurlyResource
 
     /**
     * Getter method for the customer_message_locale attribute.
+    * Language code for the message
     *
-    * @return string Language code for the message
+    * @return string
     */
     public function getCustomerMessageLocale(): string
     {
@@ -276,8 +286,9 @@ class Transaction extends RecurlyResource
 
     /**
     * Getter method for the cvv_check attribute.
+    * When processed, result from checking the CVV/CVC value on the transaction.
     *
-    * @return string When processed, result from checking the CVV/CVC value on the transaction.
+    * @return string
     */
     public function getCvvCheck(): string
     {
@@ -298,8 +309,9 @@ class Transaction extends RecurlyResource
 
     /**
     * Getter method for the gateway_approval_code attribute.
+    * Transaction approval code from the payment gateway.
     *
-    * @return string Transaction approval code from the payment gateway.
+    * @return string
     */
     public function getGatewayApprovalCode(): string
     {
@@ -320,8 +332,9 @@ class Transaction extends RecurlyResource
 
     /**
     * Getter method for the gateway_message attribute.
+    * Transaction message from the payment gateway.
     *
-    * @return string Transaction message from the payment gateway.
+    * @return string
     */
     public function getGatewayMessage(): string
     {
@@ -342,8 +355,9 @@ class Transaction extends RecurlyResource
 
     /**
     * Getter method for the gateway_reference attribute.
+    * Transaction reference number from the payment gateway.
     *
-    * @return string Transaction reference number from the payment gateway.
+    * @return string
     */
     public function getGatewayReference(): string
     {
@@ -364,8 +378,9 @@ class Transaction extends RecurlyResource
 
     /**
     * Getter method for the gateway_response_code attribute.
+    * For declined transactions (`success=false`), this field lists the gateway error code.
     *
-    * @return string For declined transactions (`success=false`), this field lists the gateway error code.
+    * @return string
     */
     public function getGatewayResponseCode(): string
     {
@@ -386,8 +401,9 @@ class Transaction extends RecurlyResource
 
     /**
     * Getter method for the gateway_response_time attribute.
+    * Time, in seconds, for gateway to process the transaction.
     *
-    * @return float Time, in seconds, for gateway to process the transaction.
+    * @return float
     */
     public function getGatewayResponseTime(): float
     {
@@ -408,8 +424,9 @@ class Transaction extends RecurlyResource
 
     /**
     * Getter method for the gateway_response_values attribute.
+    * The values in this field will vary from gateway to gateway.
     *
-    * @return object The values in this field will vary from gateway to gateway.
+    * @return object
     */
     public function getGatewayResponseValues(): object
     {
@@ -430,8 +447,9 @@ class Transaction extends RecurlyResource
 
     /**
     * Getter method for the id attribute.
+    * Transaction ID
     *
-    * @return string Transaction ID
+    * @return string
     */
     public function getId(): string
     {
@@ -452,8 +470,9 @@ class Transaction extends RecurlyResource
 
     /**
     * Getter method for the invoice attribute.
+    * Invoice mini details
     *
-    * @return \Recurly\Resources\InvoiceMini Invoice mini details
+    * @return \Recurly\Resources\InvoiceMini
     */
     public function getInvoice(): \Recurly\Resources\InvoiceMini
     {
@@ -474,8 +493,9 @@ class Transaction extends RecurlyResource
 
     /**
     * Getter method for the ip_address_country attribute.
+    * IP address's country
     *
-    * @return string IP address's country
+    * @return string
     */
     public function getIpAddressCountry(): string
     {
@@ -496,13 +516,14 @@ class Transaction extends RecurlyResource
 
     /**
     * Getter method for the ip_address_v4 attribute.
-    *
-    * @return string IP address provided when the billing information was collected:
+    * IP address provided when the billing information was collected:
 
 - When the customer enters billing information into the Recurly.js or Hosted Payment Pages, Recurly records the IP address.
 - When the merchant enters billing information using the API, the merchant may provide an IP address.
 - When the merchant enters billing information using the UI, no IP address is recorded.
 
+    *
+    * @return string
     */
     public function getIpAddressV4(): string
     {
@@ -523,8 +544,9 @@ class Transaction extends RecurlyResource
 
     /**
     * Getter method for the object attribute.
+    * Object type
     *
-    * @return string Object type
+    * @return string
     */
     public function getObject(): string
     {
@@ -545,8 +567,9 @@ class Transaction extends RecurlyResource
 
     /**
     * Getter method for the origin attribute.
+    * Describes how the transaction was triggered.
     *
-    * @return string Describes how the transaction was triggered.
+    * @return string
     */
     public function getOrigin(): string
     {
@@ -567,8 +590,9 @@ class Transaction extends RecurlyResource
 
     /**
     * Getter method for the original_transaction_id attribute.
+    * If this transaction is a refund (`type=refund`), this will be the ID of the original transaction on the invoice being refunded.
     *
-    * @return string If this transaction is a refund (`type=refund`), this will be the ID of the original transaction on the invoice being refunded.
+    * @return string
     */
     public function getOriginalTransactionId(): string
     {
@@ -589,8 +613,9 @@ class Transaction extends RecurlyResource
 
     /**
     * Getter method for the payment_gateway attribute.
+    * 
     *
-    * @return \Recurly\Resources\TransactionPaymentGateway 
+    * @return \Recurly\Resources\TransactionPaymentGateway
     */
     public function getPaymentGateway(): \Recurly\Resources\TransactionPaymentGateway
     {
@@ -611,8 +636,9 @@ class Transaction extends RecurlyResource
 
     /**
     * Getter method for the payment_method attribute.
+    * 
     *
-    * @return \Recurly\Resources\PaymentMethod 
+    * @return \Recurly\Resources\PaymentMethod
     */
     public function getPaymentMethod(): \Recurly\Resources\PaymentMethod
     {
@@ -633,8 +659,9 @@ class Transaction extends RecurlyResource
 
     /**
     * Getter method for the refunded attribute.
+    * Indicates if part or all of this transaction was refunded.
     *
-    * @return bool Indicates if part or all of this transaction was refunded.
+    * @return bool
     */
     public function getRefunded(): bool
     {
@@ -655,8 +682,9 @@ class Transaction extends RecurlyResource
 
     /**
     * Getter method for the status attribute.
+    * The current transaction status. Note that the status may change, e.g. a `pending` transaction may become `declined` or `success` may later become `void`.
     *
-    * @return string The current transaction status. Note that the status may change, e.g. a `pending` transaction may become `declined` or `success` may later become `void`.
+    * @return string
     */
     public function getStatus(): string
     {
@@ -677,8 +705,9 @@ class Transaction extends RecurlyResource
 
     /**
     * Getter method for the status_code attribute.
+    * Status code
     *
-    * @return string Status code
+    * @return string
     */
     public function getStatusCode(): string
     {
@@ -699,8 +728,9 @@ class Transaction extends RecurlyResource
 
     /**
     * Getter method for the status_message attribute.
+    * For declined (`success=false`) transactions, the message displayed to the merchant.
     *
-    * @return string For declined (`success=false`) transactions, the message displayed to the merchant.
+    * @return string
     */
     public function getStatusMessage(): string
     {
@@ -721,8 +751,9 @@ class Transaction extends RecurlyResource
 
     /**
     * Getter method for the subscription_ids attribute.
+    * If the transaction is charging or refunding for one or more subscriptions, these are their IDs.
     *
-    * @return array If the transaction is charging or refunding for one or more subscriptions, these are their IDs.
+    * @return array
     */
     public function getSubscriptionIds(): array
     {
@@ -743,8 +774,9 @@ class Transaction extends RecurlyResource
 
     /**
     * Getter method for the success attribute.
+    * Did this transaction complete successfully?
     *
-    * @return bool Did this transaction complete successfully?
+    * @return bool
     */
     public function getSuccess(): bool
     {
@@ -765,13 +797,14 @@ class Transaction extends RecurlyResource
 
     /**
     * Getter method for the type attribute.
-    *
-    * @return string - `authorization` – verifies billing information and places a hold on money in the customer's account.
+    * - `authorization` – verifies billing information and places a hold on money in the customer's account.
 - `capture` – captures funds held by an authorization and completes a purchase.
 - `purchase` – combines the authorization and capture in one transaction.
 - `refund` – returns all or a portion of the money collected in a previous transaction to the customer.
 - `verify` – a $0 or $1 transaction used to verify billing information which is immediately voided.
 
+    *
+    * @return string
     */
     public function getType(): string
     {
@@ -792,8 +825,9 @@ class Transaction extends RecurlyResource
 
     /**
     * Getter method for the uuid attribute.
+    * The UUID is useful for matching data with the CSV exports and building URLs into Recurly's UI.
     *
-    * @return string The UUID is useful for matching data with the CSV exports and building URLs into Recurly's UI.
+    * @return string
     */
     public function getUuid(): string
     {
@@ -814,8 +848,9 @@ class Transaction extends RecurlyResource
 
     /**
     * Getter method for the voided_at attribute.
+    * Voided at
     *
-    * @return string Voided at
+    * @return string
     */
     public function getVoidedAt(): string
     {
@@ -836,8 +871,9 @@ class Transaction extends RecurlyResource
 
     /**
     * Getter method for the voided_by_invoice attribute.
+    * Invoice mini details
     *
-    * @return \Recurly\Resources\InvoiceMini Invoice mini details
+    * @return \Recurly\Resources\InvoiceMini
     */
     public function getVoidedByInvoice(): \Recurly\Resources\InvoiceMini
     {

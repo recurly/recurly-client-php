@@ -21,8 +21,9 @@ class CouponDiscountPricing extends RecurlyResource
     
     /**
     * Getter method for the amount attribute.
+    * Value of the fixed discount that this coupon applies.
     *
-    * @return float Value of the fixed discount that this coupon applies.
+    * @return float
     */
     public function getAmount(): float
     {
@@ -43,8 +44,9 @@ class CouponDiscountPricing extends RecurlyResource
 
     /**
     * Getter method for the currency attribute.
+    * 3-letter ISO 4217 currency code.
     *
-    * @return string 3-letter ISO 4217 currency code.
+    * @return string
     */
     public function getCurrency(): string
     {

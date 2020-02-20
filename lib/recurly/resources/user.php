@@ -27,8 +27,9 @@ class User extends RecurlyResource
     
     /**
     * Getter method for the created_at attribute.
+    * 
     *
-    * @return string 
+    * @return string
     */
     public function getCreatedAt(): string
     {
@@ -49,8 +50,9 @@ class User extends RecurlyResource
 
     /**
     * Getter method for the deleted_at attribute.
+    * 
     *
-    * @return string 
+    * @return string
     */
     public function getDeletedAt(): string
     {
@@ -71,8 +73,9 @@ class User extends RecurlyResource
 
     /**
     * Getter method for the email attribute.
+    * 
     *
-    * @return string 
+    * @return string
     */
     public function getEmail(): string
     {
@@ -93,8 +96,9 @@ class User extends RecurlyResource
 
     /**
     * Getter method for the first_name attribute.
+    * 
     *
-    * @return string 
+    * @return string
     */
     public function getFirstName(): string
     {
@@ -115,8 +119,9 @@ class User extends RecurlyResource
 
     /**
     * Getter method for the id attribute.
+    * 
     *
-    * @return string 
+    * @return string
     */
     public function getId(): string
     {
@@ -137,8 +142,9 @@ class User extends RecurlyResource
 
     /**
     * Getter method for the last_name attribute.
+    * 
     *
-    * @return string 
+    * @return string
     */
     public function getLastName(): string
     {
@@ -159,8 +165,9 @@ class User extends RecurlyResource
 
     /**
     * Getter method for the object attribute.
+    * Object type
     *
-    * @return string Object type
+    * @return string
     */
     public function getObject(): string
     {
@@ -181,8 +188,9 @@ class User extends RecurlyResource
 
     /**
     * Getter method for the time_zone attribute.
+    * 
     *
-    * @return string 
+    * @return string
     */
     public function getTimeZone(): string
     {

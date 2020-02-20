@@ -64,8 +64,9 @@ class LineItem extends RecurlyResource
     
     /**
     * Getter method for the account attribute.
+    * Account mini details
     *
-    * @return \Recurly\Resources\AccountMini Account mini details
+    * @return \Recurly\Resources\AccountMini
     */
     public function getAccount(): \Recurly\Resources\AccountMini
     {
@@ -86,8 +87,9 @@ class LineItem extends RecurlyResource
 
     /**
     * Getter method for the accounting_code attribute.
+    * Internal accounting code to help you reconcile your revenue to the correct ledger. Line items created as part of a subscription invoice will use the plan or add-on's accounting code, otherwise the value will only be present if you define an accounting code when creating the line item.
     *
-    * @return string Internal accounting code to help you reconcile your revenue to the correct ledger. Line items created as part of a subscription invoice will use the plan or add-on's accounting code, otherwise the value will only be present if you define an accounting code when creating the line item.
+    * @return string
     */
     public function getAccountingCode(): string
     {
@@ -108,8 +110,9 @@ class LineItem extends RecurlyResource
 
     /**
     * Getter method for the add_on_code attribute.
+    * If the line item is a charge or credit for an add-on, this is its code.
     *
-    * @return string If the line item is a charge or credit for an add-on, this is its code.
+    * @return string
     */
     public function getAddOnCode(): string
     {
@@ -130,8 +133,9 @@ class LineItem extends RecurlyResource
 
     /**
     * Getter method for the add_on_id attribute.
+    * If the line item is a charge or credit for an add-on this is its ID.
     *
-    * @return string If the line item is a charge or credit for an add-on this is its ID.
+    * @return string
     */
     public function getAddOnId(): string
     {
@@ -152,8 +156,9 @@ class LineItem extends RecurlyResource
 
     /**
     * Getter method for the amount attribute.
+    * `(quantity * unit_amount) - (discount + tax)`
     *
-    * @return float `(quantity * unit_amount) - (discount + tax)`
+    * @return float
     */
     public function getAmount(): float
     {
@@ -174,8 +179,9 @@ class LineItem extends RecurlyResource
 
     /**
     * Getter method for the created_at attribute.
+    * When the line item was created.
     *
-    * @return string When the line item was created.
+    * @return string
     */
     public function getCreatedAt(): string
     {
@@ -196,8 +202,9 @@ class LineItem extends RecurlyResource
 
     /**
     * Getter method for the credit_applied attribute.
+    * The amount of credit from this line item that was applied to the invoice.
     *
-    * @return float The amount of credit from this line item that was applied to the invoice.
+    * @return float
     */
     public function getCreditApplied(): float
     {
@@ -218,8 +225,9 @@ class LineItem extends RecurlyResource
 
     /**
     * Getter method for the credit_reason_code attribute.
+    * The reason the credit was given when line item is `type=credit`.
     *
-    * @return string The reason the credit was given when line item is `type=credit`.
+    * @return string
     */
     public function getCreditReasonCode(): string
     {
@@ -240,8 +248,9 @@ class LineItem extends RecurlyResource
 
     /**
     * Getter method for the currency attribute.
+    * 3-letter ISO 4217 currency code.
     *
-    * @return string 3-letter ISO 4217 currency code.
+    * @return string
     */
     public function getCurrency(): string
     {
@@ -262,8 +271,9 @@ class LineItem extends RecurlyResource
 
     /**
     * Getter method for the description attribute.
+    * Description that appears on the invoice. For subscription related items this will be filled in automatically.
     *
-    * @return string Description that appears on the invoice. For subscription related items this will be filled in automatically.
+    * @return string
     */
     public function getDescription(): string
     {
@@ -284,8 +294,9 @@ class LineItem extends RecurlyResource
 
     /**
     * Getter method for the discount attribute.
+    * The discount applied to the line item.
     *
-    * @return float The discount applied to the line item.
+    * @return float
     */
     public function getDiscount(): float
     {
@@ -306,8 +317,9 @@ class LineItem extends RecurlyResource
 
     /**
     * Getter method for the end_date attribute.
+    * If this date is provided, it indicates the end of a time range.
     *
-    * @return string If this date is provided, it indicates the end of a time range.
+    * @return string
     */
     public function getEndDate(): string
     {
@@ -328,8 +340,9 @@ class LineItem extends RecurlyResource
 
     /**
     * Getter method for the external_sku attribute.
+    * Optional Stock Keeping Unit assigned to an item, when the Catalog feature is enabled.
     *
-    * @return string Optional Stock Keeping Unit assigned to an item, when the Catalog feature is enabled.
+    * @return string
     */
     public function getExternalSku(): string
     {
@@ -350,8 +363,9 @@ class LineItem extends RecurlyResource
 
     /**
     * Getter method for the id attribute.
+    * Line item ID
     *
-    * @return string Line item ID
+    * @return string
     */
     public function getId(): string
     {
@@ -372,8 +386,9 @@ class LineItem extends RecurlyResource
 
     /**
     * Getter method for the invoice_id attribute.
+    * Once the line item has been invoiced this will be the invoice's ID.
     *
-    * @return string Once the line item has been invoiced this will be the invoice's ID.
+    * @return string
     */
     public function getInvoiceId(): string
     {
@@ -394,8 +409,9 @@ class LineItem extends RecurlyResource
 
     /**
     * Getter method for the invoice_number attribute.
+    * Once the line item has been invoiced this will be the invoice's number. If VAT taxation and the Country Invoice Sequencing feature are enabled, invoices will have country-specific invoice numbers for invoices billed to EU countries (ex: FR1001). Non-EU invoices will continue to use the site-level invoice number sequence.
     *
-    * @return string Once the line item has been invoiced this will be the invoice's number. If VAT taxation and the Country Invoice Sequencing feature are enabled, invoices will have country-specific invoice numbers for invoices billed to EU countries (ex: FR1001). Non-EU invoices will continue to use the site-level invoice number sequence.
+    * @return string
     */
     public function getInvoiceNumber(): string
     {
@@ -416,8 +432,9 @@ class LineItem extends RecurlyResource
 
     /**
     * Getter method for the item_code attribute.
+    * Unique code to identify an item, when the Catalog feature is enabled.
     *
-    * @return string Unique code to identify an item, when the Catalog feature is enabled.
+    * @return string
     */
     public function getItemCode(): string
     {
@@ -438,8 +455,9 @@ class LineItem extends RecurlyResource
 
     /**
     * Getter method for the item_id attribute.
+    * Available when the Catalog feature is enabled.
     *
-    * @return string Available when the Catalog feature is enabled.
+    * @return string
     */
     public function getItemId(): string
     {
@@ -460,13 +478,14 @@ class LineItem extends RecurlyResource
 
     /**
     * Getter method for the legacy_category attribute.
-    *
-    * @return string Category to describe the role of a line item on a legacy invoice:
+    * Category to describe the role of a line item on a legacy invoice:
 - "charges" refers to charges being billed for on this invoice.
 - "credits" refers to refund or proration credits. This portion of the invoice can be considered a credit memo.
 - "applied_credits" refers to previous credits applied to this invoice. See their original_line_item_id to determine where the credit first originated.
 - "carryforwards" can be ignored. They exist to consume any remaining credit balance. A new credit with the same amount will be created and placed back on the account.
 
+    *
+    * @return string
     */
     public function getLegacyCategory(): string
     {
@@ -487,8 +506,9 @@ class LineItem extends RecurlyResource
 
     /**
     * Getter method for the object attribute.
+    * Object type
     *
-    * @return string Object type
+    * @return string
     */
     public function getObject(): string
     {
@@ -509,8 +529,9 @@ class LineItem extends RecurlyResource
 
     /**
     * Getter method for the origin attribute.
+    * A credit created from an original charge will have the value of the charge's origin.
     *
-    * @return string A credit created from an original charge will have the value of the charge's origin.
+    * @return string
     */
     public function getOrigin(): string
     {
@@ -531,8 +552,9 @@ class LineItem extends RecurlyResource
 
     /**
     * Getter method for the original_line_item_invoice_id attribute.
+    * The invoice where the credit originated. Will only have a value if the line item is a credit created from a previous credit, or if the credit was created from a charge refund.
     *
-    * @return string The invoice where the credit originated. Will only have a value if the line item is a credit created from a previous credit, or if the credit was created from a charge refund.
+    * @return string
     */
     public function getOriginalLineItemInvoiceId(): string
     {
@@ -553,8 +575,9 @@ class LineItem extends RecurlyResource
 
     /**
     * Getter method for the plan_code attribute.
+    * If the line item is a charge or credit for a plan or add-on, this is the plan's code.
     *
-    * @return string If the line item is a charge or credit for a plan or add-on, this is the plan's code.
+    * @return string
     */
     public function getPlanCode(): string
     {
@@ -575,8 +598,9 @@ class LineItem extends RecurlyResource
 
     /**
     * Getter method for the plan_id attribute.
+    * If the line item is a charge or credit for a plan or add-on, this is the plan's ID.
     *
-    * @return string If the line item is a charge or credit for a plan or add-on, this is the plan's ID.
+    * @return string
     */
     public function getPlanId(): string
     {
@@ -597,8 +621,9 @@ class LineItem extends RecurlyResource
 
     /**
     * Getter method for the previous_line_item_id attribute.
+    * Will only have a value if the line item is a credit created from a previous credit, or if the credit was created from a charge refund.
     *
-    * @return string Will only have a value if the line item is a credit created from a previous credit, or if the credit was created from a charge refund.
+    * @return string
     */
     public function getPreviousLineItemId(): string
     {
@@ -619,8 +644,9 @@ class LineItem extends RecurlyResource
 
     /**
     * Getter method for the product_code attribute.
+    * For plan-related line items this will be the plan's code, for add-on related line items it will be the add-on's code. For item-related line itmes it will be the item's `external_sku`.
     *
-    * @return string For plan-related line items this will be the plan's code, for add-on related line items it will be the add-on's code. For item-related line itmes it will be the item's `external_sku`.
+    * @return string
     */
     public function getProductCode(): string
     {
@@ -641,8 +667,9 @@ class LineItem extends RecurlyResource
 
     /**
     * Getter method for the proration_rate attribute.
+    * When a line item has been prorated, this is the rate of the proration. Proration rates were made available for line items created after March 30, 2017. For line items created prior to that date, the proration rate will be `null`, even if the line item was prorated.
     *
-    * @return float When a line item has been prorated, this is the rate of the proration. Proration rates were made available for line items created after March 30, 2017. For line items created prior to that date, the proration rate will be `null`, even if the line item was prorated.
+    * @return float
     */
     public function getProrationRate(): float
     {
@@ -663,8 +690,9 @@ class LineItem extends RecurlyResource
 
     /**
     * Getter method for the quantity attribute.
+    * This number will be multiplied by the unit amount to compute the subtotal before any discounts or taxes.
     *
-    * @return int This number will be multiplied by the unit amount to compute the subtotal before any discounts or taxes.
+    * @return int
     */
     public function getQuantity(): int
     {
@@ -685,8 +713,9 @@ class LineItem extends RecurlyResource
 
     /**
     * Getter method for the refund attribute.
+    * Refund?
     *
-    * @return bool Refund?
+    * @return bool
     */
     public function getRefund(): bool
     {
@@ -707,8 +736,9 @@ class LineItem extends RecurlyResource
 
     /**
     * Getter method for the refunded_quantity attribute.
+    * For refund charges, the quantity being refunded. For non-refund charges, the total quantity refunded (possibly over multiple refunds).
     *
-    * @return int For refund charges, the quantity being refunded. For non-refund charges, the total quantity refunded (possibly over multiple refunds).
+    * @return int
     */
     public function getRefundedQuantity(): int
     {
@@ -729,8 +759,9 @@ class LineItem extends RecurlyResource
 
     /**
     * Getter method for the revenue_schedule_type attribute.
+    * Revenue schedule type
     *
-    * @return string Revenue schedule type
+    * @return string
     */
     public function getRevenueScheduleType(): string
     {
@@ -751,8 +782,9 @@ class LineItem extends RecurlyResource
 
     /**
     * Getter method for the shipping_address attribute.
+    * 
     *
-    * @return \Recurly\Resources\ShippingAddress 
+    * @return \Recurly\Resources\ShippingAddress
     */
     public function getShippingAddress(): \Recurly\Resources\ShippingAddress
     {
@@ -773,8 +805,9 @@ class LineItem extends RecurlyResource
 
     /**
     * Getter method for the start_date attribute.
+    * If an end date is present, this is value indicates the beginning of a billing time range. If no end date is present it indicates billing for a specific date.
     *
-    * @return string If an end date is present, this is value indicates the beginning of a billing time range. If no end date is present it indicates billing for a specific date.
+    * @return string
     */
     public function getStartDate(): string
     {
@@ -795,8 +828,9 @@ class LineItem extends RecurlyResource
 
     /**
     * Getter method for the state attribute.
+    * Pending line items are charges or credits on an account that have not been applied to an invoice yet. Invoiced line items will always have an `invoice_id` value.
     *
-    * @return string Pending line items are charges or credits on an account that have not been applied to an invoice yet. Invoiced line items will always have an `invoice_id` value.
+    * @return string
     */
     public function getState(): string
     {
@@ -817,8 +851,9 @@ class LineItem extends RecurlyResource
 
     /**
     * Getter method for the subscription_id attribute.
+    * If the line item is a charge or credit for a subscription, this is its ID.
     *
-    * @return string If the line item is a charge or credit for a subscription, this is its ID.
+    * @return string
     */
     public function getSubscriptionId(): string
     {
@@ -839,8 +874,9 @@ class LineItem extends RecurlyResource
 
     /**
     * Getter method for the subtotal attribute.
+    * `quantity * unit_amount`
     *
-    * @return float `quantity * unit_amount`
+    * @return float
     */
     public function getSubtotal(): float
     {
@@ -861,8 +897,9 @@ class LineItem extends RecurlyResource
 
     /**
     * Getter method for the tax attribute.
+    * The tax amount for the line item.
     *
-    * @return float The tax amount for the line item.
+    * @return float
     */
     public function getTax(): float
     {
@@ -883,8 +920,9 @@ class LineItem extends RecurlyResource
 
     /**
     * Getter method for the tax_code attribute.
+    * Used by Avalara, Vertex, and Recurly’s EU VAT tax feature. The tax code values are specific to each tax system. If you are using Recurly’s EU VAT feature you can use `unknown`, `physical`, or `digital`.
     *
-    * @return string Used by Avalara, Vertex, and Recurly’s EU VAT tax feature. The tax code values are specific to each tax system. If you are using Recurly’s EU VAT feature you can use `unknown`, `physical`, or `digital`.
+    * @return string
     */
     public function getTaxCode(): string
     {
@@ -905,8 +943,9 @@ class LineItem extends RecurlyResource
 
     /**
     * Getter method for the tax_exempt attribute.
+    * `true` exempts tax on charges, `false` applies tax on charges. If not defined, then defaults to the Plan and Site settings. This attribute does not work for credits (negative line items). Credits are always applied post-tax. Pre-tax discounts should use the Coupons feature.
     *
-    * @return bool `true` exempts tax on charges, `false` applies tax on charges. If not defined, then defaults to the Plan and Site settings. This attribute does not work for credits (negative line items). Credits are always applied post-tax. Pre-tax discounts should use the Coupons feature.
+    * @return bool
     */
     public function getTaxExempt(): bool
     {
@@ -927,8 +966,9 @@ class LineItem extends RecurlyResource
 
     /**
     * Getter method for the tax_info attribute.
+    * Tax info
     *
-    * @return \Recurly\Resources\TaxInfo Tax info
+    * @return \Recurly\Resources\TaxInfo
     */
     public function getTaxInfo(): \Recurly\Resources\TaxInfo
     {
@@ -949,8 +989,9 @@ class LineItem extends RecurlyResource
 
     /**
     * Getter method for the taxable attribute.
+    * `true` if the line item is taxable, `false` if it is not.
     *
-    * @return bool `true` if the line item is taxable, `false` if it is not.
+    * @return bool
     */
     public function getTaxable(): bool
     {
@@ -971,8 +1012,9 @@ class LineItem extends RecurlyResource
 
     /**
     * Getter method for the type attribute.
+    * Charges are positive line items that debit the account. Credits are negative line items that credit the account.
     *
-    * @return string Charges are positive line items that debit the account. Credits are negative line items that credit the account.
+    * @return string
     */
     public function getType(): string
     {
@@ -993,8 +1035,9 @@ class LineItem extends RecurlyResource
 
     /**
     * Getter method for the unit_amount attribute.
+    * Positive amount for a charge, negative amount for a credit.
     *
-    * @return float Positive amount for a charge, negative amount for a credit.
+    * @return float
     */
     public function getUnitAmount(): float
     {
@@ -1015,8 +1058,9 @@ class LineItem extends RecurlyResource
 
     /**
     * Getter method for the updated_at attribute.
+    * When the line item was last changed.
     *
-    * @return string When the line item was last changed.
+    * @return string
     */
     public function getUpdatedAt(): string
     {
@@ -1037,8 +1081,9 @@ class LineItem extends RecurlyResource
 
     /**
     * Getter method for the uuid attribute.
+    * The UUID is useful for matching data with the CSV exports and building URLs into Recurly's UI.
     *
-    * @return string The UUID is useful for matching data with the CSV exports and building URLs into Recurly's UI.
+    * @return string
     */
     public function getUuid(): string
     {

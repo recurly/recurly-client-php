@@ -25,8 +25,9 @@ class AccountNote extends RecurlyResource
     
     /**
     * Getter method for the account_id attribute.
+    * 
     *
-    * @return string 
+    * @return string
     */
     public function getAccountId(): string
     {
@@ -47,8 +48,9 @@ class AccountNote extends RecurlyResource
 
     /**
     * Getter method for the created_at attribute.
+    * 
     *
-    * @return string 
+    * @return string
     */
     public function getCreatedAt(): string
     {
@@ -69,8 +71,9 @@ class AccountNote extends RecurlyResource
 
     /**
     * Getter method for the id attribute.
+    * 
     *
-    * @return string 
+    * @return string
     */
     public function getId(): string
     {
@@ -91,8 +94,9 @@ class AccountNote extends RecurlyResource
 
     /**
     * Getter method for the message attribute.
+    * 
     *
-    * @return string 
+    * @return string
     */
     public function getMessage(): string
     {
@@ -113,8 +117,9 @@ class AccountNote extends RecurlyResource
 
     /**
     * Getter method for the object attribute.
+    * Object type
     *
-    * @return string Object type
+    * @return string
     */
     public function getObject(): string
     {
@@ -135,8 +140,9 @@ class AccountNote extends RecurlyResource
 
     /**
     * Getter method for the user attribute.
+    * 
     *
-    * @return \Recurly\Resources\User 
+    * @return \Recurly\Resources\User
     */
     public function getUser(): \Recurly\Resources\User
     {

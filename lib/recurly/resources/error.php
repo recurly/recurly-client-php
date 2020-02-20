@@ -23,8 +23,9 @@ class Error extends RecurlyResource
     
     /**
     * Getter method for the message attribute.
+    * Message
     *
-    * @return string Message
+    * @return string
     */
     public function getMessage(): string
     {
@@ -45,8 +46,9 @@ class Error extends RecurlyResource
 
     /**
     * Getter method for the params attribute.
+    * Parameter specific errors
     *
-    * @return array Parameter specific errors
+    * @return array
     */
     public function getParams(): array
     {
@@ -67,8 +69,9 @@ class Error extends RecurlyResource
 
     /**
     * Getter method for the type attribute.
+    * Type
     *
-    * @return string Type
+    * @return string
     */
     public function getType(): string
     {

@@ -24,8 +24,9 @@ class LineItemList extends RecurlyResource
     
     /**
     * Getter method for the data attribute.
+    * 
     *
-    * @return array 
+    * @return array
     */
     public function getData(): array
     {
@@ -46,8 +47,9 @@ class LineItemList extends RecurlyResource
 
     /**
     * Getter method for the has_more attribute.
+    * Indicates there are more results on subsequent pages.
     *
-    * @return bool Indicates there are more results on subsequent pages.
+    * @return bool
     */
     public function getHasMore(): bool
     {
@@ -68,8 +70,9 @@ class LineItemList extends RecurlyResource
 
     /**
     * Getter method for the next attribute.
+    * Path to subsequent page of results.
     *
-    * @return string Path to subsequent page of results.
+    * @return string
     */
     public function getNext(): string
     {
@@ -90,8 +93,9 @@ class LineItemList extends RecurlyResource
 
     /**
     * Getter method for the object attribute.
+    * Will always be List.
     *
-    * @return string Will always be List.
+    * @return string
     */
     public function getObject(): string
     {

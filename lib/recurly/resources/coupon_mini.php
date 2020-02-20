@@ -27,8 +27,9 @@ class CouponMini extends RecurlyResource
     
     /**
     * Getter method for the code attribute.
+    * The code the customer enters to redeem the coupon.
     *
-    * @return string The code the customer enters to redeem the coupon.
+    * @return string
     */
     public function getCode(): string
     {
@@ -49,8 +50,9 @@ class CouponMini extends RecurlyResource
 
     /**
     * Getter method for the coupon_type attribute.
+    * Whether the coupon is "single_code" or "bulk". Bulk coupons will require a `unique_code_template` and will generate unique codes through the `/generate` endpoint.
     *
-    * @return string Whether the coupon is "single_code" or "bulk". Bulk coupons will require a `unique_code_template` and will generate unique codes through the `/generate` endpoint.
+    * @return string
     */
     public function getCouponType(): string
     {
@@ -71,10 +73,11 @@ class CouponMini extends RecurlyResource
 
     /**
     * Getter method for the discount attribute.
-    *
-    * @return \Recurly\Resources\CouponDiscount Details of the discount a coupon applies. Will contain a `type`
+    * Details of the discount a coupon applies. Will contain a `type`
 property and one of the following properties: `percent`, `fixed`, `trial`.
 
+    *
+    * @return \Recurly\Resources\CouponDiscount
     */
     public function getDiscount(): \Recurly\Resources\CouponDiscount
     {
@@ -95,8 +98,9 @@ property and one of the following properties: `percent`, `fixed`, `trial`.
 
     /**
     * Getter method for the expired_at attribute.
+    * The date and time the coupon was expired early or reached its `max_redemptions`.
     *
-    * @return string The date and time the coupon was expired early or reached its `max_redemptions`.
+    * @return string
     */
     public function getExpiredAt(): string
     {
@@ -117,8 +121,9 @@ property and one of the following properties: `percent`, `fixed`, `trial`.
 
     /**
     * Getter method for the id attribute.
+    * Coupon ID
     *
-    * @return string Coupon ID
+    * @return string
     */
     public function getId(): string
     {
@@ -139,8 +144,9 @@ property and one of the following properties: `percent`, `fixed`, `trial`.
 
     /**
     * Getter method for the name attribute.
+    * The internal name for the coupon.
     *
-    * @return string The internal name for the coupon.
+    * @return string
     */
     public function getName(): string
     {
@@ -161,8 +167,9 @@ property and one of the following properties: `percent`, `fixed`, `trial`.
 
     /**
     * Getter method for the object attribute.
+    * Object type
     *
-    * @return string Object type
+    * @return string
     */
     public function getObject(): string
     {
@@ -183,8 +190,9 @@ property and one of the following properties: `percent`, `fixed`, `trial`.
 
     /**
     * Getter method for the state attribute.
+    * Indicates if the coupon is redeemable, and if it is not, why.
     *
-    * @return string Indicates if the coupon is redeemable, and if it is not, why.
+    * @return string
     */
     public function getState(): string
     {

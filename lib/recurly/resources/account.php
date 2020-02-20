@@ -51,8 +51,9 @@ class Account extends RecurlyResource
     
     /**
     * Getter method for the address attribute.
+    * 
     *
-    * @return \Recurly\Resources\Address 
+    * @return \Recurly\Resources\Address
     */
     public function getAddress(): \Recurly\Resources\Address
     {
@@ -73,8 +74,9 @@ class Account extends RecurlyResource
 
     /**
     * Getter method for the bill_to attribute.
+    * An enumerable describing the billing behavior of the account, specifically whether the account is self-paying or will rely on the parent account to pay.
     *
-    * @return string An enumerable describing the billing behavior of the account, specifically whether the account is self-paying or will rely on the parent account to pay.
+    * @return string
     */
     public function getBillTo(): string
     {
@@ -95,8 +97,9 @@ class Account extends RecurlyResource
 
     /**
     * Getter method for the billing_info attribute.
+    * 
     *
-    * @return \Recurly\Resources\BillingInfo 
+    * @return \Recurly\Resources\BillingInfo
     */
     public function getBillingInfo(): \Recurly\Resources\BillingInfo
     {
@@ -117,8 +120,9 @@ class Account extends RecurlyResource
 
     /**
     * Getter method for the cc_emails attribute.
+    * Additional email address that should receive account correspondence. These should be separated only by commas. These CC emails will receive all emails that the `email` field also receives.
     *
-    * @return string Additional email address that should receive account correspondence. These should be separated only by commas. These CC emails will receive all emails that the `email` field also receives.
+    * @return string
     */
     public function getCcEmails(): string
     {
@@ -139,8 +143,9 @@ class Account extends RecurlyResource
 
     /**
     * Getter method for the code attribute.
+    * The unique identifier of the account. This cannot be changed once the account is created.
     *
-    * @return string The unique identifier of the account. This cannot be changed once the account is created.
+    * @return string
     */
     public function getCode(): string
     {
@@ -161,8 +166,9 @@ class Account extends RecurlyResource
 
     /**
     * Getter method for the company attribute.
+    * 
     *
-    * @return string 
+    * @return string
     */
     public function getCompany(): string
     {
@@ -183,8 +189,9 @@ class Account extends RecurlyResource
 
     /**
     * Getter method for the created_at attribute.
+    * When the account was created.
     *
-    * @return string When the account was created.
+    * @return string
     */
     public function getCreatedAt(): string
     {
@@ -205,8 +212,9 @@ class Account extends RecurlyResource
 
     /**
     * Getter method for the custom_fields attribute.
+    * The custom fields will only be altered when they are included in a request. Sending an empty array will not remove any existing values. To remove a field send the name with a null or empty value.
     *
-    * @return array The custom fields will only be altered when they are included in a request. Sending an empty array will not remove any existing values. To remove a field send the name with a null or empty value.
+    * @return array
     */
     public function getCustomFields(): array
     {
@@ -227,8 +235,9 @@ class Account extends RecurlyResource
 
     /**
     * Getter method for the deleted_at attribute.
+    * If present, when the account was last marked inactive.
     *
-    * @return string If present, when the account was last marked inactive.
+    * @return string
     */
     public function getDeletedAt(): string
     {
@@ -249,8 +258,9 @@ class Account extends RecurlyResource
 
     /**
     * Getter method for the email attribute.
+    * The email address used for communicating with this customer. The customer will also use this email address to log into your hosted account management pages. This value does not need to be unique.
     *
-    * @return string The email address used for communicating with this customer. The customer will also use this email address to log into your hosted account management pages. This value does not need to be unique.
+    * @return string
     */
     public function getEmail(): string
     {
@@ -271,8 +281,9 @@ class Account extends RecurlyResource
 
     /**
     * Getter method for the exemption_certificate attribute.
+    * The tax exemption certificate number for the account. If the merchant has an integration for the Vertex tax provider, this optional value will be sent in any tax calculation requests for the account.
     *
-    * @return string The tax exemption certificate number for the account. If the merchant has an integration for the Vertex tax provider, this optional value will be sent in any tax calculation requests for the account.
+    * @return string
     */
     public function getExemptionCertificate(): string
     {
@@ -293,8 +304,9 @@ class Account extends RecurlyResource
 
     /**
     * Getter method for the first_name attribute.
+    * 
     *
-    * @return string 
+    * @return string
     */
     public function getFirstName(): string
     {
@@ -315,8 +327,9 @@ class Account extends RecurlyResource
 
     /**
     * Getter method for the has_active_subscription attribute.
+    * Indicates if the account has an active subscription.
     *
-    * @return bool Indicates if the account has an active subscription.
+    * @return bool
     */
     public function getHasActiveSubscription(): bool
     {
@@ -337,8 +350,9 @@ class Account extends RecurlyResource
 
     /**
     * Getter method for the has_canceled_subscription attribute.
+    * Indicates if the account has a canceled subscription.
     *
-    * @return bool Indicates if the account has a canceled subscription.
+    * @return bool
     */
     public function getHasCanceledSubscription(): bool
     {
@@ -359,8 +373,9 @@ class Account extends RecurlyResource
 
     /**
     * Getter method for the has_future_subscription attribute.
+    * Indicates if the account has a future subscription.
     *
-    * @return bool Indicates if the account has a future subscription.
+    * @return bool
     */
     public function getHasFutureSubscription(): bool
     {
@@ -381,8 +396,9 @@ class Account extends RecurlyResource
 
     /**
     * Getter method for the has_live_subscription attribute.
+    * Indicates if the account has a subscription that is either active, canceled, future, or paused.
     *
-    * @return bool Indicates if the account has a subscription that is either active, canceled, future, or paused.
+    * @return bool
     */
     public function getHasLiveSubscription(): bool
     {
@@ -403,8 +419,9 @@ class Account extends RecurlyResource
 
     /**
     * Getter method for the has_past_due_invoice attribute.
+    * Indicates if the account has a past due invoice.
     *
-    * @return bool Indicates if the account has a past due invoice.
+    * @return bool
     */
     public function getHasPastDueInvoice(): bool
     {
@@ -425,8 +442,9 @@ class Account extends RecurlyResource
 
     /**
     * Getter method for the has_paused_subscription attribute.
+    * Indicates if the account has a paused subscription.
     *
-    * @return bool Indicates if the account has a paused subscription.
+    * @return bool
     */
     public function getHasPausedSubscription(): bool
     {
@@ -447,8 +465,9 @@ class Account extends RecurlyResource
 
     /**
     * Getter method for the hosted_login_token attribute.
+    * The unique token for automatically logging the account in to the hosted management pages. You may automatically log the user into their hosted management pages by directing the user to: `https://{subdomain}.recurly.com/account/{hosted_login_token}`.
     *
-    * @return string The unique token for automatically logging the account in to the hosted management pages. You may automatically log the user into their hosted management pages by directing the user to: `https://{subdomain}.recurly.com/account/{hosted_login_token}`.
+    * @return string
     */
     public function getHostedLoginToken(): string
     {
@@ -469,8 +488,9 @@ class Account extends RecurlyResource
 
     /**
     * Getter method for the id attribute.
+    * 
     *
-    * @return string 
+    * @return string
     */
     public function getId(): string
     {
@@ -491,8 +511,9 @@ class Account extends RecurlyResource
 
     /**
     * Getter method for the last_name attribute.
+    * 
     *
-    * @return string 
+    * @return string
     */
     public function getLastName(): string
     {
@@ -513,8 +534,9 @@ class Account extends RecurlyResource
 
     /**
     * Getter method for the object attribute.
+    * Object type
     *
-    * @return string Object type
+    * @return string
     */
     public function getObject(): string
     {
@@ -535,8 +557,9 @@ class Account extends RecurlyResource
 
     /**
     * Getter method for the parent_account_id attribute.
+    * The UUID of the parent account associated with this account.
     *
-    * @return string The UUID of the parent account associated with this account.
+    * @return string
     */
     public function getParentAccountId(): string
     {
@@ -557,8 +580,9 @@ class Account extends RecurlyResource
 
     /**
     * Getter method for the preferred_locale attribute.
+    * Used to determine the language and locale of emails sent on behalf of the merchant to the customer.
     *
-    * @return string Used to determine the language and locale of emails sent on behalf of the merchant to the customer.
+    * @return string
     */
     public function getPreferredLocale(): string
     {
@@ -579,8 +603,9 @@ class Account extends RecurlyResource
 
     /**
     * Getter method for the shipping_addresses attribute.
+    * The shipping addresses on the account.
     *
-    * @return array The shipping addresses on the account.
+    * @return array
     */
     public function getShippingAddresses(): array
     {
@@ -601,8 +626,9 @@ class Account extends RecurlyResource
 
     /**
     * Getter method for the state attribute.
+    * Accounts can be either active or inactive.
     *
-    * @return string Accounts can be either active or inactive.
+    * @return string
     */
     public function getState(): string
     {
@@ -623,8 +649,9 @@ class Account extends RecurlyResource
 
     /**
     * Getter method for the tax_exempt attribute.
+    * The tax status of the account. `true` exempts tax on the account, `false` applies tax on the account.
     *
-    * @return bool The tax status of the account. `true` exempts tax on the account, `false` applies tax on the account.
+    * @return bool
     */
     public function getTaxExempt(): bool
     {
@@ -645,8 +672,9 @@ class Account extends RecurlyResource
 
     /**
     * Getter method for the updated_at attribute.
+    * When the account was last changed.
     *
-    * @return string When the account was last changed.
+    * @return string
     */
     public function getUpdatedAt(): string
     {
@@ -667,8 +695,9 @@ class Account extends RecurlyResource
 
     /**
     * Getter method for the username attribute.
+    * A secondary value for the account.
     *
-    * @return string A secondary value for the account.
+    * @return string
     */
     public function getUsername(): string
     {
@@ -689,8 +718,9 @@ class Account extends RecurlyResource
 
     /**
     * Getter method for the vat_number attribute.
+    * The VAT number of the account (to avoid having the VAT applied). This is only used for manually collected invoices.
     *
-    * @return string The VAT number of the account (to avoid having the VAT applied). This is only used for manually collected invoices.
+    * @return string
     */
     public function getVatNumber(): string
     {

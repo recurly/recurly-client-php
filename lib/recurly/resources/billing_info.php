@@ -33,8 +33,9 @@ class BillingInfo extends RecurlyResource
     
     /**
     * Getter method for the account_id attribute.
+    * 
     *
-    * @return string 
+    * @return string
     */
     public function getAccountId(): string
     {
@@ -55,8 +56,9 @@ class BillingInfo extends RecurlyResource
 
     /**
     * Getter method for the address attribute.
+    * 
     *
-    * @return \Recurly\Resources\Address 
+    * @return \Recurly\Resources\Address
     */
     public function getAddress(): \Recurly\Resources\Address
     {
@@ -77,8 +79,9 @@ class BillingInfo extends RecurlyResource
 
     /**
     * Getter method for the company attribute.
+    * 
     *
-    * @return string 
+    * @return string
     */
     public function getCompany(): string
     {
@@ -99,8 +102,9 @@ class BillingInfo extends RecurlyResource
 
     /**
     * Getter method for the created_at attribute.
+    * When the billing information was created.
     *
-    * @return string When the billing information was created.
+    * @return string
     */
     public function getCreatedAt(): string
     {
@@ -121,8 +125,9 @@ class BillingInfo extends RecurlyResource
 
     /**
     * Getter method for the first_name attribute.
+    * 
     *
-    * @return string 
+    * @return string
     */
     public function getFirstName(): string
     {
@@ -143,8 +148,9 @@ class BillingInfo extends RecurlyResource
 
     /**
     * Getter method for the fraud attribute.
+    * Most recent fraud result.
     *
-    * @return \Recurly\Resources\FraudInfo Most recent fraud result.
+    * @return \Recurly\Resources\FraudInfo
     */
     public function getFraud(): \Recurly\Resources\FraudInfo
     {
@@ -165,8 +171,9 @@ class BillingInfo extends RecurlyResource
 
     /**
     * Getter method for the id attribute.
+    * 
     *
-    * @return string 
+    * @return string
     */
     public function getId(): string
     {
@@ -187,8 +194,9 @@ class BillingInfo extends RecurlyResource
 
     /**
     * Getter method for the last_name attribute.
+    * 
     *
-    * @return string 
+    * @return string
     */
     public function getLastName(): string
     {
@@ -209,8 +217,9 @@ class BillingInfo extends RecurlyResource
 
     /**
     * Getter method for the object attribute.
+    * Object type
     *
-    * @return string Object type
+    * @return string
     */
     public function getObject(): string
     {
@@ -231,8 +240,9 @@ class BillingInfo extends RecurlyResource
 
     /**
     * Getter method for the payment_method attribute.
+    * 
     *
-    * @return \Recurly\Resources\PaymentMethod 
+    * @return \Recurly\Resources\PaymentMethod
     */
     public function getPaymentMethod(): \Recurly\Resources\PaymentMethod
     {
@@ -253,8 +263,9 @@ class BillingInfo extends RecurlyResource
 
     /**
     * Getter method for the updated_at attribute.
+    * When the billing information was last changed.
     *
-    * @return string When the billing information was last changed.
+    * @return string
     */
     public function getUpdatedAt(): string
     {
@@ -275,8 +286,9 @@ class BillingInfo extends RecurlyResource
 
     /**
     * Getter method for the updated_by attribute.
+    * 
     *
-    * @return \Recurly\Resources\BillingInfoUpdatedBy 
+    * @return \Recurly\Resources\BillingInfoUpdatedBy
     */
     public function getUpdatedBy(): \Recurly\Resources\BillingInfoUpdatedBy
     {
@@ -297,8 +309,9 @@ class BillingInfo extends RecurlyResource
 
     /**
     * Getter method for the valid attribute.
+    * 
     *
-    * @return bool 
+    * @return bool
     */
     public function getValid(): bool
     {
@@ -319,8 +332,9 @@ class BillingInfo extends RecurlyResource
 
     /**
     * Getter method for the vat_number attribute.
+    * Customer's VAT number (to avoid having the VAT applied). This is only used for automatically collected invoices.
     *
-    * @return string Customer's VAT number (to avoid having the VAT applied). This is only used for automatically collected invoices.
+    * @return string
     */
     public function getVatNumber(): string
     {

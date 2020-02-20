@@ -7,6 +7,6 @@
  */
 namespace Recurly\Errors;
 
-class Validation extends \Recurly\RecurlyError
+class Validation extends \Recurly\Errors\UnprocessableEntity
 {
 }

@@ -21,7 +21,7 @@ trait ErrorTraits
     {
         $error_map = array(
             500 => 'internal_server_error',
-            502 => 'gateway_error',
+            502 => 'bad_gateway',
             503 => 'service_unavailable',
             304 => 'not_modified',
             400 => 'bad_request',

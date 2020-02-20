@@ -21,8 +21,9 @@ class BillingInfoUpdatedBy extends RecurlyResource
     
     /**
     * Getter method for the country attribute.
+    * Country of IP address, if known by Recurly.
     *
-    * @return string Country of IP address, if known by Recurly.
+    * @return string
     */
     public function getCountry(): string
     {
@@ -43,8 +44,9 @@ class BillingInfoUpdatedBy extends RecurlyResource
 
     /**
     * Getter method for the ip attribute.
+    * Customer's IP address when updating their billing information.
     *
-    * @return string Customer's IP address when updating their billing information.
+    * @return string
     */
     public function getIp(): string
     {

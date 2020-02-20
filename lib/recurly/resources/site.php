@@ -31,8 +31,9 @@ class Site extends RecurlyResource
     
     /**
     * Getter method for the address attribute.
+    * 
     *
-    * @return \Recurly\Resources\Address 
+    * @return \Recurly\Resources\Address
     */
     public function getAddress(): \Recurly\Resources\Address
     {
@@ -53,8 +54,9 @@ class Site extends RecurlyResource
 
     /**
     * Getter method for the created_at attribute.
+    * Created at
     *
-    * @return string Created at
+    * @return string
     */
     public function getCreatedAt(): string
     {
@@ -75,8 +77,9 @@ class Site extends RecurlyResource
 
     /**
     * Getter method for the deleted_at attribute.
+    * Deleted at
     *
-    * @return string Deleted at
+    * @return string
     */
     public function getDeletedAt(): string
     {
@@ -97,8 +100,9 @@ class Site extends RecurlyResource
 
     /**
     * Getter method for the features attribute.
+    * A list of features enabled for the site.
     *
-    * @return array A list of features enabled for the site.
+    * @return array
     */
     public function getFeatures(): array
     {
@@ -119,8 +123,9 @@ class Site extends RecurlyResource
 
     /**
     * Getter method for the id attribute.
+    * Site ID
     *
-    * @return string Site ID
+    * @return string
     */
     public function getId(): string
     {
@@ -141,8 +146,9 @@ class Site extends RecurlyResource
 
     /**
     * Getter method for the mode attribute.
+    * Mode
     *
-    * @return string Mode
+    * @return string
     */
     public function getMode(): string
     {
@@ -163,8 +169,9 @@ class Site extends RecurlyResource
 
     /**
     * Getter method for the object attribute.
+    * Object type
     *
-    * @return string Object type
+    * @return string
     */
     public function getObject(): string
     {
@@ -185,8 +192,9 @@ class Site extends RecurlyResource
 
     /**
     * Getter method for the public_api_key attribute.
+    * This value is used to configure RecurlyJS to submit tokenized billing information.
     *
-    * @return string This value is used to configure RecurlyJS to submit tokenized billing information.
+    * @return string
     */
     public function getPublicApiKey(): string
     {
@@ -207,8 +215,9 @@ class Site extends RecurlyResource
 
     /**
     * Getter method for the settings attribute.
+    * 
     *
-    * @return \Recurly\Resources\Settings 
+    * @return \Recurly\Resources\Settings
     */
     public function getSettings(): \Recurly\Resources\Settings
     {
@@ -229,8 +238,9 @@ class Site extends RecurlyResource
 
     /**
     * Getter method for the subdomain attribute.
+    * 
     *
-    * @return string 
+    * @return string
     */
     public function getSubdomain(): string
     {
@@ -251,8 +261,9 @@ class Site extends RecurlyResource
 
     /**
     * Getter method for the updated_at attribute.
+    * Updated at
     *
-    * @return string Updated at
+    * @return string
     */
     public function getUpdatedAt(): string
     {

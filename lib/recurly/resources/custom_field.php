@@ -21,8 +21,9 @@ class CustomField extends RecurlyResource
     
     /**
     * Getter method for the name attribute.
+    * Fields must be created in the UI before values can be assigned to them.
     *
-    * @return string Fields must be created in the UI before values can be assigned to them.
+    * @return string
     */
     public function getName(): string
     {
@@ -43,8 +44,9 @@ class CustomField extends RecurlyResource
 
     /**
     * Getter method for the value attribute.
+    * Any values that resemble a credit card number or security code (CVV/CVC) will be rejected.
     *
-    * @return string Any values that resemble a credit card number or security code (CVV/CVC) will be rejected.
+    * @return string
     */
     public function getValue(): string
     {

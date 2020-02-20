@@ -28,8 +28,9 @@ class AccountMini extends RecurlyResource
     
     /**
     * Getter method for the bill_to attribute.
+    * 
     *
-    * @return string 
+    * @return string
     */
     public function getBillTo(): string
     {
@@ -50,8 +51,9 @@ class AccountMini extends RecurlyResource
 
     /**
     * Getter method for the code attribute.
+    * The unique identifier of the account.
     *
-    * @return string The unique identifier of the account.
+    * @return string
     */
     public function getCode(): string
     {
@@ -72,8 +74,9 @@ class AccountMini extends RecurlyResource
 
     /**
     * Getter method for the company attribute.
+    * 
     *
-    * @return string 
+    * @return string
     */
     public function getCompany(): string
     {
@@ -94,8 +97,9 @@ class AccountMini extends RecurlyResource
 
     /**
     * Getter method for the email attribute.
+    * The email address used for communicating with this customer.
     *
-    * @return string The email address used for communicating with this customer.
+    * @return string
     */
     public function getEmail(): string
     {
@@ -116,8 +120,9 @@ class AccountMini extends RecurlyResource
 
     /**
     * Getter method for the first_name attribute.
+    * 
     *
-    * @return string 
+    * @return string
     */
     public function getFirstName(): string
     {
@@ -138,8 +143,9 @@ class AccountMini extends RecurlyResource
 
     /**
     * Getter method for the id attribute.
+    * 
     *
-    * @return string 
+    * @return string
     */
     public function getId(): string
     {
@@ -160,8 +166,9 @@ class AccountMini extends RecurlyResource
 
     /**
     * Getter method for the last_name attribute.
+    * 
     *
-    * @return string 
+    * @return string
     */
     public function getLastName(): string
     {
@@ -182,8 +189,9 @@ class AccountMini extends RecurlyResource
 
     /**
     * Getter method for the object attribute.
+    * Object type
     *
-    * @return string Object type
+    * @return string
     */
     public function getObject(): string
     {
@@ -204,8 +212,9 @@ class AccountMini extends RecurlyResource
 
     /**
     * Getter method for the parent_account_id attribute.
+    * 
     *
-    * @return string 
+    * @return string
     */
     public function getParentAccountId(): string
     {

@@ -37,8 +37,9 @@ class AddOn extends RecurlyResource
     
     /**
     * Getter method for the accounting_code attribute.
+    * Accounting code for invoice line items for this add-on. If no value is provided, it defaults to add-on's code.
     *
-    * @return string Accounting code for invoice line items for this add-on. If no value is provided, it defaults to add-on's code.
+    * @return string
     */
     public function getAccountingCode(): string
     {
@@ -59,8 +60,9 @@ class AddOn extends RecurlyResource
 
     /**
     * Getter method for the code attribute.
+    * The unique identifier for the add-on within its plan.
     *
-    * @return string The unique identifier for the add-on within its plan.
+    * @return string
     */
     public function getCode(): string
     {
@@ -81,8 +83,9 @@ class AddOn extends RecurlyResource
 
     /**
     * Getter method for the created_at attribute.
+    * Created at
     *
-    * @return string Created at
+    * @return string
     */
     public function getCreatedAt(): string
     {
@@ -103,8 +106,9 @@ class AddOn extends RecurlyResource
 
     /**
     * Getter method for the currencies attribute.
+    * Add-on pricing
     *
-    * @return array Add-on pricing
+    * @return array
     */
     public function getCurrencies(): array
     {
@@ -125,8 +129,9 @@ class AddOn extends RecurlyResource
 
     /**
     * Getter method for the default_quantity attribute.
+    * Default quantity for the hosted pages.
     *
-    * @return int Default quantity for the hosted pages.
+    * @return int
     */
     public function getDefaultQuantity(): int
     {
@@ -147,8 +152,9 @@ class AddOn extends RecurlyResource
 
     /**
     * Getter method for the deleted_at attribute.
+    * Deleted at
     *
-    * @return string Deleted at
+    * @return string
     */
     public function getDeletedAt(): string
     {
@@ -169,8 +175,9 @@ class AddOn extends RecurlyResource
 
     /**
     * Getter method for the display_quantity attribute.
+    * Determines if the quantity field is displayed on the hosted pages for the add-on.
     *
-    * @return bool Determines if the quantity field is displayed on the hosted pages for the add-on.
+    * @return bool
     */
     public function getDisplayQuantity(): bool
     {
@@ -191,8 +198,9 @@ class AddOn extends RecurlyResource
 
     /**
     * Getter method for the external_sku attribute.
+    * Optional, stock keeping unit to link the item to other inventory systems.
     *
-    * @return string Optional, stock keeping unit to link the item to other inventory systems.
+    * @return string
     */
     public function getExternalSku(): string
     {
@@ -213,8 +221,9 @@ class AddOn extends RecurlyResource
 
     /**
     * Getter method for the id attribute.
+    * Add-on ID
     *
-    * @return string Add-on ID
+    * @return string
     */
     public function getId(): string
     {
@@ -235,8 +244,9 @@ class AddOn extends RecurlyResource
 
     /**
     * Getter method for the item attribute.
+    * Just the important parts.
     *
-    * @return \Recurly\Resources\ItemMini Just the important parts.
+    * @return \Recurly\Resources\ItemMini
     */
     public function getItem(): \Recurly\Resources\ItemMini
     {
@@ -257,8 +267,9 @@ class AddOn extends RecurlyResource
 
     /**
     * Getter method for the name attribute.
+    * Describes your add-on and will appear in subscribers' invoices.
     *
-    * @return string Describes your add-on and will appear in subscribers' invoices.
+    * @return string
     */
     public function getName(): string
     {
@@ -279,8 +290,9 @@ class AddOn extends RecurlyResource
 
     /**
     * Getter method for the object attribute.
+    * Object type
     *
-    * @return string Object type
+    * @return string
     */
     public function getObject(): string
     {
@@ -301,8 +313,9 @@ class AddOn extends RecurlyResource
 
     /**
     * Getter method for the optional attribute.
+    * Whether the add-on is optional for the customer to include in their purchase on the hosted payment page. If false, the add-on will be included when a subscription is created through the Recurly UI. However, the add-on will not be included when a subscription is created through the API.
     *
-    * @return bool Whether the add-on is optional for the customer to include in their purchase on the hosted payment page. If false, the add-on will be included when a subscription is created through the Recurly UI. However, the add-on will not be included when a subscription is created through the API.
+    * @return bool
     */
     public function getOptional(): bool
     {
@@ -323,8 +336,9 @@ class AddOn extends RecurlyResource
 
     /**
     * Getter method for the plan_id attribute.
+    * Plan ID
     *
-    * @return string Plan ID
+    * @return string
     */
     public function getPlanId(): string
     {
@@ -345,8 +359,9 @@ class AddOn extends RecurlyResource
 
     /**
     * Getter method for the state attribute.
+    * Add-ons can be either active or inactive.
     *
-    * @return string Add-ons can be either active or inactive.
+    * @return string
     */
     public function getState(): string
     {
@@ -367,8 +382,9 @@ class AddOn extends RecurlyResource
 
     /**
     * Getter method for the tax_code attribute.
+    * Used by Avalara, Vertex, and Recurly’s EU VAT tax feature. The tax code values are specific to each tax system. If you are using Recurly’s EU VAT feature you can use `unknown`, `physical`, or `digital`.
     *
-    * @return string Used by Avalara, Vertex, and Recurly’s EU VAT tax feature. The tax code values are specific to each tax system. If you are using Recurly’s EU VAT feature you can use `unknown`, `physical`, or `digital`.
+    * @return string
     */
     public function getTaxCode(): string
     {
@@ -389,8 +405,9 @@ class AddOn extends RecurlyResource
 
     /**
     * Getter method for the updated_at attribute.
+    * Last updated at
     *
-    * @return string Last updated at
+    * @return string
     */
     public function getUpdatedAt(): string
     {

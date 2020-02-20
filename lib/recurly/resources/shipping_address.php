@@ -37,8 +37,9 @@ class ShippingAddress extends RecurlyResource
     
     /**
     * Getter method for the account_id attribute.
+    * Account ID
     *
-    * @return string Account ID
+    * @return string
     */
     public function getAccountId(): string
     {
@@ -59,8 +60,9 @@ class ShippingAddress extends RecurlyResource
 
     /**
     * Getter method for the city attribute.
+    * 
     *
-    * @return string 
+    * @return string
     */
     public function getCity(): string
     {
@@ -81,8 +83,9 @@ class ShippingAddress extends RecurlyResource
 
     /**
     * Getter method for the company attribute.
+    * 
     *
-    * @return string 
+    * @return string
     */
     public function getCompany(): string
     {
@@ -103,8 +106,9 @@ class ShippingAddress extends RecurlyResource
 
     /**
     * Getter method for the country attribute.
+    * Country, 2-letter ISO code.
     *
-    * @return string Country, 2-letter ISO code.
+    * @return string
     */
     public function getCountry(): string
     {
@@ -125,8 +129,9 @@ class ShippingAddress extends RecurlyResource
 
     /**
     * Getter method for the created_at attribute.
+    * Created at
     *
-    * @return string Created at
+    * @return string
     */
     public function getCreatedAt(): string
     {
@@ -147,8 +152,9 @@ class ShippingAddress extends RecurlyResource
 
     /**
     * Getter method for the email attribute.
+    * 
     *
-    * @return string 
+    * @return string
     */
     public function getEmail(): string
     {
@@ -169,8 +175,9 @@ class ShippingAddress extends RecurlyResource
 
     /**
     * Getter method for the first_name attribute.
+    * 
     *
-    * @return string 
+    * @return string
     */
     public function getFirstName(): string
     {
@@ -191,8 +198,9 @@ class ShippingAddress extends RecurlyResource
 
     /**
     * Getter method for the id attribute.
+    * Shipping Address ID
     *
-    * @return string Shipping Address ID
+    * @return string
     */
     public function getId(): string
     {
@@ -213,8 +221,9 @@ class ShippingAddress extends RecurlyResource
 
     /**
     * Getter method for the last_name attribute.
+    * 
     *
-    * @return string 
+    * @return string
     */
     public function getLastName(): string
     {
@@ -235,8 +244,9 @@ class ShippingAddress extends RecurlyResource
 
     /**
     * Getter method for the nickname attribute.
+    * 
     *
-    * @return string 
+    * @return string
     */
     public function getNickname(): string
     {
@@ -257,8 +267,9 @@ class ShippingAddress extends RecurlyResource
 
     /**
     * Getter method for the object attribute.
+    * Object type
     *
-    * @return string Object type
+    * @return string
     */
     public function getObject(): string
     {
@@ -279,8 +290,9 @@ class ShippingAddress extends RecurlyResource
 
     /**
     * Getter method for the phone attribute.
+    * 
     *
-    * @return string 
+    * @return string
     */
     public function getPhone(): string
     {
@@ -301,8 +313,9 @@ class ShippingAddress extends RecurlyResource
 
     /**
     * Getter method for the postal_code attribute.
+    * Zip or postal code.
     *
-    * @return string Zip or postal code.
+    * @return string
     */
     public function getPostalCode(): string
     {
@@ -323,8 +336,9 @@ class ShippingAddress extends RecurlyResource
 
     /**
     * Getter method for the region attribute.
+    * State or province.
     *
-    * @return string State or province.
+    * @return string
     */
     public function getRegion(): string
     {
@@ -345,8 +359,9 @@ class ShippingAddress extends RecurlyResource
 
     /**
     * Getter method for the street1 attribute.
+    * 
     *
-    * @return string 
+    * @return string
     */
     public function getStreet1(): string
     {
@@ -367,8 +382,9 @@ class ShippingAddress extends RecurlyResource
 
     /**
     * Getter method for the street2 attribute.
+    * 
     *
-    * @return string 
+    * @return string
     */
     public function getStreet2(): string
     {
@@ -389,8 +405,9 @@ class ShippingAddress extends RecurlyResource
 
     /**
     * Getter method for the updated_at attribute.
+    * Updated at
     *
-    * @return string Updated at
+    * @return string
     */
     public function getUpdatedAt(): string
     {
@@ -411,8 +428,9 @@ class ShippingAddress extends RecurlyResource
 
     /**
     * Getter method for the vat_number attribute.
+    * 
     *
-    * @return string 
+    * @return string
     */
     public function getVatNumber(): string
     {

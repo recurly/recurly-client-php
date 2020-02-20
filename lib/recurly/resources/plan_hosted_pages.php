@@ -23,8 +23,9 @@ class PlanHostedPages extends RecurlyResource
     
     /**
     * Getter method for the bypass_confirmation attribute.
+    * If `true`, the customer will be sent directly to your `success_url` after a successful signup, bypassing Recurly's hosted confirmation page.
     *
-    * @return bool If `true`, the customer will be sent directly to your `success_url` after a successful signup, bypassing Recurly's hosted confirmation page.
+    * @return bool
     */
     public function getBypassConfirmation(): bool
     {
@@ -45,8 +46,9 @@ class PlanHostedPages extends RecurlyResource
 
     /**
     * Getter method for the cancel_url attribute.
+    * URL to redirect to on canceled signup on the hosted payment pages.
     *
-    * @return string URL to redirect to on canceled signup on the hosted payment pages.
+    * @return string
     */
     public function getCancelUrl(): string
     {
@@ -67,8 +69,9 @@ class PlanHostedPages extends RecurlyResource
 
     /**
     * Getter method for the display_quantity attribute.
+    * Determines if the quantity field is displayed on the hosted pages for the plan.
     *
-    * @return bool Determines if the quantity field is displayed on the hosted pages for the plan.
+    * @return bool
     */
     public function getDisplayQuantity(): bool
     {
@@ -89,8 +92,9 @@ class PlanHostedPages extends RecurlyResource
 
     /**
     * Getter method for the success_url attribute.
+    * URL to redirect to after signup on the hosted payment pages.
     *
-    * @return string URL to redirect to after signup on the hosted payment pages.
+    * @return string
     */
     public function getSuccessUrl(): string
     {

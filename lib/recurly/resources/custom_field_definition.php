@@ -29,8 +29,9 @@ class CustomFieldDefinition extends RecurlyResource
     
     /**
     * Getter method for the created_at attribute.
+    * Created at
     *
-    * @return string Created at
+    * @return string
     */
     public function getCreatedAt(): string
     {
@@ -51,8 +52,9 @@ class CustomFieldDefinition extends RecurlyResource
 
     /**
     * Getter method for the deleted_at attribute.
+    * Definitions are initially soft deleted, and once all the values are removed from the accouts or subscriptions, will be hard deleted an no longer visible.
     *
-    * @return string Definitions are initially soft deleted, and once all the values are removed from the accouts or subscriptions, will be hard deleted an no longer visible.
+    * @return string
     */
     public function getDeletedAt(): string
     {
@@ -73,8 +75,9 @@ class CustomFieldDefinition extends RecurlyResource
 
     /**
     * Getter method for the display_name attribute.
+    * Used to label the field when viewing and editing the field in Recurly's admin UI.
     *
-    * @return string Used to label the field when viewing and editing the field in Recurly's admin UI.
+    * @return string
     */
     public function getDisplayName(): string
     {
@@ -95,8 +98,9 @@ class CustomFieldDefinition extends RecurlyResource
 
     /**
     * Getter method for the id attribute.
+    * Custom field definition ID
     *
-    * @return string Custom field definition ID
+    * @return string
     */
     public function getId(): string
     {
@@ -117,8 +121,9 @@ class CustomFieldDefinition extends RecurlyResource
 
     /**
     * Getter method for the name attribute.
+    * Used by the API to identify the field or reading and writing. The name can only be used once per Recurly object type.
     *
-    * @return string Used by the API to identify the field or reading and writing. The name can only be used once per Recurly object type.
+    * @return string
     */
     public function getName(): string
     {
@@ -139,8 +144,9 @@ class CustomFieldDefinition extends RecurlyResource
 
     /**
     * Getter method for the object attribute.
+    * Object type
     *
-    * @return string Object type
+    * @return string
     */
     public function getObject(): string
     {
@@ -161,8 +167,9 @@ class CustomFieldDefinition extends RecurlyResource
 
     /**
     * Getter method for the related_type attribute.
+    * Related Recurly object type
     *
-    * @return string Related Recurly object type
+    * @return string
     */
     public function getRelatedType(): string
     {
@@ -183,8 +190,9 @@ class CustomFieldDefinition extends RecurlyResource
 
     /**
     * Getter method for the tooltip attribute.
+    * Displayed as a tooltip when editing the field in the Recurly admin UI.
     *
-    * @return string Displayed as a tooltip when editing the field in the Recurly admin UI.
+    * @return string
     */
     public function getTooltip(): string
     {
@@ -205,8 +213,9 @@ class CustomFieldDefinition extends RecurlyResource
 
     /**
     * Getter method for the updated_at attribute.
+    * Last updated at
     *
-    * @return string Last updated at
+    * @return string
     */
     public function getUpdatedAt(): string
     {
@@ -227,13 +236,14 @@ class CustomFieldDefinition extends RecurlyResource
 
     /**
     * Getter method for the user_access attribute.
-    *
-    * @return string The access control applied inside Recurly's admin UI:
+    * The access control applied inside Recurly's admin UI:
 - `api_only` - No one will be able to view or edit this field's data via the admin UI.
 - `read_only` - Users with the Customers role will be able to view this field's data via the admin UI, but
   editing will only be available via the API.
 - `write` - Users with the Customers role will be able to view and edit this field's data via the admin UI.
 
+    *
+    * @return string
     */
     public function getUserAccess(): string
     {

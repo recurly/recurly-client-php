@@ -23,8 +23,9 @@ class Settings extends RecurlyResource
     
     /**
     * Getter method for the accepted_currencies attribute.
+    * 
     *
-    * @return array 
+    * @return array
     */
     public function getAcceptedCurrencies(): array
     {
@@ -45,12 +46,13 @@ class Settings extends RecurlyResource
 
     /**
     * Getter method for the billing_address_requirement attribute.
-    *
-    * @return string - full:      Full Address (Street, City, State, Postal Code and Country)
+    * - full:      Full Address (Street, City, State, Postal Code and Country)
 - streetzip: Street and Postal Code only
 - zip:       Postal Code only
 - none:      No Address
 
+    *
+    * @return string
     */
     public function getBillingAddressRequirement(): string
     {
@@ -71,8 +73,9 @@ class Settings extends RecurlyResource
 
     /**
     * Getter method for the default_currency attribute.
+    * The default 3-letter ISO 4217 currency code.
     *
-    * @return string The default 3-letter ISO 4217 currency code.
+    * @return string
     */
     public function getDefaultCurrency(): string
     {

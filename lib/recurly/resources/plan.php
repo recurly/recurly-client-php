@@ -41,8 +41,9 @@ class Plan extends RecurlyResource
     
     /**
     * Getter method for the accounting_code attribute.
+    * Accounting code for invoice line items for the plan. If no value is provided, it defaults to plan's code.
     *
-    * @return string Accounting code for invoice line items for the plan. If no value is provided, it defaults to plan's code.
+    * @return string
     */
     public function getAccountingCode(): string
     {
@@ -63,8 +64,9 @@ class Plan extends RecurlyResource
 
     /**
     * Getter method for the auto_renew attribute.
+    * Subscriptions will automatically inherit this value once they are active. If `auto_renew` is `true`, then a subscription will automatically renew its term at renewal. If `auto_renew` is `false`, then a subscription will expire at the end of its term. `auto_renew` can be overridden on the subscription record itself.
     *
-    * @return bool Subscriptions will automatically inherit this value once they are active. If `auto_renew` is `true`, then a subscription will automatically renew its term at renewal. If `auto_renew` is `false`, then a subscription will expire at the end of its term. `auto_renew` can be overridden on the subscription record itself.
+    * @return bool
     */
     public function getAutoRenew(): bool
     {
@@ -85,8 +87,9 @@ class Plan extends RecurlyResource
 
     /**
     * Getter method for the code attribute.
+    * Unique code to identify the plan. This is used in Hosted Payment Page URLs and in the invoice exports.
     *
-    * @return string Unique code to identify the plan. This is used in Hosted Payment Page URLs and in the invoice exports.
+    * @return string
     */
     public function getCode(): string
     {
@@ -107,8 +110,9 @@ class Plan extends RecurlyResource
 
     /**
     * Getter method for the created_at attribute.
+    * Created at
     *
-    * @return string Created at
+    * @return string
     */
     public function getCreatedAt(): string
     {
@@ -129,8 +133,9 @@ class Plan extends RecurlyResource
 
     /**
     * Getter method for the currencies attribute.
+    * Pricing
     *
-    * @return array Pricing
+    * @return array
     */
     public function getCurrencies(): array
     {
@@ -151,8 +156,9 @@ class Plan extends RecurlyResource
 
     /**
     * Getter method for the deleted_at attribute.
+    * Deleted at
     *
-    * @return string Deleted at
+    * @return string
     */
     public function getDeletedAt(): string
     {
@@ -173,8 +179,9 @@ class Plan extends RecurlyResource
 
     /**
     * Getter method for the description attribute.
+    * Optional description, not displayed.
     *
-    * @return string Optional description, not displayed.
+    * @return string
     */
     public function getDescription(): string
     {
@@ -195,8 +202,9 @@ class Plan extends RecurlyResource
 
     /**
     * Getter method for the hosted_pages attribute.
+    * Hosted pages settings
     *
-    * @return \Recurly\Resources\PlanHostedPages Hosted pages settings
+    * @return \Recurly\Resources\PlanHostedPages
     */
     public function getHostedPages(): \Recurly\Resources\PlanHostedPages
     {
@@ -217,8 +225,9 @@ class Plan extends RecurlyResource
 
     /**
     * Getter method for the id attribute.
+    * Plan ID
     *
-    * @return string Plan ID
+    * @return string
     */
     public function getId(): string
     {
@@ -239,8 +248,9 @@ class Plan extends RecurlyResource
 
     /**
     * Getter method for the interval_length attribute.
+    * Length of the plan's billing interval in `interval_unit`.
     *
-    * @return int Length of the plan's billing interval in `interval_unit`.
+    * @return int
     */
     public function getIntervalLength(): int
     {
@@ -261,8 +271,9 @@ class Plan extends RecurlyResource
 
     /**
     * Getter method for the interval_unit attribute.
+    * Unit for the plan's billing interval.
     *
-    * @return string Unit for the plan's billing interval.
+    * @return string
     */
     public function getIntervalUnit(): string
     {
@@ -283,8 +294,9 @@ class Plan extends RecurlyResource
 
     /**
     * Getter method for the name attribute.
+    * This name describes your plan and will appear on the Hosted Payment Page and the subscriber's invoice.
     *
-    * @return string This name describes your plan and will appear on the Hosted Payment Page and the subscriber's invoice.
+    * @return string
     */
     public function getName(): string
     {
@@ -305,8 +317,9 @@ class Plan extends RecurlyResource
 
     /**
     * Getter method for the object attribute.
+    * Object type
     *
-    * @return string Object type
+    * @return string
     */
     public function getObject(): string
     {
@@ -327,8 +340,9 @@ class Plan extends RecurlyResource
 
     /**
     * Getter method for the setup_fee_accounting_code attribute.
+    * Accounting code for invoice line items for the plan's setup fee. If no value is provided, it defaults to plan's accounting code.
     *
-    * @return string Accounting code for invoice line items for the plan's setup fee. If no value is provided, it defaults to plan's accounting code.
+    * @return string
     */
     public function getSetupFeeAccountingCode(): string
     {
@@ -349,8 +363,9 @@ class Plan extends RecurlyResource
 
     /**
     * Getter method for the state attribute.
+    * The current state of the plan.
     *
-    * @return string The current state of the plan.
+    * @return string
     */
     public function getState(): string
     {
@@ -371,8 +386,9 @@ class Plan extends RecurlyResource
 
     /**
     * Getter method for the tax_code attribute.
+    * Used by Avalara, Vertex, and Recurly’s EU VAT tax feature. The tax code values are specific to each tax system. If you are using Recurly’s EU VAT feature you can use `unknown`, `physical`, or `digital`.
     *
-    * @return string Used by Avalara, Vertex, and Recurly’s EU VAT tax feature. The tax code values are specific to each tax system. If you are using Recurly’s EU VAT feature you can use `unknown`, `physical`, or `digital`.
+    * @return string
     */
     public function getTaxCode(): string
     {
@@ -393,8 +409,9 @@ class Plan extends RecurlyResource
 
     /**
     * Getter method for the tax_exempt attribute.
+    * `true` exempts tax on the plan, `false` applies tax on the plan.
     *
-    * @return bool `true` exempts tax on the plan, `false` applies tax on the plan.
+    * @return bool
     */
     public function getTaxExempt(): bool
     {
@@ -415,8 +432,9 @@ class Plan extends RecurlyResource
 
     /**
     * Getter method for the total_billing_cycles attribute.
+    * Automatically terminate subscriptions after a defined number of billing cycles. Number of billing cycles before the plan automatically stops renewing, defaults to `null` for continuous, automatic renewal.
     *
-    * @return int Automatically terminate subscriptions after a defined number of billing cycles. Number of billing cycles before the plan automatically stops renewing, defaults to `null` for continuous, automatic renewal.
+    * @return int
     */
     public function getTotalBillingCycles(): int
     {
@@ -437,8 +455,9 @@ class Plan extends RecurlyResource
 
     /**
     * Getter method for the trial_length attribute.
+    * Length of plan's trial period in `trial_units`. `0` means `no trial`.
     *
-    * @return int Length of plan's trial period in `trial_units`. `0` means `no trial`.
+    * @return int
     */
     public function getTrialLength(): int
     {
@@ -459,8 +478,9 @@ class Plan extends RecurlyResource
 
     /**
     * Getter method for the trial_unit attribute.
+    * Units for the plan's trial period.
     *
-    * @return string Units for the plan's trial period.
+    * @return string
     */
     public function getTrialUnit(): string
     {
@@ -481,8 +501,9 @@ class Plan extends RecurlyResource
 
     /**
     * Getter method for the updated_at attribute.
+    * Last updated at
     *
-    * @return string Last updated at
+    * @return string
     */
     public function getUpdatedAt(): string
     {

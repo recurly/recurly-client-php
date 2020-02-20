@@ -27,8 +27,9 @@ class UniqueCouponCode extends RecurlyResource
     
     /**
     * Getter method for the code attribute.
+    * The code the customer enters to redeem the coupon.
     *
-    * @return string The code the customer enters to redeem the coupon.
+    * @return string
     */
     public function getCode(): string
     {
@@ -49,8 +50,9 @@ class UniqueCouponCode extends RecurlyResource
 
     /**
     * Getter method for the created_at attribute.
+    * Created at
     *
-    * @return string Created at
+    * @return string
     */
     public function getCreatedAt(): string
     {
@@ -71,8 +73,9 @@ class UniqueCouponCode extends RecurlyResource
 
     /**
     * Getter method for the expired_at attribute.
+    * The date and time the coupon was expired early or reached its `max_redemptions`.
     *
-    * @return string The date and time the coupon was expired early or reached its `max_redemptions`.
+    * @return string
     */
     public function getExpiredAt(): string
     {
@@ -93,8 +96,9 @@ class UniqueCouponCode extends RecurlyResource
 
     /**
     * Getter method for the id attribute.
+    * Unique Coupon Code ID
     *
-    * @return string Unique Coupon Code ID
+    * @return string
     */
     public function getId(): string
     {
@@ -115,8 +119,9 @@ class UniqueCouponCode extends RecurlyResource
 
     /**
     * Getter method for the object attribute.
+    * Object type
     *
-    * @return string Object type
+    * @return string
     */
     public function getObject(): string
     {
@@ -137,8 +142,9 @@ class UniqueCouponCode extends RecurlyResource
 
     /**
     * Getter method for the redeemed_at attribute.
+    * The date and time the unique coupon code was redeemed.
     *
-    * @return string The date and time the unique coupon code was redeemed.
+    * @return string
     */
     public function getRedeemedAt(): string
     {
@@ -159,8 +165,9 @@ class UniqueCouponCode extends RecurlyResource
 
     /**
     * Getter method for the state attribute.
+    * Indicates if the unique coupon code is redeemable or why not.
     *
-    * @return string Indicates if the unique coupon code is redeemable or why not.
+    * @return string
     */
     public function getState(): string
     {
@@ -181,8 +188,9 @@ class UniqueCouponCode extends RecurlyResource
 
     /**
     * Getter method for the updated_at attribute.
+    * Updated at
     *
-    * @return string Updated at
+    * @return string
     */
     public function getUpdatedAt(): string
     {

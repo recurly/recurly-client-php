@@ -29,8 +29,9 @@ class CouponRedemption extends RecurlyResource
     
     /**
     * Getter method for the account attribute.
+    * The Account on which the coupon was applied.
     *
-    * @return \Recurly\Resources\AccountMini The Account on which the coupon was applied.
+    * @return \Recurly\Resources\AccountMini
     */
     public function getAccount(): \Recurly\Resources\AccountMini
     {
@@ -51,8 +52,9 @@ class CouponRedemption extends RecurlyResource
 
     /**
     * Getter method for the coupon attribute.
+    * 
     *
-    * @return \Recurly\Resources\Coupon 
+    * @return \Recurly\Resources\Coupon
     */
     public function getCoupon(): \Recurly\Resources\Coupon
     {
@@ -73,8 +75,9 @@ class CouponRedemption extends RecurlyResource
 
     /**
     * Getter method for the created_at attribute.
+    * Created at
     *
-    * @return string Created at
+    * @return string
     */
     public function getCreatedAt(): string
     {
@@ -95,8 +98,9 @@ class CouponRedemption extends RecurlyResource
 
     /**
     * Getter method for the currency attribute.
+    * 3-letter ISO 4217 currency code.
     *
-    * @return string 3-letter ISO 4217 currency code.
+    * @return string
     */
     public function getCurrency(): string
     {
@@ -117,8 +121,9 @@ class CouponRedemption extends RecurlyResource
 
     /**
     * Getter method for the discounted attribute.
+    * The amount that was discounted upon the application of the coupon, formatted with the currency.
     *
-    * @return float The amount that was discounted upon the application of the coupon, formatted with the currency.
+    * @return float
     */
     public function getDiscounted(): float
     {
@@ -139,8 +144,9 @@ class CouponRedemption extends RecurlyResource
 
     /**
     * Getter method for the id attribute.
+    * Coupon Redemption ID
     *
-    * @return string Coupon Redemption ID
+    * @return string
     */
     public function getId(): string
     {
@@ -161,8 +167,9 @@ class CouponRedemption extends RecurlyResource
 
     /**
     * Getter method for the object attribute.
+    * Will always be `coupon`.
     *
-    * @return string Will always be `coupon`.
+    * @return string
     */
     public function getObject(): string
     {
@@ -183,8 +190,9 @@ class CouponRedemption extends RecurlyResource
 
     /**
     * Getter method for the removed_at attribute.
+    * The date and time the redemption was removed from the account (un-redeemed).
     *
-    * @return string The date and time the redemption was removed from the account (un-redeemed).
+    * @return string
     */
     public function getRemovedAt(): string
     {
@@ -205,8 +213,9 @@ class CouponRedemption extends RecurlyResource
 
     /**
     * Getter method for the state attribute.
+    * Coupon Redemption state
     *
-    * @return string Coupon Redemption state
+    * @return string
     */
     public function getState(): string
     {
@@ -227,8 +236,9 @@ class CouponRedemption extends RecurlyResource
 
     /**
     * Getter method for the updated_at attribute.
+    * Last updated at
     *
-    * @return string Last updated at
+    * @return string
     */
     public function getUpdatedAt(): string
     {

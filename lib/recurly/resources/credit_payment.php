@@ -33,8 +33,9 @@ class CreditPayment extends RecurlyResource
     
     /**
     * Getter method for the account attribute.
+    * Account mini details
     *
-    * @return \Recurly\Resources\AccountMini Account mini details
+    * @return \Recurly\Resources\AccountMini
     */
     public function getAccount(): \Recurly\Resources\AccountMini
     {
@@ -55,8 +56,9 @@ class CreditPayment extends RecurlyResource
 
     /**
     * Getter method for the action attribute.
+    * The action for which the credit was created.
     *
-    * @return string The action for which the credit was created.
+    * @return string
     */
     public function getAction(): string
     {
@@ -77,8 +79,9 @@ class CreditPayment extends RecurlyResource
 
     /**
     * Getter method for the amount attribute.
+    * Total credit payment amount applied to the charge invoice.
     *
-    * @return float Total credit payment amount applied to the charge invoice.
+    * @return float
     */
     public function getAmount(): float
     {
@@ -99,8 +102,9 @@ class CreditPayment extends RecurlyResource
 
     /**
     * Getter method for the applied_to_invoice attribute.
+    * Invoice mini details
     *
-    * @return \Recurly\Resources\InvoiceMini Invoice mini details
+    * @return \Recurly\Resources\InvoiceMini
     */
     public function getAppliedToInvoice(): \Recurly\Resources\InvoiceMini
     {
@@ -121,8 +125,9 @@ class CreditPayment extends RecurlyResource
 
     /**
     * Getter method for the created_at attribute.
+    * Created at
     *
-    * @return string Created at
+    * @return string
     */
     public function getCreatedAt(): string
     {
@@ -143,8 +148,9 @@ class CreditPayment extends RecurlyResource
 
     /**
     * Getter method for the currency attribute.
+    * 3-letter ISO 4217 currency code.
     *
-    * @return string 3-letter ISO 4217 currency code.
+    * @return string
     */
     public function getCurrency(): string
     {
@@ -165,8 +171,9 @@ class CreditPayment extends RecurlyResource
 
     /**
     * Getter method for the id attribute.
+    * Credit Payment ID
     *
-    * @return string Credit Payment ID
+    * @return string
     */
     public function getId(): string
     {
@@ -187,8 +194,9 @@ class CreditPayment extends RecurlyResource
 
     /**
     * Getter method for the object attribute.
+    * Object type
     *
-    * @return string Object type
+    * @return string
     */
     public function getObject(): string
     {
@@ -209,8 +217,9 @@ class CreditPayment extends RecurlyResource
 
     /**
     * Getter method for the original_credit_payment_id attribute.
+    * For credit payments with action `refund`, this is the credit payment that was refunded.
     *
-    * @return string For credit payments with action `refund`, this is the credit payment that was refunded.
+    * @return string
     */
     public function getOriginalCreditPaymentId(): string
     {
@@ -231,8 +240,9 @@ class CreditPayment extends RecurlyResource
 
     /**
     * Getter method for the original_invoice attribute.
+    * Invoice mini details
     *
-    * @return \Recurly\Resources\InvoiceMini Invoice mini details
+    * @return \Recurly\Resources\InvoiceMini
     */
     public function getOriginalInvoice(): \Recurly\Resources\InvoiceMini
     {
@@ -253,8 +263,9 @@ class CreditPayment extends RecurlyResource
 
     /**
     * Getter method for the refund_transaction attribute.
+    * 
     *
-    * @return \Recurly\Resources\Transaction 
+    * @return \Recurly\Resources\Transaction
     */
     public function getRefundTransaction(): \Recurly\Resources\Transaction
     {
@@ -275,8 +286,9 @@ class CreditPayment extends RecurlyResource
 
     /**
     * Getter method for the updated_at attribute.
+    * Last updated at
     *
-    * @return string Last updated at
+    * @return string
     */
     public function getUpdatedAt(): string
     {
@@ -297,8 +309,9 @@ class CreditPayment extends RecurlyResource
 
     /**
     * Getter method for the uuid attribute.
+    * The UUID is useful for matching data with the CSV exports and building URLs into Recurly's UI.
     *
-    * @return string The UUID is useful for matching data with the CSV exports and building URLs into Recurly's UI.
+    * @return string
     */
     public function getUuid(): string
     {
@@ -319,8 +332,9 @@ class CreditPayment extends RecurlyResource
 
     /**
     * Getter method for the voided_at attribute.
+    * Voided at
     *
-    * @return string Voided at
+    * @return string
     */
     public function getVoidedAt(): string
     {

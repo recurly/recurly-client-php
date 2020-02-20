@@ -62,8 +62,9 @@ class Subscription extends RecurlyResource
     
     /**
     * Getter method for the account attribute.
+    * Account mini details
     *
-    * @return \Recurly\Resources\AccountMini Account mini details
+    * @return \Recurly\Resources\AccountMini
     */
     public function getAccount(): \Recurly\Resources\AccountMini
     {
@@ -84,8 +85,9 @@ class Subscription extends RecurlyResource
 
     /**
     * Getter method for the activated_at attribute.
+    * Activated at
     *
-    * @return string Activated at
+    * @return string
     */
     public function getActivatedAt(): string
     {
@@ -106,8 +108,9 @@ class Subscription extends RecurlyResource
 
     /**
     * Getter method for the add_ons attribute.
+    * Add-ons
     *
-    * @return array Add-ons
+    * @return array
     */
     public function getAddOns(): array
     {
@@ -128,8 +131,9 @@ class Subscription extends RecurlyResource
 
     /**
     * Getter method for the add_ons_total attribute.
+    * Total price of add-ons
     *
-    * @return float Total price of add-ons
+    * @return float
     */
     public function getAddOnsTotal(): float
     {
@@ -150,8 +154,9 @@ class Subscription extends RecurlyResource
 
     /**
     * Getter method for the auto_renew attribute.
+    * Whether the subscription renews at the end of its term.
     *
-    * @return bool Whether the subscription renews at the end of its term.
+    * @return bool
     */
     public function getAutoRenew(): bool
     {
@@ -172,8 +177,9 @@ class Subscription extends RecurlyResource
 
     /**
     * Getter method for the bank_account_authorized_at attribute.
+    * Recurring subscriptions paid with ACH will have this attribute set. This timestamp is used for alerting customers to reauthorize in 3 years in accordance with NACHA rules. If a subscription becomes inactive or the billing info is no longer a bank account, this timestamp is cleared.
     *
-    * @return string Recurring subscriptions paid with ACH will have this attribute set. This timestamp is used for alerting customers to reauthorize in 3 years in accordance with NACHA rules. If a subscription becomes inactive or the billing info is no longer a bank account, this timestamp is cleared.
+    * @return string
     */
     public function getBankAccountAuthorizedAt(): string
     {
@@ -194,8 +200,9 @@ class Subscription extends RecurlyResource
 
     /**
     * Getter method for the canceled_at attribute.
+    * Canceled at
     *
-    * @return string Canceled at
+    * @return string
     */
     public function getCanceledAt(): string
     {
@@ -216,8 +223,9 @@ class Subscription extends RecurlyResource
 
     /**
     * Getter method for the collection_method attribute.
+    * Collection method
     *
-    * @return string Collection method
+    * @return string
     */
     public function getCollectionMethod(): string
     {
@@ -238,8 +246,9 @@ class Subscription extends RecurlyResource
 
     /**
     * Getter method for the coupon_redemptions attribute.
+    * Coupon redemptions
     *
-    * @return array Coupon redemptions
+    * @return array
     */
     public function getCouponRedemptions(): array
     {
@@ -260,8 +269,9 @@ class Subscription extends RecurlyResource
 
     /**
     * Getter method for the created_at attribute.
+    * Created at
     *
-    * @return string Created at
+    * @return string
     */
     public function getCreatedAt(): string
     {
@@ -282,8 +292,9 @@ class Subscription extends RecurlyResource
 
     /**
     * Getter method for the currency attribute.
+    * 3-letter ISO 4217 currency code.
     *
-    * @return string 3-letter ISO 4217 currency code.
+    * @return string
     */
     public function getCurrency(): string
     {
@@ -304,8 +315,9 @@ class Subscription extends RecurlyResource
 
     /**
     * Getter method for the current_period_ends_at attribute.
+    * Current billing period ends at
     *
-    * @return string Current billing period ends at
+    * @return string
     */
     public function getCurrentPeriodEndsAt(): string
     {
@@ -326,8 +338,9 @@ class Subscription extends RecurlyResource
 
     /**
     * Getter method for the current_period_started_at attribute.
+    * Current billing period started at
     *
-    * @return string Current billing period started at
+    * @return string
     */
     public function getCurrentPeriodStartedAt(): string
     {
@@ -348,8 +361,9 @@ class Subscription extends RecurlyResource
 
     /**
     * Getter method for the current_term_ends_at attribute.
+    * When the term ends. This is calculated by a plan's interval and `total_billing_cycles` in a term. Subscription changes with a `timeframe=renewal` will be applied on this date.
     *
-    * @return string When the term ends. This is calculated by a plan's interval and `total_billing_cycles` in a term. Subscription changes with a `timeframe=renewal` will be applied on this date.
+    * @return string
     */
     public function getCurrentTermEndsAt(): string
     {
@@ -370,8 +384,9 @@ class Subscription extends RecurlyResource
 
     /**
     * Getter method for the current_term_started_at attribute.
+    * The start date of the term when the first billing period starts. The subscription term is the length of time that a customer will be committed to a subscription. A term can span multiple billing periods.
     *
-    * @return string The start date of the term when the first billing period starts. The subscription term is the length of time that a customer will be committed to a subscription. A term can span multiple billing periods.
+    * @return string
     */
     public function getCurrentTermStartedAt(): string
     {
@@ -392,8 +407,9 @@ class Subscription extends RecurlyResource
 
     /**
     * Getter method for the custom_fields attribute.
+    * The custom fields will only be altered when they are included in a request. Sending an empty array will not remove any existing values. To remove a field send the name with a null or empty value.
     *
-    * @return array The custom fields will only be altered when they are included in a request. Sending an empty array will not remove any existing values. To remove a field send the name with a null or empty value.
+    * @return array
     */
     public function getCustomFields(): array
     {
@@ -414,8 +430,9 @@ class Subscription extends RecurlyResource
 
     /**
     * Getter method for the customer_notes attribute.
+    * Customer notes
     *
-    * @return string Customer notes
+    * @return string
     */
     public function getCustomerNotes(): string
     {
@@ -436,8 +453,9 @@ class Subscription extends RecurlyResource
 
     /**
     * Getter method for the expiration_reason attribute.
+    * Expiration reason
     *
-    * @return string Expiration reason
+    * @return string
     */
     public function getExpirationReason(): string
     {
@@ -458,8 +476,9 @@ class Subscription extends RecurlyResource
 
     /**
     * Getter method for the expires_at attribute.
+    * Expires at
     *
-    * @return string Expires at
+    * @return string
     */
     public function getExpiresAt(): string
     {
@@ -480,8 +499,9 @@ class Subscription extends RecurlyResource
 
     /**
     * Getter method for the id attribute.
+    * Subscription ID
     *
-    * @return string Subscription ID
+    * @return string
     */
     public function getId(): string
     {
@@ -502,8 +522,9 @@ class Subscription extends RecurlyResource
 
     /**
     * Getter method for the net_terms attribute.
+    * Integer representing the number of days after an invoice's creation that the invoice will become past due. If an invoice's net terms are set to '0', it is due 'On Receipt' and will become past due 24 hours after it’s created. If an invoice is due net 30, it will become past due at 31 days exactly.
     *
-    * @return int Integer representing the number of days after an invoice's creation that the invoice will become past due. If an invoice's net terms are set to '0', it is due 'On Receipt' and will become past due 24 hours after it’s created. If an invoice is due net 30, it will become past due at 31 days exactly.
+    * @return int
     */
     public function getNetTerms(): int
     {
@@ -524,8 +545,9 @@ class Subscription extends RecurlyResource
 
     /**
     * Getter method for the object attribute.
+    * Object type
     *
-    * @return string Object type
+    * @return string
     */
     public function getObject(): string
     {
@@ -546,8 +568,9 @@ class Subscription extends RecurlyResource
 
     /**
     * Getter method for the paused_at attribute.
+    * Null unless subscription is paused or will pause at the end of the current billing period.
     *
-    * @return string Null unless subscription is paused or will pause at the end of the current billing period.
+    * @return string
     */
     public function getPausedAt(): string
     {
@@ -568,8 +591,9 @@ class Subscription extends RecurlyResource
 
     /**
     * Getter method for the pending_change attribute.
+    * Subscription Change
     *
-    * @return \Recurly\Resources\SubscriptionChange Subscription Change
+    * @return \Recurly\Resources\SubscriptionChange
     */
     public function getPendingChange(): \Recurly\Resources\SubscriptionChange
     {
@@ -590,8 +614,9 @@ class Subscription extends RecurlyResource
 
     /**
     * Getter method for the plan attribute.
+    * Just the important parts.
     *
-    * @return \Recurly\Resources\PlanMini Just the important parts.
+    * @return \Recurly\Resources\PlanMini
     */
     public function getPlan(): \Recurly\Resources\PlanMini
     {
@@ -612,8 +637,9 @@ class Subscription extends RecurlyResource
 
     /**
     * Getter method for the po_number attribute.
+    * For manual invoicing, this identifies the PO number associated with the subscription.
     *
-    * @return string For manual invoicing, this identifies the PO number associated with the subscription.
+    * @return string
     */
     public function getPoNumber(): string
     {
@@ -634,8 +660,9 @@ class Subscription extends RecurlyResource
 
     /**
     * Getter method for the quantity attribute.
+    * Subscription quantity
     *
-    * @return int Subscription quantity
+    * @return int
     */
     public function getQuantity(): int
     {
@@ -656,8 +683,9 @@ class Subscription extends RecurlyResource
 
     /**
     * Getter method for the remaining_billing_cycles attribute.
+    * The remaining billing cycles in the current term.
     *
-    * @return int The remaining billing cycles in the current term.
+    * @return int
     */
     public function getRemainingBillingCycles(): int
     {
@@ -678,8 +706,9 @@ class Subscription extends RecurlyResource
 
     /**
     * Getter method for the remaining_pause_cycles attribute.
+    * Null unless subscription is paused or will pause at the end of the current billing period.
     *
-    * @return int Null unless subscription is paused or will pause at the end of the current billing period.
+    * @return int
     */
     public function getRemainingPauseCycles(): int
     {
@@ -700,8 +729,9 @@ class Subscription extends RecurlyResource
 
     /**
     * Getter method for the renewal_billing_cycles attribute.
+    * If `auto_renew=true`, when a term completes, `total_billing_cycles` takes this value as the length of subsequent terms. Defaults to the plan's `total_billing_cycles`.
     *
-    * @return int If `auto_renew=true`, when a term completes, `total_billing_cycles` takes this value as the length of subsequent terms. Defaults to the plan's `total_billing_cycles`.
+    * @return int
     */
     public function getRenewalBillingCycles(): int
     {
@@ -722,8 +752,9 @@ class Subscription extends RecurlyResource
 
     /**
     * Getter method for the shipping attribute.
+    * Subscription shipping details
     *
-    * @return \Recurly\Resources\SubscriptionShipping Subscription shipping details
+    * @return \Recurly\Resources\SubscriptionShipping
     */
     public function getShipping(): \Recurly\Resources\SubscriptionShipping
     {
@@ -744,8 +775,9 @@ class Subscription extends RecurlyResource
 
     /**
     * Getter method for the state attribute.
+    * State
     *
-    * @return string State
+    * @return string
     */
     public function getState(): string
     {
@@ -766,8 +798,9 @@ class Subscription extends RecurlyResource
 
     /**
     * Getter method for the subtotal attribute.
+    * Estimated total, before tax.
     *
-    * @return float Estimated total, before tax.
+    * @return float
     */
     public function getSubtotal(): float
     {
@@ -788,8 +821,9 @@ class Subscription extends RecurlyResource
 
     /**
     * Getter method for the terms_and_conditions attribute.
+    * Terms and conditions
     *
-    * @return string Terms and conditions
+    * @return string
     */
     public function getTermsAndConditions(): string
     {
@@ -810,8 +844,9 @@ class Subscription extends RecurlyResource
 
     /**
     * Getter method for the total_billing_cycles attribute.
+    * The number of cycles/billing periods in a term. When `remaining_billing_cycles=0`, if `auto_renew=true` the subscription will renew and a new term will begin, otherwise the subscription will expire.
     *
-    * @return int The number of cycles/billing periods in a term. When `remaining_billing_cycles=0`, if `auto_renew=true` the subscription will renew and a new term will begin, otherwise the subscription will expire.
+    * @return int
     */
     public function getTotalBillingCycles(): int
     {
@@ -832,8 +867,9 @@ class Subscription extends RecurlyResource
 
     /**
     * Getter method for the trial_ends_at attribute.
+    * Trial period ends at
     *
-    * @return string Trial period ends at
+    * @return string
     */
     public function getTrialEndsAt(): string
     {
@@ -854,8 +890,9 @@ class Subscription extends RecurlyResource
 
     /**
     * Getter method for the trial_started_at attribute.
+    * Trial period started at
     *
-    * @return string Trial period started at
+    * @return string
     */
     public function getTrialStartedAt(): string
     {
@@ -876,8 +913,9 @@ class Subscription extends RecurlyResource
 
     /**
     * Getter method for the unit_amount attribute.
+    * Subscription unit price
     *
-    * @return float Subscription unit price
+    * @return float
     */
     public function getUnitAmount(): float
     {
@@ -898,8 +936,9 @@ class Subscription extends RecurlyResource
 
     /**
     * Getter method for the updated_at attribute.
+    * Last updated at
     *
-    * @return string Last updated at
+    * @return string
     */
     public function getUpdatedAt(): string
     {
@@ -920,8 +959,9 @@ class Subscription extends RecurlyResource
 
     /**
     * Getter method for the uuid attribute.
+    * The UUID is useful for matching data with the CSV exports and building URLs into Recurly's UI.
     *
-    * @return string The UUID is useful for matching data with the CSV exports and building URLs into Recurly's UI.
+    * @return string
     */
     public function getUuid(): string
     {

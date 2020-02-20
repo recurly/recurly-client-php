@@ -33,8 +33,9 @@ class SubscriptionChange extends RecurlyResource
     
     /**
     * Getter method for the activate_at attribute.
+    * Activated at
     *
-    * @return string Activated at
+    * @return string
     */
     public function getActivateAt(): string
     {
@@ -55,8 +56,9 @@ class SubscriptionChange extends RecurlyResource
 
     /**
     * Getter method for the activated attribute.
+    * Returns `true` if the subscription change is activated.
     *
-    * @return bool Returns `true` if the subscription change is activated.
+    * @return bool
     */
     public function getActivated(): bool
     {
@@ -77,8 +79,9 @@ class SubscriptionChange extends RecurlyResource
 
     /**
     * Getter method for the add_ons attribute.
+    * These add-ons will be used when the subscription renews.
     *
-    * @return array These add-ons will be used when the subscription renews.
+    * @return array
     */
     public function getAddOns(): array
     {
@@ -99,8 +102,9 @@ class SubscriptionChange extends RecurlyResource
 
     /**
     * Getter method for the created_at attribute.
+    * Created at
     *
-    * @return string Created at
+    * @return string
     */
     public function getCreatedAt(): string
     {
@@ -121,8 +125,9 @@ class SubscriptionChange extends RecurlyResource
 
     /**
     * Getter method for the deleted_at attribute.
+    * Deleted at
     *
-    * @return string Deleted at
+    * @return string
     */
     public function getDeletedAt(): string
     {
@@ -143,8 +148,9 @@ class SubscriptionChange extends RecurlyResource
 
     /**
     * Getter method for the id attribute.
+    * The ID of the Subscription Change.
     *
-    * @return string The ID of the Subscription Change.
+    * @return string
     */
     public function getId(): string
     {
@@ -165,8 +171,9 @@ class SubscriptionChange extends RecurlyResource
 
     /**
     * Getter method for the object attribute.
+    * Object type
     *
-    * @return string Object type
+    * @return string
     */
     public function getObject(): string
     {
@@ -187,8 +194,9 @@ class SubscriptionChange extends RecurlyResource
 
     /**
     * Getter method for the plan attribute.
+    * Just the important parts.
     *
-    * @return \Recurly\Resources\PlanMini Just the important parts.
+    * @return \Recurly\Resources\PlanMini
     */
     public function getPlan(): \Recurly\Resources\PlanMini
     {
@@ -209,8 +217,9 @@ class SubscriptionChange extends RecurlyResource
 
     /**
     * Getter method for the quantity attribute.
+    * Subscription quantity
     *
-    * @return int Subscription quantity
+    * @return int
     */
     public function getQuantity(): int
     {
@@ -231,8 +240,9 @@ class SubscriptionChange extends RecurlyResource
 
     /**
     * Getter method for the shipping attribute.
+    * Subscription shipping details
     *
-    * @return \Recurly\Resources\SubscriptionShipping Subscription shipping details
+    * @return \Recurly\Resources\SubscriptionShipping
     */
     public function getShipping(): \Recurly\Resources\SubscriptionShipping
     {
@@ -253,8 +263,9 @@ class SubscriptionChange extends RecurlyResource
 
     /**
     * Getter method for the subscription_id attribute.
+    * The ID of the subscription that is going to be changed.
     *
-    * @return string The ID of the subscription that is going to be changed.
+    * @return string
     */
     public function getSubscriptionId(): string
     {
@@ -275,8 +286,9 @@ class SubscriptionChange extends RecurlyResource
 
     /**
     * Getter method for the unit_amount attribute.
+    * Unit amount
     *
-    * @return float Unit amount
+    * @return float
     */
     public function getUnitAmount(): float
     {
@@ -297,8 +309,9 @@ class SubscriptionChange extends RecurlyResource
 
     /**
     * Getter method for the updated_at attribute.
+    * Updated at
     *
-    * @return string Updated at
+    * @return string
     */
     public function getUpdatedAt(): string
     {

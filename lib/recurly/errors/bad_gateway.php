@@ -7,6 +7,6 @@
  */
 namespace Recurly\Errors;
 
-class GatewayError extends \Recurly\Errors\ServerError
+class BadGateway extends \Recurly\Errors\ServerError
 {
 }

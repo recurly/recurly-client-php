@@ -28,8 +28,9 @@ class SubscriptionAddOn extends RecurlyResource
     
     /**
     * Getter method for the add_on attribute.
+    * Just the important parts.
     *
-    * @return \Recurly\Resources\AddOnMini Just the important parts.
+    * @return \Recurly\Resources\AddOnMini
     */
     public function getAddOn(): \Recurly\Resources\AddOnMini
     {
@@ -50,8 +51,9 @@ class SubscriptionAddOn extends RecurlyResource
 
     /**
     * Getter method for the created_at attribute.
+    * Created at
     *
-    * @return string Created at
+    * @return string
     */
     public function getCreatedAt(): string
     {
@@ -72,8 +74,9 @@ class SubscriptionAddOn extends RecurlyResource
 
     /**
     * Getter method for the expired_at attribute.
+    * Expired at
     *
-    * @return string Expired at
+    * @return string
     */
     public function getExpiredAt(): string
     {
@@ -94,8 +97,9 @@ class SubscriptionAddOn extends RecurlyResource
 
     /**
     * Getter method for the id attribute.
+    * Subscription Add-on ID
     *
-    * @return string Subscription Add-on ID
+    * @return string
     */
     public function getId(): string
     {
@@ -116,8 +120,9 @@ class SubscriptionAddOn extends RecurlyResource
 
     /**
     * Getter method for the object attribute.
+    * Object type
     *
-    * @return string Object type
+    * @return string
     */
     public function getObject(): string
     {
@@ -138,8 +143,9 @@ class SubscriptionAddOn extends RecurlyResource
 
     /**
     * Getter method for the quantity attribute.
+    * Add-on quantity
     *
-    * @return int Add-on quantity
+    * @return int
     */
     public function getQuantity(): int
     {
@@ -160,8 +166,9 @@ class SubscriptionAddOn extends RecurlyResource
 
     /**
     * Getter method for the subscription_id attribute.
+    * Subscription ID
     *
-    * @return string Subscription ID
+    * @return string
     */
     public function getSubscriptionId(): string
     {
@@ -182,8 +189,9 @@ class SubscriptionAddOn extends RecurlyResource
 
     /**
     * Getter method for the unit_amount attribute.
+    * This is priced in the subscription's currency.
     *
-    * @return float This is priced in the subscription's currency.
+    * @return float
     */
     public function getUnitAmount(): float
     {
@@ -204,8 +212,9 @@ class SubscriptionAddOn extends RecurlyResource
 
     /**
     * Getter method for the updated_at attribute.
+    * Updated at
     *
-    * @return string Updated at
+    * @return string
     */
     public function getUpdatedAt(): string
     {
