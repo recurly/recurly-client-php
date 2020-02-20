@@ -6,7 +6,7 @@ abstract class BaseClient
 {
     private $_baseUrl = 'https://v3.recurly.com';
     private $_api_key;
-    public $_http;
+    protected $_http;
 
     /**
      * Constructor

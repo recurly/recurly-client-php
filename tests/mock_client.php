@@ -7,6 +7,13 @@ use Recurly\Utils;
 
 class MockClient extends BaseClient
 {
+
+    public function __construct()
+    {
+        parent::__construct("apikey");
+        $this->_http = Mockery::mock();
+    }
+
     protected function apiVersion(): string
     {
         return "v2999-01-01";
@@ -18,27 +25,38 @@ class MockClient extends BaseClient
         return $this->makeRequest('GET', $path, null, null);
     }
 
-    public static function create()
+    public function createResource(array $body): TestResource
     {
-        $client = new MockClient("apikey"); 
-        $http = Mockery::mock();
+        $path = $this->interpolatePath("/resources/", []);
+        return $this->makeRequest('POST', $path, $body, null);
+    }
 
-        // mock getResource 200 OK
-        $url = "https://v3.recurly.com/resources/iexist";
-        $result = '{"id": "iexist", "object": "test_resource"}';
-        $resp_header = self::_generateRespHeader("200 OK");
-        $http->allows()->execute(
-            "GET", $url, NULL, self::_expectedHeaders())->andReturns(array($result, $resp_header));
+    public function updateResource(string $resource_id, array $body): TestResource
+    {
+        $path = $this->interpolatePath("/resources/{resource_id}", ['resource_id' => $resource_id]);
+        return $this->makeRequest('PUT', $path, $body, null);
+    }
 
-        // mock getResource 404 Not Found
-        $url = "https://v3.recurly.com/resources/idontexist";
-        $result = "{\"error\":{\"type\":\"not_found\",\"message\":\"Couldn't find Resource with id = idontexist\",\"params\":[{\"param\":\"resource_id\"}]}}";
-        $resp_header = self::_generateRespHeader("404 Not Found");
-        $http->allows()->execute(
-            "GET", $url, NULL, self::_expectedHeaders())->andReturns(array($result, $resp_header));
+    public function deleteResource(string $resource_id): \Recurly\EmptyResource
+    {
+        $path = $this->interpolatePath("/resources/{resource_id}", ['resource_id' => $resource_id]);
+        return $this->makeRequest('DELETE', $path, null, null);
+    }
 
-        $client->_http = $http;
-        return $client;
+    public function addScenario($method, $url, $body, $result, $status): void
+    {
+        $resp_header = self::_generateRespHeader($status);
+        $this->_http->allows()->execute(
+            $method,
+            $url,
+            $body,
+            self::_expectedHeaders()
+            )->andReturns(array($result, $resp_header));
+    }
+
+    public function clearScenarios(): void
+    {
+        $this->_http = Mockery::mock();
     }
 
     private static function _generateRespHeader($status): array
@@ -47,7 +65,7 @@ class MockClient extends BaseClient
             "HTTP/1.1 $status",
             "Date: Wed, 19 Feb 2020 17:52:05 GMT",
             "Content-Type: application/json; charset=utf-8",
-            "Recurly-Version: recurly.v2019-10-10",
+            "Recurly-Version: recurly.v2999-01-01",
             "X-RateLimit-Limit: 2000",
             "X-RateLimit-Remaining: 1996",
             "X-RateLimit-Reset: 1582135020",
