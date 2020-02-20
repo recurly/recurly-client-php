@@ -1,5 +1,15 @@
 # Recurly PHP Client Library CHANGELOG
 
+## Version 2.12.11 (February 20, 2020)
+
+This brings us up to API version 2.25. There are no breaking changes
+
+* Allow external domains for getFile() calls [PR](https://github.com/recurly/recurly-client-php/pull/454)
+* Cleanup old upgrade warning [PR](https://github.com/recurly/recurly-client-php/pull/455)
+* Add 'Delete' to ShippingAddress object [PR](https://github.com/recurly/recurly-client-php/pull/457)
+* Add external_sku to Adjustment (included in API version 2.24) [PR](https://github.com/recurly/recurly-client-php/pull/458)
+* Add convertTrial() to Subscription [PR](https://github.com/recurly/recurly-client-php/pull/459)
+
 ## Version 2.12.10 (December 31, 2019)
 
 * Add vat_number to ShippingAddress class [PR](https://github.com/recurly/recurly-client-php/pull/443)
