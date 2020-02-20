@@ -1,6 +1,6 @@
 # Recurly PHP Client Library CHANGELOG
 
-## Version 2.12.11 (Februaru 20, 2020)
+## Version 2.12.11 (February 20, 2020)
 
 This brings us up to API version 2.25. There are no breaking changes
 
