@@ -78,12 +78,7 @@ class MockClient extends BaseClient
             "X-RateLimit-Limit: 2000",
             "X-RateLimit-Remaining: 1996",
             "X-RateLimit-Reset: 1582135020",
-            //"ETag: W/"9fa8e3452e9d6369c2c88004b3de81b4""
-            //"Cache-Control: max-age=0, private, must-revalidate"
             "X-Request-Id: 567a17af7875e3ba-ATL",
-            //"CF-Cache-Status: DYNAMIC",
-            //"Expect-CT: max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct""
-            //"Strict-Transport-Security: max-age=15552000; includeSubDomains; preload"
             "Server: cloudflare",
             "CF-RAY: 567a17af7875e3ba-ATL"
         ];
