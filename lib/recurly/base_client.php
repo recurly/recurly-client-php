@@ -4,6 +4,8 @@ namespace Recurly;
 
 abstract class BaseClient
 {
+    use RecurlyTraits;
+
     private $_baseUrl = 'https://v3.recurly.com';
     private $_api_key;
     protected $_http;
@@ -58,7 +60,6 @@ abstract class BaseClient
     {
         $request = new \Recurly\Request($method, $path, $body, $params);
 
-        $body = isset($body) && !empty($body) ? json_encode($body) : null;
         $url = $this->_buildPath($path, $params);
         list($result, $response_header) = $this->_http->execute($method, $url, $body, $this->_headers());
 
@@ -139,8 +140,8 @@ abstract class BaseClient
      */
     private function _headers(): array
     {
-        $auth_token = Utils::encodeApiKey($this->_api_key);
-        $agent = Utils::getUserAgent();
+        $auth_token = self::encodeApiKey($this->_api_key);
+        $agent = self::getUserAgent();
         return array(
             "User-Agent" => $agent,
             "Authorization" => "Basic {$auth_token}",

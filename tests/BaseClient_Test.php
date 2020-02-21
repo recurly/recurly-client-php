@@ -42,7 +42,7 @@ final class BaseClientTest extends RecurlyTestCase
     {
         $url = "https://v3.recurly.com/resources/";
         $result = '{"id": "created", "object": "test_resource", "name": "valid"}';
-        $body = '{"name":"valid"}';
+        $body = [ "name" => "valid" ];
         $this->client->addScenario("POST", $url, $body, $result, "201 Created");
         $resource = $this->client->createResource([ "name" => "valid" ]);
         $this->assertEquals($resource->getId(), "created");
@@ -52,7 +52,7 @@ final class BaseClientTest extends RecurlyTestCase
     {
         $url = "https://v3.recurly.com/resources/";
         $result = "{\"error\":{\"type\":\"validation\",\"message\":\"Name is invalid\",\"params\":[{\"param\":\"name\",\"message\":\"is invalid\"}]}}";
-        $body = '{"name":"invalid"}';
+        $body = [ "name" => "invalid" ];
         $this->client->addScenario("POST", $url, $body, $result, "422 Unprocessable Entity");
 
         $this->expectException(\Recurly\Errors\Validation::class);

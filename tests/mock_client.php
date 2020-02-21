@@ -4,14 +4,17 @@ use Recurly\Page;
 use Recurly\Resources\TestResource;
 use Recurly\BaseClient;
 use Recurly\Utils;
+use PHPUnit\Framework\MockObject\Generator;
+use Recurly\HttpAdapter;
 
 class MockClient extends BaseClient
 {
+    use Recurly\RecurlyTraits;
 
     public function __construct()
     {
         parent::__construct("apikey");
-        $this->_http = Mockery::mock();
+        $this->_http = (new Generator())->getMock(HttpAdapter::class);
     }
 
     protected function apiVersion(): string
@@ -46,17 +49,17 @@ class MockClient extends BaseClient
     public function addScenario($method, $url, $body, $result, $status): void
     {
         $resp_header = self::_generateRespHeader($status);
-        $this->_http->allows()->execute(
+        $this->_http->method('execute')->with(
             $method,
             $url,
             $body,
             self::_expectedHeaders()
-            )->andReturns(array($result, $resp_header));
+            )->willReturn(array($result, $resp_header));
     }
 
     public function clearScenarios(): void
     {
-        $this->_http = Mockery::mock();
+        $this->_http = (new Generator())->getMock(HttpAdapter::class);
     }
 
     private static function _generateRespHeader($status): array
@@ -82,8 +85,8 @@ class MockClient extends BaseClient
 
     private static function _expectedHeaders(): array
     {
-        $auth_token = Utils::encodeApiKey("apikey");
-        $agent = Utils::getUserAgent();
+        $auth_token = self::encodeApiKey("apikey");
+        $agent = self::getUserAgent();
         return [
             "User-Agent" => $agent,
             "Authorization" => "Basic {$auth_token}",
