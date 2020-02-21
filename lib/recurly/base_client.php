@@ -149,23 +149,4 @@ abstract class BaseClient
             "Content-Type" => "application/json",
         );
     }
-
-    /**
-     * Method to override the default Recurly API URL.
-     * This is primarily for Recurly testing
-     * 
-     * @param string $url The replacement URL to use
-     * 
-     * @return void
-     */
-    public function setApiUrl(string $url): void
-    {
-        echo "[SECURITY WARNING] setApiUrl is for testing only and not supported in production." . PHP_EOL;
-        if (getenv("RECURLY_INSECURE") == "true") {
-            $this->_baseUrl = $url;
-        } else {
-            echo "ApiUrl not changed. To change, set the environment variable RECURLY_INSECURE to true" . PHP_EOL;
-        }
-    }
-
 }
