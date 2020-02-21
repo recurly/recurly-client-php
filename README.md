@@ -21,7 +21,7 @@ This package is published on Packagist under the name [recurly/recurly-client](h
 ```json
 {
     "require": {
-        "recurly/recurly-client": "3.0.0-beta2"
+        "recurly/recurly-client": "3.0.0-beta5"
     }
 }
 ```
