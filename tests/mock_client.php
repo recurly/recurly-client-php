@@ -14,7 +14,7 @@ class MockClient extends BaseClient
     public function __construct()
     {
         parent::__construct("apikey");
-        $this->_http = (new Generator())->getMock(HttpAdapter::class);
+        $this->http = (new Generator())->getMock(HttpAdapter::class);
     }
 
     protected function apiVersion(): string
@@ -55,7 +55,7 @@ class MockClient extends BaseClient
     public function addScenario($method, $url, $body, $result, $status): void
     {
         $resp_header = self::_generateRespHeader($status);
-        $this->_http->method('execute')->with(
+        $this->http->method('execute')->with(
             $method,
             $url,
             $body,
@@ -65,7 +65,7 @@ class MockClient extends BaseClient
 
     public function clearScenarios(): void
     {
-        $this->_http = (new Generator())->getMock(HttpAdapter::class);
+        $this->http = (new Generator())->getMock(HttpAdapter::class);
     }
 
     private static function _generateRespHeader($status): array

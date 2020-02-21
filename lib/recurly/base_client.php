@@ -8,7 +8,7 @@ abstract class BaseClient
 
     private $_baseUrl = 'https://v3.recurly.com';
     private $_api_key;
-    protected $_http;
+    protected $http;
 
     /**
      * Constructor
@@ -18,7 +18,7 @@ abstract class BaseClient
     public function __construct(string $api_key)
     {
         $this->_api_key = $api_key;
-        $this->_http = new HttpAdapter;
+        $this->http = new HttpAdapter;
     }
 
     /**
@@ -61,7 +61,7 @@ abstract class BaseClient
         $request = new \Recurly\Request($method, $path, $body, $params);
 
         $url = $this->_buildPath($path, $params);
-        list($result, $response_header) = $this->_http->execute($method, $url, $body, $this->_headers());
+        list($result, $response_header) = $this->http->execute($method, $url, $body, $this->_headers());
 
         // TODO: The $request should be added to the $response
         $response = new \Recurly\Response($result);
