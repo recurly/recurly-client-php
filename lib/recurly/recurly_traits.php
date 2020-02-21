@@ -4,6 +4,28 @@ namespace Recurly;
 
 trait RecurlyTraits
 {
+    /**
+     * Generates User-Agent for API requests
+     * 
+     * @return string Recurly client User-Agent string
+     */
+    protected static function getUserAgent(): string
+    {
+        $php_version = phpversion();
+        return "Recurly/" . \Recurly\Version::CURRENT . "; php " . $php_version;
+    }
+
+    /**
+     * Base64 encodes the API key
+     * 
+     * @param string $key The API key to encode
+     * 
+     * @return string base64 encoded API key
+     */
+    protected static function encodeApiKey(string $key): string
+    {
+        return base64_encode($key);
+    }
 
     /**
      * Capitalizes all the words in the $input.

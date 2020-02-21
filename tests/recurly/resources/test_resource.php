@@ -4,6 +4,7 @@ namespace Recurly\Resources;
 
 class TestResource extends \Recurly\RecurlyResource
 {
+    private $_id;
     private $_object;
     private $_name;
     private $_single_child;
@@ -14,6 +15,16 @@ class TestResource extends \Recurly\RecurlyResource
         'setResourceArray' => '\Recurly\Resources\TestResource',
         'setStringArray' => 'string',
     );
+
+    public function getId(): string
+    {
+        return $this->_id;
+    }
+
+    public function setId(string $value): void
+    {
+        $this->_id = $value;
+    }
 
     public function getObject(): string
     {

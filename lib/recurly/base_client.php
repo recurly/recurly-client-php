@@ -4,8 +4,11 @@ namespace Recurly;
 
 abstract class BaseClient
 {
+    use RecurlyTraits;
+
     private $_baseUrl = 'https://v3.recurly.com';
     private $_api_key;
+    protected $http;
 
     /**
      * Constructor
@@ -15,6 +18,7 @@ abstract class BaseClient
     public function __construct(string $api_key)
     {
         $this->_api_key = $api_key;
+        $this->http = new HttpAdapter;
     }
 
     /**
@@ -56,22 +60,12 @@ abstract class BaseClient
     {
         $request = new \Recurly\Request($method, $path, $body, $params);
 
-        $options = array(
-            'http' => array(
-                'ignore_errors' => true, // Allows for returning error bodies
-                'method' => $method,
-                'header' => $this->_headers(),
-                'content' => isset($body) && !empty($body) ? json_encode($body) : null
-            )
-        );
-
-        $context = stream_context_create($options);
         $url = $this->_buildPath($path, $params);
-        $result = file_get_contents($url, false, $context);
+        list($result, $response_header) = $this->http->execute($method, $url, $body, $this->_headers());
 
         // TODO: The $request should be added to the $response
         $response = new \Recurly\Response($result);
-        $response->setHeaders($http_response_header);
+        $response->setHeaders($response_header);
 
         return $response;
     }
@@ -114,7 +108,7 @@ abstract class BaseClient
      */
     private function _buildPath(string $path, ?array $params): string
     {
-        if (isset($params)) {
+        if (isset($params) && !empty($params)) {
             return $this->_baseUrl . $path . '?' . http_build_query($params);
         } else {
             return $this->_baseUrl . $path;
@@ -142,38 +136,17 @@ abstract class BaseClient
     /**
      * Generates headers to be sent with the HTTP request
      * 
-     * @return string String representation of the HTTP headers
+     * @return array Array representation of the HTTP headers
      */
-    private function _headers(): string
+    private function _headers(): array
     {
-        $php_version = phpversion();
-        $client_version = \Recurly\Version::CURRENT;
-        $auth_token = base64_encode("{$this->_api_key}:");
-        $headers = array(
-            "User-Agent: Recurly/{$client_version}; php {$php_version}",
-            "Authorization: Basic {$auth_token}",
-            "Accept: application/vnd.recurly.{$this->apiVersion()}",
-            "Content-Type: application/json",
+        $auth_token = self::encodeApiKey($this->_api_key);
+        $agent = self::getUserAgent();
+        return array(
+            "User-Agent" => $agent,
+            "Authorization" => "Basic {$auth_token}",
+            "Accept" => "application/vnd.recurly.{$this->apiVersion()}",
+            "Content-Type" => "application/json",
         );
-        return join("\r\n", $headers);
     }
-
-    /**
-     * Method to override the default Recurly API URL.
-     * This is primarily for Recurly testing
-     * 
-     * @param string $url The replacement URL to use
-     * 
-     * @return void
-     */
-    public function setApiUrl(string $url): void
-    {
-        echo "[SECURITY WARNING] setApiUrl is for testing only and not supported in production." . PHP_EOL;
-        if (getenv("RECURLY_INSECURE") == "true") {
-            $this->_baseUrl = $url;
-        } else {
-            echo "ApiUrl not changed. To change, set the environment variable RECURLY_INSECURE to true" . PHP_EOL;
-        }
-    }
-
 }
