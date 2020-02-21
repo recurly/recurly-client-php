@@ -59,11 +59,52 @@ final class BaseClientTest extends RecurlyTestCase
         $resource = $this->client->createResource([ "name" => "invalid" ]);
     }
 
-    public function testDeleteResource(): void
+    public function testDeleteResource204(): void
     {
         $url = "https://v3.recurly.com/resources/iexist";
         $result = "";
         $this->client->addScenario("DELETE", $url, NULL, $result, "204 No Content");
         $empty = $this->client->deleteResource("iexist");
+    }
+
+    public function testUpdateResource200(): void
+    {
+        $url = "https://v3.recurly.com/resources/iexist";
+        $result = '{"id": "iexist", "object": "test_resource", "name": "newname"}';
+        $body = [ "name" => "newname" ];
+        $this->client->addScenario("PUT", $url, $body, $result, "200 OK");
+
+        $resource = $this->client->updateResource("iexist", $body);
+        $this->assertEquals($resource->getName(), "newname");
+    }
+
+    public function testListResources200(): void
+    {
+        $url = "https://v3.recurly.com/resources";
+        $result = '{ "object": "list", "has_more": false, "next": null, "data": [{"id": "iexist", "object": "test_resource", "name": "newname"}]}';
+        $this->client->addScenario("GET", $url, NULL, $result, "200 OK");
+
+        $resources = $this->client->listResources();
+        $count = 0;
+        foreach($resources as $resource) {
+            $count = $count + 1;
+            $this->assertEquals($resource->getId(), "iexist");
+        }
+        $this->assertEquals($count, 1);
+    }
+
+    public function testListResourcesWithParams200(): void
+    {
+        $url = "https://v3.recurly.com/resources?limit=1";
+        $result = '{ "object": "list", "has_more": false, "next": null, "data": [{"id": "iexist", "object": "test_resource", "name": "newname"}]}';
+        $this->client->addScenario("GET", $url, NULL, $result, "200 OK");
+
+        $resources = $this->client->listResources([ "limit" => 1 ]);
+        $count = 0;
+        foreach($resources as $resource) {
+            $count = $count + 1;
+            $this->assertEquals($resource->getId(), "iexist");
+        }
+        $this->assertEquals($count, 1);
     }
 }

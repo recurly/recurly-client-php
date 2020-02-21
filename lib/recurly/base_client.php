@@ -108,7 +108,7 @@ abstract class BaseClient
      */
     private function _buildPath(string $path, ?array $params): string
     {
-        if (isset($params)) {
+        if (isset($params) && !empty($params)) {
             return $this->_baseUrl . $path . '?' . http_build_query($params);
         } else {
             return $this->_baseUrl . $path;

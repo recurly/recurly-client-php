@@ -22,6 +22,12 @@ class MockClient extends BaseClient
         return "v2999-01-01";
     }
 
+    public function listResources(array $options = []): \Recurly\Pager
+    {
+        $path = $this->interpolatePath("/resources", []);
+        return new \Recurly\Pager($this, $path, $options);
+    }
+
     public function getResource(string $resource_id): TestResource
     {
         $path = $this->interpolatePath("/resources/{resource_id}", ['resource_id' => $resource_id]);
