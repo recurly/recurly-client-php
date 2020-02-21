@@ -103,17 +103,16 @@ final class RecurlyErrorTest extends RecurlyTestCase
                 "message" => "The error message"
             )
         );
-    }
 
-    //     $response = new \Recurly\Response(json_encode($data));
-    //     $response->setHeaders(array(
-    //         'HTTP/1.1 500 Internal Server Error',
-    //         'Content-Type: application/json'
-    //     ));
-    //     $result = \Recurly\RecurlyError::fromResponse($response);
-    //     $this->assertInstanceOf(
-    //         \Recurly\Resources\ErrorMayHaveTransaction::class,
-    //         $result->getApiError()
-    //     );
-    // }
+        $response = new \Recurly\Response(json_encode($data));
+        $response->setHeaders(array(
+            'HTTP/1.1 500 Internal Server Error',
+            'Content-Type: application/json'
+        ));
+        $result = \Recurly\RecurlyError::fromResponse($response);
+        $this->assertInstanceOf(
+            \Recurly\Resources\ErrorMayHaveTransaction::class,
+            $result->getApiError()
+        );
+    }
 }
