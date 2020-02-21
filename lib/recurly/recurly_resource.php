@@ -100,7 +100,7 @@ abstract class RecurlyResource
     {
         $klass = new static();
         foreach ($data as $key => $value) {
-            if ($key == 'object' || empty($value)) {
+            if (empty($value)) {
                 continue;
             }
 
@@ -134,10 +134,12 @@ abstract class RecurlyResource
                 } else {
                     $klass->$setter($value);
                 }
+            } elseif ($key == 'object') {
+                continue;
             } elseif (\Recurly\STRICT_MODE) {
                 // @codeCoverageIgnoreStart
                 $klass_name = static::class;
-                trigger_error("$klass_name encountered json attribute $key but it's unknown to it's schema", E_USER_ERROR);
+                trigger_error("[STRICT_MODE] $klass_name encountered json attribute $key but it's unknown to it's schema", E_USER_ERROR);
                 // @codeCoverageIgnoreEnd
             }
         }
@@ -193,7 +195,7 @@ abstract class RecurlyResource
         if (!class_exists($klass)) {
             // @codeCoverageIgnoreStart
             if (\Recurly\STRICT_MODE) {
-                trigger_error("Could not find the Recurly class for key {$type}", E_USER_ERROR);
+                trigger_error("[STRICT_MODE] Could not find the Recurly class for key {$type}", E_USER_ERROR);
             }
             // @codeCoverageIgnoreEnd
         }

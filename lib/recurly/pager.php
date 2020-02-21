@@ -127,7 +127,6 @@ class Pager implements \Iterator
      */
     private function _loadNextPage(): void
     {
-        // TODO: The response should persist the original params, right?
         $next_page = $this->_current_page->getNext();
         $this->_current_page = $this->_client->nextPage($next_page, null);
     }
