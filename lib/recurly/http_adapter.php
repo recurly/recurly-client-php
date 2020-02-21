@@ -2,16 +2,17 @@
 
 namespace Recurly;
 
+/**
+ * This class abstracts away all the PHP-level HTTP
+ * code. This allows us to easily mock out the HTTP
+ * calls in BaseClient by injecting a mocked version of
+ * this adapter.
+ */
 class HttpAdapter
 {
     private static $_default_options = [
         'ignore_errors' => true
     ];
-
-    public function __construct()
-    {
-
-    }
 
     /**
      * @param string $method   HTTP method to use
