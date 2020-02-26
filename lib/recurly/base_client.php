@@ -6,7 +6,7 @@ abstract class BaseClient
 {
     use RecurlyTraits;
 
-    private $_baseUrl = 'https://v3.recurly.com';
+    protected $baseUrl = 'https://v3.recurly.com';
     private $_api_key;
     protected $http;
 
@@ -109,9 +109,9 @@ abstract class BaseClient
     private function _buildPath(string $path, ?array $params): string
     {
         if (isset($params) && !empty($params)) {
-            return $this->_baseUrl . $path . '?' . http_build_query($params);
+            return $this->baseUrl . $path . '?' . http_build_query($params);
         } else {
-            return $this->_baseUrl . $path;
+            return $this->baseUrl . $path;
         }
 
     }
