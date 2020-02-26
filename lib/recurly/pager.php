@@ -21,7 +21,27 @@ class Pager implements \Iterator
     {
         $this->_client = $client;
         $this->_path = $path;
-        $this->_params = $params;
+        $this->_params = $this->_mapArrayParams($params);
+    }
+
+    /**
+     * Maps parameters with array values into csv strings. The API expects these
+     * values to be csv strings, but an array is a nicer interface for developers.
+     * 
+     * @param array $params
+     * 
+     * @return array
+     */
+    private function _mapArrayParams(?array $params = []): ?array
+    {
+        if (!is_null($params)) {
+            array_walk($params, function(&$param, $key) {
+                if (is_array($param)) {
+                    $param = join(',', $param);
+                }
+            });
+        }
+        return $params;
     }
 
     /**

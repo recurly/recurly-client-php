@@ -65,6 +65,7 @@ final class BaseClientTest extends RecurlyTestCase
         $result = "";
         $this->client->addScenario("DELETE", $url, NULL, $result, "204 No Content");
         $empty = $this->client->deleteResource("iexist");
+        $this->assertInstanceOf(\Recurly\EmptyResource::class, $empty);
     }
 
     public function testUpdateResource200(): void
