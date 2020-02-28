@@ -42,7 +42,7 @@ class Recurly_Account extends Recurly_Resource
     parent::__construct(null, $client);
     if (!is_null($accountCode))
       $this->account_code = $accountCode;
-    $this->address = new Recurly_Address();
+    $this->_values["address"] = new Recurly_Address();
     $this->custom_fields = new Recurly_CustomFieldList();
   }
 
