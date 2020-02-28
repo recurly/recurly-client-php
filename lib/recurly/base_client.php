@@ -128,7 +128,7 @@ abstract class BaseClient
     {
         return array_reduce(
             array_keys($options), function ($p, $i) use ($options) {
-                return str_replace("{{$i}}", $options[$i], $p);
+                return str_replace("{{$i}}", rawurlencode($options[$i]), $p);
             }, $path
         );
     }
