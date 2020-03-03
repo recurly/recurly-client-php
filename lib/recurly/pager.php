@@ -28,18 +28,20 @@ class Pager implements \Iterator
      * Maps parameters with array values into csv strings. The API expects these
      * values to be csv strings, but an array is a nicer interface for developers.
      * 
-     * @param array $params
+     * @param array $params Associative array of parameters
      * 
      * @return array
      */
     private function _mapArrayParams(?array $params = []): ?array
     {
         if (!is_null($params)) {
-            array_walk($params, function(&$param, $key) {
-                if (is_array($param)) {
-                    $param = join(',', $param);
+            array_walk(
+                $params, function (&$param, $key) {
+                    if (is_array($param)) {
+                        $param = join(',', $param);
+                    }
                 }
-            });
+            );
         }
         return $params;
     }
