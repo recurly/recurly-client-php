@@ -8,10 +8,6 @@ This repository houses the official php client for Recurly's V3 API.
 Documentation for the HTTP API and example code can be found
 [on our Developer Portal](https://developers.recurly.com/api/latest/).
 
-> *Warning*:
-> This library is currently in a beta phase. We are seeking feedback from the community and doing some final testing. Because of this,
-> breaking changes may be published at any time until we publish `3.0.0`.
-
 ## Getting Started
 
 ### Installing
@@ -21,7 +17,7 @@ This package is published on Packagist under the name [recurly/recurly-client](h
 ```json
 {
     "require": {
-        "recurly/recurly-client": "3.0.0-beta5"
+        "recurly/recurly-client": "3.0.0"
     }
 }
 ```
