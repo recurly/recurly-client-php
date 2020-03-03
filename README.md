@@ -29,7 +29,9 @@ This package is published on Packagist under the name [recurly/recurly-client](h
 Client instances provide one place where every operation on the Recurly API can be found (rather than having them spread out amongst classes). A new client can be initialized with its constructor. It only requires an API key which can be obtained on the [API Credentials Page](https://app.recurly.com/go/integrations/api_keys).
 
 ```php
-$api_key = '83749879bbde395b5fe0cc1a5abf8e5';
+// You should store your API key somewhere safe
+// and not in plain text if possible
+$api_key = 'myApiKey';
 $client = new \Recurly\Client($api_key);
 ```
 
