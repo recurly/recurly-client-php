@@ -52,9 +52,9 @@ class MockClient extends BaseClient
         return $this->makeRequest('DELETE', $path, null, null);
     }
 
-    public function addScenario($method, $url, $body, $result, $status): void
+    public function addScenario($method, $url, $body, $result, $status, $additional_headers = []): void
     {
-        $resp_header = self::_generateRespHeader($status);
+        $resp_header = self::_generateRespHeader($status, $additional_headers);
         $this->http->method('execute')->with(
             $method,
             $url,
@@ -68,20 +68,25 @@ class MockClient extends BaseClient
         $this->http = (new Generator())->getMock(HttpAdapter::class);
     }
 
-    private static function _generateRespHeader($status): array
+    private static function _generateRespHeader($status, $additional_headers): array
     {
-        return [
-            "HTTP/1.1 $status",
-            "Date: Wed, 19 Feb 2020 17:52:05 GMT",
-            "Content-Type: application/json; charset=utf-8",
-            "Recurly-Version: recurly.v2999-01-01",
-            "X-RateLimit-Limit: 2000",
-            "X-RateLimit-Remaining: 1996",
-            "X-RateLimit-Reset: 1582135020",
-            "X-Request-Id: 567a17af7875e3ba-ATL",
-            "Server: cloudflare",
-            "CF-RAY: 567a17af7875e3ba-ATL"
-        ];
+        $header_map = array_merge([
+            "Date" => "Wed, 19 Feb 2020 17:52:05 GMT",
+            "Content-Type" => "application/json; charset=utf-8",
+            "Recurly-Version" => "recurly.v2999-01-01",
+            "X-RateLimit-Limit" => "2000",
+            "X-RateLimit-Remaining" => "1996",
+            "X-RateLimit-Reset" => "1582135020",
+            "X-Request-Id" => "567a17af7875e3ba-ATL",
+            "Server" => "cloudflare",
+            "CF-RAY" => "567a17af7875e3ba-ATL"
+        ], $additional_headers);
+
+        $headers = ["HTTP/1.1 $status"];
+        foreach ($header_map as $k => $v) {
+            array_push($headers, "$k: $v");
+        }
+        return $headers;
     }
 
     private static function _expectedHeaders(): array
