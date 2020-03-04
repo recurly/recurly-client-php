@@ -8,5 +8,3 @@ dist: trusty
 install:
   - composer install --dev
 script: vendor/phpunit/phpunit/phpunit tests
-matrix:
-  allow_failures:
