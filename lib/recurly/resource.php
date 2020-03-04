@@ -183,8 +183,8 @@ abstract class Recurly_Resource extends Recurly_Base
       if(!array_key_exists($attr, $this->_values)) { continue; }
 
       if(isset($this->_unsavedKeys[$attr]) ||
-        $nested && in_array($attr, $requiredAttributes) ||
-        (is_array($this->_values[$attr]) || $this->_values[$attr] instanceof ArrayAccess))
+         $nested && in_array($attr, $requiredAttributes) ||
+         (is_array($this->_values[$attr]) || $this->_values[$attr] instanceof ArrayAccess))
       {
         $attributes[$attr] = $this->$attr;
       }

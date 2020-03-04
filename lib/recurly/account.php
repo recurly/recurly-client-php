@@ -42,6 +42,7 @@ class Recurly_Account extends Recurly_Resource
     parent::__construct(null, $client);
     if (!is_null($accountCode))
       $this->account_code = $accountCode;
+    # setting address this way to prevent it from ending up in "unsavedKeys"
     $this->_values["address"] = new Recurly_Address();
     $this->custom_fields = new Recurly_CustomFieldList();
   }
