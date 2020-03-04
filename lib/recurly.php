@@ -1,6 +1,7 @@
 <?php
 
 // Require all Recurly classes
+require_once(__DIR__ . '/recurly/util/http_validations.php');
 require_once(__DIR__ . '/recurly/base.php');
 require_once(__DIR__ . '/recurly/client.php');
 require_once(__DIR__ . '/recurly/currency.php');

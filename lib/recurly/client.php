@@ -9,6 +9,8 @@
  */
 class Recurly_Client
 {
+  use Recurly_HTTPValidations;
+
   /**
    * Subdomain for all requests.
    */
@@ -355,8 +357,9 @@ class Recurly_Client
       curl_close($ch);
       $this->_raiseCurlError($errorNumber, $message);
     }
-
+    $statusCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
     curl_close($ch);
+    $this->validateStatusCode($statusCode);
 
     return $response;
   }
