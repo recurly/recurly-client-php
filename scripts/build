@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
 set -e
 
-rm composer.lock
+rm -f composer.lock
 composer install --dev
