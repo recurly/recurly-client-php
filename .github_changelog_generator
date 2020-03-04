@@ -1,0 +1,8 @@
+unreleased=false
+since-tag=3.0.0-beta1
+exclude-labels=V2,question,bug?,duplicate
+exclude-tags=2\..*
+issues-wo-labels=false
+verbose=false
+project=recurly-client-php
+user=recurly
