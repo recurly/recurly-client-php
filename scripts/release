@@ -1,0 +1,23 @@
+#!/usr/bin/env bash
+set -e
+
+# TODO this file could be gone
+RELEASED_LOG="/tmp/php-pending-changes.md"
+THIS_VERSION=$(./scripts/bump --this-version)
+
+# Finally need to update the full changelog
+./scripts/changelog
+git add CHANGELOG.md
+git commit -m "Update Changelog for Release $THIS_VERSION"
+git push origin master
+
+# Publish is automatic on creation of release below
+
+# create release
+hub release create -c -F "$RELEASED_LOG" "$THIS_VERSION"
+
+# Copy-pasteable messages for announcments
+echo "Maven (Takes time to show up): https://search.maven.org/artifact/com.recurly.v3/api-client/$THIS_VERSION/jar"
+echo "Release: https://github.com/recurly/recurly-client-java/releases/tag/$THIS_VERSION"
+echo "Changelog:"
+cat "$RELEASED_LOG"
