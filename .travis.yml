@@ -2,10 +2,9 @@ language: php
 php:
   - 7.4
   - 7.3
+  - 7.2
 sudo: false
 dist: trusty
 install:
   - composer install --dev
 script: vendor/phpunit/phpunit/phpunit tests
-matrix:
-  allow_failures:
