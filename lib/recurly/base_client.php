@@ -147,6 +147,7 @@ abstract class BaseClient
             "Authorization" => "Basic {$auth_token}",
             "Accept" => "application/vnd.recurly.{$this->apiVersion()}",
             "Content-Type" => "application/json",
+            "Accept-Encoding" => "gzip",
         );
     }
 }
