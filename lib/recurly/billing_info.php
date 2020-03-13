@@ -37,6 +37,7 @@
  * @property-read string $last_four Credit card number, last four digits
  * @property string $card_type Visa, MasterCard, American Express, Discover, JCB, etc
  * @property-write string $three_d_secure_action_result_token_id An id returned by Recurly.js referencing the result of the 3DS authentication for PSD2
+ * @property string $iban International bank account number developed to identify an overseas bank account
  */
 class Recurly_BillingInfo extends Recurly_Resource
 {
@@ -105,7 +106,7 @@ class Recurly_BillingInfo extends Recurly_Resource
       'paypal_billing_agreement_id', 'amazon_billing_agreement_id', 'currency',
       'token_id', 'external_hpp_type', 'gateway_token', 'gateway_code',
       'braintree_payment_nonce', 'roku_billing_agreement_id',
-      'three_d_secure_action_result_token_id', 'transaction_type'
+      'three_d_secure_action_result_token_id', 'transaction_type', 'iban'
     );
   }
 }
