@@ -1,5 +1,13 @@
 # Recurly PHP Client Library CHANGELOG
 
+## Version 2.12.12 (March 17, 2020)
+
+* Transaction: update phpdoc [PR](https://github.com/recurly/recurly-client-php/pull/460)
+* Update api version to 2.25 [PR](https://github.com/recurly/recurly-client-php/pull/463)
+* Moving statusCode checks [PR](https://github.com/recurly/recurly-client-php/pull/469)
+* Prevent overwritten address on new purchase with existing account [PR](https://github.com/recurly/recurly-client-php/pull/470)
+* Add additional attributes to support item-backed add-ons [PR](https://github.com/recurly/recurly-client-php/pull/474)
+
 ## Version 2.12.11 (February 20, 2020)
 
 This brings us up to API version 2.25. There are no breaking changes
