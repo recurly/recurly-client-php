@@ -98,6 +98,7 @@ class MockClient extends BaseClient
             "Authorization" => "Basic {$auth_token}",
             "Accept" => "application/vnd.recurly.v2999-01-01",
             "Content-Type" => "application/json",
+            "Accept-Encoding" => "gzip",
         ];
     }
 }
