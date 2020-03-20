@@ -1,5 +1,21 @@
 # Changelog
 
+## [3.0.1](https://github.com/recurly/recurly-client-php/tree/3.0.1) (2020-03-20)
+
+[Full Changelog](https://github.com/recurly/recurly-client-php/compare/3.0.0...3.0.1)
+
+**Implemented enhancements:**
+
+- Enable gzip compression on HTTP responses [\#475](https://github.com/recurly/recurly-client-php/pull/475) ([douglasmiller](https://github.com/douglasmiller))
+
+**Merged pull requests:**
+
+- Release 3.0.1 [\#481](https://github.com/recurly/recurly-client-php/pull/481) ([douglasmiller](https://github.com/douglasmiller))
+- Fri Mar 20 17:48:03 UTC 2020 Upgrade API version v2019-10-10 [\#480](https://github.com/recurly/recurly-client-php/pull/480) ([douglasmiller](https://github.com/douglasmiller))
+- Adding release scripts [\#478](https://github.com/recurly/recurly-client-php/pull/478) ([douglasmiller](https://github.com/douglasmiller))
+- Reducing minimum php version from 7.3 to 7.2 [\#473](https://github.com/recurly/recurly-client-php/pull/473) ([douglasmiller](https://github.com/douglasmiller))
+- Adding parameter comment and including formatted code [\#468](https://github.com/recurly/recurly-client-php/pull/468) ([douglasmiller](https://github.com/douglasmiller))
+
 ## [3.0.0](https://github.com/recurly/recurly-client-php/tree/3.0.0) (2020-03-03)
 
 [Full Changelog](https://github.com/recurly/recurly-client-php/compare/3.0.0-beta5...3.0.0)
@@ -8,6 +24,7 @@
 
 - Updating version to GA 3.0.0 [\#467](https://github.com/recurly/recurly-client-php/pull/467) ([douglasmiller](https://github.com/douglasmiller))
 - Adding and Updating Pager tests [\#466](https://github.com/recurly/recurly-client-php/pull/466) ([douglasmiller](https://github.com/douglasmiller))
+- \[V3\] Mock Client [\#461](https://github.com/recurly/recurly-client-php/pull/461) ([bhelx](https://github.com/bhelx))
 
 ## [3.0.0-beta5](https://github.com/recurly/recurly-client-php/tree/3.0.0-beta5) (2020-02-21)
 
