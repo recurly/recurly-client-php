@@ -32,6 +32,7 @@ class Coupon extends RecurlyResource
     private $_plans;
     private $_plans_names;
     private $_redeem_by;
+    private $_redeemed_at;
     private $_redemption_resource;
     private $_state;
     private $_temporal_amount;
@@ -508,6 +509,29 @@ property and one of the following properties: `percent`, `fixed`, `trial`.
     public function setRedeemBy(string $redeem_by): void
     {
         $this->_redeem_by = $redeem_by;
+    }
+
+    /**
+    * Getter method for the redeemed_at attribute.
+    * The date and time the unique coupon code was redeemed. This is only present for bulk coupons.
+    *
+    * @return string
+    */
+    public function getRedeemedAt(): string
+    {
+        return $this->_redeemed_at;
+    }
+
+    /**
+    * Setter method for the redeemed_at attribute.
+    *
+    * @param string $redeemed_at
+    *
+    * @return void
+    */
+    public function setRedeemedAt(string $redeemed_at): void
+    {
+        $this->_redeemed_at = $redeemed_at;
     }
 
     /**

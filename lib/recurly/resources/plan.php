@@ -25,7 +25,9 @@ class Plan extends RecurlyResource
     private $_interval_unit;
     private $_name;
     private $_object;
+    private $_revenue_schedule_type;
     private $_setup_fee_accounting_code;
+    private $_setup_fee_revenue_schedule_type;
     private $_state;
     private $_tax_code;
     private $_tax_exempt;
@@ -339,6 +341,29 @@ class Plan extends RecurlyResource
     }
 
     /**
+    * Getter method for the revenue_schedule_type attribute.
+    * Revenue schedule type
+    *
+    * @return string
+    */
+    public function getRevenueScheduleType(): string
+    {
+        return $this->_revenue_schedule_type;
+    }
+
+    /**
+    * Setter method for the revenue_schedule_type attribute.
+    *
+    * @param string $revenue_schedule_type
+    *
+    * @return void
+    */
+    public function setRevenueScheduleType(string $revenue_schedule_type): void
+    {
+        $this->_revenue_schedule_type = $revenue_schedule_type;
+    }
+
+    /**
     * Getter method for the setup_fee_accounting_code attribute.
     * Accounting code for invoice line items for the plan's setup fee. If no value is provided, it defaults to plan's accounting code.
     *
@@ -359,6 +384,29 @@ class Plan extends RecurlyResource
     public function setSetupFeeAccountingCode(string $setup_fee_accounting_code): void
     {
         $this->_setup_fee_accounting_code = $setup_fee_accounting_code;
+    }
+
+    /**
+    * Getter method for the setup_fee_revenue_schedule_type attribute.
+    * Setup fee revenue schedule type
+    *
+    * @return string
+    */
+    public function getSetupFeeRevenueScheduleType(): string
+    {
+        return $this->_setup_fee_revenue_schedule_type;
+    }
+
+    /**
+    * Setter method for the setup_fee_revenue_schedule_type attribute.
+    *
+    * @param string $setup_fee_revenue_schedule_type
+    *
+    * @return void
+    */
+    public function setSetupFeeRevenueScheduleType(string $setup_fee_revenue_schedule_type): void
+    {
+        $this->_setup_fee_revenue_schedule_type = $setup_fee_revenue_schedule_type;
     }
 
     /**

@@ -2025,6 +2025,20 @@ class Client extends BaseClient
     }
   
     /**
+     * Convert trial subscription
+     *
+     * @param string $subscription_id Subscription ID or UUID. For ID no prefix is used e.g. `e28zov4fw0v2`. For UUID use prefix `uuid-`, e.g. `uuid-123457890`.
+     *
+     * @return \Recurly\Resources\Subscription
+     * @link   https://developers.recurly.com/api/v2019-10-10#operation/convert_trial
+     */
+    public function convertTrial(string $subscription_id): \Recurly\Resources\Subscription
+    {
+        $path = $this->interpolatePath("/subscriptions/{subscription_id}/convert_trial", ['subscription_id' => $subscription_id]);
+        return $this->makeRequest('PUT', $path, null, null);
+    }
+  
+    /**
      * Fetch a subscription's pending change
      *
      * @param string $subscription_id Subscription ID or UUID. For ID no prefix is used e.g. `e28zov4fw0v2`. For UUID use prefix `uuid-`, e.g. `uuid-123457890`.
