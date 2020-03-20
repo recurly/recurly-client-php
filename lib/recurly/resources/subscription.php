@@ -42,6 +42,7 @@ class Subscription extends RecurlyResource
     private $_remaining_billing_cycles;
     private $_remaining_pause_cycles;
     private $_renewal_billing_cycles;
+    private $_revenue_schedule_type;
     private $_shipping;
     private $_state;
     private $_subtotal;
@@ -748,6 +749,29 @@ class Subscription extends RecurlyResource
     public function setRenewalBillingCycles(int $renewal_billing_cycles): void
     {
         $this->_renewal_billing_cycles = $renewal_billing_cycles;
+    }
+
+    /**
+    * Getter method for the revenue_schedule_type attribute.
+    * Revenue schedule type
+    *
+    * @return string
+    */
+    public function getRevenueScheduleType(): string
+    {
+        return $this->_revenue_schedule_type;
+    }
+
+    /**
+    * Setter method for the revenue_schedule_type attribute.
+    *
+    * @param string $revenue_schedule_type
+    *
+    * @return void
+    */
+    public function setRevenueScheduleType(string $revenue_schedule_type): void
+    {
+        $this->_revenue_schedule_type = $revenue_schedule_type;
     }
 
     /**

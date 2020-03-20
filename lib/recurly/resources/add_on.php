@@ -26,6 +26,7 @@ class AddOn extends RecurlyResource
     private $_object;
     private $_optional;
     private $_plan_id;
+    private $_revenue_schedule_type;
     private $_state;
     private $_tax_code;
     private $_updated_at;
@@ -355,6 +356,29 @@ class AddOn extends RecurlyResource
     public function setPlanId(string $plan_id): void
     {
         $this->_plan_id = $plan_id;
+    }
+
+    /**
+    * Getter method for the revenue_schedule_type attribute.
+    * When this add-on is invoiced, the line item will use this revenue schedule. If `item_code`/`item_id` is part of the request then `revenue_schedule_type` must be absent in the request as the value will be set from the item.
+    *
+    * @return string
+    */
+    public function getRevenueScheduleType(): string
+    {
+        return $this->_revenue_schedule_type;
+    }
+
+    /**
+    * Setter method for the revenue_schedule_type attribute.
+    *
+    * @param string $revenue_schedule_type
+    *
+    * @return void
+    */
+    public function setRevenueScheduleType(string $revenue_schedule_type): void
+    {
+        $this->_revenue_schedule_type = $revenue_schedule_type;
     }
 
     /**

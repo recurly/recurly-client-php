@@ -14,7 +14,9 @@ class AddOnMini extends RecurlyResource
 {
     private $_accounting_code;
     private $_code;
+    private $_external_sku;
     private $_id;
+    private $_item_id;
     private $_name;
     private $_object;
 
@@ -69,6 +71,29 @@ class AddOnMini extends RecurlyResource
     }
 
     /**
+    * Getter method for the external_sku attribute.
+    * Optional, stock keeping unit to link the item to other inventory systems.
+    *
+    * @return string
+    */
+    public function getExternalSku(): string
+    {
+        return $this->_external_sku;
+    }
+
+    /**
+    * Setter method for the external_sku attribute.
+    *
+    * @param string $external_sku
+    *
+    * @return void
+    */
+    public function setExternalSku(string $external_sku): void
+    {
+        $this->_external_sku = $external_sku;
+    }
+
+    /**
     * Getter method for the id attribute.
     * Add-on ID
     *
@@ -89,6 +114,29 @@ class AddOnMini extends RecurlyResource
     public function setId(string $id): void
     {
         $this->_id = $id;
+    }
+
+    /**
+    * Getter method for the item_id attribute.
+    * Item ID
+    *
+    * @return string
+    */
+    public function getItemId(): string
+    {
+        return $this->_item_id;
+    }
+
+    /**
+    * Setter method for the item_id attribute.
+    *
+    * @param string $item_id
+    *
+    * @return void
+    */
+    public function setItemId(string $item_id): void
+    {
+        $this->_item_id = $item_id;
     }
 
     /**
