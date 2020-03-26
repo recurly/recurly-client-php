@@ -941,6 +941,20 @@ class Client extends BaseClient
     }
   
     /**
+     * Expire a coupon
+     *
+     * @param string $coupon_id Coupon ID or code. For ID no prefix is used e.g. `e28zov4fw0v2`. For code use prefix `code-`, e.g. `code-10off`.
+     *
+     * @return \Recurly\Resources\Coupon
+     * @link   https://developers.recurly.com/api/v2019-10-10#operation/deactivate_coupon
+     */
+    public function deactivateCoupon(string $coupon_id): \Recurly\Resources\Coupon
+    {
+        $path = $this->interpolatePath("/coupons/{coupon_id}", ['coupon_id' => $coupon_id]);
+        return $this->makeRequest('DELETE', $path, null, null);
+    }
+  
+    /**
      * List unique coupon codes associated with a bulk coupon
      *
      * Supported optional parameters:
