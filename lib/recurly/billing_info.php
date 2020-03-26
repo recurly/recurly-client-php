@@ -7,6 +7,7 @@
  * @property string $currency Currency in which invoices will be posted. Only applicable if this account is enrolled in a plan has a different currency than your site's default.
  * @property string $first_name First name
  * @property string $last_name Last name
+ * @property string $mandate_reference A specific ID used in a payment system to show that an agreement was made between the customer and the merchant.
  * @property string $number Credit card number, spaces and dashes are accepted
  * @property int $month Expiration month
  * @property int $year Expiration year
@@ -98,7 +99,7 @@ class Recurly_BillingInfo extends Recurly_Resource
   }
   protected function getWriteableAttributes() {
     return array(
-      'first_name', 'last_name', 'name_on_account', 'company', 'ip_address',
+      'first_name', 'last_name', 'mandate_reference', 'name_on_account', 'company', 'ip_address',
       'address1', 'address2', 'city', 'state', 'country', 'zip', 'phone',
       'vat_number', 'number', 'month', 'year', 'verification_value',
       'account_number', 'routing_number', 'account_type',
