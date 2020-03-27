@@ -7,6 +7,7 @@
  * @property string $currency Currency in which invoices will be posted. Only applicable if this account is enrolled in a plan has a different currency than your site's default.
  * @property string $first_name First name
  * @property string $last_name Last name
+ * @property string $mandate_reference A specific ID used in a payment system to show that an agreement was made between the customer and the merchant.
  * @property string $number Credit card number, spaces and dashes are accepted
  * @property int $month Expiration month
  * @property int $year Expiration year
@@ -37,6 +38,7 @@
  * @property-read string $last_four Credit card number, last four digits
  * @property string $card_type Visa, MasterCard, American Express, Discover, JCB, etc
  * @property-write string $three_d_secure_action_result_token_id An id returned by Recurly.js referencing the result of the 3DS authentication for PSD2
+ * @property string $iban International bank account number developed to identify an overseas bank account
  */
 class Recurly_BillingInfo extends Recurly_Resource
 {
@@ -98,14 +100,14 @@ class Recurly_BillingInfo extends Recurly_Resource
   }
   protected function getWriteableAttributes() {
     return array(
-      'first_name', 'last_name', 'name_on_account', 'company', 'ip_address',
+      'first_name', 'last_name', 'mandate_reference', 'name_on_account', 'company', 'ip_address',
       'address1', 'address2', 'city', 'state', 'country', 'zip', 'phone',
       'vat_number', 'number', 'month', 'year', 'verification_value',
       'account_number', 'routing_number', 'account_type',
       'paypal_billing_agreement_id', 'amazon_billing_agreement_id', 'currency',
       'token_id', 'external_hpp_type', 'gateway_token', 'gateway_code',
       'braintree_payment_nonce', 'roku_billing_agreement_id',
-      'three_d_secure_action_result_token_id', 'transaction_type'
+      'three_d_secure_action_result_token_id', 'transaction_type', 'iban'
     );
   }
 }

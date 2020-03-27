@@ -9,6 +9,7 @@ class Recurly_BillingInfoTest extends Recurly_TestCase
       array('GET', '/accounts/paypal1234567890/billing_info', 'billing_info/show-paypal-200.xml'),
       array('GET', '/accounts/amazon1234567890/billing_info', 'billing_info/show-amazon-200.xml'),
       array('GET', '/accounts/bankaccount1234567890/billing_info', 'billing_info/show-bank-account-200.xml'),
+      array('GET', '/accounts/sepa1234567890/billing_info', 'billing_info/show-sepa-200.xml'),
       array('PUT', '/accounts/abcdef1234567890/billing_info', 'billing_info/show-200.xml'),
       array('DELETE', '/accounts/abcdef1234567890/billing_info', 'billing_info/destroy-204.xml'),
       array('DELETE', 'https://api.recurly.com/v2/accounts/abcdef1234567890/billing_info', 'billing_info/destroy-204.xml'),
@@ -73,6 +74,13 @@ class Recurly_BillingInfoTest extends Recurly_TestCase
 
     $this->assertEquals($billing_info->card_type, null);
     $this->assertEquals($billing_info->getHref(), 'https://api.recurly.com/v2/accounts/bankaccount1234567890/billing_info');
+  }
+
+  public function testGetIbanBillingInfo() {
+    $billing_info = Recurly_BillingInfo::get('sepa1234567890', $this->client);
+    $this->assertInstanceOf('Recurly_BillingInfo', $billing_info);
+    $this->assertEquals($billing_info->iban, 'US1234567890');
+    $this->assertEquals($billing_info->name_on_account, 'Account Name');
   }
 
   public function testDelete() {

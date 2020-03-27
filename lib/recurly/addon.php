@@ -22,6 +22,8 @@
  * @property DateTime $updated_at The date and time the add-on was last updated.
  * @property string $plan_code Unique code to identify the plan.
  * @property string $measured_unit_id The id of the measured unit on your site associated with the add-on. If item_code is present, measured_unit_id must be absent.
+ * @property string $tier_type The type of tiered pricing. Types are 'tiered,' 'volume,' and 'stairstep.'
+ * @property Recurly_Tier[] $tiers The array of tiers for the add-on.
  */
 class Recurly_Addon extends Recurly_Resource
 {
@@ -65,7 +67,7 @@ class Recurly_Addon extends Recurly_Resource
       'add_on_code', 'item_code', 'name', 'display_quantity', 'default_quantity',
       'unit_amount_in_cents', 'accounting_code', 'tax_code',
       'measured_unit_id', 'usage_type', 'usage_percentage', 'add_on_type', 'revenue_schedule_type',
-      'optional', 'display_quantity_on_hosted_page'
+      'optional', 'display_quantity_on_hosted_page', 'tier_type', 'tiers'
     );
   }
 }
