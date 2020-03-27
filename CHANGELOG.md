@@ -1,5 +1,13 @@
 # Recurly PHP Client Library CHANGELOG
 
+## Version 2.12.13 (March 26, 2020)
+
+This brings us up to API version 2.26. There are no breaking changes
+
+* Add IBAN attribute to BillingInfo [PR](https://github.com/recurly/recurly-client-php/pull/476)
+* Tiered pricing [PR](https://github.com/recurly/recurly-client-php/pull/482)
+* Add mandate_reference attribute to BillingInfo [PR](https://github.com/recurly/recurly-client-php/pull/483)
+
 ## Version 2.12.12 (March 17, 2020)
 
 * Transaction: update phpdoc [PR](https://github.com/recurly/recurly-client-php/pull/460)

@@ -52,7 +52,7 @@ class Recurly_Client
   private static $apiUrl = 'https://%s.recurly.com/v2';
 
 
-  const API_CLIENT_VERSION = '2.12.12';
+  const API_CLIENT_VERSION = '2.12.13';
   const DEFAULT_ENCODING = 'UTF-8';
 
   const GET = 'GET';
