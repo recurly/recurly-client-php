@@ -8,3 +8,7 @@ composer.lock
 # PHPUnit
 .phpunit.result.cache
 /coverage/
+
+# phpDocumenter
+.phpdoc
+/docs/
