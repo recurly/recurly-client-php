@@ -1,5 +1,18 @@
 # Changelog
 
+## [3.1.0](https://github.com/recurly/recurly-client-php/tree/HEAD)
+
+[Full Changelog](https://github.com/recurly/recurly-client-php/compare/3.0.1...HEAD)
+
+**Merged pull requests:**
+
+- Release 3.1.0 [\#493](https://github.com/recurly/recurly-client-php/pull/493) ([douglasmiller](https://github.com/douglasmiller))
+- Tue Apr 14 20:57:43 UTC 2020 Upgrade API version v2019-10-10 [\#492](https://github.com/recurly/recurly-client-php/pull/492) ([douglasmiller](https://github.com/douglasmiller))
+- Included the to-be released changes in the changelog [\#491](https://github.com/recurly/recurly-client-php/pull/491) ([douglasmiller](https://github.com/douglasmiller))
+- Adding phpDocumentor and ./scripts/docs [\#489](https://github.com/recurly/recurly-client-php/pull/489) ([douglasmiller](https://github.com/douglasmiller))
+- Updating release script to be uniform across all clients [\#487](https://github.com/recurly/recurly-client-php/pull/487) ([douglasmiller](https://github.com/douglasmiller))
+- Thu Mar 26 20:48:25 UTC 2020 Upgrade API version v2019-10-10 [\#484](https://github.com/recurly/recurly-client-php/pull/484) ([bhelx](https://github.com/bhelx))
+
 ## [3.0.1](https://github.com/recurly/recurly-client-php/tree/3.0.1) (2020-03-20)
 
 [Full Changelog](https://github.com/recurly/recurly-client-php/compare/3.0.0...3.0.1)
