@@ -19,10 +19,13 @@ class SubscriptionAddOn extends RecurlyResource
     private $_object;
     private $_quantity;
     private $_subscription_id;
+    private $_tier_type;
+    private $_tiers;
     private $_unit_amount;
     private $_updated_at;
 
     protected static $array_hints = array(
+        'setTiers' => '\Recurly\Resources\SubscriptionAddOnTier',
     );
 
     
@@ -185,6 +188,52 @@ class SubscriptionAddOn extends RecurlyResource
     public function setSubscriptionId(string $subscription_id): void
     {
         $this->_subscription_id = $subscription_id;
+    }
+
+    /**
+    * Getter method for the tier_type attribute.
+    * The type of tiering used by the Add-on.
+    *
+    * @return string
+    */
+    public function getTierType(): string
+    {
+        return $this->_tier_type;
+    }
+
+    /**
+    * Setter method for the tier_type attribute.
+    *
+    * @param string $tier_type
+    *
+    * @return void
+    */
+    public function setTierType(string $tier_type): void
+    {
+        $this->_tier_type = $tier_type;
+    }
+
+    /**
+    * Getter method for the tiers attribute.
+    * Empty unless `tier_type` is `tiered`, `volume`, or `stairstep`.
+    *
+    * @return array
+    */
+    public function getTiers(): array
+    {
+        return $this->_tiers;
+    }
+
+    /**
+    * Setter method for the tiers attribute.
+    *
+    * @param array $tiers
+    *
+    * @return void
+    */
+    public function setTiers(array $tiers): void
+    {
+        $this->_tiers = $tiers;
     }
 
     /**

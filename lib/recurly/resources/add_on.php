@@ -29,10 +29,13 @@ class AddOn extends RecurlyResource
     private $_revenue_schedule_type;
     private $_state;
     private $_tax_code;
+    private $_tier_type;
+    private $_tiers;
     private $_updated_at;
 
     protected static $array_hints = array(
         'setCurrencies' => '\Recurly\Resources\AddOnPricing',
+        'setTiers' => '\Recurly\Resources\Tier',
     );
 
     
@@ -425,6 +428,52 @@ class AddOn extends RecurlyResource
     public function setTaxCode(string $tax_code): void
     {
         $this->_tax_code = $tax_code;
+    }
+
+    /**
+    * Getter method for the tier_type attribute.
+    * The type of tiering used by the Add-on.
+    *
+    * @return string
+    */
+    public function getTierType(): string
+    {
+        return $this->_tier_type;
+    }
+
+    /**
+    * Setter method for the tier_type attribute.
+    *
+    * @param string $tier_type
+    *
+    * @return void
+    */
+    public function setTierType(string $tier_type): void
+    {
+        $this->_tier_type = $tier_type;
+    }
+
+    /**
+    * Getter method for the tiers attribute.
+    * Tiers
+    *
+    * @return array
+    */
+    public function getTiers(): array
+    {
+        return $this->_tiers;
+    }
+
+    /**
+    * Setter method for the tiers attribute.
+    *
+    * @param array $tiers
+    *
+    * @return void
+    */
+    public function setTiers(array $tiers): void
+    {
+        $this->_tiers = $tiers;
     }
 
     /**
