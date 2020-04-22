@@ -18,6 +18,12 @@ final class BaseClientTest extends RecurlyTestCase
         $this->client->clearScenarios();
     }
 
+    public function testParameterValidation(): void
+    {
+        $this->expectException(\Recurly\RecurlyError::class);
+        $resource = $this->client->getResource("");
+    }
+
     public function testGetResource200(): void
     {
         $url = "https://v3.recurly.com/resources/iexist";
