@@ -117,6 +117,22 @@ abstract class BaseClient
     }
 
     /**
+     * Checks that path parameters are valid
+     *
+     * @param array  $options Associatve array of tokens and their replacement values
+     */
+    private function _validatePathParameters(array $options = []): void
+    {
+        // Check to make sure that parameters are not empty values
+        $emptyValues = array_filter($options, function ($value, $key) {
+            return empty(trim($value));
+        }, ARRAY_FILTER_USE_BOTH);
+        if (!empty($emptyValues)) {
+            throw new RecurlyError(join(', ', array_keys($emptyValues)) . ' cannot be an empty value');
+        }
+    }
+
+    /**
      * Replaces placeholder values with supplied values
      * 
      * @param string $path    Tokenized path to make replacements on
@@ -126,6 +142,7 @@ abstract class BaseClient
      */
     protected function interpolatePath(string $path, array $options = []): string
     {
+        $this->_validatePathParameters($options);
         return array_reduce(
             array_keys($options), function ($p, $i) use ($options) {
                 return str_replace("{{$i}}", rawurlencode($options[$i]), $p);
