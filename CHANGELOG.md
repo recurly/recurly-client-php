@@ -1,8 +1,22 @@
 # Changelog
 
-## [3.1.0](https://github.com/recurly/recurly-client-php/tree/HEAD)
+## [3.1.1](https://github.com/recurly/recurly-client-php/tree/HEAD)
 
-[Full Changelog](https://github.com/recurly/recurly-client-php/compare/3.0.1...HEAD)
+[Full Changelog](https://github.com/recurly/recurly-client-php/compare/3.1.0...HEAD)
+
+**Fixed bugs:**
+
+- Parsing 'false' as null inside the v3 API [\#495](https://github.com/recurly/recurly-client-php/issues/495)
+
+**Merged pull requests:**
+
+- Release 3.1.1 [\#497](https://github.com/recurly/recurly-client-php/pull/497) ([douglasmiller](https://github.com/douglasmiller))
+- Make returns nullable [\#496](https://github.com/recurly/recurly-client-php/pull/496) ([bhelx](https://github.com/bhelx))
+- Ensure that path parameters are not empty strings [\#494](https://github.com/recurly/recurly-client-php/pull/494) ([douglasmiller](https://github.com/douglasmiller))
+
+## [3.1.0](https://github.com/recurly/recurly-client-php/tree/3.1.0) (2020-04-20)
+
+[Full Changelog](https://github.com/recurly/recurly-client-php/compare/3.0.1...3.1.0)
 
 **Merged pull requests:**
 
