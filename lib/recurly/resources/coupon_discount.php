@@ -30,7 +30,7 @@ class CouponDiscount extends RecurlyResource
     */
     public function getCurrencies(): array
     {
-        return $this->_currencies;
+        return $this->_currencies ?? [] ;
     }
 
     /**
@@ -49,9 +49,9 @@ class CouponDiscount extends RecurlyResource
     * Getter method for the percent attribute.
     * This is only present when `type=percent`.
     *
-    * @return int
+    * @return ?int
     */
-    public function getPercent(): int
+    public function getPercent(): ?int
     {
         return $this->_percent;
     }
@@ -72,9 +72,9 @@ class CouponDiscount extends RecurlyResource
     * Getter method for the trial attribute.
     * This is only present when `type=free_trial`.
     *
-    * @return \Recurly\Resources\CouponDiscountTrial
+    * @return ?\Recurly\Resources\CouponDiscountTrial
     */
-    public function getTrial(): \Recurly\Resources\CouponDiscountTrial
+    public function getTrial(): ?\Recurly\Resources\CouponDiscountTrial
     {
         return $this->_trial;
     }
@@ -95,9 +95,9 @@ class CouponDiscount extends RecurlyResource
     * Getter method for the type attribute.
     * 
     *
-    * @return string
+    * @return ?string
     */
-    public function getType(): string
+    public function getType(): ?string
     {
         return $this->_type;
     }

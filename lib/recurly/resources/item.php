@@ -39,9 +39,9 @@ class Item extends RecurlyResource
     * Getter method for the accounting_code attribute.
     * Accounting code for invoice line items.
     *
-    * @return string
+    * @return ?string
     */
-    public function getAccountingCode(): string
+    public function getAccountingCode(): ?string
     {
         return $this->_accounting_code;
     }
@@ -62,9 +62,9 @@ class Item extends RecurlyResource
     * Getter method for the code attribute.
     * Unique code to identify the item.
     *
-    * @return string
+    * @return ?string
     */
-    public function getCode(): string
+    public function getCode(): ?string
     {
         return $this->_code;
     }
@@ -85,9 +85,9 @@ class Item extends RecurlyResource
     * Getter method for the created_at attribute.
     * Created at
     *
-    * @return string
+    * @return ?string
     */
-    public function getCreatedAt(): string
+    public function getCreatedAt(): ?string
     {
         return $this->_created_at;
     }
@@ -112,7 +112,7 @@ class Item extends RecurlyResource
     */
     public function getCurrencies(): array
     {
-        return $this->_currencies;
+        return $this->_currencies ?? [] ;
     }
 
     /**
@@ -135,7 +135,7 @@ class Item extends RecurlyResource
     */
     public function getCustomFields(): array
     {
-        return $this->_custom_fields;
+        return $this->_custom_fields ?? [] ;
     }
 
     /**
@@ -154,9 +154,9 @@ class Item extends RecurlyResource
     * Getter method for the deleted_at attribute.
     * Deleted at
     *
-    * @return string
+    * @return ?string
     */
-    public function getDeletedAt(): string
+    public function getDeletedAt(): ?string
     {
         return $this->_deleted_at;
     }
@@ -177,9 +177,9 @@ class Item extends RecurlyResource
     * Getter method for the description attribute.
     * Optional, description.
     *
-    * @return string
+    * @return ?string
     */
-    public function getDescription(): string
+    public function getDescription(): ?string
     {
         return $this->_description;
     }
@@ -200,9 +200,9 @@ class Item extends RecurlyResource
     * Getter method for the external_sku attribute.
     * Optional, stock keeping unit to link the item to other inventory systems.
     *
-    * @return string
+    * @return ?string
     */
-    public function getExternalSku(): string
+    public function getExternalSku(): ?string
     {
         return $this->_external_sku;
     }
@@ -223,9 +223,9 @@ class Item extends RecurlyResource
     * Getter method for the id attribute.
     * Item ID
     *
-    * @return string
+    * @return ?string
     */
-    public function getId(): string
+    public function getId(): ?string
     {
         return $this->_id;
     }
@@ -246,9 +246,9 @@ class Item extends RecurlyResource
     * Getter method for the name attribute.
     * This name describes your item and will appear on the invoice when it's purchased on a one time basis.
     *
-    * @return string
+    * @return ?string
     */
-    public function getName(): string
+    public function getName(): ?string
     {
         return $this->_name;
     }
@@ -269,9 +269,9 @@ class Item extends RecurlyResource
     * Getter method for the object attribute.
     * Object type
     *
-    * @return string
+    * @return ?string
     */
-    public function getObject(): string
+    public function getObject(): ?string
     {
         return $this->_object;
     }
@@ -292,9 +292,9 @@ class Item extends RecurlyResource
     * Getter method for the revenue_schedule_type attribute.
     * Revenue schedule type
     *
-    * @return string
+    * @return ?string
     */
-    public function getRevenueScheduleType(): string
+    public function getRevenueScheduleType(): ?string
     {
         return $this->_revenue_schedule_type;
     }
@@ -315,9 +315,9 @@ class Item extends RecurlyResource
     * Getter method for the state attribute.
     * The current state of the item.
     *
-    * @return string
+    * @return ?string
     */
-    public function getState(): string
+    public function getState(): ?string
     {
         return $this->_state;
     }
@@ -338,9 +338,9 @@ class Item extends RecurlyResource
     * Getter method for the tax_code attribute.
     * Used by Avalara, Vertex, and Recurly’s EU VAT tax feature. The tax code values are specific to each tax system. If you are using Recurly’s EU VAT feature you can use `unknown`, `physical`, or `digital`.
     *
-    * @return string
+    * @return ?string
     */
-    public function getTaxCode(): string
+    public function getTaxCode(): ?string
     {
         return $this->_tax_code;
     }
@@ -361,9 +361,9 @@ class Item extends RecurlyResource
     * Getter method for the tax_exempt attribute.
     * `true` exempts tax on the item, `false` applies tax on the item.
     *
-    * @return bool
+    * @return ?bool
     */
-    public function getTaxExempt(): bool
+    public function getTaxExempt(): ?bool
     {
         return $this->_tax_exempt;
     }
@@ -384,9 +384,9 @@ class Item extends RecurlyResource
     * Getter method for the updated_at attribute.
     * Last updated at
     *
-    * @return string
+    * @return ?string
     */
-    public function getUpdatedAt(): string
+    public function getUpdatedAt(): ?string
     {
         return $this->_updated_at;
     }

@@ -30,9 +30,9 @@ class AccountMini extends RecurlyResource
     * Getter method for the bill_to attribute.
     * 
     *
-    * @return string
+    * @return ?string
     */
-    public function getBillTo(): string
+    public function getBillTo(): ?string
     {
         return $this->_bill_to;
     }
@@ -53,9 +53,9 @@ class AccountMini extends RecurlyResource
     * Getter method for the code attribute.
     * The unique identifier of the account.
     *
-    * @return string
+    * @return ?string
     */
-    public function getCode(): string
+    public function getCode(): ?string
     {
         return $this->_code;
     }
@@ -76,9 +76,9 @@ class AccountMini extends RecurlyResource
     * Getter method for the company attribute.
     * 
     *
-    * @return string
+    * @return ?string
     */
-    public function getCompany(): string
+    public function getCompany(): ?string
     {
         return $this->_company;
     }
@@ -99,9 +99,9 @@ class AccountMini extends RecurlyResource
     * Getter method for the email attribute.
     * The email address used for communicating with this customer.
     *
-    * @return string
+    * @return ?string
     */
-    public function getEmail(): string
+    public function getEmail(): ?string
     {
         return $this->_email;
     }
@@ -122,9 +122,9 @@ class AccountMini extends RecurlyResource
     * Getter method for the first_name attribute.
     * 
     *
-    * @return string
+    * @return ?string
     */
-    public function getFirstName(): string
+    public function getFirstName(): ?string
     {
         return $this->_first_name;
     }
@@ -145,9 +145,9 @@ class AccountMini extends RecurlyResource
     * Getter method for the id attribute.
     * 
     *
-    * @return string
+    * @return ?string
     */
-    public function getId(): string
+    public function getId(): ?string
     {
         return $this->_id;
     }
@@ -168,9 +168,9 @@ class AccountMini extends RecurlyResource
     * Getter method for the last_name attribute.
     * 
     *
-    * @return string
+    * @return ?string
     */
-    public function getLastName(): string
+    public function getLastName(): ?string
     {
         return $this->_last_name;
     }
@@ -191,9 +191,9 @@ class AccountMini extends RecurlyResource
     * Getter method for the object attribute.
     * Object type
     *
-    * @return string
+    * @return ?string
     */
-    public function getObject(): string
+    public function getObject(): ?string
     {
         return $this->_object;
     }
@@ -214,9 +214,9 @@ class AccountMini extends RecurlyResource
     * Getter method for the parent_account_id attribute.
     * 
     *
-    * @return string
+    * @return ?string
     */
-    public function getParentAccountId(): string
+    public function getParentAccountId(): ?string
     {
         return $this->_parent_account_id;
     }

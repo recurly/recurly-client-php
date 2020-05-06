@@ -37,9 +37,9 @@ class SubscriptionChange extends RecurlyResource
     * Getter method for the activate_at attribute.
     * Activated at
     *
-    * @return string
+    * @return ?string
     */
-    public function getActivateAt(): string
+    public function getActivateAt(): ?string
     {
         return $this->_activate_at;
     }
@@ -60,9 +60,9 @@ class SubscriptionChange extends RecurlyResource
     * Getter method for the activated attribute.
     * Returns `true` if the subscription change is activated.
     *
-    * @return bool
+    * @return ?bool
     */
-    public function getActivated(): bool
+    public function getActivated(): ?bool
     {
         return $this->_activated;
     }
@@ -87,7 +87,7 @@ class SubscriptionChange extends RecurlyResource
     */
     public function getAddOns(): array
     {
-        return $this->_add_ons;
+        return $this->_add_ons ?? [] ;
     }
 
     /**
@@ -106,9 +106,9 @@ class SubscriptionChange extends RecurlyResource
     * Getter method for the created_at attribute.
     * Created at
     *
-    * @return string
+    * @return ?string
     */
-    public function getCreatedAt(): string
+    public function getCreatedAt(): ?string
     {
         return $this->_created_at;
     }
@@ -129,9 +129,9 @@ class SubscriptionChange extends RecurlyResource
     * Getter method for the deleted_at attribute.
     * Deleted at
     *
-    * @return string
+    * @return ?string
     */
-    public function getDeletedAt(): string
+    public function getDeletedAt(): ?string
     {
         return $this->_deleted_at;
     }
@@ -152,9 +152,9 @@ class SubscriptionChange extends RecurlyResource
     * Getter method for the id attribute.
     * The ID of the Subscription Change.
     *
-    * @return string
+    * @return ?string
     */
-    public function getId(): string
+    public function getId(): ?string
     {
         return $this->_id;
     }
@@ -175,9 +175,9 @@ class SubscriptionChange extends RecurlyResource
     * Getter method for the object attribute.
     * Object type
     *
-    * @return string
+    * @return ?string
     */
-    public function getObject(): string
+    public function getObject(): ?string
     {
         return $this->_object;
     }
@@ -198,9 +198,9 @@ class SubscriptionChange extends RecurlyResource
     * Getter method for the plan attribute.
     * Just the important parts.
     *
-    * @return \Recurly\Resources\PlanMini
+    * @return ?\Recurly\Resources\PlanMini
     */
-    public function getPlan(): \Recurly\Resources\PlanMini
+    public function getPlan(): ?\Recurly\Resources\PlanMini
     {
         return $this->_plan;
     }
@@ -221,9 +221,9 @@ class SubscriptionChange extends RecurlyResource
     * Getter method for the quantity attribute.
     * Subscription quantity
     *
-    * @return int
+    * @return ?int
     */
-    public function getQuantity(): int
+    public function getQuantity(): ?int
     {
         return $this->_quantity;
     }
@@ -244,9 +244,9 @@ class SubscriptionChange extends RecurlyResource
     * Getter method for the revenue_schedule_type attribute.
     * Revenue schedule type
     *
-    * @return string
+    * @return ?string
     */
-    public function getRevenueScheduleType(): string
+    public function getRevenueScheduleType(): ?string
     {
         return $this->_revenue_schedule_type;
     }
@@ -267,9 +267,9 @@ class SubscriptionChange extends RecurlyResource
     * Getter method for the setup_fee_revenue_schedule_type attribute.
     * Setup fee revenue schedule type
     *
-    * @return string
+    * @return ?string
     */
-    public function getSetupFeeRevenueScheduleType(): string
+    public function getSetupFeeRevenueScheduleType(): ?string
     {
         return $this->_setup_fee_revenue_schedule_type;
     }
@@ -290,9 +290,9 @@ class SubscriptionChange extends RecurlyResource
     * Getter method for the shipping attribute.
     * Subscription shipping details
     *
-    * @return \Recurly\Resources\SubscriptionShipping
+    * @return ?\Recurly\Resources\SubscriptionShipping
     */
-    public function getShipping(): \Recurly\Resources\SubscriptionShipping
+    public function getShipping(): ?\Recurly\Resources\SubscriptionShipping
     {
         return $this->_shipping;
     }
@@ -313,9 +313,9 @@ class SubscriptionChange extends RecurlyResource
     * Getter method for the subscription_id attribute.
     * The ID of the subscription that is going to be changed.
     *
-    * @return string
+    * @return ?string
     */
-    public function getSubscriptionId(): string
+    public function getSubscriptionId(): ?string
     {
         return $this->_subscription_id;
     }
@@ -336,9 +336,9 @@ class SubscriptionChange extends RecurlyResource
     * Getter method for the unit_amount attribute.
     * Unit amount
     *
-    * @return float
+    * @return ?float
     */
-    public function getUnitAmount(): float
+    public function getUnitAmount(): ?float
     {
         return $this->_unit_amount;
     }
@@ -359,9 +359,9 @@ class SubscriptionChange extends RecurlyResource
     * Getter method for the updated_at attribute.
     * Updated at
     *
-    * @return string
+    * @return ?string
     */
-    public function getUpdatedAt(): string
+    public function getUpdatedAt(): ?string
     {
         return $this->_updated_at;
     }

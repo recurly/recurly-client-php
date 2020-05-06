@@ -43,9 +43,9 @@ class AddOn extends RecurlyResource
     * Getter method for the accounting_code attribute.
     * Accounting code for invoice line items for this add-on. If no value is provided, it defaults to add-on's code.
     *
-    * @return string
+    * @return ?string
     */
-    public function getAccountingCode(): string
+    public function getAccountingCode(): ?string
     {
         return $this->_accounting_code;
     }
@@ -66,9 +66,9 @@ class AddOn extends RecurlyResource
     * Getter method for the code attribute.
     * The unique identifier for the add-on within its plan.
     *
-    * @return string
+    * @return ?string
     */
-    public function getCode(): string
+    public function getCode(): ?string
     {
         return $this->_code;
     }
@@ -89,9 +89,9 @@ class AddOn extends RecurlyResource
     * Getter method for the created_at attribute.
     * Created at
     *
-    * @return string
+    * @return ?string
     */
-    public function getCreatedAt(): string
+    public function getCreatedAt(): ?string
     {
         return $this->_created_at;
     }
@@ -116,7 +116,7 @@ class AddOn extends RecurlyResource
     */
     public function getCurrencies(): array
     {
-        return $this->_currencies;
+        return $this->_currencies ?? [] ;
     }
 
     /**
@@ -135,9 +135,9 @@ class AddOn extends RecurlyResource
     * Getter method for the default_quantity attribute.
     * Default quantity for the hosted pages.
     *
-    * @return int
+    * @return ?int
     */
-    public function getDefaultQuantity(): int
+    public function getDefaultQuantity(): ?int
     {
         return $this->_default_quantity;
     }
@@ -158,9 +158,9 @@ class AddOn extends RecurlyResource
     * Getter method for the deleted_at attribute.
     * Deleted at
     *
-    * @return string
+    * @return ?string
     */
-    public function getDeletedAt(): string
+    public function getDeletedAt(): ?string
     {
         return $this->_deleted_at;
     }
@@ -181,9 +181,9 @@ class AddOn extends RecurlyResource
     * Getter method for the display_quantity attribute.
     * Determines if the quantity field is displayed on the hosted pages for the add-on.
     *
-    * @return bool
+    * @return ?bool
     */
-    public function getDisplayQuantity(): bool
+    public function getDisplayQuantity(): ?bool
     {
         return $this->_display_quantity;
     }
@@ -204,9 +204,9 @@ class AddOn extends RecurlyResource
     * Getter method for the external_sku attribute.
     * Optional, stock keeping unit to link the item to other inventory systems.
     *
-    * @return string
+    * @return ?string
     */
-    public function getExternalSku(): string
+    public function getExternalSku(): ?string
     {
         return $this->_external_sku;
     }
@@ -227,9 +227,9 @@ class AddOn extends RecurlyResource
     * Getter method for the id attribute.
     * Add-on ID
     *
-    * @return string
+    * @return ?string
     */
-    public function getId(): string
+    public function getId(): ?string
     {
         return $this->_id;
     }
@@ -250,9 +250,9 @@ class AddOn extends RecurlyResource
     * Getter method for the item attribute.
     * Just the important parts.
     *
-    * @return \Recurly\Resources\ItemMini
+    * @return ?\Recurly\Resources\ItemMini
     */
-    public function getItem(): \Recurly\Resources\ItemMini
+    public function getItem(): ?\Recurly\Resources\ItemMini
     {
         return $this->_item;
     }
@@ -273,9 +273,9 @@ class AddOn extends RecurlyResource
     * Getter method for the name attribute.
     * Describes your add-on and will appear in subscribers' invoices.
     *
-    * @return string
+    * @return ?string
     */
-    public function getName(): string
+    public function getName(): ?string
     {
         return $this->_name;
     }
@@ -296,9 +296,9 @@ class AddOn extends RecurlyResource
     * Getter method for the object attribute.
     * Object type
     *
-    * @return string
+    * @return ?string
     */
-    public function getObject(): string
+    public function getObject(): ?string
     {
         return $this->_object;
     }
@@ -319,9 +319,9 @@ class AddOn extends RecurlyResource
     * Getter method for the optional attribute.
     * Whether the add-on is optional for the customer to include in their purchase on the hosted payment page. If false, the add-on will be included when a subscription is created through the Recurly UI. However, the add-on will not be included when a subscription is created through the API.
     *
-    * @return bool
+    * @return ?bool
     */
-    public function getOptional(): bool
+    public function getOptional(): ?bool
     {
         return $this->_optional;
     }
@@ -342,9 +342,9 @@ class AddOn extends RecurlyResource
     * Getter method for the plan_id attribute.
     * Plan ID
     *
-    * @return string
+    * @return ?string
     */
-    public function getPlanId(): string
+    public function getPlanId(): ?string
     {
         return $this->_plan_id;
     }
@@ -365,9 +365,9 @@ class AddOn extends RecurlyResource
     * Getter method for the revenue_schedule_type attribute.
     * When this add-on is invoiced, the line item will use this revenue schedule. If `item_code`/`item_id` is part of the request then `revenue_schedule_type` must be absent in the request as the value will be set from the item.
     *
-    * @return string
+    * @return ?string
     */
-    public function getRevenueScheduleType(): string
+    public function getRevenueScheduleType(): ?string
     {
         return $this->_revenue_schedule_type;
     }
@@ -388,9 +388,9 @@ class AddOn extends RecurlyResource
     * Getter method for the state attribute.
     * Add-ons can be either active or inactive.
     *
-    * @return string
+    * @return ?string
     */
-    public function getState(): string
+    public function getState(): ?string
     {
         return $this->_state;
     }
@@ -411,9 +411,9 @@ class AddOn extends RecurlyResource
     * Getter method for the tax_code attribute.
     * Used by Avalara, Vertex, and Recurly’s EU VAT tax feature. The tax code values are specific to each tax system. If you are using Recurly’s EU VAT feature you can use `unknown`, `physical`, or `digital`.
     *
-    * @return string
+    * @return ?string
     */
-    public function getTaxCode(): string
+    public function getTaxCode(): ?string
     {
         return $this->_tax_code;
     }
@@ -434,9 +434,9 @@ class AddOn extends RecurlyResource
     * Getter method for the tier_type attribute.
     * The type of tiering used by the Add-on.
     *
-    * @return string
+    * @return ?string
     */
-    public function getTierType(): string
+    public function getTierType(): ?string
     {
         return $this->_tier_type;
     }
@@ -461,7 +461,7 @@ class AddOn extends RecurlyResource
     */
     public function getTiers(): array
     {
-        return $this->_tiers;
+        return $this->_tiers ?? [] ;
     }
 
     /**
@@ -480,9 +480,9 @@ class AddOn extends RecurlyResource
     * Getter method for the updated_at attribute.
     * Last updated at
     *
-    * @return string
+    * @return ?string
     */
-    public function getUpdatedAt(): string
+    public function getUpdatedAt(): ?string
     {
         return $this->_updated_at;
     }

@@ -29,9 +29,9 @@ class User extends RecurlyResource
     * Getter method for the created_at attribute.
     * 
     *
-    * @return string
+    * @return ?string
     */
-    public function getCreatedAt(): string
+    public function getCreatedAt(): ?string
     {
         return $this->_created_at;
     }
@@ -52,9 +52,9 @@ class User extends RecurlyResource
     * Getter method for the deleted_at attribute.
     * 
     *
-    * @return string
+    * @return ?string
     */
-    public function getDeletedAt(): string
+    public function getDeletedAt(): ?string
     {
         return $this->_deleted_at;
     }
@@ -75,9 +75,9 @@ class User extends RecurlyResource
     * Getter method for the email attribute.
     * 
     *
-    * @return string
+    * @return ?string
     */
-    public function getEmail(): string
+    public function getEmail(): ?string
     {
         return $this->_email;
     }
@@ -98,9 +98,9 @@ class User extends RecurlyResource
     * Getter method for the first_name attribute.
     * 
     *
-    * @return string
+    * @return ?string
     */
-    public function getFirstName(): string
+    public function getFirstName(): ?string
     {
         return $this->_first_name;
     }
@@ -121,9 +121,9 @@ class User extends RecurlyResource
     * Getter method for the id attribute.
     * 
     *
-    * @return string
+    * @return ?string
     */
-    public function getId(): string
+    public function getId(): ?string
     {
         return $this->_id;
     }
@@ -144,9 +144,9 @@ class User extends RecurlyResource
     * Getter method for the last_name attribute.
     * 
     *
-    * @return string
+    * @return ?string
     */
-    public function getLastName(): string
+    public function getLastName(): ?string
     {
         return $this->_last_name;
     }
@@ -167,9 +167,9 @@ class User extends RecurlyResource
     * Getter method for the object attribute.
     * Object type
     *
-    * @return string
+    * @return ?string
     */
-    public function getObject(): string
+    public function getObject(): ?string
     {
         return $this->_object;
     }
@@ -190,9 +190,9 @@ class User extends RecurlyResource
     * Getter method for the time_zone attribute.
     * 
     *
-    * @return string
+    * @return ?string
     */
-    public function getTimeZone(): string
+    public function getTimeZone(): ?string
     {
         return $this->_time_zone;
     }

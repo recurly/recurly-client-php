@@ -27,9 +27,9 @@ class AccountNote extends RecurlyResource
     * Getter method for the account_id attribute.
     * 
     *
-    * @return string
+    * @return ?string
     */
-    public function getAccountId(): string
+    public function getAccountId(): ?string
     {
         return $this->_account_id;
     }
@@ -50,9 +50,9 @@ class AccountNote extends RecurlyResource
     * Getter method for the created_at attribute.
     * 
     *
-    * @return string
+    * @return ?string
     */
-    public function getCreatedAt(): string
+    public function getCreatedAt(): ?string
     {
         return $this->_created_at;
     }
@@ -73,9 +73,9 @@ class AccountNote extends RecurlyResource
     * Getter method for the id attribute.
     * 
     *
-    * @return string
+    * @return ?string
     */
-    public function getId(): string
+    public function getId(): ?string
     {
         return $this->_id;
     }
@@ -96,9 +96,9 @@ class AccountNote extends RecurlyResource
     * Getter method for the message attribute.
     * 
     *
-    * @return string
+    * @return ?string
     */
-    public function getMessage(): string
+    public function getMessage(): ?string
     {
         return $this->_message;
     }
@@ -119,9 +119,9 @@ class AccountNote extends RecurlyResource
     * Getter method for the object attribute.
     * Object type
     *
-    * @return string
+    * @return ?string
     */
-    public function getObject(): string
+    public function getObject(): ?string
     {
         return $this->_object;
     }
@@ -142,9 +142,9 @@ class AccountNote extends RecurlyResource
     * Getter method for the user attribute.
     * 
     *
-    * @return \Recurly\Resources\User
+    * @return ?\Recurly\Resources\User
     */
-    public function getUser(): \Recurly\Resources\User
+    public function getUser(): ?\Recurly\Resources\User
     {
         return $this->_user;
     }

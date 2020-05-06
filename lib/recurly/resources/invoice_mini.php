@@ -26,9 +26,9 @@ class InvoiceMini extends RecurlyResource
     * Getter method for the id attribute.
     * Invoice ID
     *
-    * @return string
+    * @return ?string
     */
-    public function getId(): string
+    public function getId(): ?string
     {
         return $this->_id;
     }
@@ -49,9 +49,9 @@ class InvoiceMini extends RecurlyResource
     * Getter method for the number attribute.
     * Invoice number
     *
-    * @return string
+    * @return ?string
     */
-    public function getNumber(): string
+    public function getNumber(): ?string
     {
         return $this->_number;
     }
@@ -72,9 +72,9 @@ class InvoiceMini extends RecurlyResource
     * Getter method for the object attribute.
     * Object type
     *
-    * @return string
+    * @return ?string
     */
-    public function getObject(): string
+    public function getObject(): ?string
     {
         return $this->_object;
     }
@@ -95,9 +95,9 @@ class InvoiceMini extends RecurlyResource
     * Getter method for the state attribute.
     * Invoice state
     *
-    * @return string
+    * @return ?string
     */
-    public function getState(): string
+    public function getState(): ?string
     {
         return $this->_state;
     }
@@ -118,9 +118,9 @@ class InvoiceMini extends RecurlyResource
     * Getter method for the type attribute.
     * Invoice type
     *
-    * @return string
+    * @return ?string
     */
-    public function getType(): string
+    public function getType(): ?string
     {
         return $this->_type;
     }

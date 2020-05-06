@@ -29,9 +29,9 @@ class ShippingMethod extends RecurlyResource
     * Getter method for the code attribute.
     * The internal name used identify the shipping method.
     *
-    * @return string
+    * @return ?string
     */
-    public function getCode(): string
+    public function getCode(): ?string
     {
         return $this->_code;
     }
@@ -52,9 +52,9 @@ class ShippingMethod extends RecurlyResource
     * Getter method for the created_at attribute.
     * Created at
     *
-    * @return string
+    * @return ?string
     */
-    public function getCreatedAt(): string
+    public function getCreatedAt(): ?string
     {
         return $this->_created_at;
     }
@@ -75,9 +75,9 @@ class ShippingMethod extends RecurlyResource
     * Getter method for the deleted_at attribute.
     * Deleted at
     *
-    * @return string
+    * @return ?string
     */
-    public function getDeletedAt(): string
+    public function getDeletedAt(): ?string
     {
         return $this->_deleted_at;
     }
@@ -98,9 +98,9 @@ class ShippingMethod extends RecurlyResource
     * Getter method for the id attribute.
     * Shipping Method ID
     *
-    * @return string
+    * @return ?string
     */
-    public function getId(): string
+    public function getId(): ?string
     {
         return $this->_id;
     }
@@ -121,9 +121,9 @@ class ShippingMethod extends RecurlyResource
     * Getter method for the name attribute.
     * The name of the shipping method displayed to customers.
     *
-    * @return string
+    * @return ?string
     */
-    public function getName(): string
+    public function getName(): ?string
     {
         return $this->_name;
     }
@@ -144,9 +144,9 @@ class ShippingMethod extends RecurlyResource
     * Getter method for the object attribute.
     * Object type
     *
-    * @return string
+    * @return ?string
     */
-    public function getObject(): string
+    public function getObject(): ?string
     {
         return $this->_object;
     }
@@ -178,9 +178,9 @@ built-in taxes the values are:
 - `NT` – Non-Taxable
 
     *
-    * @return string
+    * @return ?string
     */
-    public function getTaxCode(): string
+    public function getTaxCode(): ?string
     {
         return $this->_tax_code;
     }
@@ -201,9 +201,9 @@ built-in taxes the values are:
     * Getter method for the updated_at attribute.
     * Last updated at
     *
-    * @return string
+    * @return ?string
     */
-    public function getUpdatedAt(): string
+    public function getUpdatedAt(): ?string
     {
         return $this->_updated_at;
     }

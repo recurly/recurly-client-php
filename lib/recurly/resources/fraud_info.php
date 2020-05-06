@@ -24,9 +24,9 @@ class FraudInfo extends RecurlyResource
     * Getter method for the decision attribute.
     * Kount decision
     *
-    * @return string
+    * @return ?string
     */
-    public function getDecision(): string
+    public function getDecision(): ?string
     {
         return $this->_decision;
     }
@@ -47,9 +47,9 @@ class FraudInfo extends RecurlyResource
     * Getter method for the risk_rules_triggered attribute.
     * Kount rules
     *
-    * @return object
+    * @return ?object
     */
-    public function getRiskRulesTriggered(): object
+    public function getRiskRulesTriggered(): ?object
     {
         return $this->_risk_rules_triggered;
     }
@@ -70,9 +70,9 @@ class FraudInfo extends RecurlyResource
     * Getter method for the score attribute.
     * Kount score
     *
-    * @return int
+    * @return ?int
     */
-    public function getScore(): int
+    public function getScore(): ?int
     {
         return $this->_score;
     }

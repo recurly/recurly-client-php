@@ -25,9 +25,9 @@ class SubscriptionShipping extends RecurlyResource
     * Getter method for the address attribute.
     * 
     *
-    * @return \Recurly\Resources\ShippingAddress
+    * @return ?\Recurly\Resources\ShippingAddress
     */
-    public function getAddress(): \Recurly\Resources\ShippingAddress
+    public function getAddress(): ?\Recurly\Resources\ShippingAddress
     {
         return $this->_address;
     }
@@ -48,9 +48,9 @@ class SubscriptionShipping extends RecurlyResource
     * Getter method for the amount attribute.
     * Subscription's shipping cost
     *
-    * @return float
+    * @return ?float
     */
-    public function getAmount(): float
+    public function getAmount(): ?float
     {
         return $this->_amount;
     }
@@ -71,9 +71,9 @@ class SubscriptionShipping extends RecurlyResource
     * Getter method for the method attribute.
     * 
     *
-    * @return \Recurly\Resources\ShippingMethodMini
+    * @return ?\Recurly\Resources\ShippingMethodMini
     */
-    public function getMethod(): \Recurly\Resources\ShippingMethodMini
+    public function getMethod(): ?\Recurly\Resources\ShippingMethodMini
     {
         return $this->_method;
     }
@@ -94,9 +94,9 @@ class SubscriptionShipping extends RecurlyResource
     * Getter method for the object attribute.
     * Object type
     *
-    * @return string
+    * @return ?string
     */
-    public function getObject(): string
+    public function getObject(): ?string
     {
         return $this->_object;
     }

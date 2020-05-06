@@ -29,9 +29,9 @@ class CouponMini extends RecurlyResource
     * Getter method for the code attribute.
     * The code the customer enters to redeem the coupon.
     *
-    * @return string
+    * @return ?string
     */
-    public function getCode(): string
+    public function getCode(): ?string
     {
         return $this->_code;
     }
@@ -52,9 +52,9 @@ class CouponMini extends RecurlyResource
     * Getter method for the coupon_type attribute.
     * Whether the coupon is "single_code" or "bulk". Bulk coupons will require a `unique_code_template` and will generate unique codes through the `/generate` endpoint.
     *
-    * @return string
+    * @return ?string
     */
-    public function getCouponType(): string
+    public function getCouponType(): ?string
     {
         return $this->_coupon_type;
     }
@@ -77,9 +77,9 @@ class CouponMini extends RecurlyResource
 property and one of the following properties: `percent`, `fixed`, `trial`.
 
     *
-    * @return \Recurly\Resources\CouponDiscount
+    * @return ?\Recurly\Resources\CouponDiscount
     */
-    public function getDiscount(): \Recurly\Resources\CouponDiscount
+    public function getDiscount(): ?\Recurly\Resources\CouponDiscount
     {
         return $this->_discount;
     }
@@ -100,9 +100,9 @@ property and one of the following properties: `percent`, `fixed`, `trial`.
     * Getter method for the expired_at attribute.
     * The date and time the coupon was expired early or reached its `max_redemptions`.
     *
-    * @return string
+    * @return ?string
     */
-    public function getExpiredAt(): string
+    public function getExpiredAt(): ?string
     {
         return $this->_expired_at;
     }
@@ -123,9 +123,9 @@ property and one of the following properties: `percent`, `fixed`, `trial`.
     * Getter method for the id attribute.
     * Coupon ID
     *
-    * @return string
+    * @return ?string
     */
-    public function getId(): string
+    public function getId(): ?string
     {
         return $this->_id;
     }
@@ -146,9 +146,9 @@ property and one of the following properties: `percent`, `fixed`, `trial`.
     * Getter method for the name attribute.
     * The internal name for the coupon.
     *
-    * @return string
+    * @return ?string
     */
-    public function getName(): string
+    public function getName(): ?string
     {
         return $this->_name;
     }
@@ -169,9 +169,9 @@ property and one of the following properties: `percent`, `fixed`, `trial`.
     * Getter method for the object attribute.
     * Object type
     *
-    * @return string
+    * @return ?string
     */
-    public function getObject(): string
+    public function getObject(): ?string
     {
         return $this->_object;
     }
@@ -192,9 +192,9 @@ property and one of the following properties: `percent`, `fixed`, `trial`.
     * Getter method for the state attribute.
     * Indicates if the coupon is redeemable, and if it is not, why.
     *
-    * @return string
+    * @return ?string
     */
-    public function getState(): string
+    public function getState(): ?string
     {
         return $this->_state;
     }

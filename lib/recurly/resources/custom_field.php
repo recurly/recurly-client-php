@@ -23,9 +23,9 @@ class CustomField extends RecurlyResource
     * Getter method for the name attribute.
     * Fields must be created in the UI before values can be assigned to them.
     *
-    * @return string
+    * @return ?string
     */
-    public function getName(): string
+    public function getName(): ?string
     {
         return $this->_name;
     }
@@ -46,9 +46,9 @@ class CustomField extends RecurlyResource
     * Getter method for the value attribute.
     * Any values that resemble a credit card number or security code (CVV/CVC) will be rejected.
     *
-    * @return string
+    * @return ?string
     */
-    public function getValue(): string
+    public function getValue(): ?string
     {
         return $this->_value;
     }

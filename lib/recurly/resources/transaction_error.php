@@ -28,9 +28,9 @@ class TransactionError extends RecurlyResource
     * Getter method for the category attribute.
     * Category
     *
-    * @return string
+    * @return ?string
     */
-    public function getCategory(): string
+    public function getCategory(): ?string
     {
         return $this->_category;
     }
@@ -51,9 +51,9 @@ class TransactionError extends RecurlyResource
     * Getter method for the code attribute.
     * Code
     *
-    * @return string
+    * @return ?string
     */
-    public function getCode(): string
+    public function getCode(): ?string
     {
         return $this->_code;
     }
@@ -74,9 +74,9 @@ class TransactionError extends RecurlyResource
     * Getter method for the merchant_advice attribute.
     * Merchant message
     *
-    * @return string
+    * @return ?string
     */
-    public function getMerchantAdvice(): string
+    public function getMerchantAdvice(): ?string
     {
         return $this->_merchant_advice;
     }
@@ -97,9 +97,9 @@ class TransactionError extends RecurlyResource
     * Getter method for the message attribute.
     * Customer message
     *
-    * @return string
+    * @return ?string
     */
-    public function getMessage(): string
+    public function getMessage(): ?string
     {
         return $this->_message;
     }
@@ -120,9 +120,9 @@ class TransactionError extends RecurlyResource
     * Getter method for the object attribute.
     * Object type
     *
-    * @return string
+    * @return ?string
     */
-    public function getObject(): string
+    public function getObject(): ?string
     {
         return $this->_object;
     }
@@ -143,9 +143,9 @@ class TransactionError extends RecurlyResource
     * Getter method for the three_d_secure_action_token_id attribute.
     * Returned when 3-D Secure authentication is required for a transaction. Pass this value to Recurly.js so it can continue the challenge flow.
     *
-    * @return string
+    * @return ?string
     */
-    public function getThreeDSecureActionTokenId(): string
+    public function getThreeDSecureActionTokenId(): ?string
     {
         return $this->_three_d_secure_action_token_id;
     }
@@ -166,9 +166,9 @@ class TransactionError extends RecurlyResource
     * Getter method for the transaction_id attribute.
     * Transaction ID
     *
-    * @return string
+    * @return ?string
     */
-    public function getTransactionId(): string
+    public function getTransactionId(): ?string
     {
         return $this->_transaction_id;
     }

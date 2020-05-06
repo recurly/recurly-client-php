@@ -65,9 +65,9 @@ class Subscription extends RecurlyResource
     * Getter method for the account attribute.
     * Account mini details
     *
-    * @return \Recurly\Resources\AccountMini
+    * @return ?\Recurly\Resources\AccountMini
     */
-    public function getAccount(): \Recurly\Resources\AccountMini
+    public function getAccount(): ?\Recurly\Resources\AccountMini
     {
         return $this->_account;
     }
@@ -88,9 +88,9 @@ class Subscription extends RecurlyResource
     * Getter method for the activated_at attribute.
     * Activated at
     *
-    * @return string
+    * @return ?string
     */
-    public function getActivatedAt(): string
+    public function getActivatedAt(): ?string
     {
         return $this->_activated_at;
     }
@@ -115,7 +115,7 @@ class Subscription extends RecurlyResource
     */
     public function getAddOns(): array
     {
-        return $this->_add_ons;
+        return $this->_add_ons ?? [] ;
     }
 
     /**
@@ -134,9 +134,9 @@ class Subscription extends RecurlyResource
     * Getter method for the add_ons_total attribute.
     * Total price of add-ons
     *
-    * @return float
+    * @return ?float
     */
-    public function getAddOnsTotal(): float
+    public function getAddOnsTotal(): ?float
     {
         return $this->_add_ons_total;
     }
@@ -157,9 +157,9 @@ class Subscription extends RecurlyResource
     * Getter method for the auto_renew attribute.
     * Whether the subscription renews at the end of its term.
     *
-    * @return bool
+    * @return ?bool
     */
-    public function getAutoRenew(): bool
+    public function getAutoRenew(): ?bool
     {
         return $this->_auto_renew;
     }
@@ -180,9 +180,9 @@ class Subscription extends RecurlyResource
     * Getter method for the bank_account_authorized_at attribute.
     * Recurring subscriptions paid with ACH will have this attribute set. This timestamp is used for alerting customers to reauthorize in 3 years in accordance with NACHA rules. If a subscription becomes inactive or the billing info is no longer a bank account, this timestamp is cleared.
     *
-    * @return string
+    * @return ?string
     */
-    public function getBankAccountAuthorizedAt(): string
+    public function getBankAccountAuthorizedAt(): ?string
     {
         return $this->_bank_account_authorized_at;
     }
@@ -203,9 +203,9 @@ class Subscription extends RecurlyResource
     * Getter method for the canceled_at attribute.
     * Canceled at
     *
-    * @return string
+    * @return ?string
     */
-    public function getCanceledAt(): string
+    public function getCanceledAt(): ?string
     {
         return $this->_canceled_at;
     }
@@ -226,9 +226,9 @@ class Subscription extends RecurlyResource
     * Getter method for the collection_method attribute.
     * Collection method
     *
-    * @return string
+    * @return ?string
     */
-    public function getCollectionMethod(): string
+    public function getCollectionMethod(): ?string
     {
         return $this->_collection_method;
     }
@@ -253,7 +253,7 @@ class Subscription extends RecurlyResource
     */
     public function getCouponRedemptions(): array
     {
-        return $this->_coupon_redemptions;
+        return $this->_coupon_redemptions ?? [] ;
     }
 
     /**
@@ -272,9 +272,9 @@ class Subscription extends RecurlyResource
     * Getter method for the created_at attribute.
     * Created at
     *
-    * @return string
+    * @return ?string
     */
-    public function getCreatedAt(): string
+    public function getCreatedAt(): ?string
     {
         return $this->_created_at;
     }
@@ -295,9 +295,9 @@ class Subscription extends RecurlyResource
     * Getter method for the currency attribute.
     * 3-letter ISO 4217 currency code.
     *
-    * @return string
+    * @return ?string
     */
-    public function getCurrency(): string
+    public function getCurrency(): ?string
     {
         return $this->_currency;
     }
@@ -318,9 +318,9 @@ class Subscription extends RecurlyResource
     * Getter method for the current_period_ends_at attribute.
     * Current billing period ends at
     *
-    * @return string
+    * @return ?string
     */
-    public function getCurrentPeriodEndsAt(): string
+    public function getCurrentPeriodEndsAt(): ?string
     {
         return $this->_current_period_ends_at;
     }
@@ -341,9 +341,9 @@ class Subscription extends RecurlyResource
     * Getter method for the current_period_started_at attribute.
     * Current billing period started at
     *
-    * @return string
+    * @return ?string
     */
-    public function getCurrentPeriodStartedAt(): string
+    public function getCurrentPeriodStartedAt(): ?string
     {
         return $this->_current_period_started_at;
     }
@@ -364,9 +364,9 @@ class Subscription extends RecurlyResource
     * Getter method for the current_term_ends_at attribute.
     * When the term ends. This is calculated by a plan's interval and `total_billing_cycles` in a term. Subscription changes with a `timeframe=renewal` will be applied on this date.
     *
-    * @return string
+    * @return ?string
     */
-    public function getCurrentTermEndsAt(): string
+    public function getCurrentTermEndsAt(): ?string
     {
         return $this->_current_term_ends_at;
     }
@@ -387,9 +387,9 @@ class Subscription extends RecurlyResource
     * Getter method for the current_term_started_at attribute.
     * The start date of the term when the first billing period starts. The subscription term is the length of time that a customer will be committed to a subscription. A term can span multiple billing periods.
     *
-    * @return string
+    * @return ?string
     */
-    public function getCurrentTermStartedAt(): string
+    public function getCurrentTermStartedAt(): ?string
     {
         return $this->_current_term_started_at;
     }
@@ -414,7 +414,7 @@ class Subscription extends RecurlyResource
     */
     public function getCustomFields(): array
     {
-        return $this->_custom_fields;
+        return $this->_custom_fields ?? [] ;
     }
 
     /**
@@ -433,9 +433,9 @@ class Subscription extends RecurlyResource
     * Getter method for the customer_notes attribute.
     * Customer notes
     *
-    * @return string
+    * @return ?string
     */
-    public function getCustomerNotes(): string
+    public function getCustomerNotes(): ?string
     {
         return $this->_customer_notes;
     }
@@ -456,9 +456,9 @@ class Subscription extends RecurlyResource
     * Getter method for the expiration_reason attribute.
     * Expiration reason
     *
-    * @return string
+    * @return ?string
     */
-    public function getExpirationReason(): string
+    public function getExpirationReason(): ?string
     {
         return $this->_expiration_reason;
     }
@@ -479,9 +479,9 @@ class Subscription extends RecurlyResource
     * Getter method for the expires_at attribute.
     * Expires at
     *
-    * @return string
+    * @return ?string
     */
-    public function getExpiresAt(): string
+    public function getExpiresAt(): ?string
     {
         return $this->_expires_at;
     }
@@ -502,9 +502,9 @@ class Subscription extends RecurlyResource
     * Getter method for the id attribute.
     * Subscription ID
     *
-    * @return string
+    * @return ?string
     */
-    public function getId(): string
+    public function getId(): ?string
     {
         return $this->_id;
     }
@@ -525,9 +525,9 @@ class Subscription extends RecurlyResource
     * Getter method for the net_terms attribute.
     * Integer representing the number of days after an invoice's creation that the invoice will become past due. If an invoice's net terms are set to '0', it is due 'On Receipt' and will become past due 24 hours after it’s created. If an invoice is due net 30, it will become past due at 31 days exactly.
     *
-    * @return int
+    * @return ?int
     */
-    public function getNetTerms(): int
+    public function getNetTerms(): ?int
     {
         return $this->_net_terms;
     }
@@ -548,9 +548,9 @@ class Subscription extends RecurlyResource
     * Getter method for the object attribute.
     * Object type
     *
-    * @return string
+    * @return ?string
     */
-    public function getObject(): string
+    public function getObject(): ?string
     {
         return $this->_object;
     }
@@ -571,9 +571,9 @@ class Subscription extends RecurlyResource
     * Getter method for the paused_at attribute.
     * Null unless subscription is paused or will pause at the end of the current billing period.
     *
-    * @return string
+    * @return ?string
     */
-    public function getPausedAt(): string
+    public function getPausedAt(): ?string
     {
         return $this->_paused_at;
     }
@@ -594,9 +594,9 @@ class Subscription extends RecurlyResource
     * Getter method for the pending_change attribute.
     * Subscription Change
     *
-    * @return \Recurly\Resources\SubscriptionChange
+    * @return ?\Recurly\Resources\SubscriptionChange
     */
-    public function getPendingChange(): \Recurly\Resources\SubscriptionChange
+    public function getPendingChange(): ?\Recurly\Resources\SubscriptionChange
     {
         return $this->_pending_change;
     }
@@ -617,9 +617,9 @@ class Subscription extends RecurlyResource
     * Getter method for the plan attribute.
     * Just the important parts.
     *
-    * @return \Recurly\Resources\PlanMini
+    * @return ?\Recurly\Resources\PlanMini
     */
-    public function getPlan(): \Recurly\Resources\PlanMini
+    public function getPlan(): ?\Recurly\Resources\PlanMini
     {
         return $this->_plan;
     }
@@ -640,9 +640,9 @@ class Subscription extends RecurlyResource
     * Getter method for the po_number attribute.
     * For manual invoicing, this identifies the PO number associated with the subscription.
     *
-    * @return string
+    * @return ?string
     */
-    public function getPoNumber(): string
+    public function getPoNumber(): ?string
     {
         return $this->_po_number;
     }
@@ -663,9 +663,9 @@ class Subscription extends RecurlyResource
     * Getter method for the quantity attribute.
     * Subscription quantity
     *
-    * @return int
+    * @return ?int
     */
-    public function getQuantity(): int
+    public function getQuantity(): ?int
     {
         return $this->_quantity;
     }
@@ -686,9 +686,9 @@ class Subscription extends RecurlyResource
     * Getter method for the remaining_billing_cycles attribute.
     * The remaining billing cycles in the current term.
     *
-    * @return int
+    * @return ?int
     */
-    public function getRemainingBillingCycles(): int
+    public function getRemainingBillingCycles(): ?int
     {
         return $this->_remaining_billing_cycles;
     }
@@ -709,9 +709,9 @@ class Subscription extends RecurlyResource
     * Getter method for the remaining_pause_cycles attribute.
     * Null unless subscription is paused or will pause at the end of the current billing period.
     *
-    * @return int
+    * @return ?int
     */
-    public function getRemainingPauseCycles(): int
+    public function getRemainingPauseCycles(): ?int
     {
         return $this->_remaining_pause_cycles;
     }
@@ -732,9 +732,9 @@ class Subscription extends RecurlyResource
     * Getter method for the renewal_billing_cycles attribute.
     * If `auto_renew=true`, when a term completes, `total_billing_cycles` takes this value as the length of subsequent terms. Defaults to the plan's `total_billing_cycles`.
     *
-    * @return int
+    * @return ?int
     */
-    public function getRenewalBillingCycles(): int
+    public function getRenewalBillingCycles(): ?int
     {
         return $this->_renewal_billing_cycles;
     }
@@ -755,9 +755,9 @@ class Subscription extends RecurlyResource
     * Getter method for the revenue_schedule_type attribute.
     * Revenue schedule type
     *
-    * @return string
+    * @return ?string
     */
-    public function getRevenueScheduleType(): string
+    public function getRevenueScheduleType(): ?string
     {
         return $this->_revenue_schedule_type;
     }
@@ -778,9 +778,9 @@ class Subscription extends RecurlyResource
     * Getter method for the shipping attribute.
     * Subscription shipping details
     *
-    * @return \Recurly\Resources\SubscriptionShipping
+    * @return ?\Recurly\Resources\SubscriptionShipping
     */
-    public function getShipping(): \Recurly\Resources\SubscriptionShipping
+    public function getShipping(): ?\Recurly\Resources\SubscriptionShipping
     {
         return $this->_shipping;
     }
@@ -801,9 +801,9 @@ class Subscription extends RecurlyResource
     * Getter method for the state attribute.
     * State
     *
-    * @return string
+    * @return ?string
     */
-    public function getState(): string
+    public function getState(): ?string
     {
         return $this->_state;
     }
@@ -824,9 +824,9 @@ class Subscription extends RecurlyResource
     * Getter method for the subtotal attribute.
     * Estimated total, before tax.
     *
-    * @return float
+    * @return ?float
     */
-    public function getSubtotal(): float
+    public function getSubtotal(): ?float
     {
         return $this->_subtotal;
     }
@@ -847,9 +847,9 @@ class Subscription extends RecurlyResource
     * Getter method for the terms_and_conditions attribute.
     * Terms and conditions
     *
-    * @return string
+    * @return ?string
     */
-    public function getTermsAndConditions(): string
+    public function getTermsAndConditions(): ?string
     {
         return $this->_terms_and_conditions;
     }
@@ -870,9 +870,9 @@ class Subscription extends RecurlyResource
     * Getter method for the total_billing_cycles attribute.
     * The number of cycles/billing periods in a term. When `remaining_billing_cycles=0`, if `auto_renew=true` the subscription will renew and a new term will begin, otherwise the subscription will expire.
     *
-    * @return int
+    * @return ?int
     */
-    public function getTotalBillingCycles(): int
+    public function getTotalBillingCycles(): ?int
     {
         return $this->_total_billing_cycles;
     }
@@ -893,9 +893,9 @@ class Subscription extends RecurlyResource
     * Getter method for the trial_ends_at attribute.
     * Trial period ends at
     *
-    * @return string
+    * @return ?string
     */
-    public function getTrialEndsAt(): string
+    public function getTrialEndsAt(): ?string
     {
         return $this->_trial_ends_at;
     }
@@ -916,9 +916,9 @@ class Subscription extends RecurlyResource
     * Getter method for the trial_started_at attribute.
     * Trial period started at
     *
-    * @return string
+    * @return ?string
     */
-    public function getTrialStartedAt(): string
+    public function getTrialStartedAt(): ?string
     {
         return $this->_trial_started_at;
     }
@@ -939,9 +939,9 @@ class Subscription extends RecurlyResource
     * Getter method for the unit_amount attribute.
     * Subscription unit price
     *
-    * @return float
+    * @return ?float
     */
-    public function getUnitAmount(): float
+    public function getUnitAmount(): ?float
     {
         return $this->_unit_amount;
     }
@@ -962,9 +962,9 @@ class Subscription extends RecurlyResource
     * Getter method for the updated_at attribute.
     * Last updated at
     *
-    * @return string
+    * @return ?string
     */
-    public function getUpdatedAt(): string
+    public function getUpdatedAt(): ?string
     {
         return $this->_updated_at;
     }
@@ -985,9 +985,9 @@ class Subscription extends RecurlyResource
     * Getter method for the uuid attribute.
     * The UUID is useful for matching data with the CSV exports and building URLs into Recurly's UI.
     *
-    * @return string
+    * @return ?string
     */
-    public function getUuid(): string
+    public function getUuid(): ?string
     {
         return $this->_uuid;
     }

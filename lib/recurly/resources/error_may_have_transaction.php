@@ -26,9 +26,9 @@ class ErrorMayHaveTransaction extends RecurlyResource
     * Getter method for the message attribute.
     * Message
     *
-    * @return string
+    * @return ?string
     */
-    public function getMessage(): string
+    public function getMessage(): ?string
     {
         return $this->_message;
     }
@@ -53,7 +53,7 @@ class ErrorMayHaveTransaction extends RecurlyResource
     */
     public function getParams(): array
     {
-        return $this->_params;
+        return $this->_params ?? [] ;
     }
 
     /**
@@ -72,9 +72,9 @@ class ErrorMayHaveTransaction extends RecurlyResource
     * Getter method for the transaction_error attribute.
     * This is only included on errors with `type=transaction`.
     *
-    * @return \Recurly\Resources\TransactionError
+    * @return ?\Recurly\Resources\TransactionError
     */
-    public function getTransactionError(): \Recurly\Resources\TransactionError
+    public function getTransactionError(): ?\Recurly\Resources\TransactionError
     {
         return $this->_transaction_error;
     }
@@ -95,9 +95,9 @@ class ErrorMayHaveTransaction extends RecurlyResource
     * Getter method for the type attribute.
     * Type
     *
-    * @return string
+    * @return ?string
     */
-    public function getType(): string
+    public function getType(): ?string
     {
         return $this->_type;
     }

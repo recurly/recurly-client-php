@@ -33,9 +33,9 @@ class SubscriptionAddOn extends RecurlyResource
     * Getter method for the add_on attribute.
     * Just the important parts.
     *
-    * @return \Recurly\Resources\AddOnMini
+    * @return ?\Recurly\Resources\AddOnMini
     */
-    public function getAddOn(): \Recurly\Resources\AddOnMini
+    public function getAddOn(): ?\Recurly\Resources\AddOnMini
     {
         return $this->_add_on;
     }
@@ -56,9 +56,9 @@ class SubscriptionAddOn extends RecurlyResource
     * Getter method for the created_at attribute.
     * Created at
     *
-    * @return string
+    * @return ?string
     */
-    public function getCreatedAt(): string
+    public function getCreatedAt(): ?string
     {
         return $this->_created_at;
     }
@@ -79,9 +79,9 @@ class SubscriptionAddOn extends RecurlyResource
     * Getter method for the expired_at attribute.
     * Expired at
     *
-    * @return string
+    * @return ?string
     */
-    public function getExpiredAt(): string
+    public function getExpiredAt(): ?string
     {
         return $this->_expired_at;
     }
@@ -102,9 +102,9 @@ class SubscriptionAddOn extends RecurlyResource
     * Getter method for the id attribute.
     * Subscription Add-on ID
     *
-    * @return string
+    * @return ?string
     */
-    public function getId(): string
+    public function getId(): ?string
     {
         return $this->_id;
     }
@@ -125,9 +125,9 @@ class SubscriptionAddOn extends RecurlyResource
     * Getter method for the object attribute.
     * Object type
     *
-    * @return string
+    * @return ?string
     */
-    public function getObject(): string
+    public function getObject(): ?string
     {
         return $this->_object;
     }
@@ -148,9 +148,9 @@ class SubscriptionAddOn extends RecurlyResource
     * Getter method for the quantity attribute.
     * Add-on quantity
     *
-    * @return int
+    * @return ?int
     */
-    public function getQuantity(): int
+    public function getQuantity(): ?int
     {
         return $this->_quantity;
     }
@@ -171,9 +171,9 @@ class SubscriptionAddOn extends RecurlyResource
     * Getter method for the subscription_id attribute.
     * Subscription ID
     *
-    * @return string
+    * @return ?string
     */
-    public function getSubscriptionId(): string
+    public function getSubscriptionId(): ?string
     {
         return $this->_subscription_id;
     }
@@ -194,9 +194,9 @@ class SubscriptionAddOn extends RecurlyResource
     * Getter method for the tier_type attribute.
     * The type of tiering used by the Add-on.
     *
-    * @return string
+    * @return ?string
     */
-    public function getTierType(): string
+    public function getTierType(): ?string
     {
         return $this->_tier_type;
     }
@@ -221,7 +221,7 @@ class SubscriptionAddOn extends RecurlyResource
     */
     public function getTiers(): array
     {
-        return $this->_tiers;
+        return $this->_tiers ?? [] ;
     }
 
     /**
@@ -240,9 +240,9 @@ class SubscriptionAddOn extends RecurlyResource
     * Getter method for the unit_amount attribute.
     * This is priced in the subscription's currency.
     *
-    * @return float
+    * @return ?float
     */
-    public function getUnitAmount(): float
+    public function getUnitAmount(): ?float
     {
         return $this->_unit_amount;
     }
@@ -263,9 +263,9 @@ class SubscriptionAddOn extends RecurlyResource
     * Getter method for the updated_at attribute.
     * Updated at
     *
-    * @return string
+    * @return ?string
     */
-    public function getUpdatedAt(): string
+    public function getUpdatedAt(): ?string
     {
         return $this->_updated_at;
     }

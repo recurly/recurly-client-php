@@ -31,9 +31,9 @@ class CustomFieldDefinition extends RecurlyResource
     * Getter method for the created_at attribute.
     * Created at
     *
-    * @return string
+    * @return ?string
     */
-    public function getCreatedAt(): string
+    public function getCreatedAt(): ?string
     {
         return $this->_created_at;
     }
@@ -54,9 +54,9 @@ class CustomFieldDefinition extends RecurlyResource
     * Getter method for the deleted_at attribute.
     * Definitions are initially soft deleted, and once all the values are removed from the accouts or subscriptions, will be hard deleted an no longer visible.
     *
-    * @return string
+    * @return ?string
     */
-    public function getDeletedAt(): string
+    public function getDeletedAt(): ?string
     {
         return $this->_deleted_at;
     }
@@ -77,9 +77,9 @@ class CustomFieldDefinition extends RecurlyResource
     * Getter method for the display_name attribute.
     * Used to label the field when viewing and editing the field in Recurly's admin UI.
     *
-    * @return string
+    * @return ?string
     */
-    public function getDisplayName(): string
+    public function getDisplayName(): ?string
     {
         return $this->_display_name;
     }
@@ -100,9 +100,9 @@ class CustomFieldDefinition extends RecurlyResource
     * Getter method for the id attribute.
     * Custom field definition ID
     *
-    * @return string
+    * @return ?string
     */
-    public function getId(): string
+    public function getId(): ?string
     {
         return $this->_id;
     }
@@ -123,9 +123,9 @@ class CustomFieldDefinition extends RecurlyResource
     * Getter method for the name attribute.
     * Used by the API to identify the field or reading and writing. The name can only be used once per Recurly object type.
     *
-    * @return string
+    * @return ?string
     */
-    public function getName(): string
+    public function getName(): ?string
     {
         return $this->_name;
     }
@@ -146,9 +146,9 @@ class CustomFieldDefinition extends RecurlyResource
     * Getter method for the object attribute.
     * Object type
     *
-    * @return string
+    * @return ?string
     */
-    public function getObject(): string
+    public function getObject(): ?string
     {
         return $this->_object;
     }
@@ -169,9 +169,9 @@ class CustomFieldDefinition extends RecurlyResource
     * Getter method for the related_type attribute.
     * Related Recurly object type
     *
-    * @return string
+    * @return ?string
     */
-    public function getRelatedType(): string
+    public function getRelatedType(): ?string
     {
         return $this->_related_type;
     }
@@ -192,9 +192,9 @@ class CustomFieldDefinition extends RecurlyResource
     * Getter method for the tooltip attribute.
     * Displayed as a tooltip when editing the field in the Recurly admin UI.
     *
-    * @return string
+    * @return ?string
     */
-    public function getTooltip(): string
+    public function getTooltip(): ?string
     {
         return $this->_tooltip;
     }
@@ -215,9 +215,9 @@ class CustomFieldDefinition extends RecurlyResource
     * Getter method for the updated_at attribute.
     * Last updated at
     *
-    * @return string
+    * @return ?string
     */
-    public function getUpdatedAt(): string
+    public function getUpdatedAt(): ?string
     {
         return $this->_updated_at;
     }
@@ -243,9 +243,9 @@ class CustomFieldDefinition extends RecurlyResource
 - `write` - Users with the Customers role will be able to view and edit this field's data via the admin UI.
 
     *
-    * @return string
+    * @return ?string
     */
-    public function getUserAccess(): string
+    public function getUserAccess(): ?string
     {
         return $this->_user_access;
     }

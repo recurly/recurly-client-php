@@ -28,7 +28,7 @@ class Tier extends RecurlyResource
     */
     public function getCurrencies(): array
     {
-        return $this->_currencies;
+        return $this->_currencies ?? [] ;
     }
 
     /**
@@ -47,9 +47,9 @@ class Tier extends RecurlyResource
     * Getter method for the ending_quantity attribute.
     * Ending quantity
     *
-    * @return int
+    * @return ?int
     */
-    public function getEndingQuantity(): int
+    public function getEndingQuantity(): ?int
     {
         return $this->_ending_quantity;
     }

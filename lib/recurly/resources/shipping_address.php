@@ -39,9 +39,9 @@ class ShippingAddress extends RecurlyResource
     * Getter method for the account_id attribute.
     * Account ID
     *
-    * @return string
+    * @return ?string
     */
-    public function getAccountId(): string
+    public function getAccountId(): ?string
     {
         return $this->_account_id;
     }
@@ -62,9 +62,9 @@ class ShippingAddress extends RecurlyResource
     * Getter method for the city attribute.
     * 
     *
-    * @return string
+    * @return ?string
     */
-    public function getCity(): string
+    public function getCity(): ?string
     {
         return $this->_city;
     }
@@ -85,9 +85,9 @@ class ShippingAddress extends RecurlyResource
     * Getter method for the company attribute.
     * 
     *
-    * @return string
+    * @return ?string
     */
-    public function getCompany(): string
+    public function getCompany(): ?string
     {
         return $this->_company;
     }
@@ -108,9 +108,9 @@ class ShippingAddress extends RecurlyResource
     * Getter method for the country attribute.
     * Country, 2-letter ISO code.
     *
-    * @return string
+    * @return ?string
     */
-    public function getCountry(): string
+    public function getCountry(): ?string
     {
         return $this->_country;
     }
@@ -131,9 +131,9 @@ class ShippingAddress extends RecurlyResource
     * Getter method for the created_at attribute.
     * Created at
     *
-    * @return string
+    * @return ?string
     */
-    public function getCreatedAt(): string
+    public function getCreatedAt(): ?string
     {
         return $this->_created_at;
     }
@@ -154,9 +154,9 @@ class ShippingAddress extends RecurlyResource
     * Getter method for the email attribute.
     * 
     *
-    * @return string
+    * @return ?string
     */
-    public function getEmail(): string
+    public function getEmail(): ?string
     {
         return $this->_email;
     }
@@ -177,9 +177,9 @@ class ShippingAddress extends RecurlyResource
     * Getter method for the first_name attribute.
     * 
     *
-    * @return string
+    * @return ?string
     */
-    public function getFirstName(): string
+    public function getFirstName(): ?string
     {
         return $this->_first_name;
     }
@@ -200,9 +200,9 @@ class ShippingAddress extends RecurlyResource
     * Getter method for the id attribute.
     * Shipping Address ID
     *
-    * @return string
+    * @return ?string
     */
-    public function getId(): string
+    public function getId(): ?string
     {
         return $this->_id;
     }
@@ -223,9 +223,9 @@ class ShippingAddress extends RecurlyResource
     * Getter method for the last_name attribute.
     * 
     *
-    * @return string
+    * @return ?string
     */
-    public function getLastName(): string
+    public function getLastName(): ?string
     {
         return $this->_last_name;
     }
@@ -246,9 +246,9 @@ class ShippingAddress extends RecurlyResource
     * Getter method for the nickname attribute.
     * 
     *
-    * @return string
+    * @return ?string
     */
-    public function getNickname(): string
+    public function getNickname(): ?string
     {
         return $this->_nickname;
     }
@@ -269,9 +269,9 @@ class ShippingAddress extends RecurlyResource
     * Getter method for the object attribute.
     * Object type
     *
-    * @return string
+    * @return ?string
     */
-    public function getObject(): string
+    public function getObject(): ?string
     {
         return $this->_object;
     }
@@ -292,9 +292,9 @@ class ShippingAddress extends RecurlyResource
     * Getter method for the phone attribute.
     * 
     *
-    * @return string
+    * @return ?string
     */
-    public function getPhone(): string
+    public function getPhone(): ?string
     {
         return $this->_phone;
     }
@@ -315,9 +315,9 @@ class ShippingAddress extends RecurlyResource
     * Getter method for the postal_code attribute.
     * Zip or postal code.
     *
-    * @return string
+    * @return ?string
     */
-    public function getPostalCode(): string
+    public function getPostalCode(): ?string
     {
         return $this->_postal_code;
     }
@@ -338,9 +338,9 @@ class ShippingAddress extends RecurlyResource
     * Getter method for the region attribute.
     * State or province.
     *
-    * @return string
+    * @return ?string
     */
-    public function getRegion(): string
+    public function getRegion(): ?string
     {
         return $this->_region;
     }
@@ -361,9 +361,9 @@ class ShippingAddress extends RecurlyResource
     * Getter method for the street1 attribute.
     * 
     *
-    * @return string
+    * @return ?string
     */
-    public function getStreet1(): string
+    public function getStreet1(): ?string
     {
         return $this->_street1;
     }
@@ -384,9 +384,9 @@ class ShippingAddress extends RecurlyResource
     * Getter method for the street2 attribute.
     * 
     *
-    * @return string
+    * @return ?string
     */
-    public function getStreet2(): string
+    public function getStreet2(): ?string
     {
         return $this->_street2;
     }
@@ -407,9 +407,9 @@ class ShippingAddress extends RecurlyResource
     * Getter method for the updated_at attribute.
     * Updated at
     *
-    * @return string
+    * @return ?string
     */
-    public function getUpdatedAt(): string
+    public function getUpdatedAt(): ?string
     {
         return $this->_updated_at;
     }
@@ -430,9 +430,9 @@ class ShippingAddress extends RecurlyResource
     * Getter method for the vat_number attribute.
     * 
     *
-    * @return string
+    * @return ?string
     */
-    public function getVatNumber(): string
+    public function getVatNumber(): ?string
     {
         return $this->_vat_number;
     }
