@@ -23,9 +23,9 @@ class SubscriptionAddOnTier extends RecurlyResource
     * Getter method for the ending_quantity attribute.
     * Ending quantity
     *
-    * @return int
+    * @return ?int
     */
-    public function getEndingQuantity(): int
+    public function getEndingQuantity(): ?int
     {
         return $this->_ending_quantity;
     }
@@ -46,9 +46,9 @@ class SubscriptionAddOnTier extends RecurlyResource
     * Getter method for the unit_amount attribute.
     * Unit amount
     *
-    * @return float
+    * @return ?float
     */
-    public function getUnitAmount(): float
+    public function getUnitAmount(): ?float
     {
         return $this->_unit_amount;
     }

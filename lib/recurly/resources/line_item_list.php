@@ -72,9 +72,9 @@ class LineItemList extends RecurlyResource
     * Getter method for the next attribute.
     * Path to subsequent page of results.
     *
-    * @return string
+    * @return ?string
     */
-    public function getNext(): string
+    public function getNext(): ?string
     {
         return $this->_next;
     }
@@ -95,9 +95,9 @@ class LineItemList extends RecurlyResource
     * Getter method for the object attribute.
     * Will always be List.
     *
-    * @return string
+    * @return ?string
     */
-    public function getObject(): string
+    public function getObject(): ?string
     {
         return $this->_object;
     }

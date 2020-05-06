@@ -52,9 +52,9 @@ class Settings extends RecurlyResource
 - none:      No Address
 
     *
-    * @return string
+    * @return ?string
     */
-    public function getBillingAddressRequirement(): string
+    public function getBillingAddressRequirement(): ?string
     {
         return $this->_billing_address_requirement;
     }
@@ -75,9 +75,9 @@ class Settings extends RecurlyResource
     * Getter method for the default_currency attribute.
     * The default 3-letter ISO 4217 currency code.
     *
-    * @return string
+    * @return ?string
     */
-    public function getDefaultCurrency(): string
+    public function getDefaultCurrency(): ?string
     {
         return $this->_default_currency;
     }

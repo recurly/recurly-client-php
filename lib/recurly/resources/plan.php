@@ -45,9 +45,9 @@ class Plan extends RecurlyResource
     * Getter method for the accounting_code attribute.
     * Accounting code for invoice line items for the plan. If no value is provided, it defaults to plan's code.
     *
-    * @return string
+    * @return ?string
     */
-    public function getAccountingCode(): string
+    public function getAccountingCode(): ?string
     {
         return $this->_accounting_code;
     }
@@ -91,9 +91,9 @@ class Plan extends RecurlyResource
     * Getter method for the code attribute.
     * Unique code to identify the plan. This is used in Hosted Payment Page URLs and in the invoice exports.
     *
-    * @return string
+    * @return ?string
     */
-    public function getCode(): string
+    public function getCode(): ?string
     {
         return $this->_code;
     }
@@ -114,9 +114,9 @@ class Plan extends RecurlyResource
     * Getter method for the created_at attribute.
     * Created at
     *
-    * @return string
+    * @return ?string
     */
-    public function getCreatedAt(): string
+    public function getCreatedAt(): ?string
     {
         return $this->_created_at;
     }
@@ -160,9 +160,9 @@ class Plan extends RecurlyResource
     * Getter method for the deleted_at attribute.
     * Deleted at
     *
-    * @return string
+    * @return ?string
     */
-    public function getDeletedAt(): string
+    public function getDeletedAt(): ?string
     {
         return $this->_deleted_at;
     }
@@ -183,9 +183,9 @@ class Plan extends RecurlyResource
     * Getter method for the description attribute.
     * Optional description, not displayed.
     *
-    * @return string
+    * @return ?string
     */
-    public function getDescription(): string
+    public function getDescription(): ?string
     {
         return $this->_description;
     }
@@ -229,9 +229,9 @@ class Plan extends RecurlyResource
     * Getter method for the id attribute.
     * Plan ID
     *
-    * @return string
+    * @return ?string
     */
-    public function getId(): string
+    public function getId(): ?string
     {
         return $this->_id;
     }
@@ -252,9 +252,9 @@ class Plan extends RecurlyResource
     * Getter method for the interval_length attribute.
     * Length of the plan's billing interval in `interval_unit`.
     *
-    * @return int
+    * @return ?int
     */
-    public function getIntervalLength(): int
+    public function getIntervalLength(): ?int
     {
         return $this->_interval_length;
     }
@@ -275,9 +275,9 @@ class Plan extends RecurlyResource
     * Getter method for the interval_unit attribute.
     * Unit for the plan's billing interval.
     *
-    * @return string
+    * @return ?string
     */
-    public function getIntervalUnit(): string
+    public function getIntervalUnit(): ?string
     {
         return $this->_interval_unit;
     }
@@ -298,9 +298,9 @@ class Plan extends RecurlyResource
     * Getter method for the name attribute.
     * This name describes your plan and will appear on the Hosted Payment Page and the subscriber's invoice.
     *
-    * @return string
+    * @return ?string
     */
-    public function getName(): string
+    public function getName(): ?string
     {
         return $this->_name;
     }
@@ -321,9 +321,9 @@ class Plan extends RecurlyResource
     * Getter method for the object attribute.
     * Object type
     *
-    * @return string
+    * @return ?string
     */
-    public function getObject(): string
+    public function getObject(): ?string
     {
         return $this->_object;
     }
@@ -344,9 +344,9 @@ class Plan extends RecurlyResource
     * Getter method for the revenue_schedule_type attribute.
     * Revenue schedule type
     *
-    * @return string
+    * @return ?string
     */
-    public function getRevenueScheduleType(): string
+    public function getRevenueScheduleType(): ?string
     {
         return $this->_revenue_schedule_type;
     }
@@ -367,9 +367,9 @@ class Plan extends RecurlyResource
     * Getter method for the setup_fee_accounting_code attribute.
     * Accounting code for invoice line items for the plan's setup fee. If no value is provided, it defaults to plan's accounting code.
     *
-    * @return string
+    * @return ?string
     */
-    public function getSetupFeeAccountingCode(): string
+    public function getSetupFeeAccountingCode(): ?string
     {
         return $this->_setup_fee_accounting_code;
     }
@@ -390,9 +390,9 @@ class Plan extends RecurlyResource
     * Getter method for the setup_fee_revenue_schedule_type attribute.
     * Setup fee revenue schedule type
     *
-    * @return string
+    * @return ?string
     */
-    public function getSetupFeeRevenueScheduleType(): string
+    public function getSetupFeeRevenueScheduleType(): ?string
     {
         return $this->_setup_fee_revenue_schedule_type;
     }
@@ -413,9 +413,9 @@ class Plan extends RecurlyResource
     * Getter method for the state attribute.
     * The current state of the plan.
     *
-    * @return string
+    * @return ?string
     */
-    public function getState(): string
+    public function getState(): ?string
     {
         return $this->_state;
     }
@@ -436,9 +436,9 @@ class Plan extends RecurlyResource
     * Getter method for the tax_code attribute.
     * Used by Avalara, Vertex, and Recurly’s EU VAT tax feature. The tax code values are specific to each tax system. If you are using Recurly’s EU VAT feature you can use `unknown`, `physical`, or `digital`.
     *
-    * @return string
+    * @return ?string
     */
-    public function getTaxCode(): string
+    public function getTaxCode(): ?string
     {
         return $this->_tax_code;
     }
@@ -482,9 +482,9 @@ class Plan extends RecurlyResource
     * Getter method for the total_billing_cycles attribute.
     * Automatically terminate subscriptions after a defined number of billing cycles. Number of billing cycles before the plan automatically stops renewing, defaults to `null` for continuous, automatic renewal.
     *
-    * @return int
+    * @return ?int
     */
-    public function getTotalBillingCycles(): int
+    public function getTotalBillingCycles(): ?int
     {
         return $this->_total_billing_cycles;
     }
@@ -505,9 +505,9 @@ class Plan extends RecurlyResource
     * Getter method for the trial_length attribute.
     * Length of plan's trial period in `trial_units`. `0` means `no trial`.
     *
-    * @return int
+    * @return ?int
     */
-    public function getTrialLength(): int
+    public function getTrialLength(): ?int
     {
         return $this->_trial_length;
     }
@@ -528,9 +528,9 @@ class Plan extends RecurlyResource
     * Getter method for the trial_unit attribute.
     * Units for the plan's trial period.
     *
-    * @return string
+    * @return ?string
     */
-    public function getTrialUnit(): string
+    public function getTrialUnit(): ?string
     {
         return $this->_trial_unit;
     }
@@ -551,9 +551,9 @@ class Plan extends RecurlyResource
     * Getter method for the updated_at attribute.
     * Last updated at
     *
-    * @return string
+    * @return ?string
     */
-    public function getUpdatedAt(): string
+    public function getUpdatedAt(): ?string
     {
         return $this->_updated_at;
     }

@@ -104,9 +104,9 @@ class Invoice extends RecurlyResource
     * Getter method for the balance attribute.
     * The outstanding balance remaining on this invoice.
     *
-    * @return float
+    * @return ?float
     */
-    public function getBalance(): float
+    public function getBalance(): ?float
     {
         return $this->_balance;
     }
@@ -127,9 +127,9 @@ class Invoice extends RecurlyResource
     * Getter method for the closed_at attribute.
     * Date invoice was marked paid or failed.
     *
-    * @return string
+    * @return ?string
     */
-    public function getClosedAt(): string
+    public function getClosedAt(): ?string
     {
         return $this->_closed_at;
     }
@@ -150,9 +150,9 @@ class Invoice extends RecurlyResource
     * Getter method for the collection_method attribute.
     * An automatic invoice means a corresponding transaction is run using the account's billing information at the same time the invoice is created. Manual invoices are created without a corresponding transaction. The merchant must enter a manual payment transaction or have the customer pay the invoice with an automatic method, like credit card, PayPal, Amazon, or ACH bank payment.
     *
-    * @return string
+    * @return ?string
     */
-    public function getCollectionMethod(): string
+    public function getCollectionMethod(): ?string
     {
         return $this->_collection_method;
     }
@@ -173,9 +173,9 @@ class Invoice extends RecurlyResource
     * Getter method for the created_at attribute.
     * Created at
     *
-    * @return string
+    * @return ?string
     */
-    public function getCreatedAt(): string
+    public function getCreatedAt(): ?string
     {
         return $this->_created_at;
     }
@@ -219,9 +219,9 @@ class Invoice extends RecurlyResource
     * Getter method for the currency attribute.
     * 3-letter ISO 4217 currency code.
     *
-    * @return string
+    * @return ?string
     */
-    public function getCurrency(): string
+    public function getCurrency(): ?string
     {
         return $this->_currency;
     }
@@ -242,9 +242,9 @@ class Invoice extends RecurlyResource
     * Getter method for the customer_notes attribute.
     * This will default to the Customer Notes text specified on the Invoice Settings. Specify custom notes to add or override Customer Notes.
     *
-    * @return string
+    * @return ?string
     */
-    public function getCustomerNotes(): string
+    public function getCustomerNotes(): ?string
     {
         return $this->_customer_notes;
     }
@@ -265,9 +265,9 @@ class Invoice extends RecurlyResource
     * Getter method for the discount attribute.
     * Total discounts applied to this invoice.
     *
-    * @return float
+    * @return ?float
     */
-    public function getDiscount(): float
+    public function getDiscount(): ?float
     {
         return $this->_discount;
     }
@@ -288,9 +288,9 @@ class Invoice extends RecurlyResource
     * Getter method for the due_at attribute.
     * Date invoice is due. This is the date the net terms are reached.
     *
-    * @return string
+    * @return ?string
     */
-    public function getDueAt(): string
+    public function getDueAt(): ?string
     {
         return $this->_due_at;
     }
@@ -311,9 +311,9 @@ class Invoice extends RecurlyResource
     * Getter method for the id attribute.
     * Invoice ID
     *
-    * @return string
+    * @return ?string
     */
-    public function getId(): string
+    public function getId(): ?string
     {
         return $this->_id;
     }
@@ -357,9 +357,9 @@ class Invoice extends RecurlyResource
     * Getter method for the net_terms attribute.
     * Integer representing the number of days after an invoice's creation that the invoice will become past due. If an invoice's net terms are set to '0', it is due 'On Receipt' and will become past due 24 hours after it’s created. If an invoice is due net 30, it will become past due at 31 days exactly.
     *
-    * @return int
+    * @return ?int
     */
-    public function getNetTerms(): int
+    public function getNetTerms(): ?int
     {
         return $this->_net_terms;
     }
@@ -380,9 +380,9 @@ class Invoice extends RecurlyResource
     * Getter method for the number attribute.
     * If VAT taxation and the Country Invoice Sequencing feature are enabled, invoices will have country-specific invoice numbers for invoices billed to EU countries (ex: FR1001). Non-EU invoices will continue to use the site-level invoice number sequence.
     *
-    * @return string
+    * @return ?string
     */
-    public function getNumber(): string
+    public function getNumber(): ?string
     {
         return $this->_number;
     }
@@ -403,9 +403,9 @@ class Invoice extends RecurlyResource
     * Getter method for the object attribute.
     * Object type
     *
-    * @return string
+    * @return ?string
     */
-    public function getObject(): string
+    public function getObject(): ?string
     {
         return $this->_object;
     }
@@ -426,9 +426,9 @@ class Invoice extends RecurlyResource
     * Getter method for the origin attribute.
     * The event that created the invoice.
     *
-    * @return string
+    * @return ?string
     */
-    public function getOrigin(): string
+    public function getOrigin(): ?string
     {
         return $this->_origin;
     }
@@ -449,9 +449,9 @@ class Invoice extends RecurlyResource
     * Getter method for the paid attribute.
     * The total amount of successful payments transaction on this invoice.
     *
-    * @return float
+    * @return ?float
     */
-    public function getPaid(): float
+    public function getPaid(): ?float
     {
         return $this->_paid;
     }
@@ -472,9 +472,9 @@ class Invoice extends RecurlyResource
     * Getter method for the po_number attribute.
     * For manual invoicing, this identifies the PO number associated with the subscription.
     *
-    * @return string
+    * @return ?string
     */
-    public function getPoNumber(): string
+    public function getPoNumber(): ?string
     {
         return $this->_po_number;
     }
@@ -495,9 +495,9 @@ class Invoice extends RecurlyResource
     * Getter method for the previous_invoice_id attribute.
     * On refund invoices, this value will exist and show the invoice ID of the purchase invoice the refund was created from.
     *
-    * @return string
+    * @return ?string
     */
-    public function getPreviousInvoiceId(): string
+    public function getPreviousInvoiceId(): ?string
     {
         return $this->_previous_invoice_id;
     }
@@ -518,9 +518,9 @@ class Invoice extends RecurlyResource
     * Getter method for the refundable_amount attribute.
     * The refundable amount on a charge invoice. It will be null for all other invoices.
     *
-    * @return float
+    * @return ?float
     */
-    public function getRefundableAmount(): float
+    public function getRefundableAmount(): ?float
     {
         return $this->_refundable_amount;
     }
@@ -564,9 +564,9 @@ class Invoice extends RecurlyResource
     * Getter method for the state attribute.
     * Invoice state
     *
-    * @return string
+    * @return ?string
     */
-    public function getState(): string
+    public function getState(): ?string
     {
         return $this->_state;
     }
@@ -610,9 +610,9 @@ class Invoice extends RecurlyResource
     * Getter method for the subtotal attribute.
     * The summation of charges, discounts, and credits, before tax.
     *
-    * @return float
+    * @return ?float
     */
-    public function getSubtotal(): float
+    public function getSubtotal(): ?float
     {
         return $this->_subtotal;
     }
@@ -633,9 +633,9 @@ class Invoice extends RecurlyResource
     * Getter method for the tax attribute.
     * The total tax on this invoice.
     *
-    * @return float
+    * @return ?float
     */
-    public function getTax(): float
+    public function getTax(): ?float
     {
         return $this->_tax;
     }
@@ -679,9 +679,9 @@ class Invoice extends RecurlyResource
     * Getter method for the terms_and_conditions attribute.
     * This will default to the Terms and Conditions text specified on the Invoice Settings page in your Recurly admin. Specify custom notes to add or override Terms and Conditions.
     *
-    * @return string
+    * @return ?string
     */
-    public function getTermsAndConditions(): string
+    public function getTermsAndConditions(): ?string
     {
         return $this->_terms_and_conditions;
     }
@@ -702,9 +702,9 @@ class Invoice extends RecurlyResource
     * Getter method for the total attribute.
     * The final total on this invoice. The summation of invoice charges, discounts, credits, and tax.
     *
-    * @return float
+    * @return ?float
     */
-    public function getTotal(): float
+    public function getTotal(): ?float
     {
         return $this->_total;
     }
@@ -748,9 +748,9 @@ class Invoice extends RecurlyResource
     * Getter method for the type attribute.
     * Invoices are either charge, credit, or legacy invoices.
     *
-    * @return string
+    * @return ?string
     */
-    public function getType(): string
+    public function getType(): ?string
     {
         return $this->_type;
     }
@@ -771,9 +771,9 @@ class Invoice extends RecurlyResource
     * Getter method for the updated_at attribute.
     * Last updated at
     *
-    * @return string
+    * @return ?string
     */
-    public function getUpdatedAt(): string
+    public function getUpdatedAt(): ?string
     {
         return $this->_updated_at;
     }
@@ -794,9 +794,9 @@ class Invoice extends RecurlyResource
     * Getter method for the vat_number attribute.
     * VAT registration number for the customer on this invoice. This will come from the VAT Number field in the Billing Info or the Account Info depending on your tax settings and the invoice collection method.
     *
-    * @return string
+    * @return ?string
     */
-    public function getVatNumber(): string
+    public function getVatNumber(): ?string
     {
         return $this->_vat_number;
     }
@@ -817,9 +817,9 @@ class Invoice extends RecurlyResource
     * Getter method for the vat_reverse_charge_notes attribute.
     * VAT Reverse Charge Notes only appear if you have EU VAT enabled or are using your own Avalara AvaTax account and the customer is in the EU, has a VAT number, and is in a different country than your own. This will default to the VAT Reverse Charge Notes text specified on the Tax Settings page in your Recurly admin, unless custom notes were created with the original subscription.
     *
-    * @return string
+    * @return ?string
     */
-    public function getVatReverseChargeNotes(): string
+    public function getVatReverseChargeNotes(): ?string
     {
         return $this->_vat_reverse_charge_notes;
     }

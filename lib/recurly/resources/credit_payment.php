@@ -58,9 +58,9 @@ class CreditPayment extends RecurlyResource
     * Getter method for the action attribute.
     * The action for which the credit was created.
     *
-    * @return string
+    * @return ?string
     */
-    public function getAction(): string
+    public function getAction(): ?string
     {
         return $this->_action;
     }
@@ -81,9 +81,9 @@ class CreditPayment extends RecurlyResource
     * Getter method for the amount attribute.
     * Total credit payment amount applied to the charge invoice.
     *
-    * @return float
+    * @return ?float
     */
-    public function getAmount(): float
+    public function getAmount(): ?float
     {
         return $this->_amount;
     }
@@ -127,9 +127,9 @@ class CreditPayment extends RecurlyResource
     * Getter method for the created_at attribute.
     * Created at
     *
-    * @return string
+    * @return ?string
     */
-    public function getCreatedAt(): string
+    public function getCreatedAt(): ?string
     {
         return $this->_created_at;
     }
@@ -150,9 +150,9 @@ class CreditPayment extends RecurlyResource
     * Getter method for the currency attribute.
     * 3-letter ISO 4217 currency code.
     *
-    * @return string
+    * @return ?string
     */
-    public function getCurrency(): string
+    public function getCurrency(): ?string
     {
         return $this->_currency;
     }
@@ -173,9 +173,9 @@ class CreditPayment extends RecurlyResource
     * Getter method for the id attribute.
     * Credit Payment ID
     *
-    * @return string
+    * @return ?string
     */
-    public function getId(): string
+    public function getId(): ?string
     {
         return $this->_id;
     }
@@ -196,9 +196,9 @@ class CreditPayment extends RecurlyResource
     * Getter method for the object attribute.
     * Object type
     *
-    * @return string
+    * @return ?string
     */
-    public function getObject(): string
+    public function getObject(): ?string
     {
         return $this->_object;
     }
@@ -219,9 +219,9 @@ class CreditPayment extends RecurlyResource
     * Getter method for the original_credit_payment_id attribute.
     * For credit payments with action `refund`, this is the credit payment that was refunded.
     *
-    * @return string
+    * @return ?string
     */
-    public function getOriginalCreditPaymentId(): string
+    public function getOriginalCreditPaymentId(): ?string
     {
         return $this->_original_credit_payment_id;
     }
@@ -288,9 +288,9 @@ class CreditPayment extends RecurlyResource
     * Getter method for the updated_at attribute.
     * Last updated at
     *
-    * @return string
+    * @return ?string
     */
-    public function getUpdatedAt(): string
+    public function getUpdatedAt(): ?string
     {
         return $this->_updated_at;
     }
@@ -311,9 +311,9 @@ class CreditPayment extends RecurlyResource
     * Getter method for the uuid attribute.
     * The UUID is useful for matching data with the CSV exports and building URLs into Recurly's UI.
     *
-    * @return string
+    * @return ?string
     */
-    public function getUuid(): string
+    public function getUuid(): ?string
     {
         return $this->_uuid;
     }
@@ -334,9 +334,9 @@ class CreditPayment extends RecurlyResource
     * Getter method for the voided_at attribute.
     * Voided at
     *
-    * @return string
+    * @return ?string
     */
-    public function getVoidedAt(): string
+    public function getVoidedAt(): ?string
     {
         return $this->_voided_at;
     }

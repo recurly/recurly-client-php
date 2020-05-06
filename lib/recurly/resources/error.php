@@ -25,9 +25,9 @@ class Error extends RecurlyResource
     * Getter method for the message attribute.
     * Message
     *
-    * @return string
+    * @return ?string
     */
-    public function getMessage(): string
+    public function getMessage(): ?string
     {
         return $this->_message;
     }
@@ -71,9 +71,9 @@ class Error extends RecurlyResource
     * Getter method for the type attribute.
     * Type
     *
-    * @return string
+    * @return ?string
     */
-    public function getType(): string
+    public function getType(): ?string
     {
         return $this->_type;
     }

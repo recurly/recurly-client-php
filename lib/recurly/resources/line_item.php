@@ -89,9 +89,9 @@ class LineItem extends RecurlyResource
     * Getter method for the accounting_code attribute.
     * Internal accounting code to help you reconcile your revenue to the correct ledger. Line items created as part of a subscription invoice will use the plan or add-on's accounting code, otherwise the value will only be present if you define an accounting code when creating the line item.
     *
-    * @return string
+    * @return ?string
     */
-    public function getAccountingCode(): string
+    public function getAccountingCode(): ?string
     {
         return $this->_accounting_code;
     }
@@ -112,9 +112,9 @@ class LineItem extends RecurlyResource
     * Getter method for the add_on_code attribute.
     * If the line item is a charge or credit for an add-on, this is its code.
     *
-    * @return string
+    * @return ?string
     */
-    public function getAddOnCode(): string
+    public function getAddOnCode(): ?string
     {
         return $this->_add_on_code;
     }
@@ -135,9 +135,9 @@ class LineItem extends RecurlyResource
     * Getter method for the add_on_id attribute.
     * If the line item is a charge or credit for an add-on this is its ID.
     *
-    * @return string
+    * @return ?string
     */
-    public function getAddOnId(): string
+    public function getAddOnId(): ?string
     {
         return $this->_add_on_id;
     }
@@ -158,9 +158,9 @@ class LineItem extends RecurlyResource
     * Getter method for the amount attribute.
     * `(quantity * unit_amount) - (discount + tax)`
     *
-    * @return float
+    * @return ?float
     */
-    public function getAmount(): float
+    public function getAmount(): ?float
     {
         return $this->_amount;
     }
@@ -181,9 +181,9 @@ class LineItem extends RecurlyResource
     * Getter method for the created_at attribute.
     * When the line item was created.
     *
-    * @return string
+    * @return ?string
     */
-    public function getCreatedAt(): string
+    public function getCreatedAt(): ?string
     {
         return $this->_created_at;
     }
@@ -204,9 +204,9 @@ class LineItem extends RecurlyResource
     * Getter method for the credit_applied attribute.
     * The amount of credit from this line item that was applied to the invoice.
     *
-    * @return float
+    * @return ?float
     */
-    public function getCreditApplied(): float
+    public function getCreditApplied(): ?float
     {
         return $this->_credit_applied;
     }
@@ -227,9 +227,9 @@ class LineItem extends RecurlyResource
     * Getter method for the credit_reason_code attribute.
     * The reason the credit was given when line item is `type=credit`.
     *
-    * @return string
+    * @return ?string
     */
-    public function getCreditReasonCode(): string
+    public function getCreditReasonCode(): ?string
     {
         return $this->_credit_reason_code;
     }
@@ -250,9 +250,9 @@ class LineItem extends RecurlyResource
     * Getter method for the currency attribute.
     * 3-letter ISO 4217 currency code.
     *
-    * @return string
+    * @return ?string
     */
-    public function getCurrency(): string
+    public function getCurrency(): ?string
     {
         return $this->_currency;
     }
@@ -273,9 +273,9 @@ class LineItem extends RecurlyResource
     * Getter method for the description attribute.
     * Description that appears on the invoice. For subscription related items this will be filled in automatically.
     *
-    * @return string
+    * @return ?string
     */
-    public function getDescription(): string
+    public function getDescription(): ?string
     {
         return $this->_description;
     }
@@ -296,9 +296,9 @@ class LineItem extends RecurlyResource
     * Getter method for the discount attribute.
     * The discount applied to the line item.
     *
-    * @return float
+    * @return ?float
     */
-    public function getDiscount(): float
+    public function getDiscount(): ?float
     {
         return $this->_discount;
     }
@@ -319,9 +319,9 @@ class LineItem extends RecurlyResource
     * Getter method for the end_date attribute.
     * If this date is provided, it indicates the end of a time range.
     *
-    * @return string
+    * @return ?string
     */
-    public function getEndDate(): string
+    public function getEndDate(): ?string
     {
         return $this->_end_date;
     }
@@ -342,9 +342,9 @@ class LineItem extends RecurlyResource
     * Getter method for the external_sku attribute.
     * Optional Stock Keeping Unit assigned to an item. Available when the Credit Invoices and Subscription Billing Terms features are enabled.
     *
-    * @return string
+    * @return ?string
     */
-    public function getExternalSku(): string
+    public function getExternalSku(): ?string
     {
         return $this->_external_sku;
     }
@@ -365,9 +365,9 @@ class LineItem extends RecurlyResource
     * Getter method for the id attribute.
     * Line item ID
     *
-    * @return string
+    * @return ?string
     */
-    public function getId(): string
+    public function getId(): ?string
     {
         return $this->_id;
     }
@@ -388,9 +388,9 @@ class LineItem extends RecurlyResource
     * Getter method for the invoice_id attribute.
     * Once the line item has been invoiced this will be the invoice's ID.
     *
-    * @return string
+    * @return ?string
     */
-    public function getInvoiceId(): string
+    public function getInvoiceId(): ?string
     {
         return $this->_invoice_id;
     }
@@ -411,9 +411,9 @@ class LineItem extends RecurlyResource
     * Getter method for the invoice_number attribute.
     * Once the line item has been invoiced this will be the invoice's number. If VAT taxation and the Country Invoice Sequencing feature are enabled, invoices will have country-specific invoice numbers for invoices billed to EU countries (ex: FR1001). Non-EU invoices will continue to use the site-level invoice number sequence.
     *
-    * @return string
+    * @return ?string
     */
-    public function getInvoiceNumber(): string
+    public function getInvoiceNumber(): ?string
     {
         return $this->_invoice_number;
     }
@@ -434,9 +434,9 @@ class LineItem extends RecurlyResource
     * Getter method for the item_code attribute.
     * Unique code to identify an item. Available when the Credit Invoices and Subscription Billing Terms features are enabled.
     *
-    * @return string
+    * @return ?string
     */
-    public function getItemCode(): string
+    public function getItemCode(): ?string
     {
         return $this->_item_code;
     }
@@ -457,9 +457,9 @@ class LineItem extends RecurlyResource
     * Getter method for the item_id attribute.
     * System-generated unique identifier for an item. Available when the Credit Invoices and Subscription Billing Terms features are enabled.
     *
-    * @return string
+    * @return ?string
     */
-    public function getItemId(): string
+    public function getItemId(): ?string
     {
         return $this->_item_id;
     }
@@ -485,9 +485,9 @@ class LineItem extends RecurlyResource
 - "carryforwards" can be ignored. They exist to consume any remaining credit balance. A new credit with the same amount will be created and placed back on the account.
 
     *
-    * @return string
+    * @return ?string
     */
-    public function getLegacyCategory(): string
+    public function getLegacyCategory(): ?string
     {
         return $this->_legacy_category;
     }
@@ -508,9 +508,9 @@ class LineItem extends RecurlyResource
     * Getter method for the object attribute.
     * Object type
     *
-    * @return string
+    * @return ?string
     */
-    public function getObject(): string
+    public function getObject(): ?string
     {
         return $this->_object;
     }
@@ -531,9 +531,9 @@ class LineItem extends RecurlyResource
     * Getter method for the origin attribute.
     * A credit created from an original charge will have the value of the charge's origin.
     *
-    * @return string
+    * @return ?string
     */
-    public function getOrigin(): string
+    public function getOrigin(): ?string
     {
         return $this->_origin;
     }
@@ -554,9 +554,9 @@ class LineItem extends RecurlyResource
     * Getter method for the original_line_item_invoice_id attribute.
     * The invoice where the credit originated. Will only have a value if the line item is a credit created from a previous credit, or if the credit was created from a charge refund.
     *
-    * @return string
+    * @return ?string
     */
-    public function getOriginalLineItemInvoiceId(): string
+    public function getOriginalLineItemInvoiceId(): ?string
     {
         return $this->_original_line_item_invoice_id;
     }
@@ -577,9 +577,9 @@ class LineItem extends RecurlyResource
     * Getter method for the plan_code attribute.
     * If the line item is a charge or credit for a plan or add-on, this is the plan's code.
     *
-    * @return string
+    * @return ?string
     */
-    public function getPlanCode(): string
+    public function getPlanCode(): ?string
     {
         return $this->_plan_code;
     }
@@ -600,9 +600,9 @@ class LineItem extends RecurlyResource
     * Getter method for the plan_id attribute.
     * If the line item is a charge or credit for a plan or add-on, this is the plan's ID.
     *
-    * @return string
+    * @return ?string
     */
-    public function getPlanId(): string
+    public function getPlanId(): ?string
     {
         return $this->_plan_id;
     }
@@ -623,9 +623,9 @@ class LineItem extends RecurlyResource
     * Getter method for the previous_line_item_id attribute.
     * Will only have a value if the line item is a credit created from a previous credit, or if the credit was created from a charge refund.
     *
-    * @return string
+    * @return ?string
     */
-    public function getPreviousLineItemId(): string
+    public function getPreviousLineItemId(): ?string
     {
         return $this->_previous_line_item_id;
     }
@@ -646,9 +646,9 @@ class LineItem extends RecurlyResource
     * Getter method for the product_code attribute.
     * For plan-related line items this will be the plan's code, for add-on related line items it will be the add-on's code. For item-related line itmes it will be the item's `external_sku`.
     *
-    * @return string
+    * @return ?string
     */
-    public function getProductCode(): string
+    public function getProductCode(): ?string
     {
         return $this->_product_code;
     }
@@ -669,9 +669,9 @@ class LineItem extends RecurlyResource
     * Getter method for the proration_rate attribute.
     * When a line item has been prorated, this is the rate of the proration. Proration rates were made available for line items created after March 30, 2017. For line items created prior to that date, the proration rate will be `null`, even if the line item was prorated.
     *
-    * @return float
+    * @return ?float
     */
-    public function getProrationRate(): float
+    public function getProrationRate(): ?float
     {
         return $this->_proration_rate;
     }
@@ -692,9 +692,9 @@ class LineItem extends RecurlyResource
     * Getter method for the quantity attribute.
     * This number will be multiplied by the unit amount to compute the subtotal before any discounts or taxes.
     *
-    * @return int
+    * @return ?int
     */
-    public function getQuantity(): int
+    public function getQuantity(): ?int
     {
         return $this->_quantity;
     }
@@ -738,9 +738,9 @@ class LineItem extends RecurlyResource
     * Getter method for the refunded_quantity attribute.
     * For refund charges, the quantity being refunded. For non-refund charges, the total quantity refunded (possibly over multiple refunds).
     *
-    * @return int
+    * @return ?int
     */
-    public function getRefundedQuantity(): int
+    public function getRefundedQuantity(): ?int
     {
         return $this->_refunded_quantity;
     }
@@ -761,9 +761,9 @@ class LineItem extends RecurlyResource
     * Getter method for the revenue_schedule_type attribute.
     * Revenue schedule type
     *
-    * @return string
+    * @return ?string
     */
-    public function getRevenueScheduleType(): string
+    public function getRevenueScheduleType(): ?string
     {
         return $this->_revenue_schedule_type;
     }
@@ -807,9 +807,9 @@ class LineItem extends RecurlyResource
     * Getter method for the start_date attribute.
     * If an end date is present, this is value indicates the beginning of a billing time range. If no end date is present it indicates billing for a specific date.
     *
-    * @return string
+    * @return ?string
     */
-    public function getStartDate(): string
+    public function getStartDate(): ?string
     {
         return $this->_start_date;
     }
@@ -830,9 +830,9 @@ class LineItem extends RecurlyResource
     * Getter method for the state attribute.
     * Pending line items are charges or credits on an account that have not been applied to an invoice yet. Invoiced line items will always have an `invoice_id` value.
     *
-    * @return string
+    * @return ?string
     */
-    public function getState(): string
+    public function getState(): ?string
     {
         return $this->_state;
     }
@@ -853,9 +853,9 @@ class LineItem extends RecurlyResource
     * Getter method for the subscription_id attribute.
     * If the line item is a charge or credit for a subscription, this is its ID.
     *
-    * @return string
+    * @return ?string
     */
-    public function getSubscriptionId(): string
+    public function getSubscriptionId(): ?string
     {
         return $this->_subscription_id;
     }
@@ -876,9 +876,9 @@ class LineItem extends RecurlyResource
     * Getter method for the subtotal attribute.
     * `quantity * unit_amount`
     *
-    * @return float
+    * @return ?float
     */
-    public function getSubtotal(): float
+    public function getSubtotal(): ?float
     {
         return $this->_subtotal;
     }
@@ -899,9 +899,9 @@ class LineItem extends RecurlyResource
     * Getter method for the tax attribute.
     * The tax amount for the line item.
     *
-    * @return float
+    * @return ?float
     */
-    public function getTax(): float
+    public function getTax(): ?float
     {
         return $this->_tax;
     }
@@ -922,9 +922,9 @@ class LineItem extends RecurlyResource
     * Getter method for the tax_code attribute.
     * Used by Avalara, Vertex, and Recurly’s EU VAT tax feature. The tax code values are specific to each tax system. If you are using Recurly’s EU VAT feature you can use `unknown`, `physical`, or `digital`.
     *
-    * @return string
+    * @return ?string
     */
-    public function getTaxCode(): string
+    public function getTaxCode(): ?string
     {
         return $this->_tax_code;
     }
@@ -1014,9 +1014,9 @@ class LineItem extends RecurlyResource
     * Getter method for the type attribute.
     * Charges are positive line items that debit the account. Credits are negative line items that credit the account.
     *
-    * @return string
+    * @return ?string
     */
-    public function getType(): string
+    public function getType(): ?string
     {
         return $this->_type;
     }
@@ -1037,9 +1037,9 @@ class LineItem extends RecurlyResource
     * Getter method for the unit_amount attribute.
     * Positive amount for a charge, negative amount for a credit.
     *
-    * @return float
+    * @return ?float
     */
-    public function getUnitAmount(): float
+    public function getUnitAmount(): ?float
     {
         return $this->_unit_amount;
     }
@@ -1060,9 +1060,9 @@ class LineItem extends RecurlyResource
     * Getter method for the updated_at attribute.
     * When the line item was last changed.
     *
-    * @return string
+    * @return ?string
     */
-    public function getUpdatedAt(): string
+    public function getUpdatedAt(): ?string
     {
         return $this->_updated_at;
     }
@@ -1083,9 +1083,9 @@ class LineItem extends RecurlyResource
     * Getter method for the uuid attribute.
     * The UUID is useful for matching data with the CSV exports and building URLs into Recurly's UI.
     *
-    * @return string
+    * @return ?string
     */
-    public function getUuid(): string
+    public function getUuid(): ?string
     {
         return $this->_uuid;
     }

@@ -23,9 +23,9 @@ class CouponDiscountTrial extends RecurlyResource
     * Getter method for the length attribute.
     * Trial length measured in the units specified by the sibling `unit` property
     *
-    * @return int
+    * @return ?int
     */
-    public function getLength(): int
+    public function getLength(): ?int
     {
         return $this->_length;
     }
@@ -46,9 +46,9 @@ class CouponDiscountTrial extends RecurlyResource
     * Getter method for the unit attribute.
     * Temporal unit of the free trial
     *
-    * @return string
+    * @return ?string
     */
-    public function getUnit(): string
+    public function getUnit(): ?string
     {
         return $this->_unit;
     }

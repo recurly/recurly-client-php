@@ -22,9 +22,9 @@ class BinaryFile extends RecurlyResource
     * Getter method for the data attribute.
     * 
     *
-    * @return string
+    * @return ?string
     */
-    public function getData(): string
+    public function getData(): ?string
     {
         return $this->_data;
     }

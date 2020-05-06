@@ -77,9 +77,9 @@ class CouponRedemption extends RecurlyResource
     * Getter method for the created_at attribute.
     * Created at
     *
-    * @return string
+    * @return ?string
     */
-    public function getCreatedAt(): string
+    public function getCreatedAt(): ?string
     {
         return $this->_created_at;
     }
@@ -100,9 +100,9 @@ class CouponRedemption extends RecurlyResource
     * Getter method for the currency attribute.
     * 3-letter ISO 4217 currency code.
     *
-    * @return string
+    * @return ?string
     */
-    public function getCurrency(): string
+    public function getCurrency(): ?string
     {
         return $this->_currency;
     }
@@ -123,9 +123,9 @@ class CouponRedemption extends RecurlyResource
     * Getter method for the discounted attribute.
     * The amount that was discounted upon the application of the coupon, formatted with the currency.
     *
-    * @return float
+    * @return ?float
     */
-    public function getDiscounted(): float
+    public function getDiscounted(): ?float
     {
         return $this->_discounted;
     }
@@ -146,9 +146,9 @@ class CouponRedemption extends RecurlyResource
     * Getter method for the id attribute.
     * Coupon Redemption ID
     *
-    * @return string
+    * @return ?string
     */
-    public function getId(): string
+    public function getId(): ?string
     {
         return $this->_id;
     }
@@ -169,9 +169,9 @@ class CouponRedemption extends RecurlyResource
     * Getter method for the object attribute.
     * Will always be `coupon`.
     *
-    * @return string
+    * @return ?string
     */
-    public function getObject(): string
+    public function getObject(): ?string
     {
         return $this->_object;
     }
@@ -192,9 +192,9 @@ class CouponRedemption extends RecurlyResource
     * Getter method for the removed_at attribute.
     * The date and time the redemption was removed from the account (un-redeemed).
     *
-    * @return string
+    * @return ?string
     */
-    public function getRemovedAt(): string
+    public function getRemovedAt(): ?string
     {
         return $this->_removed_at;
     }
@@ -215,9 +215,9 @@ class CouponRedemption extends RecurlyResource
     * Getter method for the state attribute.
     * Coupon Redemption state
     *
-    * @return string
+    * @return ?string
     */
-    public function getState(): string
+    public function getState(): ?string
     {
         return $this->_state;
     }
@@ -238,9 +238,9 @@ class CouponRedemption extends RecurlyResource
     * Getter method for the updated_at attribute.
     * Last updated at
     *
-    * @return string
+    * @return ?string
     */
-    public function getUpdatedAt(): string
+    public function getUpdatedAt(): ?string
     {
         return $this->_updated_at;
     }

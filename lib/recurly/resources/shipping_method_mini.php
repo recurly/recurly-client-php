@@ -25,9 +25,9 @@ class ShippingMethodMini extends RecurlyResource
     * Getter method for the code attribute.
     * The internal name used identify the shipping method.
     *
-    * @return string
+    * @return ?string
     */
-    public function getCode(): string
+    public function getCode(): ?string
     {
         return $this->_code;
     }
@@ -48,9 +48,9 @@ class ShippingMethodMini extends RecurlyResource
     * Getter method for the id attribute.
     * Shipping Method ID
     *
-    * @return string
+    * @return ?string
     */
-    public function getId(): string
+    public function getId(): ?string
     {
         return $this->_id;
     }
@@ -71,9 +71,9 @@ class ShippingMethodMini extends RecurlyResource
     * Getter method for the name attribute.
     * The name of the shipping method displayed to customers.
     *
-    * @return string
+    * @return ?string
     */
-    public function getName(): string
+    public function getName(): ?string
     {
         return $this->_name;
     }
@@ -94,9 +94,9 @@ class ShippingMethodMini extends RecurlyResource
     * Getter method for the object attribute.
     * Object type
     *
-    * @return string
+    * @return ?string
     */
-    public function getObject(): string
+    public function getObject(): ?string
     {
         return $this->_object;
     }

@@ -97,9 +97,9 @@ class Coupon extends RecurlyResource
     * Getter method for the code attribute.
     * The code the customer enters to redeem the coupon.
     *
-    * @return string
+    * @return ?string
     */
-    public function getCode(): string
+    public function getCode(): ?string
     {
         return $this->_code;
     }
@@ -120,9 +120,9 @@ class Coupon extends RecurlyResource
     * Getter method for the coupon_type attribute.
     * Whether the coupon is "single_code" or "bulk". Bulk coupons will require a `unique_code_template` and will generate unique codes through the `/generate` endpoint.
     *
-    * @return string
+    * @return ?string
     */
-    public function getCouponType(): string
+    public function getCouponType(): ?string
     {
         return $this->_coupon_type;
     }
@@ -143,9 +143,9 @@ class Coupon extends RecurlyResource
     * Getter method for the created_at attribute.
     * Created at
     *
-    * @return string
+    * @return ?string
     */
-    public function getCreatedAt(): string
+    public function getCreatedAt(): ?string
     {
         return $this->_created_at;
     }
@@ -193,9 +193,9 @@ property and one of the following properties: `percent`, `fixed`, `trial`.
 - "temporal" coupons will apply to invoices for the duration determined by the `temporal_unit` and `temporal_amount` attributes.
 
     *
-    * @return string
+    * @return ?string
     */
-    public function getDuration(): string
+    public function getDuration(): ?string
     {
         return $this->_duration;
     }
@@ -216,9 +216,9 @@ property and one of the following properties: `percent`, `fixed`, `trial`.
     * Getter method for the expired_at attribute.
     * The date and time the coupon was expired early or reached its `max_redemptions`.
     *
-    * @return string
+    * @return ?string
     */
-    public function getExpiredAt(): string
+    public function getExpiredAt(): ?string
     {
         return $this->_expired_at;
     }
@@ -239,9 +239,9 @@ property and one of the following properties: `percent`, `fixed`, `trial`.
     * Getter method for the free_trial_amount attribute.
     * Sets the duration of time the `free_trial_unit` is for.
     *
-    * @return int
+    * @return ?int
     */
-    public function getFreeTrialAmount(): int
+    public function getFreeTrialAmount(): ?int
     {
         return $this->_free_trial_amount;
     }
@@ -262,9 +262,9 @@ property and one of the following properties: `percent`, `fixed`, `trial`.
     * Getter method for the free_trial_unit attribute.
     * Description of the unit of time the coupon is for. Used with `free_trial_amount` to determine the duration of time the coupon is for.
     *
-    * @return string
+    * @return ?string
     */
-    public function getFreeTrialUnit(): string
+    public function getFreeTrialUnit(): ?string
     {
         return $this->_free_trial_unit;
     }
@@ -285,9 +285,9 @@ property and one of the following properties: `percent`, `fixed`, `trial`.
     * Getter method for the hosted_page_description attribute.
     * This description will show up when a customer redeems a coupon on your Hosted Payment Pages, or if you choose to show the description on your own checkout page.
     *
-    * @return string
+    * @return ?string
     */
-    public function getHostedPageDescription(): string
+    public function getHostedPageDescription(): ?string
     {
         return $this->_hosted_page_description;
     }
@@ -308,9 +308,9 @@ property and one of the following properties: `percent`, `fixed`, `trial`.
     * Getter method for the id attribute.
     * Coupon ID
     *
-    * @return string
+    * @return ?string
     */
-    public function getId(): string
+    public function getId(): ?string
     {
         return $this->_id;
     }
@@ -331,9 +331,9 @@ property and one of the following properties: `percent`, `fixed`, `trial`.
     * Getter method for the invoice_description attribute.
     * Description of the coupon on the invoice.
     *
-    * @return string
+    * @return ?string
     */
-    public function getInvoiceDescription(): string
+    public function getInvoiceDescription(): ?string
     {
         return $this->_invoice_description;
     }
@@ -354,9 +354,9 @@ property and one of the following properties: `percent`, `fixed`, `trial`.
     * Getter method for the max_redemptions attribute.
     * A maximum number of redemptions for the coupon. The coupon will expire when it hits its maximum redemptions.
     *
-    * @return int
+    * @return ?int
     */
-    public function getMaxRedemptions(): int
+    public function getMaxRedemptions(): ?int
     {
         return $this->_max_redemptions;
     }
@@ -377,9 +377,9 @@ property and one of the following properties: `percent`, `fixed`, `trial`.
     * Getter method for the max_redemptions_per_account attribute.
     * Redemptions per account is the number of times a specific account can redeem the coupon. Set redemptions per account to `1` if you want to keep customers from gaming the system and getting more than one discount from the coupon campaign.
     *
-    * @return int
+    * @return ?int
     */
-    public function getMaxRedemptionsPerAccount(): int
+    public function getMaxRedemptionsPerAccount(): ?int
     {
         return $this->_max_redemptions_per_account;
     }
@@ -400,9 +400,9 @@ property and one of the following properties: `percent`, `fixed`, `trial`.
     * Getter method for the name attribute.
     * The internal name for the coupon.
     *
-    * @return string
+    * @return ?string
     */
-    public function getName(): string
+    public function getName(): ?string
     {
         return $this->_name;
     }
@@ -423,9 +423,9 @@ property and one of the following properties: `percent`, `fixed`, `trial`.
     * Getter method for the object attribute.
     * Object type
     *
-    * @return string
+    * @return ?string
     */
-    public function getObject(): string
+    public function getObject(): ?string
     {
         return $this->_object;
     }
@@ -492,9 +492,9 @@ property and one of the following properties: `percent`, `fixed`, `trial`.
     * Getter method for the redeem_by attribute.
     * The date and time the coupon will expire and can no longer be redeemed. Time is always 11:59:59, the end-of-day Pacific time.
     *
-    * @return string
+    * @return ?string
     */
-    public function getRedeemBy(): string
+    public function getRedeemBy(): ?string
     {
         return $this->_redeem_by;
     }
@@ -515,9 +515,9 @@ property and one of the following properties: `percent`, `fixed`, `trial`.
     * Getter method for the redeemed_at attribute.
     * The date and time the unique coupon code was redeemed. This is only present for bulk coupons.
     *
-    * @return string
+    * @return ?string
     */
-    public function getRedeemedAt(): string
+    public function getRedeemedAt(): ?string
     {
         return $this->_redeemed_at;
     }
@@ -538,9 +538,9 @@ property and one of the following properties: `percent`, `fixed`, `trial`.
     * Getter method for the redemption_resource attribute.
     * Whether the discount is for all eligible charges on the account, or only a specific subscription.
     *
-    * @return string
+    * @return ?string
     */
-    public function getRedemptionResource(): string
+    public function getRedemptionResource(): ?string
     {
         return $this->_redemption_resource;
     }
@@ -561,9 +561,9 @@ property and one of the following properties: `percent`, `fixed`, `trial`.
     * Getter method for the state attribute.
     * Indicates if the coupon is redeemable, and if it is not, why.
     *
-    * @return string
+    * @return ?string
     */
-    public function getState(): string
+    public function getState(): ?string
     {
         return $this->_state;
     }
@@ -584,9 +584,9 @@ property and one of the following properties: `percent`, `fixed`, `trial`.
     * Getter method for the temporal_amount attribute.
     * If `duration` is "temporal" than `temporal_amount` is an integer which is multiplied by `temporal_unit` to define the duration that the coupon will be applied to invoices for.
     *
-    * @return int
+    * @return ?int
     */
-    public function getTemporalAmount(): int
+    public function getTemporalAmount(): ?int
     {
         return $this->_temporal_amount;
     }
@@ -607,9 +607,9 @@ property and one of the following properties: `percent`, `fixed`, `trial`.
     * Getter method for the temporal_unit attribute.
     * If `duration` is "temporal" than `temporal_unit` is multiplied by `temporal_amount` to define the duration that the coupon will be applied to invoices for.
     *
-    * @return string
+    * @return ?string
     */
-    public function getTemporalUnit(): string
+    public function getTemporalUnit(): ?string
     {
         return $this->_temporal_unit;
     }
@@ -630,9 +630,9 @@ property and one of the following properties: `percent`, `fixed`, `trial`.
     * Getter method for the unique_code_template attribute.
     * On a bulk coupon, the template from which unique coupon codes are generated.
     *
-    * @return string
+    * @return ?string
     */
-    public function getUniqueCodeTemplate(): string
+    public function getUniqueCodeTemplate(): ?string
     {
         return $this->_unique_code_template;
     }
@@ -653,9 +653,9 @@ property and one of the following properties: `percent`, `fixed`, `trial`.
     * Getter method for the unique_coupon_codes_count attribute.
     * When this number reaches `max_redemptions` the coupon will no longer be redeemable.
     *
-    * @return int
+    * @return ?int
     */
-    public function getUniqueCouponCodesCount(): int
+    public function getUniqueCouponCodesCount(): ?int
     {
         return $this->_unique_coupon_codes_count;
     }
@@ -676,9 +676,9 @@ property and one of the following properties: `percent`, `fixed`, `trial`.
     * Getter method for the updated_at attribute.
     * Last updated at
     *
-    * @return string
+    * @return ?string
     */
-    public function getUpdatedAt(): string
+    public function getUpdatedAt(): ?string
     {
         return $this->_updated_at;
     }

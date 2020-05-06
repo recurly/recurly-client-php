@@ -48,9 +48,9 @@ class PlanHostedPages extends RecurlyResource
     * Getter method for the cancel_url attribute.
     * URL to redirect to on canceled signup on the hosted payment pages.
     *
-    * @return string
+    * @return ?string
     */
-    public function getCancelUrl(): string
+    public function getCancelUrl(): ?string
     {
         return $this->_cancel_url;
     }
@@ -94,9 +94,9 @@ class PlanHostedPages extends RecurlyResource
     * Getter method for the success_url attribute.
     * URL to redirect to after signup on the hosted payment pages.
     *
-    * @return string
+    * @return ?string
     */
-    public function getSuccessUrl(): string
+    public function getSuccessUrl(): ?string
     {
         return $this->_success_url;
     }

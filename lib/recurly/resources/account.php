@@ -76,9 +76,9 @@ class Account extends RecurlyResource
     * Getter method for the bill_to attribute.
     * An enumerable describing the billing behavior of the account, specifically whether the account is self-paying or will rely on the parent account to pay.
     *
-    * @return string
+    * @return ?string
     */
-    public function getBillTo(): string
+    public function getBillTo(): ?string
     {
         return $this->_bill_to;
     }
@@ -122,9 +122,9 @@ class Account extends RecurlyResource
     * Getter method for the cc_emails attribute.
     * Additional email address that should receive account correspondence. These should be separated only by commas. These CC emails will receive all emails that the `email` field also receives.
     *
-    * @return string
+    * @return ?string
     */
-    public function getCcEmails(): string
+    public function getCcEmails(): ?string
     {
         return $this->_cc_emails;
     }
@@ -145,9 +145,9 @@ class Account extends RecurlyResource
     * Getter method for the code attribute.
     * The unique identifier of the account. This cannot be changed once the account is created.
     *
-    * @return string
+    * @return ?string
     */
-    public function getCode(): string
+    public function getCode(): ?string
     {
         return $this->_code;
     }
@@ -168,9 +168,9 @@ class Account extends RecurlyResource
     * Getter method for the company attribute.
     * 
     *
-    * @return string
+    * @return ?string
     */
-    public function getCompany(): string
+    public function getCompany(): ?string
     {
         return $this->_company;
     }
@@ -191,9 +191,9 @@ class Account extends RecurlyResource
     * Getter method for the created_at attribute.
     * When the account was created.
     *
-    * @return string
+    * @return ?string
     */
-    public function getCreatedAt(): string
+    public function getCreatedAt(): ?string
     {
         return $this->_created_at;
     }
@@ -237,9 +237,9 @@ class Account extends RecurlyResource
     * Getter method for the deleted_at attribute.
     * If present, when the account was last marked inactive.
     *
-    * @return string
+    * @return ?string
     */
-    public function getDeletedAt(): string
+    public function getDeletedAt(): ?string
     {
         return $this->_deleted_at;
     }
@@ -260,9 +260,9 @@ class Account extends RecurlyResource
     * Getter method for the email attribute.
     * The email address used for communicating with this customer. The customer will also use this email address to log into your hosted account management pages. This value does not need to be unique.
     *
-    * @return string
+    * @return ?string
     */
-    public function getEmail(): string
+    public function getEmail(): ?string
     {
         return $this->_email;
     }
@@ -283,9 +283,9 @@ class Account extends RecurlyResource
     * Getter method for the exemption_certificate attribute.
     * The tax exemption certificate number for the account. If the merchant has an integration for the Vertex tax provider, this optional value will be sent in any tax calculation requests for the account.
     *
-    * @return string
+    * @return ?string
     */
-    public function getExemptionCertificate(): string
+    public function getExemptionCertificate(): ?string
     {
         return $this->_exemption_certificate;
     }
@@ -306,9 +306,9 @@ class Account extends RecurlyResource
     * Getter method for the first_name attribute.
     * 
     *
-    * @return string
+    * @return ?string
     */
-    public function getFirstName(): string
+    public function getFirstName(): ?string
     {
         return $this->_first_name;
     }
@@ -467,9 +467,9 @@ class Account extends RecurlyResource
     * Getter method for the hosted_login_token attribute.
     * The unique token for automatically logging the account in to the hosted management pages. You may automatically log the user into their hosted management pages by directing the user to: `https://{subdomain}.recurly.com/account/{hosted_login_token}`.
     *
-    * @return string
+    * @return ?string
     */
-    public function getHostedLoginToken(): string
+    public function getHostedLoginToken(): ?string
     {
         return $this->_hosted_login_token;
     }
@@ -490,9 +490,9 @@ class Account extends RecurlyResource
     * Getter method for the id attribute.
     * 
     *
-    * @return string
+    * @return ?string
     */
-    public function getId(): string
+    public function getId(): ?string
     {
         return $this->_id;
     }
@@ -513,9 +513,9 @@ class Account extends RecurlyResource
     * Getter method for the last_name attribute.
     * 
     *
-    * @return string
+    * @return ?string
     */
-    public function getLastName(): string
+    public function getLastName(): ?string
     {
         return $this->_last_name;
     }
@@ -536,9 +536,9 @@ class Account extends RecurlyResource
     * Getter method for the object attribute.
     * Object type
     *
-    * @return string
+    * @return ?string
     */
-    public function getObject(): string
+    public function getObject(): ?string
     {
         return $this->_object;
     }
@@ -559,9 +559,9 @@ class Account extends RecurlyResource
     * Getter method for the parent_account_id attribute.
     * The UUID of the parent account associated with this account.
     *
-    * @return string
+    * @return ?string
     */
-    public function getParentAccountId(): string
+    public function getParentAccountId(): ?string
     {
         return $this->_parent_account_id;
     }
@@ -582,9 +582,9 @@ class Account extends RecurlyResource
     * Getter method for the preferred_locale attribute.
     * Used to determine the language and locale of emails sent on behalf of the merchant to the customer.
     *
-    * @return string
+    * @return ?string
     */
-    public function getPreferredLocale(): string
+    public function getPreferredLocale(): ?string
     {
         return $this->_preferred_locale;
     }
@@ -628,9 +628,9 @@ class Account extends RecurlyResource
     * Getter method for the state attribute.
     * Accounts can be either active or inactive.
     *
-    * @return string
+    * @return ?string
     */
-    public function getState(): string
+    public function getState(): ?string
     {
         return $this->_state;
     }
@@ -674,9 +674,9 @@ class Account extends RecurlyResource
     * Getter method for the updated_at attribute.
     * When the account was last changed.
     *
-    * @return string
+    * @return ?string
     */
-    public function getUpdatedAt(): string
+    public function getUpdatedAt(): ?string
     {
         return $this->_updated_at;
     }
@@ -697,9 +697,9 @@ class Account extends RecurlyResource
     * Getter method for the username attribute.
     * A secondary value for the account.
     *
-    * @return string
+    * @return ?string
     */
-    public function getUsername(): string
+    public function getUsername(): ?string
     {
         return $this->_username;
     }
@@ -720,9 +720,9 @@ class Account extends RecurlyResource
     * Getter method for the vat_number attribute.
     * The VAT number of the account (to avoid having the VAT applied). This is only used for manually collected invoices.
     *
-    * @return string
+    * @return ?string
     */
-    public function getVatNumber(): string
+    public function getVatNumber(): ?string
     {
         return $this->_vat_number;
     }

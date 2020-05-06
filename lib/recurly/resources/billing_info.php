@@ -35,9 +35,9 @@ class BillingInfo extends RecurlyResource
     * Getter method for the account_id attribute.
     * 
     *
-    * @return string
+    * @return ?string
     */
-    public function getAccountId(): string
+    public function getAccountId(): ?string
     {
         return $this->_account_id;
     }
@@ -81,9 +81,9 @@ class BillingInfo extends RecurlyResource
     * Getter method for the company attribute.
     * 
     *
-    * @return string
+    * @return ?string
     */
-    public function getCompany(): string
+    public function getCompany(): ?string
     {
         return $this->_company;
     }
@@ -104,9 +104,9 @@ class BillingInfo extends RecurlyResource
     * Getter method for the created_at attribute.
     * When the billing information was created.
     *
-    * @return string
+    * @return ?string
     */
-    public function getCreatedAt(): string
+    public function getCreatedAt(): ?string
     {
         return $this->_created_at;
     }
@@ -127,9 +127,9 @@ class BillingInfo extends RecurlyResource
     * Getter method for the first_name attribute.
     * 
     *
-    * @return string
+    * @return ?string
     */
-    public function getFirstName(): string
+    public function getFirstName(): ?string
     {
         return $this->_first_name;
     }
@@ -173,9 +173,9 @@ class BillingInfo extends RecurlyResource
     * Getter method for the id attribute.
     * 
     *
-    * @return string
+    * @return ?string
     */
-    public function getId(): string
+    public function getId(): ?string
     {
         return $this->_id;
     }
@@ -196,9 +196,9 @@ class BillingInfo extends RecurlyResource
     * Getter method for the last_name attribute.
     * 
     *
-    * @return string
+    * @return ?string
     */
-    public function getLastName(): string
+    public function getLastName(): ?string
     {
         return $this->_last_name;
     }
@@ -219,9 +219,9 @@ class BillingInfo extends RecurlyResource
     * Getter method for the object attribute.
     * Object type
     *
-    * @return string
+    * @return ?string
     */
-    public function getObject(): string
+    public function getObject(): ?string
     {
         return $this->_object;
     }
@@ -265,9 +265,9 @@ class BillingInfo extends RecurlyResource
     * Getter method for the updated_at attribute.
     * When the billing information was last changed.
     *
-    * @return string
+    * @return ?string
     */
-    public function getUpdatedAt(): string
+    public function getUpdatedAt(): ?string
     {
         return $this->_updated_at;
     }
@@ -334,9 +334,9 @@ class BillingInfo extends RecurlyResource
     * Getter method for the vat_number attribute.
     * Customer's VAT number (to avoid having the VAT applied). This is only used for automatically collected invoices.
     *
-    * @return string
+    * @return ?string
     */
-    public function getVatNumber(): string
+    public function getVatNumber(): ?string
     {
         return $this->_vat_number;
     }

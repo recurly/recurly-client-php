@@ -29,9 +29,9 @@ class UniqueCouponCode extends RecurlyResource
     * Getter method for the code attribute.
     * The code the customer enters to redeem the coupon.
     *
-    * @return string
+    * @return ?string
     */
-    public function getCode(): string
+    public function getCode(): ?string
     {
         return $this->_code;
     }
@@ -52,9 +52,9 @@ class UniqueCouponCode extends RecurlyResource
     * Getter method for the created_at attribute.
     * Created at
     *
-    * @return string
+    * @return ?string
     */
-    public function getCreatedAt(): string
+    public function getCreatedAt(): ?string
     {
         return $this->_created_at;
     }
@@ -75,9 +75,9 @@ class UniqueCouponCode extends RecurlyResource
     * Getter method for the expired_at attribute.
     * The date and time the coupon was expired early or reached its `max_redemptions`.
     *
-    * @return string
+    * @return ?string
     */
-    public function getExpiredAt(): string
+    public function getExpiredAt(): ?string
     {
         return $this->_expired_at;
     }
@@ -98,9 +98,9 @@ class UniqueCouponCode extends RecurlyResource
     * Getter method for the id attribute.
     * Unique Coupon Code ID
     *
-    * @return string
+    * @return ?string
     */
-    public function getId(): string
+    public function getId(): ?string
     {
         return $this->_id;
     }
@@ -121,9 +121,9 @@ class UniqueCouponCode extends RecurlyResource
     * Getter method for the object attribute.
     * Object type
     *
-    * @return string
+    * @return ?string
     */
-    public function getObject(): string
+    public function getObject(): ?string
     {
         return $this->_object;
     }
@@ -144,9 +144,9 @@ class UniqueCouponCode extends RecurlyResource
     * Getter method for the redeemed_at attribute.
     * The date and time the unique coupon code was redeemed.
     *
-    * @return string
+    * @return ?string
     */
-    public function getRedeemedAt(): string
+    public function getRedeemedAt(): ?string
     {
         return $this->_redeemed_at;
     }
@@ -167,9 +167,9 @@ class UniqueCouponCode extends RecurlyResource
     * Getter method for the state attribute.
     * Indicates if the unique coupon code is redeemable or why not.
     *
-    * @return string
+    * @return ?string
     */
-    public function getState(): string
+    public function getState(): ?string
     {
         return $this->_state;
     }
@@ -190,9 +190,9 @@ class UniqueCouponCode extends RecurlyResource
     * Getter method for the updated_at attribute.
     * Updated at
     *
-    * @return string
+    * @return ?string
     */
-    public function getUpdatedAt(): string
+    public function getUpdatedAt(): ?string
     {
         return $this->_updated_at;
     }

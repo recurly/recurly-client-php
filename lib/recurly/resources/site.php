@@ -56,9 +56,9 @@ class Site extends RecurlyResource
     * Getter method for the created_at attribute.
     * Created at
     *
-    * @return string
+    * @return ?string
     */
-    public function getCreatedAt(): string
+    public function getCreatedAt(): ?string
     {
         return $this->_created_at;
     }
@@ -79,9 +79,9 @@ class Site extends RecurlyResource
     * Getter method for the deleted_at attribute.
     * Deleted at
     *
-    * @return string
+    * @return ?string
     */
-    public function getDeletedAt(): string
+    public function getDeletedAt(): ?string
     {
         return $this->_deleted_at;
     }
@@ -125,9 +125,9 @@ class Site extends RecurlyResource
     * Getter method for the id attribute.
     * Site ID
     *
-    * @return string
+    * @return ?string
     */
-    public function getId(): string
+    public function getId(): ?string
     {
         return $this->_id;
     }
@@ -148,9 +148,9 @@ class Site extends RecurlyResource
     * Getter method for the mode attribute.
     * Mode
     *
-    * @return string
+    * @return ?string
     */
-    public function getMode(): string
+    public function getMode(): ?string
     {
         return $this->_mode;
     }
@@ -171,9 +171,9 @@ class Site extends RecurlyResource
     * Getter method for the object attribute.
     * Object type
     *
-    * @return string
+    * @return ?string
     */
-    public function getObject(): string
+    public function getObject(): ?string
     {
         return $this->_object;
     }
@@ -194,9 +194,9 @@ class Site extends RecurlyResource
     * Getter method for the public_api_key attribute.
     * This value is used to configure RecurlyJS to submit tokenized billing information.
     *
-    * @return string
+    * @return ?string
     */
-    public function getPublicApiKey(): string
+    public function getPublicApiKey(): ?string
     {
         return $this->_public_api_key;
     }
@@ -240,9 +240,9 @@ class Site extends RecurlyResource
     * Getter method for the subdomain attribute.
     * 
     *
-    * @return string
+    * @return ?string
     */
-    public function getSubdomain(): string
+    public function getSubdomain(): ?string
     {
         return $this->_subdomain;
     }
@@ -263,9 +263,9 @@ class Site extends RecurlyResource
     * Getter method for the updated_at attribute.
     * Updated at
     *
-    * @return string
+    * @return ?string
     */
-    public function getUpdatedAt(): string
+    public function getUpdatedAt(): ?string
     {
         return $this->_updated_at;
     }

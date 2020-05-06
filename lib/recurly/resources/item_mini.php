@@ -27,9 +27,9 @@ class ItemMini extends RecurlyResource
     * Getter method for the code attribute.
     * Unique code to identify the item.
     *
-    * @return string
+    * @return ?string
     */
-    public function getCode(): string
+    public function getCode(): ?string
     {
         return $this->_code;
     }
@@ -50,9 +50,9 @@ class ItemMini extends RecurlyResource
     * Getter method for the description attribute.
     * Optional, description.
     *
-    * @return string
+    * @return ?string
     */
-    public function getDescription(): string
+    public function getDescription(): ?string
     {
         return $this->_description;
     }
@@ -73,9 +73,9 @@ class ItemMini extends RecurlyResource
     * Getter method for the id attribute.
     * Item ID
     *
-    * @return string
+    * @return ?string
     */
-    public function getId(): string
+    public function getId(): ?string
     {
         return $this->_id;
     }
@@ -96,9 +96,9 @@ class ItemMini extends RecurlyResource
     * Getter method for the name attribute.
     * This name describes your item and will appear on the invoice when it's purchased on a one time basis.
     *
-    * @return string
+    * @return ?string
     */
-    public function getName(): string
+    public function getName(): ?string
     {
         return $this->_name;
     }
@@ -119,9 +119,9 @@ class ItemMini extends RecurlyResource
     * Getter method for the object attribute.
     * Object type
     *
-    * @return string
+    * @return ?string
     */
-    public function getObject(): string
+    public function getObject(): ?string
     {
         return $this->_object;
     }
@@ -142,9 +142,9 @@ class ItemMini extends RecurlyResource
     * Getter method for the state attribute.
     * The current state of the item.
     *
-    * @return string
+    * @return ?string
     */
-    public function getState(): string
+    public function getState(): ?string
     {
         return $this->_state;
     }

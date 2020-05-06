@@ -25,9 +25,9 @@ class TransactionPaymentGateway extends RecurlyResource
     * Getter method for the id attribute.
     * 
     *
-    * @return string
+    * @return ?string
     */
-    public function getId(): string
+    public function getId(): ?string
     {
         return $this->_id;
     }
@@ -48,9 +48,9 @@ class TransactionPaymentGateway extends RecurlyResource
     * Getter method for the name attribute.
     * 
     *
-    * @return string
+    * @return ?string
     */
-    public function getName(): string
+    public function getName(): ?string
     {
         return $this->_name;
     }
@@ -71,9 +71,9 @@ class TransactionPaymentGateway extends RecurlyResource
     * Getter method for the object attribute.
     * Object type
     *
-    * @return string
+    * @return ?string
     */
-    public function getObject(): string
+    public function getObject(): ?string
     {
         return $this->_object;
     }
@@ -94,9 +94,9 @@ class TransactionPaymentGateway extends RecurlyResource
     * Getter method for the type attribute.
     * 
     *
-    * @return string
+    * @return ?string
     */
-    public function getType(): string
+    public function getType(): ?string
     {
         return $this->_type;
     }

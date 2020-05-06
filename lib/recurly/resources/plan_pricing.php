@@ -24,9 +24,9 @@ class PlanPricing extends RecurlyResource
     * Getter method for the currency attribute.
     * 3-letter ISO 4217 currency code.
     *
-    * @return string
+    * @return ?string
     */
-    public function getCurrency(): string
+    public function getCurrency(): ?string
     {
         return $this->_currency;
     }
@@ -47,9 +47,9 @@ class PlanPricing extends RecurlyResource
     * Getter method for the setup_fee attribute.
     * Amount of one-time setup fee automatically charged at the beginning of a subscription billing cycle. For subscription plans with a trial, the setup fee will be charged at the time of signup. Setup fees do not increase with the quantity of a subscription plan.
     *
-    * @return float
+    * @return ?float
     */
-    public function getSetupFee(): float
+    public function getSetupFee(): ?float
     {
         return $this->_setup_fee;
     }
@@ -70,9 +70,9 @@ class PlanPricing extends RecurlyResource
     * Getter method for the unit_amount attribute.
     * Unit price
     *
-    * @return float
+    * @return ?float
     */
-    public function getUnitAmount(): float
+    public function getUnitAmount(): ?float
     {
         return $this->_unit_amount;
     }

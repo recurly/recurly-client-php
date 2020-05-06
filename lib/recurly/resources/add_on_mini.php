@@ -28,9 +28,9 @@ class AddOnMini extends RecurlyResource
     * Getter method for the accounting_code attribute.
     * Accounting code for invoice line items for this add-on. If no value is provided, it defaults to add-on's code.
     *
-    * @return string
+    * @return ?string
     */
-    public function getAccountingCode(): string
+    public function getAccountingCode(): ?string
     {
         return $this->_accounting_code;
     }
@@ -51,9 +51,9 @@ class AddOnMini extends RecurlyResource
     * Getter method for the code attribute.
     * The unique identifier for the add-on within its plan.
     *
-    * @return string
+    * @return ?string
     */
-    public function getCode(): string
+    public function getCode(): ?string
     {
         return $this->_code;
     }
@@ -74,9 +74,9 @@ class AddOnMini extends RecurlyResource
     * Getter method for the external_sku attribute.
     * Optional, stock keeping unit to link the item to other inventory systems.
     *
-    * @return string
+    * @return ?string
     */
-    public function getExternalSku(): string
+    public function getExternalSku(): ?string
     {
         return $this->_external_sku;
     }
@@ -97,9 +97,9 @@ class AddOnMini extends RecurlyResource
     * Getter method for the id attribute.
     * Add-on ID
     *
-    * @return string
+    * @return ?string
     */
-    public function getId(): string
+    public function getId(): ?string
     {
         return $this->_id;
     }
@@ -120,9 +120,9 @@ class AddOnMini extends RecurlyResource
     * Getter method for the item_id attribute.
     * Item ID
     *
-    * @return string
+    * @return ?string
     */
-    public function getItemId(): string
+    public function getItemId(): ?string
     {
         return $this->_item_id;
     }
@@ -143,9 +143,9 @@ class AddOnMini extends RecurlyResource
     * Getter method for the name attribute.
     * Describes your add-on and will appear in subscribers' invoices.
     *
-    * @return string
+    * @return ?string
     */
-    public function getName(): string
+    public function getName(): ?string
     {
         return $this->_name;
     }
@@ -166,9 +166,9 @@ class AddOnMini extends RecurlyResource
     * Getter method for the object attribute.
     * Object type
     *
-    * @return string
+    * @return ?string
     */
-    public function getObject(): string
+    public function getObject(): ?string
     {
         return $this->_object;
     }

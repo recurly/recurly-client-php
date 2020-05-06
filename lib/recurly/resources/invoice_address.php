@@ -32,9 +32,9 @@ class InvoiceAddress extends RecurlyResource
     * Getter method for the city attribute.
     * City
     *
-    * @return string
+    * @return ?string
     */
-    public function getCity(): string
+    public function getCity(): ?string
     {
         return $this->_city;
     }
@@ -55,9 +55,9 @@ class InvoiceAddress extends RecurlyResource
     * Getter method for the company attribute.
     * Company
     *
-    * @return string
+    * @return ?string
     */
-    public function getCompany(): string
+    public function getCompany(): ?string
     {
         return $this->_company;
     }
@@ -78,9 +78,9 @@ class InvoiceAddress extends RecurlyResource
     * Getter method for the country attribute.
     * Country, 2-letter ISO code.
     *
-    * @return string
+    * @return ?string
     */
-    public function getCountry(): string
+    public function getCountry(): ?string
     {
         return $this->_country;
     }
@@ -101,9 +101,9 @@ class InvoiceAddress extends RecurlyResource
     * Getter method for the first_name attribute.
     * First name
     *
-    * @return string
+    * @return ?string
     */
-    public function getFirstName(): string
+    public function getFirstName(): ?string
     {
         return $this->_first_name;
     }
@@ -124,9 +124,9 @@ class InvoiceAddress extends RecurlyResource
     * Getter method for the last_name attribute.
     * Last name
     *
-    * @return string
+    * @return ?string
     */
-    public function getLastName(): string
+    public function getLastName(): ?string
     {
         return $this->_last_name;
     }
@@ -147,9 +147,9 @@ class InvoiceAddress extends RecurlyResource
     * Getter method for the name_on_account attribute.
     * Name on account
     *
-    * @return string
+    * @return ?string
     */
-    public function getNameOnAccount(): string
+    public function getNameOnAccount(): ?string
     {
         return $this->_name_on_account;
     }
@@ -170,9 +170,9 @@ class InvoiceAddress extends RecurlyResource
     * Getter method for the phone attribute.
     * Phone number
     *
-    * @return string
+    * @return ?string
     */
-    public function getPhone(): string
+    public function getPhone(): ?string
     {
         return $this->_phone;
     }
@@ -193,9 +193,9 @@ class InvoiceAddress extends RecurlyResource
     * Getter method for the postal_code attribute.
     * Zip or postal code.
     *
-    * @return string
+    * @return ?string
     */
-    public function getPostalCode(): string
+    public function getPostalCode(): ?string
     {
         return $this->_postal_code;
     }
@@ -216,9 +216,9 @@ class InvoiceAddress extends RecurlyResource
     * Getter method for the region attribute.
     * State or province.
     *
-    * @return string
+    * @return ?string
     */
-    public function getRegion(): string
+    public function getRegion(): ?string
     {
         return $this->_region;
     }
@@ -239,9 +239,9 @@ class InvoiceAddress extends RecurlyResource
     * Getter method for the street1 attribute.
     * Street 1
     *
-    * @return string
+    * @return ?string
     */
-    public function getStreet1(): string
+    public function getStreet1(): ?string
     {
         return $this->_street1;
     }
@@ -262,9 +262,9 @@ class InvoiceAddress extends RecurlyResource
     * Getter method for the street2 attribute.
     * Street 2
     *
-    * @return string
+    * @return ?string
     */
-    public function getStreet2(): string
+    public function getStreet2(): ?string
     {
         return $this->_street2;
     }

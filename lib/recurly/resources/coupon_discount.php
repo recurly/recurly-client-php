@@ -49,9 +49,9 @@ class CouponDiscount extends RecurlyResource
     * Getter method for the percent attribute.
     * This is only present when `type=percent`.
     *
-    * @return int
+    * @return ?int
     */
-    public function getPercent(): int
+    public function getPercent(): ?int
     {
         return $this->_percent;
     }
@@ -95,9 +95,9 @@ class CouponDiscount extends RecurlyResource
     * Getter method for the type attribute.
     * 
     *
-    * @return string
+    * @return ?string
     */
-    public function getType(): string
+    public function getType(): ?string
     {
         return $this->_type;
     }

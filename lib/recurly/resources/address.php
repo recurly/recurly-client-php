@@ -30,9 +30,9 @@ class Address extends RecurlyResource
     * Getter method for the city attribute.
     * City
     *
-    * @return string
+    * @return ?string
     */
-    public function getCity(): string
+    public function getCity(): ?string
     {
         return $this->_city;
     }
@@ -53,9 +53,9 @@ class Address extends RecurlyResource
     * Getter method for the country attribute.
     * Country, 2-letter ISO code.
     *
-    * @return string
+    * @return ?string
     */
-    public function getCountry(): string
+    public function getCountry(): ?string
     {
         return $this->_country;
     }
@@ -76,9 +76,9 @@ class Address extends RecurlyResource
     * Getter method for the first_name attribute.
     * First name
     *
-    * @return string
+    * @return ?string
     */
-    public function getFirstName(): string
+    public function getFirstName(): ?string
     {
         return $this->_first_name;
     }
@@ -99,9 +99,9 @@ class Address extends RecurlyResource
     * Getter method for the last_name attribute.
     * Last name
     *
-    * @return string
+    * @return ?string
     */
-    public function getLastName(): string
+    public function getLastName(): ?string
     {
         return $this->_last_name;
     }
@@ -122,9 +122,9 @@ class Address extends RecurlyResource
     * Getter method for the phone attribute.
     * Phone number
     *
-    * @return string
+    * @return ?string
     */
-    public function getPhone(): string
+    public function getPhone(): ?string
     {
         return $this->_phone;
     }
@@ -145,9 +145,9 @@ class Address extends RecurlyResource
     * Getter method for the postal_code attribute.
     * Zip or postal code.
     *
-    * @return string
+    * @return ?string
     */
-    public function getPostalCode(): string
+    public function getPostalCode(): ?string
     {
         return $this->_postal_code;
     }
@@ -168,9 +168,9 @@ class Address extends RecurlyResource
     * Getter method for the region attribute.
     * State or province.
     *
-    * @return string
+    * @return ?string
     */
-    public function getRegion(): string
+    public function getRegion(): ?string
     {
         return $this->_region;
     }
@@ -191,9 +191,9 @@ class Address extends RecurlyResource
     * Getter method for the street1 attribute.
     * Street 1
     *
-    * @return string
+    * @return ?string
     */
-    public function getStreet1(): string
+    public function getStreet1(): ?string
     {
         return $this->_street1;
     }
@@ -214,9 +214,9 @@ class Address extends RecurlyResource
     * Getter method for the street2 attribute.
     * Street 2
     *
-    * @return string
+    * @return ?string
     */
-    public function getStreet2(): string
+    public function getStreet2(): ?string
     {
         return $this->_street2;
     }
