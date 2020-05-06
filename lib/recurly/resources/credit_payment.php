@@ -35,9 +35,9 @@ class CreditPayment extends RecurlyResource
     * Getter method for the account attribute.
     * Account mini details
     *
-    * @return \Recurly\Resources\AccountMini
+    * @return ?\Recurly\Resources\AccountMini
     */
-    public function getAccount(): \Recurly\Resources\AccountMini
+    public function getAccount(): ?\Recurly\Resources\AccountMini
     {
         return $this->_account;
     }
@@ -104,9 +104,9 @@ class CreditPayment extends RecurlyResource
     * Getter method for the applied_to_invoice attribute.
     * Invoice mini details
     *
-    * @return \Recurly\Resources\InvoiceMini
+    * @return ?\Recurly\Resources\InvoiceMini
     */
-    public function getAppliedToInvoice(): \Recurly\Resources\InvoiceMini
+    public function getAppliedToInvoice(): ?\Recurly\Resources\InvoiceMini
     {
         return $this->_applied_to_invoice;
     }
@@ -242,9 +242,9 @@ class CreditPayment extends RecurlyResource
     * Getter method for the original_invoice attribute.
     * Invoice mini details
     *
-    * @return \Recurly\Resources\InvoiceMini
+    * @return ?\Recurly\Resources\InvoiceMini
     */
-    public function getOriginalInvoice(): \Recurly\Resources\InvoiceMini
+    public function getOriginalInvoice(): ?\Recurly\Resources\InvoiceMini
     {
         return $this->_original_invoice;
     }
@@ -265,9 +265,9 @@ class CreditPayment extends RecurlyResource
     * Getter method for the refund_transaction attribute.
     * 
     *
-    * @return \Recurly\Resources\Transaction
+    * @return ?\Recurly\Resources\Transaction
     */
-    public function getRefundTransaction(): \Recurly\Resources\Transaction
+    public function getRefundTransaction(): ?\Recurly\Resources\Transaction
     {
         return $this->_refund_transaction;
     }

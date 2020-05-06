@@ -27,9 +27,9 @@ class CouponRedemptionMini extends RecurlyResource
     * Getter method for the coupon attribute.
     * 
     *
-    * @return \Recurly\Resources\CouponMini
+    * @return ?\Recurly\Resources\CouponMini
     */
-    public function getCoupon(): \Recurly\Resources\CouponMini
+    public function getCoupon(): ?\Recurly\Resources\CouponMini
     {
         return $this->_coupon;
     }

@@ -29,7 +29,7 @@ class Settings extends RecurlyResource
     */
     public function getAcceptedCurrencies(): array
     {
-        return $this->_accepted_currencies;
+        return $this->_accepted_currencies ?? [] ;
     }
 
     /**

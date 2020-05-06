@@ -87,7 +87,7 @@ class SubscriptionChange extends RecurlyResource
     */
     public function getAddOns(): array
     {
-        return $this->_add_ons;
+        return $this->_add_ons ?? [] ;
     }
 
     /**
@@ -198,9 +198,9 @@ class SubscriptionChange extends RecurlyResource
     * Getter method for the plan attribute.
     * Just the important parts.
     *
-    * @return \Recurly\Resources\PlanMini
+    * @return ?\Recurly\Resources\PlanMini
     */
-    public function getPlan(): \Recurly\Resources\PlanMini
+    public function getPlan(): ?\Recurly\Resources\PlanMini
     {
         return $this->_plan;
     }
@@ -290,9 +290,9 @@ class SubscriptionChange extends RecurlyResource
     * Getter method for the shipping attribute.
     * Subscription shipping details
     *
-    * @return \Recurly\Resources\SubscriptionShipping
+    * @return ?\Recurly\Resources\SubscriptionShipping
     */
-    public function getShipping(): \Recurly\Resources\SubscriptionShipping
+    public function getShipping(): ?\Recurly\Resources\SubscriptionShipping
     {
         return $this->_shipping;
     }

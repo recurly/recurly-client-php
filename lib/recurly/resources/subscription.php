@@ -65,9 +65,9 @@ class Subscription extends RecurlyResource
     * Getter method for the account attribute.
     * Account mini details
     *
-    * @return \Recurly\Resources\AccountMini
+    * @return ?\Recurly\Resources\AccountMini
     */
-    public function getAccount(): \Recurly\Resources\AccountMini
+    public function getAccount(): ?\Recurly\Resources\AccountMini
     {
         return $this->_account;
     }
@@ -115,7 +115,7 @@ class Subscription extends RecurlyResource
     */
     public function getAddOns(): array
     {
-        return $this->_add_ons;
+        return $this->_add_ons ?? [] ;
     }
 
     /**
@@ -253,7 +253,7 @@ class Subscription extends RecurlyResource
     */
     public function getCouponRedemptions(): array
     {
-        return $this->_coupon_redemptions;
+        return $this->_coupon_redemptions ?? [] ;
     }
 
     /**
@@ -414,7 +414,7 @@ class Subscription extends RecurlyResource
     */
     public function getCustomFields(): array
     {
-        return $this->_custom_fields;
+        return $this->_custom_fields ?? [] ;
     }
 
     /**
@@ -594,9 +594,9 @@ class Subscription extends RecurlyResource
     * Getter method for the pending_change attribute.
     * Subscription Change
     *
-    * @return \Recurly\Resources\SubscriptionChange
+    * @return ?\Recurly\Resources\SubscriptionChange
     */
-    public function getPendingChange(): \Recurly\Resources\SubscriptionChange
+    public function getPendingChange(): ?\Recurly\Resources\SubscriptionChange
     {
         return $this->_pending_change;
     }
@@ -617,9 +617,9 @@ class Subscription extends RecurlyResource
     * Getter method for the plan attribute.
     * Just the important parts.
     *
-    * @return \Recurly\Resources\PlanMini
+    * @return ?\Recurly\Resources\PlanMini
     */
-    public function getPlan(): \Recurly\Resources\PlanMini
+    public function getPlan(): ?\Recurly\Resources\PlanMini
     {
         return $this->_plan;
     }
@@ -778,9 +778,9 @@ class Subscription extends RecurlyResource
     * Getter method for the shipping attribute.
     * Subscription shipping details
     *
-    * @return \Recurly\Resources\SubscriptionShipping
+    * @return ?\Recurly\Resources\SubscriptionShipping
     */
-    public function getShipping(): \Recurly\Resources\SubscriptionShipping
+    public function getShipping(): ?\Recurly\Resources\SubscriptionShipping
     {
         return $this->_shipping;
     }

@@ -116,7 +116,7 @@ class AddOn extends RecurlyResource
     */
     public function getCurrencies(): array
     {
-        return $this->_currencies;
+        return $this->_currencies ?? [] ;
     }
 
     /**
@@ -250,9 +250,9 @@ class AddOn extends RecurlyResource
     * Getter method for the item attribute.
     * Just the important parts.
     *
-    * @return \Recurly\Resources\ItemMini
+    * @return ?\Recurly\Resources\ItemMini
     */
-    public function getItem(): \Recurly\Resources\ItemMini
+    public function getItem(): ?\Recurly\Resources\ItemMini
     {
         return $this->_item;
     }
@@ -461,7 +461,7 @@ class AddOn extends RecurlyResource
     */
     public function getTiers(): array
     {
-        return $this->_tiers;
+        return $this->_tiers ?? [] ;
     }
 
     /**

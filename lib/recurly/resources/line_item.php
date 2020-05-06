@@ -66,9 +66,9 @@ class LineItem extends RecurlyResource
     * Getter method for the account attribute.
     * Account mini details
     *
-    * @return \Recurly\Resources\AccountMini
+    * @return ?\Recurly\Resources\AccountMini
     */
-    public function getAccount(): \Recurly\Resources\AccountMini
+    public function getAccount(): ?\Recurly\Resources\AccountMini
     {
         return $this->_account;
     }
@@ -784,9 +784,9 @@ class LineItem extends RecurlyResource
     * Getter method for the shipping_address attribute.
     * 
     *
-    * @return \Recurly\Resources\ShippingAddress
+    * @return ?\Recurly\Resources\ShippingAddress
     */
-    public function getShippingAddress(): \Recurly\Resources\ShippingAddress
+    public function getShippingAddress(): ?\Recurly\Resources\ShippingAddress
     {
         return $this->_shipping_address;
     }
@@ -968,9 +968,9 @@ class LineItem extends RecurlyResource
     * Getter method for the tax_info attribute.
     * Tax info
     *
-    * @return \Recurly\Resources\TaxInfo
+    * @return ?\Recurly\Resources\TaxInfo
     */
-    public function getTaxInfo(): \Recurly\Resources\TaxInfo
+    public function getTaxInfo(): ?\Recurly\Resources\TaxInfo
     {
         return $this->_tax_info;
     }

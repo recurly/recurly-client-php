@@ -33,9 +33,9 @@ class SubscriptionAddOn extends RecurlyResource
     * Getter method for the add_on attribute.
     * Just the important parts.
     *
-    * @return \Recurly\Resources\AddOnMini
+    * @return ?\Recurly\Resources\AddOnMini
     */
-    public function getAddOn(): \Recurly\Resources\AddOnMini
+    public function getAddOn(): ?\Recurly\Resources\AddOnMini
     {
         return $this->_add_on;
     }
@@ -221,7 +221,7 @@ class SubscriptionAddOn extends RecurlyResource
     */
     public function getTiers(): array
     {
-        return $this->_tiers;
+        return $this->_tiers ?? [] ;
     }
 
     /**

@@ -77,9 +77,9 @@ class CouponMini extends RecurlyResource
 property and one of the following properties: `percent`, `fixed`, `trial`.
 
     *
-    * @return \Recurly\Resources\CouponDiscount
+    * @return ?\Recurly\Resources\CouponDiscount
     */
-    public function getDiscount(): \Recurly\Resources\CouponDiscount
+    public function getDiscount(): ?\Recurly\Resources\CouponDiscount
     {
         return $this->_discount;
     }

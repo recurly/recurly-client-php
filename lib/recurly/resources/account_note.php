@@ -142,9 +142,9 @@ class AccountNote extends RecurlyResource
     * Getter method for the user attribute.
     * 
     *
-    * @return \Recurly\Resources\User
+    * @return ?\Recurly\Resources\User
     */
-    public function getUser(): \Recurly\Resources\User
+    public function getUser(): ?\Recurly\Resources\User
     {
         return $this->_user;
     }

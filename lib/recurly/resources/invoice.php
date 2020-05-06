@@ -58,9 +58,9 @@ class Invoice extends RecurlyResource
     * Getter method for the account attribute.
     * Account mini details
     *
-    * @return \Recurly\Resources\AccountMini
+    * @return ?\Recurly\Resources\AccountMini
     */
-    public function getAccount(): \Recurly\Resources\AccountMini
+    public function getAccount(): ?\Recurly\Resources\AccountMini
     {
         return $this->_account;
     }
@@ -81,9 +81,9 @@ class Invoice extends RecurlyResource
     * Getter method for the address attribute.
     * 
     *
-    * @return \Recurly\Resources\InvoiceAddress
+    * @return ?\Recurly\Resources\InvoiceAddress
     */
-    public function getAddress(): \Recurly\Resources\InvoiceAddress
+    public function getAddress(): ?\Recurly\Resources\InvoiceAddress
     {
         return $this->_address;
     }
@@ -200,7 +200,7 @@ class Invoice extends RecurlyResource
     */
     public function getCreditPayments(): array
     {
-        return $this->_credit_payments;
+        return $this->_credit_payments ?? [] ;
     }
 
     /**
@@ -334,9 +334,9 @@ class Invoice extends RecurlyResource
     * Getter method for the line_items attribute.
     * 
     *
-    * @return \Recurly\Resources\LineItemList
+    * @return ?\Recurly\Resources\LineItemList
     */
-    public function getLineItems(): \Recurly\Resources\LineItemList
+    public function getLineItems(): ?\Recurly\Resources\LineItemList
     {
         return $this->_line_items;
     }
@@ -541,9 +541,9 @@ class Invoice extends RecurlyResource
     * Getter method for the shipping_address attribute.
     * 
     *
-    * @return \Recurly\Resources\ShippingAddress
+    * @return ?\Recurly\Resources\ShippingAddress
     */
-    public function getShippingAddress(): \Recurly\Resources\ShippingAddress
+    public function getShippingAddress(): ?\Recurly\Resources\ShippingAddress
     {
         return $this->_shipping_address;
     }
@@ -591,7 +591,7 @@ class Invoice extends RecurlyResource
     */
     public function getSubscriptionIds(): array
     {
-        return $this->_subscription_ids;
+        return $this->_subscription_ids ?? [] ;
     }
 
     /**
@@ -656,9 +656,9 @@ class Invoice extends RecurlyResource
     * Getter method for the tax_info attribute.
     * Tax info
     *
-    * @return \Recurly\Resources\TaxInfo
+    * @return ?\Recurly\Resources\TaxInfo
     */
-    public function getTaxInfo(): \Recurly\Resources\TaxInfo
+    public function getTaxInfo(): ?\Recurly\Resources\TaxInfo
     {
         return $this->_tax_info;
     }
@@ -729,7 +729,7 @@ class Invoice extends RecurlyResource
     */
     public function getTransactions(): array
     {
-        return $this->_transactions;
+        return $this->_transactions ?? [] ;
     }
 
     /**

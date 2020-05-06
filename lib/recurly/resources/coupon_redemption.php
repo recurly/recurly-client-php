@@ -31,9 +31,9 @@ class CouponRedemption extends RecurlyResource
     * Getter method for the account attribute.
     * The Account on which the coupon was applied.
     *
-    * @return \Recurly\Resources\AccountMini
+    * @return ?\Recurly\Resources\AccountMini
     */
-    public function getAccount(): \Recurly\Resources\AccountMini
+    public function getAccount(): ?\Recurly\Resources\AccountMini
     {
         return $this->_account;
     }
@@ -54,9 +54,9 @@ class CouponRedemption extends RecurlyResource
     * Getter method for the coupon attribute.
     * 
     *
-    * @return \Recurly\Resources\Coupon
+    * @return ?\Recurly\Resources\Coupon
     */
-    public function getCoupon(): \Recurly\Resources\Coupon
+    public function getCoupon(): ?\Recurly\Resources\Coupon
     {
         return $this->_coupon;
     }

@@ -26,9 +26,9 @@ class AccountBalance extends RecurlyResource
     * Getter method for the account attribute.
     * Account mini details
     *
-    * @return \Recurly\Resources\AccountMini
+    * @return ?\Recurly\Resources\AccountMini
     */
-    public function getAccount(): \Recurly\Resources\AccountMini
+    public function getAccount(): ?\Recurly\Resources\AccountMini
     {
         return $this->_account;
     }
@@ -53,7 +53,7 @@ class AccountBalance extends RecurlyResource
     */
     public function getBalances(): array
     {
-        return $this->_balances;
+        return $this->_balances ?? [] ;
     }
 
     /**

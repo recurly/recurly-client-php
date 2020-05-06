@@ -141,7 +141,7 @@ class Plan extends RecurlyResource
     */
     public function getCurrencies(): array
     {
-        return $this->_currencies;
+        return $this->_currencies ?? [] ;
     }
 
     /**
@@ -206,9 +206,9 @@ class Plan extends RecurlyResource
     * Getter method for the hosted_pages attribute.
     * Hosted pages settings
     *
-    * @return \Recurly\Resources\PlanHostedPages
+    * @return ?\Recurly\Resources\PlanHostedPages
     */
-    public function getHostedPages(): \Recurly\Resources\PlanHostedPages
+    public function getHostedPages(): ?\Recurly\Resources\PlanHostedPages
     {
         return $this->_hosted_pages;
     }

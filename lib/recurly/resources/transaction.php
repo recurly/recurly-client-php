@@ -58,9 +58,9 @@ class Transaction extends RecurlyResource
     * Getter method for the account attribute.
     * Account mini details
     *
-    * @return \Recurly\Resources\AccountMini
+    * @return ?\Recurly\Resources\AccountMini
     */
-    public function getAccount(): \Recurly\Resources\AccountMini
+    public function getAccount(): ?\Recurly\Resources\AccountMini
     {
         return $this->_account;
     }
@@ -127,9 +127,9 @@ class Transaction extends RecurlyResource
     * Getter method for the billing_address attribute.
     * 
     *
-    * @return \Recurly\Resources\Address
+    * @return ?\Recurly\Resources\Address
     */
-    public function getBillingAddress(): \Recurly\Resources\Address
+    public function getBillingAddress(): ?\Recurly\Resources\Address
     {
         return $this->_billing_address;
     }
@@ -472,9 +472,9 @@ class Transaction extends RecurlyResource
     * Getter method for the invoice attribute.
     * Invoice mini details
     *
-    * @return \Recurly\Resources\InvoiceMini
+    * @return ?\Recurly\Resources\InvoiceMini
     */
-    public function getInvoice(): \Recurly\Resources\InvoiceMini
+    public function getInvoice(): ?\Recurly\Resources\InvoiceMini
     {
         return $this->_invoice;
     }
@@ -615,9 +615,9 @@ class Transaction extends RecurlyResource
     * Getter method for the payment_gateway attribute.
     * 
     *
-    * @return \Recurly\Resources\TransactionPaymentGateway
+    * @return ?\Recurly\Resources\TransactionPaymentGateway
     */
-    public function getPaymentGateway(): \Recurly\Resources\TransactionPaymentGateway
+    public function getPaymentGateway(): ?\Recurly\Resources\TransactionPaymentGateway
     {
         return $this->_payment_gateway;
     }
@@ -638,9 +638,9 @@ class Transaction extends RecurlyResource
     * Getter method for the payment_method attribute.
     * 
     *
-    * @return \Recurly\Resources\PaymentMethod
+    * @return ?\Recurly\Resources\PaymentMethod
     */
-    public function getPaymentMethod(): \Recurly\Resources\PaymentMethod
+    public function getPaymentMethod(): ?\Recurly\Resources\PaymentMethod
     {
         return $this->_payment_method;
     }
@@ -757,7 +757,7 @@ class Transaction extends RecurlyResource
     */
     public function getSubscriptionIds(): array
     {
-        return $this->_subscription_ids;
+        return $this->_subscription_ids ?? [] ;
     }
 
     /**
@@ -873,9 +873,9 @@ class Transaction extends RecurlyResource
     * Getter method for the voided_by_invoice attribute.
     * Invoice mini details
     *
-    * @return \Recurly\Resources\InvoiceMini
+    * @return ?\Recurly\Resources\InvoiceMini
     */
-    public function getVoidedByInvoice(): \Recurly\Resources\InvoiceMini
+    public function getVoidedByInvoice(): ?\Recurly\Resources\InvoiceMini
     {
         return $this->_voided_by_invoice;
     }

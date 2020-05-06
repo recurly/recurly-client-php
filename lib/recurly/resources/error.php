@@ -52,7 +52,7 @@ class Error extends RecurlyResource
     */
     public function getParams(): array
     {
-        return $this->_params;
+        return $this->_params ?? [] ;
     }
 
     /**

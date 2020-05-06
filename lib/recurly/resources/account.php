@@ -53,9 +53,9 @@ class Account extends RecurlyResource
     * Getter method for the address attribute.
     * 
     *
-    * @return \Recurly\Resources\Address
+    * @return ?\Recurly\Resources\Address
     */
-    public function getAddress(): \Recurly\Resources\Address
+    public function getAddress(): ?\Recurly\Resources\Address
     {
         return $this->_address;
     }
@@ -99,9 +99,9 @@ class Account extends RecurlyResource
     * Getter method for the billing_info attribute.
     * 
     *
-    * @return \Recurly\Resources\BillingInfo
+    * @return ?\Recurly\Resources\BillingInfo
     */
-    public function getBillingInfo(): \Recurly\Resources\BillingInfo
+    public function getBillingInfo(): ?\Recurly\Resources\BillingInfo
     {
         return $this->_billing_info;
     }
@@ -218,7 +218,7 @@ class Account extends RecurlyResource
     */
     public function getCustomFields(): array
     {
-        return $this->_custom_fields;
+        return $this->_custom_fields ?? [] ;
     }
 
     /**
@@ -609,7 +609,7 @@ class Account extends RecurlyResource
     */
     public function getShippingAddresses(): array
     {
-        return $this->_shipping_addresses;
+        return $this->_shipping_addresses ?? [] ;
     }
 
     /**

@@ -168,9 +168,9 @@ class Coupon extends RecurlyResource
 property and one of the following properties: `percent`, `fixed`, `trial`.
 
     *
-    * @return \Recurly\Resources\CouponDiscount
+    * @return ?\Recurly\Resources\CouponDiscount
     */
-    public function getDiscount(): \Recurly\Resources\CouponDiscount
+    public function getDiscount(): ?\Recurly\Resources\CouponDiscount
     {
         return $this->_discount;
     }
@@ -450,7 +450,7 @@ property and one of the following properties: `percent`, `fixed`, `trial`.
     */
     public function getPlans(): array
     {
-        return $this->_plans;
+        return $this->_plans ?? [] ;
     }
 
     /**
@@ -473,7 +473,7 @@ property and one of the following properties: `percent`, `fixed`, `trial`.
     */
     public function getPlansNames(): array
     {
-        return $this->_plans_names;
+        return $this->_plans_names ?? [] ;
     }
 
     /**

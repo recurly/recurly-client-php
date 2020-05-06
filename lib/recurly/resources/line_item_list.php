@@ -30,7 +30,7 @@ class LineItemList extends RecurlyResource
     */
     public function getData(): array
     {
-        return $this->_data;
+        return $this->_data ?? [] ;
     }
 
     /**

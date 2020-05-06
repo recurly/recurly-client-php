@@ -30,9 +30,9 @@ class AccountAcquisition extends RecurlyResource
     * Getter method for the account attribute.
     * Account mini details
     *
-    * @return \Recurly\Resources\AccountMini
+    * @return ?\Recurly\Resources\AccountMini
     */
-    public function getAccount(): \Recurly\Resources\AccountMini
+    public function getAccount(): ?\Recurly\Resources\AccountMini
     {
         return $this->_account;
     }
@@ -99,9 +99,9 @@ class AccountAcquisition extends RecurlyResource
     * Getter method for the cost attribute.
     * Account balance
     *
-    * @return \Recurly\Resources\AccountAcquisitionCost
+    * @return ?\Recurly\Resources\AccountAcquisitionCost
     */
-    public function getCost(): \Recurly\Resources\AccountAcquisitionCost
+    public function getCost(): ?\Recurly\Resources\AccountAcquisitionCost
     {
         return $this->_cost;
     }

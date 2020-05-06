@@ -58,9 +58,9 @@ class BillingInfo extends RecurlyResource
     * Getter method for the address attribute.
     * 
     *
-    * @return \Recurly\Resources\Address
+    * @return ?\Recurly\Resources\Address
     */
-    public function getAddress(): \Recurly\Resources\Address
+    public function getAddress(): ?\Recurly\Resources\Address
     {
         return $this->_address;
     }
@@ -150,9 +150,9 @@ class BillingInfo extends RecurlyResource
     * Getter method for the fraud attribute.
     * Most recent fraud result.
     *
-    * @return \Recurly\Resources\FraudInfo
+    * @return ?\Recurly\Resources\FraudInfo
     */
-    public function getFraud(): \Recurly\Resources\FraudInfo
+    public function getFraud(): ?\Recurly\Resources\FraudInfo
     {
         return $this->_fraud;
     }
@@ -242,9 +242,9 @@ class BillingInfo extends RecurlyResource
     * Getter method for the payment_method attribute.
     * 
     *
-    * @return \Recurly\Resources\PaymentMethod
+    * @return ?\Recurly\Resources\PaymentMethod
     */
-    public function getPaymentMethod(): \Recurly\Resources\PaymentMethod
+    public function getPaymentMethod(): ?\Recurly\Resources\PaymentMethod
     {
         return $this->_payment_method;
     }
@@ -288,9 +288,9 @@ class BillingInfo extends RecurlyResource
     * Getter method for the updated_by attribute.
     * 
     *
-    * @return \Recurly\Resources\BillingInfoUpdatedBy
+    * @return ?\Recurly\Resources\BillingInfoUpdatedBy
     */
-    public function getUpdatedBy(): \Recurly\Resources\BillingInfoUpdatedBy
+    public function getUpdatedBy(): ?\Recurly\Resources\BillingInfoUpdatedBy
     {
         return $this->_updated_by;
     }

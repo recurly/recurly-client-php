@@ -25,9 +25,9 @@ class SubscriptionShipping extends RecurlyResource
     * Getter method for the address attribute.
     * 
     *
-    * @return \Recurly\Resources\ShippingAddress
+    * @return ?\Recurly\Resources\ShippingAddress
     */
-    public function getAddress(): \Recurly\Resources\ShippingAddress
+    public function getAddress(): ?\Recurly\Resources\ShippingAddress
     {
         return $this->_address;
     }
@@ -71,9 +71,9 @@ class SubscriptionShipping extends RecurlyResource
     * Getter method for the method attribute.
     * 
     *
-    * @return \Recurly\Resources\ShippingMethodMini
+    * @return ?\Recurly\Resources\ShippingMethodMini
     */
-    public function getMethod(): \Recurly\Resources\ShippingMethodMini
+    public function getMethod(): ?\Recurly\Resources\ShippingMethodMini
     {
         return $this->_method;
     }

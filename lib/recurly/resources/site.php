@@ -33,9 +33,9 @@ class Site extends RecurlyResource
     * Getter method for the address attribute.
     * 
     *
-    * @return \Recurly\Resources\Address
+    * @return ?\Recurly\Resources\Address
     */
-    public function getAddress(): \Recurly\Resources\Address
+    public function getAddress(): ?\Recurly\Resources\Address
     {
         return $this->_address;
     }
@@ -106,7 +106,7 @@ class Site extends RecurlyResource
     */
     public function getFeatures(): array
     {
-        return $this->_features;
+        return $this->_features ?? [] ;
     }
 
     /**
@@ -217,9 +217,9 @@ class Site extends RecurlyResource
     * Getter method for the settings attribute.
     * 
     *
-    * @return \Recurly\Resources\Settings
+    * @return ?\Recurly\Resources\Settings
     */
-    public function getSettings(): \Recurly\Resources\Settings
+    public function getSettings(): ?\Recurly\Resources\Settings
     {
         return $this->_settings;
     }

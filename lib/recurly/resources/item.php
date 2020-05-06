@@ -112,7 +112,7 @@ class Item extends RecurlyResource
     */
     public function getCurrencies(): array
     {
-        return $this->_currencies;
+        return $this->_currencies ?? [] ;
     }
 
     /**
@@ -135,7 +135,7 @@ class Item extends RecurlyResource
     */
     public function getCustomFields(): array
     {
-        return $this->_custom_fields;
+        return $this->_custom_fields ?? [] ;
     }
 
     /**
