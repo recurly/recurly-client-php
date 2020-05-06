@@ -47,9 +47,9 @@ class FraudInfo extends RecurlyResource
     * Getter method for the risk_rules_triggered attribute.
     * Kount rules
     *
-    * @return object
+    * @return ?object
     */
-    public function getRiskRulesTriggered(): object
+    public function getRiskRulesTriggered(): ?object
     {
         return $this->_risk_rules_triggered;
     }

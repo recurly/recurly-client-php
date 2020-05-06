@@ -426,9 +426,9 @@ class Transaction extends RecurlyResource
     * Getter method for the gateway_response_values attribute.
     * The values in this field will vary from gateway to gateway.
     *
-    * @return object
+    * @return ?object
     */
-    public function getGatewayResponseValues(): object
+    public function getGatewayResponseValues(): ?object
     {
         return $this->_gateway_response_values;
     }
