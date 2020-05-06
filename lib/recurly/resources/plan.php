@@ -68,9 +68,9 @@ class Plan extends RecurlyResource
     * Getter method for the auto_renew attribute.
     * Subscriptions will automatically inherit this value once they are active. If `auto_renew` is `true`, then a subscription will automatically renew its term at renewal. If `auto_renew` is `false`, then a subscription will expire at the end of its term. `auto_renew` can be overridden on the subscription record itself.
     *
-    * @return bool
+    * @return ?bool
     */
-    public function getAutoRenew(): bool
+    public function getAutoRenew(): ?bool
     {
         return $this->_auto_renew;
     }
@@ -459,9 +459,9 @@ class Plan extends RecurlyResource
     * Getter method for the tax_exempt attribute.
     * `true` exempts tax on the plan, `false` applies tax on the plan.
     *
-    * @return bool
+    * @return ?bool
     */
-    public function getTaxExempt(): bool
+    public function getTaxExempt(): ?bool
     {
         return $this->_tax_exempt;
     }

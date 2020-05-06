@@ -157,9 +157,9 @@ class Subscription extends RecurlyResource
     * Getter method for the auto_renew attribute.
     * Whether the subscription renews at the end of its term.
     *
-    * @return bool
+    * @return ?bool
     */
-    public function getAutoRenew(): bool
+    public function getAutoRenew(): ?bool
     {
         return $this->_auto_renew;
     }

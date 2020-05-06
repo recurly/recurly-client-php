@@ -60,9 +60,9 @@ class SubscriptionChange extends RecurlyResource
     * Getter method for the activated attribute.
     * Returns `true` if the subscription change is activated.
     *
-    * @return bool
+    * @return ?bool
     */
-    public function getActivated(): bool
+    public function getActivated(): ?bool
     {
         return $this->_activated;
     }

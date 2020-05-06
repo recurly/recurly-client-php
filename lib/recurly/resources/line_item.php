@@ -715,9 +715,9 @@ class LineItem extends RecurlyResource
     * Getter method for the refund attribute.
     * Refund?
     *
-    * @return bool
+    * @return ?bool
     */
-    public function getRefund(): bool
+    public function getRefund(): ?bool
     {
         return $this->_refund;
     }
@@ -945,9 +945,9 @@ class LineItem extends RecurlyResource
     * Getter method for the tax_exempt attribute.
     * `true` exempts tax on charges, `false` applies tax on charges. If not defined, then defaults to the Plan and Site settings. This attribute does not work for credits (negative line items). Credits are always applied post-tax. Pre-tax discounts should use the Coupons feature.
     *
-    * @return bool
+    * @return ?bool
     */
-    public function getTaxExempt(): bool
+    public function getTaxExempt(): ?bool
     {
         return $this->_tax_exempt;
     }
@@ -991,9 +991,9 @@ class LineItem extends RecurlyResource
     * Getter method for the taxable attribute.
     * `true` if the line item is taxable, `false` if it is not.
     *
-    * @return bool
+    * @return ?bool
     */
-    public function getTaxable(): bool
+    public function getTaxable(): ?bool
     {
         return $this->_taxable;
     }

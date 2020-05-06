@@ -661,9 +661,9 @@ class Transaction extends RecurlyResource
     * Getter method for the refunded attribute.
     * Indicates if part or all of this transaction was refunded.
     *
-    * @return bool
+    * @return ?bool
     */
-    public function getRefunded(): bool
+    public function getRefunded(): ?bool
     {
         return $this->_refunded;
     }
@@ -776,9 +776,9 @@ class Transaction extends RecurlyResource
     * Getter method for the success attribute.
     * Did this transaction complete successfully?
     *
-    * @return bool
+    * @return ?bool
     */
-    public function getSuccess(): bool
+    public function getSuccess(): ?bool
     {
         return $this->_success;
     }

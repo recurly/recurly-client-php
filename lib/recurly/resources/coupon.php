@@ -51,9 +51,9 @@ class Coupon extends RecurlyResource
     * Getter method for the applies_to_all_plans attribute.
     * The coupon is valid for all plans if true. If false then `plans` and `plans_names` will list the applicable plans.
     *
-    * @return bool
+    * @return ?bool
     */
-    public function getAppliesToAllPlans(): bool
+    public function getAppliesToAllPlans(): ?bool
     {
         return $this->_applies_to_all_plans;
     }
@@ -74,9 +74,9 @@ class Coupon extends RecurlyResource
     * Getter method for the applies_to_non_plan_charges attribute.
     * The coupon is valid for one-time, non-plan charges if true.
     *
-    * @return bool
+    * @return ?bool
     */
-    public function getAppliesToNonPlanCharges(): bool
+    public function getAppliesToNonPlanCharges(): ?bool
     {
         return $this->_applies_to_non_plan_charges;
     }

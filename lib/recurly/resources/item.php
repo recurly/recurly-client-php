@@ -361,9 +361,9 @@ class Item extends RecurlyResource
     * Getter method for the tax_exempt attribute.
     * `true` exempts tax on the item, `false` applies tax on the item.
     *
-    * @return bool
+    * @return ?bool
     */
-    public function getTaxExempt(): bool
+    public function getTaxExempt(): ?bool
     {
         return $this->_tax_exempt;
     }

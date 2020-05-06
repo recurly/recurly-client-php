@@ -49,9 +49,9 @@ class LineItemList extends RecurlyResource
     * Getter method for the has_more attribute.
     * Indicates there are more results on subsequent pages.
     *
-    * @return bool
+    * @return ?bool
     */
-    public function getHasMore(): bool
+    public function getHasMore(): ?bool
     {
         return $this->_has_more;
     }

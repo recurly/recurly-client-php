@@ -329,9 +329,9 @@ class Account extends RecurlyResource
     * Getter method for the has_active_subscription attribute.
     * Indicates if the account has an active subscription.
     *
-    * @return bool
+    * @return ?bool
     */
-    public function getHasActiveSubscription(): bool
+    public function getHasActiveSubscription(): ?bool
     {
         return $this->_has_active_subscription;
     }
@@ -352,9 +352,9 @@ class Account extends RecurlyResource
     * Getter method for the has_canceled_subscription attribute.
     * Indicates if the account has a canceled subscription.
     *
-    * @return bool
+    * @return ?bool
     */
-    public function getHasCanceledSubscription(): bool
+    public function getHasCanceledSubscription(): ?bool
     {
         return $this->_has_canceled_subscription;
     }
@@ -375,9 +375,9 @@ class Account extends RecurlyResource
     * Getter method for the has_future_subscription attribute.
     * Indicates if the account has a future subscription.
     *
-    * @return bool
+    * @return ?bool
     */
-    public function getHasFutureSubscription(): bool
+    public function getHasFutureSubscription(): ?bool
     {
         return $this->_has_future_subscription;
     }
@@ -398,9 +398,9 @@ class Account extends RecurlyResource
     * Getter method for the has_live_subscription attribute.
     * Indicates if the account has a subscription that is either active, canceled, future, or paused.
     *
-    * @return bool
+    * @return ?bool
     */
-    public function getHasLiveSubscription(): bool
+    public function getHasLiveSubscription(): ?bool
     {
         return $this->_has_live_subscription;
     }
@@ -421,9 +421,9 @@ class Account extends RecurlyResource
     * Getter method for the has_past_due_invoice attribute.
     * Indicates if the account has a past due invoice.
     *
-    * @return bool
+    * @return ?bool
     */
-    public function getHasPastDueInvoice(): bool
+    public function getHasPastDueInvoice(): ?bool
     {
         return $this->_has_past_due_invoice;
     }
@@ -444,9 +444,9 @@ class Account extends RecurlyResource
     * Getter method for the has_paused_subscription attribute.
     * Indicates if the account has a paused subscription.
     *
-    * @return bool
+    * @return ?bool
     */
-    public function getHasPausedSubscription(): bool
+    public function getHasPausedSubscription(): ?bool
     {
         return $this->_has_paused_subscription;
     }
@@ -651,9 +651,9 @@ class Account extends RecurlyResource
     * Getter method for the tax_exempt attribute.
     * The tax status of the account. `true` exempts tax on the account, `false` applies tax on the account.
     *
-    * @return bool
+    * @return ?bool
     */
-    public function getTaxExempt(): bool
+    public function getTaxExempt(): ?bool
     {
         return $this->_tax_exempt;
     }

@@ -181,9 +181,9 @@ class AddOn extends RecurlyResource
     * Getter method for the display_quantity attribute.
     * Determines if the quantity field is displayed on the hosted pages for the add-on.
     *
-    * @return bool
+    * @return ?bool
     */
-    public function getDisplayQuantity(): bool
+    public function getDisplayQuantity(): ?bool
     {
         return $this->_display_quantity;
     }
@@ -319,9 +319,9 @@ class AddOn extends RecurlyResource
     * Getter method for the optional attribute.
     * Whether the add-on is optional for the customer to include in their purchase on the hosted payment page. If false, the add-on will be included when a subscription is created through the Recurly UI. However, the add-on will not be included when a subscription is created through the API.
     *
-    * @return bool
+    * @return ?bool
     */
-    public function getOptional(): bool
+    public function getOptional(): ?bool
     {
         return $this->_optional;
     }

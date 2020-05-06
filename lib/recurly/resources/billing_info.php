@@ -311,9 +311,9 @@ class BillingInfo extends RecurlyResource
     * Getter method for the valid attribute.
     * 
     *
-    * @return bool
+    * @return ?bool
     */
-    public function getValid(): bool
+    public function getValid(): ?bool
     {
         return $this->_valid;
     }

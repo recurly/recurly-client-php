@@ -95,9 +95,9 @@ class AccountBalance extends RecurlyResource
     * Getter method for the past_due attribute.
     * 
     *
-    * @return bool
+    * @return ?bool
     */
-    public function getPastDue(): bool
+    public function getPastDue(): ?bool
     {
         return $this->_past_due;
     }

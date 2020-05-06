@@ -119,14 +119,16 @@ abstract class BaseClient
     /**
      * Checks that path parameters are valid
      *
-     * @param array  $options Associatve array of tokens and their replacement values
+     * @param array $options Associatve array of tokens and their replacement values
      */
     private function _validatePathParameters(array $options = []): void
     {
         // Check to make sure that parameters are not empty values
-        $emptyValues = array_filter($options, function ($value, $key) {
-            return empty(trim($value));
-        }, ARRAY_FILTER_USE_BOTH);
+        $emptyValues = array_filter(
+            $options, function ($value, $key) {
+                return empty(trim($value));
+            }, ARRAY_FILTER_USE_BOTH
+        );
         if (!empty($emptyValues)) {
             throw new RecurlyError(join(', ', array_keys($emptyValues)) . ' cannot be an empty value');
         }
