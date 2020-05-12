@@ -91,7 +91,8 @@ class Recurly_Transaction extends Recurly_Resource
       throw new Recurly_Error('"uuid" is not supplied');
   }
   protected static function uriForTransaction($uuid) {
-    return Recurly_Client::PATH_TRANSACTIONS . '/' . rawurlencode($uuid);
+    // return Recurly_Client::PATH_TRANSACTIONS . '/' . rawurlencode($uuid);
+    return self::_uriForResource(Recurly_Client::PATH_TRANSACTIONS, rawurlencode($uuid));
   }
 
   protected function getNodeName() {

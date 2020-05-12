@@ -38,7 +38,8 @@
 class Recurly_Adjustment extends Recurly_Resource
 {
   public static function get($adjustment_uuid, $client = null) {
-    return Recurly_Base::_get(Recurly_Client::PATH_ADJUSTMENTS . '/' . rawurlencode($adjustment_uuid), $client);
+    $path = self::_uriForResource(Recurly_Client::PATH_ADJUSTMENTS, rawurlencode($adjustment_uuid));
+    return Recurly_Base::_get($path, $client);
   }
 
   public function create() {

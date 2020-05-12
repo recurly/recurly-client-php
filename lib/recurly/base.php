@@ -112,6 +112,21 @@ abstract class Recurly_Base
     return null;
   }
 
+  /**
+   * Returns URI for resource, throwing error if resource code is an empty string
+   * @param string Recurly Client path
+   * @param string Resource code
+   * @return string URI
+   * @throws Recurly_Error
+   */
+  public static function _uriForResource($path, $resource_code) {
+    if (empty(trim($resource_code))) {
+      throw new Recurly_Error("Resource code cannot be an empty value");
+    }
+    return $path . '/' . $resource_code;
+  }
+
+  // URI for page resource index
   protected static function _uriWithParams($uri, $params = null) {
     if (is_null($params) || !is_array($params)) {
       return $uri;

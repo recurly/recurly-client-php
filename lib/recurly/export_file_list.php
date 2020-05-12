@@ -11,7 +11,8 @@ class Recurly_ExportFileList extends Recurly_Pager
    * @return Recurly_ExportFileList
    */
   public static function get($date, $params = null, $client = null) {
-    return new self(self::_uriWithParams('/export_dates/' . rawurlencode($date) . '/export_files', $params), $client);
+    $datePath = self::_uriForResource('/export_dates', rawurlencode($date));
+    return new self(self::_uriWithParams($datePath . '/export_files', $params), $client);
   }
 
   protected function getNodeName() {

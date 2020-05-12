@@ -22,7 +22,8 @@ class Recurly_AccountAcquisition extends Recurly_Resource
   }
 
   protected static function uriForAccountAcquisition($accountCode) {
-    return '/accounts/' . rawurlencode($accountCode) . '/acquisition';
+    $path =  self::_uriForResource(Recurly_Client::PATH_ACCOUNTS, rawurlencode($accountCode));
+    return $path . '/acquisition';
   }
 
   public function create() {

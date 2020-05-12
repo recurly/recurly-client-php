@@ -254,6 +254,6 @@ class Recurly_Invoice extends Recurly_Resource
       throw new Recurly_Error("Invoice number not specified");
   }
   protected static function uriForInvoice($invoiceNumber) {
-    return Recurly_Client::PATH_INVOICES . '/' . rawurlencode($invoiceNumber);
+    return self::_uriForResource(Recurly_Client::PATH_INVOICES, rawurlencode($invoiceNumber));
   }
 }

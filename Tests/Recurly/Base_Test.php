@@ -63,4 +63,25 @@ class Recurly_BaseTest extends Recurly_TestCase {
     $this->assertTrue(method_exists($adjustment, 'getHeaders'),'Adjustments Class does not have method getHeaders');
     $this->assertInternalType('array', $adjustment->getHeaders());
   }
+
+  public function testPassingEmptyResourceCode() {
+    $this->client->addResponse('GET', '/accounts/abcdef1234567890', 'accounts/show-200.xml');
+    try {
+      $uri = Recurly_Base::_uriForResource(Recurly_Client::PATH_ACCOUNTS, rawurlencode(""));
+      Recurly_Base::_get($uri, $this->client);
+      $this->fail("Expected Recurly_Error");  
+    } catch (Recurly_Error $e) {
+      $this->assertEquals('Resource code cannot be an empty value', $e->getMessage());
+    }
+
+    $this->client->addResponse('GET', '/subscriptions/012345678901234567890123456789ab/add_ons/marketing_emails/usage/123456', 'usage/show-200.xml');
+    try {
+      $uri = Recurly_Base::_uriForResource(Recurly_Client::PATH_SUBSCRIPTIONS, rawurlencode("")) . 
+        Recurly_Base::_uriForResource(Recurly_Client::PATH_ADDONS, rawurlencode("marketing_emails")) . 
+        Recurly_Base::_uriForResource(Recurly_Client::PATH_USAGE, rawurlencode(123456));
+        $this->fail("Expected Recurly_Error");  
+    } catch (Recurly_Error $e) {
+      $this->assertEquals('Resource code cannot be an empty value', $e->getMessage());
+    }
+  }
 }

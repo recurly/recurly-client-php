@@ -156,7 +156,7 @@ class Recurly_Coupon extends Recurly_Resource
       return Recurly_Coupon::uriForCoupon($this->coupon_code);
   }
   protected static function uriForCoupon($couponCode) {
-    return Recurly_Client::PATH_COUPONS . '/' . rawurlencode($couponCode);
+    return self::_uriForResource(Recurly_Client::PATH_COUPONS, rawurlencode($couponCode));
   }
 
   protected function getNodeName() {
