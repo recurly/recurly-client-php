@@ -295,7 +295,7 @@ class Recurly_Subscription extends Recurly_Resource
       throw new Recurly_Error("Subscription UUID not specified");
   }
   protected static function uriForSubscription($uuid) {
-    return self::_uriForResource(Recurly_Client::PATH_SUBSCRIPTIONS, rawurlencode($uuid));
+    return self::_safeUri(Recurly_Client::PATH_SUBSCRIPTIONS, $uuid);
   }
 
   protected function populateXmlDoc(&$doc, &$node, &$obj, $nested = false) {

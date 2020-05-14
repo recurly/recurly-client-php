@@ -72,7 +72,7 @@ class Recurly_GiftCard extends Recurly_Resource
   }
 
   protected static function uriForGiftCard($giftCardIdentifier) {
-    return self::_uriForResource(Recurly_Client::PATH_GIFT_CARDS, rawurlencode(($giftCardIdentifier)));
+    return self::_safeUri(Recurly_Client::PATH_GIFT_CARDS, $giftCardIdentifier);
   }
 
   protected function getNodeName() {

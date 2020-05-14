@@ -9,7 +9,7 @@
 class Recurly_AccountBalance extends Recurly_Resource
 {
   public static function get($accountCode, $client = null) {
-    return Recurly_Base::_get(Recurly_Client::PATH_ACCOUNTS . '/' . rawurlencode($accountCode) . Recurly_Client::PATH_BALANCE, $client);
+    return Recurly_Base::_get(self::_safeUri(Recurly_Client::PATH_ACCOUNTS, $accountCode, Recurly_Client::PATH_BALANCE), $client);
   }
 
   function __construct($href = null, $client = null) {

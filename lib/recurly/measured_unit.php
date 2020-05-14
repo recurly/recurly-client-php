@@ -30,7 +30,7 @@ class Recurly_MeasuredUnit extends Recurly_Resource
       return Recurly_MeasuredUnit::uriForMeasuredUnit($this->id);
   }
   protected static function uriForMeasuredUnit($id) {
-    return self::_uriForResource(Recurly_Client::PATH_MEASURED_UNITS, rawurlencode($id));
+    return self::_safeUri(Recurly_Client::PATH_MEASURED_UNITS, $id);
   }
 
   protected function getNodeName() {

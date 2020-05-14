@@ -38,8 +38,7 @@
 class Recurly_Adjustment extends Recurly_Resource
 {
   public static function get($adjustment_uuid, $client = null) {
-    $path = self::_uriForResource(Recurly_Client::PATH_ADJUSTMENTS, rawurlencode($adjustment_uuid));
-    return Recurly_Base::_get($path, $client);
+    return Recurly_Base::_get(self::_safeUri(Recurly_Client::PATH_ADJUSTMENTS, $adjustment_uuid), $client);
   }
 
   public function create() {
@@ -83,11 +82,7 @@ class Recurly_Adjustment extends Recurly_Resource
   }
 
   protected function createUriForAccount() {
-    if (empty($this->account_code))
-      throw new Recurly_Error("'account_code' is not specified");
-
-    return (Recurly_Client::PATH_ACCOUNTS . '/' . rawurlencode($this->account_code) .
-        Recurly_Client::PATH_ADJUSTMENTS);
+    return self::_safeUri(Recurly_Client::PATH_ACCOUNTS, $this->account_code, Recurly_Client::PATH_ADJUSTMENTS);
   }
 
   protected function populateXmlDoc(&$doc, &$node, &$obj, $nested = false) {

@@ -24,8 +24,7 @@ class Recurly_InvoiceList extends Recurly_Pager
   }
 
   public static function getForAccount($accountCode, $params = null, $client = null) {
-    $accountPath = self::_uriForResource(Recurly_Client::PATH_ACCOUNTS, rawurlencode($accountCode));
-    $uri = self::_uriWithParams($accountPath . Recurly_Client::PATH_INVOICES, $params);
+    $uri = self::_uriWithParams(self::_safeUri(Recurly_Client::PATH_ACCOUNTS, $accountCode, Recurly_Client::PATH_INVOICES), $params);
     return new self($uri, $client);
   }
 

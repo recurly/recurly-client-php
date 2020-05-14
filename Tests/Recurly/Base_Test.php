@@ -67,7 +67,7 @@ class Recurly_BaseTest extends Recurly_TestCase {
   public function testPassingEmptyResourceCode() {
     $this->client->addResponse('GET', '/accounts/abcdef1234567890', 'accounts/show-200.xml');
     try {
-      $uri = Recurly_Base::_uriForResource(Recurly_Client::PATH_ACCOUNTS, rawurlencode(""));
+      $uri = Recurly_Base::_safeUri(Recurly_Client::PATH_ACCOUNTS, "");
       Recurly_Base::_get($uri, $this->client);
       $this->fail("Expected Recurly_Error");  
     } catch (Recurly_Error $e) {
@@ -76,9 +76,11 @@ class Recurly_BaseTest extends Recurly_TestCase {
 
     $this->client->addResponse('GET', '/subscriptions/012345678901234567890123456789ab/add_ons/marketing_emails/usage/123456', 'usage/show-200.xml');
     try {
-      $uri = Recurly_Base::_uriForResource(Recurly_Client::PATH_SUBSCRIPTIONS, rawurlencode("")) . 
-        Recurly_Base::_uriForResource(Recurly_Client::PATH_ADDONS, rawurlencode("marketing_emails")) . 
-        Recurly_Base::_uriForResource(Recurly_Client::PATH_USAGE, rawurlencode(123456));
+      $uri = Recurly_Base::_safeUri(
+        Recurly_Client::PATH_SUBSCRIPTIONS, "", 
+        Recurly_Client::PATH_ADDONS, "marketing_emails",
+        Recurly_Client::PATH_USAGE, 123456
+      );
         $this->fail("Expected Recurly_Error");  
     } catch (Recurly_Error $e) {
       $this->assertEquals('Resource code cannot be an empty value', $e->getMessage());

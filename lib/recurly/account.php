@@ -99,7 +99,7 @@ class Recurly_Account extends Recurly_Resource
       return Recurly_Account::uriForAccount($this->account_code);
   }
   protected static function uriForAccount($accountCode) {
-    return self::_uriForResource(Recurly_Client::PATH_ACCOUNTS, rawurlencode($accountCode));
+    return self::_safeUri(Recurly_Client::PATH_ACCOUNTS, $accountCode);
   }
 
   protected function getNodeName() {

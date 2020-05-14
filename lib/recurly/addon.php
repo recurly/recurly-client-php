@@ -37,7 +37,7 @@ class Recurly_Addon extends Recurly_Resource
   }
 
   public function create() {
-    $this->_save(Recurly_Client::POST, Recurly_Client::PATH_PLANS . '/' . rawurlencode($this->plan_code) . Recurly_Client::PATH_ADDONS);
+    $this->_save(Recurly_Client::POST, self::_safeUri(Recurly_Client::PATH_PLANS, $this->plan_code, Recurly_Client::PATH_ADDONS));
   }
 
   public function update() {
@@ -54,9 +54,9 @@ class Recurly_Addon extends Recurly_Resource
     else
       return Recurly_Addon::uriForAddOn($this->plan_code, $this->add_on_code);
   }
+  
   protected static function uriForAddOn($planCode, $addonCode) {
-    $path = self::_uriForResource(Recurly_Client::PATH_ADDONS, rawurlencode($addonCode));
-    return (Recurly_Client::PATH_PLANS . '/' . rawurlencode($planCode) .$path);
+    return self::_safeUri(Recurly_Client::PATH_PLANS, $planCode, Recurly_Client::PATH_ADDONS, $addonCode);
   }
 
   protected function getNodeName() {

@@ -114,16 +114,22 @@ abstract class Recurly_Base
 
   /**
    * Returns URI for resource, throwing error if resource code is an empty string
-   * @param string Recurly Client path
-   * @param string Resource code
+   * @param string First Recurly Client path
+   * @param string Resource codes and paths
    * @return string URI
    * @throws Recurly_Error
    */
-  public static function _uriForResource($path, $resource_code) {
-    if (empty(trim($resource_code))) {
-      throw new Recurly_Error("Resource code cannot be an empty value");
+  public static function _safeUri($req, ...$params) {
+    $path = "";
+    foreach($params as $string) {
+      if (empty(trim($string))) {
+        throw new Recurly_Error("Resource code cannot be an empty value");
+      }
+      // removes extra forward slash that is encoded when a second path constant is passed
+      // example: const PATH_ACCOUNTS = '/accounts';
+      $path .= '/' . preg_replace("(%2F)", "", rawurlencode($string));
     }
-    return $path . '/' . $resource_code;
+    return $req . $path;
   }
 
   // URI for page resource index
