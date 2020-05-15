@@ -65,14 +65,12 @@ class Recurly_BaseTest extends Recurly_TestCase {
   }
 
   public function testPassingEmptyResourceCode() {
-    {
-      $this->expectException(Recurly_Error::class);
-      $uri = Recurly_Base::_safeUri(
-        Recurly_Client::PATH_SUBSCRIPTIONS, "", 
-        Recurly_Client::PATH_ADDONS, "marketing_emails",
-        Recurly_Client::PATH_USAGE, 123456
-      );    
-    }
+    $this->expectException(Recurly_Error::class);
+    $uri = Recurly_Base::_safeUri(
+      Recurly_Client::PATH_SUBSCRIPTIONS, "", 
+      Recurly_Client::PATH_ADDONS, "marketing_emails",
+      Recurly_Client::PATH_USAGE, 123456
+    );    
   }
 
   public function testUrlEncodingReplacement() {
