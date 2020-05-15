@@ -119,7 +119,7 @@ abstract class Recurly_Base
    * @return string URI
    * @throws Recurly_Error
    */
-  public static function _safeUri($req, ...$params) {
+  public static function _safeUri(...$params) {
     $path = "";
     foreach($params as $string) {
       if (empty(trim($string))) {
@@ -129,7 +129,7 @@ abstract class Recurly_Base
       // example: const PATH_ACCOUNTS = '/accounts';
       $path .= '/' . preg_replace("(%2F)", "", rawurlencode($string));
     }
-    return $req . $path;
+    return $path;
   }
 
   // URI for page resource index

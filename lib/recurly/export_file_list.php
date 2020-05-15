@@ -12,7 +12,7 @@ class Recurly_ExportFileList extends Recurly_Pager
    */
   public static function get($date, $params = null, $client = null) {
     return new self(self::_uriWithParams(
-      self::_safeUri('/export_dates', $date, '/export_files'), $params
+      self::_safeUri('export_dates', $date, 'export_files'), $params
     ), $client);
   }
 

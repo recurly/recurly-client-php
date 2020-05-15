@@ -65,25 +65,22 @@ class Recurly_BaseTest extends Recurly_TestCase {
   }
 
   public function testPassingEmptyResourceCode() {
-    $this->client->addResponse('GET', '/accounts/abcdef1234567890', 'accounts/show-200.xml');
-    try {
-      $uri = Recurly_Base::_safeUri(Recurly_Client::PATH_ACCOUNTS, "");
-      Recurly_Base::_get($uri, $this->client);
-      $this->fail("Expected Recurly_Error");  
-    } catch (Recurly_Error $e) {
-      $this->assertEquals('Resource code cannot be an empty value', $e->getMessage());
-    }
-
-    $this->client->addResponse('GET', '/subscriptions/012345678901234567890123456789ab/add_ons/marketing_emails/usage/123456', 'usage/show-200.xml');
-    try {
+    {
+      $this->expectException(Recurly_Error::class);
       $uri = Recurly_Base::_safeUri(
         Recurly_Client::PATH_SUBSCRIPTIONS, "", 
         Recurly_Client::PATH_ADDONS, "marketing_emails",
         Recurly_Client::PATH_USAGE, 123456
-      );
-        $this->fail("Expected Recurly_Error");  
+      );    
+    }
+  }
+
+  public function testUrlEncodingReplacement() {
+    try {
+      $uri = Recurly_Base::_safeUri(Recurly_Client::PATH_ACCOUNTS, "/abcdef1234567890");
+      $this->assertEquals("/accounts/abcdef1234567890", $uri);
     } catch (Recurly_Error $e) {
-      $this->assertEquals('Resource code cannot be an empty value', $e->getMessage());
+      $this->assertEquals('Encoded strings were not replaced', $e->getMessage());
     }
   }
 }
