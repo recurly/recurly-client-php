@@ -111,7 +111,7 @@ class Recurly_Invoice extends Recurly_Resource
    * @throws Recurly_Error
    */
   public static function previewPendingCharges($accountCode, $attributes = array(), $client = null) {
-    $uri = self::_safeUri(Recurly_Client::PATH_ACCOUNTS, $accountCode, Recurly_Client::PATH_INVOICES, '/preview');
+    $uri = self::_safeUri(Recurly_Client::PATH_ACCOUNTS, $accountCode, Recurly_Client::PATH_INVOICES, 'preview');
     $invoice = new self();
     return Recurly_InvoiceCollection::_post($uri, $invoice->setValues($attributes)->xml(), $client);
   }

@@ -74,11 +74,7 @@ class Recurly_BaseTest extends Recurly_TestCase {
   }
 
   public function testUrlEncodingReplacement() {
-    try {
-      $uri = Recurly_Base::_safeUri(Recurly_Client::PATH_ACCOUNTS, "/abcdef1234567890");
-      $this->assertEquals("/accounts/abcdef1234567890", $uri);
-    } catch (Recurly_Error $e) {
-      $this->assertEquals('Encoded strings were not replaced', $e->getMessage());
-    }
+    $uri = Recurly_Base::_safeUri(Recurly_Client::PATH_ACCOUNTS, "/abcdef1234567890");
+    $this->assertEquals("/accounts/%2Fabcdef1234567890", $uri);
   }
 }

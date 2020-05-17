@@ -114,26 +114,37 @@ abstract class Recurly_Base
 
   /**
    * Returns URI for resource, throwing error if resource code is an empty string
-   * @param string First Recurly Client path
    * @param string Resource codes and paths
    * @return string URI
    * @throws Recurly_Error
    */
   public static function _safeUri(...$params) {
-    $path = "";
-    foreach($params as $string) {
-      if (empty(trim($string))) {
+    $uri = '';
+    // throws error if param is an empty string
+    foreach($params as $param) {
+      if (empty(trim($param))) {
         throw new Recurly_Error("Resource code cannot be an empty value");
       }
-      // removes extra forward slash that is encoded when a second path constant is passed
-      // example: const PATH_ACCOUNTS = '/accounts';
-      $path .= '/' . preg_replace("(%2F)", "", rawurlencode($string));
     }
-    return $path;
+    // first and every other following param is a resource index PATH, e.g. 'accounts' 
+    for ($i = 0; $i <= count($params); $i+=2) {  
+      if (isset($params[$i])){
+        $path = '/' . $params[$i];
+        $uri .= $path;
+      }
+      // resource code follows resource index, e.g. 'accounts/account_code'
+      if (isset($params[$i+1])){
+        $code = '/' . rawurlencode($params[$i+1]);
+        $uri .= $code;
+      }
+    }
+    return $uri;
   }
 
-  // URI for page resource index
   protected static function _uriWithParams($uri, $params = null) {
+    if ($uri[0] !== '/' && strpos($uri, "https") === false){
+      $uri = '/' . $uri;
+    }
     if (is_null($params) || !is_array($params)) {
       return $uri;
     }
@@ -142,7 +153,6 @@ abstract class Recurly_Base
     foreach ($params as $k => $v) {
       $vals[] = $k . '=' . urlencode($v);
     }
-
     return $uri . '?' . implode('&', $vals);
   }
 

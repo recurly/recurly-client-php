@@ -61,27 +61,27 @@ class Recurly_Client
   const DELETE = 'DELETE';
   const HEAD = 'HEAD';
 
-  const PATH_ACCOUNTS = '/accounts';
-  const PATH_ADDONS = '/add_ons';
-  const PATH_ADJUSTMENTS = '/adjustments';
-  const PATH_BALANCE = '/balance';
-  const PATH_BILLING_INFO = '/billing_info';
-  const PATH_COUPON = '/coupon';
-  const PATH_COUPON_REDEMPTION = '/redemption';
-  const PATH_COUPON_REDEMPTIONS = '/redemptions';
-  const PATH_COUPONS = '/coupons';
-  const PATH_CREDIT_PAYMENTS = '/credit_payments';
-  const PATH_GIFT_CARDS = '/gift_cards';
-  const PATH_UNIQUE_COUPONS = '/unique_coupon_codes';
-  const PATH_INVOICES = '/invoices';
-  const PATH_ITEMS = '/items';
-  const PATH_NOTES = '/notes';
-  const PATH_PLANS = '/plans';
-  const PATH_SHIPPING_METHOD = '/shipping_methods';
-  const PATH_SUBSCRIPTIONS = '/subscriptions';
-  const PATH_TRANSACTIONS = '/transactions';
-  const PATH_MEASURED_UNITS = '/measured_units';
-  const PATH_USAGE = '/usage';
+  const PATH_ACCOUNTS = 'accounts';
+  const PATH_ADDONS = 'add_ons';
+  const PATH_ADJUSTMENTS = 'adjustments';
+  const PATH_BALANCE = 'balance';
+  const PATH_BILLING_INFO = 'billing_info';
+  const PATH_COUPON = 'coupon';
+  const PATH_COUPON_REDEMPTION = 'redemption';
+  const PATH_COUPON_REDEMPTIONS = 'redemptions';
+  const PATH_COUPONS = 'coupons';
+  const PATH_CREDIT_PAYMENTS = 'credit_payments';
+  const PATH_GIFT_CARDS = 'gift_cards';
+  const PATH_UNIQUE_COUPONS = 'unique_coupon_codes';
+  const PATH_INVOICES = 'invoices';
+  const PATH_ITEMS = 'items';
+  const PATH_NOTES = 'notes';
+  const PATH_PLANS = 'plans';
+  const PATH_SHIPPING_METHOD = 'shipping_methods';
+  const PATH_SUBSCRIPTIONS = 'subscriptions';
+  const PATH_TRANSACTIONS = 'transactions';
+  const PATH_MEASURED_UNITS = 'measured_units';
+  const PATH_USAGE = 'usage';
 
   /**
    * Create a new Recurly Client
