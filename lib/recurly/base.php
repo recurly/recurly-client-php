@@ -120,23 +120,13 @@ abstract class Recurly_Base
    */
   public static function _safeUri(...$params) {
     $uri = '';
-    // throws error if param is an empty string
     foreach($params as $param) {
+      // throws error if param is an empty string
       if (empty(trim($param))) {
         throw new Recurly_Error("Resource code cannot be an empty value");
       }
-    }
-    // first and every other following param is a resource index PATH, e.g. 'accounts' 
-    for ($i = 0; $i <= count($params); $i+=2) {  
-      if (isset($params[$i])){
-        $path = '/' . $params[$i];
-        $uri .= $path;
-      }
-      // resource code follows resource index, e.g. 'accounts/account_code'
-      if (isset($params[$i+1])){
-        $code = '/' . rawurlencode($params[$i+1]);
-        $uri .= $code;
-      }
+      $path = '/' . rawurlencode($param);
+      $uri .= $path;
     }
     return $uri;
   }
