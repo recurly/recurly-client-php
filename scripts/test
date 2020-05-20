@@ -1,6 +1,10 @@
 #!/usr/bin/env bash
 set -e
 
-composer dump-autoload
+CODEFRESH=${CI:-false}
+
+if [ "$CODEFRESH" == "false" ]; then
+    composer dump-autoload
+fi
 
 ./vendor/bin/phpunit "$@"
