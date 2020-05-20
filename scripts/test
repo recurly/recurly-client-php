@@ -1,6 +1,8 @@
 #!/usr/bin/env bash
 set -e
 
+CODEFRESH=${CI:-false}
+
 if [ "$CODEFRESH" == "false" ]; then
     composer dump-autoload
 fi
