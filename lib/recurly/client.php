@@ -36,12 +36,12 @@ class Client extends BaseClient
      *          results correspond to your request.
      *        * Records are returned in an arbitrary order. Since results are all
      *          returned at once you can sort the records yourself.
-     *        
      * 'limit' (int): Limit number of records 1-200.
      * 'order' (string): Sort order.
      * 'sort' (string): Sort field. You *really* only want to sort by `updated_at` in ascending
      *        order. In descending order updated records will move behind the cursor and could
      *        prevent some records from being returned.
+     * 'state' (string): Filter by state.
      *
      * @param array $options Associative array of optional parameters:
      *
@@ -84,23 +84,18 @@ class Client extends BaseClient
      *          results correspond to your request.
      *        * Records are returned in an arbitrary order. Since results are all
      *          returned at once you can sort the records yourself.
-     *        
      * 'limit' (int): Limit number of records 1-200.
      * 'order' (string): Sort order.
      * 'sort' (string): Sort field. You *really* only want to sort by `updated_at` in ascending
      *        order. In descending order updated records will move behind the cursor and could
      *        prevent some records from being returned.
-     *        
      * 'begin_time' (string): Filter by begin_time when `sort=created_at` or `sort=updated_at`.
      *        **Note:** this value is an ISO8601 timestamp. A partial timestamp that does not include a time zone will default to UTC.
-     *        
      * 'end_time' (string): Filter by end_time when `sort=created_at` or `sort=updated_at`.
      *        **Note:** this value is an ISO8601 timestamp. A partial timestamp that does not include a time zone will default to UTC.
-     *        
      * 'email' (string): Filter for accounts with this exact email address. A blank value will return accounts with both `null` and `""` email addresses. Note that multiple accounts can share one email address.
      * 'subscriber' (bool): Filter for accounts with or without a subscription in the `active`,
      *        `canceled`, or `future` state.
-     *        
      * 'past_due' (string): Filter for accounts with an invoice in the `past_due` state.
      *
      * @param array $options Associative array of optional parameters:
@@ -301,14 +296,11 @@ class Client extends BaseClient
      *          results correspond to your request.
      *        * Records are returned in an arbitrary order. Since results are all
      *          returned at once you can sort the records yourself.
-     *        
      * 'sort' (string): Sort field. You *really* only want to sort by `updated_at` in ascending
      *        order. In descending order updated records will move behind the cursor and could
      *        prevent some records from being returned.
-     *        
      * 'begin_time' (string): Filter by begin_time when `sort=created_at` or `sort=updated_at`.
      *        **Note:** this value is an ISO8601 timestamp. A partial timestamp that does not include a time zone will default to UTC.
-     *        
      * 'end_time' (string): Filter by end_time when `sort=created_at` or `sort=updated_at`.
      *        **Note:** this value is an ISO8601 timestamp. A partial timestamp that does not include a time zone will default to UTC.
      *
@@ -377,10 +369,8 @@ class Client extends BaseClient
      * 'sort' (string): Sort field. You *really* only want to sort by `updated_at` in ascending
      *        order. In descending order updated records will move behind the cursor and could
      *        prevent some records from being returned.
-     *        
      * 'begin_time' (string): Filter by begin_time when `sort=created_at` or `sort=updated_at`.
      *        **Note:** this value is an ISO8601 timestamp. A partial timestamp that does not include a time zone will default to UTC.
-     *        
      * 'end_time' (string): Filter by end_time when `sort=created_at` or `sort=updated_at`.
      *        **Note:** this value is an ISO8601 timestamp. A partial timestamp that does not include a time zone will default to UTC.
      *
@@ -412,19 +402,15 @@ class Client extends BaseClient
      *          results correspond to your request.
      *        * Records are returned in an arbitrary order. Since results are all
      *          returned at once you can sort the records yourself.
-     *        
      * 'limit' (int): Limit number of records 1-200.
      * 'order' (string): Sort order.
      * 'sort' (string): Sort field. You *really* only want to sort by `updated_at` in ascending
      *        order. In descending order updated records will move behind the cursor and could
      *        prevent some records from being returned.
-     *        
      * 'begin_time' (string): Filter by begin_time when `sort=created_at` or `sort=updated_at`.
      *        **Note:** this value is an ISO8601 timestamp. A partial timestamp that does not include a time zone will default to UTC.
-     *        
      * 'end_time' (string): Filter by end_time when `sort=created_at` or `sort=updated_at`.
      *        **Note:** this value is an ISO8601 timestamp. A partial timestamp that does not include a time zone will default to UTC.
-     *        
      * 'type' (string): Filter by type when:
      *        - `type=charge`, only charge invoices will be returned.
      *        - `type=credit`, only credit invoices will be returned.
@@ -489,19 +475,15 @@ class Client extends BaseClient
      *          results correspond to your request.
      *        * Records are returned in an arbitrary order. Since results are all
      *          returned at once you can sort the records yourself.
-     *        
      * 'limit' (int): Limit number of records 1-200.
      * 'order' (string): Sort order.
      * 'sort' (string): Sort field. You *really* only want to sort by `updated_at` in ascending
      *        order. In descending order updated records will move behind the cursor and could
      *        prevent some records from being returned.
-     *        
      * 'begin_time' (string): Filter by begin_time when `sort=created_at` or `sort=updated_at`.
      *        **Note:** this value is an ISO8601 timestamp. A partial timestamp that does not include a time zone will default to UTC.
-     *        
      * 'end_time' (string): Filter by end_time when `sort=created_at` or `sort=updated_at`.
      *        **Note:** this value is an ISO8601 timestamp. A partial timestamp that does not include a time zone will default to UTC.
-     *        
      * 'original' (string): Filter by original field.
      * 'state' (string): Filter by state field.
      * 'type' (string): Filter by type field.
@@ -593,16 +575,13 @@ class Client extends BaseClient
      *          results correspond to your request.
      *        * Records are returned in an arbitrary order. Since results are all
      *          returned at once you can sort the records yourself.
-     *        
      * 'limit' (int): Limit number of records 1-200.
      * 'order' (string): Sort order.
      * 'sort' (string): Sort field. You *really* only want to sort by `updated_at` in ascending
      *        order. In descending order updated records will move behind the cursor and could
      *        prevent some records from being returned.
-     *        
      * 'begin_time' (string): Filter by begin_time when `sort=created_at` or `sort=updated_at`.
      *        **Note:** this value is an ISO8601 timestamp. A partial timestamp that does not include a time zone will default to UTC.
-     *        
      * 'end_time' (string): Filter by end_time when `sort=created_at` or `sort=updated_at`.
      *        **Note:** this value is an ISO8601 timestamp. A partial timestamp that does not include a time zone will default to UTC.
      *
@@ -695,19 +674,15 @@ class Client extends BaseClient
      *          results correspond to your request.
      *        * Records are returned in an arbitrary order. Since results are all
      *          returned at once you can sort the records yourself.
-     *        
      * 'limit' (int): Limit number of records 1-200.
      * 'order' (string): Sort order.
      * 'sort' (string): Sort field. You *really* only want to sort by `updated_at` in ascending
      *        order. In descending order updated records will move behind the cursor and could
      *        prevent some records from being returned.
-     *        
      * 'begin_time' (string): Filter by begin_time when `sort=created_at` or `sort=updated_at`.
      *        **Note:** this value is an ISO8601 timestamp. A partial timestamp that does not include a time zone will default to UTC.
-     *        
      * 'end_time' (string): Filter by end_time when `sort=created_at` or `sort=updated_at`.
      *        **Note:** this value is an ISO8601 timestamp. A partial timestamp that does not include a time zone will default to UTC.
-     *        
      * 'state' (string): Filter by state.
      *        
      *        - When `state=active`, `state=canceled`, `state=expired`, or `state=future`, subscriptions with states that match the query and only those subscriptions will be returned.
@@ -742,19 +717,15 @@ class Client extends BaseClient
      *          results correspond to your request.
      *        * Records are returned in an arbitrary order. Since results are all
      *          returned at once you can sort the records yourself.
-     *        
      * 'limit' (int): Limit number of records 1-200.
      * 'order' (string): Sort order.
      * 'sort' (string): Sort field. You *really* only want to sort by `updated_at` in ascending
      *        order. In descending order updated records will move behind the cursor and could
      *        prevent some records from being returned.
-     *        
      * 'begin_time' (string): Filter by begin_time when `sort=created_at` or `sort=updated_at`.
      *        **Note:** this value is an ISO8601 timestamp. A partial timestamp that does not include a time zone will default to UTC.
-     *        
      * 'end_time' (string): Filter by end_time when `sort=created_at` or `sort=updated_at`.
      *        **Note:** this value is an ISO8601 timestamp. A partial timestamp that does not include a time zone will default to UTC.
-     *        
      * 'type' (string): Filter by type field. The value `payment` will return both `purchase` and `capture` transactions.
      * 'success' (string): Filter by success field.
      *
@@ -786,23 +757,18 @@ class Client extends BaseClient
      *          results correspond to your request.
      *        * Records are returned in an arbitrary order. Since results are all
      *          returned at once you can sort the records yourself.
-     *        
      * 'limit' (int): Limit number of records 1-200.
      * 'order' (string): Sort order.
      * 'sort' (string): Sort field. You *really* only want to sort by `updated_at` in ascending
      *        order. In descending order updated records will move behind the cursor and could
      *        prevent some records from being returned.
-     *        
      * 'begin_time' (string): Filter by begin_time when `sort=created_at` or `sort=updated_at`.
      *        **Note:** this value is an ISO8601 timestamp. A partial timestamp that does not include a time zone will default to UTC.
-     *        
      * 'end_time' (string): Filter by end_time when `sort=created_at` or `sort=updated_at`.
      *        **Note:** this value is an ISO8601 timestamp. A partial timestamp that does not include a time zone will default to UTC.
-     *        
      * 'email' (string): Filter for accounts with this exact email address. A blank value will return accounts with both `null` and `""` email addresses. Note that multiple accounts can share one email address.
      * 'subscriber' (bool): Filter for accounts with or without a subscription in the `active`,
      *        `canceled`, or `future` state.
-     *        
      * 'past_due' (string): Filter for accounts with an invoice in the `past_due` state.
      *
      * @param string $account_id Account ID or code. For ID no prefix is used e.g. `e28zov4fw0v2`. For code use prefix `code-`, e.g. `code-bob`.
@@ -833,16 +799,13 @@ class Client extends BaseClient
      *          results correspond to your request.
      *        * Records are returned in an arbitrary order. Since results are all
      *          returned at once you can sort the records yourself.
-     *        
      * 'limit' (int): Limit number of records 1-200.
      * 'order' (string): Sort order.
      * 'sort' (string): Sort field. You *really* only want to sort by `updated_at` in ascending
      *        order. In descending order updated records will move behind the cursor and could
      *        prevent some records from being returned.
-     *        
      * 'begin_time' (string): Filter by begin_time when `sort=created_at` or `sort=updated_at`.
      *        **Note:** this value is an ISO8601 timestamp. A partial timestamp that does not include a time zone will default to UTC.
-     *        
      * 'end_time' (string): Filter by end_time when `sort=created_at` or `sort=updated_at`.
      *        **Note:** this value is an ISO8601 timestamp. A partial timestamp that does not include a time zone will default to UTC.
      *
@@ -873,16 +836,13 @@ class Client extends BaseClient
      *          results correspond to your request.
      *        * Records are returned in an arbitrary order. Since results are all
      *          returned at once you can sort the records yourself.
-     *        
      * 'limit' (int): Limit number of records 1-200.
      * 'order' (string): Sort order.
      * 'sort' (string): Sort field. You *really* only want to sort by `updated_at` in ascending
      *        order. In descending order updated records will move behind the cursor and could
      *        prevent some records from being returned.
-     *        
      * 'begin_time' (string): Filter by begin_time when `sort=created_at` or `sort=updated_at`.
      *        **Note:** this value is an ISO8601 timestamp. A partial timestamp that does not include a time zone will default to UTC.
-     *        
      * 'end_time' (string): Filter by end_time when `sort=created_at` or `sort=updated_at`.
      *        **Note:** this value is an ISO8601 timestamp. A partial timestamp that does not include a time zone will default to UTC.
      *
@@ -970,16 +930,13 @@ class Client extends BaseClient
      *          results correspond to your request.
      *        * Records are returned in an arbitrary order. Since results are all
      *          returned at once you can sort the records yourself.
-     *        
      * 'limit' (int): Limit number of records 1-200.
      * 'order' (string): Sort order.
      * 'sort' (string): Sort field. You *really* only want to sort by `updated_at` in ascending
      *        order. In descending order updated records will move behind the cursor and could
      *        prevent some records from being returned.
-     *        
      * 'begin_time' (string): Filter by begin_time when `sort=created_at` or `sort=updated_at`.
      *        **Note:** this value is an ISO8601 timestamp. A partial timestamp that does not include a time zone will default to UTC.
-     *        
      * 'end_time' (string): Filter by end_time when `sort=created_at` or `sort=updated_at`.
      *        **Note:** this value is an ISO8601 timestamp. A partial timestamp that does not include a time zone will default to UTC.
      *
@@ -1005,10 +962,8 @@ class Client extends BaseClient
      * 'sort' (string): Sort field. You *really* only want to sort by `updated_at` in ascending
      *        order. In descending order updated records will move behind the cursor and could
      *        prevent some records from being returned.
-     *        
      * 'begin_time' (string): Filter by begin_time when `sort=created_at` or `sort=updated_at`.
      *        **Note:** this value is an ISO8601 timestamp. A partial timestamp that does not include a time zone will default to UTC.
-     *        
      * 'end_time' (string): Filter by end_time when `sort=created_at` or `sort=updated_at`.
      *        **Note:** this value is an ISO8601 timestamp. A partial timestamp that does not include a time zone will default to UTC.
      *
@@ -1053,19 +1008,15 @@ class Client extends BaseClient
      *          results correspond to your request.
      *        * Records are returned in an arbitrary order. Since results are all
      *          returned at once you can sort the records yourself.
-     *        
      * 'limit' (int): Limit number of records 1-200.
      * 'order' (string): Sort order.
      * 'sort' (string): Sort field. You *really* only want to sort by `updated_at` in ascending
      *        order. In descending order updated records will move behind the cursor and could
      *        prevent some records from being returned.
-     *        
      * 'begin_time' (string): Filter by begin_time when `sort=created_at` or `sort=updated_at`.
      *        **Note:** this value is an ISO8601 timestamp. A partial timestamp that does not include a time zone will default to UTC.
-     *        
      * 'end_time' (string): Filter by end_time when `sort=created_at` or `sort=updated_at`.
      *        **Note:** this value is an ISO8601 timestamp. A partial timestamp that does not include a time zone will default to UTC.
-     *        
      * 'related_type' (string): Filter by related type.
      *
      * @param array $options Associative array of optional parameters:
@@ -1109,19 +1060,15 @@ class Client extends BaseClient
      *          results correspond to your request.
      *        * Records are returned in an arbitrary order. Since results are all
      *          returned at once you can sort the records yourself.
-     *        
      * 'limit' (int): Limit number of records 1-200.
      * 'order' (string): Sort order.
      * 'sort' (string): Sort field. You *really* only want to sort by `updated_at` in ascending
      *        order. In descending order updated records will move behind the cursor and could
      *        prevent some records from being returned.
-     *        
      * 'begin_time' (string): Filter by begin_time when `sort=created_at` or `sort=updated_at`.
      *        **Note:** this value is an ISO8601 timestamp. A partial timestamp that does not include a time zone will default to UTC.
-     *        
      * 'end_time' (string): Filter by end_time when `sort=created_at` or `sort=updated_at`.
      *        **Note:** this value is an ISO8601 timestamp. A partial timestamp that does not include a time zone will default to UTC.
-     *        
      * 'state' (string): Filter by state.
      *
      * @param array $options Associative array of optional parameters:
@@ -1222,19 +1169,15 @@ class Client extends BaseClient
      *          results correspond to your request.
      *        * Records are returned in an arbitrary order. Since results are all
      *          returned at once you can sort the records yourself.
-     *        
      * 'limit' (int): Limit number of records 1-200.
      * 'order' (string): Sort order.
      * 'sort' (string): Sort field. You *really* only want to sort by `updated_at` in ascending
      *        order. In descending order updated records will move behind the cursor and could
      *        prevent some records from being returned.
-     *        
      * 'begin_time' (string): Filter by begin_time when `sort=created_at` or `sort=updated_at`.
      *        **Note:** this value is an ISO8601 timestamp. A partial timestamp that does not include a time zone will default to UTC.
-     *        
      * 'end_time' (string): Filter by end_time when `sort=created_at` or `sort=updated_at`.
      *        **Note:** this value is an ISO8601 timestamp. A partial timestamp that does not include a time zone will default to UTC.
-     *        
      * 'type' (string): Filter by type when:
      *        - `type=charge`, only charge invoices will be returned.
      *        - `type=credit`, only credit invoices will be returned.
@@ -1367,6 +1310,21 @@ class Client extends BaseClient
     }
   
     /**
+     * Record an external payment for a manual invoices.
+     *
+     * @param string $invoice_id Invoice ID or number. For ID no prefix is used e.g. `e28zov4fw0v2`. For number use prefix `number-`, e.g. `number-1000`.
+     * @param array  $body       The body of the request.
+     *
+     * @return \Recurly\Resources\Transaction
+     * @link   https://developers.recurly.com/api/v2019-10-10#operation/record_external_transaction
+     */
+    public function recordExternalTransaction(string $invoice_id, array $body): \Recurly\Resources\Transaction
+    {
+        $path = $this->interpolatePath("/invoices/{invoice_id}/transactions", ['invoice_id' => $invoice_id]);
+        return $this->makeRequest('POST', $path, $body, null);
+    }
+  
+    /**
      * List an invoice's line items
      *
      * Supported optional parameters:
@@ -1382,19 +1340,15 @@ class Client extends BaseClient
      *          results correspond to your request.
      *        * Records are returned in an arbitrary order. Since results are all
      *          returned at once you can sort the records yourself.
-     *        
      * 'limit' (int): Limit number of records 1-200.
      * 'order' (string): Sort order.
      * 'sort' (string): Sort field. You *really* only want to sort by `updated_at` in ascending
      *        order. In descending order updated records will move behind the cursor and could
      *        prevent some records from being returned.
-     *        
      * 'begin_time' (string): Filter by begin_time when `sort=created_at` or `sort=updated_at`.
      *        **Note:** this value is an ISO8601 timestamp. A partial timestamp that does not include a time zone will default to UTC.
-     *        
      * 'end_time' (string): Filter by end_time when `sort=created_at` or `sort=updated_at`.
      *        **Note:** this value is an ISO8601 timestamp. A partial timestamp that does not include a time zone will default to UTC.
-     *        
      * 'original' (string): Filter by original field.
      * 'state' (string): Filter by state field.
      * 'type' (string): Filter by type field.
@@ -1427,14 +1381,11 @@ class Client extends BaseClient
      *          results correspond to your request.
      *        * Records are returned in an arbitrary order. Since results are all
      *          returned at once you can sort the records yourself.
-     *        
      * 'sort' (string): Sort field. You *really* only want to sort by `updated_at` in ascending
      *        order. In descending order updated records will move behind the cursor and could
      *        prevent some records from being returned.
-     *        
      * 'begin_time' (string): Filter by begin_time when `sort=created_at` or `sort=updated_at`.
      *        **Note:** this value is an ISO8601 timestamp. A partial timestamp that does not include a time zone will default to UTC.
-     *        
      * 'end_time' (string): Filter by end_time when `sort=created_at` or `sort=updated_at`.
      *        **Note:** this value is an ISO8601 timestamp. A partial timestamp that does not include a time zone will default to UTC.
      *
@@ -1495,19 +1446,15 @@ class Client extends BaseClient
      *          results correspond to your request.
      *        * Records are returned in an arbitrary order. Since results are all
      *          returned at once you can sort the records yourself.
-     *        
      * 'limit' (int): Limit number of records 1-200.
      * 'order' (string): Sort order.
      * 'sort' (string): Sort field. You *really* only want to sort by `updated_at` in ascending
      *        order. In descending order updated records will move behind the cursor and could
      *        prevent some records from being returned.
-     *        
      * 'begin_time' (string): Filter by begin_time when `sort=created_at` or `sort=updated_at`.
      *        **Note:** this value is an ISO8601 timestamp. A partial timestamp that does not include a time zone will default to UTC.
-     *        
      * 'end_time' (string): Filter by end_time when `sort=created_at` or `sort=updated_at`.
      *        **Note:** this value is an ISO8601 timestamp. A partial timestamp that does not include a time zone will default to UTC.
-     *        
      * 'original' (string): Filter by original field.
      * 'state' (string): Filter by state field.
      * 'type' (string): Filter by type field.
@@ -1567,19 +1514,15 @@ class Client extends BaseClient
      *          results correspond to your request.
      *        * Records are returned in an arbitrary order. Since results are all
      *          returned at once you can sort the records yourself.
-     *        
      * 'limit' (int): Limit number of records 1-200.
      * 'order' (string): Sort order.
      * 'sort' (string): Sort field. You *really* only want to sort by `updated_at` in ascending
      *        order. In descending order updated records will move behind the cursor and could
      *        prevent some records from being returned.
-     *        
      * 'begin_time' (string): Filter by begin_time when `sort=created_at` or `sort=updated_at`.
      *        **Note:** this value is an ISO8601 timestamp. A partial timestamp that does not include a time zone will default to UTC.
-     *        
      * 'end_time' (string): Filter by end_time when `sort=created_at` or `sort=updated_at`.
      *        **Note:** this value is an ISO8601 timestamp. A partial timestamp that does not include a time zone will default to UTC.
-     *        
      * 'state' (string): Filter by state.
      *
      * @param array $options Associative array of optional parameters:
@@ -1666,19 +1609,15 @@ class Client extends BaseClient
      *          results correspond to your request.
      *        * Records are returned in an arbitrary order. Since results are all
      *          returned at once you can sort the records yourself.
-     *        
      * 'limit' (int): Limit number of records 1-200.
      * 'order' (string): Sort order.
      * 'sort' (string): Sort field. You *really* only want to sort by `updated_at` in ascending
      *        order. In descending order updated records will move behind the cursor and could
      *        prevent some records from being returned.
-     *        
      * 'begin_time' (string): Filter by begin_time when `sort=created_at` or `sort=updated_at`.
      *        **Note:** this value is an ISO8601 timestamp. A partial timestamp that does not include a time zone will default to UTC.
-     *        
      * 'end_time' (string): Filter by end_time when `sort=created_at` or `sort=updated_at`.
      *        **Note:** this value is an ISO8601 timestamp. A partial timestamp that does not include a time zone will default to UTC.
-     *        
      * 'state' (string): Filter by state.
      *
      * @param string $plan_id Plan ID or code. For ID no prefix is used e.g. `e28zov4fw0v2`. For code use prefix `code-`, e.g. `code-gold`.
@@ -1770,19 +1709,15 @@ class Client extends BaseClient
      *          results correspond to your request.
      *        * Records are returned in an arbitrary order. Since results are all
      *          returned at once you can sort the records yourself.
-     *        
      * 'limit' (int): Limit number of records 1-200.
      * 'order' (string): Sort order.
      * 'sort' (string): Sort field. You *really* only want to sort by `updated_at` in ascending
      *        order. In descending order updated records will move behind the cursor and could
      *        prevent some records from being returned.
-     *        
      * 'begin_time' (string): Filter by begin_time when `sort=created_at` or `sort=updated_at`.
      *        **Note:** this value is an ISO8601 timestamp. A partial timestamp that does not include a time zone will default to UTC.
-     *        
      * 'end_time' (string): Filter by end_time when `sort=created_at` or `sort=updated_at`.
      *        **Note:** this value is an ISO8601 timestamp. A partial timestamp that does not include a time zone will default to UTC.
-     *        
      * 'state' (string): Filter by state.
      *
      * @param array $options Associative array of optional parameters:
@@ -1826,16 +1761,13 @@ class Client extends BaseClient
      *          results correspond to your request.
      *        * Records are returned in an arbitrary order. Since results are all
      *          returned at once you can sort the records yourself.
-     *        
      * 'limit' (int): Limit number of records 1-200.
      * 'order' (string): Sort order.
      * 'sort' (string): Sort field. You *really* only want to sort by `updated_at` in ascending
      *        order. In descending order updated records will move behind the cursor and could
      *        prevent some records from being returned.
-     *        
      * 'begin_time' (string): Filter by begin_time when `sort=created_at` or `sort=updated_at`.
      *        **Note:** this value is an ISO8601 timestamp. A partial timestamp that does not include a time zone will default to UTC.
-     *        
      * 'end_time' (string): Filter by end_time when `sort=created_at` or `sort=updated_at`.
      *        **Note:** this value is an ISO8601 timestamp. A partial timestamp that does not include a time zone will default to UTC.
      *
@@ -1880,19 +1812,15 @@ class Client extends BaseClient
      *          results correspond to your request.
      *        * Records are returned in an arbitrary order. Since results are all
      *          returned at once you can sort the records yourself.
-     *        
      * 'limit' (int): Limit number of records 1-200.
      * 'order' (string): Sort order.
      * 'sort' (string): Sort field. You *really* only want to sort by `updated_at` in ascending
      *        order. In descending order updated records will move behind the cursor and could
      *        prevent some records from being returned.
-     *        
      * 'begin_time' (string): Filter by begin_time when `sort=created_at` or `sort=updated_at`.
      *        **Note:** this value is an ISO8601 timestamp. A partial timestamp that does not include a time zone will default to UTC.
-     *        
      * 'end_time' (string): Filter by end_time when `sort=created_at` or `sort=updated_at`.
      *        **Note:** this value is an ISO8601 timestamp. A partial timestamp that does not include a time zone will default to UTC.
-     *        
      * 'state' (string): Filter by state.
      *        
      *        - When `state=active`, `state=canceled`, `state=expired`, or `state=future`, subscriptions with states that match the query and only those subscriptions will be returned.
@@ -2111,19 +2039,15 @@ class Client extends BaseClient
      *          results correspond to your request.
      *        * Records are returned in an arbitrary order. Since results are all
      *          returned at once you can sort the records yourself.
-     *        
      * 'limit' (int): Limit number of records 1-200.
      * 'order' (string): Sort order.
      * 'sort' (string): Sort field. You *really* only want to sort by `updated_at` in ascending
      *        order. In descending order updated records will move behind the cursor and could
      *        prevent some records from being returned.
-     *        
      * 'begin_time' (string): Filter by begin_time when `sort=created_at` or `sort=updated_at`.
      *        **Note:** this value is an ISO8601 timestamp. A partial timestamp that does not include a time zone will default to UTC.
-     *        
      * 'end_time' (string): Filter by end_time when `sort=created_at` or `sort=updated_at`.
      *        **Note:** this value is an ISO8601 timestamp. A partial timestamp that does not include a time zone will default to UTC.
-     *        
      * 'type' (string): Filter by type when:
      *        - `type=charge`, only charge invoices will be returned.
      *        - `type=credit`, only credit invoices will be returned.
@@ -2158,19 +2082,15 @@ class Client extends BaseClient
      *          results correspond to your request.
      *        * Records are returned in an arbitrary order. Since results are all
      *          returned at once you can sort the records yourself.
-     *        
      * 'limit' (int): Limit number of records 1-200.
      * 'order' (string): Sort order.
      * 'sort' (string): Sort field. You *really* only want to sort by `updated_at` in ascending
      *        order. In descending order updated records will move behind the cursor and could
      *        prevent some records from being returned.
-     *        
      * 'begin_time' (string): Filter by begin_time when `sort=created_at` or `sort=updated_at`.
      *        **Note:** this value is an ISO8601 timestamp. A partial timestamp that does not include a time zone will default to UTC.
-     *        
      * 'end_time' (string): Filter by end_time when `sort=created_at` or `sort=updated_at`.
      *        **Note:** this value is an ISO8601 timestamp. A partial timestamp that does not include a time zone will default to UTC.
-     *        
      * 'original' (string): Filter by original field.
      * 'state' (string): Filter by state field.
      * 'type' (string): Filter by type field.
@@ -2203,14 +2123,11 @@ class Client extends BaseClient
      *          results correspond to your request.
      *        * Records are returned in an arbitrary order. Since results are all
      *          returned at once you can sort the records yourself.
-     *        
      * 'sort' (string): Sort field. You *really* only want to sort by `updated_at` in ascending
      *        order. In descending order updated records will move behind the cursor and could
      *        prevent some records from being returned.
-     *        
      * 'begin_time' (string): Filter by begin_time when `sort=created_at` or `sort=updated_at`.
      *        **Note:** this value is an ISO8601 timestamp. A partial timestamp that does not include a time zone will default to UTC.
-     *        
      * 'end_time' (string): Filter by end_time when `sort=created_at` or `sort=updated_at`.
      *        **Note:** this value is an ISO8601 timestamp. A partial timestamp that does not include a time zone will default to UTC.
      *
@@ -2242,19 +2159,15 @@ class Client extends BaseClient
      *          results correspond to your request.
      *        * Records are returned in an arbitrary order. Since results are all
      *          returned at once you can sort the records yourself.
-     *        
      * 'limit' (int): Limit number of records 1-200.
      * 'order' (string): Sort order.
      * 'sort' (string): Sort field. You *really* only want to sort by `updated_at` in ascending
      *        order. In descending order updated records will move behind the cursor and could
      *        prevent some records from being returned.
-     *        
      * 'begin_time' (string): Filter by begin_time when `sort=created_at` or `sort=updated_at`.
      *        **Note:** this value is an ISO8601 timestamp. A partial timestamp that does not include a time zone will default to UTC.
-     *        
      * 'end_time' (string): Filter by end_time when `sort=created_at` or `sort=updated_at`.
      *        **Note:** this value is an ISO8601 timestamp. A partial timestamp that does not include a time zone will default to UTC.
-     *        
      * 'type' (string): Filter by type field. The value `payment` will return both `purchase` and `capture` transactions.
      * 'success' (string): Filter by success field.
      *

@@ -22,6 +22,7 @@ class PaymentMethod extends RecurlyResource
     private $_gateway_token;
     private $_last_four;
     private $_last_two;
+    private $_name_on_account;
     private $_object;
     private $_routing_number;
     private $_routing_number_bank;
@@ -258,6 +259,29 @@ class PaymentMethod extends RecurlyResource
     public function setLastTwo(string $last_two): void
     {
         $this->_last_two = $last_two;
+    }
+
+    /**
+    * Getter method for the name_on_account attribute.
+    * The name associated with the bank account.
+    *
+    * @return ?string
+    */
+    public function getNameOnAccount(): ?string
+    {
+        return $this->_name_on_account;
+    }
+
+    /**
+    * Setter method for the name_on_account attribute.
+    *
+    * @param string $name_on_account
+    *
+    * @return void
+    */
+    public function setNameOnAccount(string $name_on_account): void
+    {
+        $this->_name_on_account = $name_on_account;
     }
 
     /**

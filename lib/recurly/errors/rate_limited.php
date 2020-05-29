@@ -7,6 +7,6 @@
  */
 namespace Recurly\Errors;
 
-class RateLimited extends \Recurly\RecurlyError
+class RateLimited extends \Recurly\Errors\TooManyRequests
 {
 }
