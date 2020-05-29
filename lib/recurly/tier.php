@@ -32,4 +32,8 @@ class Recurly_Tier extends Recurly_Resource
       'unit_amount_in_cents', 'ending_quantity'
     );
   }
+
+  protected function getChangedAttributes($nested = false) {
+    return $this->_values;
+  }
 }
