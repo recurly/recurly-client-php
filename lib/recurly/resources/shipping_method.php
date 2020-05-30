@@ -12,6 +12,7 @@ use Recurly\RecurlyResource;
 // phpcs:disable
 class ShippingMethod extends RecurlyResource
 {
+    private $_accounting_code;
     private $_code;
     private $_created_at;
     private $_deleted_at;
@@ -25,6 +26,29 @@ class ShippingMethod extends RecurlyResource
     );
 
     
+    /**
+    * Getter method for the accounting_code attribute.
+    * Accounting code for shipping method.
+    *
+    * @return ?string
+    */
+    public function getAccountingCode(): ?string
+    {
+        return $this->_accounting_code;
+    }
+
+    /**
+    * Setter method for the accounting_code attribute.
+    *
+    * @param string $accounting_code
+    *
+    * @return void
+    */
+    public function setAccountingCode(string $accounting_code): void
+    {
+        $this->_accounting_code = $accounting_code;
+    }
+
     /**
     * Getter method for the code attribute.
     * The internal name used identify the shipping method.

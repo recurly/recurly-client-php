@@ -7,6 +7,6 @@
  */
 namespace Recurly\Errors;
 
-class UnavailableInApiVersion extends \Recurly\RecurlyError
+class UnavailableInApiVersion extends \Recurly\Errors\NotAcceptable
 {
 }

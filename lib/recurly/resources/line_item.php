@@ -644,7 +644,7 @@ class LineItem extends RecurlyResource
 
     /**
     * Getter method for the product_code attribute.
-    * For plan-related line items this will be the plan's code, for add-on related line items it will be the add-on's code. For item-related line itmes it will be the item's `external_sku`.
+    * For plan-related line items this will be the plan's code, for add-on related line items it will be the add-on's code. For item-related line items it will be the item's `external_sku`.
     *
     * @return ?string
     */

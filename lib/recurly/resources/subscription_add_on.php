@@ -18,6 +18,7 @@ class SubscriptionAddOn extends RecurlyResource
     private $_id;
     private $_object;
     private $_quantity;
+    private $_revenue_schedule_type;
     private $_subscription_id;
     private $_tier_type;
     private $_tiers;
@@ -165,6 +166,29 @@ class SubscriptionAddOn extends RecurlyResource
     public function setQuantity(int $quantity): void
     {
         $this->_quantity = $quantity;
+    }
+
+    /**
+    * Getter method for the revenue_schedule_type attribute.
+    * Revenue schedule type
+    *
+    * @return ?string
+    */
+    public function getRevenueScheduleType(): ?string
+    {
+        return $this->_revenue_schedule_type;
+    }
+
+    /**
+    * Setter method for the revenue_schedule_type attribute.
+    *
+    * @param string $revenue_schedule_type
+    *
+    * @return void
+    */
+    public function setRevenueScheduleType(string $revenue_schedule_type): void
+    {
+        $this->_revenue_schedule_type = $revenue_schedule_type;
     }
 
     /**
