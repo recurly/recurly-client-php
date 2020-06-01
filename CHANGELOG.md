@@ -1,8 +1,21 @@
 # Changelog
 
-## [3.1.1](https://github.com/recurly/recurly-client-php/tree/HEAD)
+## [3.2.0](https://github.com/recurly/recurly-client-php/tree/HEAD)
 
-[Full Changelog](https://github.com/recurly/recurly-client-php/compare/3.1.0...HEAD)
+[Full Changelog](https://github.com/recurly/recurly-client-php/compare/3.1.1...HEAD)
+
+**Implemented enhancements:**
+
+- Latest Features [\#501](https://github.com/recurly/recurly-client-php/pull/501) ([bhelx](https://github.com/bhelx))
+
+**Merged pull requests:**
+
+- Release 3.2.0 [\#502](https://github.com/recurly/recurly-client-php/pull/502) ([bhelx](https://github.com/bhelx))
+- \[Internal\] Disabling 'composer dump-autoload' in codefresh [\#499](https://github.com/recurly/recurly-client-php/pull/499) ([douglasmiller](https://github.com/douglasmiller))
+
+## [3.1.1](https://github.com/recurly/recurly-client-php/tree/3.1.1) (2020-05-06)
+
+[Full Changelog](https://github.com/recurly/recurly-client-php/compare/3.1.0...3.1.1)
 
 **Fixed bugs:**
 
