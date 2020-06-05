@@ -60,7 +60,7 @@ class Recurly_Adjustment extends Recurly_Resource
    * @return Recurly_Invoice the new refund invoice
    * @throws Recurly_Error if the adjustment cannot be refunded.
    */
-  public function refund($quantity = null, $prorate = false, $refund_apply_order = 'credit') {
+  public function refund($quantity = null, $prorate = false, $refund_apply_order = 'credit_first') {
     if ($this->state == 'pending') {
       throw new Recurly_Error("Only invoiced adjustments can be refunded");
     }
