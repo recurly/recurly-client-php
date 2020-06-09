@@ -114,4 +114,32 @@ final class BaseClientTest extends RecurlyTestCase
         }
         $this->assertEquals($count, 1);
     }
+
+    public function testFormatsDateTimeBodyParameters(): void
+    {
+        $dateTime = new DateTime("2020-01-01 00:00:00");
+
+        $url = "https://v3.recurly.com/resources/";
+        $result = '{"id": "created", "object": "test_resource", "name": "valid"}';
+        $body = [ "date_time" => $dateTime->format(\DateTime::ISO8601) ];
+        $this->client->addScenario("POST", $url, $body, $result, "201 Created");
+        $resource = $this->client->createResource([ "date_time" => $dateTime ]);
+        $this->assertEquals($resource->getId(), "created");
+    }
+
+    public function testFormatsDateTimeQueryParameters(): void
+    {
+        $beginTime = new DateTime("2020-01-01 00:00:00");
+        $url = "https://v3.recurly.com/resources?begin_time=" . urlencode($beginTime->format(\DateTime::ISO8601));
+        $result = '{ "object": "list", "has_more": false, "next": null, "data": [{"id": "iexist", "object": "test_resource", "name": "newname"}]}';
+        $this->client->addScenario("GET", $url, NULL, $result, "200 OK");
+
+        $resources = $this->client->listResources([ "begin_time" => $beginTime ]);
+        $count = 0;
+        foreach($resources as $resource) {
+            $count = $count + 1;
+            $this->assertEquals($resource->getId(), "iexist");
+        }
+        $this->assertEquals($count, 1);
+    }
 }
