@@ -136,6 +136,10 @@ abstract class BaseClient
                     if ($value instanceof \DateTime) {
                         return $value->format(\DateTime::ISO8601);
                     }
+                    # Recursively check nested arrays
+                    if (is_array($value)) {
+                        return $this->_formatDateTimes($value);
+                    }
                     return $value;
                 }, $arr
             )

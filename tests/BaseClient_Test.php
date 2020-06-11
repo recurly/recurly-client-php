@@ -127,6 +127,22 @@ final class BaseClientTest extends RecurlyTestCase
         $this->assertEquals($resource->getId(), "created");
     }
 
+    public function testFormatsNestedDateTimeBodyParameters(): void
+    {
+        $dateTime = new DateTime("2020-01-01 00:00:00");
+
+        $url = "https://v3.recurly.com/resources/";
+        $result = '{"id": "created", "object": "test_resource", "name": "valid"}';
+        $body = [
+            "nested" => [
+                "date_time" => $dateTime->format(\DateTime::ISO8601)
+            ]
+        ];
+        $this->client->addScenario("POST", $url, $body, $result, "201 Created");
+        $resource = $this->client->createResource([ "nested" => [ "date_time" => $dateTime ] ]);
+        $this->assertEquals($resource->getId(), "created");
+    }
+
     public function testFormatsDateTimeQueryParameters(): void
     {
         $beginTime = new DateTime("2020-01-01 00:00:00");
