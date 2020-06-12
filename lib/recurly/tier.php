@@ -33,6 +33,7 @@ class Recurly_Tier extends Recurly_Resource
     );
   }
 
+  // Includes tier attributes in request body for subscription add-ons
   protected function getChangedAttributes($nested = false) {
     return $this->_values;
   }
