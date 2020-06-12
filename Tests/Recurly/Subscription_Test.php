@@ -264,6 +264,19 @@ class Recurly_SubscriptionTest extends Recurly_TestCase
     );
   }
 
+  public function testUpdateSubscriptionWithAddOnsQuantityBasedPricing() {
+    $this->client->addResponse('GET', '/subscriptions/012345678901234567890123456789ab', 'subscriptions/show-200-QBP.xml');
+    $subscription = Recurly_Subscription::get('012345678901234567890123456789ab', $this->client);
+
+    $subscription->collection_method = "automatic";
+    $subscription->subscription_add_ons[0]->tiers[0]->ending_quantity = 50;
+
+    $this->assertEquals(
+      "<?xml version=\"1.0\"?>\n<subscription><subscription_add_ons><subscription_add_on><add_on_code>marketing_emails</add_on_code><quantity>1</quantity><revenue_schedule_type>evenly</revenue_schedule_type><tier_type>tiered</tier_type><tiers><tier><unit_amount_in_cents>123</unit_amount_in_cents><ending_quantity>50</ending_quantity></tier><tier><unit_amount_in_cents>80</unit_amount_in_cents><ending_quantity>999999999</ending_quantity></tier></tiers></subscription_add_on></subscription_add_ons><collection_method>automatic</collection_method></subscription>\n",
+      $subscription->xml()
+    );
+  }
+
   public function testGetSubscriptionRedemptions() {
     $this->client->addResponse('GET', '/subscriptions/012345678901234567890123456789ab', 'subscriptions/show-200.xml');
     $this->client->addResponse('GET', 'https://api.recurly.com/v2/subscriptions/012345678901234567890123456789ab/redemptions', 'subscriptions/redemptions-200.xml');
