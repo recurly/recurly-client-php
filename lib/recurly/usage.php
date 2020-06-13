@@ -57,11 +57,19 @@ class Recurly_Usage extends Recurly_Resource
   }
 
   protected static function uriForUsages($subUuid, $addOnCode) {
-    return Recurly_Client::PATH_SUBSCRIPTIONS . '/' . rawurlencode($subUuid) . Recurly_Client::PATH_ADDONS . '/' . rawurlencode($addOnCode) . Recurly_Client::PATH_USAGE;
+    return self::_safeUri(
+      Recurly_Client::PATH_SUBSCRIPTIONS, $subUuid, 
+      Recurly_Client::PATH_ADDONS, $addOnCode,
+      Recurly_Client::PATH_USAGE
+    );
   }
 
   protected static function uriForUsage($subUuid, $addOnCode, $usageId) {
-    return Recurly_Usage::uriForUsages($subUuid, $addOnCode) . '/' . rawurlencode($usageId);
+    return self::_safeUri(
+      Recurly_Client::PATH_SUBSCRIPTIONS, $subUuid, 
+      Recurly_Client::PATH_ADDONS, $addOnCode,
+      Recurly_Client::PATH_USAGE, $usageId
+    );
   }
 
   protected function getNodeName() {

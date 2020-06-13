@@ -84,6 +84,9 @@ abstract class Recurly_Resource extends Recurly_Base
    */
   protected function _save($method, $uri, $data = null)
   {
+    if ($uri[0] !== '/' and strpos($uri, "https") === false){
+      $uri = '/' . $uri;
+    }
     $this->_errors = array(); // reset errors
 
     if (is_null($data)) {

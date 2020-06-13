@@ -29,7 +29,7 @@ class Recurly_ShippingMethod extends Recurly_Resource
   }
 
   protected static function uriForShippingMethod($code) {
-    return Recurly_Client::PATH_SHIPPING_METHOD . '/' . rawurlencode($code);
+    return self::_safeUri(Recurly_Client::PATH_SHIPPING_METHOD, $code);
   }
 
   protected function getNodeName() {

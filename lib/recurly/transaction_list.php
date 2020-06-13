@@ -16,7 +16,10 @@ class Recurly_TransactionList extends Recurly_Pager
   }
 
   public static function getForAccount($accountCode, $params = null, $client = null) {
-    $uri = self::_uriWithParams(Recurly_Client::PATH_ACCOUNTS . '/' . rawurlencode($accountCode) . Recurly_Client::PATH_TRANSACTIONS, $params);
+    $uri = self::_uriWithParams(
+      self::_safeUri(Recurly_Client::PATH_ACCOUNTS, $accountCode, Recurly_Client::PATH_TRANSACTIONS), 
+      $params
+    );
     return new self($uri, $client);
   }
 

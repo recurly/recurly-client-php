@@ -49,7 +49,7 @@ class Recurly_CouponRedemption extends Recurly_Resource
   }
 
   protected static function uriForAccount($accountCode) {
-    return Recurly_Client::PATH_ACCOUNTS . '/' . rawurlencode($accountCode) . Recurly_Client::PATH_COUPON_REDEMPTION;
+    return self::_safeUri(Recurly_Client::PATH_ACCOUNTS, $accountCode, Recurly_Client::PATH_COUPON_REDEMPTION);
   }
 
   protected function getNodeName() {

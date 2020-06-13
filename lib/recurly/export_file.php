@@ -14,7 +14,7 @@ class Recurly_ExportFile extends Recurly_Resource
    * @throws Recurly_Error
    */
   public static function get($date, $name, $client = null) {
-    return self::_get('/export_dates/' . rawurlencode($date) . '/export_files/' . rawurlencode($name), $client);
+    return self::_get(self::_safeUri("export_dates", $date, "export_files", $name), $client);
   }
 
   public function getDownloadUrl() {

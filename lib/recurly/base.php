@@ -112,7 +112,29 @@ abstract class Recurly_Base
     return null;
   }
 
+  /**
+   * Returns URI for resource, throwing error if resource code is an empty string
+   * @param string Resource codes and paths
+   * @return string URI
+   * @throws Recurly_Error
+   */
+  public static function _safeUri(...$params) {
+    $uri = '';
+    foreach($params as $param) {
+      // throws error if param is an empty string
+      if (empty(trim($param))) {
+        throw new Recurly_Error("Resource code cannot be an empty value");
+      }
+      $path = '/' . rawurlencode($param);
+      $uri .= $path;
+    }
+    return $uri;
+  }
+
   protected static function _uriWithParams($uri, $params = null) {
+    if ($uri[0] !== '/' && strpos($uri, "https") === false){
+      $uri = '/' . $uri;
+    }
     if (is_null($params) || !is_array($params)) {
       return $uri;
     }
@@ -121,7 +143,6 @@ abstract class Recurly_Base
     foreach ($params as $k => $v) {
       $vals[] = $k . '=' . urlencode($v);
     }
-
     return $uri . '?' . implode('&', $vals);
   }
 

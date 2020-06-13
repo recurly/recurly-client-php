@@ -63,4 +63,18 @@ class Recurly_BaseTest extends Recurly_TestCase {
     $this->assertTrue(method_exists($adjustment, 'getHeaders'),'Adjustments Class does not have method getHeaders');
     $this->assertInternalType('array', $adjustment->getHeaders());
   }
+
+  public function testPassingEmptyResourceCode() {
+    $this->expectException(Recurly_Error::class);
+    $uri = Recurly_Base::_safeUri(
+      Recurly_Client::PATH_SUBSCRIPTIONS, "", 
+      Recurly_Client::PATH_ADDONS, "marketing_emails",
+      Recurly_Client::PATH_USAGE, 123456
+    );    
+  }
+
+  public function testUrlEncodingReplacement() {
+    $uri = Recurly_Base::_safeUri(Recurly_Client::PATH_ACCOUNTS, "/abcdef1234567890");
+    $this->assertEquals("/accounts/%2Fabcdef1234567890", $uri);
+  }
 }

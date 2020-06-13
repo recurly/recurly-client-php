@@ -83,7 +83,7 @@ class Recurly_Plan extends Recurly_Resource
       return Recurly_Plan::uriForPlan($this->plan_code);
   }
   protected static function uriForPlan($planCode) {
-    return Recurly_Client::PATH_PLANS . '/' . rawurlencode($planCode);
+    return self::_safeUri(Recurly_Client::PATH_PLANS, $planCode);
   }
 
   protected function getNodeName() {

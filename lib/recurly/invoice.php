@@ -97,7 +97,7 @@ class Recurly_Invoice extends Recurly_Resource
    * @throws Recurly_Error
    */
   public static function invoicePendingCharges($accountCode, $attributes = array(), $client = null) {
-    $uri = Recurly_Client::PATH_ACCOUNTS . '/' . rawurlencode($accountCode) . Recurly_Client::PATH_INVOICES;
+    $uri = self::_safeUri(Recurly_Client::PATH_ACCOUNTS, $accountCode, Recurly_Client::PATH_INVOICES);
     $invoice = new self();
     return Recurly_InvoiceCollection::_post($uri, $invoice->setValues($attributes)->xml(), $client);
   }
@@ -111,7 +111,7 @@ class Recurly_Invoice extends Recurly_Resource
    * @throws Recurly_Error
    */
   public static function previewPendingCharges($accountCode, $attributes = array(), $client = null) {
-    $uri = Recurly_Client::PATH_ACCOUNTS . '/' . rawurlencode($accountCode) . Recurly_Client::PATH_INVOICES . '/preview';
+    $uri = self::_safeUri(Recurly_Client::PATH_ACCOUNTS, $accountCode, Recurly_Client::PATH_INVOICES, 'preview');
     $invoice = new self();
     return Recurly_InvoiceCollection::_post($uri, $invoice->setValues($attributes)->xml(), $client);
   }
@@ -254,6 +254,6 @@ class Recurly_Invoice extends Recurly_Resource
       throw new Recurly_Error("Invoice number not specified");
   }
   protected static function uriForInvoice($invoiceNumber) {
-    return Recurly_Client::PATH_INVOICES . '/' . rawurlencode($invoiceNumber);
+    return self::_safeUri(Recurly_Client::PATH_INVOICES, $invoiceNumber);
   }
 }

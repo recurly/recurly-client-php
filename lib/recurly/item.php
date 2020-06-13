@@ -61,7 +61,7 @@ class Recurly_Item extends Recurly_Resource
   }
 
   protected static function uriForItem($itemCode) {
-    return Recurly_Client::PATH_ITEMS . '/' . rawurlencode($itemCode);
+    return self::_safeUri(Recurly_Client::PATH_ITEMS, $itemCode);
   }
 
   protected function getNodeName() {
