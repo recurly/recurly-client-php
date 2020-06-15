@@ -56,11 +56,11 @@ class Recurly_Adjustment extends Recurly_Resource
    *
    * @param Integer the quantity you wish to refund, defaults to refunding the entire quantity
    * @param Boolean indicates whether you want this adjustment refund prorated
-   * @param String indicates the refund order to apply, valid options: {'credit','transaction'}, defaults to 'credit'
+   * @param String indicates the refund order to apply, valid options: {'credit_first', 'transaction_first'}, defaults to 'credit_first'
    * @return Recurly_Invoice the new refund invoice
    * @throws Recurly_Error if the adjustment cannot be refunded.
    */
-  public function refund($quantity = null, $prorate = false, $refund_apply_order = 'credit') {
+  public function refund($quantity = null, $prorate = false, $refund_apply_order = 'credit_first') {
     if ($this->state == 'pending') {
       throw new Recurly_Error("Only invoiced adjustments can be refunded");
     }
