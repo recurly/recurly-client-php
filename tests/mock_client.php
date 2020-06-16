@@ -6,14 +6,15 @@ use Recurly\BaseClient;
 use Recurly\Utils;
 use PHPUnit\Framework\MockObject\Generator;
 use Recurly\HttpAdapter;
+use Psr\Log\LoggerInterface;
 
 class MockClient extends BaseClient
 {
     use Recurly\RecurlyTraits;
 
-    public function __construct()
+    public function __construct($logger)
     {
-        parent::__construct("apikey");
+        parent::__construct("apikey", $logger);
         $this->http = (new Generator())->getMock(HttpAdapter::class);
     }
 

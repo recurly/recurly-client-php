@@ -4,18 +4,42 @@ use Recurly\Page;
 use Recurly\Resources\TestResource;
 use Recurly\BaseClient;
 use Recurly\Utils;
+use Recurly\Logger;
+use Psr\Log\LogLevel;
 
 final class BaseClientTest extends RecurlyTestCase
 {
     protected function setUp(): void
     {
         parent::setUp();
-        $this->client = new MockClient();
+        $logger = new Logger('Recurly', LogLevel::EMERGENCY);
+        $this->client = new MockClient($logger);
     }
 
     public function tearDown(): void
     {
         $this->client->clearScenarios();
+    }
+
+    public function testDebugLoggerWarning(): void
+    {
+        $msg = "The Recurly logger should not be initialized";
+        $msg .= "\nbeyond the level INFO. It is currently configured to emit";
+        $msg .= "\nheaders and request \/ response bodies. This has the potential to leak";
+        $msg .= "\nPII and other sensitive information and should never be used in production.";
+        $this->expectOutputRegex('/SECURITY WARNING: ' . $msg . '/');
+        $logger = new Logger('Recurly', LogLevel::DEBUG);
+        $client = new MockClient($logger);
+    }
+
+    public function testDefaultLogger(): void
+    {
+        $client = new MockClient(null);
+        $reflector = new ReflectionProperty('Recurly\BaseClient', '_logger');
+        $reflector->setAccessible(true);
+        $logger = $reflector->getValue($client);
+        $this->expectOutputRegex("/Recurly.warning: warning-log/");
+        $logger->warning('warning-log');
     }
 
     public function testParameterValidation(): void
