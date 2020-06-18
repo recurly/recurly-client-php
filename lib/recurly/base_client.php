@@ -61,7 +61,8 @@ abstract class BaseClient
         $request = new \Recurly\Request($method, $path, $body, $params);
 
         $url = $this->_buildPath($path, $params);
-        list($result, $response_header) = $this->http->execute($method, $url, $body, $this->_headers());
+        $formattedBody = $this->_formatDateTimes($body);
+        list($result, $response_header) = $this->http->execute($method, $url, $formattedBody, $this->_headers());
 
         // TODO: The $request should be added to the $response
         $response = new \Recurly\Response($result);
@@ -109,11 +110,40 @@ abstract class BaseClient
     private function _buildPath(string $path, ?array $params): string
     {
         if (isset($params) && !empty($params)) {
-            return $this->baseUrl . $path . '?' . http_build_query($params);
+            return $this->baseUrl . $path . '?' . http_build_query($this->_formatDateTimes($params));
         } else {
             return $this->baseUrl . $path;
         }
 
+    }
+
+    /**
+     * Converts any DateTime values in $arr to ISO8601 strings
+     * 
+     * @param ?array $arr The Associative array to format
+     * 
+     * @return ?array The formatted array
+     */
+    private function _formatDateTimes(?array $arr): ?array
+    {
+        if (!isset($arr)) {
+            return $arr;
+        }
+        return array_combine(
+            array_keys($arr),
+            array_map(
+                function ($value) {
+                    if ($value instanceof \DateTime) {
+                        return $value->format(\DateTime::ISO8601);
+                    }
+                    # Recursively check nested arrays
+                    if (is_array($value)) {
+                        return $this->_formatDateTimes($value);
+                    }
+                    return $value;
+                }, $arr
+            )
+        );
     }
 
     /**
