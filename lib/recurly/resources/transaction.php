@@ -45,6 +45,7 @@ class Transaction extends RecurlyResource
     private $_subscription_ids;
     private $_success;
     private $_type;
+    private $_updated_at;
     private $_uuid;
     private $_voided_at;
     private $_voided_by_invoice;
@@ -821,6 +822,29 @@ class Transaction extends RecurlyResource
     public function setType(string $type): void
     {
         $this->_type = $type;
+    }
+
+    /**
+    * Getter method for the updated_at attribute.
+    * Updated at
+    *
+    * @return ?string
+    */
+    public function getUpdatedAt(): ?string
+    {
+        return $this->_updated_at;
+    }
+
+    /**
+    * Setter method for the updated_at attribute.
+    *
+    * @param string $updated_at
+    *
+    * @return void
+    */
+    public function setUpdatedAt(string $updated_at): void
+    {
+        $this->_updated_at = $updated_at;
     }
 
     /**

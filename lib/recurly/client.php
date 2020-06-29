@@ -45,7 +45,7 @@ class Client extends BaseClient
      *
      * @param array $options Associative array of optional parameters:
      *
-     * @return \Recurly\Pager
+     * @return \Recurly\Pager A list of sites.
      * @link   https://developers.recurly.com/api/v2019-10-10#operation/list_sites
      */
     public function listSites(array $options = []): \Recurly\Pager
@@ -59,7 +59,7 @@ class Client extends BaseClient
      *
      * @param string $site_id Site ID or subdomain. For ID no prefix is used e.g. `e28zov4fw0v2`. For subdomain use prefix `subdomain-`, e.g. `subdomain-recurly`.
      *
-     * @return \Recurly\Resources\Site
+     * @return \Recurly\Resources\Site A site.
      * @link   https://developers.recurly.com/api/v2019-10-10#operation/get_site
      */
     public function getSite(string $site_id): \Recurly\Resources\Site
@@ -100,7 +100,7 @@ class Client extends BaseClient
      *
      * @param array $options Associative array of optional parameters:
      *
-     * @return \Recurly\Pager
+     * @return \Recurly\Pager A list of the site's accounts.
      * @link   https://developers.recurly.com/api/v2019-10-10#operation/list_accounts
      */
     public function listAccounts(array $options = []): \Recurly\Pager
@@ -114,7 +114,7 @@ class Client extends BaseClient
      *
      * @param array $body The body of the request.
      *
-     * @return \Recurly\Resources\Account
+     * @return \Recurly\Resources\Account An account.
      * @link   https://developers.recurly.com/api/v2019-10-10#operation/create_account
      */
     public function createAccount(array $body): \Recurly\Resources\Account
@@ -128,7 +128,7 @@ class Client extends BaseClient
      *
      * @param string $account_id Account ID or code. For ID no prefix is used e.g. `e28zov4fw0v2`. For code use prefix `code-`, e.g. `code-bob`.
      *
-     * @return \Recurly\Resources\Account
+     * @return \Recurly\Resources\Account An account.
      * @link   https://developers.recurly.com/api/v2019-10-10#operation/get_account
      */
     public function getAccount(string $account_id): \Recurly\Resources\Account
@@ -143,7 +143,7 @@ class Client extends BaseClient
      * @param string $account_id Account ID or code. For ID no prefix is used e.g. `e28zov4fw0v2`. For code use prefix `code-`, e.g. `code-bob`.
      * @param array  $body       The body of the request.
      *
-     * @return \Recurly\Resources\Account
+     * @return \Recurly\Resources\Account An account.
      * @link   https://developers.recurly.com/api/v2019-10-10#operation/update_account
      */
     public function updateAccount(string $account_id, array $body): \Recurly\Resources\Account
@@ -157,7 +157,7 @@ class Client extends BaseClient
      *
      * @param string $account_id Account ID or code. For ID no prefix is used e.g. `e28zov4fw0v2`. For code use prefix `code-`, e.g. `code-bob`.
      *
-     * @return \Recurly\Resources\Account
+     * @return \Recurly\Resources\Account An account.
      * @link   https://developers.recurly.com/api/v2019-10-10#operation/deactivate_account
      */
     public function deactivateAccount(string $account_id): \Recurly\Resources\Account
@@ -171,7 +171,7 @@ class Client extends BaseClient
      *
      * @param string $account_id Account ID or code. For ID no prefix is used e.g. `e28zov4fw0v2`. For code use prefix `code-`, e.g. `code-bob`.
      *
-     * @return \Recurly\Resources\AccountAcquisition
+     * @return \Recurly\Resources\AccountAcquisition An account's acquisition data.
      * @link   https://developers.recurly.com/api/v2019-10-10#operation/get_account_acquisition
      */
     public function getAccountAcquisition(string $account_id): \Recurly\Resources\AccountAcquisition
@@ -186,7 +186,7 @@ class Client extends BaseClient
      * @param string $account_id Account ID or code. For ID no prefix is used e.g. `e28zov4fw0v2`. For code use prefix `code-`, e.g. `code-bob`.
      * @param array  $body       The body of the request.
      *
-     * @return \Recurly\Resources\AccountAcquisition
+     * @return \Recurly\Resources\AccountAcquisition An account's updated acquisition data.
      * @link   https://developers.recurly.com/api/v2019-10-10#operation/update_account_acquisition
      */
     public function updateAccountAcquisition(string $account_id, array $body): \Recurly\Resources\AccountAcquisition
@@ -200,7 +200,7 @@ class Client extends BaseClient
      *
      * @param string $account_id Account ID or code. For ID no prefix is used e.g. `e28zov4fw0v2`. For code use prefix `code-`, e.g. `code-bob`.
      *
-     * @return \Recurly\EmptyResource
+     * @return \Recurly\EmptyResource Acquisition data was succesfully deleted.
      * @link   https://developers.recurly.com/api/v2019-10-10#operation/remove_account_acquisition
      */
     public function removeAccountAcquisition(string $account_id): \Recurly\EmptyResource
@@ -214,7 +214,7 @@ class Client extends BaseClient
      *
      * @param string $account_id Account ID or code. For ID no prefix is used e.g. `e28zov4fw0v2`. For code use prefix `code-`, e.g. `code-bob`.
      *
-     * @return \Recurly\Resources\Account
+     * @return \Recurly\Resources\Account An account.
      * @link   https://developers.recurly.com/api/v2019-10-10#operation/reactivate_account
      */
     public function reactivateAccount(string $account_id): \Recurly\Resources\Account
@@ -228,7 +228,7 @@ class Client extends BaseClient
      *
      * @param string $account_id Account ID or code. For ID no prefix is used e.g. `e28zov4fw0v2`. For code use prefix `code-`, e.g. `code-bob`.
      *
-     * @return \Recurly\Resources\AccountBalance
+     * @return \Recurly\Resources\AccountBalance An account's balance.
      * @link   https://developers.recurly.com/api/v2019-10-10#operation/get_account_balance
      */
     public function getAccountBalance(string $account_id): \Recurly\Resources\AccountBalance
@@ -242,7 +242,7 @@ class Client extends BaseClient
      *
      * @param string $account_id Account ID or code. For ID no prefix is used e.g. `e28zov4fw0v2`. For code use prefix `code-`, e.g. `code-bob`.
      *
-     * @return \Recurly\Resources\BillingInfo
+     * @return \Recurly\Resources\BillingInfo An account's billing information.
      * @link   https://developers.recurly.com/api/v2019-10-10#operation/get_billing_info
      */
     public function getBillingInfo(string $account_id): \Recurly\Resources\BillingInfo
@@ -257,7 +257,7 @@ class Client extends BaseClient
      * @param string $account_id Account ID or code. For ID no prefix is used e.g. `e28zov4fw0v2`. For code use prefix `code-`, e.g. `code-bob`.
      * @param array  $body       The body of the request.
      *
-     * @return \Recurly\Resources\BillingInfo
+     * @return \Recurly\Resources\BillingInfo Updated billing information.
      * @link   https://developers.recurly.com/api/v2019-10-10#operation/update_billing_info
      */
     public function updateBillingInfo(string $account_id, array $body): \Recurly\Resources\BillingInfo
@@ -271,7 +271,7 @@ class Client extends BaseClient
      *
      * @param string $account_id Account ID or code. For ID no prefix is used e.g. `e28zov4fw0v2`. For code use prefix `code-`, e.g. `code-bob`.
      *
-     * @return \Recurly\EmptyResource
+     * @return \Recurly\EmptyResource Billing information deleted
      * @link   https://developers.recurly.com/api/v2019-10-10#operation/remove_billing_info
      */
     public function removeBillingInfo(string $account_id): \Recurly\EmptyResource
@@ -307,7 +307,7 @@ class Client extends BaseClient
      * @param string $account_id Account ID or code. For ID no prefix is used e.g. `e28zov4fw0v2`. For code use prefix `code-`, e.g. `code-bob`.
      * @param array  $options    Associative array of optional parameters:
      *
-     * @return \Recurly\Pager
+     * @return \Recurly\Pager A list of the the coupon redemptions on an account.
      * @link   https://developers.recurly.com/api/v2019-10-10#operation/list_account_coupon_redemptions
      */
     public function listAccountCouponRedemptions(string $account_id, array $options = []): \Recurly\Pager
@@ -321,7 +321,7 @@ class Client extends BaseClient
      *
      * @param string $account_id Account ID or code. For ID no prefix is used e.g. `e28zov4fw0v2`. For code use prefix `code-`, e.g. `code-bob`.
      *
-     * @return \Recurly\Resources\CouponRedemption
+     * @return \Recurly\Resources\CouponRedemption An active coupon redemption on an account.
      * @link   https://developers.recurly.com/api/v2019-10-10#operation/get_active_coupon_redemption
      */
     public function getActiveCouponRedemption(string $account_id): \Recurly\Resources\CouponRedemption
@@ -336,7 +336,7 @@ class Client extends BaseClient
      * @param string $account_id Account ID or code. For ID no prefix is used e.g. `e28zov4fw0v2`. For code use prefix `code-`, e.g. `code-bob`.
      * @param array  $body       The body of the request.
      *
-     * @return \Recurly\Resources\CouponRedemption
+     * @return \Recurly\Resources\CouponRedemption Returns the new coupon redemption.
      * @link   https://developers.recurly.com/api/v2019-10-10#operation/create_coupon_redemption
      */
     public function createCouponRedemption(string $account_id, array $body): \Recurly\Resources\CouponRedemption
@@ -350,7 +350,7 @@ class Client extends BaseClient
      *
      * @param string $account_id Account ID or code. For ID no prefix is used e.g. `e28zov4fw0v2`. For code use prefix `code-`, e.g. `code-bob`.
      *
-     * @return \Recurly\Resources\CouponRedemption
+     * @return \Recurly\Resources\CouponRedemption Coupon redemption deleted.
      * @link   https://developers.recurly.com/api/v2019-10-10#operation/remove_coupon_redemption
      */
     public function removeCouponRedemption(string $account_id): \Recurly\Resources\CouponRedemption
@@ -377,7 +377,7 @@ class Client extends BaseClient
      * @param string $account_id Account ID or code. For ID no prefix is used e.g. `e28zov4fw0v2`. For code use prefix `code-`, e.g. `code-bob`.
      * @param array  $options    Associative array of optional parameters:
      *
-     * @return \Recurly\Pager
+     * @return \Recurly\Pager A list of the account's credit payments.
      * @link   https://developers.recurly.com/api/v2019-10-10#operation/list_account_credit_payments
      */
     public function listAccountCreditPayments(string $account_id, array $options = []): \Recurly\Pager
@@ -420,7 +420,7 @@ class Client extends BaseClient
      * @param string $account_id Account ID or code. For ID no prefix is used e.g. `e28zov4fw0v2`. For code use prefix `code-`, e.g. `code-bob`.
      * @param array  $options    Associative array of optional parameters:
      *
-     * @return \Recurly\Pager
+     * @return \Recurly\Pager A list of the account's invoices.
      * @link   https://developers.recurly.com/api/v2019-10-10#operation/list_account_invoices
      */
     public function listAccountInvoices(string $account_id, array $options = []): \Recurly\Pager
@@ -435,7 +435,7 @@ class Client extends BaseClient
      * @param string $account_id Account ID or code. For ID no prefix is used e.g. `e28zov4fw0v2`. For code use prefix `code-`, e.g. `code-bob`.
      * @param array  $body       The body of the request.
      *
-     * @return \Recurly\Resources\InvoiceCollection
+     * @return \Recurly\Resources\InvoiceCollection Returns the new invoices.
      * @link   https://developers.recurly.com/api/v2019-10-10#operation/create_invoice
      */
     public function createInvoice(string $account_id, array $body): \Recurly\Resources\InvoiceCollection
@@ -450,7 +450,7 @@ class Client extends BaseClient
      * @param string $account_id Account ID or code. For ID no prefix is used e.g. `e28zov4fw0v2`. For code use prefix `code-`, e.g. `code-bob`.
      * @param array  $body       The body of the request.
      *
-     * @return \Recurly\Resources\InvoiceCollection
+     * @return \Recurly\Resources\InvoiceCollection Returns the invoice previews.
      * @link   https://developers.recurly.com/api/v2019-10-10#operation/preview_invoice
      */
     public function previewInvoice(string $account_id, array $body): \Recurly\Resources\InvoiceCollection
@@ -491,7 +491,7 @@ class Client extends BaseClient
      * @param string $account_id Account ID or code. For ID no prefix is used e.g. `e28zov4fw0v2`. For code use prefix `code-`, e.g. `code-bob`.
      * @param array  $options    Associative array of optional parameters:
      *
-     * @return \Recurly\Pager
+     * @return \Recurly\Pager A list of the account's line items.
      * @link   https://developers.recurly.com/api/v2019-10-10#operation/list_account_line_items
      */
     public function listAccountLineItems(string $account_id, array $options = []): \Recurly\Pager
@@ -506,7 +506,7 @@ class Client extends BaseClient
      * @param string $account_id Account ID or code. For ID no prefix is used e.g. `e28zov4fw0v2`. For code use prefix `code-`, e.g. `code-bob`.
      * @param array  $body       The body of the request.
      *
-     * @return \Recurly\Resources\LineItem
+     * @return \Recurly\Resources\LineItem Returns the new line item.
      * @link   https://developers.recurly.com/api/v2019-10-10#operation/create_line_item
      */
     public function createLineItem(string $account_id, array $body): \Recurly\Resources\LineItem
@@ -535,7 +535,7 @@ class Client extends BaseClient
      * @param string $account_id Account ID or code. For ID no prefix is used e.g. `e28zov4fw0v2`. For code use prefix `code-`, e.g. `code-bob`.
      * @param array  $options    Associative array of optional parameters:
      *
-     * @return \Recurly\Pager
+     * @return \Recurly\Pager A list of an account's notes.
      * @link   https://developers.recurly.com/api/v2019-10-10#operation/list_account_notes
      */
     public function listAccountNotes(string $account_id, array $options = []): \Recurly\Pager
@@ -550,7 +550,7 @@ class Client extends BaseClient
      * @param string $account_id      Account ID or code. For ID no prefix is used e.g. `e28zov4fw0v2`. For code use prefix `code-`, e.g. `code-bob`.
      * @param string $account_note_id Account Note ID.
      *
-     * @return \Recurly\Resources\AccountNote
+     * @return \Recurly\Resources\AccountNote An account note.
      * @link   https://developers.recurly.com/api/v2019-10-10#operation/get_account_note
      */
     public function getAccountNote(string $account_id, string $account_note_id): \Recurly\Resources\AccountNote
@@ -588,7 +588,7 @@ class Client extends BaseClient
      * @param string $account_id Account ID or code. For ID no prefix is used e.g. `e28zov4fw0v2`. For code use prefix `code-`, e.g. `code-bob`.
      * @param array  $options    Associative array of optional parameters:
      *
-     * @return \Recurly\Pager
+     * @return \Recurly\Pager A list of an account's shipping addresses.
      * @link   https://developers.recurly.com/api/v2019-10-10#operation/list_shipping_addresses
      */
     public function listShippingAddresses(string $account_id, array $options = []): \Recurly\Pager
@@ -603,7 +603,7 @@ class Client extends BaseClient
      * @param string $account_id Account ID or code. For ID no prefix is used e.g. `e28zov4fw0v2`. For code use prefix `code-`, e.g. `code-bob`.
      * @param array  $body       The body of the request.
      *
-     * @return \Recurly\Resources\ShippingAddress
+     * @return \Recurly\Resources\ShippingAddress Returns the new shipping address.
      * @link   https://developers.recurly.com/api/v2019-10-10#operation/create_shipping_address
      */
     public function createShippingAddress(string $account_id, array $body): \Recurly\Resources\ShippingAddress
@@ -618,7 +618,7 @@ class Client extends BaseClient
      * @param string $account_id          Account ID or code. For ID no prefix is used e.g. `e28zov4fw0v2`. For code use prefix `code-`, e.g. `code-bob`.
      * @param string $shipping_address_id Shipping Address ID.
      *
-     * @return \Recurly\Resources\ShippingAddress
+     * @return \Recurly\Resources\ShippingAddress A shipping address.
      * @link   https://developers.recurly.com/api/v2019-10-10#operation/get_shipping_address
      */
     public function getShippingAddress(string $account_id, string $shipping_address_id): \Recurly\Resources\ShippingAddress
@@ -634,7 +634,7 @@ class Client extends BaseClient
      * @param string $shipping_address_id Shipping Address ID.
      * @param array  $body                The body of the request.
      *
-     * @return \Recurly\Resources\ShippingAddress
+     * @return \Recurly\Resources\ShippingAddress The updated shipping address.
      * @link   https://developers.recurly.com/api/v2019-10-10#operation/update_shipping_address
      */
     public function updateShippingAddress(string $account_id, string $shipping_address_id, array $body): \Recurly\Resources\ShippingAddress
@@ -649,7 +649,7 @@ class Client extends BaseClient
      * @param string $account_id          Account ID or code. For ID no prefix is used e.g. `e28zov4fw0v2`. For code use prefix `code-`, e.g. `code-bob`.
      * @param string $shipping_address_id Shipping Address ID.
      *
-     * @return \Recurly\EmptyResource
+     * @return \Recurly\EmptyResource Shipping address deleted.
      * @link   https://developers.recurly.com/api/v2019-10-10#operation/remove_shipping_address
      */
     public function removeShippingAddress(string $account_id, string $shipping_address_id): \Recurly\EmptyResource
@@ -692,7 +692,7 @@ class Client extends BaseClient
      * @param string $account_id Account ID or code. For ID no prefix is used e.g. `e28zov4fw0v2`. For code use prefix `code-`, e.g. `code-bob`.
      * @param array  $options    Associative array of optional parameters:
      *
-     * @return \Recurly\Pager
+     * @return \Recurly\Pager A list of the account's subscriptions.
      * @link   https://developers.recurly.com/api/v2019-10-10#operation/list_account_subscriptions
      */
     public function listAccountSubscriptions(string $account_id, array $options = []): \Recurly\Pager
@@ -732,7 +732,7 @@ class Client extends BaseClient
      * @param string $account_id Account ID or code. For ID no prefix is used e.g. `e28zov4fw0v2`. For code use prefix `code-`, e.g. `code-bob`.
      * @param array  $options    Associative array of optional parameters:
      *
-     * @return \Recurly\Pager
+     * @return \Recurly\Pager A list of the account's transactions.
      * @link   https://developers.recurly.com/api/v2019-10-10#operation/list_account_transactions
      */
     public function listAccountTransactions(string $account_id, array $options = []): \Recurly\Pager
@@ -774,7 +774,7 @@ class Client extends BaseClient
      * @param string $account_id Account ID or code. For ID no prefix is used e.g. `e28zov4fw0v2`. For code use prefix `code-`, e.g. `code-bob`.
      * @param array  $options    Associative array of optional parameters:
      *
-     * @return \Recurly\Pager
+     * @return \Recurly\Pager A list of an account's child accounts.
      * @link   https://developers.recurly.com/api/v2019-10-10#operation/list_child_accounts
      */
     public function listChildAccounts(string $account_id, array $options = []): \Recurly\Pager
@@ -811,7 +811,7 @@ class Client extends BaseClient
      *
      * @param array $options Associative array of optional parameters:
      *
-     * @return \Recurly\Pager
+     * @return \Recurly\Pager A list of the site's account acquisition data.
      * @link   https://developers.recurly.com/api/v2019-10-10#operation/list_account_acquisition
      */
     public function listAccountAcquisition(array $options = []): \Recurly\Pager
@@ -848,7 +848,7 @@ class Client extends BaseClient
      *
      * @param array $options Associative array of optional parameters:
      *
-     * @return \Recurly\Pager
+     * @return \Recurly\Pager A list of the site's coupons.
      * @link   https://developers.recurly.com/api/v2019-10-10#operation/list_coupons
      */
     public function listCoupons(array $options = []): \Recurly\Pager
@@ -862,7 +862,7 @@ class Client extends BaseClient
      *
      * @param array $body The body of the request.
      *
-     * @return \Recurly\Resources\Coupon
+     * @return \Recurly\Resources\Coupon A new coupon.
      * @link   https://developers.recurly.com/api/v2019-10-10#operation/create_coupon
      */
     public function createCoupon(array $body): \Recurly\Resources\Coupon
@@ -876,7 +876,7 @@ class Client extends BaseClient
      *
      * @param string $coupon_id Coupon ID or code. For ID no prefix is used e.g. `e28zov4fw0v2`. For code use prefix `code-`, e.g. `code-10off`.
      *
-     * @return \Recurly\Resources\Coupon
+     * @return \Recurly\Resources\Coupon A coupon.
      * @link   https://developers.recurly.com/api/v2019-10-10#operation/get_coupon
      */
     public function getCoupon(string $coupon_id): \Recurly\Resources\Coupon
@@ -891,7 +891,7 @@ class Client extends BaseClient
      * @param string $coupon_id Coupon ID or code. For ID no prefix is used e.g. `e28zov4fw0v2`. For code use prefix `code-`, e.g. `code-10off`.
      * @param array  $body      The body of the request.
      *
-     * @return \Recurly\Resources\Coupon
+     * @return \Recurly\Resources\Coupon The updated coupon.
      * @link   https://developers.recurly.com/api/v2019-10-10#operation/update_coupon
      */
     public function updateCoupon(string $coupon_id, array $body): \Recurly\Resources\Coupon
@@ -905,7 +905,7 @@ class Client extends BaseClient
      *
      * @param string $coupon_id Coupon ID or code. For ID no prefix is used e.g. `e28zov4fw0v2`. For code use prefix `code-`, e.g. `code-10off`.
      *
-     * @return \Recurly\Resources\Coupon
+     * @return \Recurly\Resources\Coupon The expired Coupon
      * @link   https://developers.recurly.com/api/v2019-10-10#operation/deactivate_coupon
      */
     public function deactivateCoupon(string $coupon_id): \Recurly\Resources\Coupon
@@ -943,7 +943,7 @@ class Client extends BaseClient
      * @param string $coupon_id Coupon ID or code. For ID no prefix is used e.g. `e28zov4fw0v2`. For code use prefix `code-`, e.g. `code-10off`.
      * @param array  $options   Associative array of optional parameters:
      *
-     * @return \Recurly\Pager
+     * @return \Recurly\Pager A list of unique coupon codes that were generated
      * @link   https://developers.recurly.com/api/v2019-10-10#operation/list_unique_coupon_codes
      */
     public function listUniqueCouponCodes(string $coupon_id, array $options = []): \Recurly\Pager
@@ -969,7 +969,7 @@ class Client extends BaseClient
      *
      * @param array $options Associative array of optional parameters:
      *
-     * @return \Recurly\Pager
+     * @return \Recurly\Pager A list of the site's credit payments.
      * @link   https://developers.recurly.com/api/v2019-10-10#operation/list_credit_payments
      */
     public function listCreditPayments(array $options = []): \Recurly\Pager
@@ -983,7 +983,7 @@ class Client extends BaseClient
      *
      * @param string $credit_payment_id Credit Payment ID or UUID. For ID no prefix is used e.g. `e28zov4fw0v2`. For UUID use prefix `uuid-`, e.g. `uuid-123457890`.
      *
-     * @return \Recurly\Resources\CreditPayment
+     * @return \Recurly\Resources\CreditPayment A credit payment.
      * @link   https://developers.recurly.com/api/v2019-10-10#operation/get_credit_payment
      */
     public function getCreditPayment(string $credit_payment_id): \Recurly\Resources\CreditPayment
@@ -1021,7 +1021,7 @@ class Client extends BaseClient
      *
      * @param array $options Associative array of optional parameters:
      *
-     * @return \Recurly\Pager
+     * @return \Recurly\Pager A list of the site's custom field definitions.
      * @link   https://developers.recurly.com/api/v2019-10-10#operation/list_custom_field_definitions
      */
     public function listCustomFieldDefinitions(array $options = []): \Recurly\Pager
@@ -1035,7 +1035,7 @@ class Client extends BaseClient
      *
      * @param string $custom_field_definition_id Custom Field Definition ID
      *
-     * @return \Recurly\Resources\CustomFieldDefinition
+     * @return \Recurly\Resources\CustomFieldDefinition An custom field definition.
      * @link   https://developers.recurly.com/api/v2019-10-10#operation/get_custom_field_definition
      */
     public function getCustomFieldDefinition(string $custom_field_definition_id): \Recurly\Resources\CustomFieldDefinition
@@ -1073,7 +1073,7 @@ class Client extends BaseClient
      *
      * @param array $options Associative array of optional parameters:
      *
-     * @return \Recurly\Pager
+     * @return \Recurly\Pager A list of the site's items.
      * @link   https://developers.recurly.com/api/v2019-10-10#operation/list_items
      */
     public function listItems(array $options = []): \Recurly\Pager
@@ -1087,7 +1087,7 @@ class Client extends BaseClient
      *
      * @param array $body The body of the request.
      *
-     * @return \Recurly\Resources\Item
+     * @return \Recurly\Resources\Item A new item.
      * @link   https://developers.recurly.com/api/v2019-10-10#operation/create_item
      */
     public function createItem(array $body): \Recurly\Resources\Item
@@ -1101,7 +1101,7 @@ class Client extends BaseClient
      *
      * @param string $item_id Item ID or code. For ID no prefix is used e.g. `e28zov4fw0v2`. For code use prefix `code-`, e.g. `code-red`.
      *
-     * @return \Recurly\Resources\Item
+     * @return \Recurly\Resources\Item An item.
      * @link   https://developers.recurly.com/api/v2019-10-10#operation/get_item
      */
     public function getItem(string $item_id): \Recurly\Resources\Item
@@ -1116,7 +1116,7 @@ class Client extends BaseClient
      * @param string $item_id Item ID or code. For ID no prefix is used e.g. `e28zov4fw0v2`. For code use prefix `code-`, e.g. `code-red`.
      * @param array  $body    The body of the request.
      *
-     * @return \Recurly\Resources\Item
+     * @return \Recurly\Resources\Item The updated item.
      * @link   https://developers.recurly.com/api/v2019-10-10#operation/update_item
      */
     public function updateItem(string $item_id, array $body): \Recurly\Resources\Item
@@ -1130,7 +1130,7 @@ class Client extends BaseClient
      *
      * @param string $item_id Item ID or code. For ID no prefix is used e.g. `e28zov4fw0v2`. For code use prefix `code-`, e.g. `code-red`.
      *
-     * @return \Recurly\Resources\Item
+     * @return \Recurly\Resources\Item An item.
      * @link   https://developers.recurly.com/api/v2019-10-10#operation/deactivate_item
      */
     public function deactivateItem(string $item_id): \Recurly\Resources\Item
@@ -1144,7 +1144,7 @@ class Client extends BaseClient
      *
      * @param string $item_id Item ID or code. For ID no prefix is used e.g. `e28zov4fw0v2`. For code use prefix `code-`, e.g. `code-red`.
      *
-     * @return \Recurly\Resources\Item
+     * @return \Recurly\Resources\Item An item.
      * @link   https://developers.recurly.com/api/v2019-10-10#operation/reactivate_item
      */
     public function reactivateItem(string $item_id): \Recurly\Resources\Item
@@ -1186,7 +1186,7 @@ class Client extends BaseClient
      *
      * @param array $options Associative array of optional parameters:
      *
-     * @return \Recurly\Pager
+     * @return \Recurly\Pager A list of the site's invoices.
      * @link   https://developers.recurly.com/api/v2019-10-10#operation/list_invoices
      */
     public function listInvoices(array $options = []): \Recurly\Pager
@@ -1200,7 +1200,7 @@ class Client extends BaseClient
      *
      * @param string $invoice_id Invoice ID or number. For ID no prefix is used e.g. `e28zov4fw0v2`. For number use prefix `number-`, e.g. `number-1000`.
      *
-     * @return \Recurly\Resources\Invoice
+     * @return \Recurly\Resources\Invoice An invoice.
      * @link   https://developers.recurly.com/api/v2019-10-10#operation/get_invoice
      */
     public function getInvoice(string $invoice_id): \Recurly\Resources\Invoice
@@ -1215,7 +1215,7 @@ class Client extends BaseClient
      * @param string $invoice_id Invoice ID or number. For ID no prefix is used e.g. `e28zov4fw0v2`. For number use prefix `number-`, e.g. `number-1000`.
      * @param array  $body       The body of the request.
      *
-     * @return \Recurly\Resources\Invoice
+     * @return \Recurly\Resources\Invoice An invoice.
      * @link   https://developers.recurly.com/api/v2019-10-10#operation/put_invoice
      */
     public function putInvoice(string $invoice_id, array $body): \Recurly\Resources\Invoice
@@ -1229,7 +1229,7 @@ class Client extends BaseClient
      *
      * @param string $invoice_id Invoice ID or number. For ID no prefix is used e.g. `e28zov4fw0v2`. For number use prefix `number-`, e.g. `number-1000`.
      *
-     * @return \Recurly\Resources\BinaryFile
+     * @return \Recurly\Resources\BinaryFile An invoice as a PDF.
      * @link   https://developers.recurly.com/api/v2019-10-10#operation/get_invoice_pdf
      */
     public function getInvoicePdf(string $invoice_id): \Recurly\Resources\BinaryFile
@@ -1244,7 +1244,7 @@ class Client extends BaseClient
      * @param string $invoice_id Invoice ID or number. For ID no prefix is used e.g. `e28zov4fw0v2`. For number use prefix `number-`, e.g. `number-1000`.
      * @param array  $body       The body of the request.
      *
-     * @return \Recurly\Resources\Invoice
+     * @return \Recurly\Resources\Invoice The updated invoice.
      * @link   https://developers.recurly.com/api/v2019-10-10#operation/collect_invoice
      */
     public function collectInvoice(string $invoice_id, array $body = []): \Recurly\Resources\Invoice
@@ -1258,7 +1258,7 @@ class Client extends BaseClient
      *
      * @param string $invoice_id Invoice ID or number. For ID no prefix is used e.g. `e28zov4fw0v2`. For number use prefix `number-`, e.g. `number-1000`.
      *
-     * @return \Recurly\Resources\Invoice
+     * @return \Recurly\Resources\Invoice The updated invoice.
      * @link   https://developers.recurly.com/api/v2019-10-10#operation/fail_invoice
      */
     public function failInvoice(string $invoice_id): \Recurly\Resources\Invoice
@@ -1272,7 +1272,7 @@ class Client extends BaseClient
      *
      * @param string $invoice_id Invoice ID or number. For ID no prefix is used e.g. `e28zov4fw0v2`. For number use prefix `number-`, e.g. `number-1000`.
      *
-     * @return \Recurly\Resources\Invoice
+     * @return \Recurly\Resources\Invoice The updated invoice.
      * @link   https://developers.recurly.com/api/v2019-10-10#operation/mark_invoice_successful
      */
     public function markInvoiceSuccessful(string $invoice_id): \Recurly\Resources\Invoice
@@ -1286,7 +1286,7 @@ class Client extends BaseClient
      *
      * @param string $invoice_id Invoice ID or number. For ID no prefix is used e.g. `e28zov4fw0v2`. For number use prefix `number-`, e.g. `number-1000`.
      *
-     * @return \Recurly\Resources\Invoice
+     * @return \Recurly\Resources\Invoice The updated invoice.
      * @link   https://developers.recurly.com/api/v2019-10-10#operation/reopen_invoice
      */
     public function reopenInvoice(string $invoice_id): \Recurly\Resources\Invoice
@@ -1300,7 +1300,7 @@ class Client extends BaseClient
      *
      * @param string $invoice_id Invoice ID or number. For ID no prefix is used e.g. `e28zov4fw0v2`. For number use prefix `number-`, e.g. `number-1000`.
      *
-     * @return \Recurly\Resources\Invoice
+     * @return \Recurly\Resources\Invoice The updated invoice.
      * @link   https://developers.recurly.com/api/v2019-10-10#operation/void_invoice
      */
     public function voidInvoice(string $invoice_id): \Recurly\Resources\Invoice
@@ -1315,7 +1315,7 @@ class Client extends BaseClient
      * @param string $invoice_id Invoice ID or number. For ID no prefix is used e.g. `e28zov4fw0v2`. For number use prefix `number-`, e.g. `number-1000`.
      * @param array  $body       The body of the request.
      *
-     * @return \Recurly\Resources\Transaction
+     * @return \Recurly\Resources\Transaction The recorded transaction.
      * @link   https://developers.recurly.com/api/v2019-10-10#operation/record_external_transaction
      */
     public function recordExternalTransaction(string $invoice_id, array $body): \Recurly\Resources\Transaction
@@ -1356,7 +1356,7 @@ class Client extends BaseClient
      * @param string $invoice_id Invoice ID or number. For ID no prefix is used e.g. `e28zov4fw0v2`. For number use prefix `number-`, e.g. `number-1000`.
      * @param array  $options    Associative array of optional parameters:
      *
-     * @return \Recurly\Pager
+     * @return \Recurly\Pager A list of the invoice's line items.
      * @link   https://developers.recurly.com/api/v2019-10-10#operation/list_invoice_line_items
      */
     public function listInvoiceLineItems(string $invoice_id, array $options = []): \Recurly\Pager
@@ -1392,7 +1392,7 @@ class Client extends BaseClient
      * @param string $invoice_id Invoice ID or number. For ID no prefix is used e.g. `e28zov4fw0v2`. For number use prefix `number-`, e.g. `number-1000`.
      * @param array  $options    Associative array of optional parameters:
      *
-     * @return \Recurly\Pager
+     * @return \Recurly\Pager A list of the the coupon redemptions associated with the invoice.
      * @link   https://developers.recurly.com/api/v2019-10-10#operation/list_invoice_coupon_redemptions
      */
     public function listInvoiceCouponRedemptions(string $invoice_id, array $options = []): \Recurly\Pager
@@ -1406,7 +1406,7 @@ class Client extends BaseClient
      *
      * @param string $invoice_id Invoice ID or number. For ID no prefix is used e.g. `e28zov4fw0v2`. For number use prefix `number-`, e.g. `number-1000`.
      *
-     * @return \Recurly\Pager
+     * @return \Recurly\Pager A list of the credit or charge invoices associated with the invoice.
      * @link   https://developers.recurly.com/api/v2019-10-10#operation/list_related_invoices
      */
     public function listRelatedInvoices(string $invoice_id): \Recurly\Pager
@@ -1421,7 +1421,7 @@ class Client extends BaseClient
      * @param string $invoice_id Invoice ID or number. For ID no prefix is used e.g. `e28zov4fw0v2`. For number use prefix `number-`, e.g. `number-1000`.
      * @param array  $body       The body of the request.
      *
-     * @return \Recurly\Resources\Invoice
+     * @return \Recurly\Resources\Invoice Returns the new credit invoice.
      * @link   https://developers.recurly.com/api/v2019-10-10#operation/refund_invoice
      */
     public function refundInvoice(string $invoice_id, array $body): \Recurly\Resources\Invoice
@@ -1461,7 +1461,7 @@ class Client extends BaseClient
      *
      * @param array $options Associative array of optional parameters:
      *
-     * @return \Recurly\Pager
+     * @return \Recurly\Pager A list of the site's line items.
      * @link   https://developers.recurly.com/api/v2019-10-10#operation/list_line_items
      */
     public function listLineItems(array $options = []): \Recurly\Pager
@@ -1475,7 +1475,7 @@ class Client extends BaseClient
      *
      * @param string $line_item_id Line Item ID.
      *
-     * @return \Recurly\Resources\LineItem
+     * @return \Recurly\Resources\LineItem A line item.
      * @link   https://developers.recurly.com/api/v2019-10-10#operation/get_line_item
      */
     public function getLineItem(string $line_item_id): \Recurly\Resources\LineItem
@@ -1489,7 +1489,7 @@ class Client extends BaseClient
      *
      * @param string $line_item_id Line Item ID.
      *
-     * @return \Recurly\EmptyResource
+     * @return \Recurly\EmptyResource Line item deleted.
      * @link   https://developers.recurly.com/api/v2019-10-10#operation/remove_line_item
      */
     public function removeLineItem(string $line_item_id): \Recurly\EmptyResource
@@ -1527,7 +1527,7 @@ class Client extends BaseClient
      *
      * @param array $options Associative array of optional parameters:
      *
-     * @return \Recurly\Pager
+     * @return \Recurly\Pager A list of plans.
      * @link   https://developers.recurly.com/api/v2019-10-10#operation/list_plans
      */
     public function listPlans(array $options = []): \Recurly\Pager
@@ -1541,7 +1541,7 @@ class Client extends BaseClient
      *
      * @param array $body The body of the request.
      *
-     * @return \Recurly\Resources\Plan
+     * @return \Recurly\Resources\Plan A plan.
      * @link   https://developers.recurly.com/api/v2019-10-10#operation/create_plan
      */
     public function createPlan(array $body): \Recurly\Resources\Plan
@@ -1555,7 +1555,7 @@ class Client extends BaseClient
      *
      * @param string $plan_id Plan ID or code. For ID no prefix is used e.g. `e28zov4fw0v2`. For code use prefix `code-`, e.g. `code-gold`.
      *
-     * @return \Recurly\Resources\Plan
+     * @return \Recurly\Resources\Plan A plan.
      * @link   https://developers.recurly.com/api/v2019-10-10#operation/get_plan
      */
     public function getPlan(string $plan_id): \Recurly\Resources\Plan
@@ -1570,7 +1570,7 @@ class Client extends BaseClient
      * @param string $plan_id Plan ID or code. For ID no prefix is used e.g. `e28zov4fw0v2`. For code use prefix `code-`, e.g. `code-gold`.
      * @param array  $body    The body of the request.
      *
-     * @return \Recurly\Resources\Plan
+     * @return \Recurly\Resources\Plan A plan.
      * @link   https://developers.recurly.com/api/v2019-10-10#operation/update_plan
      */
     public function updatePlan(string $plan_id, array $body): \Recurly\Resources\Plan
@@ -1584,7 +1584,7 @@ class Client extends BaseClient
      *
      * @param string $plan_id Plan ID or code. For ID no prefix is used e.g. `e28zov4fw0v2`. For code use prefix `code-`, e.g. `code-gold`.
      *
-     * @return \Recurly\Resources\Plan
+     * @return \Recurly\Resources\Plan Plan deleted
      * @link   https://developers.recurly.com/api/v2019-10-10#operation/remove_plan
      */
     public function removePlan(string $plan_id): \Recurly\Resources\Plan
@@ -1623,7 +1623,7 @@ class Client extends BaseClient
      * @param string $plan_id Plan ID or code. For ID no prefix is used e.g. `e28zov4fw0v2`. For code use prefix `code-`, e.g. `code-gold`.
      * @param array  $options Associative array of optional parameters:
      *
-     * @return \Recurly\Pager
+     * @return \Recurly\Pager A list of add-ons.
      * @link   https://developers.recurly.com/api/v2019-10-10#operation/list_plan_add_ons
      */
     public function listPlanAddOns(string $plan_id, array $options = []): \Recurly\Pager
@@ -1638,7 +1638,7 @@ class Client extends BaseClient
      * @param string $plan_id Plan ID or code. For ID no prefix is used e.g. `e28zov4fw0v2`. For code use prefix `code-`, e.g. `code-gold`.
      * @param array  $body    The body of the request.
      *
-     * @return \Recurly\Resources\AddOn
+     * @return \Recurly\Resources\AddOn An add-on.
      * @link   https://developers.recurly.com/api/v2019-10-10#operation/create_plan_add_on
      */
     public function createPlanAddOn(string $plan_id, array $body): \Recurly\Resources\AddOn
@@ -1653,7 +1653,7 @@ class Client extends BaseClient
      * @param string $plan_id   Plan ID or code. For ID no prefix is used e.g. `e28zov4fw0v2`. For code use prefix `code-`, e.g. `code-gold`.
      * @param string $add_on_id Add-on ID or code. For ID no prefix is used e.g. `e28zov4fw0v2`. For code use prefix `code-`, e.g. `code-gold`.
      *
-     * @return \Recurly\Resources\AddOn
+     * @return \Recurly\Resources\AddOn An add-on.
      * @link   https://developers.recurly.com/api/v2019-10-10#operation/get_plan_add_on
      */
     public function getPlanAddOn(string $plan_id, string $add_on_id): \Recurly\Resources\AddOn
@@ -1669,7 +1669,7 @@ class Client extends BaseClient
      * @param string $add_on_id Add-on ID or code. For ID no prefix is used e.g. `e28zov4fw0v2`. For code use prefix `code-`, e.g. `code-gold`.
      * @param array  $body      The body of the request.
      *
-     * @return \Recurly\Resources\AddOn
+     * @return \Recurly\Resources\AddOn An add-on.
      * @link   https://developers.recurly.com/api/v2019-10-10#operation/update_plan_add_on
      */
     public function updatePlanAddOn(string $plan_id, string $add_on_id, array $body): \Recurly\Resources\AddOn
@@ -1684,7 +1684,7 @@ class Client extends BaseClient
      * @param string $plan_id   Plan ID or code. For ID no prefix is used e.g. `e28zov4fw0v2`. For code use prefix `code-`, e.g. `code-gold`.
      * @param string $add_on_id Add-on ID or code. For ID no prefix is used e.g. `e28zov4fw0v2`. For code use prefix `code-`, e.g. `code-gold`.
      *
-     * @return \Recurly\Resources\AddOn
+     * @return \Recurly\Resources\AddOn Add-on deleted
      * @link   https://developers.recurly.com/api/v2019-10-10#operation/remove_plan_add_on
      */
     public function removePlanAddOn(string $plan_id, string $add_on_id): \Recurly\Resources\AddOn
@@ -1722,7 +1722,7 @@ class Client extends BaseClient
      *
      * @param array $options Associative array of optional parameters:
      *
-     * @return \Recurly\Pager
+     * @return \Recurly\Pager A list of add-ons.
      * @link   https://developers.recurly.com/api/v2019-10-10#operation/list_add_ons
      */
     public function listAddOns(array $options = []): \Recurly\Pager
@@ -1736,7 +1736,7 @@ class Client extends BaseClient
      *
      * @param string $add_on_id Add-on ID or code. For ID no prefix is used e.g. `e28zov4fw0v2`. For code use prefix `code-`, e.g. `code-gold`.
      *
-     * @return \Recurly\Resources\AddOn
+     * @return \Recurly\Resources\AddOn An add-on.
      * @link   https://developers.recurly.com/api/v2019-10-10#operation/get_add_on
      */
     public function getAddOn(string $add_on_id): \Recurly\Resources\AddOn
@@ -1773,7 +1773,7 @@ class Client extends BaseClient
      *
      * @param array $options Associative array of optional parameters:
      *
-     * @return \Recurly\Pager
+     * @return \Recurly\Pager A list of the site's shipping methods.
      * @link   https://developers.recurly.com/api/v2019-10-10#operation/list_shipping_methods
      */
     public function listShippingMethods(array $options = []): \Recurly\Pager
@@ -1783,17 +1783,60 @@ class Client extends BaseClient
     }
   
     /**
+     * Create a new shipping method
+     *
+     * @param array $body The body of the request.
+     *
+     * @return \Recurly\Resources\ShippingMethod A new shipping method.
+     * @link   https://developers.recurly.com/api/v2019-10-10#operation/create_shipping_method
+     */
+    public function createShippingMethod(array $body): \Recurly\Resources\ShippingMethod
+    {
+        $path = $this->interpolatePath("/shipping_methods", []);
+        return $this->makeRequest('POST', $path, $body, null);
+    }
+  
+    /**
      * Fetch a shipping method
      *
      * @param string $id Shipping Method ID or code. For ID no prefix is used e.g. `e28zov4fw0v2`. For code use prefix `code-`, e.g. `code-usps_2-day`.
      *
-     * @return \Recurly\Resources\ShippingMethod
+     * @return \Recurly\Resources\ShippingMethod A shipping method.
      * @link   https://developers.recurly.com/api/v2019-10-10#operation/get_shipping_method
      */
     public function getShippingMethod(string $id): \Recurly\Resources\ShippingMethod
     {
         $path = $this->interpolatePath("/shipping_methods/{id}", ['id' => $id]);
         return $this->makeRequest('GET', $path, null, null);
+    }
+  
+    /**
+     * Update an active Shipping Method
+     *
+     * @param string $shipping_method_id Shipping Method ID or code. For ID no prefix is used e.g. `e28zov4fw0v2`. For code use prefix `code-`, e.g. `code-usps_2-day`.
+     * @param array  $body               The body of the request.
+     *
+     * @return \Recurly\Resources\ShippingMethod The updated shipping method.
+     * @link   https://developers.recurly.com/api/v2019-10-10#operation/update_shipping_method
+     */
+    public function updateShippingMethod(string $shipping_method_id, array $body): \Recurly\Resources\ShippingMethod
+    {
+        $path = $this->interpolatePath("/shipping_methods/{shipping_method_id}", ['shipping_method_id' => $shipping_method_id]);
+        return $this->makeRequest('PUT', $path, $body, null);
+    }
+  
+    /**
+     * Deactivate a shipping method
+     *
+     * @param string $shipping_method_id Shipping Method ID or code. For ID no prefix is used e.g. `e28zov4fw0v2`. For code use prefix `code-`, e.g. `code-usps_2-day`.
+     *
+     * @return \Recurly\Resources\ShippingMethod A shipping method.
+     * @link   https://developers.recurly.com/api/v2019-10-10#operation/deactivate_shipping_method
+     */
+    public function deactivateShippingMethod(string $shipping_method_id): \Recurly\Resources\ShippingMethod
+    {
+        $path = $this->interpolatePath("/shipping_methods/{shipping_method_id}", ['shipping_method_id' => $shipping_method_id]);
+        return $this->makeRequest('DELETE', $path, null, null);
     }
   
     /**
@@ -1829,7 +1872,7 @@ class Client extends BaseClient
      *
      * @param array $options Associative array of optional parameters:
      *
-     * @return \Recurly\Pager
+     * @return \Recurly\Pager A list of the site's subscriptions.
      * @link   https://developers.recurly.com/api/v2019-10-10#operation/list_subscriptions
      */
     public function listSubscriptions(array $options = []): \Recurly\Pager
@@ -1843,7 +1886,7 @@ class Client extends BaseClient
      *
      * @param array $body The body of the request.
      *
-     * @return \Recurly\Resources\Subscription
+     * @return \Recurly\Resources\Subscription A subscription.
      * @link   https://developers.recurly.com/api/v2019-10-10#operation/create_subscription
      */
     public function createSubscription(array $body): \Recurly\Resources\Subscription
@@ -1857,7 +1900,7 @@ class Client extends BaseClient
      *
      * @param string $subscription_id Subscription ID or UUID. For ID no prefix is used e.g. `e28zov4fw0v2`. For UUID use prefix `uuid-`, e.g. `uuid-123457890`.
      *
-     * @return \Recurly\Resources\Subscription
+     * @return \Recurly\Resources\Subscription A subscription.
      * @link   https://developers.recurly.com/api/v2019-10-10#operation/get_subscription
      */
     public function getSubscription(string $subscription_id): \Recurly\Resources\Subscription
@@ -1872,7 +1915,7 @@ class Client extends BaseClient
      * @param string $subscription_id Subscription ID or UUID. For ID no prefix is used e.g. `e28zov4fw0v2`. For UUID use prefix `uuid-`, e.g. `uuid-123457890`.
      * @param array  $body            The body of the request.
      *
-     * @return \Recurly\Resources\Subscription
+     * @return \Recurly\Resources\Subscription A subscription.
      * @link   https://developers.recurly.com/api/v2019-10-10#operation/modify_subscription
      */
     public function modifySubscription(string $subscription_id, array $body): \Recurly\Resources\Subscription
@@ -1899,7 +1942,7 @@ class Client extends BaseClient
      * @param string $subscription_id Subscription ID or UUID. For ID no prefix is used e.g. `e28zov4fw0v2`. For UUID use prefix `uuid-`, e.g. `uuid-123457890`.
      * @param array  $options         Associative array of optional parameters:
      *
-     * @return \Recurly\Resources\Subscription
+     * @return \Recurly\Resources\Subscription An expired subscription.
      * @link   https://developers.recurly.com/api/v2019-10-10#operation/terminate_subscription
      */
     public function terminateSubscription(string $subscription_id, array $options = []): \Recurly\Resources\Subscription
@@ -1914,7 +1957,7 @@ class Client extends BaseClient
      * @param string $subscription_id Subscription ID or UUID. For ID no prefix is used e.g. `e28zov4fw0v2`. For UUID use prefix `uuid-`, e.g. `uuid-123457890`.
      * @param array  $body            The body of the request.
      *
-     * @return \Recurly\Resources\Subscription
+     * @return \Recurly\Resources\Subscription A canceled or failed subscription.
      * @link   https://developers.recurly.com/api/v2019-10-10#operation/cancel_subscription
      */
     public function cancelSubscription(string $subscription_id, array $body = []): \Recurly\Resources\Subscription
@@ -1928,7 +1971,7 @@ class Client extends BaseClient
      *
      * @param string $subscription_id Subscription ID or UUID. For ID no prefix is used e.g. `e28zov4fw0v2`. For UUID use prefix `uuid-`, e.g. `uuid-123457890`.
      *
-     * @return \Recurly\Resources\Subscription
+     * @return \Recurly\Resources\Subscription An active subscription.
      * @link   https://developers.recurly.com/api/v2019-10-10#operation/reactivate_subscription
      */
     public function reactivateSubscription(string $subscription_id): \Recurly\Resources\Subscription
@@ -1943,7 +1986,7 @@ class Client extends BaseClient
      * @param string $subscription_id Subscription ID or UUID. For ID no prefix is used e.g. `e28zov4fw0v2`. For UUID use prefix `uuid-`, e.g. `uuid-123457890`.
      * @param array  $body            The body of the request.
      *
-     * @return \Recurly\Resources\Subscription
+     * @return \Recurly\Resources\Subscription A subscription.
      * @link   https://developers.recurly.com/api/v2019-10-10#operation/pause_subscription
      */
     public function pauseSubscription(string $subscription_id, array $body): \Recurly\Resources\Subscription
@@ -1957,7 +2000,7 @@ class Client extends BaseClient
      *
      * @param string $subscription_id Subscription ID or UUID. For ID no prefix is used e.g. `e28zov4fw0v2`. For UUID use prefix `uuid-`, e.g. `uuid-123457890`.
      *
-     * @return \Recurly\Resources\Subscription
+     * @return \Recurly\Resources\Subscription A subscription.
      * @link   https://developers.recurly.com/api/v2019-10-10#operation/resume_subscription
      */
     public function resumeSubscription(string $subscription_id): \Recurly\Resources\Subscription
@@ -1971,7 +2014,7 @@ class Client extends BaseClient
      *
      * @param string $subscription_id Subscription ID or UUID. For ID no prefix is used e.g. `e28zov4fw0v2`. For UUID use prefix `uuid-`, e.g. `uuid-123457890`.
      *
-     * @return \Recurly\Resources\Subscription
+     * @return \Recurly\Resources\Subscription A subscription.
      * @link   https://developers.recurly.com/api/v2019-10-10#operation/convert_trial
      */
     public function convertTrial(string $subscription_id): \Recurly\Resources\Subscription
@@ -1985,7 +2028,7 @@ class Client extends BaseClient
      *
      * @param string $subscription_id Subscription ID or UUID. For ID no prefix is used e.g. `e28zov4fw0v2`. For UUID use prefix `uuid-`, e.g. `uuid-123457890`.
      *
-     * @return \Recurly\Resources\SubscriptionChange
+     * @return \Recurly\Resources\SubscriptionChange A subscription's pending change.
      * @link   https://developers.recurly.com/api/v2019-10-10#operation/get_subscription_change
      */
     public function getSubscriptionChange(string $subscription_id): \Recurly\Resources\SubscriptionChange
@@ -2000,7 +2043,7 @@ class Client extends BaseClient
      * @param string $subscription_id Subscription ID or UUID. For ID no prefix is used e.g. `e28zov4fw0v2`. For UUID use prefix `uuid-`, e.g. `uuid-123457890`.
      * @param array  $body            The body of the request.
      *
-     * @return \Recurly\Resources\SubscriptionChange
+     * @return \Recurly\Resources\SubscriptionChange A subscription change.
      * @link   https://developers.recurly.com/api/v2019-10-10#operation/create_subscription_change
      */
     public function createSubscriptionChange(string $subscription_id, array $body): \Recurly\Resources\SubscriptionChange
@@ -2014,7 +2057,7 @@ class Client extends BaseClient
      *
      * @param string $subscription_id Subscription ID or UUID. For ID no prefix is used e.g. `e28zov4fw0v2`. For UUID use prefix `uuid-`, e.g. `uuid-123457890`.
      *
-     * @return \Recurly\EmptyResource
+     * @return \Recurly\EmptyResource Subscription change was deleted.
      * @link   https://developers.recurly.com/api/v2019-10-10#operation/remove_subscription_change
      */
     public function removeSubscriptionChange(string $subscription_id): \Recurly\EmptyResource
@@ -2057,7 +2100,7 @@ class Client extends BaseClient
      * @param string $subscription_id Subscription ID or UUID. For ID no prefix is used e.g. `e28zov4fw0v2`. For UUID use prefix `uuid-`, e.g. `uuid-123457890`.
      * @param array  $options         Associative array of optional parameters:
      *
-     * @return \Recurly\Pager
+     * @return \Recurly\Pager A list of the subscription's invoices.
      * @link   https://developers.recurly.com/api/v2019-10-10#operation/list_subscription_invoices
      */
     public function listSubscriptionInvoices(string $subscription_id, array $options = []): \Recurly\Pager
@@ -2098,7 +2141,7 @@ class Client extends BaseClient
      * @param string $subscription_id Subscription ID or UUID. For ID no prefix is used e.g. `e28zov4fw0v2`. For UUID use prefix `uuid-`, e.g. `uuid-123457890`.
      * @param array  $options         Associative array of optional parameters:
      *
-     * @return \Recurly\Pager
+     * @return \Recurly\Pager A list of the subscription's line items.
      * @link   https://developers.recurly.com/api/v2019-10-10#operation/list_subscription_line_items
      */
     public function listSubscriptionLineItems(string $subscription_id, array $options = []): \Recurly\Pager
@@ -2134,7 +2177,7 @@ class Client extends BaseClient
      * @param string $subscription_id Subscription ID or UUID. For ID no prefix is used e.g. `e28zov4fw0v2`. For UUID use prefix `uuid-`, e.g. `uuid-123457890`.
      * @param array  $options         Associative array of optional parameters:
      *
-     * @return \Recurly\Pager
+     * @return \Recurly\Pager A list of the the coupon redemptions on a subscription.
      * @link   https://developers.recurly.com/api/v2019-10-10#operation/list_subscription_coupon_redemptions
      */
     public function listSubscriptionCouponRedemptions(string $subscription_id, array $options = []): \Recurly\Pager
@@ -2173,7 +2216,7 @@ class Client extends BaseClient
      *
      * @param array $options Associative array of optional parameters:
      *
-     * @return \Recurly\Pager
+     * @return \Recurly\Pager A list of the site's transactions.
      * @link   https://developers.recurly.com/api/v2019-10-10#operation/list_transactions
      */
     public function listTransactions(array $options = []): \Recurly\Pager
@@ -2187,7 +2230,7 @@ class Client extends BaseClient
      *
      * @param string $transaction_id Transaction ID or UUID. For ID no prefix is used e.g. `e28zov4fw0v2`. For UUID use prefix `uuid-`, e.g. `uuid-123457890`.
      *
-     * @return \Recurly\Resources\Transaction
+     * @return \Recurly\Resources\Transaction A transaction.
      * @link   https://developers.recurly.com/api/v2019-10-10#operation/get_transaction
      */
     public function getTransaction(string $transaction_id): \Recurly\Resources\Transaction
@@ -2201,7 +2244,7 @@ class Client extends BaseClient
      *
      * @param string $unique_coupon_code_id Unique Coupon Code ID or code. For ID no prefix is used e.g. `e28zov4fw0v2`. For code use prefix `code-`, e.g. `code-abc-8dh2-def`.
      *
-     * @return \Recurly\Resources\UniqueCouponCode
+     * @return \Recurly\Resources\UniqueCouponCode A unique coupon code.
      * @link   https://developers.recurly.com/api/v2019-10-10#operation/get_unique_coupon_code
      */
     public function getUniqueCouponCode(string $unique_coupon_code_id): \Recurly\Resources\UniqueCouponCode
@@ -2215,7 +2258,7 @@ class Client extends BaseClient
      *
      * @param string $unique_coupon_code_id Unique Coupon Code ID or code. For ID no prefix is used e.g. `e28zov4fw0v2`. For code use prefix `code-`, e.g. `code-abc-8dh2-def`.
      *
-     * @return \Recurly\Resources\UniqueCouponCode
+     * @return \Recurly\Resources\UniqueCouponCode A unique coupon code.
      * @link   https://developers.recurly.com/api/v2019-10-10#operation/deactivate_unique_coupon_code
      */
     public function deactivateUniqueCouponCode(string $unique_coupon_code_id): \Recurly\Resources\UniqueCouponCode
@@ -2229,7 +2272,7 @@ class Client extends BaseClient
      *
      * @param string $unique_coupon_code_id Unique Coupon Code ID or code. For ID no prefix is used e.g. `e28zov4fw0v2`. For code use prefix `code-`, e.g. `code-abc-8dh2-def`.
      *
-     * @return \Recurly\Resources\UniqueCouponCode
+     * @return \Recurly\Resources\UniqueCouponCode A unique coupon code.
      * @link   https://developers.recurly.com/api/v2019-10-10#operation/reactivate_unique_coupon_code
      */
     public function reactivateUniqueCouponCode(string $unique_coupon_code_id): \Recurly\Resources\UniqueCouponCode
@@ -2243,7 +2286,7 @@ class Client extends BaseClient
      *
      * @param array $body The body of the request.
      *
-     * @return \Recurly\Resources\InvoiceCollection
+     * @return \Recurly\Resources\InvoiceCollection Returns the new invoices
      * @link   https://developers.recurly.com/api/v2019-10-10#operation/create_purchase
      */
     public function createPurchase(array $body): \Recurly\Resources\InvoiceCollection
@@ -2257,7 +2300,7 @@ class Client extends BaseClient
      *
      * @param array $body The body of the request.
      *
-     * @return \Recurly\Resources\InvoiceCollection
+     * @return \Recurly\Resources\InvoiceCollection Returns preview of the new invoices
      * @link   https://developers.recurly.com/api/v2019-10-10#operation/preview_purchase
      */
     public function previewPurchase(array $body): \Recurly\Resources\InvoiceCollection

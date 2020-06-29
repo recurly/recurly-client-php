@@ -13,6 +13,7 @@ use Recurly\RecurlyResource;
 class Plan extends RecurlyResource
 {
     private $_accounting_code;
+    private $_allow_any_item_on_subscriptions;
     private $_auto_renew;
     private $_code;
     private $_created_at;
@@ -33,6 +34,7 @@ class Plan extends RecurlyResource
     private $_tax_exempt;
     private $_total_billing_cycles;
     private $_trial_length;
+    private $_trial_requires_billing_info;
     private $_trial_unit;
     private $_updated_at;
 
@@ -62,6 +64,32 @@ class Plan extends RecurlyResource
     public function setAccountingCode(string $accounting_code): void
     {
         $this->_accounting_code = $accounting_code;
+    }
+
+    /**
+    * Getter method for the allow_any_item_on_subscriptions attribute.
+    * Used to determine whether items can be assigned as add-ons to individual subscriptions.
+If `true`, items can be assigned as add-ons to individual subscription add-ons.
+If `false`, only plan add-ons can be used.
+
+    *
+    * @return ?bool
+    */
+    public function getAllowAnyItemOnSubscriptions(): ?bool
+    {
+        return $this->_allow_any_item_on_subscriptions;
+    }
+
+    /**
+    * Setter method for the allow_any_item_on_subscriptions attribute.
+    *
+    * @param bool $allow_any_item_on_subscriptions
+    *
+    * @return void
+    */
+    public function setAllowAnyItemOnSubscriptions(bool $allow_any_item_on_subscriptions): void
+    {
+        $this->_allow_any_item_on_subscriptions = $allow_any_item_on_subscriptions;
     }
 
     /**
@@ -522,6 +550,29 @@ class Plan extends RecurlyResource
     public function setTrialLength(int $trial_length): void
     {
         $this->_trial_length = $trial_length;
+    }
+
+    /**
+    * Getter method for the trial_requires_billing_info attribute.
+    * Allow free trial subscriptions to be created without billing info.
+    *
+    * @return ?bool
+    */
+    public function getTrialRequiresBillingInfo(): ?bool
+    {
+        return $this->_trial_requires_billing_info;
+    }
+
+    /**
+    * Setter method for the trial_requires_billing_info attribute.
+    *
+    * @param bool $trial_requires_billing_info
+    *
+    * @return void
+    */
+    public function setTrialRequiresBillingInfo(bool $trial_requires_billing_info): void
+    {
+        $this->_trial_requires_billing_info = $trial_requires_billing_info;
     }
 
     /**
