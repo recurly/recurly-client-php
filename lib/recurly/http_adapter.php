@@ -33,6 +33,8 @@ class HttpAdapter
             'content' => $body,
             ]
         );
+        // The Content-Length header is required by Recurly API infrastructure
+        $headers['Content-Length'] = strlen($body);
         $headers_str = "";
         foreach ($headers as $k => $v) {
             $headers_str .= "$k: $v\r\n";
