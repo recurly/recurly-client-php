@@ -1,5 +1,15 @@
 # Recurly PHP Client Library CHANGELOG
 
+## Version 2.12.14 (June 30, 2020)
+
+This brings us up to API version 2.27. There are no breaking changes
+
+* Use helper method to safeguard against empty path parameters [PR](https://github.com/recurly/recurly-client-php/pull/498)
+* Include tier attributes in request body [PR](https://github.com/recurly/recurly-client-php/pull/500)
+* Default parameter gives error [PR](https://github.com/recurly/recurly-client-php/pull/503)
+* BACS support [PR](https://github.com/recurly/recurly-client-php/pull/505)
+* Support items on subscriptions [PR](https://github.com/recurly/recurly-client-php/pull/508)
+
 ## Version 2.12.13 (March 26, 2020)
 
 This brings us up to API version 2.26. There are no breaking changes
