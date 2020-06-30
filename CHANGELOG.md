@@ -1,8 +1,25 @@
 # Changelog
 
-## [3.2.0](https://github.com/recurly/recurly-client-php/tree/HEAD)
+## [3.3.0](https://github.com/recurly/recurly-client-php/tree/HEAD)
 
-[Full Changelog](https://github.com/recurly/recurly-client-php/compare/3.1.1...HEAD)
+[Full Changelog](https://github.com/recurly/recurly-client-php/compare/3.2.0...HEAD)
+
+**Implemented enhancements:**
+
+- Mon Jun 29 17:06:38 UTC 2020 Upgrade API version v2019-10-10 [\#510](https://github.com/recurly/recurly-client-php/pull/510) ([douglasmiller](https://github.com/douglasmiller))
+- Convert DateTime objects to ISO8601 strings [\#504](https://github.com/recurly/recurly-client-php/pull/504) ([douglasmiller](https://github.com/douglasmiller))
+
+**Fixed bugs:**
+
+- Fix HTTP 411 error by including Content-Length header [\#509](https://github.com/recurly/recurly-client-php/pull/509) ([douglasmiller](https://github.com/douglasmiller))
+
+**Merged pull requests:**
+
+- Release 3.3.0 [\#511](https://github.com/recurly/recurly-client-php/pull/511) ([douglasmiller](https://github.com/douglasmiller))
+
+## [3.2.0](https://github.com/recurly/recurly-client-php/tree/3.2.0) (2020-06-01)
+
+[Full Changelog](https://github.com/recurly/recurly-client-php/compare/3.1.1...3.2.0)
 
 **Implemented enhancements:**
 
