@@ -11,7 +11,7 @@ class Recurly_SubscriptionTest extends Recurly_TestCase
     $this->assertInstanceOf('Recurly_Stub', $subscription->account);
     $this->assertEquals($subscription->account->getHref(), 'https://api.recurly.com/v2/accounts/verena');
 
-    $this->assertCount(1, $subscription->subscription_add_ons);
+    $this->assertCount(2, $subscription->subscription_add_ons);
 
     $add_on = $subscription->subscription_add_ons[0];
     $this->assertInstanceOf('Recurly_SubscriptionAddOn', $add_on);
@@ -30,6 +30,11 @@ class Recurly_SubscriptionTest extends Recurly_TestCase
     $this->assertEquals('Some Customer Notes', $subscription->customer_notes);
     $this->assertEquals('Some VAT Notes', $subscription->vat_reverse_charge_notes);
     $this->assertEquals('plan_free_trial', $subscription->no_billing_info_reason);
+
+    $item_add_on = $subscription->subscription_add_ons[1];
+    $this->assertInstanceOf('Recurly_SubscriptionAddOn', $item_add_on);
+    $this->assertEquals('item', $item_add_on->add_on_source);
+    $this->assertEquals(199, $item_add_on->unit_amount_in_cents);
 
     $this->assertInstanceOf('Recurly_CustomFieldList', $subscription->custom_fields);
     $this->assertCount(2, $subscription->custom_fields);
@@ -123,7 +128,7 @@ class Recurly_SubscriptionTest extends Recurly_TestCase
     $subscription->shipping_address_id = 1234567890;
 
     $this->assertEquals(
-      "<?xml version=\"1.0\"?>\n<subscription><subscription_add_ons><subscription_add_on><add_on_code>marketing_emails</add_on_code><unit_amount_in_cents>5</unit_amount_in_cents><quantity>1</quantity></subscription_add_on></subscription_add_ons><shipping_address_id>1234567890</shipping_address_id></subscription>\n",
+      "<?xml version=\"1.0\"?>\n<subscription><subscription_add_ons><subscription_add_on><add_on_code>marketing_emails</add_on_code><unit_amount_in_cents>5</unit_amount_in_cents><quantity>1</quantity></subscription_add_on><subscription_add_on><item>&lt;Recurly_Stub[item] href=https://api.recurlyqa.com/v2/items/mockitem&gt;</item><external_sku>tester-sku</external_sku><add_on_code>mockitem</add_on_code><unit_amount_in_cents>199</unit_amount_in_cents><quantity>1</quantity><revenue_schedule_type>never</revenue_schedule_type><tier_type>flat</tier_type><add_on_source>item</add_on_source></subscription_add_on></subscription_add_ons><shipping_address_id>1234567890</shipping_address_id></subscription>\n",
       $subscription->xml()
     );
   }
@@ -259,7 +264,7 @@ class Recurly_SubscriptionTest extends Recurly_TestCase
     $subscription->quantity = 2;
 
     $this->assertEquals(
-      "<?xml version=\"1.0\"?>\n<subscription><quantity>2</quantity><subscription_add_ons><subscription_add_on><add_on_code>marketing_emails</add_on_code><unit_amount_in_cents>5</unit_amount_in_cents><quantity>1</quantity></subscription_add_on></subscription_add_ons></subscription>\n",
+      "<?xml version=\"1.0\"?>\n<subscription><quantity>2</quantity><subscription_add_ons><subscription_add_on><add_on_code>marketing_emails</add_on_code><unit_amount_in_cents>5</unit_amount_in_cents><quantity>1</quantity></subscription_add_on><subscription_add_on><item>&lt;Recurly_Stub[item] href=https://api.recurlyqa.com/v2/items/mockitem&gt;</item><external_sku>tester-sku</external_sku><add_on_code>mockitem</add_on_code><unit_amount_in_cents>199</unit_amount_in_cents><quantity>1</quantity><revenue_schedule_type>never</revenue_schedule_type><tier_type>flat</tier_type><add_on_source>item</add_on_source></subscription_add_on></subscription_add_ons></subscription>\n",
       $subscription->xml()
     );
   }

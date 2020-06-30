@@ -45,6 +45,17 @@ Content-Type: application/xml; charset=utf-8
       <usage_type>price</usage_type>
       <usage_percentage nil="nil"/>
     </subscription_add_on>
+    <subscription_add_on>
+      <add_on_type>fixed</add_on_type>
+      <item href="https://api.recurlyqa.com/v2/items/mockitem"/>
+      <external_sku>tester-sku</external_sku>
+      <add_on_code>mockitem</add_on_code>
+      <unit_amount_in_cents type="integer">199</unit_amount_in_cents>
+      <quantity type="integer">1</quantity>
+      <revenue_schedule_type>never</revenue_schedule_type>
+      <tier_type>flat</tier_type>
+      <add_on_source>item</add_on_source>
+    </subscription_add_on>
   </subscription_add_ons>
   <custom_fields type="array">
     <custom_field>
