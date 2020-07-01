@@ -2067,6 +2067,21 @@ class Client extends BaseClient
     }
   
     /**
+     * Preview a new subscription change
+     *
+     * @param string $subscription_id Subscription ID or UUID. For ID no prefix is used e.g. `e28zov4fw0v2`. For UUID use prefix `uuid-`, e.g. `uuid-123457890`.
+     * @param array  $body            The body of the request.
+     *
+     * @return \Recurly\Resources\SubscriptionChangePreview A subscription change.
+     * @link   https://developers.recurly.com/api/v2019-10-10#operation/preview_subscription_change
+     */
+    public function previewSubscriptionChange(string $subscription_id, array $body): \Recurly\Resources\SubscriptionChangePreview
+    {
+        $path = $this->interpolatePath("/subscriptions/{subscription_id}/change/preview", ['subscription_id' => $subscription_id]);
+        return $this->makeRequest('POST', $path, $body, null);
+    }
+  
+    /**
      * List a subscription's invoices
      *
      * Supported optional parameters:

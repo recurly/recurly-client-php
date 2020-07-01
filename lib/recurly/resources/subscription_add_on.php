@@ -13,6 +13,7 @@ use Recurly\RecurlyResource;
 class SubscriptionAddOn extends RecurlyResource
 {
     private $_add_on;
+    private $_add_on_source;
     private $_created_at;
     private $_expired_at;
     private $_id;
@@ -51,6 +52,33 @@ class SubscriptionAddOn extends RecurlyResource
     public function setAddOn(\Recurly\Resources\AddOnMini $add_on): void
     {
         $this->_add_on = $add_on;
+    }
+
+    /**
+    * Getter method for the add_on_source attribute.
+    * Used to determine where the associated add-on data is pulled from. If this value is set to
+`plan_add_on` or left blank, then add-on data will be pulled from the plan's add-ons. If the associated
+`plan` has `allow_any_item_on_subscriptions` set to `true` and this field is set to `item`, then
+the associated add-on data will be pulled from the site's item catalog.
+
+    *
+    * @return ?string
+    */
+    public function getAddOnSource(): ?string
+    {
+        return $this->_add_on_source;
+    }
+
+    /**
+    * Setter method for the add_on_source attribute.
+    *
+    * @param string $add_on_source
+    *
+    * @return void
+    */
+    public function setAddOnSource(string $add_on_source): void
+    {
+        $this->_add_on_source = $add_on_source;
     }
 
     /**
