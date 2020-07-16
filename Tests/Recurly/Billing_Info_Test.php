@@ -11,6 +11,7 @@ class Recurly_BillingInfoTest extends Recurly_TestCase
       array('GET', '/accounts/bankaccount1234567890/billing_info', 'billing_info/show-bank-account-200.xml'),
       array('GET', '/accounts/sepa1234567890/billing_info', 'billing_info/show-sepa-200.xml'),
       array('GET', '/accounts/bacs1234567890/billing_info', 'billing_info/show-bacs-200.xml'),
+      array('GET', '/accounts/becs1234567890/billing_info', 'billing_info/show-becs-200.xml'),
       array('PUT', '/accounts/abcdef1234567890/billing_info', 'billing_info/show-200.xml'),
       array('DELETE', '/accounts/abcdef1234567890/billing_info', 'billing_info/destroy-204.xml'),
       array('DELETE', 'https://api.recurly.com/v2/accounts/abcdef1234567890/billing_info', 'billing_info/destroy-204.xml'),
@@ -89,6 +90,13 @@ class Recurly_BillingInfoTest extends Recurly_TestCase
     $this->assertInstanceOf('Recurly_BillingInfo', $billing_info);
     $this->assertEquals($billing_info->sort_code, '200000');
     $this->assertEquals($billing_info->name_on_account, 'BACS');
+  }
+
+  public function testGetBecsBillingInfo() {
+    $billing_info = Recurly_BillingInfo::get('becs1234567890', $this->client);
+    $this->assertInstanceOf('Recurly_BillingInfo', $billing_info);
+    $this->assertEquals($billing_info->bsb_code, '082-082');
+    $this->assertEquals($billing_info->name_on_account, 'BECS');
   }
 
   public function testDelete() {
