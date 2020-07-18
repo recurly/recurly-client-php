@@ -58,8 +58,8 @@ class LineItem extends RecurlyResource
     private $_updated_at;
     private $_uuid;
 
-    protected static $array_hints = array(
-    );
+    protected static $array_hints = [
+    ];
 
     
     /**

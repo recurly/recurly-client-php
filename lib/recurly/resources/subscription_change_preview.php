@@ -29,9 +29,9 @@ class SubscriptionChangePreview extends RecurlyResource
     private $_unit_amount;
     private $_updated_at;
 
-    protected static $array_hints = array(
+    protected static $array_hints = [
         'setAddOns' => '\Recurly\Resources\SubscriptionAddOn',
-    );
+    ];
 
     
     /**

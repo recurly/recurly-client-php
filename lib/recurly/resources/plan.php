@@ -38,9 +38,9 @@ class Plan extends RecurlyResource
     private $_trial_unit;
     private $_updated_at;
 
-    protected static $array_hints = array(
+    protected static $array_hints = [
         'setCurrencies' => '\Recurly\Resources\PlanPricing',
-    );
+    ];
 
     
     /**

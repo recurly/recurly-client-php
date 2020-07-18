@@ -17,9 +17,9 @@ class CouponDiscount extends RecurlyResource
     private $_trial;
     private $_type;
 
-    protected static $array_hints = array(
+    protected static $array_hints = [
         'setCurrencies' => '\Recurly\Resources\CouponDiscountPricing',
-    );
+    ];
 
     
     /**

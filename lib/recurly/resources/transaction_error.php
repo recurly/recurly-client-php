@@ -20,8 +20,8 @@ class TransactionError extends RecurlyResource
     private $_three_d_secure_action_token_id;
     private $_transaction_id;
 
-    protected static $array_hints = array(
-    );
+    protected static $array_hints = [
+    ];
 
     
     /**

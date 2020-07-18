@@ -33,10 +33,10 @@ class AddOn extends RecurlyResource
     private $_tiers;
     private $_updated_at;
 
-    protected static $array_hints = array(
+    protected static $array_hints = [
         'setCurrencies' => '\Recurly\Resources\AddOnPricing',
         'setTiers' => '\Recurly\Resources\Tier',
-    );
+    ];
 
     
     /**

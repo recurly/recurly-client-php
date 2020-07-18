@@ -43,10 +43,10 @@ class Account extends RecurlyResource
     private $_username;
     private $_vat_number;
 
-    protected static $array_hints = array(
+    protected static $array_hints = [
         'setCustomFields' => '\Recurly\Resources\CustomField',
         'setShippingAddresses' => '\Recurly\Resources\ShippingAddress',
-    );
+    ];
 
     
     /**

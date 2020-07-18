@@ -191,12 +191,12 @@ abstract class BaseClient
     {
         $auth_token = self::encodeApiKey($this->_api_key);
         $agent = self::getUserAgent();
-        return array(
+        return [
             "User-Agent" => $agent,
             "Authorization" => "Basic {$auth_token}",
             "Accept" => "application/vnd.recurly.{$this->apiVersion()}",
             "Content-Type" => "application/json",
             "Accept-Encoding" => "gzip",
-        );
+        ];
     }
 }

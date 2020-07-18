@@ -21,8 +21,8 @@ class User extends RecurlyResource
     private $_object;
     private $_time_zone;
 
-    protected static $array_hints = array(
-    );
+    protected static $array_hints = [
+    ];
 
     
     /**

@@ -72,7 +72,7 @@ class Response
     public function setHeaders(?array $headers): void
     {
         if (empty($headers)) {
-            $headers = array('HTTP/1.1 400 Bad request');
+            $headers = ['HTTP/1.1 400 Bad request'];
         }
 
         foreach ($headers as $header) {

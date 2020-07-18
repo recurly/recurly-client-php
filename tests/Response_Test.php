@@ -20,10 +20,10 @@ final class ResponseTest extends TestCase
         $response = new Response('');
         $status_code = 201;
         $status = "HTTP/1.1 {$status_code} Created";
-        $response->setHeaders(array(
+        $response->setHeaders([
             'HTTP/1.1 200 OK',
             $status
-        ));
+        ]);
         $this->assertEquals(
             $status_code,
             $response->getStatusCode()
@@ -34,10 +34,10 @@ final class ResponseTest extends TestCase
     {
         $response = new Response('');
         $request_id = bin2hex(random_bytes(10));
-        $response->setHeaders(array(
+        $response->setHeaders([
             'HTTP/1.1 200 OK',
             "X-Request-Id: {$request_id}"
-        ));
+        ]);
         $this->assertEquals(
             $request_id,
             $response->getRequestId()
@@ -48,10 +48,10 @@ final class ResponseTest extends TestCase
     {
         $response = new Response('');
         $rate_limit = "2000";
-        $response->setHeaders(array(
+        $response->setHeaders([
             'HTTP/1.1 200 OK',
             "X-RateLimit-Limit: {$rate_limit}"
-        ));
+        ]);
         $this->assertEquals(
             $rate_limit,
             $response->getRateLimit()
@@ -62,10 +62,10 @@ final class ResponseTest extends TestCase
     {
         $response = new Response('');
         $rate_limit_remaining = "300";
-        $response->setHeaders(array(
+        $response->setHeaders([
             'HTTP/1.1 200 OK',
             "X-RateLimit-Remaining: {$rate_limit_remaining}"
-        ));
+        ]);
         $this->assertEquals(
             $rate_limit_remaining,
             $response->getRateLimitRemaining()
@@ -76,10 +76,10 @@ final class ResponseTest extends TestCase
     {
         $response = new Response('');
         $rate_limit_reset = "1576791240";
-        $response->setHeaders(array(
+        $response->setHeaders([
             'HTTP/1.1 200 OK',
             "X-RateLimit-Reset: {$rate_limit_reset}"
-        ));
+        ]);
         $this->assertEquals(
             $rate_limit_reset,
             $response->getRateLimitReset()
@@ -90,10 +90,10 @@ final class ResponseTest extends TestCase
     {
         $response = new Response('');
         $content_type = "application/json";
-        $response->setHeaders(array(
+        $response->setHeaders([
             'HTTP/1.1 200 OK',
             "Content-Type: {$content_type}"
-        ));
+        ]);
         $this->assertEquals(
             $content_type,
             $response->getContentType()
@@ -105,10 +105,10 @@ final class ResponseTest extends TestCase
         $response = new Response('');
         $content_type = "application/json";
         $charset = "charset=utf-8";
-        $response->setHeaders(array(
+        $response->setHeaders([
             'HTTP/1.1 200 OK',
             "Content-Type: {$content_type}; {$charset}"
-        ));
+        ]);
         $this->assertEquals(
             $content_type,
             $response->getContentType()
@@ -119,10 +119,10 @@ final class ResponseTest extends TestCase
     {
         $count = 325;
         $response = new Response('');
-        $response->setHeaders(array(
+        $response->setHeaders([
             'HTTP/1.1 200 OK',
             "Recurly-Total-Records: $count"
-        ));
+        ]);
         $this->assertEquals(
             $count,
             $response->getRecordCount()
@@ -135,28 +135,28 @@ final class ResponseTest extends TestCase
 
         $response = new Response($data);
         $content_type = "application/pdf";
-        $response->setHeaders(array(
+        $response->setHeaders([
             'HTTP/1.1 200 OK',
             "Content-Type: {$content_type}"
-        ));
+        ]);
         $result = $response->toResource();
         $this->assertInstanceOf(\Recurly\Resources\BinaryFile::class, $result);
     }
 
     public function testToResourceJson(): void
     {
-        $account = (object)array(
+        $account = (object)[
             'object' => 'account',
             'first_name' => 'Douglas',
             'last_name' => 'DuMonde'
-        );
+        ];
 
         $response = new Response(json_encode($account));
         $content_type = "application/json";
-        $response->setHeaders(array(
+        $response->setHeaders([
             'HTTP/1.1 200 OK',
             "Content-Type: {$content_type}"
-        ));
+        ]);
         $result = $response->toResource();
         $this->assertInstanceOf(\Recurly\Resources\Account::class, $result);
     }
@@ -164,7 +164,7 @@ final class ResponseTest extends TestCase
     public function testToResourceEmpty(): void
     {
         $response = new Response('');
-        $response->setHeaders(array('HTTP/1.1 200 OK'));
+        $response->setHeaders(['HTTP/1.1 200 OK']);
         $result = $response->toResource();
         $this->assertInstanceOf(\Recurly\EmptyResource::class, $result);
     }
@@ -173,7 +173,7 @@ final class ResponseTest extends TestCase
     {
         $this->expectException(\Recurly\RecurlyError::class);
         $response = new Response('');
-        $response->setHeaders(array('HTTP/1.1 403 Forbidden'));
+        $response->setHeaders(['HTTP/1.1 403 Forbidden']);
         $result = $response->toResource();
     }
 

@@ -16,9 +16,9 @@ class Settings extends RecurlyResource
     private $_billing_address_requirement;
     private $_default_currency;
 
-    protected static $array_hints = array(
+    protected static $array_hints = [
         'setAcceptedCurrencies' => 'string',
-    );
+    ];
 
     
     /**
