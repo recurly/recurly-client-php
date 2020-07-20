@@ -7,7 +7,7 @@ use Recurly\Utils;
 
 final class BaseClientTest extends RecurlyTestCase
 {
-    public function setUp(): void
+    protected function setUp(): void
     {
         parent::setUp();
         $this->client = new MockClient();

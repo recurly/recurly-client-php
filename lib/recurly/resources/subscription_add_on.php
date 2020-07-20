@@ -26,9 +26,9 @@ class SubscriptionAddOn extends RecurlyResource
     private $_unit_amount;
     private $_updated_at;
 
-    protected static $array_hints = array(
+    protected static $array_hints = [
         'setTiers' => '\Recurly\Resources\SubscriptionAddOnTier',
-    );
+    ];
 
     
     /**

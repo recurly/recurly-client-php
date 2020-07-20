@@ -15,8 +15,8 @@ class BillingInfoUpdatedBy extends RecurlyResource
     private $_country;
     private $_ip;
 
-    protected static $array_hints = array(
-    );
+    protected static $array_hints = [
+    ];
 
     
     /**

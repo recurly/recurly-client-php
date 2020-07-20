@@ -29,10 +29,10 @@ class Item extends RecurlyResource
     private $_tax_exempt;
     private $_updated_at;
 
-    protected static $array_hints = array(
+    protected static $array_hints = [
         'setCurrencies' => '\Recurly\Resources\Pricing',
         'setCustomFields' => '\Recurly\Resources\CustomField',
-    );
+    ];
 
     
     /**

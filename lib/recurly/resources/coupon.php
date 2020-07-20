@@ -41,10 +41,10 @@ class Coupon extends RecurlyResource
     private $_unique_coupon_codes_count;
     private $_updated_at;
 
-    protected static $array_hints = array(
+    protected static $array_hints = [
         'setPlans' => '\Recurly\Resources\PlanMini',
         'setPlansNames' => 'string',
-    );
+    ];
 
     
     /**

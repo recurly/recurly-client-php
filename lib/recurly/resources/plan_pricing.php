@@ -16,8 +16,8 @@ class PlanPricing extends RecurlyResource
     private $_setup_fee;
     private $_unit_amount;
 
-    protected static $array_hints = array(
-    );
+    protected static $array_hints = [
+    ];
 
     
     /**

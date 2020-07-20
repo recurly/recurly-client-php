@@ -16,9 +16,9 @@ class Error extends RecurlyResource
     private $_params;
     private $_type;
 
-    protected static $array_hints = array(
+    protected static $array_hints = [
         'setParams' => 'object',
-    );
+    ];
 
     
     /**

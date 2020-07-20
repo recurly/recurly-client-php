@@ -31,8 +31,8 @@ class ShippingAddress extends RecurlyResource
     private $_updated_at;
     private $_vat_number;
 
-    protected static $array_hints = array(
-    );
+    protected static $array_hints = [
+    ];
 
     
     /**

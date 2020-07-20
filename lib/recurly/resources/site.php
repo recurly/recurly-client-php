@@ -24,9 +24,9 @@ class Site extends RecurlyResource
     private $_subdomain;
     private $_updated_at;
 
-    protected static $array_hints = array(
+    protected static $array_hints = [
         'setFeatures' => 'string',
-    );
+    ];
 
     
     /**

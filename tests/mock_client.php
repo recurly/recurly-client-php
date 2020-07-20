@@ -60,7 +60,7 @@ class MockClient extends BaseClient
             $url,
             $body,
             self::_expectedHeaders()
-            )->willReturn(array($result, $resp_header));
+            )->willReturn([$result, $resp_header]);
     }
 
     public function clearScenarios(): void

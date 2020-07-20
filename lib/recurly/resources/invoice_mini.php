@@ -18,8 +18,8 @@ class InvoiceMini extends RecurlyResource
     private $_state;
     private $_type;
 
-    protected static $array_hints = array(
-    );
+    protected static $array_hints = [
+    ];
 
     
     /**

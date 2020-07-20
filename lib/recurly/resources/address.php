@@ -22,8 +22,8 @@ class Address extends RecurlyResource
     private $_street1;
     private $_street2;
 
-    protected static $array_hints = array(
-    );
+    protected static $array_hints = [
+    ];
 
     
     /**

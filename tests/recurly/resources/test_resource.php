@@ -11,10 +11,10 @@ class TestResource extends \Recurly\RecurlyResource
     private $_resource_array;
     private $_string_array;
 
-    protected static $array_hints = array(
+    protected static $array_hints = [
         'setResourceArray' => '\Recurly\Resources\TestResource',
         'setStringArray' => 'string',
-    );
+    ];
 
     public function getId(): string
     {

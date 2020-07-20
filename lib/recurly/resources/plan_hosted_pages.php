@@ -17,8 +17,8 @@ class PlanHostedPages extends RecurlyResource
     private $_display_quantity;
     private $_success_url;
 
-    protected static $array_hints = array(
-    );
+    protected static $array_hints = [
+    ];
 
     
     /**

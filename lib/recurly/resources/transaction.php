@@ -50,9 +50,9 @@ class Transaction extends RecurlyResource
     private $_voided_at;
     private $_voided_by_invoice;
 
-    protected static $array_hints = array(
+    protected static $array_hints = [
         'setSubscriptionIds' => 'string',
-    );
+    ];
 
     
     /**

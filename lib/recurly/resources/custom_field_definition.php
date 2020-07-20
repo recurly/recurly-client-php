@@ -23,8 +23,8 @@ class CustomFieldDefinition extends RecurlyResource
     private $_updated_at;
     private $_user_access;
 
-    protected static $array_hints = array(
-    );
+    protected static $array_hints = [
+    ];
 
     
     /**
