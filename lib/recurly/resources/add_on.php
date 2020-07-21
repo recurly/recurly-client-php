@@ -34,7 +34,7 @@ class AddOn extends RecurlyResource
     private $_updated_at;
 
     protected static $array_hints = array(
-        'setCurrencies' => '\Recurly\Resources\AddOnPricing',
+        'setCurrencies' => '\Recurly\Resources\Pricing',
         'setTiers' => '\Recurly\Resources\Tier',
     );
 
@@ -432,7 +432,9 @@ class AddOn extends RecurlyResource
 
     /**
     * Getter method for the tier_type attribute.
-    * The type of tiering used by the Add-on.
+    * The pricing model for the add-on.  For more information,
+[click here](https://docs.recurly.com/docs/billing-models#section-quantity-based).
+
     *
     * @return ?string
     */

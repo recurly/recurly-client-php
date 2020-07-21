@@ -244,7 +244,9 @@ the associated add-on data will be pulled from the site's item catalog.
 
     /**
     * Getter method for the tier_type attribute.
-    * The type of tiering used by the Add-on.
+    * The pricing model for the add-on.  For more information,
+[click here](https://docs.recurly.com/docs/billing-models#section-quantity-based).
+
     *
     * @return ?string
     */

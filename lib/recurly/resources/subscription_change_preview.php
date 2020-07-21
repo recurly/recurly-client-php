@@ -23,7 +23,6 @@ class SubscriptionChangePreview extends RecurlyResource
     private $_plan;
     private $_quantity;
     private $_revenue_schedule_type;
-    private $_setup_fee_revenue_schedule_type;
     private $_shipping;
     private $_subscription_id;
     private $_unit_amount;
@@ -285,29 +284,6 @@ class SubscriptionChangePreview extends RecurlyResource
     public function setRevenueScheduleType(string $revenue_schedule_type): void
     {
         $this->_revenue_schedule_type = $revenue_schedule_type;
-    }
-
-    /**
-    * Getter method for the setup_fee_revenue_schedule_type attribute.
-    * Setup fee revenue schedule type
-    *
-    * @return ?string
-    */
-    public function getSetupFeeRevenueScheduleType(): ?string
-    {
-        return $this->_setup_fee_revenue_schedule_type;
-    }
-
-    /**
-    * Setter method for the setup_fee_revenue_schedule_type attribute.
-    *
-    * @param string $setup_fee_revenue_schedule_type
-    *
-    * @return void
-    */
-    public function setSetupFeeRevenueScheduleType(string $setup_fee_revenue_schedule_type): void
-    {
-        $this->_setup_fee_revenue_schedule_type = $setup_fee_revenue_schedule_type;
     }
 
     /**

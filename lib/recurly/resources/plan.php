@@ -554,7 +554,7 @@ If `false`, only plan add-ons can be used.
 
     /**
     * Getter method for the trial_requires_billing_info attribute.
-    * Allow free trial subscriptions to be created without billing info.
+    * Allow free trial subscriptions to be created without billing info. Should not be used if billing info is needed for initial invoice due to existing uninvoiced charges or setup fee.
     *
     * @return ?bool
     */
