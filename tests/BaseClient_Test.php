@@ -28,7 +28,7 @@ final class BaseClientTest extends RecurlyTestCase
     {
         $url = "https://v3.recurly.com/resources/iexist";
         $result = '{"id": "iexist", "object": "test_resource"}';
-        $this->client->addScenario("GET", $url, NULL, $result, "200 OK");
+        $this->client->addScenario("GET", $url, [], $result, "200 OK");
 
         $resource = $this->client->getResource("iexist");
         $this->assertEquals($resource->getId(), "iexist");
@@ -38,7 +38,7 @@ final class BaseClientTest extends RecurlyTestCase
     {
         $url = "https://v3.recurly.com/resources/idontexist";
         $result = "{\"error\":{\"type\":\"not_found\",\"message\":\"Couldn't find Resource with id = idontexist\",\"params\":[{\"param\":\"resource_id\"}]}}";
-        $this->client->addScenario("GET", $url, NULL, $result, "404 Not Found");
+        $this->client->addScenario("GET", $url, [], $result, "404 Not Found");
 
         $this->expectException(\Recurly\Errors\NotFound::class);
         $this->client->getResource("idontexist");
@@ -69,7 +69,7 @@ final class BaseClientTest extends RecurlyTestCase
     {
         $url = "https://v3.recurly.com/resources/iexist";
         $result = "";
-        $this->client->addScenario("DELETE", $url, NULL, $result, "204 No Content");
+        $this->client->addScenario("DELETE", $url, [], $result, "204 No Content");
         $empty = $this->client->deleteResource("iexist");
         $this->assertInstanceOf(\Recurly\EmptyResource::class, $empty);
     }
@@ -89,7 +89,7 @@ final class BaseClientTest extends RecurlyTestCase
     {
         $url = "https://v3.recurly.com/resources";
         $result = '{ "object": "list", "has_more": false, "next": null, "data": [{"id": "iexist", "object": "test_resource", "name": "newname"}]}';
-        $this->client->addScenario("GET", $url, NULL, $result, "200 OK");
+        $this->client->addScenario("GET", $url, [], $result, "200 OK");
 
         $resources = $this->client->listResources();
         $count = 0;
@@ -104,9 +104,9 @@ final class BaseClientTest extends RecurlyTestCase
     {
         $url = "https://v3.recurly.com/resources?limit=1";
         $result = '{ "object": "list", "has_more": false, "next": null, "data": [{"id": "iexist", "object": "test_resource", "name": "newname"}]}';
-        $this->client->addScenario("GET", $url, NULL, $result, "200 OK");
+        $this->client->addScenario("GET", $url, [], $result, "200 OK");
 
-        $resources = $this->client->listResources([ "limit" => 1 ]);
+        $resources = $this->client->listResources([ 'params' => [ 'limit' => 1 ] ]);
         $count = 0;
         foreach($resources as $resource) {
             $count = $count + 1;
@@ -148,9 +148,9 @@ final class BaseClientTest extends RecurlyTestCase
         $beginTime = new DateTime("2020-01-01 00:00:00");
         $url = "https://v3.recurly.com/resources?begin_time=" . urlencode($beginTime->format(\DateTime::ISO8601));
         $result = '{ "object": "list", "has_more": false, "next": null, "data": [{"id": "iexist", "object": "test_resource", "name": "newname"}]}';
-        $this->client->addScenario("GET", $url, NULL, $result, "200 OK");
+        $this->client->addScenario("GET", $url, [], $result, "200 OK");
 
-        $resources = $this->client->listResources([ "begin_time" => $beginTime ]);
+        $resources = $this->client->listResources([ 'params' => [ 'begin_time' => $beginTime ] ]);
         $count = 0;
         foreach($resources as $resource) {
             $count = $count + 1;

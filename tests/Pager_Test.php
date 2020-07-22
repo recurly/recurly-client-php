@@ -41,9 +41,9 @@ final class PagerTest extends RecurlyTestCase
         $idsCsv = join('%2C', $ids);
         $url = "https://v3.recurly.com/resources?ids=$idsCsv";
         $result = '{"object":"list","has_more":true,"next":"page_two","data":[{"object":"test_resource","name":"resource one"}]}';
-        $this->client->addScenario("GET", $url, NULL, $result, "200 OK");
+        $this->client->addScenario("GET", $url, [], $result, "200 OK");
 
-        $pager = new \Recurly\Pager($this->client, '/resources', ['ids' => $ids]);
+        $pager = new \Recurly\Pager($this->client, '/resources', [ 'params' => [ 'ids' => $ids ] ]);
         $pager->rewind();
         $this->assertInstanceOf(\Recurly\Response::class, $pager->getResponse());
     }
@@ -52,7 +52,7 @@ final class PagerTest extends RecurlyTestCase
     {
         $url = "https://v3.recurly.com/resources";
         $result = '{"object":"list","has_more":false,"next":null,"data":[{"object":"test_resource","name":"resource one"}]}';
-        $this->client->addScenario("GET", $url, NULL, $result, "200 OK");
+        $this->client->addScenario("GET", $url, [], $result, "200 OK");
 
         $pager = new \Recurly\Pager($this->client, '/resources');
         $pager->rewind();
@@ -63,7 +63,7 @@ final class PagerTest extends RecurlyTestCase
     {
         $url = "https://v3.recurly.com/resources?limit=1";
         $result = '{"object":"list","has_more":true,"next":"page_two","data":[{"object":"test_resource","name":"resource one"}]}';
-        $this->client->addScenario("GET", $url, NULL, $result, "200 OK");
+        $this->client->addScenario("GET", $url, [], $result, "200 OK");
 
         $pager = new \Recurly\Pager($this->client, '/resources');
         $this->assertInstanceOf(
@@ -76,7 +76,7 @@ final class PagerTest extends RecurlyTestCase
     {
         $url = "https://v3.recurly.com/resources?limit=1";
         $result = '{"object":"list","has_more":false,"next":null,"data":[]}';
-        $this->client->addScenario("GET", $url, NULL, $result, "200 OK");
+        $this->client->addScenario("GET", $url, [], $result, "200 OK");
 
         $pager = new \Recurly\Pager($this->client, '/resources');
         $this->assertNull($pager->getFirst());
@@ -85,7 +85,7 @@ final class PagerTest extends RecurlyTestCase
     public function testGetCount(): void
     {
         $url = "https://v3.recurly.com/resources";
-        $this->client->addScenario("HEAD", $url, NULL, '', "200 OK", ['Recurly-Total-Records' => 3]);
+        $this->client->addScenario("HEAD", $url, [], '', "200 OK", ['Recurly-Total-Records' => 3]);
 
         $pager = new \Recurly\Pager($this->client, '/resources');
 

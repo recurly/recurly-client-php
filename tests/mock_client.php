@@ -28,28 +28,28 @@ class MockClient extends BaseClient
         return new \Recurly\Pager($this, $path, $options);
     }
 
-    public function getResource(string $resource_id): TestResource
+    public function getResource(string $resource_id, array $options = []): TestResource
     {
         $path = $this->interpolatePath("/resources/{resource_id}", ['resource_id' => $resource_id]);
-        return $this->makeRequest('GET', $path, null, null);
+        return $this->makeRequest('GET', $path, [], $options);
     }
 
-    public function createResource(array $body): TestResource
+    public function createResource(array $body, array $options = []): TestResource
     {
         $path = $this->interpolatePath("/resources/", []);
-        return $this->makeRequest('POST', $path, $body, null);
+        return $this->makeRequest('POST', $path, $body, $options);
     }
 
-    public function updateResource(string $resource_id, array $body): TestResource
+    public function updateResource(string $resource_id, array $body, array $options = []): TestResource
     {
         $path = $this->interpolatePath("/resources/{resource_id}", ['resource_id' => $resource_id]);
-        return $this->makeRequest('PUT', $path, $body, null);
+        return $this->makeRequest('PUT', $path, $body, $options);
     }
 
-    public function deleteResource(string $resource_id): \Recurly\EmptyResource
+    public function deleteResource(string $resource_id, array $options = []): \Recurly\EmptyResource
     {
         $path = $this->interpolatePath("/resources/{resource_id}", ['resource_id' => $resource_id]);
-        return $this->makeRequest('DELETE', $path, null, null);
+        return $this->makeRequest('DELETE', $path, [], $options);
     }
 
     public function addScenario($method, $url, $body, $result, $status, $additional_headers = []): void
