@@ -47,11 +47,11 @@ class Invoice extends RecurlyResource
     private $_vat_number;
     private $_vat_reverse_charge_notes;
 
-    protected static $array_hints = array(
+    protected static $array_hints = [
         'setCreditPayments' => '\Recurly\Resources\CreditPayment',
         'setSubscriptionIds' => 'string',
         'setTransactions' => '\Recurly\Resources\Transaction',
-    );
+    ];
 
     
     /**

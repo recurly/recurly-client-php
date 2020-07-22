@@ -16,8 +16,8 @@ class FraudInfo extends RecurlyResource
     private $_risk_rules_triggered;
     private $_score;
 
-    protected static $array_hints = array(
-    );
+    protected static $array_hints = [
+    ];
 
     
     /**

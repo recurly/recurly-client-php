@@ -15,8 +15,8 @@ class CouponDiscountTrial extends RecurlyResource
     private $_length;
     private $_unit;
 
-    protected static $array_hints = array(
-    );
+    protected static $array_hints = [
+    ];
 
     
     /**

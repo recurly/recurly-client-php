@@ -4,7 +4,7 @@ use Recurly\Request;
 
 final class RequestTest extends RecurlyTestCase
 {
-    public function setUp(): void
+    protected function setUp(): void
     {
         parent::setUp();
         $account_create = $this->fixtures->loadJsonFixture('account_create', ['type' => 'array']);

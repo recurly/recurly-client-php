@@ -12,9 +12,9 @@ abstract class RecurlyTestCase extends TestCase
 
 class FixtureLoader
 {
-    const DEFAULT_OPTIONS = array(
+    const DEFAULT_OPTIONS = [
         'type' => 'object'
-    );
+    ];
 
     public function loadJsonFixture(string $filename, array $options = [])
     {

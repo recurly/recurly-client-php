@@ -54,11 +54,11 @@ class Subscription extends RecurlyResource
     private $_updated_at;
     private $_uuid;
 
-    protected static $array_hints = array(
+    protected static $array_hints = [
         'setAddOns' => '\Recurly\Resources\SubscriptionAddOn',
         'setCouponRedemptions' => '\Recurly\Resources\CouponRedemptionMini',
         'setCustomFields' => '\Recurly\Resources\CustomField',
-    );
+    ];
 
     
     /**

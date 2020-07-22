@@ -19,8 +19,8 @@ class AccountNote extends RecurlyResource
     private $_object;
     private $_user;
 
-    protected static $array_hints = array(
-    );
+    protected static $array_hints = [
+    ];
 
     
     /**

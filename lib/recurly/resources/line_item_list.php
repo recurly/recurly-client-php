@@ -17,9 +17,9 @@ class LineItemList extends RecurlyResource
     private $_next;
     private $_object;
 
-    protected static $array_hints = array(
+    protected static $array_hints = [
         'setData' => '\Recurly\Resources\LineItem',
-    );
+    ];
 
     
     /**

@@ -27,8 +27,8 @@ class PaymentMethod extends RecurlyResource
     private $_routing_number;
     private $_routing_number_bank;
 
-    protected static $array_hints = array(
-    );
+    protected static $array_hints = [
+    ];
 
     
     /**

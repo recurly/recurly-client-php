@@ -16,9 +16,9 @@ class InvoiceCollection extends RecurlyResource
     private $_credit_invoices;
     private $_object;
 
-    protected static $array_hints = array(
+    protected static $array_hints = [
         'setCreditInvoices' => '\Recurly\Resources\Invoice',
-    );
+    ];
 
     
     /**

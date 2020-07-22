@@ -19,8 +19,8 @@ class CouponRedemptionMini extends RecurlyResource
     private $_object;
     private $_state;
 
-    protected static $array_hints = array(
-    );
+    protected static $array_hints = [
+    ];
 
     
     /**

@@ -22,8 +22,8 @@ class ShippingMethod extends RecurlyResource
     private $_tax_code;
     private $_updated_at;
 
-    protected static $array_hints = array(
-    );
+    protected static $array_hints = [
+    ];
 
     
     /**

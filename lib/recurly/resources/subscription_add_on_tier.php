@@ -15,8 +15,8 @@ class SubscriptionAddOnTier extends RecurlyResource
     private $_ending_quantity;
     private $_unit_amount;
 
-    protected static $array_hints = array(
-    );
+    protected static $array_hints = [
+    ];
 
     
     /**

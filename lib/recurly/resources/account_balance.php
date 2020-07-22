@@ -17,9 +17,9 @@ class AccountBalance extends RecurlyResource
     private $_object;
     private $_past_due;
 
-    protected static $array_hints = array(
+    protected static $array_hints = [
         'setBalances' => '\Recurly\Resources\AccountBalanceAmount',
-    );
+    ];
 
     
     /**

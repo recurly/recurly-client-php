@@ -20,8 +20,8 @@ class AddOnMini extends RecurlyResource
     private $_name;
     private $_object;
 
-    protected static $array_hints = array(
-    );
+    protected static $array_hints = [
+    ];
 
     
     /**

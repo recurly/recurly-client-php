@@ -17,8 +17,8 @@ class TransactionPaymentGateway extends RecurlyResource
     private $_object;
     private $_type;
 
-    protected static $array_hints = array(
-    );
+    protected static $array_hints = [
+    ];
 
     
     /**

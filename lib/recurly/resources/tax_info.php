@@ -16,8 +16,8 @@ class TaxInfo extends RecurlyResource
     private $_region;
     private $_type;
 
-    protected static $array_hints = array(
-    );
+    protected static $array_hints = [
+    ];
 
     
     /**

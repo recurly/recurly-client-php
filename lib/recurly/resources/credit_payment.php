@@ -27,8 +27,8 @@ class CreditPayment extends RecurlyResource
     private $_uuid;
     private $_voided_at;
 
-    protected static $array_hints = array(
-    );
+    protected static $array_hints = [
+    ];
 
     
     /**

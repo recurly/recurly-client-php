@@ -27,8 +27,8 @@ class BillingInfo extends RecurlyResource
     private $_valid;
     private $_vat_number;
 
-    protected static $array_hints = array(
-    );
+    protected static $array_hints = [
+    ];
 
     
     /**

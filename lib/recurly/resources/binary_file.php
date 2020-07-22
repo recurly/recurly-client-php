@@ -14,8 +14,8 @@ class BinaryFile extends RecurlyResource
 {
     private $_data;
 
-    protected static $array_hints = array(
-    );
+    protected static $array_hints = [
+    ];
 
     
     /**

@@ -17,9 +17,9 @@ class ErrorMayHaveTransaction extends RecurlyResource
     private $_transaction_error;
     private $_type;
 
-    protected static $array_hints = array(
+    protected static $array_hints = [
         'setParams' => 'object',
-    );
+    ];
 
     
     /**
