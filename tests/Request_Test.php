@@ -11,12 +11,21 @@ final class RequestTest extends RecurlyTestCase
         $this->method = 'GET';
         $this->path = '/accounts';
         $this->body = $account_create;
-        $this->params = [];
+        $this->options = [
+            'params' => [
+                'param-1' => 1,
+                'param-2' => 'Param 2',
+            ],
+            'headers' => [
+                'header-1' => 'Header 1',
+                'header-2' => 'Header 2',
+            ]
+        ];
         $this->request = new Request(
             $this->method,
             $this->path,
             $this->body,
-            $this->params
+            $this->options
         );
     }
 
@@ -47,8 +56,24 @@ final class RequestTest extends RecurlyTestCase
     public function testGetParams()
     {
         $this->assertEquals(
-            $this->params,
+            $this->options['params'],
             $this->request->getParams()
+        );
+    }
+
+    public function testGetCustomHeaders()
+    {
+        $this->assertEquals(
+            $this->options['headers'],
+            $this->request->getCustomHeaders()
+        );
+    }
+
+    public function testGetOptions()
+    {
+        $this->assertEquals(
+            $this->options,
+            $this->request->getOptions()
         );
     }
 

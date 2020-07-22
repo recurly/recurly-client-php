@@ -64,12 +64,12 @@ abstract class BaseClient
      */
     private function _getResponse(string $method, string $path, array $body = [], array $options = []): \Recurly\Response
     {
-        $params = array_key_exists('params', $options) ? $options['params'] : [];
-        $request = new \Recurly\Request($method, $path, $body, $params);
+        $headers = $this->_buildHeaders($options);
+        $request = new \Recurly\Request($method, $path, $body, $options);
 
-        $url = $this->_buildPath($path, $params);
+        $url = $this->_buildPath($path, $options);
         $formattedBody = $this->_formatDateTimes($body);
-        list($result, $response_header) = $this->http->execute($method, $url, $formattedBody, $this->_headers());
+        list($result, $response_header) = $this->http->execute($method, $url, $formattedBody, $headers);
 
         // TODO: The $request should be added to the $response
         $response = new \Recurly\Response($result);
@@ -107,15 +107,15 @@ abstract class BaseClient
     /**
      * Build the URL that the API request will be sent to
      * 
-     * @param string $path   The path to be requested
-     * @param ?array $params An associative array of query string parameters or null
+     * @param string $path    The path to be requested
+     * @param array  $options Additional request parameters (including query parameters)
      * 
      * @return string The combined URL
      */
-    private function _buildPath(string $path, ?array $params): string
+    private function _buildPath(string $path, array $options): string
     {
-        if (isset($params) && !empty($params)) {
-            $mappedParams = $this->_mapArrayParams($params);
+        if (array_key_exists('params', $options) && !empty($options['params'])) {
+            $mappedParams = $this->_mapArrayParams($options['params']);
             return $this->baseUrl . $path . '?' . http_build_query($this->_formatDateTimes($mappedParams));
         } else {
             return $this->baseUrl . $path;
@@ -230,18 +230,21 @@ abstract class BaseClient
     /**
      * Generates headers to be sent with the HTTP request
      * 
+     * @param $options Associative array of request options
+     * 
      * @return array Array representation of the HTTP headers
      */
-    private function _headers(): array
+    private function _buildHeaders(array $options): array
     {
+        $headers = array_key_exists('headers', $options) ? $options['headers'] : [];
         $auth_token = self::encodeApiKey($this->_api_key);
         $agent = self::getUserAgent();
-        return array(
+        return array_merge($headers, [
             "User-Agent" => $agent,
             "Authorization" => "Basic {$auth_token}",
             "Accept" => "application/vnd.recurly.{$this->apiVersion()}",
             "Content-Type" => "application/json",
             "Accept-Encoding" => "gzip",
-        );
+        ]);
     }
 }
