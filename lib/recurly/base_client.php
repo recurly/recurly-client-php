@@ -72,7 +72,7 @@ abstract class BaseClient
         list($result, $response_header) = $this->http->execute($method, $url, $formattedBody, $headers);
 
         // TODO: The $request should be added to the $response
-        $response = new \Recurly\Response($result);
+        $response = new \Recurly\Response($result, $request);
         $response->setHeaders($response_header);
 
         return $response;
