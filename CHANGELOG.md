@@ -1,5 +1,11 @@
 # Recurly PHP Client Library CHANGELOG
 
+## Version 2.12.15 (July 22, 2020)
+
+This brings us up to API version 2.28. There are no breaking changes
+
+* BECS support [PR](https://github.com/recurly/recurly-client-php/pull/520)
+
 ## Version 2.12.14 (June 30, 2020)
 
 This brings us up to API version 2.27. There are no breaking changes
