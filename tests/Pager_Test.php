@@ -7,6 +7,7 @@ final class PagerTest extends RecurlyTestCase
     public function setUp(): void
     {
         parent::setUp();
+        $this->setUpRequest();
         $this->client = new MockClient();
 
         $this->count = 3;
@@ -16,7 +17,7 @@ final class PagerTest extends RecurlyTestCase
                 $name = 'page_limit_1';
             }
             $json_string = $this->fixtures->loadJsonFixture($name, ['type' => 'string']);
-            $response = new \Recurly\Response($json_string);
+            $response = new \Recurly\Response($json_string, $this->request);
             $response->setHeaders(array(
                 'HTTP/1.1 200 OK',
                 "Recurly-Total-Records: {$this->count}"
@@ -24,7 +25,7 @@ final class PagerTest extends RecurlyTestCase
             return $response->toResource();
         }));
         $client_stub->method('pagerCount')->will($this->returnCallback(function($name, $params) {
-            $response = new \Recurly\Response('');
+            $response = new \Recurly\Response('', $this->request);
             $response->setHeaders(array(
                 'HTTP/1.1 200 OK',
                 "Recurly-Total-Records: {$this->count}"

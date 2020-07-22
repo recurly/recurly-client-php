@@ -158,4 +158,38 @@ final class BaseClientTest extends RecurlyTestCase
         }
         $this->assertEquals($count, 1);
     }
+
+    public function testValidOptions(): void
+    {
+        $url = "https://v3.recurly.com/resources/iexist?param-1=Param+1";
+        $result = '{"id": "iexist", "object": "test_resource"}';
+        $headers = [
+            'Accept-Language' => 'fr'
+        ];
+        $this->client->addScenario("GET", $url, [], $result, "200 OK", [], $headers);
+
+        $options = [
+            'params' => [
+                'param-1' => 'Param 1'
+            ],
+            'headers' => $headers
+        ];
+
+        $resource = $this->client->getResource("iexist", $options);
+        $this->assertEquals($resource->getId(), "iexist");
+    }
+
+    public function testInvalidOptions(): void
+    {
+        $url = "https://v3.recurly.com/resources/iexist?param-1=Param+1";
+        $result = '{"id": "iexist", "object": "test_resource"}';
+        $this->client->addScenario("GET", $url, [], $result, "200 OK");
+
+        $options = [
+            'param-1' => 'Param 1'
+        ];
+
+        $this->expectException(\Recurly\RecurlyError::class);
+        $resource = $this->client->getResource("iexist", $options);
+    }
 }
