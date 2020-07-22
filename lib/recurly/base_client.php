@@ -10,7 +10,6 @@ abstract class BaseClient
     private $_api_key;
     protected $http;
     private const ALLOWED_OPTIONS = [
-        'body',
         'params',
         'headers'
     ];
