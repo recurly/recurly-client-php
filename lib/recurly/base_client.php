@@ -9,6 +9,10 @@ abstract class BaseClient
     protected $baseUrl = 'https://v3.recurly.com';
     private $_api_key;
     protected $http;
+    private const ALLOWED_OPTIONS = [
+        'params',
+        'headers'
+    ];
 
     /**
      * Constructor
@@ -31,16 +35,17 @@ abstract class BaseClient
     /**
      * Performs API requests and processes the response into a Recurly Resource
      * 
-     * @param string $method HTTP method to use
-     * @param string $path   Tokenized path to request
-     * @param array  $body   The request body
-     * @param array  $params Query string parameters
+     * @param string $method  HTTP method to use
+     * @param string $path    Tokenized path to request
+     * @param array  $body    The request body
+     * @param array  $options Additional request parameters (including query parameters)
      * 
      * @return \Recurly\RecurlyResource A Recurly Resource
      */
-    protected function makeRequest(string $method, string $path, ?array $body = [], ?array $params = []): \Recurly\RecurlyResource
+    protected function makeRequest(string $method, string $path, array $body = [], array $options = []): \Recurly\RecurlyResource
     {
-        $response = $this->_getResponse($method, $path, $body, $params);
+        $this->_validateOptions($options);
+        $response = $this->_getResponse($method, $path, $body, $options);
         $resource = $response->toResource();
         return $resource;
     }
@@ -49,23 +54,24 @@ abstract class BaseClient
     /**
      * Performs the HTTP request to the Recurly API
      * 
-     * @param string $method HTTP method to use
-     * @param string $path   Tokenized path to request
-     * @param array  $body   The request body
-     * @param array  $params Query string parameters
+     * @param string $method  HTTP method to use
+     * @param string $path    Tokenized path to request
+     * @param array  $body    The request body
+     * @param array  $options Additional request parameters (including query parameters)
      * 
      * @return \Recurly\Response A Recurly Response object
      */
-    private function _getResponse(string $method, string $path, ?array $body = [], ?array $params = []): \Recurly\Response
+    private function _getResponse(string $method, string $path, array $body = [], array $options = []): \Recurly\Response
     {
-        $request = new \Recurly\Request($method, $path, $body, $params);
+        $headers = $this->_buildHeaders($options);
+        $request = new \Recurly\Request($method, $path, $body, $options);
 
-        $url = $this->_buildPath($path, $params);
+        $url = $this->_buildPath($path, $options);
         $formattedBody = $this->_formatDateTimes($body);
-        list($result, $response_header) = $this->http->execute($method, $url, $formattedBody, $this->_headers());
+        list($result, $response_header) = $this->http->execute($method, $url, $formattedBody, $headers);
 
         // TODO: The $request should be added to the $response
-        $response = new \Recurly\Response($result);
+        $response = new \Recurly\Response($result, $request);
         $response->setHeaders($response_header);
 
         return $response;
@@ -74,43 +80,42 @@ abstract class BaseClient
     /**
      * Used by the \Recurly\Pager to make requests to the API.
      * 
-     * @param string $path   The URL to make the pager request to
-     * @param ?array $params (optional) An associative array of query string
-     *                       parameters
+     * @param string $path    The URL to make the pager request to
+     * @param array  $options An associative array optional parameters
      * 
      * @return \Recurly\Page
      */
-    public function nextPage(string $path, ?array $params = []): \Recurly\Page
+    public function nextPage(string $path, array $options = []): \Recurly\Page
     {
-        return $this->makeRequest('GET', $path, null, $params);
+        return $this->makeRequest('GET', $path, [], $options);
     }
 
     /**
      * Used by the \Recurly\Pager to obtain total counts from the API.
      * 
-     * @param string $path   The URL to make the pager request to
-     * @param ?array $params (optional) An associative array of query string
-     *                       parameters
+     * @param string $path    The URL to make the pager request to
+     * @param array  $options An associative array optional parameters
      * 
      * @return \Recurly\Response
      */
-    public function pagerCount(string $path, ?array $params = []): \Recurly\Response
+    public function pagerCount(string $path, ?array $options = []): \Recurly\Response
     {
-        return $this->_getResponse('HEAD', $path, null, $params);
+        return $this->_getResponse('HEAD', $path, [], $options);
     }
 
     /**
      * Build the URL that the API request will be sent to
      * 
-     * @param string $path   The path to be requested
-     * @param ?array $params An associative array of query string parameters or null
+     * @param string $path    The path to be requested
+     * @param array  $options Additional request parameters (including query parameters)
      * 
      * @return string The combined URL
      */
-    private function _buildPath(string $path, ?array $params): string
+    private function _buildPath(string $path, array $options): string
     {
-        if (isset($params) && !empty($params)) {
-            return $this->baseUrl . $path . '?' . http_build_query($this->_formatDateTimes($params));
+        if (array_key_exists('params', $options) && !empty($options['params'])) {
+            $mappedParams = $this->_mapArrayParams($options['params']);
+            return $this->baseUrl . $path . '?' . http_build_query($this->_formatDateTimes($mappedParams));
         } else {
             return $this->baseUrl . $path;
         }
@@ -118,17 +123,36 @@ abstract class BaseClient
     }
 
     /**
+     * Maps parameters with array values into csv strings. The API expects these
+     * values to be csv strings, but an array is a nicer interface for developers.
+     * 
+     * @param array $params Associative array of parameters
+     * 
+     * @return array
+     */
+    private function _mapArrayParams(?array $params = []): ?array
+    {
+        if (!is_null($params)) {
+            array_walk(
+                $params, function (&$param, $key) {
+                    if (is_array($param)) {
+                        $param = join(',', $param);
+                    }
+                }
+            );
+        }
+        return $params;
+    }
+
+    /**
      * Converts any DateTime values in $arr to ISO8601 strings
      * 
-     * @param ?array $arr The Associative array to format
+     * @param array $arr The Associative array to format
      * 
-     * @return ?array The formatted array
+     * @return array The formatted array
      */
-    private function _formatDateTimes(?array $arr): ?array
+    private function _formatDateTimes(array $arr): ?array
     {
-        if (!isset($arr)) {
-            return $arr;
-        }
         return array_combine(
             array_keys($arr),
             array_map(
@@ -162,7 +186,27 @@ abstract class BaseClient
         if (!empty($emptyValues)) {
             throw new RecurlyError(join(', ', array_keys($emptyValues)) . ' cannot be an empty value');
         }
-    }
+    } 
+
+    /**
+     * Checks that $options keys are valid
+     *
+     * @param array $options An associative array optional parameters
+     */
+    private function _validateOptions(array $options = []): void
+    {
+        // Check to make sure that parameters are not empty values
+        $invalidKeys = array_filter(
+            $options, function ($value, $key) {
+                return !\in_array($key, BaseClient::ALLOWED_OPTIONS);
+            }, ARRAY_FILTER_USE_BOTH
+        );
+        if (!empty($invalidKeys)) {
+            $joinedKeys = join(', ', array_keys($invalidKeys));
+            $joinedOptions = join(', ', BaseClient::ALLOWED_OPTIONS);
+            throw new RecurlyError("Invalid options: '{$joinedKeys}'. Allowed options: '{$joinedOptions}'");
+        }
+    } 
 
     /**
      * Replaces placeholder values with supplied values
@@ -185,18 +229,21 @@ abstract class BaseClient
     /**
      * Generates headers to be sent with the HTTP request
      * 
+     * @param $options Associative array of request options
+     * 
      * @return array Array representation of the HTTP headers
      */
-    private function _headers(): array
+    private function _buildHeaders(array $options): array
     {
+        $headers = array_key_exists('headers', $options) ? $options['headers'] : [];
         $auth_token = self::encodeApiKey($this->_api_key);
         $agent = self::getUserAgent();
-        return array(
+        return array_merge($headers, [
             "User-Agent" => $agent,
             "Authorization" => "Basic {$auth_token}",
             "Accept" => "application/vnd.recurly.{$this->apiVersion()}",
             "Content-Type" => "application/json",
             "Accept-Encoding" => "gzip",
-        );
+        ]);
     }
 }

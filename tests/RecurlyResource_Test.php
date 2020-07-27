@@ -4,6 +4,12 @@ use Recurly\RecurlyResource;
 
 final class RecurlyResourceTest extends RecurlyTestCase
 {
+    public function setUp(): void
+    {
+        parent::setUp();
+        $this->setUpRequest();
+    }
+
     public function testUnknownPropertyError(): void
     {
         $resource = new \Recurly\Resources\TestResource();
@@ -30,7 +36,7 @@ final class RecurlyResourceTest extends RecurlyTestCase
             ]
         );
 
-        $response = new \Recurly\Response(json_encode($test_resource));
+        $response = new \Recurly\Response(json_encode($test_resource), $this->request);
         $response->setHeaders(array('HTTP/1.1 200 OK'));
         $result = RecurlyResource::fromResponse($response);
         $this->assertInstanceOf(\Recurly\Resources\TestResource::class, $result);
@@ -46,7 +52,7 @@ final class RecurlyResourceTest extends RecurlyTestCase
             "unknown_key" => "unknown-key"
         );
 
-        $response = new \Recurly\Response(json_encode($test_resource));
+        $response = new \Recurly\Response(json_encode($test_resource), $this->request);
         $response->setHeaders(array('HTTP/1.1 200 OK'));
         $result = RecurlyResource::fromResponse($response);
         $this->assertInstanceOf(\Recurly\Resources\TestResource::class, $result);
@@ -102,7 +108,7 @@ final class RecurlyResourceTest extends RecurlyTestCase
             'object' => 'list'
         );
 
-        $response = new \Recurly\Response(json_encode($data));
+        $response = new \Recurly\Response(json_encode($data), $this->request);
         $response->setHeaders(array('HTTP/1.1 200 OK'));
         $result = RecurlyResource::fromResponse($response);
         $this->assertInstanceOf(\Recurly\Page::class, $result);
@@ -112,7 +118,7 @@ final class RecurlyResourceTest extends RecurlyTestCase
     {
         $data = 'binary file data';
 
-        $response = new \Recurly\Response(json_encode($data));
+        $response = new \Recurly\Response(json_encode($data), $this->request);
         $response->setHeaders(array('HTTP/1.1 200 OK'));
         $result = RecurlyResource::fromBinary($data, $response);
         $this->assertInstanceOf(\Recurly\Resources\BinaryFile::class, $result);
@@ -121,7 +127,7 @@ final class RecurlyResourceTest extends RecurlyTestCase
 
     public function testFromEmpty(): void
     {
-        $response = new \Recurly\Response('');
+        $response = new \Recurly\Response('', $this->request);
         $response->setHeaders(array('HTTP/1.1 200 OK'));
         $result = RecurlyResource::fromEmpty($response);
         $this->assertInstanceOf(\Recurly\EmptyResource::class, $result);

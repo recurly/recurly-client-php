@@ -7,17 +7,7 @@ final class RequestTest extends RecurlyTestCase
     public function setUp(): void
     {
         parent::setUp();
-        $account_create = $this->fixtures->loadJsonFixture('account_create', ['type' => 'array']);
-        $this->method = 'GET';
-        $this->path = '/accounts';
-        $this->body = $account_create;
-        $this->params = [];
-        $this->request = new Request(
-            $this->method,
-            $this->path,
-            $this->body,
-            $this->params
-        );
+        $this->setUpRequest();
     }
 
     public function testGetMethod()
@@ -47,8 +37,24 @@ final class RequestTest extends RecurlyTestCase
     public function testGetParams()
     {
         $this->assertEquals(
-            $this->params,
+            $this->options['params'],
             $this->request->getParams()
+        );
+    }
+
+    public function testGetCustomHeaders()
+    {
+        $this->assertEquals(
+            $this->options['headers'],
+            $this->request->getCustomHeaders()
+        );
+    }
+
+    public function testGetOptions()
+    {
+        $this->assertEquals(
+            $this->options,
+            $this->request->getOptions()
         );
     }
 

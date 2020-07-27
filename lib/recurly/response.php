@@ -5,6 +5,7 @@ namespace Recurly;
 class Response
 {
     private $_response;
+    private $_request;
     private $_status_code;
     private $_headers = [];
     private const BINARY_TYPES = [
@@ -16,9 +17,10 @@ class Response
      * 
      * @param string $response The raw HTTP response string
      */
-    public function __construct(string $response)
+    public function __construct(string $response, \Recurly\Request $request)
     {
         $this->_response = $response;
+        $this->_request = $request;
     }
 
     /**
@@ -39,6 +41,16 @@ class Response
     public function getJsonResponse(): ?object
     {
         return json_decode($this->_response);
+    }
+
+    /**
+     * The \Recurly\Request object
+     * 
+     * @return \Recurly\Request
+     */
+    public function getRequest(): \Recurly\Request
+    {
+        return $this->_request;
     }
 
     /**

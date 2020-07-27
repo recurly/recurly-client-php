@@ -6,44 +6,22 @@ class Pager implements \Iterator
 {
     private $_client;
     private $_path;
-    private $_params;
+    private $_options;
     private $_current_page;
 
     /**
      * Constructor
      * 
-     * @param \Recurly\BaseClient $client A \Recurly\BaseClient that can make API
-     *                                    requests 
-     * @param string              $path   Tokenized path to request
-     * @param array               $params (optional) Query string parameters
+     * @param \Recurly\BaseClient $client  A \Recurly\BaseClient that can make API
+     *                                     requests 
+     * @param string              $path    Tokenized path to request
+     * @param array               $options Additional request parameters (including query parameters)
      */
-    public function __construct(\Recurly\BaseClient $client, string $path, ?array $params = [])
+    public function __construct(\Recurly\BaseClient $client, string $path, array $options = [])
     {
         $this->_client = $client;
         $this->_path = $path;
-        $this->_params = $this->_mapArrayParams($params);
-    }
-
-    /**
-     * Maps parameters with array values into csv strings. The API expects these
-     * values to be csv strings, but an array is a nicer interface for developers.
-     * 
-     * @param array $params Associative array of parameters
-     * 
-     * @return array
-     */
-    private function _mapArrayParams(?array $params = []): ?array
-    {
-        if (!is_null($params)) {
-            array_walk(
-                $params, function (&$param, $key) {
-                    if (is_array($param)) {
-                        $param = join(',', $param);
-                    }
-                }
-            );
-        }
-        return $params;
+        $this->_options = $options;
     }
 
     /**
@@ -53,7 +31,7 @@ class Pager implements \Iterator
      */
     public function getCount()
     {
-        $response = $this->_client->pagerCount($this->_path, $this->_params);
+        $response = $this->_client->pagerCount($this->_path, $this->_options);
         return $response->getRecordCount();
     }
 
@@ -64,8 +42,8 @@ class Pager implements \Iterator
      */
     public function getFirst(): ?\Recurly\RecurlyResource
     {
-        $params = array_merge([ 'limit' => 1 ], $this->_params);
-        $page = $this->_client->nextPage($this->_path, $params);
+        $options = array_merge_recursive([ 'params' => [ 'limit' => 1 ] ], $this->_options);
+        $page = $this->_client->nextPage($this->_path, $options);
         if ($page->valid()) {
             return $page->current();
         }
@@ -92,7 +70,7 @@ class Pager implements \Iterator
     {
         $this->_current_page = $this->_client->nextPage(
             $this->_path,
-            $this->_params
+            $this->_options
         );
     }
 
@@ -150,6 +128,6 @@ class Pager implements \Iterator
     private function _loadNextPage(): void
     {
         $next_page = $this->_current_page->getNext();
-        $this->_current_page = $this->_client->nextPage($next_page, null);
+        $this->_current_page = $this->_client->nextPage($next_page);
     }
 }

@@ -7,22 +7,23 @@ class Request
     private $_method;
     private $_path;
     private $_body;
-    private $_params;
+    private $_options;
 
     /**
      * Constructor
      * 
-     * @param string $method HTTP method to use
-     * @param string $path   Tokenized path to request
-     * @param array  $body   The request body
-     * @param array  $params Query string parameters
+     * @param string $method  HTTP method to use
+     * @param string $path    Tokenized path to request
+     * @param array  $body    The request body
+     * @param array  $params  Query string parameters
+     * @param array  $options Additional request parameters (including query parameters)
      */
-    public function __construct(string $method, string $path, ?array $body, ?array $params)
+    public function __construct(string $method, string $path, array $body, array $options)
     {
         $this->_method = $method;
         $this->_path = $path;
         $this->_body = $body;
-        $this->_params = $params;
+        $this->_options = $options;
     }
 
     /**
@@ -60,8 +61,28 @@ class Request
      * 
      * @return array The query string parameters
      */
-    public function getParams(): ?array
+    public function getParams(): array
     {
-        return $this->_params;
+        return array_key_exists('params', $this->_options) ? $this->_options['params'] : [];
+    }
+
+    /**
+     * Returns the request headers
+     * 
+     * @return array The custom request headers
+     */
+    public function getCustomHeaders(): array
+    {
+        return array_key_exists('headers', $this->_options) ? $this->_options['headers'] : [];
+    }
+
+    /**
+     * Returns the request options
+     * 
+     * @return array The options included in the request
+     */
+    public function getOptions(): array
+    {
+        return $this->_options;
     }
 }
