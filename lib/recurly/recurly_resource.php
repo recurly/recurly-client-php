@@ -110,6 +110,8 @@ abstract class RecurlyResource
                     $klass->$setter(
                         array_map(
                             function ($item) use ($setter) {
+                                if (\is_null($item))
+                                    return;
                                 if (property_exists($item, 'object')) {
                                     $item_class = static::resourceClass($item->object);
                                 } else {
