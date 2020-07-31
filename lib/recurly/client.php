@@ -23,9 +23,11 @@ class Client extends BaseClient
     /**
      * List sites
      *
-     * Supported optional parameters:
+     * @param array $options Associative array of optional parameters
      *
-     * 'ids' (array): Filter results by their IDs. Up to 200 IDs can be passed at once using
+     * Supported optional query string parameters:
+     *
+     * - $options['ids'] (array): Filter results by their IDs. Up to 200 IDs can be passed at once using
      *        commas as separators, e.g. `ids=h1at4d57xlmy,gyqgg0d3v9n1,jrsm5b4yefg6`.
      *        
      *        **Important notes:**
@@ -36,14 +38,12 @@ class Client extends BaseClient
      *          results correspond to your request.
      *        * Records are returned in an arbitrary order. Since results are all
      *          returned at once you can sort the records yourself.
-     * 'limit' (int): Limit number of records 1-200.
-     * 'order' (string): Sort order.
-     * 'sort' (string): Sort field. You *really* only want to sort by `updated_at` in ascending
+     * - $options['limit'] (int): Limit number of records 1-200.
+     * - $options['order'] (string): Sort order.
+     * - $options['sort'] (string): Sort field. You *really* only want to sort by `updated_at` in ascending
      *        order. In descending order updated records will move behind the cursor and could
      *        prevent some records from being returned.
-     * 'state' (string): Filter by state.
-     *
-     * @param array $options Associative array of optional parameters:
+     * - $options['state'] (string): Filter by state.
      *
      * @return \Recurly\Pager A list of sites.
      * @link   https://developers.recurly.com/api/v2019-10-10#operation/list_sites
@@ -71,9 +71,11 @@ class Client extends BaseClient
     /**
      * List a site's accounts
      *
-     * Supported optional parameters:
+     * @param array $options Associative array of optional parameters
      *
-     * 'ids' (array): Filter results by their IDs. Up to 200 IDs can be passed at once using
+     * Supported optional query string parameters:
+     *
+     * - $options['ids'] (array): Filter results by their IDs. Up to 200 IDs can be passed at once using
      *        commas as separators, e.g. `ids=h1at4d57xlmy,gyqgg0d3v9n1,jrsm5b4yefg6`.
      *        
      *        **Important notes:**
@@ -84,21 +86,19 @@ class Client extends BaseClient
      *          results correspond to your request.
      *        * Records are returned in an arbitrary order. Since results are all
      *          returned at once you can sort the records yourself.
-     * 'limit' (int): Limit number of records 1-200.
-     * 'order' (string): Sort order.
-     * 'sort' (string): Sort field. You *really* only want to sort by `updated_at` in ascending
+     * - $options['limit'] (int): Limit number of records 1-200.
+     * - $options['order'] (string): Sort order.
+     * - $options['sort'] (string): Sort field. You *really* only want to sort by `updated_at` in ascending
      *        order. In descending order updated records will move behind the cursor and could
      *        prevent some records from being returned.
-     * 'begin_time' (string): Filter by begin_time when `sort=created_at` or `sort=updated_at`.
+     * - $options['begin_time'] (string): Inclusively filter by begin_time when `sort=created_at` or `sort=updated_at`.
      *        **Note:** this value is an ISO8601 timestamp. A partial timestamp that does not include a time zone will default to UTC.
-     * 'end_time' (string): Filter by end_time when `sort=created_at` or `sort=updated_at`.
+     * - $options['end_time'] (string): Inclusively filter by end_time when `sort=created_at` or `sort=updated_at`.
      *        **Note:** this value is an ISO8601 timestamp. A partial timestamp that does not include a time zone will default to UTC.
-     * 'email' (string): Filter for accounts with this exact email address. A blank value will return accounts with both `null` and `""` email addresses. Note that multiple accounts can share one email address.
-     * 'subscriber' (bool): Filter for accounts with or without a subscription in the `active`,
+     * - $options['email'] (string): Filter for accounts with this exact email address. A blank value will return accounts with both `null` and `""` email addresses. Note that multiple accounts can share one email address.
+     * - $options['subscriber'] (bool): Filter for accounts with or without a subscription in the `active`,
      *        `canceled`, or `future` state.
-     * 'past_due' (string): Filter for accounts with an invoice in the `past_due` state.
-     *
-     * @param array $options Associative array of optional parameters:
+     * - $options['past_due'] (string): Filter for accounts with an invoice in the `past_due` state.
      *
      * @return \Recurly\Pager A list of the site's accounts.
      * @link   https://developers.recurly.com/api/v2019-10-10#operation/list_accounts
@@ -283,9 +283,12 @@ class Client extends BaseClient
     /**
      * Show the coupon redemptions for an account
      *
-     * Supported optional parameters:
+     * @param string $account_id Account ID or code. For ID no prefix is used e.g. `e28zov4fw0v2`. For code use prefix `code-`, e.g. `code-bob`.
+     * @param array  $options    Associative array of optional parameters
      *
-     * 'ids' (array): Filter results by their IDs. Up to 200 IDs can be passed at once using
+     * Supported optional query string parameters:
+     *
+     * - $options['ids'] (array): Filter results by their IDs. Up to 200 IDs can be passed at once using
      *        commas as separators, e.g. `ids=h1at4d57xlmy,gyqgg0d3v9n1,jrsm5b4yefg6`.
      *        
      *        **Important notes:**
@@ -296,16 +299,13 @@ class Client extends BaseClient
      *          results correspond to your request.
      *        * Records are returned in an arbitrary order. Since results are all
      *          returned at once you can sort the records yourself.
-     * 'sort' (string): Sort field. You *really* only want to sort by `updated_at` in ascending
+     * - $options['sort'] (string): Sort field. You *really* only want to sort by `updated_at` in ascending
      *        order. In descending order updated records will move behind the cursor and could
      *        prevent some records from being returned.
-     * 'begin_time' (string): Filter by begin_time when `sort=created_at` or `sort=updated_at`.
+     * - $options['begin_time'] (string): Inclusively filter by begin_time when `sort=created_at` or `sort=updated_at`.
      *        **Note:** this value is an ISO8601 timestamp. A partial timestamp that does not include a time zone will default to UTC.
-     * 'end_time' (string): Filter by end_time when `sort=created_at` or `sort=updated_at`.
+     * - $options['end_time'] (string): Inclusively filter by end_time when `sort=created_at` or `sort=updated_at`.
      *        **Note:** this value is an ISO8601 timestamp. A partial timestamp that does not include a time zone will default to UTC.
-     *
-     * @param string $account_id Account ID or code. For ID no prefix is used e.g. `e28zov4fw0v2`. For code use prefix `code-`, e.g. `code-bob`.
-     * @param array  $options    Associative array of optional parameters:
      *
      * @return \Recurly\Pager A list of the the coupon redemptions on an account.
      * @link   https://developers.recurly.com/api/v2019-10-10#operation/list_account_coupon_redemptions
@@ -362,20 +362,20 @@ class Client extends BaseClient
     /**
      * List an account's credit payments
      *
-     * Supported optional parameters:
+     * @param string $account_id Account ID or code. For ID no prefix is used e.g. `e28zov4fw0v2`. For code use prefix `code-`, e.g. `code-bob`.
+     * @param array  $options    Associative array of optional parameters
      *
-     * 'limit' (int): Limit number of records 1-200.
-     * 'order' (string): Sort order.
-     * 'sort' (string): Sort field. You *really* only want to sort by `updated_at` in ascending
+     * Supported optional query string parameters:
+     *
+     * - $options['limit'] (int): Limit number of records 1-200.
+     * - $options['order'] (string): Sort order.
+     * - $options['sort'] (string): Sort field. You *really* only want to sort by `updated_at` in ascending
      *        order. In descending order updated records will move behind the cursor and could
      *        prevent some records from being returned.
-     * 'begin_time' (string): Filter by begin_time when `sort=created_at` or `sort=updated_at`.
+     * - $options['begin_time'] (string): Inclusively filter by begin_time when `sort=created_at` or `sort=updated_at`.
      *        **Note:** this value is an ISO8601 timestamp. A partial timestamp that does not include a time zone will default to UTC.
-     * 'end_time' (string): Filter by end_time when `sort=created_at` or `sort=updated_at`.
+     * - $options['end_time'] (string): Inclusively filter by end_time when `sort=created_at` or `sort=updated_at`.
      *        **Note:** this value is an ISO8601 timestamp. A partial timestamp that does not include a time zone will default to UTC.
-     *
-     * @param string $account_id Account ID or code. For ID no prefix is used e.g. `e28zov4fw0v2`. For code use prefix `code-`, e.g. `code-bob`.
-     * @param array  $options    Associative array of optional parameters:
      *
      * @return \Recurly\Pager A list of the account's credit payments.
      * @link   https://developers.recurly.com/api/v2019-10-10#operation/list_account_credit_payments
@@ -389,9 +389,12 @@ class Client extends BaseClient
     /**
      * List an account's invoices
      *
-     * Supported optional parameters:
+     * @param string $account_id Account ID or code. For ID no prefix is used e.g. `e28zov4fw0v2`. For code use prefix `code-`, e.g. `code-bob`.
+     * @param array  $options    Associative array of optional parameters
      *
-     * 'ids' (array): Filter results by their IDs. Up to 200 IDs can be passed at once using
+     * Supported optional query string parameters:
+     *
+     * - $options['ids'] (array): Filter results by their IDs. Up to 200 IDs can be passed at once using
      *        commas as separators, e.g. `ids=h1at4d57xlmy,gyqgg0d3v9n1,jrsm5b4yefg6`.
      *        
      *        **Important notes:**
@@ -402,23 +405,20 @@ class Client extends BaseClient
      *          results correspond to your request.
      *        * Records are returned in an arbitrary order. Since results are all
      *          returned at once you can sort the records yourself.
-     * 'limit' (int): Limit number of records 1-200.
-     * 'order' (string): Sort order.
-     * 'sort' (string): Sort field. You *really* only want to sort by `updated_at` in ascending
+     * - $options['limit'] (int): Limit number of records 1-200.
+     * - $options['order'] (string): Sort order.
+     * - $options['sort'] (string): Sort field. You *really* only want to sort by `updated_at` in ascending
      *        order. In descending order updated records will move behind the cursor and could
      *        prevent some records from being returned.
-     * 'begin_time' (string): Filter by begin_time when `sort=created_at` or `sort=updated_at`.
+     * - $options['begin_time'] (string): Inclusively filter by begin_time when `sort=created_at` or `sort=updated_at`.
      *        **Note:** this value is an ISO8601 timestamp. A partial timestamp that does not include a time zone will default to UTC.
-     * 'end_time' (string): Filter by end_time when `sort=created_at` or `sort=updated_at`.
+     * - $options['end_time'] (string): Inclusively filter by end_time when `sort=created_at` or `sort=updated_at`.
      *        **Note:** this value is an ISO8601 timestamp. A partial timestamp that does not include a time zone will default to UTC.
-     * 'type' (string): Filter by type when:
+     * - $options['type'] (string): Filter by type when:
      *        - `type=charge`, only charge invoices will be returned.
      *        - `type=credit`, only credit invoices will be returned.
      *        - `type=non-legacy`, only charge and credit invoices will be returned.
      *        - `type=legacy`, only legacy invoices will be returned.
-     *
-     * @param string $account_id Account ID or code. For ID no prefix is used e.g. `e28zov4fw0v2`. For code use prefix `code-`, e.g. `code-bob`.
-     * @param array  $options    Associative array of optional parameters:
      *
      * @return \Recurly\Pager A list of the account's invoices.
      * @link   https://developers.recurly.com/api/v2019-10-10#operation/list_account_invoices
@@ -462,9 +462,12 @@ class Client extends BaseClient
     /**
      * List an account's line items
      *
-     * Supported optional parameters:
+     * @param string $account_id Account ID or code. For ID no prefix is used e.g. `e28zov4fw0v2`. For code use prefix `code-`, e.g. `code-bob`.
+     * @param array  $options    Associative array of optional parameters
      *
-     * 'ids' (array): Filter results by their IDs. Up to 200 IDs can be passed at once using
+     * Supported optional query string parameters:
+     *
+     * - $options['ids'] (array): Filter results by their IDs. Up to 200 IDs can be passed at once using
      *        commas as separators, e.g. `ids=h1at4d57xlmy,gyqgg0d3v9n1,jrsm5b4yefg6`.
      *        
      *        **Important notes:**
@@ -475,21 +478,18 @@ class Client extends BaseClient
      *          results correspond to your request.
      *        * Records are returned in an arbitrary order. Since results are all
      *          returned at once you can sort the records yourself.
-     * 'limit' (int): Limit number of records 1-200.
-     * 'order' (string): Sort order.
-     * 'sort' (string): Sort field. You *really* only want to sort by `updated_at` in ascending
+     * - $options['limit'] (int): Limit number of records 1-200.
+     * - $options['order'] (string): Sort order.
+     * - $options['sort'] (string): Sort field. You *really* only want to sort by `updated_at` in ascending
      *        order. In descending order updated records will move behind the cursor and could
      *        prevent some records from being returned.
-     * 'begin_time' (string): Filter by begin_time when `sort=created_at` or `sort=updated_at`.
+     * - $options['begin_time'] (string): Inclusively filter by begin_time when `sort=created_at` or `sort=updated_at`.
      *        **Note:** this value is an ISO8601 timestamp. A partial timestamp that does not include a time zone will default to UTC.
-     * 'end_time' (string): Filter by end_time when `sort=created_at` or `sort=updated_at`.
+     * - $options['end_time'] (string): Inclusively filter by end_time when `sort=created_at` or `sort=updated_at`.
      *        **Note:** this value is an ISO8601 timestamp. A partial timestamp that does not include a time zone will default to UTC.
-     * 'original' (string): Filter by original field.
-     * 'state' (string): Filter by state field.
-     * 'type' (string): Filter by type field.
-     *
-     * @param string $account_id Account ID or code. For ID no prefix is used e.g. `e28zov4fw0v2`. For code use prefix `code-`, e.g. `code-bob`.
-     * @param array  $options    Associative array of optional parameters:
+     * - $options['original'] (string): Filter by original field.
+     * - $options['state'] (string): Filter by state field.
+     * - $options['type'] (string): Filter by type field.
      *
      * @return \Recurly\Pager A list of the account's line items.
      * @link   https://developers.recurly.com/api/v2019-10-10#operation/list_account_line_items
@@ -518,9 +518,12 @@ class Client extends BaseClient
     /**
      * Fetch a list of an account's notes
      *
-     * Supported optional parameters:
+     * @param string $account_id Account ID or code. For ID no prefix is used e.g. `e28zov4fw0v2`. For code use prefix `code-`, e.g. `code-bob`.
+     * @param array  $options    Associative array of optional parameters
      *
-     * 'ids' (array): Filter results by their IDs. Up to 200 IDs can be passed at once using
+     * Supported optional query string parameters:
+     *
+     * - $options['ids'] (array): Filter results by their IDs. Up to 200 IDs can be passed at once using
      *        commas as separators, e.g. `ids=h1at4d57xlmy,gyqgg0d3v9n1,jrsm5b4yefg6`.
      *        
      *        **Important notes:**
@@ -531,9 +534,6 @@ class Client extends BaseClient
      *          results correspond to your request.
      *        * Records are returned in an arbitrary order. Since results are all
      *          returned at once you can sort the records yourself.
-     *
-     * @param string $account_id Account ID or code. For ID no prefix is used e.g. `e28zov4fw0v2`. For code use prefix `code-`, e.g. `code-bob`.
-     * @param array  $options    Associative array of optional parameters:
      *
      * @return \Recurly\Pager A list of an account's notes.
      * @link   https://developers.recurly.com/api/v2019-10-10#operation/list_account_notes
@@ -562,9 +562,12 @@ class Client extends BaseClient
     /**
      * Fetch a list of an account's shipping addresses
      *
-     * Supported optional parameters:
+     * @param string $account_id Account ID or code. For ID no prefix is used e.g. `e28zov4fw0v2`. For code use prefix `code-`, e.g. `code-bob`.
+     * @param array  $options    Associative array of optional parameters
      *
-     * 'ids' (array): Filter results by their IDs. Up to 200 IDs can be passed at once using
+     * Supported optional query string parameters:
+     *
+     * - $options['ids'] (array): Filter results by their IDs. Up to 200 IDs can be passed at once using
      *        commas as separators, e.g. `ids=h1at4d57xlmy,gyqgg0d3v9n1,jrsm5b4yefg6`.
      *        
      *        **Important notes:**
@@ -575,18 +578,15 @@ class Client extends BaseClient
      *          results correspond to your request.
      *        * Records are returned in an arbitrary order. Since results are all
      *          returned at once you can sort the records yourself.
-     * 'limit' (int): Limit number of records 1-200.
-     * 'order' (string): Sort order.
-     * 'sort' (string): Sort field. You *really* only want to sort by `updated_at` in ascending
+     * - $options['limit'] (int): Limit number of records 1-200.
+     * - $options['order'] (string): Sort order.
+     * - $options['sort'] (string): Sort field. You *really* only want to sort by `updated_at` in ascending
      *        order. In descending order updated records will move behind the cursor and could
      *        prevent some records from being returned.
-     * 'begin_time' (string): Filter by begin_time when `sort=created_at` or `sort=updated_at`.
+     * - $options['begin_time'] (string): Inclusively filter by begin_time when `sort=created_at` or `sort=updated_at`.
      *        **Note:** this value is an ISO8601 timestamp. A partial timestamp that does not include a time zone will default to UTC.
-     * 'end_time' (string): Filter by end_time when `sort=created_at` or `sort=updated_at`.
+     * - $options['end_time'] (string): Inclusively filter by end_time when `sort=created_at` or `sort=updated_at`.
      *        **Note:** this value is an ISO8601 timestamp. A partial timestamp that does not include a time zone will default to UTC.
-     *
-     * @param string $account_id Account ID or code. For ID no prefix is used e.g. `e28zov4fw0v2`. For code use prefix `code-`, e.g. `code-bob`.
-     * @param array  $options    Associative array of optional parameters:
      *
      * @return \Recurly\Pager A list of an account's shipping addresses.
      * @link   https://developers.recurly.com/api/v2019-10-10#operation/list_shipping_addresses
@@ -661,9 +661,12 @@ class Client extends BaseClient
     /**
      * List an account's subscriptions
      *
-     * Supported optional parameters:
+     * @param string $account_id Account ID or code. For ID no prefix is used e.g. `e28zov4fw0v2`. For code use prefix `code-`, e.g. `code-bob`.
+     * @param array  $options    Associative array of optional parameters
      *
-     * 'ids' (array): Filter results by their IDs. Up to 200 IDs can be passed at once using
+     * Supported optional query string parameters:
+     *
+     * - $options['ids'] (array): Filter results by their IDs. Up to 200 IDs can be passed at once using
      *        commas as separators, e.g. `ids=h1at4d57xlmy,gyqgg0d3v9n1,jrsm5b4yefg6`.
      *        
      *        **Important notes:**
@@ -674,23 +677,20 @@ class Client extends BaseClient
      *          results correspond to your request.
      *        * Records are returned in an arbitrary order. Since results are all
      *          returned at once you can sort the records yourself.
-     * 'limit' (int): Limit number of records 1-200.
-     * 'order' (string): Sort order.
-     * 'sort' (string): Sort field. You *really* only want to sort by `updated_at` in ascending
+     * - $options['limit'] (int): Limit number of records 1-200.
+     * - $options['order'] (string): Sort order.
+     * - $options['sort'] (string): Sort field. You *really* only want to sort by `updated_at` in ascending
      *        order. In descending order updated records will move behind the cursor and could
      *        prevent some records from being returned.
-     * 'begin_time' (string): Filter by begin_time when `sort=created_at` or `sort=updated_at`.
+     * - $options['begin_time'] (string): Inclusively filter by begin_time when `sort=created_at` or `sort=updated_at`.
      *        **Note:** this value is an ISO8601 timestamp. A partial timestamp that does not include a time zone will default to UTC.
-     * 'end_time' (string): Filter by end_time when `sort=created_at` or `sort=updated_at`.
+     * - $options['end_time'] (string): Inclusively filter by end_time when `sort=created_at` or `sort=updated_at`.
      *        **Note:** this value is an ISO8601 timestamp. A partial timestamp that does not include a time zone will default to UTC.
-     * 'state' (string): Filter by state.
+     * - $options['state'] (string): Filter by state.
      *        
      *        - When `state=active`, `state=canceled`, `state=expired`, or `state=future`, subscriptions with states that match the query and only those subscriptions will be returned.
      *        - When `state=in_trial`, only subscriptions that have a trial_started_at date earlier than now and a trial_ends_at date later than now will be returned.
      *        - When `state=live`, only subscriptions that are in an active, canceled, or future state or are in trial will be returned.
-     *
-     * @param string $account_id Account ID or code. For ID no prefix is used e.g. `e28zov4fw0v2`. For code use prefix `code-`, e.g. `code-bob`.
-     * @param array  $options    Associative array of optional parameters:
      *
      * @return \Recurly\Pager A list of the account's subscriptions.
      * @link   https://developers.recurly.com/api/v2019-10-10#operation/list_account_subscriptions
@@ -704,9 +704,12 @@ class Client extends BaseClient
     /**
      * List an account's transactions
      *
-     * Supported optional parameters:
+     * @param string $account_id Account ID or code. For ID no prefix is used e.g. `e28zov4fw0v2`. For code use prefix `code-`, e.g. `code-bob`.
+     * @param array  $options    Associative array of optional parameters
      *
-     * 'ids' (array): Filter results by their IDs. Up to 200 IDs can be passed at once using
+     * Supported optional query string parameters:
+     *
+     * - $options['ids'] (array): Filter results by their IDs. Up to 200 IDs can be passed at once using
      *        commas as separators, e.g. `ids=h1at4d57xlmy,gyqgg0d3v9n1,jrsm5b4yefg6`.
      *        
      *        **Important notes:**
@@ -717,20 +720,17 @@ class Client extends BaseClient
      *          results correspond to your request.
      *        * Records are returned in an arbitrary order. Since results are all
      *          returned at once you can sort the records yourself.
-     * 'limit' (int): Limit number of records 1-200.
-     * 'order' (string): Sort order.
-     * 'sort' (string): Sort field. You *really* only want to sort by `updated_at` in ascending
+     * - $options['limit'] (int): Limit number of records 1-200.
+     * - $options['order'] (string): Sort order.
+     * - $options['sort'] (string): Sort field. You *really* only want to sort by `updated_at` in ascending
      *        order. In descending order updated records will move behind the cursor and could
      *        prevent some records from being returned.
-     * 'begin_time' (string): Filter by begin_time when `sort=created_at` or `sort=updated_at`.
+     * - $options['begin_time'] (string): Inclusively filter by begin_time when `sort=created_at` or `sort=updated_at`.
      *        **Note:** this value is an ISO8601 timestamp. A partial timestamp that does not include a time zone will default to UTC.
-     * 'end_time' (string): Filter by end_time when `sort=created_at` or `sort=updated_at`.
+     * - $options['end_time'] (string): Inclusively filter by end_time when `sort=created_at` or `sort=updated_at`.
      *        **Note:** this value is an ISO8601 timestamp. A partial timestamp that does not include a time zone will default to UTC.
-     * 'type' (string): Filter by type field. The value `payment` will return both `purchase` and `capture` transactions.
-     * 'success' (string): Filter by success field.
-     *
-     * @param string $account_id Account ID or code. For ID no prefix is used e.g. `e28zov4fw0v2`. For code use prefix `code-`, e.g. `code-bob`.
-     * @param array  $options    Associative array of optional parameters:
+     * - $options['type'] (string): Filter by type field. The value `payment` will return both `purchase` and `capture` transactions.
+     * - $options['success'] (string): Filter by success field.
      *
      * @return \Recurly\Pager A list of the account's transactions.
      * @link   https://developers.recurly.com/api/v2019-10-10#operation/list_account_transactions
@@ -744,9 +744,12 @@ class Client extends BaseClient
     /**
      * List an account's child accounts
      *
-     * Supported optional parameters:
+     * @param string $account_id Account ID or code. For ID no prefix is used e.g. `e28zov4fw0v2`. For code use prefix `code-`, e.g. `code-bob`.
+     * @param array  $options    Associative array of optional parameters
      *
-     * 'ids' (array): Filter results by their IDs. Up to 200 IDs can be passed at once using
+     * Supported optional query string parameters:
+     *
+     * - $options['ids'] (array): Filter results by their IDs. Up to 200 IDs can be passed at once using
      *        commas as separators, e.g. `ids=h1at4d57xlmy,gyqgg0d3v9n1,jrsm5b4yefg6`.
      *        
      *        **Important notes:**
@@ -757,22 +760,19 @@ class Client extends BaseClient
      *          results correspond to your request.
      *        * Records are returned in an arbitrary order. Since results are all
      *          returned at once you can sort the records yourself.
-     * 'limit' (int): Limit number of records 1-200.
-     * 'order' (string): Sort order.
-     * 'sort' (string): Sort field. You *really* only want to sort by `updated_at` in ascending
+     * - $options['limit'] (int): Limit number of records 1-200.
+     * - $options['order'] (string): Sort order.
+     * - $options['sort'] (string): Sort field. You *really* only want to sort by `updated_at` in ascending
      *        order. In descending order updated records will move behind the cursor and could
      *        prevent some records from being returned.
-     * 'begin_time' (string): Filter by begin_time when `sort=created_at` or `sort=updated_at`.
+     * - $options['begin_time'] (string): Inclusively filter by begin_time when `sort=created_at` or `sort=updated_at`.
      *        **Note:** this value is an ISO8601 timestamp. A partial timestamp that does not include a time zone will default to UTC.
-     * 'end_time' (string): Filter by end_time when `sort=created_at` or `sort=updated_at`.
+     * - $options['end_time'] (string): Inclusively filter by end_time when `sort=created_at` or `sort=updated_at`.
      *        **Note:** this value is an ISO8601 timestamp. A partial timestamp that does not include a time zone will default to UTC.
-     * 'email' (string): Filter for accounts with this exact email address. A blank value will return accounts with both `null` and `""` email addresses. Note that multiple accounts can share one email address.
-     * 'subscriber' (bool): Filter for accounts with or without a subscription in the `active`,
+     * - $options['email'] (string): Filter for accounts with this exact email address. A blank value will return accounts with both `null` and `""` email addresses. Note that multiple accounts can share one email address.
+     * - $options['subscriber'] (bool): Filter for accounts with or without a subscription in the `active`,
      *        `canceled`, or `future` state.
-     * 'past_due' (string): Filter for accounts with an invoice in the `past_due` state.
-     *
-     * @param string $account_id Account ID or code. For ID no prefix is used e.g. `e28zov4fw0v2`. For code use prefix `code-`, e.g. `code-bob`.
-     * @param array  $options    Associative array of optional parameters:
+     * - $options['past_due'] (string): Filter for accounts with an invoice in the `past_due` state.
      *
      * @return \Recurly\Pager A list of an account's child accounts.
      * @link   https://developers.recurly.com/api/v2019-10-10#operation/list_child_accounts
@@ -786,9 +786,11 @@ class Client extends BaseClient
     /**
      * List a site's account acquisition data
      *
-     * Supported optional parameters:
+     * @param array $options Associative array of optional parameters
      *
-     * 'ids' (array): Filter results by their IDs. Up to 200 IDs can be passed at once using
+     * Supported optional query string parameters:
+     *
+     * - $options['ids'] (array): Filter results by their IDs. Up to 200 IDs can be passed at once using
      *        commas as separators, e.g. `ids=h1at4d57xlmy,gyqgg0d3v9n1,jrsm5b4yefg6`.
      *        
      *        **Important notes:**
@@ -799,17 +801,15 @@ class Client extends BaseClient
      *          results correspond to your request.
      *        * Records are returned in an arbitrary order. Since results are all
      *          returned at once you can sort the records yourself.
-     * 'limit' (int): Limit number of records 1-200.
-     * 'order' (string): Sort order.
-     * 'sort' (string): Sort field. You *really* only want to sort by `updated_at` in ascending
+     * - $options['limit'] (int): Limit number of records 1-200.
+     * - $options['order'] (string): Sort order.
+     * - $options['sort'] (string): Sort field. You *really* only want to sort by `updated_at` in ascending
      *        order. In descending order updated records will move behind the cursor and could
      *        prevent some records from being returned.
-     * 'begin_time' (string): Filter by begin_time when `sort=created_at` or `sort=updated_at`.
+     * - $options['begin_time'] (string): Inclusively filter by begin_time when `sort=created_at` or `sort=updated_at`.
      *        **Note:** this value is an ISO8601 timestamp. A partial timestamp that does not include a time zone will default to UTC.
-     * 'end_time' (string): Filter by end_time when `sort=created_at` or `sort=updated_at`.
+     * - $options['end_time'] (string): Inclusively filter by end_time when `sort=created_at` or `sort=updated_at`.
      *        **Note:** this value is an ISO8601 timestamp. A partial timestamp that does not include a time zone will default to UTC.
-     *
-     * @param array $options Associative array of optional parameters:
      *
      * @return \Recurly\Pager A list of the site's account acquisition data.
      * @link   https://developers.recurly.com/api/v2019-10-10#operation/list_account_acquisition
@@ -823,9 +823,11 @@ class Client extends BaseClient
     /**
      * List a site's coupons
      *
-     * Supported optional parameters:
+     * @param array $options Associative array of optional parameters
      *
-     * 'ids' (array): Filter results by their IDs. Up to 200 IDs can be passed at once using
+     * Supported optional query string parameters:
+     *
+     * - $options['ids'] (array): Filter results by their IDs. Up to 200 IDs can be passed at once using
      *        commas as separators, e.g. `ids=h1at4d57xlmy,gyqgg0d3v9n1,jrsm5b4yefg6`.
      *        
      *        **Important notes:**
@@ -836,17 +838,15 @@ class Client extends BaseClient
      *          results correspond to your request.
      *        * Records are returned in an arbitrary order. Since results are all
      *          returned at once you can sort the records yourself.
-     * 'limit' (int): Limit number of records 1-200.
-     * 'order' (string): Sort order.
-     * 'sort' (string): Sort field. You *really* only want to sort by `updated_at` in ascending
+     * - $options['limit'] (int): Limit number of records 1-200.
+     * - $options['order'] (string): Sort order.
+     * - $options['sort'] (string): Sort field. You *really* only want to sort by `updated_at` in ascending
      *        order. In descending order updated records will move behind the cursor and could
      *        prevent some records from being returned.
-     * 'begin_time' (string): Filter by begin_time when `sort=created_at` or `sort=updated_at`.
+     * - $options['begin_time'] (string): Inclusively filter by begin_time when `sort=created_at` or `sort=updated_at`.
      *        **Note:** this value is an ISO8601 timestamp. A partial timestamp that does not include a time zone will default to UTC.
-     * 'end_time' (string): Filter by end_time when `sort=created_at` or `sort=updated_at`.
+     * - $options['end_time'] (string): Inclusively filter by end_time when `sort=created_at` or `sort=updated_at`.
      *        **Note:** this value is an ISO8601 timestamp. A partial timestamp that does not include a time zone will default to UTC.
-     *
-     * @param array $options Associative array of optional parameters:
      *
      * @return \Recurly\Pager A list of the site's coupons.
      * @link   https://developers.recurly.com/api/v2019-10-10#operation/list_coupons
@@ -917,9 +917,12 @@ class Client extends BaseClient
     /**
      * List unique coupon codes associated with a bulk coupon
      *
-     * Supported optional parameters:
+     * @param string $coupon_id Coupon ID or code. For ID no prefix is used e.g. `e28zov4fw0v2`. For code use prefix `code-`, e.g. `code-10off`.
+     * @param array  $options   Associative array of optional parameters
      *
-     * 'ids' (array): Filter results by their IDs. Up to 200 IDs can be passed at once using
+     * Supported optional query string parameters:
+     *
+     * - $options['ids'] (array): Filter results by their IDs. Up to 200 IDs can be passed at once using
      *        commas as separators, e.g. `ids=h1at4d57xlmy,gyqgg0d3v9n1,jrsm5b4yefg6`.
      *        
      *        **Important notes:**
@@ -930,18 +933,15 @@ class Client extends BaseClient
      *          results correspond to your request.
      *        * Records are returned in an arbitrary order. Since results are all
      *          returned at once you can sort the records yourself.
-     * 'limit' (int): Limit number of records 1-200.
-     * 'order' (string): Sort order.
-     * 'sort' (string): Sort field. You *really* only want to sort by `updated_at` in ascending
+     * - $options['limit'] (int): Limit number of records 1-200.
+     * - $options['order'] (string): Sort order.
+     * - $options['sort'] (string): Sort field. You *really* only want to sort by `updated_at` in ascending
      *        order. In descending order updated records will move behind the cursor and could
      *        prevent some records from being returned.
-     * 'begin_time' (string): Filter by begin_time when `sort=created_at` or `sort=updated_at`.
+     * - $options['begin_time'] (string): Inclusively filter by begin_time when `sort=created_at` or `sort=updated_at`.
      *        **Note:** this value is an ISO8601 timestamp. A partial timestamp that does not include a time zone will default to UTC.
-     * 'end_time' (string): Filter by end_time when `sort=created_at` or `sort=updated_at`.
+     * - $options['end_time'] (string): Inclusively filter by end_time when `sort=created_at` or `sort=updated_at`.
      *        **Note:** this value is an ISO8601 timestamp. A partial timestamp that does not include a time zone will default to UTC.
-     *
-     * @param string $coupon_id Coupon ID or code. For ID no prefix is used e.g. `e28zov4fw0v2`. For code use prefix `code-`, e.g. `code-10off`.
-     * @param array  $options   Associative array of optional parameters:
      *
      * @return \Recurly\Pager A list of unique coupon codes that were generated
      * @link   https://developers.recurly.com/api/v2019-10-10#operation/list_unique_coupon_codes
@@ -955,19 +955,19 @@ class Client extends BaseClient
     /**
      * List a site's credit payments
      *
-     * Supported optional parameters:
+     * @param array $options Associative array of optional parameters
      *
-     * 'limit' (int): Limit number of records 1-200.
-     * 'order' (string): Sort order.
-     * 'sort' (string): Sort field. You *really* only want to sort by `updated_at` in ascending
+     * Supported optional query string parameters:
+     *
+     * - $options['limit'] (int): Limit number of records 1-200.
+     * - $options['order'] (string): Sort order.
+     * - $options['sort'] (string): Sort field. You *really* only want to sort by `updated_at` in ascending
      *        order. In descending order updated records will move behind the cursor and could
      *        prevent some records from being returned.
-     * 'begin_time' (string): Filter by begin_time when `sort=created_at` or `sort=updated_at`.
+     * - $options['begin_time'] (string): Inclusively filter by begin_time when `sort=created_at` or `sort=updated_at`.
      *        **Note:** this value is an ISO8601 timestamp. A partial timestamp that does not include a time zone will default to UTC.
-     * 'end_time' (string): Filter by end_time when `sort=created_at` or `sort=updated_at`.
+     * - $options['end_time'] (string): Inclusively filter by end_time when `sort=created_at` or `sort=updated_at`.
      *        **Note:** this value is an ISO8601 timestamp. A partial timestamp that does not include a time zone will default to UTC.
-     *
-     * @param array $options Associative array of optional parameters:
      *
      * @return \Recurly\Pager A list of the site's credit payments.
      * @link   https://developers.recurly.com/api/v2019-10-10#operation/list_credit_payments
@@ -995,9 +995,11 @@ class Client extends BaseClient
     /**
      * List a site's custom field definitions
      *
-     * Supported optional parameters:
+     * @param array $options Associative array of optional parameters
      *
-     * 'ids' (array): Filter results by their IDs. Up to 200 IDs can be passed at once using
+     * Supported optional query string parameters:
+     *
+     * - $options['ids'] (array): Filter results by their IDs. Up to 200 IDs can be passed at once using
      *        commas as separators, e.g. `ids=h1at4d57xlmy,gyqgg0d3v9n1,jrsm5b4yefg6`.
      *        
      *        **Important notes:**
@@ -1008,18 +1010,16 @@ class Client extends BaseClient
      *          results correspond to your request.
      *        * Records are returned in an arbitrary order. Since results are all
      *          returned at once you can sort the records yourself.
-     * 'limit' (int): Limit number of records 1-200.
-     * 'order' (string): Sort order.
-     * 'sort' (string): Sort field. You *really* only want to sort by `updated_at` in ascending
+     * - $options['limit'] (int): Limit number of records 1-200.
+     * - $options['order'] (string): Sort order.
+     * - $options['sort'] (string): Sort field. You *really* only want to sort by `updated_at` in ascending
      *        order. In descending order updated records will move behind the cursor and could
      *        prevent some records from being returned.
-     * 'begin_time' (string): Filter by begin_time when `sort=created_at` or `sort=updated_at`.
+     * - $options['begin_time'] (string): Inclusively filter by begin_time when `sort=created_at` or `sort=updated_at`.
      *        **Note:** this value is an ISO8601 timestamp. A partial timestamp that does not include a time zone will default to UTC.
-     * 'end_time' (string): Filter by end_time when `sort=created_at` or `sort=updated_at`.
+     * - $options['end_time'] (string): Inclusively filter by end_time when `sort=created_at` or `sort=updated_at`.
      *        **Note:** this value is an ISO8601 timestamp. A partial timestamp that does not include a time zone will default to UTC.
-     * 'related_type' (string): Filter by related type.
-     *
-     * @param array $options Associative array of optional parameters:
+     * - $options['related_type'] (string): Filter by related type.
      *
      * @return \Recurly\Pager A list of the site's custom field definitions.
      * @link   https://developers.recurly.com/api/v2019-10-10#operation/list_custom_field_definitions
@@ -1047,9 +1047,11 @@ class Client extends BaseClient
     /**
      * List a site's items
      *
-     * Supported optional parameters:
+     * @param array $options Associative array of optional parameters
      *
-     * 'ids' (array): Filter results by their IDs. Up to 200 IDs can be passed at once using
+     * Supported optional query string parameters:
+     *
+     * - $options['ids'] (array): Filter results by their IDs. Up to 200 IDs can be passed at once using
      *        commas as separators, e.g. `ids=h1at4d57xlmy,gyqgg0d3v9n1,jrsm5b4yefg6`.
      *        
      *        **Important notes:**
@@ -1060,18 +1062,16 @@ class Client extends BaseClient
      *          results correspond to your request.
      *        * Records are returned in an arbitrary order. Since results are all
      *          returned at once you can sort the records yourself.
-     * 'limit' (int): Limit number of records 1-200.
-     * 'order' (string): Sort order.
-     * 'sort' (string): Sort field. You *really* only want to sort by `updated_at` in ascending
+     * - $options['limit'] (int): Limit number of records 1-200.
+     * - $options['order'] (string): Sort order.
+     * - $options['sort'] (string): Sort field. You *really* only want to sort by `updated_at` in ascending
      *        order. In descending order updated records will move behind the cursor and could
      *        prevent some records from being returned.
-     * 'begin_time' (string): Filter by begin_time when `sort=created_at` or `sort=updated_at`.
+     * - $options['begin_time'] (string): Inclusively filter by begin_time when `sort=created_at` or `sort=updated_at`.
      *        **Note:** this value is an ISO8601 timestamp. A partial timestamp that does not include a time zone will default to UTC.
-     * 'end_time' (string): Filter by end_time when `sort=created_at` or `sort=updated_at`.
+     * - $options['end_time'] (string): Inclusively filter by end_time when `sort=created_at` or `sort=updated_at`.
      *        **Note:** this value is an ISO8601 timestamp. A partial timestamp that does not include a time zone will default to UTC.
-     * 'state' (string): Filter by state.
-     *
-     * @param array $options Associative array of optional parameters:
+     * - $options['state'] (string): Filter by state.
      *
      * @return \Recurly\Pager A list of the site's items.
      * @link   https://developers.recurly.com/api/v2019-10-10#operation/list_items
@@ -1154,11 +1154,13 @@ class Client extends BaseClient
     }
   
     /**
-     * List a site's invoices
+     * List a site's measured units
      *
-     * Supported optional parameters:
+     * @param array $options Associative array of optional parameters
      *
-     * 'ids' (array): Filter results by their IDs. Up to 200 IDs can be passed at once using
+     * Supported optional query string parameters:
+     *
+     * - $options['ids'] (array): Filter results by their IDs. Up to 200 IDs can be passed at once using
      *        commas as separators, e.g. `ids=h1at4d57xlmy,gyqgg0d3v9n1,jrsm5b4yefg6`.
      *        
      *        **Important notes:**
@@ -1169,22 +1171,115 @@ class Client extends BaseClient
      *          results correspond to your request.
      *        * Records are returned in an arbitrary order. Since results are all
      *          returned at once you can sort the records yourself.
-     * 'limit' (int): Limit number of records 1-200.
-     * 'order' (string): Sort order.
-     * 'sort' (string): Sort field. You *really* only want to sort by `updated_at` in ascending
+     * - $options['limit'] (int): Limit number of records 1-200.
+     * - $options['order'] (string): Sort order.
+     * - $options['sort'] (string): Sort field. You *really* only want to sort by `updated_at` in ascending
      *        order. In descending order updated records will move behind the cursor and could
      *        prevent some records from being returned.
-     * 'begin_time' (string): Filter by begin_time when `sort=created_at` or `sort=updated_at`.
+     * - $options['begin_time'] (string): Inclusively filter by begin_time when `sort=created_at` or `sort=updated_at`.
      *        **Note:** this value is an ISO8601 timestamp. A partial timestamp that does not include a time zone will default to UTC.
-     * 'end_time' (string): Filter by end_time when `sort=created_at` or `sort=updated_at`.
+     * - $options['end_time'] (string): Inclusively filter by end_time when `sort=created_at` or `sort=updated_at`.
      *        **Note:** this value is an ISO8601 timestamp. A partial timestamp that does not include a time zone will default to UTC.
-     * 'type' (string): Filter by type when:
+     * - $options['state'] (string): Filter by state.
+     *
+     * @return \Recurly\Pager A list of the site's measured units.
+     * @link   https://developers.recurly.com/api/v2019-10-10#operation/list_measured_unit
+     */
+    public function listMeasuredUnit(array $options = []): \Recurly\Pager
+    {
+        $path = $this->interpolatePath("/measured_units", []);
+        return new \Recurly\Pager($this, $path, $options);
+    }
+  
+    /**
+     * Create a new measured unit
+     *
+     * @param array $body The body of the request.
+     *
+     * @return \Recurly\Resources\MeasuredUnit A new measured unit.
+     * @link   https://developers.recurly.com/api/v2019-10-10#operation/create_measured_unit
+     */
+    public function createMeasuredUnit(array $body): \Recurly\Resources\MeasuredUnit
+    {
+        $path = $this->interpolatePath("/measured_units", []);
+        return $this->makeRequest('POST', $path, $body, null);
+    }
+  
+    /**
+     * Fetch a measured unit
+     *
+     * @param string $measured_unit_id Measured unit ID or name. For ID no prefix is used e.g. `e28zov4fw0v2`. For name use prefix `name-`, e.g. `name-Storage`.
+     *
+     * @return \Recurly\Resources\MeasuredUnit An item.
+     * @link   https://developers.recurly.com/api/v2019-10-10#operation/get_measured_unit
+     */
+    public function getMeasuredUnit(string $measured_unit_id): \Recurly\Resources\MeasuredUnit
+    {
+        $path = $this->interpolatePath("/measured_units/{measured_unit_id}", ['measured_unit_id' => $measured_unit_id]);
+        return $this->makeRequest('GET', $path, null, null);
+    }
+  
+    /**
+     * Update a measured unit
+     *
+     * @param string $measured_unit_id Measured unit ID or name. For ID no prefix is used e.g. `e28zov4fw0v2`. For name use prefix `name-`, e.g. `name-Storage`.
+     * @param array  $body             The body of the request.
+     *
+     * @return \Recurly\Resources\MeasuredUnit The updated measured_unit.
+     * @link   https://developers.recurly.com/api/v2019-10-10#operation/update_measured_unit
+     */
+    public function updateMeasuredUnit(string $measured_unit_id, array $body): \Recurly\Resources\MeasuredUnit
+    {
+        $path = $this->interpolatePath("/measured_units/{measured_unit_id}", ['measured_unit_id' => $measured_unit_id]);
+        return $this->makeRequest('PUT', $path, $body, null);
+    }
+  
+    /**
+     * Remove a measured unit
+     *
+     * @param string $measured_unit_id Measured unit ID or name. For ID no prefix is used e.g. `e28zov4fw0v2`. For name use prefix `name-`, e.g. `name-Storage`.
+     *
+     * @return \Recurly\Resources\MeasuredUnit A measured unit.
+     * @link   https://developers.recurly.com/api/v2019-10-10#operation/remove_measured_unit
+     */
+    public function removeMeasuredUnit(string $measured_unit_id): \Recurly\Resources\MeasuredUnit
+    {
+        $path = $this->interpolatePath("/measured_units/{measured_unit_id}", ['measured_unit_id' => $measured_unit_id]);
+        return $this->makeRequest('DELETE', $path, null, null);
+    }
+  
+    /**
+     * List a site's invoices
+     *
+     * @param array $options Associative array of optional parameters
+     *
+     * Supported optional query string parameters:
+     *
+     * - $options['ids'] (array): Filter results by their IDs. Up to 200 IDs can be passed at once using
+     *        commas as separators, e.g. `ids=h1at4d57xlmy,gyqgg0d3v9n1,jrsm5b4yefg6`.
+     *        
+     *        **Important notes:**
+     *        
+     *        * The `ids` parameter cannot be used with any other ordering or filtering
+     *          parameters (`limit`, `order`, `sort`, `begin_time`, `end_time`, etc)
+     *        * Invalid or unknown IDs will be ignored, so you should check that the
+     *          results correspond to your request.
+     *        * Records are returned in an arbitrary order. Since results are all
+     *          returned at once you can sort the records yourself.
+     * - $options['limit'] (int): Limit number of records 1-200.
+     * - $options['order'] (string): Sort order.
+     * - $options['sort'] (string): Sort field. You *really* only want to sort by `updated_at` in ascending
+     *        order. In descending order updated records will move behind the cursor and could
+     *        prevent some records from being returned.
+     * - $options['begin_time'] (string): Inclusively filter by begin_time when `sort=created_at` or `sort=updated_at`.
+     *        **Note:** this value is an ISO8601 timestamp. A partial timestamp that does not include a time zone will default to UTC.
+     * - $options['end_time'] (string): Inclusively filter by end_time when `sort=created_at` or `sort=updated_at`.
+     *        **Note:** this value is an ISO8601 timestamp. A partial timestamp that does not include a time zone will default to UTC.
+     * - $options['type'] (string): Filter by type when:
      *        - `type=charge`, only charge invoices will be returned.
      *        - `type=credit`, only credit invoices will be returned.
      *        - `type=non-legacy`, only charge and credit invoices will be returned.
      *        - `type=legacy`, only legacy invoices will be returned.
-     *
-     * @param array $options Associative array of optional parameters:
      *
      * @return \Recurly\Pager A list of the site's invoices.
      * @link   https://developers.recurly.com/api/v2019-10-10#operation/list_invoices
@@ -1327,9 +1422,12 @@ class Client extends BaseClient
     /**
      * List an invoice's line items
      *
-     * Supported optional parameters:
+     * @param string $invoice_id Invoice ID or number. For ID no prefix is used e.g. `e28zov4fw0v2`. For number use prefix `number-`, e.g. `number-1000`.
+     * @param array  $options    Associative array of optional parameters
      *
-     * 'ids' (array): Filter results by their IDs. Up to 200 IDs can be passed at once using
+     * Supported optional query string parameters:
+     *
+     * - $options['ids'] (array): Filter results by their IDs. Up to 200 IDs can be passed at once using
      *        commas as separators, e.g. `ids=h1at4d57xlmy,gyqgg0d3v9n1,jrsm5b4yefg6`.
      *        
      *        **Important notes:**
@@ -1340,21 +1438,18 @@ class Client extends BaseClient
      *          results correspond to your request.
      *        * Records are returned in an arbitrary order. Since results are all
      *          returned at once you can sort the records yourself.
-     * 'limit' (int): Limit number of records 1-200.
-     * 'order' (string): Sort order.
-     * 'sort' (string): Sort field. You *really* only want to sort by `updated_at` in ascending
+     * - $options['limit'] (int): Limit number of records 1-200.
+     * - $options['order'] (string): Sort order.
+     * - $options['sort'] (string): Sort field. You *really* only want to sort by `updated_at` in ascending
      *        order. In descending order updated records will move behind the cursor and could
      *        prevent some records from being returned.
-     * 'begin_time' (string): Filter by begin_time when `sort=created_at` or `sort=updated_at`.
+     * - $options['begin_time'] (string): Inclusively filter by begin_time when `sort=created_at` or `sort=updated_at`.
      *        **Note:** this value is an ISO8601 timestamp. A partial timestamp that does not include a time zone will default to UTC.
-     * 'end_time' (string): Filter by end_time when `sort=created_at` or `sort=updated_at`.
+     * - $options['end_time'] (string): Inclusively filter by end_time when `sort=created_at` or `sort=updated_at`.
      *        **Note:** this value is an ISO8601 timestamp. A partial timestamp that does not include a time zone will default to UTC.
-     * 'original' (string): Filter by original field.
-     * 'state' (string): Filter by state field.
-     * 'type' (string): Filter by type field.
-     *
-     * @param string $invoice_id Invoice ID or number. For ID no prefix is used e.g. `e28zov4fw0v2`. For number use prefix `number-`, e.g. `number-1000`.
-     * @param array  $options    Associative array of optional parameters:
+     * - $options['original'] (string): Filter by original field.
+     * - $options['state'] (string): Filter by state field.
+     * - $options['type'] (string): Filter by type field.
      *
      * @return \Recurly\Pager A list of the invoice's line items.
      * @link   https://developers.recurly.com/api/v2019-10-10#operation/list_invoice_line_items
@@ -1368,9 +1463,12 @@ class Client extends BaseClient
     /**
      * Show the coupon redemptions applied to an invoice
      *
-     * Supported optional parameters:
+     * @param string $invoice_id Invoice ID or number. For ID no prefix is used e.g. `e28zov4fw0v2`. For number use prefix `number-`, e.g. `number-1000`.
+     * @param array  $options    Associative array of optional parameters
      *
-     * 'ids' (array): Filter results by their IDs. Up to 200 IDs can be passed at once using
+     * Supported optional query string parameters:
+     *
+     * - $options['ids'] (array): Filter results by their IDs. Up to 200 IDs can be passed at once using
      *        commas as separators, e.g. `ids=h1at4d57xlmy,gyqgg0d3v9n1,jrsm5b4yefg6`.
      *        
      *        **Important notes:**
@@ -1381,16 +1479,13 @@ class Client extends BaseClient
      *          results correspond to your request.
      *        * Records are returned in an arbitrary order. Since results are all
      *          returned at once you can sort the records yourself.
-     * 'sort' (string): Sort field. You *really* only want to sort by `updated_at` in ascending
+     * - $options['sort'] (string): Sort field. You *really* only want to sort by `updated_at` in ascending
      *        order. In descending order updated records will move behind the cursor and could
      *        prevent some records from being returned.
-     * 'begin_time' (string): Filter by begin_time when `sort=created_at` or `sort=updated_at`.
+     * - $options['begin_time'] (string): Inclusively filter by begin_time when `sort=created_at` or `sort=updated_at`.
      *        **Note:** this value is an ISO8601 timestamp. A partial timestamp that does not include a time zone will default to UTC.
-     * 'end_time' (string): Filter by end_time when `sort=created_at` or `sort=updated_at`.
+     * - $options['end_time'] (string): Inclusively filter by end_time when `sort=created_at` or `sort=updated_at`.
      *        **Note:** this value is an ISO8601 timestamp. A partial timestamp that does not include a time zone will default to UTC.
-     *
-     * @param string $invoice_id Invoice ID or number. For ID no prefix is used e.g. `e28zov4fw0v2`. For number use prefix `number-`, e.g. `number-1000`.
-     * @param array  $options    Associative array of optional parameters:
      *
      * @return \Recurly\Pager A list of the the coupon redemptions associated with the invoice.
      * @link   https://developers.recurly.com/api/v2019-10-10#operation/list_invoice_coupon_redemptions
@@ -1433,9 +1528,11 @@ class Client extends BaseClient
     /**
      * List a site's line items
      *
-     * Supported optional parameters:
+     * @param array $options Associative array of optional parameters
      *
-     * 'ids' (array): Filter results by their IDs. Up to 200 IDs can be passed at once using
+     * Supported optional query string parameters:
+     *
+     * - $options['ids'] (array): Filter results by their IDs. Up to 200 IDs can be passed at once using
      *        commas as separators, e.g. `ids=h1at4d57xlmy,gyqgg0d3v9n1,jrsm5b4yefg6`.
      *        
      *        **Important notes:**
@@ -1446,20 +1543,18 @@ class Client extends BaseClient
      *          results correspond to your request.
      *        * Records are returned in an arbitrary order. Since results are all
      *          returned at once you can sort the records yourself.
-     * 'limit' (int): Limit number of records 1-200.
-     * 'order' (string): Sort order.
-     * 'sort' (string): Sort field. You *really* only want to sort by `updated_at` in ascending
+     * - $options['limit'] (int): Limit number of records 1-200.
+     * - $options['order'] (string): Sort order.
+     * - $options['sort'] (string): Sort field. You *really* only want to sort by `updated_at` in ascending
      *        order. In descending order updated records will move behind the cursor and could
      *        prevent some records from being returned.
-     * 'begin_time' (string): Filter by begin_time when `sort=created_at` or `sort=updated_at`.
+     * - $options['begin_time'] (string): Inclusively filter by begin_time when `sort=created_at` or `sort=updated_at`.
      *        **Note:** this value is an ISO8601 timestamp. A partial timestamp that does not include a time zone will default to UTC.
-     * 'end_time' (string): Filter by end_time when `sort=created_at` or `sort=updated_at`.
+     * - $options['end_time'] (string): Inclusively filter by end_time when `sort=created_at` or `sort=updated_at`.
      *        **Note:** this value is an ISO8601 timestamp. A partial timestamp that does not include a time zone will default to UTC.
-     * 'original' (string): Filter by original field.
-     * 'state' (string): Filter by state field.
-     * 'type' (string): Filter by type field.
-     *
-     * @param array $options Associative array of optional parameters:
+     * - $options['original'] (string): Filter by original field.
+     * - $options['state'] (string): Filter by state field.
+     * - $options['type'] (string): Filter by type field.
      *
      * @return \Recurly\Pager A list of the site's line items.
      * @link   https://developers.recurly.com/api/v2019-10-10#operation/list_line_items
@@ -1501,9 +1596,11 @@ class Client extends BaseClient
     /**
      * List a site's plans
      *
-     * Supported optional parameters:
+     * @param array $options Associative array of optional parameters
      *
-     * 'ids' (array): Filter results by their IDs. Up to 200 IDs can be passed at once using
+     * Supported optional query string parameters:
+     *
+     * - $options['ids'] (array): Filter results by their IDs. Up to 200 IDs can be passed at once using
      *        commas as separators, e.g. `ids=h1at4d57xlmy,gyqgg0d3v9n1,jrsm5b4yefg6`.
      *        
      *        **Important notes:**
@@ -1514,18 +1611,16 @@ class Client extends BaseClient
      *          results correspond to your request.
      *        * Records are returned in an arbitrary order. Since results are all
      *          returned at once you can sort the records yourself.
-     * 'limit' (int): Limit number of records 1-200.
-     * 'order' (string): Sort order.
-     * 'sort' (string): Sort field. You *really* only want to sort by `updated_at` in ascending
+     * - $options['limit'] (int): Limit number of records 1-200.
+     * - $options['order'] (string): Sort order.
+     * - $options['sort'] (string): Sort field. You *really* only want to sort by `updated_at` in ascending
      *        order. In descending order updated records will move behind the cursor and could
      *        prevent some records from being returned.
-     * 'begin_time' (string): Filter by begin_time when `sort=created_at` or `sort=updated_at`.
+     * - $options['begin_time'] (string): Inclusively filter by begin_time when `sort=created_at` or `sort=updated_at`.
      *        **Note:** this value is an ISO8601 timestamp. A partial timestamp that does not include a time zone will default to UTC.
-     * 'end_time' (string): Filter by end_time when `sort=created_at` or `sort=updated_at`.
+     * - $options['end_time'] (string): Inclusively filter by end_time when `sort=created_at` or `sort=updated_at`.
      *        **Note:** this value is an ISO8601 timestamp. A partial timestamp that does not include a time zone will default to UTC.
-     * 'state' (string): Filter by state.
-     *
-     * @param array $options Associative array of optional parameters:
+     * - $options['state'] (string): Filter by state.
      *
      * @return \Recurly\Pager A list of plans.
      * @link   https://developers.recurly.com/api/v2019-10-10#operation/list_plans
@@ -1596,9 +1691,12 @@ class Client extends BaseClient
     /**
      * List a plan's add-ons
      *
-     * Supported optional parameters:
+     * @param string $plan_id Plan ID or code. For ID no prefix is used e.g. `e28zov4fw0v2`. For code use prefix `code-`, e.g. `code-gold`.
+     * @param array  $options Associative array of optional parameters
      *
-     * 'ids' (array): Filter results by their IDs. Up to 200 IDs can be passed at once using
+     * Supported optional query string parameters:
+     *
+     * - $options['ids'] (array): Filter results by their IDs. Up to 200 IDs can be passed at once using
      *        commas as separators, e.g. `ids=h1at4d57xlmy,gyqgg0d3v9n1,jrsm5b4yefg6`.
      *        
      *        **Important notes:**
@@ -1609,19 +1707,16 @@ class Client extends BaseClient
      *          results correspond to your request.
      *        * Records are returned in an arbitrary order. Since results are all
      *          returned at once you can sort the records yourself.
-     * 'limit' (int): Limit number of records 1-200.
-     * 'order' (string): Sort order.
-     * 'sort' (string): Sort field. You *really* only want to sort by `updated_at` in ascending
+     * - $options['limit'] (int): Limit number of records 1-200.
+     * - $options['order'] (string): Sort order.
+     * - $options['sort'] (string): Sort field. You *really* only want to sort by `updated_at` in ascending
      *        order. In descending order updated records will move behind the cursor and could
      *        prevent some records from being returned.
-     * 'begin_time' (string): Filter by begin_time when `sort=created_at` or `sort=updated_at`.
+     * - $options['begin_time'] (string): Inclusively filter by begin_time when `sort=created_at` or `sort=updated_at`.
      *        **Note:** this value is an ISO8601 timestamp. A partial timestamp that does not include a time zone will default to UTC.
-     * 'end_time' (string): Filter by end_time when `sort=created_at` or `sort=updated_at`.
+     * - $options['end_time'] (string): Inclusively filter by end_time when `sort=created_at` or `sort=updated_at`.
      *        **Note:** this value is an ISO8601 timestamp. A partial timestamp that does not include a time zone will default to UTC.
-     * 'state' (string): Filter by state.
-     *
-     * @param string $plan_id Plan ID or code. For ID no prefix is used e.g. `e28zov4fw0v2`. For code use prefix `code-`, e.g. `code-gold`.
-     * @param array  $options Associative array of optional parameters:
+     * - $options['state'] (string): Filter by state.
      *
      * @return \Recurly\Pager A list of add-ons.
      * @link   https://developers.recurly.com/api/v2019-10-10#operation/list_plan_add_ons
@@ -1696,9 +1791,11 @@ class Client extends BaseClient
     /**
      * List a site's add-ons
      *
-     * Supported optional parameters:
+     * @param array $options Associative array of optional parameters
      *
-     * 'ids' (array): Filter results by their IDs. Up to 200 IDs can be passed at once using
+     * Supported optional query string parameters:
+     *
+     * - $options['ids'] (array): Filter results by their IDs. Up to 200 IDs can be passed at once using
      *        commas as separators, e.g. `ids=h1at4d57xlmy,gyqgg0d3v9n1,jrsm5b4yefg6`.
      *        
      *        **Important notes:**
@@ -1709,18 +1806,16 @@ class Client extends BaseClient
      *          results correspond to your request.
      *        * Records are returned in an arbitrary order. Since results are all
      *          returned at once you can sort the records yourself.
-     * 'limit' (int): Limit number of records 1-200.
-     * 'order' (string): Sort order.
-     * 'sort' (string): Sort field. You *really* only want to sort by `updated_at` in ascending
+     * - $options['limit'] (int): Limit number of records 1-200.
+     * - $options['order'] (string): Sort order.
+     * - $options['sort'] (string): Sort field. You *really* only want to sort by `updated_at` in ascending
      *        order. In descending order updated records will move behind the cursor and could
      *        prevent some records from being returned.
-     * 'begin_time' (string): Filter by begin_time when `sort=created_at` or `sort=updated_at`.
+     * - $options['begin_time'] (string): Inclusively filter by begin_time when `sort=created_at` or `sort=updated_at`.
      *        **Note:** this value is an ISO8601 timestamp. A partial timestamp that does not include a time zone will default to UTC.
-     * 'end_time' (string): Filter by end_time when `sort=created_at` or `sort=updated_at`.
+     * - $options['end_time'] (string): Inclusively filter by end_time when `sort=created_at` or `sort=updated_at`.
      *        **Note:** this value is an ISO8601 timestamp. A partial timestamp that does not include a time zone will default to UTC.
-     * 'state' (string): Filter by state.
-     *
-     * @param array $options Associative array of optional parameters:
+     * - $options['state'] (string): Filter by state.
      *
      * @return \Recurly\Pager A list of add-ons.
      * @link   https://developers.recurly.com/api/v2019-10-10#operation/list_add_ons
@@ -1748,9 +1843,11 @@ class Client extends BaseClient
     /**
      * List a site's shipping methods
      *
-     * Supported optional parameters:
+     * @param array $options Associative array of optional parameters
      *
-     * 'ids' (array): Filter results by their IDs. Up to 200 IDs can be passed at once using
+     * Supported optional query string parameters:
+     *
+     * - $options['ids'] (array): Filter results by their IDs. Up to 200 IDs can be passed at once using
      *        commas as separators, e.g. `ids=h1at4d57xlmy,gyqgg0d3v9n1,jrsm5b4yefg6`.
      *        
      *        **Important notes:**
@@ -1761,17 +1858,15 @@ class Client extends BaseClient
      *          results correspond to your request.
      *        * Records are returned in an arbitrary order. Since results are all
      *          returned at once you can sort the records yourself.
-     * 'limit' (int): Limit number of records 1-200.
-     * 'order' (string): Sort order.
-     * 'sort' (string): Sort field. You *really* only want to sort by `updated_at` in ascending
+     * - $options['limit'] (int): Limit number of records 1-200.
+     * - $options['order'] (string): Sort order.
+     * - $options['sort'] (string): Sort field. You *really* only want to sort by `updated_at` in ascending
      *        order. In descending order updated records will move behind the cursor and could
      *        prevent some records from being returned.
-     * 'begin_time' (string): Filter by begin_time when `sort=created_at` or `sort=updated_at`.
+     * - $options['begin_time'] (string): Inclusively filter by begin_time when `sort=created_at` or `sort=updated_at`.
      *        **Note:** this value is an ISO8601 timestamp. A partial timestamp that does not include a time zone will default to UTC.
-     * 'end_time' (string): Filter by end_time when `sort=created_at` or `sort=updated_at`.
+     * - $options['end_time'] (string): Inclusively filter by end_time when `sort=created_at` or `sort=updated_at`.
      *        **Note:** this value is an ISO8601 timestamp. A partial timestamp that does not include a time zone will default to UTC.
-     *
-     * @param array $options Associative array of optional parameters:
      *
      * @return \Recurly\Pager A list of the site's shipping methods.
      * @link   https://developers.recurly.com/api/v2019-10-10#operation/list_shipping_methods
@@ -1842,9 +1937,11 @@ class Client extends BaseClient
     /**
      * List a site's subscriptions
      *
-     * Supported optional parameters:
+     * @param array $options Associative array of optional parameters
      *
-     * 'ids' (array): Filter results by their IDs. Up to 200 IDs can be passed at once using
+     * Supported optional query string parameters:
+     *
+     * - $options['ids'] (array): Filter results by their IDs. Up to 200 IDs can be passed at once using
      *        commas as separators, e.g. `ids=h1at4d57xlmy,gyqgg0d3v9n1,jrsm5b4yefg6`.
      *        
      *        **Important notes:**
@@ -1855,22 +1952,20 @@ class Client extends BaseClient
      *          results correspond to your request.
      *        * Records are returned in an arbitrary order. Since results are all
      *          returned at once you can sort the records yourself.
-     * 'limit' (int): Limit number of records 1-200.
-     * 'order' (string): Sort order.
-     * 'sort' (string): Sort field. You *really* only want to sort by `updated_at` in ascending
+     * - $options['limit'] (int): Limit number of records 1-200.
+     * - $options['order'] (string): Sort order.
+     * - $options['sort'] (string): Sort field. You *really* only want to sort by `updated_at` in ascending
      *        order. In descending order updated records will move behind the cursor and could
      *        prevent some records from being returned.
-     * 'begin_time' (string): Filter by begin_time when `sort=created_at` or `sort=updated_at`.
+     * - $options['begin_time'] (string): Inclusively filter by begin_time when `sort=created_at` or `sort=updated_at`.
      *        **Note:** this value is an ISO8601 timestamp. A partial timestamp that does not include a time zone will default to UTC.
-     * 'end_time' (string): Filter by end_time when `sort=created_at` or `sort=updated_at`.
+     * - $options['end_time'] (string): Inclusively filter by end_time when `sort=created_at` or `sort=updated_at`.
      *        **Note:** this value is an ISO8601 timestamp. A partial timestamp that does not include a time zone will default to UTC.
-     * 'state' (string): Filter by state.
+     * - $options['state'] (string): Filter by state.
      *        
      *        - When `state=active`, `state=canceled`, `state=expired`, or `state=future`, subscriptions with states that match the query and only those subscriptions will be returned.
      *        - When `state=in_trial`, only subscriptions that have a trial_started_at date earlier than now and a trial_ends_at date later than now will be returned.
      *        - When `state=live`, only subscriptions that are in an active, canceled, or future state or are in trial will be returned.
-     *
-     * @param array $options Associative array of optional parameters:
      *
      * @return \Recurly\Pager A list of the site's subscriptions.
      * @link   https://developers.recurly.com/api/v2019-10-10#operation/list_subscriptions
@@ -1927,9 +2022,12 @@ class Client extends BaseClient
     /**
      * Terminate a subscription
      *
-     * Supported optional parameters:
+     * @param string $subscription_id Subscription ID or UUID. For ID no prefix is used e.g. `e28zov4fw0v2`. For UUID use prefix `uuid-`, e.g. `uuid-123457890`.
+     * @param array  $options         Associative array of optional parameters
      *
-     * 'refund' (string): The type of refund to perform:
+     * Supported optional query string parameters:
+     *
+     * - $options['refund'] (string): The type of refund to perform:
      *        
      *        * `full` - Performs a full refund of the last invoice for the current subscription term.
      *        * `partial` - Prorates a refund based on the amount of time remaining in the current bill cycle.
@@ -1938,9 +2036,6 @@ class Client extends BaseClient
      *        In the event that the most recent invoice is a $0 invoice paid entirely by credit, Recurly will apply the credit back to the customer’s account.
      *        
      *        You may also terminate a subscription with no refund and then manually refund specific invoices.
-     *
-     * @param string $subscription_id Subscription ID or UUID. For ID no prefix is used e.g. `e28zov4fw0v2`. For UUID use prefix `uuid-`, e.g. `uuid-123457890`.
-     * @param array  $options         Associative array of optional parameters:
      *
      * @return \Recurly\Resources\Subscription An expired subscription.
      * @link   https://developers.recurly.com/api/v2019-10-10#operation/terminate_subscription
@@ -2084,9 +2179,12 @@ class Client extends BaseClient
     /**
      * List a subscription's invoices
      *
-     * Supported optional parameters:
+     * @param string $subscription_id Subscription ID or UUID. For ID no prefix is used e.g. `e28zov4fw0v2`. For UUID use prefix `uuid-`, e.g. `uuid-123457890`.
+     * @param array  $options         Associative array of optional parameters
      *
-     * 'ids' (array): Filter results by their IDs. Up to 200 IDs can be passed at once using
+     * Supported optional query string parameters:
+     *
+     * - $options['ids'] (array): Filter results by their IDs. Up to 200 IDs can be passed at once using
      *        commas as separators, e.g. `ids=h1at4d57xlmy,gyqgg0d3v9n1,jrsm5b4yefg6`.
      *        
      *        **Important notes:**
@@ -2097,23 +2195,20 @@ class Client extends BaseClient
      *          results correspond to your request.
      *        * Records are returned in an arbitrary order. Since results are all
      *          returned at once you can sort the records yourself.
-     * 'limit' (int): Limit number of records 1-200.
-     * 'order' (string): Sort order.
-     * 'sort' (string): Sort field. You *really* only want to sort by `updated_at` in ascending
+     * - $options['limit'] (int): Limit number of records 1-200.
+     * - $options['order'] (string): Sort order.
+     * - $options['sort'] (string): Sort field. You *really* only want to sort by `updated_at` in ascending
      *        order. In descending order updated records will move behind the cursor and could
      *        prevent some records from being returned.
-     * 'begin_time' (string): Filter by begin_time when `sort=created_at` or `sort=updated_at`.
+     * - $options['begin_time'] (string): Inclusively filter by begin_time when `sort=created_at` or `sort=updated_at`.
      *        **Note:** this value is an ISO8601 timestamp. A partial timestamp that does not include a time zone will default to UTC.
-     * 'end_time' (string): Filter by end_time when `sort=created_at` or `sort=updated_at`.
+     * - $options['end_time'] (string): Inclusively filter by end_time when `sort=created_at` or `sort=updated_at`.
      *        **Note:** this value is an ISO8601 timestamp. A partial timestamp that does not include a time zone will default to UTC.
-     * 'type' (string): Filter by type when:
+     * - $options['type'] (string): Filter by type when:
      *        - `type=charge`, only charge invoices will be returned.
      *        - `type=credit`, only credit invoices will be returned.
      *        - `type=non-legacy`, only charge and credit invoices will be returned.
      *        - `type=legacy`, only legacy invoices will be returned.
-     *
-     * @param string $subscription_id Subscription ID or UUID. For ID no prefix is used e.g. `e28zov4fw0v2`. For UUID use prefix `uuid-`, e.g. `uuid-123457890`.
-     * @param array  $options         Associative array of optional parameters:
      *
      * @return \Recurly\Pager A list of the subscription's invoices.
      * @link   https://developers.recurly.com/api/v2019-10-10#operation/list_subscription_invoices
@@ -2127,9 +2222,12 @@ class Client extends BaseClient
     /**
      * List a subscription's line items
      *
-     * Supported optional parameters:
+     * @param string $subscription_id Subscription ID or UUID. For ID no prefix is used e.g. `e28zov4fw0v2`. For UUID use prefix `uuid-`, e.g. `uuid-123457890`.
+     * @param array  $options         Associative array of optional parameters
      *
-     * 'ids' (array): Filter results by their IDs. Up to 200 IDs can be passed at once using
+     * Supported optional query string parameters:
+     *
+     * - $options['ids'] (array): Filter results by their IDs. Up to 200 IDs can be passed at once using
      *        commas as separators, e.g. `ids=h1at4d57xlmy,gyqgg0d3v9n1,jrsm5b4yefg6`.
      *        
      *        **Important notes:**
@@ -2140,21 +2238,18 @@ class Client extends BaseClient
      *          results correspond to your request.
      *        * Records are returned in an arbitrary order. Since results are all
      *          returned at once you can sort the records yourself.
-     * 'limit' (int): Limit number of records 1-200.
-     * 'order' (string): Sort order.
-     * 'sort' (string): Sort field. You *really* only want to sort by `updated_at` in ascending
+     * - $options['limit'] (int): Limit number of records 1-200.
+     * - $options['order'] (string): Sort order.
+     * - $options['sort'] (string): Sort field. You *really* only want to sort by `updated_at` in ascending
      *        order. In descending order updated records will move behind the cursor and could
      *        prevent some records from being returned.
-     * 'begin_time' (string): Filter by begin_time when `sort=created_at` or `sort=updated_at`.
+     * - $options['begin_time'] (string): Inclusively filter by begin_time when `sort=created_at` or `sort=updated_at`.
      *        **Note:** this value is an ISO8601 timestamp. A partial timestamp that does not include a time zone will default to UTC.
-     * 'end_time' (string): Filter by end_time when `sort=created_at` or `sort=updated_at`.
+     * - $options['end_time'] (string): Inclusively filter by end_time when `sort=created_at` or `sort=updated_at`.
      *        **Note:** this value is an ISO8601 timestamp. A partial timestamp that does not include a time zone will default to UTC.
-     * 'original' (string): Filter by original field.
-     * 'state' (string): Filter by state field.
-     * 'type' (string): Filter by type field.
-     *
-     * @param string $subscription_id Subscription ID or UUID. For ID no prefix is used e.g. `e28zov4fw0v2`. For UUID use prefix `uuid-`, e.g. `uuid-123457890`.
-     * @param array  $options         Associative array of optional parameters:
+     * - $options['original'] (string): Filter by original field.
+     * - $options['state'] (string): Filter by state field.
+     * - $options['type'] (string): Filter by type field.
      *
      * @return \Recurly\Pager A list of the subscription's line items.
      * @link   https://developers.recurly.com/api/v2019-10-10#operation/list_subscription_line_items
@@ -2168,9 +2263,12 @@ class Client extends BaseClient
     /**
      * Show the coupon redemptions for a subscription
      *
-     * Supported optional parameters:
+     * @param string $subscription_id Subscription ID or UUID. For ID no prefix is used e.g. `e28zov4fw0v2`. For UUID use prefix `uuid-`, e.g. `uuid-123457890`.
+     * @param array  $options         Associative array of optional parameters
      *
-     * 'ids' (array): Filter results by their IDs. Up to 200 IDs can be passed at once using
+     * Supported optional query string parameters:
+     *
+     * - $options['ids'] (array): Filter results by their IDs. Up to 200 IDs can be passed at once using
      *        commas as separators, e.g. `ids=h1at4d57xlmy,gyqgg0d3v9n1,jrsm5b4yefg6`.
      *        
      *        **Important notes:**
@@ -2181,16 +2279,13 @@ class Client extends BaseClient
      *          results correspond to your request.
      *        * Records are returned in an arbitrary order. Since results are all
      *          returned at once you can sort the records yourself.
-     * 'sort' (string): Sort field. You *really* only want to sort by `updated_at` in ascending
+     * - $options['sort'] (string): Sort field. You *really* only want to sort by `updated_at` in ascending
      *        order. In descending order updated records will move behind the cursor and could
      *        prevent some records from being returned.
-     * 'begin_time' (string): Filter by begin_time when `sort=created_at` or `sort=updated_at`.
+     * - $options['begin_time'] (string): Inclusively filter by begin_time when `sort=created_at` or `sort=updated_at`.
      *        **Note:** this value is an ISO8601 timestamp. A partial timestamp that does not include a time zone will default to UTC.
-     * 'end_time' (string): Filter by end_time when `sort=created_at` or `sort=updated_at`.
+     * - $options['end_time'] (string): Inclusively filter by end_time when `sort=created_at` or `sort=updated_at`.
      *        **Note:** this value is an ISO8601 timestamp. A partial timestamp that does not include a time zone will default to UTC.
-     *
-     * @param string $subscription_id Subscription ID or UUID. For ID no prefix is used e.g. `e28zov4fw0v2`. For UUID use prefix `uuid-`, e.g. `uuid-123457890`.
-     * @param array  $options         Associative array of optional parameters:
      *
      * @return \Recurly\Pager A list of the the coupon redemptions on a subscription.
      * @link   https://developers.recurly.com/api/v2019-10-10#operation/list_subscription_coupon_redemptions
@@ -2202,11 +2297,101 @@ class Client extends BaseClient
     }
   
     /**
+     * List a subscription add-on's usage records
+     *
+     * @param string $subscription_id Subscription ID or UUID. For ID no prefix is used e.g. `e28zov4fw0v2`. For UUID use prefix `uuid-`, e.g. `uuid-123457890`.
+     * @param string $add_on_id       Add-on ID or code. For ID no prefix is used e.g. `e28zov4fw0v2`. For code use prefix `code-`, e.g. `code-gold`.
+     * @param array  $options         Associative array of optional parameters
+     *
+     * Supported optional query string parameters:
+     *
+     * - $options['limit'] (int): Limit number of records 1-200.
+     * - $options['order'] (string): Sort order.
+     * - $options['sort'] (string): Sort field. You *really* only want to sort by `usage_timestamp` in ascending
+     *        order. In descending order updated records will move behind the cursor and could
+     *        prevent some records from being returned.
+     * - $options['begin_time'] (string): Inclusively filter by begin_time when `sort=usage_timestamp` or `sort=recorded_timestamp`.
+     *        **Note:** this value is an ISO8601 timestamp. A partial timestamp that does not include a time zone will default to UTC.
+     * - $options['end_time'] (string): Inclusively filter by end_time when `sort=usage_timestamp` or `sort=recorded_timestamp`.
+     *        **Note:** this value is an ISO8601 timestamp. A partial timestamp that does not include a time zone will default to UTC.
+     * - $options['billing_status'] (string): Filter by usage record's billing status
+     *
+     * @return \Recurly\Pager A list of the subscription add-on's usage records.
+     * @link   https://developers.recurly.com/api/v2019-10-10#operation/list_usage
+     */
+    public function listUsage(string $subscription_id, string $add_on_id, array $options = []): \Recurly\Pager
+    {
+        $path = $this->interpolatePath("/subscriptions/{subscription_id}/add_ons/{add_on_id}/usage", ['subscription_id' => $subscription_id, 'add_on_id' => $add_on_id]);
+        return new \Recurly\Pager($this, $path, $options);
+    }
+  
+    /**
+     * Log a usage record on this subscription add-on
+     *
+     * @param string $subscription_id Subscription ID or UUID. For ID no prefix is used e.g. `e28zov4fw0v2`. For UUID use prefix `uuid-`, e.g. `uuid-123457890`.
+     * @param string $add_on_id       Add-on ID or code. For ID no prefix is used e.g. `e28zov4fw0v2`. For code use prefix `code-`, e.g. `code-gold`.
+     * @param array  $body            The body of the request.
+     *
+     * @return \Recurly\Resources\Usage The created usage record.
+     * @link   https://developers.recurly.com/api/v2019-10-10#operation/create_usage
+     */
+    public function createUsage(string $subscription_id, string $add_on_id, array $body): \Recurly\Resources\Usage
+    {
+        $path = $this->interpolatePath("/subscriptions/{subscription_id}/add_ons/{add_on_id}/usage", ['subscription_id' => $subscription_id, 'add_on_id' => $add_on_id]);
+        return $this->makeRequest('POST', $path, $body, null);
+    }
+  
+    /**
+     * Get a usage record
+     *
+     * @param string $usage_id Usage Record ID.
+     *
+     * @return \Recurly\Resources\Usage The usage record.
+     * @link   https://developers.recurly.com/api/v2019-10-10#operation/get_usage
+     */
+    public function getUsage(string $usage_id): \Recurly\Resources\Usage
+    {
+        $path = $this->interpolatePath("/usage/{usage_id}", ['usage_id' => $usage_id]);
+        return $this->makeRequest('GET', $path, null, null);
+    }
+  
+    /**
+     * Update a usage record
+     *
+     * @param string $usage_id Usage Record ID.
+     * @param array  $body     The body of the request.
+     *
+     * @return \Recurly\Resources\Usage The updated usage record.
+     * @link   https://developers.recurly.com/api/v2019-10-10#operation/update_usage
+     */
+    public function updateUsage(string $usage_id, array $body): \Recurly\Resources\Usage
+    {
+        $path = $this->interpolatePath("/usage/{usage_id}", ['usage_id' => $usage_id]);
+        return $this->makeRequest('PUT', $path, $body, null);
+    }
+  
+    /**
+     * Delete a usage record.
+     *
+     * @param string $usage_id Usage Record ID.
+     *
+     * @return \Recurly\EmptyResource Usage was successfully deleted.
+     * @link   https://developers.recurly.com/api/v2019-10-10#operation/remove_usage
+     */
+    public function removeUsage(string $usage_id): \Recurly\EmptyResource
+    {
+        $path = $this->interpolatePath("/usage/{usage_id}", ['usage_id' => $usage_id]);
+        return $this->makeRequest('DELETE', $path, null, null);
+    }
+  
+    /**
      * List a site's transactions
      *
-     * Supported optional parameters:
+     * @param array $options Associative array of optional parameters
      *
-     * 'ids' (array): Filter results by their IDs. Up to 200 IDs can be passed at once using
+     * Supported optional query string parameters:
+     *
+     * - $options['ids'] (array): Filter results by their IDs. Up to 200 IDs can be passed at once using
      *        commas as separators, e.g. `ids=h1at4d57xlmy,gyqgg0d3v9n1,jrsm5b4yefg6`.
      *        
      *        **Important notes:**
@@ -2217,19 +2402,17 @@ class Client extends BaseClient
      *          results correspond to your request.
      *        * Records are returned in an arbitrary order. Since results are all
      *          returned at once you can sort the records yourself.
-     * 'limit' (int): Limit number of records 1-200.
-     * 'order' (string): Sort order.
-     * 'sort' (string): Sort field. You *really* only want to sort by `updated_at` in ascending
+     * - $options['limit'] (int): Limit number of records 1-200.
+     * - $options['order'] (string): Sort order.
+     * - $options['sort'] (string): Sort field. You *really* only want to sort by `updated_at` in ascending
      *        order. In descending order updated records will move behind the cursor and could
      *        prevent some records from being returned.
-     * 'begin_time' (string): Filter by begin_time when `sort=created_at` or `sort=updated_at`.
+     * - $options['begin_time'] (string): Inclusively filter by begin_time when `sort=created_at` or `sort=updated_at`.
      *        **Note:** this value is an ISO8601 timestamp. A partial timestamp that does not include a time zone will default to UTC.
-     * 'end_time' (string): Filter by end_time when `sort=created_at` or `sort=updated_at`.
+     * - $options['end_time'] (string): Inclusively filter by end_time when `sort=created_at` or `sort=updated_at`.
      *        **Note:** this value is an ISO8601 timestamp. A partial timestamp that does not include a time zone will default to UTC.
-     * 'type' (string): Filter by type field. The value `payment` will return both `purchase` and `capture` transactions.
-     * 'success' (string): Filter by success field.
-     *
-     * @param array $options Associative array of optional parameters:
+     * - $options['type'] (string): Filter by type field. The value `payment` will return both `purchase` and `capture` transactions.
+     * - $options['success'] (string): Filter by success field.
      *
      * @return \Recurly\Pager A list of the site's transactions.
      * @link   https://developers.recurly.com/api/v2019-10-10#operation/list_transactions

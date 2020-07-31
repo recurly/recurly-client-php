@@ -23,6 +23,7 @@ trait ErrorTraits
             500 => 'internal_server_error',
             502 => 'bad_gateway',
             503 => 'service_unavailable',
+            504 => 'timeout',
             304 => 'not_modified',
             400 => 'bad_request',
             401 => 'unauthorized',

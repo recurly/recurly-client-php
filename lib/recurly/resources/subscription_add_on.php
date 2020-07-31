@@ -25,6 +25,7 @@ class SubscriptionAddOn extends RecurlyResource
     private $_tiers;
     private $_unit_amount;
     private $_updated_at;
+    private $_usage_percentage;
 
     protected static $array_hints = [
         'setTiers' => '\Recurly\Resources\SubscriptionAddOnTier',
@@ -267,7 +268,9 @@ the associated add-on data will be pulled from the site's item catalog.
 
     /**
     * Getter method for the tiers attribute.
-    * Empty unless `tier_type` is `tiered`, `volume`, or `stairstep`.
+    * If tiers are provided in the request, all existing tiers on the Subscription Add-on will be
+removed and replaced by the tiers in the request.
+
     *
     * @return array
     */
@@ -332,5 +335,28 @@ the associated add-on data will be pulled from the site's item catalog.
     public function setUpdatedAt(string $updated_at): void
     {
         $this->_updated_at = $updated_at;
+    }
+
+    /**
+    * Getter method for the usage_percentage attribute.
+    * The percentage taken of the monetary amount of usage tracked. This can be up to 4 decimal places. A value between 0.0 and 100.0. Required if add_on_type is usage and usage_type is percentage.
+    *
+    * @return ?float
+    */
+    public function getUsagePercentage(): ?float
+    {
+        return $this->_usage_percentage;
+    }
+
+    /**
+    * Setter method for the usage_percentage attribute.
+    *
+    * @param float $usage_percentage
+    *
+    * @return void
+    */
+    public function setUsagePercentage(float $usage_percentage): void
+    {
+        $this->_usage_percentage = $usage_percentage;
     }
 }
