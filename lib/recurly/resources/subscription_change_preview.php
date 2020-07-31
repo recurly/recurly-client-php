@@ -174,7 +174,7 @@ class SubscriptionChangePreview extends RecurlyResource
 
     /**
     * Getter method for the invoice_collection attribute.
-    * Invoice collection
+    * Invoice Collection
     *
     * @return ?\Recurly\Resources\InvoiceCollection
     */
