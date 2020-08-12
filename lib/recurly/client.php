@@ -24,7 +24,7 @@ class Recurly_Client
   /**
    * API Version
    */
-  public static $apiVersion = '2.28';
+  public static $apiVersion = '2.29';
 
   /**
    * The path to your CA certs. Use only if needed (if you can't fix libcurl/php).
@@ -42,15 +42,15 @@ class Recurly_Client
   private $_acceptLanguage = 'en-US';
 
   /**
+  /**
    * Valid Recurly domains
    */
-  private static $valid_domains = ["recurly.com"];
+  private static $valid_domains = ["recurly.com", "lvh.me", "staging2.recurlyqa.com"];
 
   /**
    * Base API URL
    */
-  private static $apiUrl = 'https://%s.recurly.com/v2';
-
+  public static $apiUrl = 'https://%s.recurly.com/v2';
 
   const API_CLIENT_VERSION = '2.12.15';
   const DEFAULT_ENCODING = 'UTF-8';
