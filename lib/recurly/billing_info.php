@@ -42,6 +42,8 @@
  * @property string $type The payment method type for a non-credit card based billing info. `bacs` and `becs` are the only accepted values
  * @property string $sort_code Bank identifier code for UK based banks. Required for Bacs based billing infos. (Bacs only)
  * @property string $bsb_code Bank identifier code for AU based banks. Required for Becs based billing infos.
+ * @property string $tax_identifier Tax identifier is required if adding a billing info that is a consumer card in Brazil. This would be the customer's CPF, a Brazilian tax identifier for all tax paying residents.
+ * @property string $tax_identifier_type This field and a value of 'cpf' are required if adding a billing info that is an elo or hipercard type in Brazil.
  */
 class Recurly_BillingInfo extends Recurly_Resource
 {
@@ -110,7 +112,8 @@ class Recurly_BillingInfo extends Recurly_Resource
       'paypal_billing_agreement_id', 'amazon_billing_agreement_id', 'currency',
       'token_id', 'external_hpp_type', 'gateway_token', 'gateway_code',
       'braintree_payment_nonce', 'roku_billing_agreement_id',
-      'three_d_secure_action_result_token_id', 'transaction_type', 'iban', 'sort_code', 'bsb_code', 'type'
+      'three_d_secure_action_result_token_id', 'transaction_type', 'iban', 'sort_code', 'bsb_code', 'type',
+      'tax_identifier', 'tax_identifier_type'
     );
   }
 }

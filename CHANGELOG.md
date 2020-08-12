@@ -1,5 +1,11 @@
 # Recurly PHP Client Library CHANGELOG
 
+## Version 2.12.16 (August 20, 2020)
+
+This brings us up to API version 2.29. There are no breaking changes
+
+* Add tax identifier fields to billing info [PR](https://github.com/recurly/recurly-client-php/pull/530)
+
 ## Version 2.12.15 (July 22, 2020)
 
 This brings us up to API version 2.28. There are no breaking changes
