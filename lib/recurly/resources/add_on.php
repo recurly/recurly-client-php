@@ -14,6 +14,8 @@ class AddOn extends RecurlyResource
 {
     private $_accounting_code;
     private $_add_on_type;
+    private $_avalara_service_type;
+    private $_avalara_transaction_type;
     private $_code;
     private $_created_at;
     private $_currencies;
@@ -87,6 +89,52 @@ class AddOn extends RecurlyResource
     public function setAddOnType(string $add_on_type): void
     {
         $this->_add_on_type = $add_on_type;
+    }
+
+    /**
+    * Getter method for the avalara_service_type attribute.
+    * Used by Avalara for Communications taxes. The transaction type in combination with the service type describe how the add-on is taxed. Refer to [the documentation](https://help.avalara.com/AvaTax_for_Communications/Tax_Calculation/AvaTax_for_Communications_Tax_Engine/Mapping_Resources/TM_00115_AFC_Modules_Corresponding_Transaction_Types) for more available t/s types.
+    *
+    * @return ?int
+    */
+    public function getAvalaraServiceType(): ?int
+    {
+        return $this->_avalara_service_type;
+    }
+
+    /**
+    * Setter method for the avalara_service_type attribute.
+    *
+    * @param int $avalara_service_type
+    *
+    * @return void
+    */
+    public function setAvalaraServiceType(int $avalara_service_type): void
+    {
+        $this->_avalara_service_type = $avalara_service_type;
+    }
+
+    /**
+    * Getter method for the avalara_transaction_type attribute.
+    * Used by Avalara for Communications taxes. The transaction type in combination with the service type describe how the add-on is taxed. Refer to [the documentation](https://help.avalara.com/AvaTax_for_Communications/Tax_Calculation/AvaTax_for_Communications_Tax_Engine/Mapping_Resources/TM_00115_AFC_Modules_Corresponding_Transaction_Types) for more available t/s types.
+    *
+    * @return ?int
+    */
+    public function getAvalaraTransactionType(): ?int
+    {
+        return $this->_avalara_transaction_type;
+    }
+
+    /**
+    * Setter method for the avalara_transaction_type attribute.
+    *
+    * @param int $avalara_transaction_type
+    *
+    * @return void
+    */
+    public function setAvalaraTransactionType(int $avalara_transaction_type): void
+    {
+        $this->_avalara_transaction_type = $avalara_transaction_type;
     }
 
     /**
