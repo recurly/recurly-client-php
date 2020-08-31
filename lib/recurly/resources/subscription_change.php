@@ -16,6 +16,7 @@ class SubscriptionChange extends RecurlyResource
     private $_activated;
     private $_add_ons;
     private $_created_at;
+    private $_custom_fields;
     private $_deleted_at;
     private $_id;
     private $_invoice_collection;
@@ -31,6 +32,7 @@ class SubscriptionChange extends RecurlyResource
 
     protected static $array_hints = [
         'setAddOns' => '\Recurly\Resources\SubscriptionAddOn',
+        'setCustomFields' => '\Recurly\Resources\CustomField',
     ];
 
     
@@ -124,6 +126,29 @@ class SubscriptionChange extends RecurlyResource
     public function setCreatedAt(string $created_at): void
     {
         $this->_created_at = $created_at;
+    }
+
+    /**
+    * Getter method for the custom_fields attribute.
+    * The custom fields will only be altered when they are included in a request. Sending an empty array will not remove any existing values. To remove a field send the name with a null or empty value.
+    *
+    * @return array
+    */
+    public function getCustomFields(): array
+    {
+        return $this->_custom_fields ?? [] ;
+    }
+
+    /**
+    * Setter method for the custom_fields attribute.
+    *
+    * @param array $custom_fields
+    *
+    * @return void
+    */
+    public function setCustomFields(array $custom_fields): void
+    {
+        $this->_custom_fields = $custom_fields;
     }
 
     /**
