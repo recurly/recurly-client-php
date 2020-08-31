@@ -1,8 +1,21 @@
 # Changelog
 
-## [3.6.0](https://github.com/recurly/recurly-client-php/tree/HEAD)
+## [3.7.0](https://github.com/recurly/recurly-client-php/tree/HEAD)
 
-[Full Changelog](https://github.com/recurly/recurly-client-php/compare/3.5.0...HEAD)
+[Full Changelog](https://github.com/recurly/recurly-client-php/compare/3.6.0...HEAD)
+
+**Implemented enhancements:**
+
+- Mon Aug 31 19:51:28 UTC 2020 Upgrade API version v2019-10-10 [\#535](https://github.com/recurly/recurly-client-php/pull/535) ([douglasmiller](https://github.com/douglasmiller))
+
+**Merged pull requests:**
+
+- Release 3.7.0 [\#536](https://github.com/recurly/recurly-client-php/pull/536) ([douglasmiller](https://github.com/douglasmiller))
+- Code of Conduct [\#534](https://github.com/recurly/recurly-client-php/pull/534) ([bhelx](https://github.com/bhelx))
+
+## [3.6.0](https://github.com/recurly/recurly-client-php/tree/3.6.0) (2020-08-21)
+
+[Full Changelog](https://github.com/recurly/recurly-client-php/compare/3.5.0...3.6.0)
 
 **Implemented enhancements:**
 
