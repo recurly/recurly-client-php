@@ -2533,19 +2533,15 @@ class Client extends BaseClient
     /**
      * List of the export files that are available to download.
      *
-     * @param array $options Associative array of optional parameters
-     *
-     * Supported optional query string parameters:
-     *
-     * - $options['date'] (string): Date for which to get a list of available automated export files. Date must be in YYYY-MM-DD format.
+     * @param string $export_date Date for which to get a list of available automated export files. Date must be in YYYY-MM-DD format.
      *
      * @return \Recurly\Resources\ExportFiles Returns a list of export files to download.
      * @link   https://developers.recurly.com/api/v2019-10-10#operation/get_export_files
      */
-    public function getExportFiles(array $options = []): \Recurly\Resources\ExportFiles
+    public function getExportFiles(string $export_date): \Recurly\Resources\ExportFiles
     {
-        $path = $this->interpolatePath("/export_dates/{export_date}/export_files", []);
-        return $this->makeRequest('GET', $path, null, $options);
+        $path = $this->interpolatePath("/export_dates/{export_date}/export_files", ['export_date' => $export_date]);
+        return $this->makeRequest('GET', $path, null, null);
     }
   
 }
