@@ -12,6 +12,8 @@ use Recurly\RecurlyResource;
 // phpcs:disable
 class UniqueCouponCode extends RecurlyResource
 {
+    private $_bulk_coupon_code;
+    private $_bulk_coupon_id;
     private $_code;
     private $_created_at;
     private $_expired_at;
@@ -25,6 +27,52 @@ class UniqueCouponCode extends RecurlyResource
     ];
 
     
+    /**
+    * Getter method for the bulk_coupon_code attribute.
+    * The Coupon code of the parent Bulk Coupon
+    *
+    * @return ?string
+    */
+    public function getBulkCouponCode(): ?string
+    {
+        return $this->_bulk_coupon_code;
+    }
+
+    /**
+    * Setter method for the bulk_coupon_code attribute.
+    *
+    * @param string $bulk_coupon_code
+    *
+    * @return void
+    */
+    public function setBulkCouponCode(string $bulk_coupon_code): void
+    {
+        $this->_bulk_coupon_code = $bulk_coupon_code;
+    }
+
+    /**
+    * Getter method for the bulk_coupon_id attribute.
+    * The Coupon ID of the parent Bulk Coupon
+    *
+    * @return ?string
+    */
+    public function getBulkCouponId(): ?string
+    {
+        return $this->_bulk_coupon_id;
+    }
+
+    /**
+    * Setter method for the bulk_coupon_id attribute.
+    *
+    * @param string $bulk_coupon_id
+    *
+    * @return void
+    */
+    public function setBulkCouponId(string $bulk_coupon_id): void
+    {
+        $this->_bulk_coupon_id = $bulk_coupon_id;
+    }
+
     /**
     * Getter method for the code attribute.
     * The code the customer enters to redeem the coupon.

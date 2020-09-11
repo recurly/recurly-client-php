@@ -22,7 +22,9 @@ class Usage extends RecurlyResource
     private $_recording_timestamp;
     private $_tier_type;
     private $_tiers;
+    private $_unit_amount;
     private $_updated_at;
+    private $_usage_percentage;
     private $_usage_timestamp;
     private $_usage_type;
 
@@ -264,6 +266,29 @@ class Usage extends RecurlyResource
     }
 
     /**
+    * Getter method for the unit_amount attribute.
+    * Unit price
+    *
+    * @return ?float
+    */
+    public function getUnitAmount(): ?float
+    {
+        return $this->_unit_amount;
+    }
+
+    /**
+    * Setter method for the unit_amount attribute.
+    *
+    * @param float $unit_amount
+    *
+    * @return void
+    */
+    public function setUnitAmount(float $unit_amount): void
+    {
+        $this->_unit_amount = $unit_amount;
+    }
+
+    /**
     * Getter method for the updated_at attribute.
     * When the usage record was billed on an invoice.
     *
@@ -284,6 +309,29 @@ class Usage extends RecurlyResource
     public function setUpdatedAt(string $updated_at): void
     {
         $this->_updated_at = $updated_at;
+    }
+
+    /**
+    * Getter method for the usage_percentage attribute.
+    * The percentage taken of the monetary amount of usage tracked. This can be up to 4 decimal places. A value between 0.0 and 100.0.
+    *
+    * @return ?float
+    */
+    public function getUsagePercentage(): ?float
+    {
+        return $this->_usage_percentage;
+    }
+
+    /**
+    * Setter method for the usage_percentage attribute.
+    *
+    * @param float $usage_percentage
+    *
+    * @return void
+    */
+    public function setUsagePercentage(float $usage_percentage): void
+    {
+        $this->_usage_percentage = $usage_percentage;
     }
 
     /**
