@@ -5,7 +5,7 @@ use Psr\Log\LogLevel;
 
 final class LoggerTest extends RecurlyTestCase
 {
-    const ISO8601_REGEX = "(\d{4})-(\d{2})-(\d{2})T(\d{2}):(\d{2}):(\d{2})[+-](\d{4})";
+    private const ISO8601_REGEX = "(\d{4})-(\d{2})-(\d{2})T(\d{2}):(\d{2}):(\d{2})[+-](\d{4})";
 
     public function testConstructorInvalidLogLevelException(): void
     {

@@ -92,15 +92,15 @@ abstract class BaseClient
             'request_headers' => $this->_headers()
             ]
         );
-        $start = time();
+        $start = microtime(true);
         list($result, $response_header) = $this->http->execute($request->getMethod(), $request->getUrl(), $request->getBodyAsJson(), $this->_headers());
-        $end = time();
+        $end = microtime(true);
 
         $response = new \Recurly\Response($result, $request);
         $response->setHeaders($response_header);
         $this->_logger->info(
             'Response', [
-            'time_ms' => $end - $start,
+            'time_ms' => intval(($end - $start) * 1000),
             'status' => $response->getStatusCode()
             ]
         );

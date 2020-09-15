@@ -9,7 +9,7 @@ class Logger implements LoggerInterface
 {
     private $_name;
     private $_default_log_level;
-    const LEVEL_MAP = [
+    private const LEVEL_MAP = [
         LogLevel::EMERGENCY => 800,
         LogLevel::ALERT => 700,
         LogLevel::CRITICAL => 600,
