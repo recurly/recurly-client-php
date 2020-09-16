@@ -116,9 +116,8 @@ abstract class RecurlyResource
                                 if (property_exists($item, 'object')) {
                                     $item_class = static::resourceClass($item->object);
                                 } else {
-                                    // TODO: Ensure that there is a hintArrayType method
                                     $item_class = static::hintArrayType($setter);
-                                    if (!preg_match('/^Recurly/', $item_class)) {
+                                    if (!preg_match('/^\\\Recurly/', $item_class)) {
                                         return $item;
                                     }
                                 }
