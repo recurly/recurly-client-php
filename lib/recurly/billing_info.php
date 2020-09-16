@@ -62,6 +62,21 @@ class Recurly_BillingInfo extends Recurly_Resource
   }
 
   /**
+   * @param string gateway_code (optional) is the code for the gateway to use for verification. If unspecified, a gateway will be selected using the normal rules.
+   * @throws Recurly_Error
+   */
+  public function verify($gateway_code = null) {
+    $uri = $this->uri() . '/verify';
+    $doc = $this->createDocument();
+    $root = $doc->appendChild($doc->createElement('verify'));
+    if ($gateway_code != null) {
+      $root->appendChild($doc->createElement('gateway_code', $gateway_code));
+    }
+
+    return Recurly_Transaction::_post($uri, $this->renderXML($doc), $this->_client);
+  }
+
+  /**
    * @throws Recurly_Error
    */
   public function update() {
