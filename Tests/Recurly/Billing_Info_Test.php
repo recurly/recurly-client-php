@@ -99,6 +99,28 @@ class Recurly_BillingInfoTest extends Recurly_TestCase
     $this->assertEquals($billing_info->name_on_account, 'BECS');
   }
 
+  public function testVerifyBillingInfoCreditCard() {
+    $billing_info = Recurly_BillingInfo::get('abcdef1234567890', $this->client);
+    $this->client->addResponse('POST', 'https://api.recurly.com/v2/accounts/abcdef1234567890/billing_info/verify', 'billing_info/verify-200.xml');
+    
+    $verified = $billing_info->verify();
+    $this->assertEquals($verified->origin, 'api_verify_card');
+
+    $verified_gateway = $billing_info->verify('gateway-code');
+    $this->assertEquals($verified_gateway->origin, 'api_verify_card');
+  }
+
+  public function testVerifyBillingInfoBankAccount() {
+    $billing_info = Recurly_BillingInfo::get('bankaccount1234567890', $this->client);
+    $this->client->addResponse('POST', 'https://api.recurly.com/v2/accounts/bankaccount1234567890/billing_info/verify', 'billing_info/verify-422.xml');
+
+    try {
+      $verified = $billing_info->verify();
+    } catch(Recurly_Error $e) {
+      $this->assertEquals($e->getMessage(), "Only stored credit card billing information can be verified at this time.");
+    }
+  }
+
   public function testDelete() {
     $billing_info = Recurly_BillingInfo::get('abcdef1234567890', $this->client);
 
