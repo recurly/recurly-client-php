@@ -515,7 +515,7 @@ property and one of the following properties: `percent`, `fixed`, `trial`.
 
     /**
     * Getter method for the plans_names attribute.
-    * TODO
+    * A list of plan names for which this coupon applies.
     *
     * @return array
     */

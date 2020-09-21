@@ -13,6 +13,7 @@ use Recurly\RecurlyResource;
 class ExportFiles extends RecurlyResource
 {
     private $_files;
+    private $_object;
 
     protected static $array_hints = [
         'setFiles' => '\Recurly\Resources\ExportFile',
@@ -40,5 +41,28 @@ class ExportFiles extends RecurlyResource
     public function setFiles(array $files): void
     {
         $this->_files = $files;
+    }
+
+    /**
+    * Getter method for the object attribute.
+    * Object type
+    *
+    * @return ?string
+    */
+    public function getObject(): ?string
+    {
+        return $this->_object;
+    }
+
+    /**
+    * Setter method for the object attribute.
+    *
+    * @param string $object
+    *
+    * @return void
+    */
+    public function setObject(string $object): void
+    {
+        $this->_object = $object;
     }
 }

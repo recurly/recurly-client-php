@@ -13,6 +13,7 @@ use Recurly\RecurlyResource;
 class ExportDates extends RecurlyResource
 {
     private $_dates;
+    private $_object;
 
     protected static $array_hints = [
         'setDates' => 'string',
@@ -40,5 +41,28 @@ class ExportDates extends RecurlyResource
     public function setDates(array $dates): void
     {
         $this->_dates = $dates;
+    }
+
+    /**
+    * Getter method for the object attribute.
+    * Object type
+    *
+    * @return ?string
+    */
+    public function getObject(): ?string
+    {
+        return $this->_object;
+    }
+
+    /**
+    * Setter method for the object attribute.
+    *
+    * @param string $object
+    *
+    * @return void
+    */
+    public function setObject(string $object): void
+    {
+        $this->_object = $object;
     }
 }
