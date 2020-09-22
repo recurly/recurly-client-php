@@ -1,8 +1,25 @@
 # Changelog
 
-## [3.7.0](https://github.com/recurly/recurly-client-php/tree/HEAD)
+## [3.8.0](https://github.com/recurly/recurly-client-php/tree/HEAD)
 
-[Full Changelog](https://github.com/recurly/recurly-client-php/compare/3.6.0...HEAD)
+[Full Changelog](https://github.com/recurly/recurly-client-php/compare/3.7.0...HEAD)
+
+**Implemented enhancements:**
+
+- Latest Changes for 2019-10-10 [\#541](https://github.com/recurly/recurly-client-php/pull/541) ([douglasmiller](https://github.com/douglasmiller))
+- Latest Changes for 2019-10-10 \(Automated Exports, additional resource data methods\) [\#537](https://github.com/recurly/recurly-client-php/pull/537) ([douglasmiller](https://github.com/douglasmiller))
+
+**Fixed bugs:**
+
+- Fixing casting for list types that are not in pagers [\#539](https://github.com/recurly/recurly-client-php/pull/539) ([douglasmiller](https://github.com/douglasmiller))
+
+**Merged pull requests:**
+
+- Release 3.8.0 [\#542](https://github.com/recurly/recurly-client-php/pull/542) ([douglasmiller](https://github.com/douglasmiller))
+
+## [3.7.0](https://github.com/recurly/recurly-client-php/tree/3.7.0) (2020-08-31)
+
+[Full Changelog](https://github.com/recurly/recurly-client-php/compare/3.6.0...3.7.0)
 
 **Implemented enhancements:**
 
