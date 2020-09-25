@@ -49,7 +49,7 @@ final class BaseClientTest extends RecurlyTestCase
         $url = "https://v3.recurly.com/resources/";
         $result = '{"id": "created", "object": "test_resource", "name": "valid"}';
         $body = [ "name" => "valid" ];
-        $this->client->addScenario("POST", $url, $body, $result, "201 Created");
+        $this->client->addScenario("POST", $url, json_encode($body), $result, "201 Created");
         $resource = $this->client->createResource([ "name" => "valid" ]);
         $this->assertEquals($resource->getId(), "created");
     }
@@ -59,7 +59,7 @@ final class BaseClientTest extends RecurlyTestCase
         $url = "https://v3.recurly.com/resources/";
         $result = "{\"error\":{\"type\":\"validation\",\"message\":\"Name is invalid\",\"params\":[{\"param\":\"name\",\"message\":\"is invalid\"}]}}";
         $body = [ "name" => "invalid" ];
-        $this->client->addScenario("POST", $url, $body, $result, "422 Unprocessable Entity");
+        $this->client->addScenario("POST", $url, json_encode($body), $result, "422 Unprocessable Entity");
 
         $this->expectException(\Recurly\Errors\Validation::class);
         $resource = $this->client->createResource([ "name" => "invalid" ]);
@@ -79,7 +79,7 @@ final class BaseClientTest extends RecurlyTestCase
         $url = "https://v3.recurly.com/resources/iexist";
         $result = '{"id": "iexist", "object": "test_resource", "name": "newname"}';
         $body = [ "name" => "newname" ];
-        $this->client->addScenario("PUT", $url, $body, $result, "200 OK");
+        $this->client->addScenario("PUT", $url, json_encode($body), $result, "200 OK");
 
         $resource = $this->client->updateResource("iexist", $body);
         $this->assertEquals($resource->getName(), "newname");
@@ -122,7 +122,7 @@ final class BaseClientTest extends RecurlyTestCase
         $url = "https://v3.recurly.com/resources/";
         $result = '{"id": "created", "object": "test_resource", "name": "valid"}';
         $body = [ "date_time" => $dateTime->format(\DateTime::ISO8601) ];
-        $this->client->addScenario("POST", $url, $body, $result, "201 Created");
+        $this->client->addScenario("POST", $url, json_encode($body), $result, "201 Created");
         $resource = $this->client->createResource([ "date_time" => $dateTime ]);
         $this->assertEquals($resource->getId(), "created");
     }
@@ -138,7 +138,7 @@ final class BaseClientTest extends RecurlyTestCase
                 "date_time" => $dateTime->format(\DateTime::ISO8601)
             ]
         ];
-        $this->client->addScenario("POST", $url, $body, $result, "201 Created");
+        $this->client->addScenario("POST", $url, json_encode($body), $result, "201 Created");
         $resource = $this->client->createResource([ "nested" => [ "date_time" => $dateTime ] ]);
         $this->assertEquals($resource->getId(), "created");
     }

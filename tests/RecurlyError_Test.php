@@ -2,6 +2,11 @@
 
 final class RecurlyErrorTest extends RecurlyTestCase
 {
+    protected function setUp(): void
+    {
+        $this->request = new \Recurly\Request('GET', 'https://v3.recurly.com/accounts', null, null, []);
+    }
+
     public function testFromResponseGenericJsonServerError(): void
     {
         $data = [
@@ -12,7 +17,7 @@ final class RecurlyErrorTest extends RecurlyTestCase
             ]
         ];
 
-        $response = new \Recurly\Response(json_encode($data));
+        $response = new \Recurly\Response(json_encode($data), $this->request);
         $response->setHeaders([
             'HTTP/1.1 500 Internal Server Error',
             'Content-Type: application/json',
@@ -34,7 +39,7 @@ final class RecurlyErrorTest extends RecurlyTestCase
             ]
         ];
 
-        $response = new \Recurly\Response(json_encode($data));
+        $response = new \Recurly\Response(json_encode($data), $this->request);
         $response->setHeaders([
             'HTTP/1.1 404 Not Found',
             'Content-Type: application/json',
@@ -56,7 +61,7 @@ final class RecurlyErrorTest extends RecurlyTestCase
             ]
         ];
 
-        $response = new \Recurly\Response(json_encode($data));
+        $response = new \Recurly\Response(json_encode($data), $this->request);
         $response->setHeaders([
             'HTTP/1.1 100 Continue',
             'Content-Type: application/json',
@@ -70,7 +75,7 @@ final class RecurlyErrorTest extends RecurlyTestCase
 
     public function testFromResponseForbiddenError(): void
     {
-        $response = new \Recurly\Response('forbidden error');
+        $response = new \Recurly\Response('forbidden error', $this->request);
         $response->setHeaders([
             'HTTP/1.1 403 Forbidden',
         ]);
@@ -83,7 +88,7 @@ final class RecurlyErrorTest extends RecurlyTestCase
 
     public function testFromResponseUnknownError(): void
     {
-        $response = new \Recurly\Response('what is this???');
+        $response = new \Recurly\Response('what is this???', $this->request);
         $response->setHeaders([
             'HTTP/1.1 100 Continue',
         ]);
@@ -104,7 +109,7 @@ final class RecurlyErrorTest extends RecurlyTestCase
             ]
         ];
 
-        $response = new \Recurly\Response(json_encode($data));
+        $response = new \Recurly\Response(json_encode($data), $this->request);
         $response->setHeaders([
             'HTTP/1.1 500 Internal Server Error',
             'Content-Type: application/json'

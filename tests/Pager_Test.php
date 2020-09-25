@@ -8,6 +8,7 @@ final class PagerTest extends RecurlyTestCase
     {
         parent::setUp();
         $this->client = new MockClient();
+        $this->request = new \Recurly\Request('GET', 'https://v3.recurly.com/accounts', null, null, []);
 
         $this->count = 3;
         $client_stub = $this->createMock(\Recurly\BaseClient::class);
@@ -16,7 +17,7 @@ final class PagerTest extends RecurlyTestCase
                 $name = 'page_limit_1';
             }
             $json_string = $this->fixtures->loadJsonFixture($name, ['type' => 'string']);
-            $response = new \Recurly\Response($json_string);
+            $response = new \Recurly\Response($json_string, $this->request);
             $response->setHeaders([
                 'HTTP/1.1 200 OK',
                 "Recurly-Total-Records: {$this->count}"

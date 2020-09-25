@@ -163,6 +163,8 @@ try {
 }
 ```
 
+### HTTP Metadata
+
 Sometimes you might want to get some additional information about the underlying HTTP request and response. Instead of returning this information directly and forcing the programmer to unwrap it, we inject this metadata into the top level resource that was returned. You can access the response by calling `getResponse()` on any Resource.
 
 > **Warning**:
@@ -173,6 +175,19 @@ $account = $client->getAccount("code-douglas");
 $response = $account->getResponse();
 echo "Request ID:" . $response->getRequestId() . PHP_EOL;
 echo "Rate limit remaining:" . $response->getRateLimitRemaining() . PHP_EOL;
+```
+
+Information about the request is also included in the `\Recurly\Response` class and can be accessed using the `getRequest()` method on the Response.
+
+```php
+$account = $client->getAccount("code-douglas");
+$response = $account->getResponse();
+$request = $response->getRequest();
+echo "Request URL:" . $request->getUrl() . PHP_EOL;
+echo "Request body as JSON:" . $request->getJSON() . PHP_EOL;
+foreach($request->getHeaders() as $k => $v) {
+    echo "Request header: $k => $v" . PHP_EOL;
+}
 ```
 
 This also works on `Empty` resources (for when there is no return body):

@@ -8,6 +8,9 @@
 
 namespace Recurly;
 
+/**
+ * @codeCoverageIgnore
+ */
 class HttpAdapter
 {
     private static $_default_options = [
@@ -26,7 +29,6 @@ class HttpAdapter
      */
     public function execute($method, $url, $body, $headers): array
     {
-        $body = empty($body) ? null : json_encode($body);
         $options = array_replace(
             self::$_default_options, [
             'method' => $method,
