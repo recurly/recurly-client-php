@@ -63,9 +63,8 @@ abstract class BaseClient
      */
     private function _getResponse(\Recurly\Request $request): \Recurly\Response
     {
-        list($result, $response_header) = $this->http->execute($request->getMethod(), $request->getUrl(), $request->getJson(), $this->_headers());
+        list($result, $response_header) = $this->http->execute($request->getMethod(), $request->getUrl(), $request->getBodyAsJson(), $this->_headers());
 
-        // TODO: The $request should be added to the $response
         $response = new \Recurly\Response($result, $request);
         $response->setHeaders($response_header);
 

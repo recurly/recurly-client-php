@@ -184,7 +184,7 @@ $account = $client->getAccount("code-douglas");
 $response = $account->getResponse();
 $request = $response->getRequest();
 echo "Request URL:" . $request->getUrl() . PHP_EOL;
-echo "Request body as JSON:" . $request->getJSON() . PHP_EOL;
+echo "Request body as JSON:" . $request->getBodyAsJson() . PHP_EOL;
 foreach($request->getHeaders() as $k => $v) {
     echo "Request header: $k => $v" . PHP_EOL;
 }

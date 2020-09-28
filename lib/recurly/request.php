@@ -62,7 +62,7 @@ class Request
      * 
      * @return array The request body
      */
-    public function getJson(): ?string
+    public function getBodyAsJson(): ?string
     {
         return empty($this->_body) ? null : json_encode($this->_body);
     }
