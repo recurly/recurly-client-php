@@ -40,7 +40,12 @@ abstract class BaseClient
      */
     protected function makeRequest(string $method, string $path, ?array $body = [], ?array $params = []): \Recurly\RecurlyResource
     {
-        $response = $this->_getResponse($method, $path, $body, $params);
+        $url = $this->_buildPath($path, $params);
+        $formattedBody = $this->_formatDateTimes($body);
+
+        $request = new \Recurly\Request($method, $url, $formattedBody, $params, $this->_headers());
+
+        $response = $this->_getResponse($request);
         $resource = $response->toResource();
         return $resource;
     }
@@ -56,16 +61,11 @@ abstract class BaseClient
      * 
      * @return \Recurly\Response A Recurly Response object
      */
-    private function _getResponse(string $method, string $path, ?array $body = [], ?array $params = []): \Recurly\Response
+    private function _getResponse(\Recurly\Request $request): \Recurly\Response
     {
-        $request = new \Recurly\Request($method, $path, $body, $params);
+        list($result, $response_header) = $this->http->execute($request->getMethod(), $request->getUrl(), $request->getBodyAsJson(), $this->_headers());
 
-        $url = $this->_buildPath($path, $params);
-        $formattedBody = $this->_formatDateTimes($body);
-        list($result, $response_header) = $this->http->execute($method, $url, $formattedBody, $this->_headers());
-
-        // TODO: The $request should be added to the $response
-        $response = new \Recurly\Response($result);
+        $response = new \Recurly\Response($result, $request);
         $response->setHeaders($response_header);
 
         return $response;
@@ -96,7 +96,9 @@ abstract class BaseClient
      */
     public function pagerCount(string $path, ?array $params = []): \Recurly\Response
     {
-        return $this->_getResponse('HEAD', $path, null, $params);
+        $url = $this->_buildPath($path, $params);
+        $request = new \Recurly\Request('HEAD', $url, null, $params, $this->_headers());
+        return $this->_getResponse($request);
     }
 
     /**
