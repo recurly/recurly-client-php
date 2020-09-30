@@ -93,7 +93,7 @@ class Response
             } else {
                 $parts = explode(':', $header, 2);
                 if (count($parts) == 2) {
-                    $this->_headers[$parts[0]] = trim($parts[1]);
+                    $this->_headers[strtolower($parts[0])] = trim($parts[1]);
                 }
             }
         }
@@ -181,6 +181,7 @@ class Response
      */
     private function _getHeaderValue(string $key, $default = '')
     {
-        return key_exists($key, $this->_headers) ? $this->_headers[$key] : $default;
+        $lower_key = strtolower($key);
+        return key_exists($lower_key, $this->_headers) ? $this->_headers[$lower_key] : $default;
     }
 }
