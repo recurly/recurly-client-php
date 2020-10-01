@@ -97,7 +97,7 @@ class Recurly_Coupon extends Recurly_Resource
     $response->assertValidResponse();
 
     $coupons = array();
-    foreach (new Recurly_UniqueCouponCodeList($response->headers['Location'], $this->_client) as $coupon) {
+    foreach (new Recurly_UniqueCouponCodeList($response->headers['location'], $this->_client) as $coupon) {
       $coupons[] = $coupon;
       if (count($coupons) == $number) break;
     }

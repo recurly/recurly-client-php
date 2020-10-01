@@ -1,5 +1,9 @@
 # Recurly PHP Client Library CHANGELOG
 
+## Version 2.5.4 (October 1, 2020)
+
+* Fixed issue with RFC 2616 compliance: headers should be treated as case-insensitive.
+
 ## Version 2.5.3 (July 5th, 2016)
 
 * Added support for setting `free_trial_amount` and `free_trial_unit` to `Recurly_Coupon` [#224](https://github.com/recurly/recurly-client-php/pull/224)
