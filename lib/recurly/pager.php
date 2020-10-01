@@ -120,8 +120,8 @@ abstract class Recurly_Pager extends Recurly_Base implements Iterator
   private function _loadLinks($response) {
     $this->_links = array();
 
-    if (isset($response->headers['Link'])) {
-      $links = $response->headers['Link'];
+    if (isset($response->headers['link'])) {
+      $links = $response->headers['link'];
       preg_match_all('/\<([^>]+)\>; rel=\"([^"]+)\"/', $links, $matches);
       if (sizeof($matches) > 2) {
         for ($i = 0; $i < sizeof($matches[1]); $i++) {
@@ -136,8 +136,8 @@ abstract class Recurly_Pager extends Recurly_Base implements Iterator
    */
   private function _loadRecordCount($response)
   {
-    if (isset($response->headers['X-Records'])) {
-      $this->_count = intval($response->headers['X-Records']);
+    if (isset($response->headers['x-records'])) {
+      $this->_count = intval($response->headers['x-records']);
     }
   }
 
