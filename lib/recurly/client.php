@@ -44,7 +44,7 @@ class Recurly_Client
    */
   private $_acceptLanguage = 'en-US';
 
-  const API_CLIENT_VERSION = '2.4.6';
+  const API_CLIENT_VERSION = '2.4.7';
   const DEFAULT_ENCODING = 'UTF-8';
 
   const GET = 'GET';
@@ -190,8 +190,10 @@ class Recurly_Client
     $returnHeaders = array();
     foreach ($headers as &$header) {
       preg_match('/([^:]+): (.*)/', $header, $matches);
-      if (sizeof($matches) > 2)
-        $returnHeaders[$matches[1]] = $matches[2];
+      if (sizeof($matches) > 2) {
+        $headerKey = strtolower($matches[1]);
+        $returnHeaders[$headerKey] = $matches[2];
+      }
     }
     return $returnHeaders;
   }
