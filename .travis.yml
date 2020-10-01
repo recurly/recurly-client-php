@@ -1,8 +1,12 @@
 language: php
-php:
-  - 5.5
-  - 5.4
-  - 5.3
+jobs:
+  include:
+   - php: 5.5
+     dist: precise
+   - php: 5.4
+     dist: precise
+   - php: 5.3
+     dist: precise
 before_script:
   - composer install --dev
 script: phpunit Tests
