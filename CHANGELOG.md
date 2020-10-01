@@ -1,5 +1,9 @@
 # Recurly PHP Client Library CHANGELOG
 
+## Version 2.3.2 (October 1, 2020)
+
+* Fixed issue with RFC 2616 compliance: headers should be treated as case-insensitive.
+
 ## Version 2.3.1 (Sept 26th, 2014)
 
 * Added remaining billing cycles to subscriptions: `subscription->remaining_billing_cycles` [91](https://github.com/recurly/recurly-client-php/pull/91)
