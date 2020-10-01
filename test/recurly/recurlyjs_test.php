@@ -7,7 +7,7 @@ class Recurly_jsMock extends Recurly_js {
   }
 
   // Expose a protected static method for testing
-  function testGenerateSignature($claim, $values, $timestamp = null) {
+  static function testGenerateSignature($claim, $values, $timestamp = null) {
     return Recurly_js::_generateSignature($claim, $values, $timestamp);
   }
 }
