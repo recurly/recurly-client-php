@@ -11,7 +11,7 @@
         "ext-curl": "*"
     },
     "require-dev": {
-        "lastcraft/simpletest": "1.1.*"
+        "simpletest/simpletest": "1.1.*"
     },
     "autoload": {
         "classmap": ["lib"]

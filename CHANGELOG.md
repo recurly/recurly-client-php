@@ -1,5 +1,9 @@
 # Recurly PHP Client Library CHANGELOG
 
+## Version 2.1.5 (October 1, 2020)
+
+* Fixed issue with RFC 2616 compliance: headers should be treated as case-insensitive.
+
 ## Version 2.1.4 (February 19, 2013)
 
 * Fixed fatal error in Recurly_Invoice::getInvoicePdf().
