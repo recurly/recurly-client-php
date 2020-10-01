@@ -1,5 +1,9 @@
 # Recurly PHP Client Library CHANGELOG
 
+## Version 2.2.7 (October 1, 2020)
+
+* Fixed issue with RFC 2616 compliance: headers should be treated as case-insensitive.
+
 ## Version 2.2.6 (May 9th, 2014)
 
 * Added support for `Recurly_Account` field `balance_in_cents_invoiced` [#64]
