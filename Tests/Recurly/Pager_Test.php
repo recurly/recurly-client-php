@@ -82,7 +82,8 @@ class Recurly_PagerTest extends Recurly_TestCase
     $relative_url = '/mocks';
     $this->client->addResponse('GET', $relative_url, 'pager/index-1-200.xml');
 
-    $pager = (new Recurly_Stub('mocks', $relative_url, $this->client))->get();
+    $stub = new Recurly_Stub('mocks', $relative_url, $this->client);
+    $pager = $stub->get();
     $this->assertInstanceOf('Mock_Pager', $pager);
 
     // Until we've fetched a second page with a next link we'll keep using the

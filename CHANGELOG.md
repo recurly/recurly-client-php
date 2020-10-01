@@ -1,5 +1,9 @@
 # Recurly PHP Client Library CHANGELOG
 
+## Version 2.8.3 (October 1, 2020)
+
+* Fixed issue with RFC 2616 compliance: headers should be treated as case-insensitive.
+
 ## Version 2.8.2 (July 21th, 2017)
 
 * Fixes a bug creating subscriptions for existing accounts (thanks to @g30rg) [#326](https://github.com/recurly/recurly-client-php/pull/326)
