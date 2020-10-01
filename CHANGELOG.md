@@ -1,5 +1,10 @@
 # Recurly PHP Client Library CHANGELOG
 
+## Version 2.0.9 (October 1, 2020)
+
+* Fixed issue with RFC 2616 compliance: headers should be treated as case-insensitive.
+
+## Version 2.0.8 (February 7, 2012)
 
 * Better parsing of transaction errors on one-time transaction requests.
 * Parse an array of plan_codes as strings in the coupon response.
