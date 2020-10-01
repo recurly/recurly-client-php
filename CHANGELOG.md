@@ -1,5 +1,9 @@
 # Recurly PHP Client Library CHANGELOG
 
+## Version 2.7.3 (October 1, 2020)
+
+* Fixed issue with RFC 2616 compliance: headers should be treated as case-insensitive.
+
 ## Version 2.7.2 (March 21st, 2017)
 
 * Require export files [#296](https://github.com/recurly/recurly-client-php/pull/296)
