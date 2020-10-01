@@ -20,8 +20,8 @@ abstract class Recurly_Pager extends Recurly_Base implements Iterator, Countable
   public function count() {
     if (isset($this->_href)) {
       $headers = Recurly_Base::_head($this->_href, $this->_client);
-      if (isset($headers['X-Records'])) {
-        return intval($headers['X-Records']);
+      if (isset($headers['x-records'])) {
+        return intval($headers['x-records']);
       }
     } elseif (isset($this->_objects) && is_array($this->_objects)) {
       return count($this->_objects);
@@ -119,8 +119,8 @@ abstract class Recurly_Pager extends Recurly_Base implements Iterator, Countable
   private function _loadLinks($response) {
     $this->_links = array();
 
-    if (isset($response->headers['Link'])) {
-      $links = $response->headers['Link'];
+    if (isset($response->headers['link'])) {
+      $links = $response->headers['link'];
       preg_match_all('/\<([^>]+)\>; rel=\"([^"]+)\"/', $links, $matches);
       if (sizeof($matches) > 2) {
         for ($i = 0; $i < sizeof($matches[1]); $i++) {
