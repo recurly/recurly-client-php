@@ -78,17 +78,15 @@ abstract class BaseClient
      */
     private function _getResponse(\Recurly\Request $request): \Recurly\Response
     {
-        $url = $this->_buildPath($path, $params);
-        $formattedBody = $this->_formatDateTimes($body);
         $this->_logger->info(
             'Request', [
-            'method' => $method,
-            'path' => $path
+            'method' => $request->getMethod(),
+            'path' => $request->getUrl()
             ]
         );
         $this->_logger->debug(
             'Request', [
-            'request_body' => $formattedBody,
+            'request_body' => $request->getBodyAsJson(),
             'request_headers' => $this->_headers()
             ]
         );

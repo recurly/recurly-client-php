@@ -12,7 +12,9 @@ final class BaseClientTest extends RecurlyTestCase
     protected function setUp(): void
     {
         parent::setUp();
-        $this->client = new MockClient();
+        // Using LogLevel::EMERGENCY to minimize output when running tests
+        $logger = new Logger('Recurly', LogLevel::EMERGENCY);
+        $this->client = new MockClient($logger);
     }
 
     public function tearDown(): void

@@ -1,13 +1,17 @@
 <?php
 
 use Recurly\Pager;
+use Recurly\Logger;
+use Psr\Log\LogLevel;
 
 final class PagerTest extends RecurlyTestCase
 {
     protected function setUp(): void
     {
         parent::setUp();
-        $this->client = new MockClient();
+        // Using LogLevel::EMERGENCY to minimize output when running tests
+        $logger = new Logger('Recurly', LogLevel::EMERGENCY);
+        $this->client = new MockClient($logger);
         $this->request = new \Recurly\Request('GET', 'https://v3.recurly.com/accounts', null, null, []);
 
         $this->count = 3;
