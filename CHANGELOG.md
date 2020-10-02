@@ -1,8 +1,24 @@
 # Changelog
 
-## [3.8.0](https://github.com/recurly/recurly-client-php/tree/HEAD)
+## [3.8.1](https://github.com/recurly/recurly-client-php/tree/HEAD)
 
-[Full Changelog](https://github.com/recurly/recurly-client-php/compare/3.7.0...HEAD)
+[Full Changelog](https://github.com/recurly/recurly-client-php/compare/3.8.0...HEAD)
+
+**Implemented enhancements:**
+
+- Adding \Recurly\Request to \Recurly\Response [\#543](https://github.com/recurly/recurly-client-php/pull/543) ([douglasmiller](https://github.com/douglasmiller))
+
+**Fixed bugs:**
+
+- Updating to be compliant with RFC 2616 [\#545](https://github.com/recurly/recurly-client-php/pull/545) ([douglasmiller](https://github.com/douglasmiller))
+
+**Merged pull requests:**
+
+- Release 3.8.1 [\#557](https://github.com/recurly/recurly-client-php/pull/557) ([douglasmiller](https://github.com/douglasmiller))
+
+## [3.8.0](https://github.com/recurly/recurly-client-php/tree/3.8.0) (2020-09-22)
+
+[Full Changelog](https://github.com/recurly/recurly-client-php/compare/3.7.0...3.8.0)
 
 **Implemented enhancements:**
 
