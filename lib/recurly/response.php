@@ -100,6 +100,16 @@ class Response
     }
 
     /**
+     * Getter method for all of the HTTP headers included with the response.
+     * 
+     * @return array Associative array of response headers
+     */
+    public function getHeaders(): array
+    {
+        return $this->_headers;
+    }
+
+    /**
      * Getter method for the HTTP status code
      * 
      * @return int The HTTP status code

@@ -36,6 +36,19 @@ $api_key = 'myApiKey';
 $client = new \Recurly\Client($api_key);
 ```
 
+#### Logging
+
+The client constructor optionally accepts a logger provided by the programmer. The logger you pass should implement the [PSR-3 Logger Interface](https://www.php-fig.org/psr/psr-3/). By default, the client creates an instance of the `\Recurly\Logger` which is a basic implementation that prints log messages to `php://stdout` with the `\Psr\Log\LogLevel::WARNING` level.
+
+```php
+// Create an instance of the Recurly\Logger
+$logger = new \Recurly\Logger('Recurly', \Psr\Log\LogLevel::INFO);
+
+$client = new \Recurly\Client($api_key, $logger);
+```
+
+> *SECURITY WARNING*: The log level should never be set to DEBUG in production. This could potentially result in sensitive data in your logging system.
+
 ### Operations
 
 The `\Recurly\Client` contains every operation you can perform on the site as a list of methods. Each method is documented explaining the types and descriptions for each input and return type. For example, to use the [get_plan](https://developers.recurly.com/api/latest/index.html#operation/get_plan) endpoint, call the `Client#getPlan()` method:

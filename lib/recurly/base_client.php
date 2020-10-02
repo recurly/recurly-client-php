@@ -2,6 +2,9 @@
 
 namespace Recurly;
 
+use Psr\Log\LoggerInterface;
+use Psr\Log\LogLevel;
+
 abstract class BaseClient
 {
     use RecurlyTraits;
@@ -9,16 +12,28 @@ abstract class BaseClient
     protected $baseUrl = 'https://v3.recurly.com';
     private $_api_key;
     protected $http;
+    private $_logger;
 
     /**
      * Constructor
      * 
      * @param string $api_key The API key to use when making requests
      */
-    public function __construct(string $api_key)
+    public function __construct(string $api_key, LoggerInterface $logger = null)
     {
         $this->_api_key = $api_key;
         $this->http = new HttpAdapter;
+        if (is_null($logger)) {
+            $logger = new \Recurly\Logger('Recurly', LogLevel::WARNING);
+        }
+        $this->_logger = $logger;
+
+        // Send Security Warning to logger debug
+        $msg = "The Recurly logger should not be initialized";
+        $msg .= "\nbeyond the level INFO. It is currently configured to emit";
+        $msg .= "\nheaders and request / response bodies. This has the potential to leak";
+        $msg .= "\nPII and other sensitive information and should never be used in production.";
+        $this->_logger->debug("SECURITY WARNING: {$msg}");
     }
 
     /**
@@ -63,10 +78,36 @@ abstract class BaseClient
      */
     private function _getResponse(\Recurly\Request $request): \Recurly\Response
     {
+        $this->_logger->info(
+            'Request', [
+            'method' => $request->getMethod(),
+            'path' => $request->getUrl()
+            ]
+        );
+        $this->_logger->debug(
+            'Request', [
+            'request_body' => $request->getBodyAsJson(),
+            'request_headers' => $this->_headers()
+            ]
+        );
+        $start = microtime(true);
         list($result, $response_header) = $this->http->execute($request->getMethod(), $request->getUrl(), $request->getBodyAsJson(), $this->_headers());
+        $end = microtime(true);
 
         $response = new \Recurly\Response($result, $request);
         $response->setHeaders($response_header);
+        $this->_logger->info(
+            'Response', [
+            'time_ms' => intval(($end - $start) * 1000),
+            'status' => $response->getStatusCode()
+            ]
+        );
+        $this->_logger->debug(
+            'Response', [
+            'response_body' => $response->getRawResponse(),
+            'response_headers' => $response->getHeaders()
+            ]
+        );
 
         return $response;
     }
