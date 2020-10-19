@@ -915,6 +915,21 @@ class Client extends BaseClient
     }
   
     /**
+     * Restore an inactive coupon
+     *
+     * @param string $coupon_id Coupon ID or code. For ID no prefix is used e.g. `e28zov4fw0v2`. For code use prefix `code-`, e.g. `code-10off`.
+     * @param array  $body      The body of the request.
+     *
+     * @return \Recurly\Resources\Coupon The restored coupon.
+     * @link   https://developers.recurly.com/api/v2019-10-10#operation/restore_coupon
+     */
+    public function restoreCoupon(string $coupon_id, array $body): \Recurly\Resources\Coupon
+    {
+        $path = $this->interpolatePath("/coupons/{coupon_id}/restore", ['coupon_id' => $coupon_id]);
+        return $this->makeRequest('PUT', $path, $body, null);
+    }
+  
+    /**
      * List unique coupon codes associated with a bulk coupon
      *
      * @param string $coupon_id Coupon ID or code. For ID no prefix is used e.g. `e28zov4fw0v2`. For code use prefix `code-`, e.g. `code-10off`.
