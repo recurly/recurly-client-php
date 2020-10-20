@@ -70,7 +70,7 @@ final class PagerTest extends RecurlyTestCase
         $result = '{"object":"list","has_more":true,"next":"page_two","data":[{"object":"test_resource","name":"resource one"}]}';
         $this->client->addScenario("GET", $url, NULL, $result, "200 OK");
 
-        $pager = new \Recurly\Pager($this->client, '/resources', ['limit' => 5]);
+        $pager = new \Recurly\Pager($this->client, '/resources', [ 'limit' => 5 ]);
         $this->assertInstanceOf(
             \Recurly\Resources\TestResource::class,
             $pager->getFirst()
@@ -96,7 +96,7 @@ final class PagerTest extends RecurlyTestCase
         ]}';        
         $this->client->addScenario("GET", $url, NULL, $result, "200 OK");
 
-        $pager = new \Recurly\Pager($this->client, '/resources', [ 'limit' => 200]);
+        $pager = new \Recurly\Pager($this->client, '/resources', [ 'limit' => 200 ]);
         $this->assertEquals(2, count($pager->take(2))
         );
     }
