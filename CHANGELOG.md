@@ -1,8 +1,21 @@
 # Changelog
 
-## [3.8.1](https://github.com/recurly/recurly-client-php/tree/HEAD)
+## [3.9.0](https://github.com/recurly/recurly-client-php/tree/HEAD)
 
-[Full Changelog](https://github.com/recurly/recurly-client-php/compare/3.8.0...HEAD)
+[Full Changelog](https://github.com/recurly/recurly-client-php/compare/3.8.1...HEAD)
+
+**Implemented enhancements:**
+
+- Mon Oct 19 20:43:37 UTC 2020 Upgrade API version v2019-10-10 [\#559](https://github.com/recurly/recurly-client-php/pull/559) ([douglasmiller](https://github.com/douglasmiller))
+- Adding \Recurly\Logger class and the ability to configure a logger [\#506](https://github.com/recurly/recurly-client-php/pull/506) ([douglasmiller](https://github.com/douglasmiller))
+
+**Merged pull requests:**
+
+- Release 3.9.0 [\#560](https://github.com/recurly/recurly-client-php/pull/560) ([douglasmiller](https://github.com/douglasmiller))
+
+## [3.8.1](https://github.com/recurly/recurly-client-php/tree/3.8.1) (2020-10-02)
+
+[Full Changelog](https://github.com/recurly/recurly-client-php/compare/3.8.0...3.8.1)
 
 **Implemented enhancements:**
 
