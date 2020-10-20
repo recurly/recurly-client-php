@@ -87,6 +87,20 @@ final class PagerTest extends RecurlyTestCase
         $this->assertNull($pager->getFirst());
     }
 
+    public function testTake(): void
+    {
+        $url = "https://v3.recurly.com/resources?limit=2";
+        $result = '{"object":"list","has_more":true,"next":"page_two","data":[
+          {"object":"test_resource","name":"resource one"},
+          {"object":"test_resource","name":"resource two"}
+        ]}';        
+        $this->client->addScenario("GET", $url, NULL, $result, "200 OK");
+
+        $pager = new \Recurly\Pager($this->client, '/resources');
+        $this->assertEquals(2, count($pager->take(2))
+        );
+    }
+
     public function testGetCount(): void
     {
         $url = "https://v3.recurly.com/resources";

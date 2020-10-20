@@ -73,6 +73,22 @@ class Pager implements \Iterator
     }
 
     /**
+     * Performs a request with the pager `limit` set to `n` and only returns the
+     * first `n` results in the response. 
+     * 
+     * @return array
+     */
+    public function take(int $n): ?array
+    {
+        $params = array_merge([ 'limit' => $n ], $this->_params);
+        $page = $this->_client->nextPage($this->_path, $params);
+        if ($page->valid()) {
+            return $page->getData();
+        }
+        return null;
+    }
+
+    /**
      * Getter for the Recurly HTTP Response of the current Page
      * 
      * @return \Recurly\Response The Recurly HTTP Response
