@@ -4,5 +4,5 @@ namespace Recurly;
 
 class Version
 {
-    public const CURRENT = '3.8.1';
+    public const CURRENT = '3.9.0';
 }
