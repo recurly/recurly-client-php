@@ -64,7 +64,7 @@ class Pager implements \Iterator
      */
     public function getFirst(): ?\Recurly\RecurlyResource
     {
-        $params = array_merge([ 'limit' => 1 ], $this->_params);
+        $params = array_merge($this->_params, [ 'limit' => 1 ]);
         $page = $this->_client->nextPage($this->_path, $params);
         if ($page->valid()) {
             return $page->current();
@@ -80,7 +80,7 @@ class Pager implements \Iterator
      */
     public function take(int $n): ?array
     {
-        $params = array_merge([ 'limit' => $n ], $this->_params);
+        $params = array_merge($this->_params, [ 'limit' => $n ]);
         $page = $this->_client->nextPage($this->_path, $params);
         if ($page->valid()) {
             return $page->getData();
