@@ -64,10 +64,26 @@ class Pager implements \Iterator
      */
     public function getFirst(): ?\Recurly\RecurlyResource
     {
-        $params = array_merge([ 'limit' => 1 ], $this->_params);
+        $params = array_merge($this->_params, [ 'limit' => 1 ]);
         $page = $this->_client->nextPage($this->_path, $params);
         if ($page->valid()) {
             return $page->current();
+        }
+        return null;
+    }
+
+    /**
+     * Performs a request with the pager `limit` set to `n` and only returns the
+     * first `n` results in the response. 
+     * 
+     * @return array
+     */
+    public function take(int $n): ?array
+    {
+        $params = array_merge($this->_params, [ 'limit' => $n ]);
+        $page = $this->_client->nextPage($this->_path, $params);
+        if ($page->valid()) {
+            return $page->getData();
         }
         return null;
     }
