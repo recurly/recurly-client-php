@@ -47,12 +47,12 @@ class Recurly_AccountListTest extends Recurly_TestCase
   }
 
   public function testTake() {
-    $params = array('order' => 'desc', 'per_page' => '5');
-    $url = '/accounts?order=desc&per_page=5';
-    $this->client->addResponse('GET', $url, 'accounts/index-200.xml');
+    $params = array('order' => 'asc', 'per_page' => '5');
+    $url = '/accounts?order=asc&per_page=3';
+    $this->client->addResponse('GET', $url, 'accounts/index-200-take.xml');
 
-    $accounts = Recurly_AccountList::take(3, $params);
-    $this->assertInstanceOf('Recurly_AccountList', $accounts);
-    $this->assertEquals('/accounts?order=desc&per_page=3', $accounts->getHref());
+    $accounts = Recurly_AccountList::take(3, $params, $this->client);
+    $this->assertIsArray($accounts);
+    $this->assertEquals(sizeof($accounts), 3);
   }
 }
