@@ -90,7 +90,7 @@ class Recurly_CouponTest extends Recurly_TestCase
     $coupon = Recurly_Coupon::get('special', $this->client);
 
     $this->assertInstanceOf('Recurly_Coupon', $coupon);
-    $this->assertTrue($coupon->applies_to_all_plans);
+    $this->assertFalse($coupon->applies_to_all_plans);
     $this->assertEquals(array('plan_one', 'plan_two'), $coupon->plan_codes);
   }
 
