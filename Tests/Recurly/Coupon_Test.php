@@ -94,6 +94,16 @@ class Recurly_CouponTest extends Recurly_TestCase
     $this->assertEquals(array('plan_one', 'plan_two'), $coupon->plan_codes);
   }
 
+  public function testItemCodesXml() {
+    $this->client->addResponse('GET', '/coupons/special', 'coupons/show-200-3.xml');
+
+    $coupon = Recurly_Coupon::get('special', $this->client);
+
+    $this->assertInstanceOf('Recurly_Coupon', $coupon);
+    $this->assertFalse($coupon->applies_to_all_items);
+    $this->assertEquals(array('item_one', 'item_two', 'item_three'), $coupon->item_codes);
+  }
+
   public function testXml() {
     $coupon = new Recurly_Coupon();
     $coupon->coupon_code = 'fifteen-off';
@@ -123,6 +133,21 @@ class Recurly_CouponTest extends Recurly_TestCase
     );
   }
 
+  public function testXmlWithItems() {
+    $coupon = new Recurly_Coupon();
+    $coupon->coupon_code = 'twenty-off';
+    $coupon->name = '$20 Off';
+    $coupon->discount_type = 'dollar';
+    $coupon->discount_in_cents->addCurrency('USD', 2000);
+    $coupon->item_codes = array('item_one', 'item_two', 'item_three');
+    $coupon->invoice_description = 'Invoice description';
+
+    $this->assertEquals(
+      "<?xml version=\"1.0\"?>\n<coupon><coupon_code>twenty-off</coupon_code><name>$20 Off</name><discount_type>dollar</discount_type><discount_in_cents><USD>2000</USD></discount_in_cents><item_codes><item_code>item_one</item_code><item_code>item_two</item_code><item_code>item_three</item_code></item_codes><invoice_description>Invoice description</invoice_description></coupon>\n",
+      $coupon->xml()
+    );
+  }
+
   public function testCreateUpdateXML() {
     $coupon = new Recurly_Coupon();
 
@@ -131,6 +156,7 @@ class Recurly_CouponTest extends Recurly_TestCase
     $coupon->discount_type = 'dollar';
     $coupon->discount_in_cents->addCurrency('USD', 1500);
     $coupon->plan_codes = array('gold', 'monthly');
+    $coupon->item_codes = array('item_one', 'item_two', 'item_three');
 
     // should serialize these values
     $coupon->name = '$15 Off';
