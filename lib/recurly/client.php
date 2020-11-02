@@ -308,9 +308,9 @@ class Client extends BaseClient
      *        **Note:** this value is an ISO8601 timestamp. A partial timestamp that does not include a time zone will default to UTC.
      *
      * @return \Recurly\Pager A list of the the billing information for an account's
-     * @link   https://developers.recurly.com/api/v2019-10-10#operation/get_billing_infos
+     * @link   https://developers.recurly.com/api/v2019-10-10#operation/list_billing_infos
      */
-    public function getBillingInfos(string $account_id, array $options = []): \Recurly\Pager
+    public function listBillingInfos(string $account_id, array $options = []): \Recurly\Pager
     {
         $path = $this->interpolatePath("/accounts/{account_id}/billing_infos", ['account_id' => $account_id]);
         return new \Recurly\Pager($this, $path, $options);
@@ -369,9 +369,9 @@ class Client extends BaseClient
      * @param string $billing_info_id Billing Info ID.
      *
      * @return \Recurly\EmptyResource Billing information deleted
-     * @link   https://developers.recurly.com/api/v2019-10-10#operation/remove_one_billing_info
+     * @link   https://developers.recurly.com/api/v2019-10-10#operation/remove_a_billing_info
      */
-    public function removeOneBillingInfo(string $account_id, string $billing_info_id): \Recurly\EmptyResource
+    public function removeABillingInfo(string $account_id, string $billing_info_id): \Recurly\EmptyResource
     {
         $path = $this->interpolatePath("/accounts/{account_id}/billing_infos/{billing_info_id}", ['account_id' => $account_id, 'billing_info_id' => $billing_info_id]);
         return $this->makeRequest('DELETE', $path, null, null);
