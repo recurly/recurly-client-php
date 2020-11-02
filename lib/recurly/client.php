@@ -281,6 +281,103 @@ class Client extends BaseClient
     }
   
     /**
+     * Get the list of billing information associated with an account
+     *
+     * @param string $account_id Account ID or code. For ID no prefix is used e.g. `e28zov4fw0v2`. For code use prefix `code-`, e.g. `code-bob`.
+     * @param array  $options    Associative array of optional parameters
+     *
+     * Supported optional query string parameters:
+     *
+     * - $options['ids'] (array): Filter results by their IDs. Up to 200 IDs can be passed at once using
+     *        commas as separators, e.g. `ids=h1at4d57xlmy,gyqgg0d3v9n1,jrsm5b4yefg6`.
+     *        
+     *        **Important notes:**
+     *        
+     *        * The `ids` parameter cannot be used with any other ordering or filtering
+     *          parameters (`limit`, `order`, `sort`, `begin_time`, `end_time`, etc)
+     *        * Invalid or unknown IDs will be ignored, so you should check that the
+     *          results correspond to your request.
+     *        * Records are returned in an arbitrary order. Since results are all
+     *          returned at once you can sort the records yourself.
+     * - $options['sort'] (string): Sort field. You *really* only want to sort by `updated_at` in ascending
+     *        order. In descending order updated records will move behind the cursor and could
+     *        prevent some records from being returned.
+     * - $options['begin_time'] (string): Inclusively filter by begin_time when `sort=created_at` or `sort=updated_at`.
+     *        **Note:** this value is an ISO8601 timestamp. A partial timestamp that does not include a time zone will default to UTC.
+     * - $options['end_time'] (string): Inclusively filter by end_time when `sort=created_at` or `sort=updated_at`.
+     *        **Note:** this value is an ISO8601 timestamp. A partial timestamp that does not include a time zone will default to UTC.
+     *
+     * @return \Recurly\Pager A list of the the billing information for an account's
+     * @link   https://developers.recurly.com/api/v2019-10-10#operation/get_billing_infos
+     */
+    public function getBillingInfos(string $account_id, array $options = []): \Recurly\Pager
+    {
+        $path = $this->interpolatePath("/accounts/{account_id}/billing_infos", ['account_id' => $account_id]);
+        return new \Recurly\Pager($this, $path, $options);
+    }
+  
+    /**
+     * Set an account's billing information when the wallet feature is enabled
+     *
+     * @param string $account_id Account ID or code. For ID no prefix is used e.g. `e28zov4fw0v2`. For code use prefix `code-`, e.g. `code-bob`.
+     * @param array  $body       The body of the request.
+     *
+     * @return \Recurly\Resources\BillingInfo Updated billing information.
+     * @link   https://developers.recurly.com/api/v2019-10-10#operation/create_billing_info
+     */
+    public function createBillingInfo(string $account_id, array $body): \Recurly\Resources\BillingInfo
+    {
+        $path = $this->interpolatePath("/accounts/{account_id}/billing_infos", ['account_id' => $account_id]);
+        return $this->makeRequest('POST', $path, $body, null);
+    }
+  
+    /**
+     * Fetch a billing info
+     *
+     * @param string $account_id      Account ID or code. For ID no prefix is used e.g. `e28zov4fw0v2`. For code use prefix `code-`, e.g. `code-bob`.
+     * @param string $billing_info_id Billing Info ID.
+     *
+     * @return \Recurly\Resources\BillingInfo A billing info.
+     * @link   https://developers.recurly.com/api/v2019-10-10#operation/get_a_billing_info
+     */
+    public function getABillingInfo(string $account_id, string $billing_info_id): \Recurly\Resources\BillingInfo
+    {
+        $path = $this->interpolatePath("/accounts/{account_id}/billing_infos/{billing_info_id}", ['account_id' => $account_id, 'billing_info_id' => $billing_info_id]);
+        return $this->makeRequest('GET', $path, null, null);
+    }
+  
+    /**
+     * Update an account's billing information
+     *
+     * @param string $account_id      Account ID or code. For ID no prefix is used e.g. `e28zov4fw0v2`. For code use prefix `code-`, e.g. `code-bob`.
+     * @param string $billing_info_id Billing Info ID.
+     * @param array  $body            The body of the request.
+     *
+     * @return \Recurly\Resources\BillingInfo Updated billing information.
+     * @link   https://developers.recurly.com/api/v2019-10-10#operation/update_a_billing_info
+     */
+    public function updateABillingInfo(string $account_id, string $billing_info_id, array $body): \Recurly\Resources\BillingInfo
+    {
+        $path = $this->interpolatePath("/accounts/{account_id}/billing_infos/{billing_info_id}", ['account_id' => $account_id, 'billing_info_id' => $billing_info_id]);
+        return $this->makeRequest('PUT', $path, $body, null);
+    }
+  
+    /**
+     * Remove an account's billing information
+     *
+     * @param string $account_id      Account ID or code. For ID no prefix is used e.g. `e28zov4fw0v2`. For code use prefix `code-`, e.g. `code-bob`.
+     * @param string $billing_info_id Billing Info ID.
+     *
+     * @return \Recurly\EmptyResource Billing information deleted
+     * @link   https://developers.recurly.com/api/v2019-10-10#operation/remove_one_billing_info
+     */
+    public function removeOneBillingInfo(string $account_id, string $billing_info_id): \Recurly\EmptyResource
+    {
+        $path = $this->interpolatePath("/accounts/{account_id}/billing_infos/{billing_info_id}", ['account_id' => $account_id, 'billing_info_id' => $billing_info_id]);
+        return $this->makeRequest('DELETE', $path, null, null);
+    }
+  
+    /**
      * Show the coupon redemptions for an account
      *
      * @param string $account_id Account ID or code. For ID no prefix is used e.g. `e28zov4fw0v2`. For code use prefix `code-`, e.g. `code-bob`.

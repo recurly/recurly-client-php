@@ -18,6 +18,7 @@ class Subscription extends RecurlyResource
     private $_add_ons_total;
     private $_auto_renew;
     private $_bank_account_authorized_at;
+    private $_billing_info_id;
     private $_canceled_at;
     private $_collection_method;
     private $_coupon_redemptions;
@@ -197,6 +198,29 @@ class Subscription extends RecurlyResource
     public function setBankAccountAuthorizedAt(string $bank_account_authorized_at): void
     {
         $this->_bank_account_authorized_at = $bank_account_authorized_at;
+    }
+
+    /**
+    * Getter method for the billing_info_id attribute.
+    * Billing Info ID.
+    *
+    * @return ?string
+    */
+    public function getBillingInfoId(): ?string
+    {
+        return $this->_billing_info_id;
+    }
+
+    /**
+    * Setter method for the billing_info_id attribute.
+    *
+    * @param string $billing_info_id
+    *
+    * @return void
+    */
+    public function setBillingInfoId(string $billing_info_id): void
+    {
+        $this->_billing_info_id = $billing_info_id;
     }
 
     /**

@@ -15,6 +15,7 @@ class Invoice extends RecurlyResource
     private $_account;
     private $_address;
     private $_balance;
+    private $_billing_info_id;
     private $_closed_at;
     private $_collection_method;
     private $_created_at;
@@ -121,6 +122,29 @@ class Invoice extends RecurlyResource
     public function setBalance(float $balance): void
     {
         $this->_balance = $balance;
+    }
+
+    /**
+    * Getter method for the billing_info_id attribute.
+    * The `billing_info_id` is the value that represents a specific billing info for an end customer. When `billing_info_id` is used to assign billing info to the subscription, all future billing events for the subscription will bill to the specified billing info.
+    *
+    * @return ?string
+    */
+    public function getBillingInfoId(): ?string
+    {
+        return $this->_billing_info_id;
+    }
+
+    /**
+    * Setter method for the billing_info_id attribute.
+    *
+    * @param string $billing_info_id
+    *
+    * @return void
+    */
+    public function setBillingInfoId(string $billing_info_id): void
+    {
+        $this->_billing_info_id = $billing_info_id;
     }
 
     /**
