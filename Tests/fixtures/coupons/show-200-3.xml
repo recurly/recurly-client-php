@@ -16,6 +16,7 @@ Content-Type: application/xml; charset=utf-8
   <applies_for_months nil="nil"></applies_for_months>
   <max_redemptions nil="nil"></max_redemptions>
   <applies_to_all_plans type="boolean">false</applies_to_all_plans>
+  <applies_to_all_items type="boolean">false</applies_to_all_items>
   <redemption_resource>account</redemption_resource>
   <created_at type="datetime">2011-04-10T07:00:00Z</created_at>
   <duration>forever</duration>
@@ -25,5 +26,10 @@ Content-Type: application/xml; charset=utf-8
     <plan_code>plan_one</plan_code>
     <plan_code>plan_two</plan_code>
   </plan_codes>
+  <item_codes type="array">
+    <item_code>item_one</item_code>
+    <item_code>item_two</item_code>
+    <item_code>item_three</item_code>
+  </item_codes>
   <a name="redeem" href="https://api.recurly.com/v2/coupons/special/redeem" method="post"/>
 </coupon>

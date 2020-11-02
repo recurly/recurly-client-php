@@ -13,6 +13,7 @@
  * @property string $invoice_description Description of the coupon on the invoice.
  * @property int $max_redemptions Maximum number of accounts that may use the coupon before it can no longer be redeemed.
  * @property boolean $applies_to_all_plans The coupon is valid for all plans if true, defaults to true.
+ * @property boolean $applies_to_all_items The coupon is valid for all items if true, defaults to false.
  * @property string $duration Allowed values: [forever, single_use, temporal].  If single_use, the coupon applies to the first invoice only. If temporal the coupon will apply to invoices for the duration determined by the temporal_unit and temporal_amount attributes.
  * @property string $temporal_unit Allowed values: [day, week, month, year]. If duration is temporal then temporal_unit is multiplied by temporal_amount to define the duration that the coupon will be applied to invoices for.
  * @property integer $temporal_amount If duration is temporal then temporal_amount is an integer which is multiplied by temporal_unit to define the duration that the coupon will be applied to invoices for.
@@ -22,6 +23,7 @@
  * @property string $coupon_type Allowed values: [single_code, bulk]. Bulk coupons will require a unique_code_template and will generate unique codes through the generate endpoint.
  * @property string $unique_code_template The template for generating unique codes. See rules in the coupon docs: https://dev.recurly.com/docs/create-coupon
  * @property string[] $plan_codes Array of plan_codes the coupon applies to, if applies_to_all_plans is false.
+ * @property string[] $item_codes Array of item_codes the coupon applies to, if applies_to_all_items is false.
  * @property int $free_trial_amount Only relevant when the coupon type is free_trial. The free_trial_amount is used together with free_trial_unit to define the length of a free trial coupon. For example, a 2 week free trial would be defined as free_trial_amount = 2 and free_trial_unit = Week.
  * @property string $free_trial_unit Only relevant when the coupon type is free_trial. Allowed values are day or week or month. free_trial_unit is used together with free_trial_unit to define the length of a free trial coupon. For example, a 2 week free trial would be defined as free_trial_amount = 2 and free_trial_unit = Week.
  * @property DateTime $redeem_by_date Last date to redeem the coupon, defaults to no date.
@@ -166,8 +168,8 @@ class Recurly_Coupon extends Recurly_Resource
     return array(
       'coupon_code', 'name', 'discount_type', 'redeem_by_date', 'single_use',
       'applies_for_months', 'duration', 'temporal_unit', 'temporal_amount',
-      'max_redemptions', 'applies_to_all_plans', 'discount_percent',
-      'discount_in_cents', 'plan_codes', 'hosted_description',
+      'max_redemptions', 'applies_to_all_plans', 'applies_to_all_items', 'discount_percent',
+      'discount_in_cents', 'plan_codes', 'item_codes', 'hosted_description',
       'invoice_description', 'applies_to_non_plan_charges', 'redemption_resource',
       'max_redemptions_per_account', 'coupon_type', 'unique_code_template',
       'unique_coupon_codes', 'discount_type', 'free_trial_amount',

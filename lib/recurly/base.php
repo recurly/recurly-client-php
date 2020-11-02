@@ -273,6 +273,8 @@ abstract class Recurly_Base
     'invoice_collection' => 'Recurly_InvoiceCollection',
     'item' => 'Recurly_Item',
     'items' => 'Recurly_ItemList',
+    'item_code' => 'string',
+    'item_codes' => 'array',
     'line_items' => 'array',
     'measured_unit' => 'Recurly_MeasuredUnit',
     'measured_units' => 'Recurly_MeasuredUnitList',
