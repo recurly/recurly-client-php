@@ -61,6 +61,14 @@ class Recurly_ShippingAddressTest extends Recurly_TestCase
     }
   }
 
+  public function testTakeShippingAddresses() {
+    $this->client->addResponse('GET', '/accounts/abcdef1234567890/shipping_addresses?per_page=3', 'shipping_addresses/index-200-take.xml');
+
+    $shipping_addresses = Recurly_ShippingAddressList::take(3, 'abcdef1234567890', null, $this->client);
+    $this->assertIsArray($shipping_addresses);
+    $this->assertEquals(sizeof($shipping_addresses), 3);
+  }
+
   public function testDeleteShippingAddress() {
     $this->client->addResponse('GET', '/accounts/abcdef1234567890/shipping_addresses', 'shipping_addresses/index-200.xml');
     $this->client->addResponse('DELETE', 'https://api.recurly.com/v2/accounts/abcdef1234567890/shipping_addresses/1234567', 'shipping_addresses/destroy-204.xml');
