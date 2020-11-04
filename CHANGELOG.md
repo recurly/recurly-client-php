@@ -1,5 +1,9 @@
 # Recurly PHP Client Library CHANGELOG
 
+## Version 2.12.18 (November 5, 2020)
+
+* Support item-specific coupons [PR](https://github.com/recurly/recurly-client-php/pull/563)
+
 ## Version 2.12.17 (September 17, 2020)
 
 * New endpoint to verify an account's billing information [PR](https://github.com/recurly/recurly-client-php/pull/538)
