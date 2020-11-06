@@ -1,8 +1,21 @@
 # Changelog
 
-## [3.9.0](https://github.com/recurly/recurly-client-php/tree/HEAD)
+## [3.10.0](https://github.com/recurly/recurly-client-php/tree/HEAD)
 
-[Full Changelog](https://github.com/recurly/recurly-client-php/compare/3.8.1...HEAD)
+[Full Changelog](https://github.com/recurly/recurly-client-php/compare/3.9.0...HEAD)
+
+**Implemented enhancements:**
+
+- Latest Changes for 2019-10-10 \(Wallet, Item Coupons\) [\#564](https://github.com/recurly/recurly-client-php/pull/564) ([douglasmiller](https://github.com/douglasmiller))
+- Implement Pager\#take [\#561](https://github.com/recurly/recurly-client-php/pull/561) ([joannasese](https://github.com/joannasese))
+
+**Merged pull requests:**
+
+- Release 3.10.0 [\#566](https://github.com/recurly/recurly-client-php/pull/566) ([douglasmiller](https://github.com/douglasmiller))
+
+## [3.9.0](https://github.com/recurly/recurly-client-php/tree/3.9.0) (2020-10-20)
+
+[Full Changelog](https://github.com/recurly/recurly-client-php/compare/3.8.1...3.9.0)
 
 **Implemented enhancements:**
 
