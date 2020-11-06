@@ -12,6 +12,7 @@ use Recurly\RecurlyResource;
 // phpcs:disable
 class Coupon extends RecurlyResource
 {
+    private $_applies_to_all_items;
     private $_applies_to_all_plans;
     private $_applies_to_non_plan_charges;
     private $_bulk_coupon_code;
@@ -27,6 +28,7 @@ class Coupon extends RecurlyResource
     private $_hosted_page_description;
     private $_id;
     private $_invoice_description;
+    private $_items;
     private $_max_redemptions;
     private $_max_redemptions_per_account;
     private $_name;
@@ -44,11 +46,37 @@ class Coupon extends RecurlyResource
     private $_updated_at;
 
     protected static $array_hints = [
+        'setItems' => '\Recurly\Resources\ItemMini',
         'setPlans' => '\Recurly\Resources\PlanMini',
         'setPlansNames' => 'string',
     ];
 
     
+    /**
+    * Getter method for the applies_to_all_items attribute.
+    * The coupon is valid for all items if true. If false then `items`
+will list the applicable items.
+
+    *
+    * @return ?bool
+    */
+    public function getAppliesToAllItems(): ?bool
+    {
+        return $this->_applies_to_all_items;
+    }
+
+    /**
+    * Setter method for the applies_to_all_items attribute.
+    *
+    * @param bool $applies_to_all_items
+    *
+    * @return void
+    */
+    public function setAppliesToAllItems(bool $applies_to_all_items): void
+    {
+        $this->_applies_to_all_items = $applies_to_all_items;
+    }
+
     /**
     * Getter method for the applies_to_all_plans attribute.
     * The coupon is valid for all plans if true. If false then `plans` and `plans_names` will list the applicable plans.
@@ -396,6 +424,31 @@ property and one of the following properties: `percent`, `fixed`, `trial`.
     public function setInvoiceDescription(string $invoice_description): void
     {
         $this->_invoice_description = $invoice_description;
+    }
+
+    /**
+    * Getter method for the items attribute.
+    * A list of items for which this coupon applies. This will be
+`null` if `applies_to_all_items=true`.
+
+    *
+    * @return array
+    */
+    public function getItems(): array
+    {
+        return $this->_items ?? [] ;
+    }
+
+    /**
+    * Setter method for the items attribute.
+    *
+    * @param array $items
+    *
+    * @return void
+    */
+    public function setItems(array $items): void
+    {
+        $this->_items = $items;
     }
 
     /**
