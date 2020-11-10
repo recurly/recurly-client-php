@@ -81,7 +81,7 @@ class Recurly_BillingInfoTest extends Recurly_TestCase
   public function testGetIbanBillingInfo() {
     $billing_info = Recurly_BillingInfo::get('sepa1234567890', $this->client);
     $this->assertInstanceOf('Recurly_BillingInfo', $billing_info);
-    $this->assertEquals($billing_info->iban, 'US1234567890');
+    $this->assertEquals($billing_info->last_two, '06');
     $this->assertEquals($billing_info->name_on_account, 'Account Name');
   }
 
