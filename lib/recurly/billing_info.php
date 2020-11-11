@@ -36,6 +36,7 @@
  * @property string $transaction_type Indicates type of resulting transaction. accepted_values: "moto".
  * @property-read string $first_six Credit card number, first six digits
  * @property-read string $last_four Credit card number, last four digits
+ * @property-read string $last_two International bank account number (IBAN), last two digits 
  * @property string $card_type Visa, MasterCard, American Express, Discover, JCB, etc
  * @property-write string $three_d_secure_action_result_token_id An id returned by Recurly.js referencing the result of the 3DS authentication for PSD2
  * @property string $iban International bank account number developed to identify an overseas bank account
