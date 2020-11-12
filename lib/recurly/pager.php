@@ -31,6 +31,17 @@ abstract class Recurly_Pager extends Recurly_Base implements Iterator, Countable
     return null;
   }
 
+  protected function get_first_page() {
+    // Fetch the results from the server
+    $this->rewind();
+    // If the place we put them is valid, then return the results
+    if ($this->valid()) {
+      return $this->_objects;
+    }
+    // Otherwise return null
+    return null;
+  }
+
   /**
    * Rewind to the beginning
    *

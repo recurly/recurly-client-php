@@ -45,4 +45,14 @@ class Recurly_AccountListTest extends Recurly_TestCase
     $this->assertInstanceOf('Recurly_AccountList', $accounts);
     $this->assertEquals($url, $accounts->getHref());
   }
+
+  public function testTake() {
+    $params = array('order' => 'asc', 'per_page' => '5');
+    $url = '/accounts?order=asc&per_page=3';
+    $this->client->addResponse('GET', $url, 'accounts/index-200-take.xml');
+
+    $accounts = Recurly_AccountList::take(3, $params, $this->client);
+    $this->assertIsArray($accounts);
+    $this->assertEquals(sizeof($accounts), 3);
+  }
 }

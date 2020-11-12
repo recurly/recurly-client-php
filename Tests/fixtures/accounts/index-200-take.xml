@@ -1,0 +1,55 @@
+HTTP/1.1 200 OK
+Content-Type: application/xml; charset=utf-8
+Link: <https://api.recurly.com/v2/accounts?cursor=1234567890&per_page=20>; rel="start", <https://api.recurly.com/v2/accounts?cursor=1234566890&per_page=20>; rel="next"
+
+<?xml version="1.0" encoding="UTF-8"?>
+<accounts>
+  <account href="https://api.recurly.com/v2/accounts/api100">
+    <adjustments href="https://api.recurly.com/v2/accounts/api100/adjustments"/>
+    <billing_info href="https://api.recurly.com/v2/accounts/api100/billing_info"/>
+    <invoices href="https://api.recurly.com/v2/accounts/api100/invoices"/>
+    <subscriptions href="https://api.recurly.com/v2/accounts/api100/subscriptions"/>
+    <transactions href="https://api.recurly.com/v2/accounts/api100/transactions"/>
+    <account_code>api100</account_code>
+    <username>api100_u</username>
+    <email>api100@example.com</email>
+    <first_name>api100_fn</first_name>
+    <last_name>api100_ln</last_name>
+    <company_name>api100_cn</company_name>
+    <accept_language>api100_al</accept_language>
+    <created_at type="datetime">2011-04-30T12:00:00Z</created_at>
+    <closed_at nil="nil"></closed_at>
+  </account>
+  <account href="https://api.recurly.com/v2/accounts/api99">
+    <adjustments href="https://api.recurly.com/v2/accounts/api99/adjustments"/>
+    <billing_info href="https://api.recurly.com/v2/accounts/api99/billing_info"/>
+    <invoices href="https://api.recurly.com/v2/accounts/api99/invoices"/>
+    <subscriptions href="https://api.recurly.com/v2/accounts/api99/subscriptions"/>
+    <transactions href="https://api.recurly.com/v2/accounts/api99/transactions"/>
+    <account_code>api99</account_code>
+    <username>api99_u</username>
+    <email>api99@example.com</email>
+    <first_name>api99_fn</first_name>
+    <last_name>api99_ln</last_name>
+    <company_name>api99_cn</company_name>
+    <accept_language>api99_al</accept_language>
+    <created_at type="datetime">2011-04-30T12:00:00Z</created_at>
+    <closed_at nil="nil"></closed_at>
+  </account>
+  <account href="https://api.recurly.com/v2/accounts/api98">
+    <adjustments href="https://api.recurly.com/v2/accounts/api98/adjustments"/>
+    <billing_info href="https://api.recurly.com/v2/accounts/api98/billing_info"/>
+    <invoices href="https://api.recurly.com/v2/accounts/api98/invoices"/>
+    <subscriptions href="https://api.recurly.com/v2/accounts/api98/subscriptions"/>
+    <transactions href="https://api.recurly.com/v2/accounts/api98/transactions"/>
+    <account_code>api98</account_code>
+    <username>api98_u</username>
+    <email>api98@example.com</email>
+    <first_name>api98_fn</first_name>
+    <last_name>api98_ln</last_name>
+    <company_name>api98_cn</company_name>
+    <accept_language>api98_al</accept_language>
+    <created_at type="datetime">2011-04-30T12:00:00Z</created_at>
+    <closed_at nil="nil"></closed_at>
+  </account>
+</accounts>
