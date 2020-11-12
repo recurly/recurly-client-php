@@ -8,6 +8,8 @@
  * @property string $add_on_code The add-on code. Max of 50 characters. If item_code is present, add_on_code must be absent. If item_code is not present, add_on_code is required.
  * @property string $name The add-on name. Max of 255 characters. If item_code is present, name must be absent. If item_code is not present, name is required.
  * @property string $item_code Item code for an existing active item to be used as an add-on on the plan.
+ * @property string $item_state The current state of the item. Will be either active or inactive. Read-only.
+ * @property string $external_sku Stock keeping unit to link the item to other inventory.
  * @property int $default_quantity Default quantity for the hosted pages, defaults to 1.
  * @property int $default_quantity_on_hosted_page If true, displays a quantity field on the hosted pages for the add-on.
  * @property string $tax_code Optional field for EU VAT merchants and Avalara AvaTax Pro merchants. If you are using Recurly's EU VAT feature, you can use values of: [unknown, physical, digital]. If you have your own AvaTax account configured, you can use Avalara's tax codes to assign custom tax rules. If item_code is present, tax_code must be absent.
