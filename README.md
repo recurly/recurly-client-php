@@ -130,6 +130,10 @@ $accounts = $client->listAccounts([ 'order' => 'asc', 'past_due' => true ]);
 $account = $accounts->getFirst();
 ```
 
+#### A Note on Headers
+
+In accordance with [section 4.2 of RFC 2616](https://www.ietf.org/rfc/rfc2616.txt), HTTP header fields are case-insensitive.
+
 ### Creating Resources
 
 For creating or updating resources, pass a plain associative array to one of the `create*` or `update*` methods:
