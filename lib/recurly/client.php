@@ -403,6 +403,7 @@ class Client extends BaseClient
      *        **Note:** this value is an ISO8601 timestamp. A partial timestamp that does not include a time zone will default to UTC.
      * - $options['end_time'] (string): Inclusively filter by end_time when `sort=created_at` or `sort=updated_at`.
      *        **Note:** this value is an ISO8601 timestamp. A partial timestamp that does not include a time zone will default to UTC.
+     * - $options['state'] (string): Filter by state.
      *
      * @return \Recurly\Pager A list of the the coupon redemptions on an account.
      * @link   https://developers.recurly.com/api/v2019-10-10#operation/list_account_coupon_redemptions
@@ -2148,6 +2149,7 @@ class Client extends BaseClient
      *        In the event that the most recent invoice is a $0 invoice paid entirely by credit, Recurly will apply the credit back to the customer’s account.
      *        
      *        You may also terminate a subscription with no refund and then manually refund specific invoices.
+     * - $options['charge'] (bool): Applicable only if the subscription has usage based add-ons and unbilled usage logged for the current billing cycle. If true, current billing cycle unbilled usage is billed on the final invoice. If false, Recurly will create a negative usage record for current billing cycle usage that will zero out the final invoice line items.
      *
      * @return \Recurly\Resources\Subscription An expired subscription.
      * @link   https://developers.recurly.com/api/v2019-10-10#operation/terminate_subscription
