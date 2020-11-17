@@ -271,7 +271,7 @@ class Subscription extends RecurlyResource
 
     /**
     * Getter method for the coupon_redemptions attribute.
-    * Coupon redemptions
+    * Returns subscription level coupon redemptions that are tied to this subscription.
     *
     * @return array
     */
