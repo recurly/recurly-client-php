@@ -34,6 +34,10 @@ or in your PHP script:
 date_default_timezone_set('America/Los_Angeles');
 ```
 
+### Headers
+
+In accordance with [section 4.2 of RFC 2616](https://www.ietf.org/rfc/rfc2616.txt), HTTP header fields are case-insensitive.
+
 ## Installation
 
 ### Composer
