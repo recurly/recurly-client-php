@@ -1,5 +1,12 @@
 # Recurly PHP Client Library CHANGELOG
 
+## Version 2.12.19 (November 23, 2020)
+
+* Implement Pager#take [PR](https://github.com/recurly/recurly-client-php/pull/562)
+* Augment and patch iban implementation [PR](https://github.com/recurly/recurly-client-php/pull/567)
+* Add item_state and external_sku to phpdocs [PR](https://github.com/recurly/recurly-client-php/pull/568)
+* Update readme to include headers memo [PR](https://github.com/recurly/recurly-client-php/pull/570)
+
 ## Version 2.12.18 (November 5, 2020)
 
 * Support item-specific coupons [PR](https://github.com/recurly/recurly-client-php/pull/563)
