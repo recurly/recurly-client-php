@@ -51,7 +51,7 @@ class Recurly_ClientResponse
   public function assertValidResponse()
   {
     if (!empty($this->headers['recurly-deprecated'])) {
-      error_log("WARNING: API version {$this->headers['x-api-version']} is deprecated and will only be available until {$this->headers['recurly-sunset-date']}. Please upgrade the Recurly PHP client.");
+      error_log("WARNING: API version {$this->headers['x-api-version']} has been sunsetted. As of {$this->headers['recurly-sunset-date']}, Recurly will no longer support, provide bug fixes, or patch security issues. Please upgrade the Recurly PHP client.");
     }
 
     // Successful response code
