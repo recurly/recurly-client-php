@@ -429,7 +429,7 @@ class Client extends BaseClient
     }
   
     /**
-     * Generate an active coupon redemption on an account
+     * Generate an active coupon redemption on an account or subscription
      *
      * @param string $account_id Account ID or code. For ID no prefix is used e.g. `e28zov4fw0v2`. For code use prefix `code-`, e.g. `code-bob`.
      * @param array  $body       The body of the request.
