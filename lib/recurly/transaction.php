@@ -3,7 +3,7 @@
  * Class Recurly_Transaction
  * @property string $uuid Transaction's unique identifier.
  * @property Recurly_Stub $account The URL of the account associated with the transaction.  Run get() to pull back a Recurly_Account
- * @property Recurly_Stub $invoice The URL of the invoice associated with the transaction.  Run get() to pull back a Recurly_Invoice
+ * @property null|Recurly_Stub $invoice The URL of the invoice associated with the transaction.  Run get() to pull back a Recurly_Invoice
  * @property Recurly_Stub $subscriptions The URL of the subscriptions associated with the transaction.
  * @property Recurly_Transaction $original_transaction For refund transactions, the URL of the original transaction.  Run get() to pull back a Recurly_Transaction
  * @property string $action purchase, verify or refund.
