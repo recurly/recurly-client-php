@@ -21,6 +21,7 @@ class CouponRedemption extends RecurlyResource
     private $_object;
     private $_removed_at;
     private $_state;
+    private $_subscription_id;
     private $_updated_at;
 
     protected static $array_hints = [
@@ -232,6 +233,29 @@ class CouponRedemption extends RecurlyResource
     public function setState(string $state): void
     {
         $this->_state = $state;
+    }
+
+    /**
+    * Getter method for the subscription_id attribute.
+    * Subscription ID
+    *
+    * @return ?string
+    */
+    public function getSubscriptionId(): ?string
+    {
+        return $this->_subscription_id;
+    }
+
+    /**
+    * Setter method for the subscription_id attribute.
+    *
+    * @param string $subscription_id
+    *
+    * @return void
+    */
+    public function setSubscriptionId(string $subscription_id): void
+    {
+        $this->_subscription_id = $subscription_id;
     }
 
     /**
