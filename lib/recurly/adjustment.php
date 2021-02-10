@@ -23,7 +23,7 @@
  * @property boolean $taxable true if the current adjustment is taxable, false if it is not.
  * @property string $tax_type The tax type of the adjustment.
  * @property string $tax_region The tax region of the adjustment.
- * @property string $tax_rate The tax rate of the adjustment.
+ * @property float $tax_rate The tax rate of the adjustment.
  * @property boolean $tax_exempt true exempts tax on the charge, false applies tax on the charge. If not defined, then defaults to the Plan and Site settings. This attribute does not work for credits (negative adjustments). Credits are always post-tax. Pre-tax discounts should use the Coupons feature.
  * @property mixed[] $tax_details The nested address information of the adjustment: name, type, tax_rate, tax_in_cents.
  * @property string $tax_code Optional field for EU VAT merchants and Avalara AvaTax Pro merchants. If you are using Recurly's EU VAT feature, you can use values of unknown, physical, or digital. If you have your own AvaTax account configured, you can use Avalara tax codes to assign custom tax rules.
