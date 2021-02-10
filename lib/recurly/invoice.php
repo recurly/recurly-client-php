@@ -17,7 +17,7 @@
  * @property DateTime $due_on If type = charge, will have a value that is the created_at plus the terms. If type = credit, will be null.
  * @property int $balance_in_cents The total_in_cents minus all successful transactions and credit payments for the invoice.
  * @property string $type Whether the invoice is a credit invoice or charge invoice.
- * @property int $origin The event that created the invoice.
+ * @property string $origin The event that created the invoice.
  * @property Recurly_Stub $credit_invoices
  * @property int $refundable_total_in_cents
  * @property array $credit_payments
