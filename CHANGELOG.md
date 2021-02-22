@@ -1,6 +1,6 @@
 # Recurly PHP Client Library CHANGELOG
 
-## Version 2.12.20 (February 22, 2020)
+## Version 2.12.20 (February 22, 2021)
 * PHPDoc: fix type of invoice type should be string instead of int [PR](https://github.com/recurly/recurly-client-php/pull/575)
 * Update language to match sunset policy [PR](https://github.com/recurly/recurly-client-php/pull/576)
 * Transaction: update phpdoc for invoice property [PR](https://github.com/recurly/recurly-client-php/pull/578)
