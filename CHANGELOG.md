@@ -1,5 +1,11 @@
 # Recurly PHP Client Library CHANGELOG
 
+## Version 2.12.20 (February 22, 2020)
+* PHPDoc: fix type of invoice type should be string instead of int [PR](https://github.com/recurly/recurly-client-php/pull/575)
+* Update language to match sunset policy [PR](https://github.com/recurly/recurly-client-php/pull/576)
+* Transaction: update phpdoc for invoice property [PR](https://github.com/recurly/recurly-client-php/pull/578)
+* PHPDoc: fix type of invoice origin - should be string instead of int [PR](https://github.com/recurly/recurly-client-php/pull/580)
+
 ## Version 2.12.19 (November 23, 2020)
 
 * Implement Pager#take [PR](https://github.com/recurly/recurly-client-php/pull/562)
