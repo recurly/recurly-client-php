@@ -15,8 +15,8 @@ class Pricing extends RecurlyResource
     private $_currency;
     private $_unit_amount;
 
-    protected static $array_hints = array(
-    );
+    protected static $array_hints = [
+    ];
 
     
     /**

@@ -22,8 +22,8 @@ class AccountMini extends RecurlyResource
     private $_object;
     private $_parent_account_id;
 
-    protected static $array_hints = array(
-    );
+    protected static $array_hints = [
+    ];
 
     
     /**

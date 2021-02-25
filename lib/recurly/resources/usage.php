@@ -10,23 +10,24 @@ namespace Recurly\Resources;
 use Recurly\RecurlyResource;
 
 // phpcs:disable
-class SubscriptionAddOn extends RecurlyResource
+class Usage extends RecurlyResource
 {
-    private $_add_on;
-    private $_add_on_source;
+    private $_amount;
+    private $_billed_at;
     private $_created_at;
-    private $_expired_at;
     private $_id;
+    private $_measured_unit_id;
+    private $_merchant_tag;
     private $_object;
-    private $_quantity;
-    private $_revenue_schedule_type;
-    private $_subscription_id;
+    private $_recording_timestamp;
     private $_tier_type;
     private $_tiers;
     private $_unit_amount;
     private $_unit_amount_decimal;
     private $_updated_at;
     private $_usage_percentage;
+    private $_usage_timestamp;
+    private $_usage_type;
 
     protected static $array_hints = [
         'setTiers' => '\Recurly\Resources\SubscriptionAddOnTier',
@@ -34,58 +35,54 @@ class SubscriptionAddOn extends RecurlyResource
 
     
     /**
-    * Getter method for the add_on attribute.
-    * Just the important parts.
+    * Getter method for the amount attribute.
+    * The amount of usage. Can be positive, negative, or 0. No decimals allowed, we will strip them. If the usage-based add-on is billed with a percentage, your usage will be a monetary amount you will want to format in cents. (e.g., $5.00 is "500").
     *
-    * @return ?\Recurly\Resources\AddOnMini
+    * @return ?float
     */
-    public function getAddOn(): ?\Recurly\Resources\AddOnMini
+    public function getAmount(): ?float
     {
-        return $this->_add_on;
+        return $this->_amount;
     }
 
     /**
-    * Setter method for the add_on attribute.
+    * Setter method for the amount attribute.
     *
-    * @param \Recurly\Resources\AddOnMini $add_on
+    * @param float $amount
     *
     * @return void
     */
-    public function setAddOn(\Recurly\Resources\AddOnMini $add_on): void
+    public function setAmount(float $amount): void
     {
-        $this->_add_on = $add_on;
+        $this->_amount = $amount;
     }
 
     /**
-    * Getter method for the add_on_source attribute.
-    * Used to determine where the associated add-on data is pulled from. If this value is set to
-`plan_add_on` or left blank, then add-on data will be pulled from the plan's add-ons. If the associated
-`plan` has `allow_any_item_on_subscriptions` set to `true` and this field is set to `item`, then
-the associated add-on data will be pulled from the site's item catalog.
-
+    * Getter method for the billed_at attribute.
+    * When the usage record was billed on an invoice.
     *
     * @return ?string
     */
-    public function getAddOnSource(): ?string
+    public function getBilledAt(): ?string
     {
-        return $this->_add_on_source;
+        return $this->_billed_at;
     }
 
     /**
-    * Setter method for the add_on_source attribute.
+    * Setter method for the billed_at attribute.
     *
-    * @param string $add_on_source
+    * @param string $billed_at
     *
     * @return void
     */
-    public function setAddOnSource(string $add_on_source): void
+    public function setBilledAt(string $billed_at): void
     {
-        $this->_add_on_source = $add_on_source;
+        $this->_billed_at = $billed_at;
     }
 
     /**
     * Getter method for the created_at attribute.
-    * Created at
+    * When the usage record was created in Recurly.
     *
     * @return ?string
     */
@@ -107,31 +104,8 @@ the associated add-on data will be pulled from the site's item catalog.
     }
 
     /**
-    * Getter method for the expired_at attribute.
-    * Expired at
-    *
-    * @return ?string
-    */
-    public function getExpiredAt(): ?string
-    {
-        return $this->_expired_at;
-    }
-
-    /**
-    * Setter method for the expired_at attribute.
-    *
-    * @param string $expired_at
-    *
-    * @return void
-    */
-    public function setExpiredAt(string $expired_at): void
-    {
-        $this->_expired_at = $expired_at;
-    }
-
-    /**
     * Getter method for the id attribute.
-    * Subscription Add-on ID
+    * 
     *
     * @return ?string
     */
@@ -150,6 +124,52 @@ the associated add-on data will be pulled from the site's item catalog.
     public function setId(string $id): void
     {
         $this->_id = $id;
+    }
+
+    /**
+    * Getter method for the measured_unit_id attribute.
+    * The ID of the measured unit associated with the add-on the usage record is for.
+    *
+    * @return ?string
+    */
+    public function getMeasuredUnitId(): ?string
+    {
+        return $this->_measured_unit_id;
+    }
+
+    /**
+    * Setter method for the measured_unit_id attribute.
+    *
+    * @param string $measured_unit_id
+    *
+    * @return void
+    */
+    public function setMeasuredUnitId(string $measured_unit_id): void
+    {
+        $this->_measured_unit_id = $measured_unit_id;
+    }
+
+    /**
+    * Getter method for the merchant_tag attribute.
+    * Custom field for recording the id in your own system associated with the usage, so you can provide auditable usage displays to your customers using a GET on this endpoint.
+    *
+    * @return ?string
+    */
+    public function getMerchantTag(): ?string
+    {
+        return $this->_merchant_tag;
+    }
+
+    /**
+    * Setter method for the merchant_tag attribute.
+    *
+    * @param string $merchant_tag
+    *
+    * @return void
+    */
+    public function setMerchantTag(string $merchant_tag): void
+    {
+        $this->_merchant_tag = $merchant_tag;
     }
 
     /**
@@ -176,72 +196,26 @@ the associated add-on data will be pulled from the site's item catalog.
     }
 
     /**
-    * Getter method for the quantity attribute.
-    * Add-on quantity
-    *
-    * @return ?int
-    */
-    public function getQuantity(): ?int
-    {
-        return $this->_quantity;
-    }
-
-    /**
-    * Setter method for the quantity attribute.
-    *
-    * @param int $quantity
-    *
-    * @return void
-    */
-    public function setQuantity(int $quantity): void
-    {
-        $this->_quantity = $quantity;
-    }
-
-    /**
-    * Getter method for the revenue_schedule_type attribute.
-    * Revenue schedule type
+    * Getter method for the recording_timestamp attribute.
+    * When the usage was recorded in your system.
     *
     * @return ?string
     */
-    public function getRevenueScheduleType(): ?string
+    public function getRecordingTimestamp(): ?string
     {
-        return $this->_revenue_schedule_type;
+        return $this->_recording_timestamp;
     }
 
     /**
-    * Setter method for the revenue_schedule_type attribute.
+    * Setter method for the recording_timestamp attribute.
     *
-    * @param string $revenue_schedule_type
+    * @param string $recording_timestamp
     *
     * @return void
     */
-    public function setRevenueScheduleType(string $revenue_schedule_type): void
+    public function setRecordingTimestamp(string $recording_timestamp): void
     {
-        $this->_revenue_schedule_type = $revenue_schedule_type;
-    }
-
-    /**
-    * Getter method for the subscription_id attribute.
-    * Subscription ID
-    *
-    * @return ?string
-    */
-    public function getSubscriptionId(): ?string
-    {
-        return $this->_subscription_id;
-    }
-
-    /**
-    * Setter method for the subscription_id attribute.
-    *
-    * @param string $subscription_id
-    *
-    * @return void
-    */
-    public function setSubscriptionId(string $subscription_id): void
-    {
-        $this->_subscription_id = $subscription_id;
+        $this->_recording_timestamp = $recording_timestamp;
     }
 
     /**
@@ -273,9 +247,7 @@ to configure quantity-based pricing models.
 
     /**
     * Getter method for the tiers attribute.
-    * If tiers are provided in the request, all existing tiers on the Subscription Add-on will be
-removed and replaced by the tiers in the request.
-
+    * The tiers and prices of the subscription based on the usage_timestamp. If tier_type = flat, tiers = null
     *
     * @return array
     */
@@ -298,7 +270,7 @@ removed and replaced by the tiers in the request.
 
     /**
     * Getter method for the unit_amount attribute.
-    * Supports up to 2 decimal places.
+    * Unit price
     *
     * @return ?float
     */
@@ -321,7 +293,7 @@ removed and replaced by the tiers in the request.
 
     /**
     * Getter method for the unit_amount_decimal attribute.
-    * Supports up to 9 decimal places.
+    * Unit price that can optionally support a sub-cent value.
     *
     * @return ?string
     */
@@ -344,7 +316,7 @@ removed and replaced by the tiers in the request.
 
     /**
     * Getter method for the updated_at attribute.
-    * Updated at
+    * When the usage record was billed on an invoice.
     *
     * @return ?string
     */
@@ -367,7 +339,7 @@ removed and replaced by the tiers in the request.
 
     /**
     * Getter method for the usage_percentage attribute.
-    * The percentage taken of the monetary amount of usage tracked. This can be up to 4 decimal places. A value between 0.0 and 100.0. Required if add_on_type is usage and usage_type is percentage.
+    * The percentage taken of the monetary amount of usage tracked. This can be up to 4 decimal places. A value between 0.0 and 100.0.
     *
     * @return ?float
     */
@@ -386,5 +358,51 @@ removed and replaced by the tiers in the request.
     public function setUsagePercentage(float $usage_percentage): void
     {
         $this->_usage_percentage = $usage_percentage;
+    }
+
+    /**
+    * Getter method for the usage_timestamp attribute.
+    * When the usage actually happened. This will define the line item dates this usage is billed under and is important for revenue recognition.
+    *
+    * @return ?string
+    */
+    public function getUsageTimestamp(): ?string
+    {
+        return $this->_usage_timestamp;
+    }
+
+    /**
+    * Setter method for the usage_timestamp attribute.
+    *
+    * @param string $usage_timestamp
+    *
+    * @return void
+    */
+    public function setUsageTimestamp(string $usage_timestamp): void
+    {
+        $this->_usage_timestamp = $usage_timestamp;
+    }
+
+    /**
+    * Getter method for the usage_type attribute.
+    * Type of usage, returns usage type if `add_on_type` is `usage`.
+    *
+    * @return ?string
+    */
+    public function getUsageType(): ?string
+    {
+        return $this->_usage_type;
+    }
+
+    /**
+    * Setter method for the usage_type attribute.
+    *
+    * @param string $usage_type
+    *
+    * @return void
+    */
+    public function setUsageType(string $usage_type): void
+    {
+        $this->_usage_type = $usage_type;
     }
 }

@@ -14,9 +14,10 @@ class SubscriptionAddOnTier extends RecurlyResource
 {
     private $_ending_quantity;
     private $_unit_amount;
+    private $_unit_amount_decimal;
 
-    protected static $array_hints = array(
-    );
+    protected static $array_hints = [
+    ];
 
     
     /**
@@ -44,7 +45,7 @@ class SubscriptionAddOnTier extends RecurlyResource
 
     /**
     * Getter method for the unit_amount attribute.
-    * Unit amount
+    * Allows up to 2 decimal places. Optionally, override the tiers' default unit amount.
     *
     * @return ?float
     */
@@ -63,5 +64,30 @@ class SubscriptionAddOnTier extends RecurlyResource
     public function setUnitAmount(float $unit_amount): void
     {
         $this->_unit_amount = $unit_amount;
+    }
+
+    /**
+    * Getter method for the unit_amount_decimal attribute.
+    * Allows up to 9 decimal places.  Optionally, override tiers' default unit amount.
+If `unit_amount_decimal` is provided, `unit_amount` cannot be provided.
+
+    *
+    * @return ?string
+    */
+    public function getUnitAmountDecimal(): ?string
+    {
+        return $this->_unit_amount_decimal;
+    }
+
+    /**
+    * Setter method for the unit_amount_decimal attribute.
+    *
+    * @param string $unit_amount_decimal
+    *
+    * @return void
+    */
+    public function setUnitAmountDecimal(string $unit_amount_decimal): void
+    {
+        $this->_unit_amount_decimal = $unit_amount_decimal;
     }
 }

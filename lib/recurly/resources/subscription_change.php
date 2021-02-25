@@ -16,8 +16,10 @@ class SubscriptionChange extends RecurlyResource
     private $_activated;
     private $_add_ons;
     private $_created_at;
+    private $_custom_fields;
     private $_deleted_at;
     private $_id;
+    private $_invoice_collection;
     private $_object;
     private $_plan;
     private $_quantity;
@@ -27,9 +29,10 @@ class SubscriptionChange extends RecurlyResource
     private $_unit_amount;
     private $_updated_at;
 
-    protected static $array_hints = array(
+    protected static $array_hints = [
         'setAddOns' => '\Recurly\Resources\SubscriptionAddOn',
-    );
+        'setCustomFields' => '\Recurly\Resources\CustomField',
+    ];
 
     
     /**
@@ -125,6 +128,29 @@ class SubscriptionChange extends RecurlyResource
     }
 
     /**
+    * Getter method for the custom_fields attribute.
+    * The custom fields will only be altered when they are included in a request. Sending an empty array will not remove any existing values. To remove a field send the name with a null or empty value.
+    *
+    * @return array
+    */
+    public function getCustomFields(): array
+    {
+        return $this->_custom_fields ?? [] ;
+    }
+
+    /**
+    * Setter method for the custom_fields attribute.
+    *
+    * @param array $custom_fields
+    *
+    * @return void
+    */
+    public function setCustomFields(array $custom_fields): void
+    {
+        $this->_custom_fields = $custom_fields;
+    }
+
+    /**
     * Getter method for the deleted_at attribute.
     * Deleted at
     *
@@ -168,6 +194,29 @@ class SubscriptionChange extends RecurlyResource
     public function setId(string $id): void
     {
         $this->_id = $id;
+    }
+
+    /**
+    * Getter method for the invoice_collection attribute.
+    * Invoice Collection
+    *
+    * @return ?\Recurly\Resources\InvoiceCollection
+    */
+    public function getInvoiceCollection(): ?\Recurly\Resources\InvoiceCollection
+    {
+        return $this->_invoice_collection;
+    }
+
+    /**
+    * Setter method for the invoice_collection attribute.
+    *
+    * @param \Recurly\Resources\InvoiceCollection $invoice_collection
+    *
+    * @return void
+    */
+    public function setInvoiceCollection(\Recurly\Resources\InvoiceCollection $invoice_collection): void
+    {
+        $this->_invoice_collection = $invoice_collection;
     }
 
     /**

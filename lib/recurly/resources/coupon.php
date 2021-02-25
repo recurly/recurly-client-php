@@ -12,6 +12,7 @@ use Recurly\RecurlyResource;
 // phpcs:disable
 class Coupon extends RecurlyResource
 {
+    private $_applies_to_all_items;
     private $_applies_to_all_plans;
     private $_applies_to_non_plan_charges;
     private $_code;
@@ -25,31 +26,56 @@ class Coupon extends RecurlyResource
     private $_hosted_page_description;
     private $_id;
     private $_invoice_description;
+    private $_items;
     private $_max_redemptions;
     private $_max_redemptions_per_account;
     private $_name;
     private $_object;
     private $_plans;
-    private $_plans_names;
     private $_redeem_by;
-    private $_redeemed_at;
     private $_redemption_resource;
     private $_state;
     private $_temporal_amount;
     private $_temporal_unit;
     private $_unique_code_template;
+    private $_unique_coupon_code;
     private $_unique_coupon_codes_count;
     private $_updated_at;
 
-    protected static $array_hints = array(
+    protected static $array_hints = [
+        'setItems' => '\Recurly\Resources\ItemMini',
         'setPlans' => '\Recurly\Resources\PlanMini',
-        'setPlansNames' => 'string',
-    );
+    ];
 
     
     /**
+    * Getter method for the applies_to_all_items attribute.
+    * The coupon is valid for all items if true. If false then `items`
+will list the applicable items.
+
+    *
+    * @return ?bool
+    */
+    public function getAppliesToAllItems(): ?bool
+    {
+        return $this->_applies_to_all_items;
+    }
+
+    /**
+    * Setter method for the applies_to_all_items attribute.
+    *
+    * @param bool $applies_to_all_items
+    *
+    * @return void
+    */
+    public function setAppliesToAllItems(bool $applies_to_all_items): void
+    {
+        $this->_applies_to_all_items = $applies_to_all_items;
+    }
+
+    /**
     * Getter method for the applies_to_all_plans attribute.
-    * The coupon is valid for all plans if true. If false then `plans` and `plans_names` will list the applicable plans.
+    * The coupon is valid for all plans if true. If false then `plans` will list the applicable plans.
     *
     * @return ?bool
     */
@@ -351,6 +377,31 @@ property and one of the following properties: `percent`, `fixed`, `trial`.
     }
 
     /**
+    * Getter method for the items attribute.
+    * A list of items for which this coupon applies. This will be
+`null` if `applies_to_all_items=true`.
+
+    *
+    * @return array
+    */
+    public function getItems(): array
+    {
+        return $this->_items ?? [] ;
+    }
+
+    /**
+    * Setter method for the items attribute.
+    *
+    * @param array $items
+    *
+    * @return void
+    */
+    public function setItems(array $items): void
+    {
+        $this->_items = $items;
+    }
+
+    /**
     * Getter method for the max_redemptions attribute.
     * A maximum number of redemptions for the coupon. The coupon will expire when it hits its maximum redemptions.
     *
@@ -466,29 +517,6 @@ property and one of the following properties: `percent`, `fixed`, `trial`.
     }
 
     /**
-    * Getter method for the plans_names attribute.
-    * TODO
-    *
-    * @return array
-    */
-    public function getPlansNames(): array
-    {
-        return $this->_plans_names ?? [] ;
-    }
-
-    /**
-    * Setter method for the plans_names attribute.
-    *
-    * @param array $plans_names
-    *
-    * @return void
-    */
-    public function setPlansNames(array $plans_names): void
-    {
-        $this->_plans_names = $plans_names;
-    }
-
-    /**
     * Getter method for the redeem_by attribute.
     * The date and time the coupon will expire and can no longer be redeemed. Time is always 11:59:59, the end-of-day Pacific time.
     *
@@ -509,29 +537,6 @@ property and one of the following properties: `percent`, `fixed`, `trial`.
     public function setRedeemBy(string $redeem_by): void
     {
         $this->_redeem_by = $redeem_by;
-    }
-
-    /**
-    * Getter method for the redeemed_at attribute.
-    * The date and time the unique coupon code was redeemed. This is only present for bulk coupons.
-    *
-    * @return ?string
-    */
-    public function getRedeemedAt(): ?string
-    {
-        return $this->_redeemed_at;
-    }
-
-    /**
-    * Setter method for the redeemed_at attribute.
-    *
-    * @param string $redeemed_at
-    *
-    * @return void
-    */
-    public function setRedeemedAt(string $redeemed_at): void
-    {
-        $this->_redeemed_at = $redeemed_at;
     }
 
     /**
@@ -647,6 +652,29 @@ property and one of the following properties: `percent`, `fixed`, `trial`.
     public function setUniqueCodeTemplate(string $unique_code_template): void
     {
         $this->_unique_code_template = $unique_code_template;
+    }
+
+    /**
+    * Getter method for the unique_coupon_code attribute.
+    * Will be populated when the Coupon being returned is a `UniqueCouponCode`.
+    *
+    * @return ?object
+    */
+    public function getUniqueCouponCode(): ?object
+    {
+        return $this->_unique_coupon_code;
+    }
+
+    /**
+    * Setter method for the unique_coupon_code attribute.
+    *
+    * @param object $unique_coupon_code
+    *
+    * @return void
+    */
+    public function setUniqueCouponCode(object $unique_coupon_code): void
+    {
+        $this->_unique_coupon_code = $unique_coupon_code;
     }
 
     /**

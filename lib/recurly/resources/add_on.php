@@ -13,6 +13,9 @@ use Recurly\RecurlyResource;
 class AddOn extends RecurlyResource
 {
     private $_accounting_code;
+    private $_add_on_type;
+    private $_avalara_service_type;
+    private $_avalara_transaction_type;
     private $_code;
     private $_created_at;
     private $_currencies;
@@ -22,6 +25,7 @@ class AddOn extends RecurlyResource
     private $_external_sku;
     private $_id;
     private $_item;
+    private $_measured_unit_id;
     private $_name;
     private $_object;
     private $_optional;
@@ -32,11 +36,13 @@ class AddOn extends RecurlyResource
     private $_tier_type;
     private $_tiers;
     private $_updated_at;
+    private $_usage_percentage;
+    private $_usage_type;
 
-    protected static $array_hints = array(
-        'setCurrencies' => '\Recurly\Resources\Pricing',
+    protected static $array_hints = [
+        'setCurrencies' => '\Recurly\Resources\AddOnPricing',
         'setTiers' => '\Recurly\Resources\Tier',
-    );
+    ];
 
     
     /**
@@ -60,6 +66,75 @@ class AddOn extends RecurlyResource
     public function setAccountingCode(string $accounting_code): void
     {
         $this->_accounting_code = $accounting_code;
+    }
+
+    /**
+    * Getter method for the add_on_type attribute.
+    * Whether the add-on type is fixed, or usage-based.
+    *
+    * @return ?string
+    */
+    public function getAddOnType(): ?string
+    {
+        return $this->_add_on_type;
+    }
+
+    /**
+    * Setter method for the add_on_type attribute.
+    *
+    * @param string $add_on_type
+    *
+    * @return void
+    */
+    public function setAddOnType(string $add_on_type): void
+    {
+        $this->_add_on_type = $add_on_type;
+    }
+
+    /**
+    * Getter method for the avalara_service_type attribute.
+    * Used by Avalara for Communications taxes. The transaction type in combination with the service type describe how the add-on is taxed. Refer to [the documentation](https://help.avalara.com/AvaTax_for_Communications/Tax_Calculation/AvaTax_for_Communications_Tax_Engine/Mapping_Resources/TM_00115_AFC_Modules_Corresponding_Transaction_Types) for more available t/s types.
+    *
+    * @return ?int
+    */
+    public function getAvalaraServiceType(): ?int
+    {
+        return $this->_avalara_service_type;
+    }
+
+    /**
+    * Setter method for the avalara_service_type attribute.
+    *
+    * @param int $avalara_service_type
+    *
+    * @return void
+    */
+    public function setAvalaraServiceType(int $avalara_service_type): void
+    {
+        $this->_avalara_service_type = $avalara_service_type;
+    }
+
+    /**
+    * Getter method for the avalara_transaction_type attribute.
+    * Used by Avalara for Communications taxes. The transaction type in combination with the service type describe how the add-on is taxed. Refer to [the documentation](https://help.avalara.com/AvaTax_for_Communications/Tax_Calculation/AvaTax_for_Communications_Tax_Engine/Mapping_Resources/TM_00115_AFC_Modules_Corresponding_Transaction_Types) for more available t/s types.
+    *
+    * @return ?int
+    */
+    public function getAvalaraTransactionType(): ?int
+    {
+        return $this->_avalara_transaction_type;
+    }
+
+    /**
+    * Setter method for the avalara_transaction_type attribute.
+    *
+    * @param int $avalara_transaction_type
+    *
+    * @return void
+    */
+    public function setAvalaraTransactionType(int $avalara_transaction_type): void
+    {
+        $this->_avalara_transaction_type = $avalara_transaction_type;
     }
 
     /**
@@ -270,6 +345,29 @@ class AddOn extends RecurlyResource
     }
 
     /**
+    * Getter method for the measured_unit_id attribute.
+    * System-generated unique identifier for an measured unit associated with the add-on.
+    *
+    * @return ?string
+    */
+    public function getMeasuredUnitId(): ?string
+    {
+        return $this->_measured_unit_id;
+    }
+
+    /**
+    * Setter method for the measured_unit_id attribute.
+    *
+    * @param string $measured_unit_id
+    *
+    * @return void
+    */
+    public function setMeasuredUnitId(string $measured_unit_id): void
+    {
+        $this->_measured_unit_id = $measured_unit_id;
+    }
+
+    /**
     * Getter method for the name attribute.
     * Describes your add-on and will appear in subscribers' invoices.
     *
@@ -433,7 +531,9 @@ class AddOn extends RecurlyResource
     /**
     * Getter method for the tier_type attribute.
     * The pricing model for the add-on.  For more information,
-[click here](https://docs.recurly.com/docs/billing-models#section-quantity-based).
+[click here](https://docs.recurly.com/docs/billing-models#section-quantity-based). See our
+[Guide](https://developers.recurly.com/guides/item-addon-guide.html) for an overview of how
+to configure quantity-based pricing models.
 
     *
     * @return ?string
@@ -499,5 +599,51 @@ class AddOn extends RecurlyResource
     public function setUpdatedAt(string $updated_at): void
     {
         $this->_updated_at = $updated_at;
+    }
+
+    /**
+    * Getter method for the usage_percentage attribute.
+    * The percentage taken of the monetary amount of usage tracked. This can be up to 4 decimal places. A value between 0.0 and 100.0.
+    *
+    * @return ?float
+    */
+    public function getUsagePercentage(): ?float
+    {
+        return $this->_usage_percentage;
+    }
+
+    /**
+    * Setter method for the usage_percentage attribute.
+    *
+    * @param float $usage_percentage
+    *
+    * @return void
+    */
+    public function setUsagePercentage(float $usage_percentage): void
+    {
+        $this->_usage_percentage = $usage_percentage;
+    }
+
+    /**
+    * Getter method for the usage_type attribute.
+    * Type of usage, returns usage type if `add_on_type` is `usage`.
+    *
+    * @return ?string
+    */
+    public function getUsageType(): ?string
+    {
+        return $this->_usage_type;
+    }
+
+    /**
+    * Setter method for the usage_type attribute.
+    *
+    * @param string $usage_type
+    *
+    * @return void
+    */
+    public function setUsageType(string $usage_type): void
+    {
+        $this->_usage_type = $usage_type;
     }
 }

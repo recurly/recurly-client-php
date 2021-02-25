@@ -10,11 +10,11 @@ namespace Recurly\Resources;
 use Recurly\RecurlyResource;
 
 // phpcs:disable
-class PlanPricing extends RecurlyResource
+class AddOnPricing extends RecurlyResource
 {
     private $_currency;
-    private $_setup_fee;
     private $_unit_amount;
+    private $_unit_amount_decimal;
 
     protected static $array_hints = [
     ];
@@ -44,31 +44,8 @@ class PlanPricing extends RecurlyResource
     }
 
     /**
-    * Getter method for the setup_fee attribute.
-    * Amount of one-time setup fee automatically charged at the beginning of a subscription billing cycle. For subscription plans with a trial, the setup fee will be charged at the time of signup. Setup fees do not increase with the quantity of a subscription plan.
-    *
-    * @return ?float
-    */
-    public function getSetupFee(): ?float
-    {
-        return $this->_setup_fee;
-    }
-
-    /**
-    * Setter method for the setup_fee attribute.
-    *
-    * @param float $setup_fee
-    *
-    * @return void
-    */
-    public function setSetupFee(float $setup_fee): void
-    {
-        $this->_setup_fee = $setup_fee;
-    }
-
-    /**
     * Getter method for the unit_amount attribute.
-    * Unit price
+    * Allows up to 2 decimal places. Required unless `unit_amount_decimal` is provided.
     *
     * @return ?float
     */
@@ -87,5 +64,30 @@ class PlanPricing extends RecurlyResource
     public function setUnitAmount(float $unit_amount): void
     {
         $this->_unit_amount = $unit_amount;
+    }
+
+    /**
+    * Getter method for the unit_amount_decimal attribute.
+    * Allows up to 9 decimal places. Only supported when `add_on_type` = `usage`.
+If `unit_amount_decimal` is provided, `unit_amount` cannot be provided.
+
+    *
+    * @return ?string
+    */
+    public function getUnitAmountDecimal(): ?string
+    {
+        return $this->_unit_amount_decimal;
+    }
+
+    /**
+    * Setter method for the unit_amount_decimal attribute.
+    *
+    * @param string $unit_amount_decimal
+    *
+    * @return void
+    */
+    public function setUnitAmountDecimal(string $unit_amount_decimal): void
+    {
+        $this->_unit_amount_decimal = $unit_amount_decimal;
     }
 }

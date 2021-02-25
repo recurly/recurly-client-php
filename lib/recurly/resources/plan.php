@@ -15,6 +15,8 @@ class Plan extends RecurlyResource
     private $_accounting_code;
     private $_allow_any_item_on_subscriptions;
     private $_auto_renew;
+    private $_avalara_service_type;
+    private $_avalara_transaction_type;
     private $_code;
     private $_created_at;
     private $_currencies;
@@ -38,9 +40,9 @@ class Plan extends RecurlyResource
     private $_trial_unit;
     private $_updated_at;
 
-    protected static $array_hints = array(
+    protected static $array_hints = [
         'setCurrencies' => '\Recurly\Resources\PlanPricing',
-    );
+    ];
 
     
     /**
@@ -113,6 +115,52 @@ If `false`, only plan add-ons can be used.
     public function setAutoRenew(bool $auto_renew): void
     {
         $this->_auto_renew = $auto_renew;
+    }
+
+    /**
+    * Getter method for the avalara_service_type attribute.
+    * Used by Avalara for Communications taxes. The transaction type in combination with the service type describe how the plan is taxed. Refer to [the documentation](https://help.avalara.com/AvaTax_for_Communications/Tax_Calculation/AvaTax_for_Communications_Tax_Engine/Mapping_Resources/TM_00115_AFC_Modules_Corresponding_Transaction_Types) for more available t/s types.
+    *
+    * @return ?int
+    */
+    public function getAvalaraServiceType(): ?int
+    {
+        return $this->_avalara_service_type;
+    }
+
+    /**
+    * Setter method for the avalara_service_type attribute.
+    *
+    * @param int $avalara_service_type
+    *
+    * @return void
+    */
+    public function setAvalaraServiceType(int $avalara_service_type): void
+    {
+        $this->_avalara_service_type = $avalara_service_type;
+    }
+
+    /**
+    * Getter method for the avalara_transaction_type attribute.
+    * Used by Avalara for Communications taxes. The transaction type in combination with the service type describe how the plan is taxed. Refer to [the documentation](https://help.avalara.com/AvaTax_for_Communications/Tax_Calculation/AvaTax_for_Communications_Tax_Engine/Mapping_Resources/TM_00115_AFC_Modules_Corresponding_Transaction_Types) for more available t/s types.
+    *
+    * @return ?int
+    */
+    public function getAvalaraTransactionType(): ?int
+    {
+        return $this->_avalara_transaction_type;
+    }
+
+    /**
+    * Setter method for the avalara_transaction_type attribute.
+    *
+    * @param int $avalara_transaction_type
+    *
+    * @return void
+    */
+    public function setAvalaraTransactionType(int $avalara_transaction_type): void
+    {
+        $this->_avalara_transaction_type = $avalara_transaction_type;
     }
 
     /**

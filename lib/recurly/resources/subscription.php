@@ -18,6 +18,7 @@ class Subscription extends RecurlyResource
     private $_add_ons_total;
     private $_auto_renew;
     private $_bank_account_authorized_at;
+    private $_billing_info_id;
     private $_canceled_at;
     private $_collection_method;
     private $_coupon_redemptions;
@@ -54,11 +55,11 @@ class Subscription extends RecurlyResource
     private $_updated_at;
     private $_uuid;
 
-    protected static $array_hints = array(
+    protected static $array_hints = [
         'setAddOns' => '\Recurly\Resources\SubscriptionAddOn',
         'setCouponRedemptions' => '\Recurly\Resources\CouponRedemptionMini',
         'setCustomFields' => '\Recurly\Resources\CustomField',
-    );
+    ];
 
     
     /**
@@ -200,6 +201,29 @@ class Subscription extends RecurlyResource
     }
 
     /**
+    * Getter method for the billing_info_id attribute.
+    * Billing Info ID.
+    *
+    * @return ?string
+    */
+    public function getBillingInfoId(): ?string
+    {
+        return $this->_billing_info_id;
+    }
+
+    /**
+    * Setter method for the billing_info_id attribute.
+    *
+    * @param string $billing_info_id
+    *
+    * @return void
+    */
+    public function setBillingInfoId(string $billing_info_id): void
+    {
+        $this->_billing_info_id = $billing_info_id;
+    }
+
+    /**
     * Getter method for the canceled_at attribute.
     * Canceled at
     *
@@ -247,7 +271,7 @@ class Subscription extends RecurlyResource
 
     /**
     * Getter method for the coupon_redemptions attribute.
-    * Coupon redemptions
+    * Returns subscription level coupon redemptions that are tied to this subscription.
     *
     * @return array
     */

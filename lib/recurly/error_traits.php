@@ -19,7 +19,7 @@ trait ErrorTraits
      */
     protected static function errorFromStatus(int $status_code): string
     {
-        $error_map = array(
+        $error_map = [
             500 => 'internal_server_error',
             502 => 'bad_gateway',
             503 => 'service_unavailable',
@@ -34,7 +34,7 @@ trait ErrorTraits
             412 => 'precondition_failed',
             422 => 'unprocessable_entity',
             429 => 'too_many_requests',
-        );
+        ];
 
         if (array_key_exists($status_code, $error_map)) {
             return $error_map[$status_code];

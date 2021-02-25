@@ -22,8 +22,8 @@ class AccountAcquisition extends RecurlyResource
     private $_subchannel;
     private $_updated_at;
 
-    protected static $array_hints = array(
-    );
+    protected static $array_hints = [
+    ];
 
     
     /**

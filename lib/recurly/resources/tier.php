@@ -15,9 +15,9 @@ class Tier extends RecurlyResource
     private $_currencies;
     private $_ending_quantity;
 
-    protected static $array_hints = array(
-        'setCurrencies' => '\Recurly\Resources\Pricing',
-    );
+    protected static $array_hints = [
+        'setCurrencies' => '\Recurly\Resources\TierPricing',
+    ];
 
     
     /**

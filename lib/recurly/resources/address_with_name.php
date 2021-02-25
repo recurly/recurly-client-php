@@ -10,57 +10,25 @@ namespace Recurly\Resources;
 use Recurly\RecurlyResource;
 
 // phpcs:disable
-class ShippingAddress extends RecurlyResource
+class AddressWithName extends RecurlyResource
 {
-    private $_account_id;
     private $_city;
-    private $_company;
     private $_country;
-    private $_created_at;
-    private $_email;
     private $_first_name;
-    private $_id;
     private $_last_name;
-    private $_nickname;
-    private $_object;
     private $_phone;
     private $_postal_code;
     private $_region;
     private $_street1;
     private $_street2;
-    private $_updated_at;
-    private $_vat_number;
 
     protected static $array_hints = [
     ];
 
     
     /**
-    * Getter method for the account_id attribute.
-    * Account ID
-    *
-    * @return ?string
-    */
-    public function getAccountId(): ?string
-    {
-        return $this->_account_id;
-    }
-
-    /**
-    * Setter method for the account_id attribute.
-    *
-    * @param string $account_id
-    *
-    * @return void
-    */
-    public function setAccountId(string $account_id): void
-    {
-        $this->_account_id = $account_id;
-    }
-
-    /**
     * Getter method for the city attribute.
-    * 
+    * City
     *
     * @return ?string
     */
@@ -79,29 +47,6 @@ class ShippingAddress extends RecurlyResource
     public function setCity(string $city): void
     {
         $this->_city = $city;
-    }
-
-    /**
-    * Getter method for the company attribute.
-    * 
-    *
-    * @return ?string
-    */
-    public function getCompany(): ?string
-    {
-        return $this->_company;
-    }
-
-    /**
-    * Setter method for the company attribute.
-    *
-    * @param string $company
-    *
-    * @return void
-    */
-    public function setCompany(string $company): void
-    {
-        $this->_company = $company;
     }
 
     /**
@@ -128,54 +73,8 @@ class ShippingAddress extends RecurlyResource
     }
 
     /**
-    * Getter method for the created_at attribute.
-    * Created at
-    *
-    * @return ?string
-    */
-    public function getCreatedAt(): ?string
-    {
-        return $this->_created_at;
-    }
-
-    /**
-    * Setter method for the created_at attribute.
-    *
-    * @param string $created_at
-    *
-    * @return void
-    */
-    public function setCreatedAt(string $created_at): void
-    {
-        $this->_created_at = $created_at;
-    }
-
-    /**
-    * Getter method for the email attribute.
-    * 
-    *
-    * @return ?string
-    */
-    public function getEmail(): ?string
-    {
-        return $this->_email;
-    }
-
-    /**
-    * Setter method for the email attribute.
-    *
-    * @param string $email
-    *
-    * @return void
-    */
-    public function setEmail(string $email): void
-    {
-        $this->_email = $email;
-    }
-
-    /**
     * Getter method for the first_name attribute.
-    * 
+    * First name
     *
     * @return ?string
     */
@@ -197,31 +96,8 @@ class ShippingAddress extends RecurlyResource
     }
 
     /**
-    * Getter method for the id attribute.
-    * Shipping Address ID
-    *
-    * @return ?string
-    */
-    public function getId(): ?string
-    {
-        return $this->_id;
-    }
-
-    /**
-    * Setter method for the id attribute.
-    *
-    * @param string $id
-    *
-    * @return void
-    */
-    public function setId(string $id): void
-    {
-        $this->_id = $id;
-    }
-
-    /**
     * Getter method for the last_name attribute.
-    * 
+    * Last name
     *
     * @return ?string
     */
@@ -243,54 +119,8 @@ class ShippingAddress extends RecurlyResource
     }
 
     /**
-    * Getter method for the nickname attribute.
-    * 
-    *
-    * @return ?string
-    */
-    public function getNickname(): ?string
-    {
-        return $this->_nickname;
-    }
-
-    /**
-    * Setter method for the nickname attribute.
-    *
-    * @param string $nickname
-    *
-    * @return void
-    */
-    public function setNickname(string $nickname): void
-    {
-        $this->_nickname = $nickname;
-    }
-
-    /**
-    * Getter method for the object attribute.
-    * Object type
-    *
-    * @return ?string
-    */
-    public function getObject(): ?string
-    {
-        return $this->_object;
-    }
-
-    /**
-    * Setter method for the object attribute.
-    *
-    * @param string $object
-    *
-    * @return void
-    */
-    public function setObject(string $object): void
-    {
-        $this->_object = $object;
-    }
-
-    /**
     * Getter method for the phone attribute.
-    * 
+    * Phone number
     *
     * @return ?string
     */
@@ -359,7 +189,7 @@ class ShippingAddress extends RecurlyResource
 
     /**
     * Getter method for the street1 attribute.
-    * 
+    * Street 1
     *
     * @return ?string
     */
@@ -382,7 +212,7 @@ class ShippingAddress extends RecurlyResource
 
     /**
     * Getter method for the street2 attribute.
-    * 
+    * Street 2
     *
     * @return ?string
     */
@@ -401,51 +231,5 @@ class ShippingAddress extends RecurlyResource
     public function setStreet2(string $street2): void
     {
         $this->_street2 = $street2;
-    }
-
-    /**
-    * Getter method for the updated_at attribute.
-    * Updated at
-    *
-    * @return ?string
-    */
-    public function getUpdatedAt(): ?string
-    {
-        return $this->_updated_at;
-    }
-
-    /**
-    * Setter method for the updated_at attribute.
-    *
-    * @param string $updated_at
-    *
-    * @return void
-    */
-    public function setUpdatedAt(string $updated_at): void
-    {
-        $this->_updated_at = $updated_at;
-    }
-
-    /**
-    * Getter method for the vat_number attribute.
-    * 
-    *
-    * @return ?string
-    */
-    public function getVatNumber(): ?string
-    {
-        return $this->_vat_number;
-    }
-
-    /**
-    * Setter method for the vat_number attribute.
-    *
-    * @param string $vat_number
-    *
-    * @return void
-    */
-    public function setVatNumber(string $vat_number): void
-    {
-        $this->_vat_number = $vat_number;
     }
 }

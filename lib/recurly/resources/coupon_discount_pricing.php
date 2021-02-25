@@ -15,8 +15,8 @@ class CouponDiscountPricing extends RecurlyResource
     private $_amount;
     private $_currency;
 
-    protected static $array_hints = array(
-    );
+    protected static $array_hints = [
+    ];
 
     
     /**

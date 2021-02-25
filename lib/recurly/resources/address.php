@@ -14,16 +14,14 @@ class Address extends RecurlyResource
 {
     private $_city;
     private $_country;
-    private $_first_name;
-    private $_last_name;
     private $_phone;
     private $_postal_code;
     private $_region;
     private $_street1;
     private $_street2;
 
-    protected static $array_hints = array(
-    );
+    protected static $array_hints = [
+    ];
 
     
     /**
@@ -70,52 +68,6 @@ class Address extends RecurlyResource
     public function setCountry(string $country): void
     {
         $this->_country = $country;
-    }
-
-    /**
-    * Getter method for the first_name attribute.
-    * First name
-    *
-    * @return ?string
-    */
-    public function getFirstName(): ?string
-    {
-        return $this->_first_name;
-    }
-
-    /**
-    * Setter method for the first_name attribute.
-    *
-    * @param string $first_name
-    *
-    * @return void
-    */
-    public function setFirstName(string $first_name): void
-    {
-        $this->_first_name = $first_name;
-    }
-
-    /**
-    * Getter method for the last_name attribute.
-    * Last name
-    *
-    * @return ?string
-    */
-    public function getLastName(): ?string
-    {
-        return $this->_last_name;
-    }
-
-    /**
-    * Setter method for the last_name attribute.
-    *
-    * @param string $last_name
-    *
-    * @return void
-    */
-    public function setLastName(string $last_name): void
-    {
-        $this->_last_name = $last_name;
     }
 
     /**

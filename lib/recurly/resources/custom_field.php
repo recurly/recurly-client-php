@@ -15,8 +15,8 @@ class CustomField extends RecurlyResource
     private $_name;
     private $_value;
 
-    protected static $array_hints = array(
-    );
+    protected static $array_hints = [
+    ];
 
     
     /**

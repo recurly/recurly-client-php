@@ -15,6 +15,7 @@ class Invoice extends RecurlyResource
     private $_account;
     private $_address;
     private $_balance;
+    private $_billing_info_id;
     private $_closed_at;
     private $_collection_method;
     private $_created_at;
@@ -23,6 +24,7 @@ class Invoice extends RecurlyResource
     private $_customer_notes;
     private $_discount;
     private $_due_at;
+    private $_has_more_line_items;
     private $_id;
     private $_line_items;
     private $_net_terms;
@@ -47,11 +49,12 @@ class Invoice extends RecurlyResource
     private $_vat_number;
     private $_vat_reverse_charge_notes;
 
-    protected static $array_hints = array(
+    protected static $array_hints = [
         'setCreditPayments' => '\Recurly\Resources\CreditPayment',
+        'setLineItems' => '\Recurly\Resources\LineItem',
         'setSubscriptionIds' => 'string',
         'setTransactions' => '\Recurly\Resources\Transaction',
-    );
+    ];
 
     
     /**
@@ -121,6 +124,29 @@ class Invoice extends RecurlyResource
     public function setBalance(float $balance): void
     {
         $this->_balance = $balance;
+    }
+
+    /**
+    * Getter method for the billing_info_id attribute.
+    * The `billing_info_id` is the value that represents a specific billing info for an end customer. When `billing_info_id` is used to assign billing info to the subscription, all future billing events for the subscription will bill to the specified billing info.
+    *
+    * @return ?string
+    */
+    public function getBillingInfoId(): ?string
+    {
+        return $this->_billing_info_id;
+    }
+
+    /**
+    * Setter method for the billing_info_id attribute.
+    *
+    * @param string $billing_info_id
+    *
+    * @return void
+    */
+    public function setBillingInfoId(string $billing_info_id): void
+    {
+        $this->_billing_info_id = $billing_info_id;
     }
 
     /**
@@ -308,6 +334,29 @@ class Invoice extends RecurlyResource
     }
 
     /**
+    * Getter method for the has_more_line_items attribute.
+    * Identifies if the invoice has more line items than are returned in `line_items`. If `has_more_line_items` is `true`, then a request needs to be made to the `list_invoice_line_items` endpoint.
+    *
+    * @return ?bool
+    */
+    public function getHasMoreLineItems(): ?bool
+    {
+        return $this->_has_more_line_items;
+    }
+
+    /**
+    * Setter method for the has_more_line_items attribute.
+    *
+    * @param bool $has_more_line_items
+    *
+    * @return void
+    */
+    public function setHasMoreLineItems(bool $has_more_line_items): void
+    {
+        $this->_has_more_line_items = $has_more_line_items;
+    }
+
+    /**
     * Getter method for the id attribute.
     * Invoice ID
     *
@@ -332,23 +381,23 @@ class Invoice extends RecurlyResource
 
     /**
     * Getter method for the line_items attribute.
-    * 
+    * Line Items
     *
-    * @return ?\Recurly\Resources\LineItemList
+    * @return array
     */
-    public function getLineItems(): ?\Recurly\Resources\LineItemList
+    public function getLineItems(): array
     {
-        return $this->_line_items;
+        return $this->_line_items ?? [] ;
     }
 
     /**
     * Setter method for the line_items attribute.
     *
-    * @param \Recurly\Resources\LineItemList $line_items
+    * @param array $line_items
     *
     * @return void
     */
-    public function setLineItems(\Recurly\Resources\LineItemList $line_items): void
+    public function setLineItems(array $line_items): void
     {
         $this->_line_items = $line_items;
     }

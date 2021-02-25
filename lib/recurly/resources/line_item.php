@@ -17,6 +17,8 @@ class LineItem extends RecurlyResource
     private $_add_on_code;
     private $_add_on_id;
     private $_amount;
+    private $_avalara_service_type;
+    private $_avalara_transaction_type;
     private $_created_at;
     private $_credit_applied;
     private $_credit_reason_code;
@@ -55,11 +57,12 @@ class LineItem extends RecurlyResource
     private $_taxable;
     private $_type;
     private $_unit_amount;
+    private $_unit_amount_decimal;
     private $_updated_at;
     private $_uuid;
 
-    protected static $array_hints = array(
-    );
+    protected static $array_hints = [
+    ];
 
     
     /**
@@ -175,6 +178,52 @@ class LineItem extends RecurlyResource
     public function setAmount(float $amount): void
     {
         $this->_amount = $amount;
+    }
+
+    /**
+    * Getter method for the avalara_service_type attribute.
+    * Used by Avalara for Communications taxes. The transaction type in combination with the service type describe how the line item is taxed. Refer to [the documentation](https://help.avalara.com/AvaTax_for_Communications/Tax_Calculation/AvaTax_for_Communications_Tax_Engine/Mapping_Resources/TM_00115_AFC_Modules_Corresponding_Transaction_Types) for more available t/s types.
+    *
+    * @return ?int
+    */
+    public function getAvalaraServiceType(): ?int
+    {
+        return $this->_avalara_service_type;
+    }
+
+    /**
+    * Setter method for the avalara_service_type attribute.
+    *
+    * @param int $avalara_service_type
+    *
+    * @return void
+    */
+    public function setAvalaraServiceType(int $avalara_service_type): void
+    {
+        $this->_avalara_service_type = $avalara_service_type;
+    }
+
+    /**
+    * Getter method for the avalara_transaction_type attribute.
+    * Used by Avalara for Communications taxes. The transaction type in combination with the service type describe how the line item is taxed. Refer to [the documentation](https://help.avalara.com/AvaTax_for_Communications/Tax_Calculation/AvaTax_for_Communications_Tax_Engine/Mapping_Resources/TM_00115_AFC_Modules_Corresponding_Transaction_Types) for more available t/s types.
+    *
+    * @return ?int
+    */
+    public function getAvalaraTransactionType(): ?int
+    {
+        return $this->_avalara_transaction_type;
+    }
+
+    /**
+    * Setter method for the avalara_transaction_type attribute.
+    *
+    * @param int $avalara_transaction_type
+    *
+    * @return void
+    */
+    public function setAvalaraTransactionType(int $avalara_transaction_type): void
+    {
+        $this->_avalara_transaction_type = $avalara_transaction_type;
     }
 
     /**
@@ -1054,6 +1103,29 @@ class LineItem extends RecurlyResource
     public function setUnitAmount(float $unit_amount): void
     {
         $this->_unit_amount = $unit_amount;
+    }
+
+    /**
+    * Getter method for the unit_amount_decimal attribute.
+    * Positive amount for a charge, negative amount for a credit.
+    *
+    * @return ?string
+    */
+    public function getUnitAmountDecimal(): ?string
+    {
+        return $this->_unit_amount_decimal;
+    }
+
+    /**
+    * Setter method for the unit_amount_decimal attribute.
+    *
+    * @param string $unit_amount_decimal
+    *
+    * @return void
+    */
+    public function setUnitAmountDecimal(string $unit_amount_decimal): void
+    {
+        $this->_unit_amount_decimal = $unit_amount_decimal;
     }
 
     /**

@@ -238,12 +238,14 @@ abstract class BaseClient
         $headers = array_key_exists('headers', $options) ? $options['headers'] : [];
         $auth_token = self::encodeApiKey($this->_api_key);
         $agent = self::getUserAgent();
-        return array_merge($headers, [
+        return array_merge(
+            $headers, [
             "User-Agent" => $agent,
             "Authorization" => "Basic {$auth_token}",
             "Accept" => "application/vnd.recurly.{$this->apiVersion()}",
             "Content-Type" => "application/json",
             "Accept-Encoding" => "gzip",
-        ]);
+            ]
+        );
     }
 }

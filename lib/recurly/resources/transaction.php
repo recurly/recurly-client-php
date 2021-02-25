@@ -50,9 +50,9 @@ class Transaction extends RecurlyResource
     private $_voided_at;
     private $_voided_by_invoice;
 
-    protected static $array_hints = array(
+    protected static $array_hints = [
         'setSubscriptionIds' => 'string',
-    );
+    ];
 
     
     /**
@@ -128,9 +128,9 @@ class Transaction extends RecurlyResource
     * Getter method for the billing_address attribute.
     * 
     *
-    * @return ?\Recurly\Resources\Address
+    * @return ?\Recurly\Resources\AddressWithName
     */
-    public function getBillingAddress(): ?\Recurly\Resources\Address
+    public function getBillingAddress(): ?\Recurly\Resources\AddressWithName
     {
         return $this->_billing_address;
     }
@@ -138,11 +138,11 @@ class Transaction extends RecurlyResource
     /**
     * Setter method for the billing_address attribute.
     *
-    * @param \Recurly\Resources\Address $billing_address
+    * @param \Recurly\Resources\AddressWithName $billing_address
     *
     * @return void
     */
-    public function setBillingAddress(\Recurly\Resources\Address $billing_address): void
+    public function setBillingAddress(\Recurly\Resources\AddressWithName $billing_address): void
     {
         $this->_billing_address = $billing_address;
     }

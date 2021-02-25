@@ -22,13 +22,14 @@ class BillingInfo extends RecurlyResource
     private $_last_name;
     private $_object;
     private $_payment_method;
+    private $_primary_payment_method;
     private $_updated_at;
     private $_updated_by;
     private $_valid;
     private $_vat_number;
 
-    protected static $array_hints = array(
-    );
+    protected static $array_hints = [
+    ];
 
     
     /**
@@ -259,6 +260,29 @@ class BillingInfo extends RecurlyResource
     public function setPaymentMethod(\Recurly\Resources\PaymentMethod $payment_method): void
     {
         $this->_payment_method = $payment_method;
+    }
+
+    /**
+    * Getter method for the primary_payment_method attribute.
+    * The `primary_payment_method` indicator is used to designate the primary billing info on the account. The first billing info created on an account will always become primary. Adding additional billing infos provides the flexibility to mark another billing info as primary, or adding additional non-primary billing infos. This can be accomplished by passing the `primary_payment_method` indicator. When adding billing infos via the billing_info and /accounts endpoints, this value is not permitted, and will return an error if provided.
+    *
+    * @return ?bool
+    */
+    public function getPrimaryPaymentMethod(): ?bool
+    {
+        return $this->_primary_payment_method;
+    }
+
+    /**
+    * Setter method for the primary_payment_method attribute.
+    *
+    * @param bool $primary_payment_method
+    *
+    * @return void
+    */
+    public function setPrimaryPaymentMethod(bool $primary_payment_method): void
+    {
+        $this->_primary_payment_method = $primary_payment_method;
     }
 
     /**

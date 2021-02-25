@@ -10,18 +10,17 @@ namespace Recurly\Resources;
 use Recurly\RecurlyResource;
 
 // phpcs:disable
-class CustomFieldDefinition extends RecurlyResource
+class MeasuredUnit extends RecurlyResource
 {
     private $_created_at;
     private $_deleted_at;
+    private $_description;
     private $_display_name;
     private $_id;
     private $_name;
     private $_object;
-    private $_related_type;
-    private $_tooltip;
+    private $_state;
     private $_updated_at;
-    private $_user_access;
 
     protected static $array_hints = [
     ];
@@ -52,7 +51,7 @@ class CustomFieldDefinition extends RecurlyResource
 
     /**
     * Getter method for the deleted_at attribute.
-    * Definitions are initially soft deleted, and once all the values are removed from the accouts or subscriptions, will be hard deleted an no longer visible.
+    * Deleted at
     *
     * @return ?string
     */
@@ -74,8 +73,31 @@ class CustomFieldDefinition extends RecurlyResource
     }
 
     /**
+    * Getter method for the description attribute.
+    * Optional internal description.
+    *
+    * @return ?string
+    */
+    public function getDescription(): ?string
+    {
+        return $this->_description;
+    }
+
+    /**
+    * Setter method for the description attribute.
+    *
+    * @param string $description
+    *
+    * @return void
+    */
+    public function setDescription(string $description): void
+    {
+        $this->_description = $description;
+    }
+
+    /**
     * Getter method for the display_name attribute.
-    * Used to label the field when viewing and editing the field in Recurly's admin UI.
+    * Display name for the measured unit. Can only contain spaces, underscores and must be alphanumeric.
     *
     * @return ?string
     */
@@ -98,7 +120,7 @@ class CustomFieldDefinition extends RecurlyResource
 
     /**
     * Getter method for the id attribute.
-    * Custom field definition ID
+    * Item ID
     *
     * @return ?string
     */
@@ -121,7 +143,7 @@ class CustomFieldDefinition extends RecurlyResource
 
     /**
     * Getter method for the name attribute.
-    * Used by the API to identify the field or reading and writing. The name can only be used once per Recurly object type.
+    * Unique internal name of the measured unit on your site.
     *
     * @return ?string
     */
@@ -166,49 +188,26 @@ class CustomFieldDefinition extends RecurlyResource
     }
 
     /**
-    * Getter method for the related_type attribute.
-    * Related Recurly object type
+    * Getter method for the state attribute.
+    * The current state of the measured unit.
     *
     * @return ?string
     */
-    public function getRelatedType(): ?string
+    public function getState(): ?string
     {
-        return $this->_related_type;
+        return $this->_state;
     }
 
     /**
-    * Setter method for the related_type attribute.
+    * Setter method for the state attribute.
     *
-    * @param string $related_type
+    * @param string $state
     *
     * @return void
     */
-    public function setRelatedType(string $related_type): void
+    public function setState(string $state): void
     {
-        $this->_related_type = $related_type;
-    }
-
-    /**
-    * Getter method for the tooltip attribute.
-    * Displayed as a tooltip when editing the field in the Recurly admin UI.
-    *
-    * @return ?string
-    */
-    public function getTooltip(): ?string
-    {
-        return $this->_tooltip;
-    }
-
-    /**
-    * Setter method for the tooltip attribute.
-    *
-    * @param string $tooltip
-    *
-    * @return void
-    */
-    public function setTooltip(string $tooltip): void
-    {
-        $this->_tooltip = $tooltip;
+        $this->_state = $state;
     }
 
     /**
@@ -232,33 +231,5 @@ class CustomFieldDefinition extends RecurlyResource
     public function setUpdatedAt(string $updated_at): void
     {
         $this->_updated_at = $updated_at;
-    }
-
-    /**
-    * Getter method for the user_access attribute.
-    * The access control applied inside Recurly's admin UI:
-- `api_only` - No one will be able to view or edit this field's data via the admin UI.
-- `read_only` - Users with the Customers role will be able to view this field's data via the admin UI, but
-  editing will only be available via the API.
-- `write` - Users with the Customers role will be able to view and edit this field's data via the admin UI.
-
-    *
-    * @return ?string
-    */
-    public function getUserAccess(): ?string
-    {
-        return $this->_user_access;
-    }
-
-    /**
-    * Setter method for the user_access attribute.
-    *
-    * @param string $user_access
-    *
-    * @return void
-    */
-    public function setUserAccess(string $user_access): void
-    {
-        $this->_user_access = $user_access;
     }
 }
