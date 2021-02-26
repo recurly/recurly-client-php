@@ -42,6 +42,7 @@ class Usage extends RecurlyResource
     */
     public function getAmount(): ?float
     {
+        is_null($this->amount) ? $this->_amount = 0 : '';
         return $this->_amount;
     }
 
@@ -276,6 +277,7 @@ to configure quantity-based pricing models.
     */
     public function getUnitAmount(): ?float
     {
+        is_null($this->unit_amount) ? $this->_unit_amount = 0 : '';
         return $this->_unit_amount;
     }
 
@@ -345,6 +347,7 @@ to configure quantity-based pricing models.
     */
     public function getUsagePercentage(): ?float
     {
+        is_null($this->usage_percentage) ? $this->_usage_percentage = 0 : '';
         return $this->_usage_percentage;
     }
 

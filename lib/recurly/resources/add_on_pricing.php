@@ -51,6 +51,7 @@ class AddOnPricing extends RecurlyResource
     */
     public function getUnitAmount(): ?float
     {
+        is_null($this->unit_amount) ? $this->_unit_amount = 0 : '';
         return $this->_unit_amount;
     }
 

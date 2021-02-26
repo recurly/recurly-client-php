@@ -609,6 +609,7 @@ to configure quantity-based pricing models.
     */
     public function getUsagePercentage(): ?float
     {
+        is_null($this->usage_percentage) ? $this->_usage_percentage = 0 : '';
         return $this->_usage_percentage;
     }
 

@@ -304,6 +304,7 @@ removed and replaced by the tiers in the request.
     */
     public function getUnitAmount(): ?float
     {
+        is_null($this->unit_amount) ? $this->_unit_amount = 0 : '';
         return $this->_unit_amount;
     }
 
@@ -373,6 +374,7 @@ removed and replaced by the tiers in the request.
     */
     public function getUsagePercentage(): ?float
     {
+        is_null($this->usage_percentage) ? $this->_usage_percentage = 0 : '';
         return $this->_usage_percentage;
     }
 

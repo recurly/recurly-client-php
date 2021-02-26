@@ -28,6 +28,7 @@ class TaxInfo extends RecurlyResource
     */
     public function getRate(): ?float
     {
+        is_null($this->rate) ? $this->_rate = 0 : '';
         return $this->_rate;
     }
 

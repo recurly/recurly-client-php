@@ -139,6 +139,7 @@ class Subscription extends RecurlyResource
     */
     public function getAddOnsTotal(): ?float
     {
+        is_null($this->add_ons_total) ? $this->_add_ons_total = 0 : '';
         return $this->_add_ons_total;
     }
 
@@ -852,6 +853,7 @@ class Subscription extends RecurlyResource
     */
     public function getSubtotal(): ?float
     {
+        is_null($this->subtotal) ? $this->_subtotal = 0 : '';
         return $this->_subtotal;
     }
 
@@ -967,6 +969,7 @@ class Subscription extends RecurlyResource
     */
     public function getUnitAmount(): ?float
     {
+        is_null($this->unit_amount) ? $this->_unit_amount = 0 : '';
         return $this->_unit_amount;
     }
 

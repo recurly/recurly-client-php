@@ -77,6 +77,7 @@ class CouponRedemptionMini extends RecurlyResource
     */
     public function getDiscounted(): ?float
     {
+        is_null($this->discounted) ? $this->_discounted = 0 : '';
         return $this->_discounted;
     }
 

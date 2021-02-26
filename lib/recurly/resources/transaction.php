@@ -86,6 +86,7 @@ class Transaction extends RecurlyResource
     */
     public function getAmount(): ?float
     {
+        is_null($this->amount) ? $this->_amount = 0 : '';
         return $this->_amount;
     }
 
@@ -408,6 +409,7 @@ class Transaction extends RecurlyResource
     */
     public function getGatewayResponseTime(): ?float
     {
+        is_null($this->gateway_response_time) ? $this->_gateway_response_time = 0 : '';
         return $this->_gateway_response_time;
     }
 

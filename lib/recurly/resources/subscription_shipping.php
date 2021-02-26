@@ -52,6 +52,7 @@ class SubscriptionShipping extends RecurlyResource
     */
     public function getAmount(): ?float
     {
+        is_null($this->amount) ? $this->_amount = 0 : '';
         return $this->_amount;
     }
 

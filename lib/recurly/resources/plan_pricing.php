@@ -51,6 +51,7 @@ class PlanPricing extends RecurlyResource
     */
     public function getSetupFee(): ?float
     {
+        is_null($this->setup_fee) ? $this->_setup_fee = 0 : '';
         return $this->_setup_fee;
     }
 
@@ -74,6 +75,7 @@ class PlanPricing extends RecurlyResource
     */
     public function getUnitAmount(): ?float
     {
+        is_null($this->unit_amount) ? $this->_unit_amount = 0 : '';
         return $this->_unit_amount;
     }
 

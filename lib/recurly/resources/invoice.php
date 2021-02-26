@@ -111,6 +111,7 @@ class Invoice extends RecurlyResource
     */
     public function getBalance(): ?float
     {
+        is_null($this->balance) ? $this->_balance = 0 : '';
         return $this->_balance;
     }
 
@@ -295,6 +296,7 @@ class Invoice extends RecurlyResource
     */
     public function getDiscount(): ?float
     {
+        is_null($this->discount) ? $this->_discount = 0 : '';
         return $this->_discount;
     }
 
@@ -502,6 +504,7 @@ class Invoice extends RecurlyResource
     */
     public function getPaid(): ?float
     {
+        is_null($this->paid) ? $this->_paid = 0 : '';
         return $this->_paid;
     }
 
@@ -571,6 +574,7 @@ class Invoice extends RecurlyResource
     */
     public function getRefundableAmount(): ?float
     {
+        is_null($this->refundable_amount) ? $this->_refundable_amount = 0 : '';
         return $this->_refundable_amount;
     }
 
@@ -663,6 +667,7 @@ class Invoice extends RecurlyResource
     */
     public function getSubtotal(): ?float
     {
+        is_null($this->subtotal) ? $this->_subtotal = 0 : '';
         return $this->_subtotal;
     }
 
@@ -686,6 +691,7 @@ class Invoice extends RecurlyResource
     */
     public function getTax(): ?float
     {
+        is_null($this->tax) ? $this->_tax = 0 : '';
         return $this->_tax;
     }
 
@@ -755,6 +761,7 @@ class Invoice extends RecurlyResource
     */
     public function getTotal(): ?float
     {
+        is_null($this->total) ? $this->_total = 0 : '';
         return $this->_total;
     }
 

@@ -165,6 +165,7 @@ class LineItem extends RecurlyResource
     */
     public function getAmount(): ?float
     {
+        is_null($this->amount) ? $this->_amount = 0 : '';
         return $this->_amount;
     }
 
@@ -257,6 +258,7 @@ class LineItem extends RecurlyResource
     */
     public function getCreditApplied(): ?float
     {
+        is_null($this->credit_applied) ? $this->_credit_applied = 0 : '';
         return $this->_credit_applied;
     }
 
@@ -349,6 +351,7 @@ class LineItem extends RecurlyResource
     */
     public function getDiscount(): ?float
     {
+        is_null($this->discount) ? $this->_discount = 0 : '';
         return $this->_discount;
     }
 
@@ -722,6 +725,7 @@ class LineItem extends RecurlyResource
     */
     public function getProrationRate(): ?float
     {
+        is_null($this->proration_rate) ? $this->_proration_rate = 0 : '';
         return $this->_proration_rate;
     }
 
@@ -929,6 +933,7 @@ class LineItem extends RecurlyResource
     */
     public function getSubtotal(): ?float
     {
+        is_null($this->subtotal) ? $this->_subtotal = 0 : '';
         return $this->_subtotal;
     }
 
@@ -952,6 +957,7 @@ class LineItem extends RecurlyResource
     */
     public function getTax(): ?float
     {
+        is_null($this->tax) ? $this->_tax = 0 : '';
         return $this->_tax;
     }
 
@@ -1090,6 +1096,7 @@ class LineItem extends RecurlyResource
     */
     public function getUnitAmount(): ?float
     {
+        is_null($this->unit_amount) ? $this->_unit_amount = 0 : '';
         return $this->_unit_amount;
     }
 
