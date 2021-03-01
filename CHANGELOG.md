@@ -1,8 +1,94 @@
 # Changelog
 
-## [3.4.0](https://github.com/recurly/recurly-client-php/tree/HEAD)
+## [4.0.0](https://github.com/recurly/recurly-client-php/tree/4.0.0) (2021-03-01)
 
-[Full Changelog](https://github.com/recurly/recurly-client-php/compare/3.3.0...HEAD)
+[Full Changelog](https://github.com/recurly/recurly-client-php/compare/3.11.0...4.0.0)
+
+# Major Version Release
+
+The 4.x major version of the client pairs with the `v2021-02-25` API version. This version of the client and the API contain breaking changes that should be considered before upgrading your integration.
+
+## Breaking Changes in the API
+All changes to the core API are documented in the [Developer Portal changelog](https://developers.recurly.com/api/changelog.html#v2021-02-25---current-ga-version)
+
+## Breaking Changes in Client
+
+- Require query string parameters to be specified under the `params` key of the `$options` parameter. [[#522](https://github.com/recurly/recurly-client-php/pull/522)]
+
+    ### 3.x
+    ```php
+    $options = [
+      'limit' => 200
+    ];
+    $accounts = $client->listAccounts($options);
+   ```
+    ### 4.x
+    ```php
+    $options = [
+      'params' => [
+        'limit' => 200
+      ],
+      'headers' => [
+        'Accept-Language' => 'fr'
+      ]
+    ];
+    $accounts = $client->listAccounts($options);
+    ```
+
+**Implemented enhancements:**
+
+- Updating operations to accept generic request options instead of just query parameters [\#522](https://github.com/recurly/recurly-client-php/pull/522) ([douglasmiller](https://github.com/douglasmiller))
+
+**Merged pull requests:**
+
+- Release 4.0.0 [\#586](https://github.com/recurly/recurly-client-php/pull/586) ([douglasmiller](https://github.com/douglasmiller))
+- Updating changelog script and changelog generator config for 4.x release [\#582](https://github.com/recurly/recurly-client-php/pull/582) ([douglasmiller](https://github.com/douglasmiller))
+- Null checking variable before calling property\_exists to prevent Warning [\#526](https://github.com/recurly/recurly-client-php/pull/526) ([douglasmiller](https://github.com/douglasmiller))
+- Mon Jul  6 14:54:15 UTC 2020 Upgrade API version v2019-10-10 [\#515](https://github.com/recurly/recurly-client-php/pull/515) ([douglasmiller](https://github.com/douglasmiller))
+
+## [3.11.0](https://github.com/recurly/recurly-client-php/tree/3.11.0) (2021-01-22)
+
+[Full Changelog](https://github.com/recurly/recurly-client-php/compare/3.10.0...3.11.0)
+
+## [3.10.0](https://github.com/recurly/recurly-client-php/tree/3.10.0) (2020-11-06)
+
+[Full Changelog](https://github.com/recurly/recurly-client-php/compare/3.9.0...3.10.0)
+
+## [3.9.0](https://github.com/recurly/recurly-client-php/tree/3.9.0) (2020-10-20)
+
+[Full Changelog](https://github.com/recurly/recurly-client-php/compare/3.8.1...3.9.0)
+
+**Closed issues:**
+
+- Custom Fields changed from 3.7.0 to 3.8.0 [\#558](https://github.com/recurly/recurly-client-php/issues/558)
+
+## [3.8.1](https://github.com/recurly/recurly-client-php/tree/3.8.1) (2020-10-02)
+
+[Full Changelog](https://github.com/recurly/recurly-client-php/compare/3.8.0...3.8.1)
+
+## [3.8.0](https://github.com/recurly/recurly-client-php/tree/3.8.0) (2020-09-22)
+
+[Full Changelog](https://github.com/recurly/recurly-client-php/compare/3.7.0...3.8.0)
+
+## [3.7.0](https://github.com/recurly/recurly-client-php/tree/3.7.0) (2020-08-31)
+
+[Full Changelog](https://github.com/recurly/recurly-client-php/compare/3.6.0...3.7.0)
+
+## [3.6.0](https://github.com/recurly/recurly-client-php/tree/3.6.0) (2020-08-21)
+
+[Full Changelog](https://github.com/recurly/recurly-client-php/compare/3.5.0...3.6.0)
+
+## [3.5.0](https://github.com/recurly/recurly-client-php/tree/3.5.0) (2020-07-31)
+
+[Full Changelog](https://github.com/recurly/recurly-client-php/compare/3.4.0...3.5.0)
+
+**Fixed bugs:**
+
+- Warning in recurly\_resource.php @ line 113 [\#524](https://github.com/recurly/recurly-client-php/issues/524)
+
+## [3.4.0](https://github.com/recurly/recurly-client-php/tree/3.4.0) (2020-07-01)
+
+[Full Changelog](https://github.com/recurly/recurly-client-php/compare/3.3.0...3.4.0)
 
 **Implemented enhancements:**
 
