@@ -44,6 +44,22 @@ final class RecurlyResourceTest extends RecurlyTestCase
         $this->assertInstanceOf(\Recurly\Resources\TestResource::class, $result->getSingleChild());
     }
 
+    public function testCast(): void
+    // accepts response object of decoded json
+    // returns RecurlyResource
+    {
+        $test_response_object = (object)array(
+            "id" => 0,
+            "object" => "plan",
+            "name" => "0",
+        );
+
+        $resource = Recurly\Resources\TestResource::cast($test_response_object);
+        $this->assertNotNull($resource->getName());
+        $this->assertNotNull($resource->getId());
+        $this->assertInstanceOf(\Recurly\Resources\TestResource::class, $resource);
+    }
+
     public function testFromJsonUnknownKeys(): void
     {
         $test_resource = (object)array(
