@@ -22,6 +22,7 @@ final class RecurlyResourceTest extends RecurlyTestCase
     public function testFromJsonValidResource(): void
     {
         $test_resource = (object)array(
+            "id" => "0",
             "object" => "test_resource",
             "name" => "test-resource",
             "single_child" => (object)array(
@@ -42,22 +43,7 @@ final class RecurlyResourceTest extends RecurlyTestCase
         $this->assertInstanceOf(\Recurly\Resources\TestResource::class, $result);
         $this->assertEquals($response, $result->getResponse());
         $this->assertInstanceOf(\Recurly\Resources\TestResource::class, $result->getSingleChild());
-    }
-
-    public function testCast(): void
-    // accepts response object of decoded json
-    // returns RecurlyResource
-    {
-        $test_response_object = (object)array(
-            "id" => 0,
-            "object" => "plan",
-            "name" => "0",
-        );
-
-        $resource = Recurly\Resources\TestResource::cast($test_response_object);
-        $this->assertNotNull($resource->getName());
-        $this->assertNotNull($resource->getId());
-        $this->assertInstanceOf(\Recurly\Resources\TestResource::class, $resource);
+        $this->assertEquals($result->getId(), 0);
     }
 
     public function testFromJsonUnknownKeys(): void
