@@ -100,7 +100,7 @@ abstract class RecurlyResource
     {
         $klass = new static();
         foreach ($data as $key => $value) {
-            if (empty($value)) {
+            if (is_null($value)) {
                 continue;
             }
 
