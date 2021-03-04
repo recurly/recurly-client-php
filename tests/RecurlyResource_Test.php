@@ -22,6 +22,7 @@ final class RecurlyResourceTest extends RecurlyTestCase
     public function testFromJsonValidResource(): void
     {
         $test_resource = (object)array(
+            "id" => "0",
             "object" => "test_resource",
             "name" => "test-resource",
             "single_child" => (object)array(
@@ -42,6 +43,7 @@ final class RecurlyResourceTest extends RecurlyTestCase
         $this->assertInstanceOf(\Recurly\Resources\TestResource::class, $result);
         $this->assertEquals($response, $result->getResponse());
         $this->assertInstanceOf(\Recurly\Resources\TestResource::class, $result->getSingleChild());
+        $this->assertEquals($result->getId(), 0);
     }
 
     public function testFromJsonUnknownKeys(): void
