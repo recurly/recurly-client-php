@@ -2,5 +2,5 @@
 
 rm -f ./lib/recurly/resources/*
 rm -f ./lib/recurly/errors/*
-rm -f ./lib/client.php
+rm -f ./lib/recurly/client.php
 
