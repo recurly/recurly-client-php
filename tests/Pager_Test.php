@@ -66,11 +66,11 @@ final class PagerTest extends RecurlyTestCase
 
     public function testGetFirst(): void
     {
-        $url = "https://v3.recurly.com/resources?limit=1";
+        $url = "https://v3.recurly.com/resources?limit=1&another=param";
         $result = '{"object":"list","has_more":true,"next":"page_two","data":[{"object":"test_resource","name":"resource one"}]}';
         $this->client->addScenario("GET", $url, NULL, $result, "200 OK");
 
-        $pager = new \Recurly\Pager($this->client, '/resources', [ 'params' => [ 'limit' => 5 ] ]);
+        $pager = new \Recurly\Pager($this->client, '/resources', [ 'params' => [ 'limit' => 5, 'another' => 'param' ] ]);
         $this->assertInstanceOf(
             \Recurly\Resources\TestResource::class,
             $pager->getFirst()
@@ -89,14 +89,14 @@ final class PagerTest extends RecurlyTestCase
 
     public function testTake(): void
     {
-        $url = "https://v3.recurly.com/resources?limit=2";
+        $url = "https://v3.recurly.com/resources?limit=2&another=param";
         $result = '{"object":"list","has_more":true,"next":"page_two","data":[
           {"object":"test_resource","name":"resource one"},
           {"object":"test_resource","name":"resource two"}
         ]}';        
         $this->client->addScenario("GET", $url, NULL, $result, "200 OK");
 
-        $pager = new \Recurly\Pager($this->client, '/resources', [ 'params' => [ 'limit' => 200 ] ]);
+        $pager = new \Recurly\Pager($this->client, '/resources', [ 'params' => [ 'limit' => 200, 'another' => 'param' ] ]);
         $this->assertEquals(2, count($pager->take(2))
         );
     }
