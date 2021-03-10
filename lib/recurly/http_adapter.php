@@ -8,6 +8,9 @@
 
 namespace Recurly;
 
+/**
+ * @codeCoverageIgnore
+ */
 class HttpAdapter
 {
     private static $_default_options = [
@@ -19,14 +22,13 @@ class HttpAdapter
      * 
      * @param string $method  HTTP method to use
      * @param string $url     Fully qualified URL
-     * @param array  $body    The request body
+     * @param string $body    The request body
      * @param array  $headers HTTP headers
      * 
      * @return array The API response as a string and the headers as an array
      */
     public function execute($method, $url, $body, $headers): array
     {
-        $body = empty($body) ? null : json_encode($body);
         $options = array_replace(
             self::$_default_options, [
             'method' => $method,
@@ -50,6 +52,6 @@ class HttpAdapter
                 }
             }
         }
-        return array($result, $http_response_header);
+        return [$result, $http_response_header];
     }
 }

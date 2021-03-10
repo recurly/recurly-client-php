@@ -42,10 +42,26 @@ class Pager implements \Iterator
      */
     public function getFirst(): ?\Recurly\RecurlyResource
     {
-        $options = array_merge_recursive([ 'params' => [ 'limit' => 1 ] ], $this->_options);
+        $options = array_replace_recursive($this->_options, [ 'params' => [ 'limit' => 1 ] ]);
         $page = $this->_client->nextPage($this->_path, $options);
         if ($page->valid()) {
             return $page->current();
+        }
+        return null;
+    }
+
+    /**
+     * Performs a request with the pager `limit` set to `n` and only returns the
+     * first `n` results in the response. 
+     * 
+     * @return array
+     */
+    public function take(int $n): ?array
+    {
+        $options = array_replace_recursive($this->_options, [ 'params' => [ 'limit' => $n ] ]);
+        $page = $this->_client->nextPage($this->_path, $options);
+        if ($page->valid()) {
+            return $page->getData();
         }
         return null;
     }

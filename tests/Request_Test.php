@@ -4,7 +4,7 @@ use Recurly\Request;
 
 final class RequestTest extends RecurlyTestCase
 {
-    public function setUp(): void
+    protected function setUp(): void
     {
         parent::setUp();
         $this->setUpRequest();
@@ -56,6 +56,23 @@ final class RequestTest extends RecurlyTestCase
             $this->options,
             $this->request->getOptions()
         );
+    }
+
+    public function testGetHeaders()
+    {
+        $headers = $this->request->getHeaders();
+        // All core headers are present
+        foreach ($this->options['core_headers'] as $key => $value) {
+            $this->assertArrayHasKey($key, $headers);
+            $this->assertEquals($value, $headers[$key], 'core header overwritten');
+        }
+        // All custom headers, excluding core headers, are present
+        foreach ($this->options['headers'] as $key => $value) {
+            if (!array_key_exists($key, $this->options['core_headers'])) {
+                $this->assertArrayHasKey($key, $headers);
+                $this->assertEquals($value, $headers[$key]);
+            }
+        }
     }
 
 }

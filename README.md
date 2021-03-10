@@ -1,4 +1,5 @@
 # Recurly
+[![Contributor Covenant](https://img.shields.io/badge/Contributor%20Covenant-v2.0%20adopted-ff69b4.svg)](CODE_OF_CONDUCT.md)
 
 This repository houses the official php client for Recurly's V3 API.
 
@@ -34,6 +35,19 @@ Client instances provide one place where every operation on the Recurly API can 
 $api_key = 'myApiKey';
 $client = new \Recurly\Client($api_key);
 ```
+
+#### Logging
+
+The client constructor optionally accepts a logger provided by the programmer. The logger you pass should implement the [PSR-3 Logger Interface](https://www.php-fig.org/psr/psr-3/). By default, the client creates an instance of the `\Recurly\Logger` which is a basic implementation that prints log messages to `php://stdout` with the `\Psr\Log\LogLevel::WARNING` level.
+
+```php
+// Create an instance of the Recurly\Logger
+$logger = new \Recurly\Logger('Recurly', \Psr\Log\LogLevel::INFO);
+
+$client = new \Recurly\Client($api_key, $logger);
+```
+
+> *SECURITY WARNING*: The log level should never be set to DEBUG in production. This could potentially result in sensitive data in your logging system.
 
 ### Operations
 
@@ -116,6 +130,10 @@ $accounts = $client->listAccounts([ 'order' => 'asc', 'past_due' => true ]);
 $account = $accounts->getFirst();
 ```
 
+#### A Note on Headers
+
+In accordance with [section 4.2 of RFC 2616](https://www.ietf.org/rfc/rfc2616.txt), HTTP header fields are case-insensitive.
+
 ### Creating Resources
 
 For creating or updating resources, pass a plain associative array to one of the `create*` or `update*` methods:
@@ -162,6 +180,8 @@ try {
 }
 ```
 
+### HTTP Metadata
+
 Sometimes you might want to get some additional information about the underlying HTTP request and response. Instead of returning this information directly and forcing the programmer to unwrap it, we inject this metadata into the top level resource that was returned. You can access the response by calling `getResponse()` on any Resource.
 
 > **Warning**:
@@ -172,6 +192,19 @@ $account = $client->getAccount("code-douglas");
 $response = $account->getResponse();
 echo "Request ID:" . $response->getRequestId() . PHP_EOL;
 echo "Rate limit remaining:" . $response->getRateLimitRemaining() . PHP_EOL;
+```
+
+Information about the request is also included in the `\Recurly\Response` class and can be accessed using the `getRequest()` method on the Response.
+
+```php
+$account = $client->getAccount("code-douglas");
+$response = $account->getResponse();
+$request = $response->getRequest();
+echo "Request path:" . $request->getPath() . PHP_EOL;
+echo "Request body as JSON:" . $request->getBodyAsJson() . PHP_EOL;
+foreach($request->getHeaders() as $k => $v) {
+    echo "Request header: $k => $v" . PHP_EOL;
+}
 ```
 
 This also works on `Empty` resources (for when there is no return body):
