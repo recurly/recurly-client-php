@@ -23,6 +23,16 @@ class Page extends \Recurly\RecurlyResource
     }
 
     /**
+     * Getter method for the Page results.
+     * 
+     * @return array
+     */
+    public function getData(): array
+    {
+        return $this->_data;
+    }
+
+    /**
      * Indicates whether there are more pages of results.
      * 
      * @return bool

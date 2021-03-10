@@ -1,14 +1,18 @@
 <?php
 
 use Recurly\Pager;
+use Recurly\Logger;
+use Psr\Log\LogLevel;
 
 final class PagerTest extends RecurlyTestCase
 {
-    public function setUp(): void
+    protected function setUp(): void
     {
         parent::setUp();
+        // Using LogLevel::EMERGENCY to minimize output when running tests
+        $logger = new Logger('Recurly', LogLevel::EMERGENCY);
+        $this->client = new MockClient($logger);
         $this->setUpRequest();
-        $this->client = new MockClient();
 
         $this->count = 3;
         $client_stub = $this->createMock(\Recurly\BaseClient::class);
@@ -18,18 +22,18 @@ final class PagerTest extends RecurlyTestCase
             }
             $json_string = $this->fixtures->loadJsonFixture($name, ['type' => 'string']);
             $response = new \Recurly\Response($json_string, $this->request);
-            $response->setHeaders(array(
+            $response->setHeaders([
                 'HTTP/1.1 200 OK',
                 "Recurly-Total-Records: {$this->count}"
-            ));
+            ]);
             return $response->toResource();
         }));
         $client_stub->method('pagerCount')->will($this->returnCallback(function($name, $params) {
             $response = new \Recurly\Response('', $this->request);
-            $response->setHeaders(array(
+            $response->setHeaders([
                 'HTTP/1.1 200 OK',
                 "Recurly-Total-Records: {$this->count}"
-            ));
+            ]);
             return $response;
         }));
 
@@ -42,7 +46,7 @@ final class PagerTest extends RecurlyTestCase
         $idsCsv = join('%2C', $ids);
         $url = "https://v3.recurly.com/resources?ids=$idsCsv";
         $result = '{"object":"list","has_more":true,"next":"page_two","data":[{"object":"test_resource","name":"resource one"}]}';
-        $this->client->addScenario("GET", $url, [], $result, "200 OK");
+        $this->client->addScenario("GET", $url, NULL, $result, "200 OK");
 
         $pager = new \Recurly\Pager($this->client, '/resources', [ 'params' => [ 'ids' => $ids ] ]);
         $pager->rewind();
@@ -53,7 +57,7 @@ final class PagerTest extends RecurlyTestCase
     {
         $url = "https://v3.recurly.com/resources";
         $result = '{"object":"list","has_more":false,"next":null,"data":[{"object":"test_resource","name":"resource one"}]}';
-        $this->client->addScenario("GET", $url, [], $result, "200 OK");
+        $this->client->addScenario("GET", $url, NULL, $result, "200 OK");
 
         $pager = new \Recurly\Pager($this->client, '/resources');
         $pager->rewind();
@@ -64,9 +68,9 @@ final class PagerTest extends RecurlyTestCase
     {
         $url = "https://v3.recurly.com/resources?limit=1";
         $result = '{"object":"list","has_more":true,"next":"page_two","data":[{"object":"test_resource","name":"resource one"}]}';
-        $this->client->addScenario("GET", $url, [], $result, "200 OK");
+        $this->client->addScenario("GET", $url, NULL, $result, "200 OK");
 
-        $pager = new \Recurly\Pager($this->client, '/resources');
+        $pager = new \Recurly\Pager($this->client, '/resources', [ 'params' => [ 'limit' => 5 ] ]);
         $this->assertInstanceOf(
             \Recurly\Resources\TestResource::class,
             $pager->getFirst()
@@ -77,16 +81,30 @@ final class PagerTest extends RecurlyTestCase
     {
         $url = "https://v3.recurly.com/resources?limit=1";
         $result = '{"object":"list","has_more":false,"next":null,"data":[]}';
-        $this->client->addScenario("GET", $url, [], $result, "200 OK");
+        $this->client->addScenario("GET", $url, NULL, $result, "200 OK");
 
         $pager = new \Recurly\Pager($this->client, '/resources');
         $this->assertNull($pager->getFirst());
     }
 
+    public function testTake(): void
+    {
+        $url = "https://v3.recurly.com/resources?limit=2";
+        $result = '{"object":"list","has_more":true,"next":"page_two","data":[
+          {"object":"test_resource","name":"resource one"},
+          {"object":"test_resource","name":"resource two"}
+        ]}';        
+        $this->client->addScenario("GET", $url, NULL, $result, "200 OK");
+
+        $pager = new \Recurly\Pager($this->client, '/resources', [ 'params' => [ 'limit' => 200 ] ]);
+        $this->assertEquals(2, count($pager->take(2))
+        );
+    }
+
     public function testGetCount(): void
     {
         $url = "https://v3.recurly.com/resources";
-        $this->client->addScenario("HEAD", $url, [], '', "200 OK", ['Recurly-Total-Records' => 3]);
+        $this->client->addScenario("HEAD", $url, NULL, '', "200 OK", ['Recurly-Total-Records' => 3]);
 
         $pager = new \Recurly\Pager($this->client, '/resources');
 

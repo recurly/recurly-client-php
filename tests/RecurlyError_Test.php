@@ -2,7 +2,7 @@
 
 final class RecurlyErrorTest extends RecurlyTestCase
 {
-    public function setUp(): void
+    protected function setUp(): void
     {
         parent::setUp();
         $this->setUpRequest();
@@ -10,19 +10,19 @@ final class RecurlyErrorTest extends RecurlyTestCase
 
     public function testFromResponseGenericJsonServerError(): void
     {
-        $data = array(
-            "error" => array(
+        $data = [
+            "error" => [
                 "object" => "error",
                 "type" => "unknown_type",
                 "message" => "The error message"
-            )
-        );
+            ]
+        ];
 
         $response = new \Recurly\Response(json_encode($data), $this->request);
-        $response->setHeaders(array(
+        $response->setHeaders([
             'HTTP/1.1 500 Internal Server Error',
             'Content-Type: application/json',
-        ));
+        ]);
         $result = \Recurly\RecurlyError::fromResponse($response);
         $this->assertEquals(
             \Recurly\Errors\ServerError::class,
@@ -32,19 +32,19 @@ final class RecurlyErrorTest extends RecurlyTestCase
 
     public function testFromResponseGenericJsonClientError(): void
     {
-        $data = array(
-            "error" => array(
+        $data = [
+            "error" => [
                 "object" => "error",
                 "type" => "unknown_type",
                 "message" => "The error message"
-            )
-        );
+            ]
+        ];
 
         $response = new \Recurly\Response(json_encode($data), $this->request);
-        $response->setHeaders(array(
+        $response->setHeaders([
             'HTTP/1.1 404 Not Found',
             'Content-Type: application/json',
-        ));
+        ]);
         $result = \Recurly\RecurlyError::fromResponse($response);
         $this->assertEquals(
             \Recurly\Errors\ClientError::class,
@@ -54,19 +54,19 @@ final class RecurlyErrorTest extends RecurlyTestCase
 
     public function testFromResponseGenericJsonError(): void
     {
-        $data = array(
-            "error" => array(
+        $data = [
+            "error" => [
                 "object" => "error",
                 "type" => "unknown_type",
                 "message" => "The error message"
-            )
-        );
+            ]
+        ];
 
         $response = new \Recurly\Response(json_encode($data), $this->request);
-        $response->setHeaders(array(
+        $response->setHeaders([
             'HTTP/1.1 100 Continue',
             'Content-Type: application/json',
-        ));
+        ]);
         $result = \Recurly\RecurlyError::fromResponse($response);
         $this->assertEquals(
             \Recurly\RecurlyError::class,
@@ -77,9 +77,9 @@ final class RecurlyErrorTest extends RecurlyTestCase
     public function testFromResponseForbiddenError(): void
     {
         $response = new \Recurly\Response('forbidden error', $this->request);
-        $response->setHeaders(array(
+        $response->setHeaders([
             'HTTP/1.1 403 Forbidden',
-        ));
+        ]);
         $result = \Recurly\RecurlyError::fromResponse($response);
         $this->assertEquals(
             \Recurly\Errors\Forbidden::class,
@@ -90,9 +90,9 @@ final class RecurlyErrorTest extends RecurlyTestCase
     public function testFromResponseUnknownError(): void
     {
         $response = new \Recurly\Response('what is this???', $this->request);
-        $response->setHeaders(array(
+        $response->setHeaders([
             'HTTP/1.1 100 Continue',
-        ));
+        ]);
         $result = \Recurly\RecurlyError::fromResponse($response);
         $this->assertEquals(
             \Recurly\RecurlyError::class,
@@ -102,19 +102,19 @@ final class RecurlyErrorTest extends RecurlyTestCase
 
     public function testApiErrorClass(): void
     {
-        $data = array(
-            "error" => array(
+        $data = [
+            "error" => [
                 "object" => "error",
                 "type" => "test_error",
                 "message" => "The error message"
-            )
-        );
+            ]
+        ];
 
         $response = new \Recurly\Response(json_encode($data), $this->request);
-        $response->setHeaders(array(
+        $response->setHeaders([
             'HTTP/1.1 500 Internal Server Error',
             'Content-Type: application/json'
-        ));
+        ]);
         $result = \Recurly\RecurlyError::fromResponse($response);
         $this->assertInstanceOf(
             \Recurly\Resources\ErrorMayHaveTransaction::class,

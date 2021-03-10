@@ -4,18 +4,43 @@ use Recurly\Page;
 use Recurly\Resources\TestResource;
 use Recurly\BaseClient;
 use Recurly\Utils;
+use Recurly\Logger;
+use Psr\Log\LogLevel;
 
 final class BaseClientTest extends RecurlyTestCase
 {
-    public function setUp(): void
+    protected function setUp(): void
     {
         parent::setUp();
-        $this->client = new MockClient();
+        // Using LogLevel::EMERGENCY to minimize output when running tests
+        $logger = new Logger('Recurly', LogLevel::EMERGENCY);
+        $this->client = new MockClient($logger);
     }
 
     public function tearDown(): void
     {
         $this->client->clearScenarios();
+    }
+
+    public function testDebugLoggerWarning(): void
+    {
+        $msg = "The Recurly logger should not be initialized";
+        $msg .= "\nbeyond the level INFO. It is currently configured to emit";
+        $msg .= "\nheaders and request \/ response bodies. This has the potential to leak";
+        $msg .= "\nPII and other sensitive information and should never be used in production.";
+        $this->expectOutputRegex('/SECURITY WARNING: ' . $msg . '/');
+        $logger = new Logger('Recurly', LogLevel::DEBUG);
+        $client = new MockClient($logger);
+    }
+
+    public function testDefaultLogger(): void
+    {
+        $client = new MockClient(NULL);
+        $reflector = new ReflectionProperty('Recurly\BaseClient', '_logger');
+        $reflector->setAccessible(true);
+        $logger = $reflector->getValue($client);
+        $this->expectOutputRegex("/Recurly.warning: warning-log/");
+        $logger->warning('warning-log');
     }
 
     public function testParameterValidation(): void
@@ -28,7 +53,7 @@ final class BaseClientTest extends RecurlyTestCase
     {
         $url = "https://v3.recurly.com/resources/iexist";
         $result = '{"id": "iexist", "object": "test_resource"}';
-        $this->client->addScenario("GET", $url, [], $result, "200 OK");
+        $this->client->addScenario("GET", $url, NULL, $result, "200 OK");
 
         $resource = $this->client->getResource("iexist");
         $this->assertEquals($resource->getId(), "iexist");
@@ -38,7 +63,7 @@ final class BaseClientTest extends RecurlyTestCase
     {
         $url = "https://v3.recurly.com/resources/idontexist";
         $result = "{\"error\":{\"type\":\"not_found\",\"message\":\"Couldn't find Resource with id = idontexist\",\"params\":[{\"param\":\"resource_id\"}]}}";
-        $this->client->addScenario("GET", $url, [], $result, "404 Not Found");
+        $this->client->addScenario("GET", $url, NULL, $result, "404 Not Found");
 
         $this->expectException(\Recurly\Errors\NotFound::class);
         $this->client->getResource("idontexist");
@@ -49,7 +74,7 @@ final class BaseClientTest extends RecurlyTestCase
         $url = "https://v3.recurly.com/resources/";
         $result = '{"id": "created", "object": "test_resource", "name": "valid"}';
         $body = [ "name" => "valid" ];
-        $this->client->addScenario("POST", $url, $body, $result, "201 Created");
+        $this->client->addScenario("POST", $url, json_encode($body), $result, "201 Created");
         $resource = $this->client->createResource([ "name" => "valid" ]);
         $this->assertEquals($resource->getId(), "created");
     }
@@ -59,7 +84,7 @@ final class BaseClientTest extends RecurlyTestCase
         $url = "https://v3.recurly.com/resources/";
         $result = "{\"error\":{\"type\":\"validation\",\"message\":\"Name is invalid\",\"params\":[{\"param\":\"name\",\"message\":\"is invalid\"}]}}";
         $body = [ "name" => "invalid" ];
-        $this->client->addScenario("POST", $url, $body, $result, "422 Unprocessable Entity");
+        $this->client->addScenario("POST", $url, json_encode($body), $result, "422 Unprocessable Entity");
 
         $this->expectException(\Recurly\Errors\Validation::class);
         $resource = $this->client->createResource([ "name" => "invalid" ]);
@@ -69,7 +94,7 @@ final class BaseClientTest extends RecurlyTestCase
     {
         $url = "https://v3.recurly.com/resources/iexist";
         $result = "";
-        $this->client->addScenario("DELETE", $url, [], $result, "204 No Content");
+        $this->client->addScenario("DELETE", $url, NULL, $result, "204 No Content");
         $empty = $this->client->deleteResource("iexist");
         $this->assertInstanceOf(\Recurly\EmptyResource::class, $empty);
     }
@@ -79,7 +104,7 @@ final class BaseClientTest extends RecurlyTestCase
         $url = "https://v3.recurly.com/resources/iexist";
         $result = '{"id": "iexist", "object": "test_resource", "name": "newname"}';
         $body = [ "name" => "newname" ];
-        $this->client->addScenario("PUT", $url, $body, $result, "200 OK");
+        $this->client->addScenario("PUT", $url, json_encode($body), $result, "200 OK");
 
         $resource = $this->client->updateResource("iexist", $body);
         $this->assertEquals($resource->getName(), "newname");
@@ -89,7 +114,7 @@ final class BaseClientTest extends RecurlyTestCase
     {
         $url = "https://v3.recurly.com/resources";
         $result = '{ "object": "list", "has_more": false, "next": null, "data": [{"id": "iexist", "object": "test_resource", "name": "newname"}]}';
-        $this->client->addScenario("GET", $url, [], $result, "200 OK");
+        $this->client->addScenario("GET", $url, NULL, $result, "200 OK");
 
         $resources = $this->client->listResources();
         $count = 0;
@@ -104,7 +129,7 @@ final class BaseClientTest extends RecurlyTestCase
     {
         $url = "https://v3.recurly.com/resources?limit=1";
         $result = '{ "object": "list", "has_more": false, "next": null, "data": [{"id": "iexist", "object": "test_resource", "name": "newname"}]}';
-        $this->client->addScenario("GET", $url, [], $result, "200 OK");
+        $this->client->addScenario("GET", $url, NULL, $result, "200 OK");
 
         $resources = $this->client->listResources([ 'params' => [ 'limit' => 1 ] ]);
         $count = 0;
@@ -122,7 +147,7 @@ final class BaseClientTest extends RecurlyTestCase
         $url = "https://v3.recurly.com/resources/";
         $result = '{"id": "created", "object": "test_resource", "name": "valid"}';
         $body = [ "date_time" => $dateTime->format(\DateTime::ISO8601) ];
-        $this->client->addScenario("POST", $url, $body, $result, "201 Created");
+        $this->client->addScenario("POST", $url, json_encode($body), $result, "201 Created");
         $resource = $this->client->createResource([ "date_time" => $dateTime ]);
         $this->assertEquals($resource->getId(), "created");
     }
@@ -138,7 +163,7 @@ final class BaseClientTest extends RecurlyTestCase
                 "date_time" => $dateTime->format(\DateTime::ISO8601)
             ]
         ];
-        $this->client->addScenario("POST", $url, $body, $result, "201 Created");
+        $this->client->addScenario("POST", $url, json_encode($body), $result, "201 Created");
         $resource = $this->client->createResource([ "nested" => [ "date_time" => $dateTime ] ]);
         $this->assertEquals($resource->getId(), "created");
     }
@@ -148,7 +173,7 @@ final class BaseClientTest extends RecurlyTestCase
         $beginTime = new DateTime("2020-01-01 00:00:00");
         $url = "https://v3.recurly.com/resources?begin_time=" . urlencode($beginTime->format(\DateTime::ISO8601));
         $result = '{ "object": "list", "has_more": false, "next": null, "data": [{"id": "iexist", "object": "test_resource", "name": "newname"}]}';
-        $this->client->addScenario("GET", $url, [], $result, "200 OK");
+        $this->client->addScenario("GET", $url, NULL, $result, "200 OK");
 
         $resources = $this->client->listResources([ 'params' => [ 'begin_time' => $beginTime ] ]);
         $count = 0;
@@ -166,7 +191,7 @@ final class BaseClientTest extends RecurlyTestCase
         $headers = [
             'Accept-Language' => 'fr'
         ];
-        $this->client->addScenario("GET", $url, [], $result, "200 OK", [], $headers);
+        $this->client->addScenario("GET", $url, NULL, $result, "200 OK", [], $headers);
 
         $options = [
             'params' => [
@@ -183,7 +208,7 @@ final class BaseClientTest extends RecurlyTestCase
     {
         $url = "https://v3.recurly.com/resources/iexist?param-1=Param+1";
         $result = '{"id": "iexist", "object": "test_resource"}';
-        $this->client->addScenario("GET", $url, [], $result, "200 OK");
+        $this->client->addScenario("GET", $url, NULL, $result, "200 OK");
 
         $options = [
             'param-1' => 'Param 1'

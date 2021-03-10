@@ -23,6 +23,11 @@ abstract class RecurlyTestCase extends TestCase
             'headers' => [
                 'header-1' => 'Header 1',
                 'header-2' => 'Header 2',
+                'core-header-1' => 'Should be overridden',
+            ],
+            'core_headers' => [
+                'core-header-1' => 'Core Header 1',
+                'core-header-2' => 'Core Header 2'
             ]
         ];
         $this->request = new \Recurly\Request(
@@ -36,9 +41,9 @@ abstract class RecurlyTestCase extends TestCase
 
 class FixtureLoader
 {
-    const DEFAULT_OPTIONS = array(
+    const DEFAULT_OPTIONS = [
         'type' => 'object'
-    );
+    ];
 
     public function loadJsonFixture(string $filename, array $options = [])
     {

@@ -16,6 +16,7 @@
         "phpcompatibility/php-compatibility": "^9.3",
         "phpdocumentor/phpdocumentor": "dev-master",
         "phpdocumentor/graphviz": "dev-master",
+        "phpdocumentor/reflection": "5.x-dev",
         "phpstan/phpstan": "^0.12.11",
         "phpunit/phpunit": "^8",
         "squizlabs/php_codesniffer": "^3.5"

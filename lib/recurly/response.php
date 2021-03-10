@@ -84,7 +84,7 @@ class Response
     public function setHeaders(?array $headers): void
     {
         if (empty($headers)) {
-            $headers = array('HTTP/1.1 400 Bad request');
+            $headers = ['HTTP/1.1 400 Bad request'];
         }
 
         foreach ($headers as $header) {
@@ -93,10 +93,20 @@ class Response
             } else {
                 $parts = explode(':', $header, 2);
                 if (count($parts) == 2) {
-                    $this->_headers[$parts[0]] = trim($parts[1]);
+                    $this->_headers[strtolower($parts[0])] = trim($parts[1]);
                 }
             }
         }
+    }
+
+    /**
+     * Getter method for all of the HTTP headers included with the response.
+     * 
+     * @return array Associative array of response headers
+     */
+    public function getHeaders(): array
+    {
+        return $this->_headers;
     }
 
     /**
@@ -181,6 +191,7 @@ class Response
      */
     private function _getHeaderValue(string $key, $default = '')
     {
-        return key_exists($key, $this->_headers) ? $this->_headers[$key] : $default;
+        $lower_key = strtolower($key);
+        return key_exists($lower_key, $this->_headers) ? $this->_headers[$lower_key] : $default;
     }
 }

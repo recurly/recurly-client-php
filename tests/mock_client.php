@@ -11,9 +11,9 @@ class MockClient extends BaseClient
 {
     use Recurly\RecurlyTraits;
 
-    public function __construct()
+    public function __construct($logger)
     {
-        parent::__construct("apikey");
+        parent::__construct("apikey", $logger);
         $this->http = (new Generator())->getMock(HttpAdapter::class);
     }
 
@@ -60,7 +60,7 @@ class MockClient extends BaseClient
             $url,
             $body,
             self::_expectedHeaders($requestHeaders)
-            )->willReturn(array($result, $resp_header));
+            )->willReturn([$result, $resp_header]);
     }
 
     public function clearScenarios(): void

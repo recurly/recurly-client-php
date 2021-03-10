@@ -20,6 +20,7 @@
                 <file>lib/recurly.php</file>
                 <file>lib/recurly/version.php</file>
                 <file>lib/recurly/client.php</file>
+                <file>lib/recurly/http_adapter.php</file>
                 <directory suffix=".php">lib/recurly/resources</directory>
                 <directory suffix=".php">lib/recurly/errors</directory>
             </exclude>

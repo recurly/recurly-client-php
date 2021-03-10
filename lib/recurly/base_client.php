@@ -2,6 +2,9 @@
 
 namespace Recurly;
 
+use Psr\Log\LoggerInterface;
+use Psr\Log\LogLevel;
+
 abstract class BaseClient
 {
     use RecurlyTraits;
@@ -13,16 +16,28 @@ abstract class BaseClient
         'params',
         'headers'
     ];
+    private $_logger;
 
     /**
      * Constructor
      * 
      * @param string $api_key The API key to use when making requests
      */
-    public function __construct(string $api_key)
+    public function __construct(string $api_key, LoggerInterface $logger = null)
     {
         $this->_api_key = $api_key;
         $this->http = new HttpAdapter;
+        if (is_null($logger)) {
+            $logger = new \Recurly\Logger('Recurly', LogLevel::WARNING);
+        }
+        $this->_logger = $logger;
+
+        // Send Security Warning to logger debug
+        $msg = "The Recurly logger should not be initialized";
+        $msg .= "\nbeyond the level INFO. It is currently configured to emit";
+        $msg .= "\nheaders and request / response bodies. This has the potential to leak";
+        $msg .= "\nPII and other sensitive information and should never be used in production.";
+        $this->_logger->debug("SECURITY WARNING: {$msg}");
     }
 
     /**
@@ -45,7 +60,13 @@ abstract class BaseClient
     protected function makeRequest(string $method, string $path, array $body = [], array $options = []): \Recurly\RecurlyResource
     {
         $this->_validateOptions($options);
-        $response = $this->_getResponse($method, $path, $body, $options);
+        $path = $this->_buildPath($path, $options);
+        $formattedBody = $this->_formatDateTimes($body);
+        $options['core_headers'] = $this->_coreHeaders();
+
+        $request = new \Recurly\Request($method, $path, $formattedBody, $options);
+
+        $response = $this->_getResponse($request);
         $resource = $response->toResource();
         return $resource;
     }
@@ -54,25 +75,42 @@ abstract class BaseClient
     /**
      * Performs the HTTP request to the Recurly API
      * 
-     * @param string $method  HTTP method to use
-     * @param string $path    Tokenized path to request
-     * @param array  $body    The request body
-     * @param array  $options Additional request parameters (including query parameters)
+     * @param \Recurly\Request $request The \Recurly\Request object
      * 
      * @return \Recurly\Response A Recurly Response object
      */
-    private function _getResponse(string $method, string $path, array $body = [], array $options = []): \Recurly\Response
+    private function _getResponse(\Recurly\Request $request): \Recurly\Response
     {
-        $headers = $this->_buildHeaders($options);
-        $request = new \Recurly\Request($method, $path, $body, $options);
+        $this->_logger->info(
+            'Request', [
+            'method' => $request->getMethod(),
+            'path' => $request->getPath()
+            ]
+        );
+        $this->_logger->debug(
+            'Request', [
+            'request_body' => $request->getBodyAsJson(),
+            'request_headers' => $request->getHeaders()
+            ]
+        );
+        $start = microtime(true);
+        list($result, $response_header) = $this->http->execute($request->getMethod(), $request->getPath(), $request->getBodyAsJson(), $request->getHeaders());
+        $end = microtime(true);
 
-        $url = $this->_buildPath($path, $options);
-        $formattedBody = $this->_formatDateTimes($body);
-        list($result, $response_header) = $this->http->execute($method, $url, $formattedBody, $headers);
-
-        // TODO: The $request should be added to the $response
         $response = new \Recurly\Response($result, $request);
         $response->setHeaders($response_header);
+        $this->_logger->info(
+            'Response', [
+            'time_ms' => intval(($end - $start) * 1000),
+            'status' => $response->getStatusCode()
+            ]
+        );
+        $this->_logger->debug(
+            'Response', [
+            'response_body' => $response->getRawResponse(),
+            'response_headers' => $response->getHeaders()
+            ]
+        );
 
         return $response;
     }
@@ -100,7 +138,10 @@ abstract class BaseClient
      */
     public function pagerCount(string $path, ?array $options = []): \Recurly\Response
     {
-        return $this->_getResponse('HEAD', $path, [], $options);
+        $path = $this->_buildPath($path, $options);
+        $options['core_headers'] = $this->_coreHeaders();
+        $request = new \Recurly\Request('HEAD', $path, [], $options);
+        return $this->_getResponse($request);
     }
 
     /**
@@ -227,25 +268,20 @@ abstract class BaseClient
     }
 
     /**
-     * Generates headers to be sent with the HTTP request
+     * Generates core headers to be sent with the HTTP request
      * 
-     * @param $options Associative array of request options
-     * 
-     * @return array Array representation of the HTTP headers
+     * @return array Array representation of the core request HTTP headers
      */
-    private function _buildHeaders(array $options): array
+    private function _coreHeaders(): array
     {
-        $headers = array_key_exists('headers', $options) ? $options['headers'] : [];
         $auth_token = self::encodeApiKey($this->_api_key);
         $agent = self::getUserAgent();
-        return array_merge(
-            $headers, [
+        return [
             "User-Agent" => $agent,
             "Authorization" => "Basic {$auth_token}",
             "Accept" => "application/vnd.recurly.{$this->apiVersion()}",
             "Content-Type" => "application/json",
             "Accept-Encoding" => "gzip",
-            ]
-        );
+        ];
     }
 }
