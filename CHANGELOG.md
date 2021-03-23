@@ -1,5 +1,17 @@
 # Changelog
 
+## [4.0.1](https://github.com/recurly/recurly-client-php/tree/4.0.1) (2021-03-23)
+
+[Full Changelog](https://github.com/recurly/recurly-client-php/compare/4.0.0...4.0.1)
+
+**Merged pull requests:**
+
+- Release 4.0.1 [\#596](https://github.com/recurly/recurly-client-php/pull/596) ([douglasmiller](https://github.com/douglasmiller))
+- Generated Latest Changes for v2021-02-25 [\#595](https://github.com/recurly/recurly-client-php/pull/595) ([recurly-integrations](https://github.com/recurly-integrations))
+- Sync updates not ported from 3.x client [\#590](https://github.com/recurly/recurly-client-php/pull/590) ([douglasmiller](https://github.com/douglasmiller))
+- Replace empty\(\) with is\_null\(\) [\#588](https://github.com/recurly/recurly-client-php/pull/588) ([joannasese](https://github.com/joannasese))
+- Replace empty\(\) with is\_null\(\) [\#587](https://github.com/recurly/recurly-client-php/pull/587) ([joannasese](https://github.com/joannasese))
+
 ## [4.0.0](https://github.com/recurly/recurly-client-php/tree/4.0.0) (2021-03-01)
 
 [Full Changelog](https://github.com/recurly/recurly-client-php/compare/3.11.0...4.0.0)
@@ -44,47 +56,127 @@ All changes to the core API are documented in the [Developer Portal changelog](h
 - Release 4.0.0 [\#586](https://github.com/recurly/recurly-client-php/pull/586) ([douglasmiller](https://github.com/douglasmiller))
 - Updating changelog script and changelog generator config for 4.x release [\#582](https://github.com/recurly/recurly-client-php/pull/582) ([douglasmiller](https://github.com/douglasmiller))
 - Null checking variable before calling property\_exists to prevent Warning [\#526](https://github.com/recurly/recurly-client-php/pull/526) ([douglasmiller](https://github.com/douglasmiller))
-- Mon Jul  6 14:54:15 UTC 2020 Upgrade API version v2019-10-10 [\#515](https://github.com/recurly/recurly-client-php/pull/515) ([douglasmiller](https://github.com/douglasmiller))
 
 ## [3.11.0](https://github.com/recurly/recurly-client-php/tree/3.11.0) (2021-01-22)
 
 [Full Changelog](https://github.com/recurly/recurly-client-php/compare/3.10.0...3.11.0)
 
+**Implemented enhancements:**
+
+- Latest Changes for 2019-10-10 [\#577](https://github.com/recurly/recurly-client-php/pull/577) ([douglasmiller](https://github.com/douglasmiller))
+- Latest Changes for 2019-10-10 [\#569](https://github.com/recurly/recurly-client-php/pull/569) ([douglasmiller](https://github.com/douglasmiller))
+
+**Merged pull requests:**
+
+- Release 3.11.0 [\#579](https://github.com/recurly/recurly-client-php/pull/579) ([douglasmiller](https://github.com/douglasmiller))
+- Update readme to include memo on headers [\#571](https://github.com/recurly/recurly-client-php/pull/571) ([joannasese](https://github.com/joannasese))
+
 ## [3.10.0](https://github.com/recurly/recurly-client-php/tree/3.10.0) (2020-11-06)
 
 [Full Changelog](https://github.com/recurly/recurly-client-php/compare/3.9.0...3.10.0)
+
+**Implemented enhancements:**
+
+- Latest Changes for 2019-10-10 \(Wallet, Item Coupons\) [\#564](https://github.com/recurly/recurly-client-php/pull/564) ([douglasmiller](https://github.com/douglasmiller))
+- Implement Pager\#take [\#561](https://github.com/recurly/recurly-client-php/pull/561) ([joannasese](https://github.com/joannasese))
+
+**Merged pull requests:**
+
+- Release 3.10.0 [\#566](https://github.com/recurly/recurly-client-php/pull/566) ([douglasmiller](https://github.com/douglasmiller))
 
 ## [3.9.0](https://github.com/recurly/recurly-client-php/tree/3.9.0) (2020-10-20)
 
 [Full Changelog](https://github.com/recurly/recurly-client-php/compare/3.8.1...3.9.0)
 
+**Implemented enhancements:**
+
+- Mon Oct 19 20:43:37 UTC 2020 Upgrade API version v2019-10-10 [\#559](https://github.com/recurly/recurly-client-php/pull/559) ([douglasmiller](https://github.com/douglasmiller))
+- Adding \Recurly\Logger class and the ability to configure a logger [\#506](https://github.com/recurly/recurly-client-php/pull/506) ([douglasmiller](https://github.com/douglasmiller))
+
 **Closed issues:**
 
 - Custom Fields changed from 3.7.0 to 3.8.0 [\#558](https://github.com/recurly/recurly-client-php/issues/558)
+
+**Merged pull requests:**
+
+- Release 3.9.0 [\#560](https://github.com/recurly/recurly-client-php/pull/560) ([douglasmiller](https://github.com/douglasmiller))
 
 ## [3.8.1](https://github.com/recurly/recurly-client-php/tree/3.8.1) (2020-10-02)
 
 [Full Changelog](https://github.com/recurly/recurly-client-php/compare/3.8.0...3.8.1)
 
+**Implemented enhancements:**
+
+- Adding \Recurly\Request to \Recurly\Response [\#543](https://github.com/recurly/recurly-client-php/pull/543) ([douglasmiller](https://github.com/douglasmiller))
+
+**Fixed bugs:**
+
+- Updating to be compliant with RFC 2616 [\#545](https://github.com/recurly/recurly-client-php/pull/545) ([douglasmiller](https://github.com/douglasmiller))
+
+**Merged pull requests:**
+
+- Release 3.8.1 [\#557](https://github.com/recurly/recurly-client-php/pull/557) ([douglasmiller](https://github.com/douglasmiller))
+
 ## [3.8.0](https://github.com/recurly/recurly-client-php/tree/3.8.0) (2020-09-22)
 
 [Full Changelog](https://github.com/recurly/recurly-client-php/compare/3.7.0...3.8.0)
+
+**Implemented enhancements:**
+
+- Latest Changes for 2019-10-10 [\#541](https://github.com/recurly/recurly-client-php/pull/541) ([douglasmiller](https://github.com/douglasmiller))
+- Latest Changes for 2019-10-10 \(Automated Exports, additional resource data methods\) [\#537](https://github.com/recurly/recurly-client-php/pull/537) ([douglasmiller](https://github.com/douglasmiller))
+
+**Fixed bugs:**
+
+- Fixing casting for list types that are not in pagers [\#539](https://github.com/recurly/recurly-client-php/pull/539) ([douglasmiller](https://github.com/douglasmiller))
+
+**Merged pull requests:**
+
+- Release 3.8.0 [\#542](https://github.com/recurly/recurly-client-php/pull/542) ([douglasmiller](https://github.com/douglasmiller))
 
 ## [3.7.0](https://github.com/recurly/recurly-client-php/tree/3.7.0) (2020-08-31)
 
 [Full Changelog](https://github.com/recurly/recurly-client-php/compare/3.6.0...3.7.0)
 
+**Implemented enhancements:**
+
+- Mon Aug 31 19:51:28 UTC 2020 Upgrade API version v2019-10-10 [\#535](https://github.com/recurly/recurly-client-php/pull/535) ([douglasmiller](https://github.com/douglasmiller))
+
+**Merged pull requests:**
+
+- Release 3.7.0 [\#536](https://github.com/recurly/recurly-client-php/pull/536) ([douglasmiller](https://github.com/douglasmiller))
+- Code of Conduct [\#534](https://github.com/recurly/recurly-client-php/pull/534) ([bhelx](https://github.com/bhelx))
+
 ## [3.6.0](https://github.com/recurly/recurly-client-php/tree/3.6.0) (2020-08-21)
 
 [Full Changelog](https://github.com/recurly/recurly-client-php/compare/3.5.0...3.6.0)
+
+**Implemented enhancements:**
+
+- Fri Aug 21 16:27:03 UTC 2020 Upgrade API version v2019-10-10 [\#532](https://github.com/recurly/recurly-client-php/pull/532) ([douglasmiller](https://github.com/douglasmiller))
+
+**Merged pull requests:**
+
+- Release 3.6.0 [\#533](https://github.com/recurly/recurly-client-php/pull/533) ([douglasmiller](https://github.com/douglasmiller))
 
 ## [3.5.0](https://github.com/recurly/recurly-client-php/tree/3.5.0) (2020-07-31)
 
 [Full Changelog](https://github.com/recurly/recurly-client-php/compare/3.4.0...3.5.0)
 
+**Implemented enhancements:**
+
+- Latest Changes for 2019-10-10 \(usage, measured units, etc\) [\#527](https://github.com/recurly/recurly-client-php/pull/527) ([bhelx](https://github.com/bhelx))
+
 **Fixed bugs:**
 
 - Warning in recurly\_resource.php @ line 113 [\#524](https://github.com/recurly/recurly-client-php/issues/524)
+
+**Merged pull requests:**
+
+- Release 3.5.0 [\#528](https://github.com/recurly/recurly-client-php/pull/528) ([douglasmiller](https://github.com/douglasmiller))
+- Null checking variable before calling property\_exists to prevent Warning [\#525](https://github.com/recurly/recurly-client-php/pull/525) ([douglasmiller](https://github.com/douglasmiller))
+- Updates array syntax to modern format [\#521](https://github.com/recurly/recurly-client-php/pull/521) ([douglasmiller](https://github.com/douglasmiller))
+- Mon Jul  6 14:54:15 UTC 2020 Upgrade API version v2019-10-10 [\#515](https://github.com/recurly/recurly-client-php/pull/515) ([douglasmiller](https://github.com/douglasmiller))
 
 ## [3.4.0](https://github.com/recurly/recurly-client-php/tree/3.4.0) (2020-07-01)
 
