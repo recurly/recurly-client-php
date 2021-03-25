@@ -14,6 +14,7 @@ class Tier extends RecurlyResource
 {
     private $_currencies;
     private $_ending_quantity;
+    private $_usage_percentage;
 
     protected static $array_hints = [
         'setCurrencies' => '\Recurly\Resources\TierPricing',
@@ -45,7 +46,7 @@ class Tier extends RecurlyResource
 
     /**
     * Getter method for the ending_quantity attribute.
-    * Ending quantity
+    * Ending quantity for the tier.  This represents a unit amount for unit-priced add ons, but for percentage type usage add ons, represents the site default currency in its minimum divisible unit.
     *
     * @return ?int
     */
@@ -64,5 +65,28 @@ class Tier extends RecurlyResource
     public function setEndingQuantity(int $ending_quantity): void
     {
         $this->_ending_quantity = $ending_quantity;
+    }
+
+    /**
+    * Getter method for the usage_percentage attribute.
+    * Decimal usage percentage.
+    *
+    * @return ?string
+    */
+    public function getUsagePercentage(): ?string
+    {
+        return $this->_usage_percentage;
+    }
+
+    /**
+    * Setter method for the usage_percentage attribute.
+    *
+    * @param string $usage_percentage
+    *
+    * @return void
+    */
+    public function setUsagePercentage(string $usage_percentage): void
+    {
+        $this->_usage_percentage = $usage_percentage;
     }
 }
