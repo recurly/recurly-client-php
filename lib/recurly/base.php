@@ -245,6 +245,7 @@ abstract class Recurly_Base
     'adjustments' => 'Recurly_AdjustmentList',
     'balance_in_cents' => 'Recurly_CurrencyList',
     'billing_info' => 'Recurly_BillingInfo',
+    'billing_infos' => 'Recurly_BillingInfoList',
     'coupon' => 'Recurly_Coupon',
     'unique_coupon_codes' => 'Recurly_UniqueCouponCodeList',
     'charge_invoice' => 'Recurly_Invoice',

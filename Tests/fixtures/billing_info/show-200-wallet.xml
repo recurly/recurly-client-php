@@ -1,0 +1,79 @@
+HTTP/1.1 200 OK
+Content-Type: application/xml; charset=utf-8
+
+<?xml version="1.0" encoding="UTF-8"?>
+<billing_infos type="array">
+  <billing_info href="https://api.recurly.com/v2/accounts/abcdef1234567890/billing_infos/iiznlrvdt05b" type="credit_card">
+    <account href="https://api.recurly.com/v2/accounts/abcdef1234567890"/>
+    <uuid>iiznlrvdt05b</uuid>
+    <first_name>Verena</first_name>
+    <last_name>Example</last_name>
+    <company nil="nil"/>
+    <address1>123 Main St.</address1>
+    <address2 nil="nil"/>
+    <city>San Francisco</city>
+    <state>CA</state>
+    <zip>94105</zip>
+    <country>US</country>
+    <phone nil="nil"/>
+    <vat_number nil="nil"/>
+    <ip_address>127.0.0.1</ip_address>
+    <ip_address_country nil="nil"/>
+    <card_type>Visa</card_type>
+    <year type="integer">2019</year>
+    <month type="integer">11</month>
+    <first_six>411111</first_six>
+    <last_four>1111</last_four>
+    <primary_payment_method>true</primary_payment_method>
+    <backup_payment_method>false</backup_payment_method>
+    <updated_at type="datetime">2017-02-17T15:38:53Z</updated_at>
+  </billing_info>
+  <billing_info href="https://api.recurly.com/v2/accounts/abcdef1234567890/billing_infos/iiznlrvdt8py" type="credit_card">
+    <account href="https://api.recurly.com/v2/accounts/abcdef1234567890"/>
+    <uuid>iiznlrvdt8py</uuid>
+    <first_name>Venice</first_name>
+    <last_name>Example</last_name>
+    <company nil="nil"/>
+    <address1>123 Main St.</address1>
+    <address2 nil="nil"/>
+    <city>San Francisco</city>
+    <state>CA</state>
+    <zip>94105</zip>
+    <country>US</country>
+    <phone nil="nil"/>
+    <vat_number nil="nil"/>
+    <ip_address>127.0.0.1</ip_address>
+    <ip_address_country nil="nil"/>
+    <card_type>Visa</card_type>
+    <year type="integer">2019</year>
+    <month type="integer">11</month>
+    <first_six>400011</first_six>
+    <last_four>1111</last_four>
+    <primary_payment_method>false</primary_payment_method>
+    <backup_payment_method>true</backup_payment_method>
+    <updated_at type="datetime">2017-02-17T15:38:53Z</updated_at>
+  </billing_info>
+  <billing_info href="https://api.recurly.com/v2/accounts/abcdef1234567890/billing_infos/2438622711411438053" type="bank_account">
+    <account href="https://api.recurly.com/v2/accounts/abcdef1234567890"/>
+    <name_on_account>Acme, Inc.</name_on_account>
+    <first_name nil="nil"></first_name>
+    <last_name nil="nil"></last_name>
+    <company nil="nil"></company>
+    <address1>123 Main St.</address1>
+    <address2 nil="nil"></address2>
+    <city>San Francisco</city>
+    <state>CA</state>
+    <zip>94105</zip>
+    <country>US</country>
+    <phone></phone>
+    <vat_number></vat_number>
+    <ip_address>127.0.0.1</ip_address>
+    <ip_address_country>US</ip_address_country>
+    <account_type>checking</account_type>
+    <last_four>5555</last_four>
+    <routing_number>065400137</routing_number>
+    <primary_payment_method>false</primary_payment_method>
+    <backup_payment_method>false</backup_payment_method>
+    <updated_at type="datetime">2017-02-17T15:38:53Z</updated_at>
+  </billing_info>
+</billing_infos>

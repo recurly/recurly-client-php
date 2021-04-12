@@ -6,6 +6,7 @@ class Recurly_BillingInfoTest extends Recurly_TestCase
   function defaultResponses() {
     return array(
       array('GET', '/accounts/abcdef1234567890/billing_info', 'billing_info/show-200.xml'),
+      array('GET', '/accounts/abcdef1234567890z/billing_infos', 'billing_info/show-200-wallet.xml'),
       array('GET', '/accounts/paypal1234567890/billing_info', 'billing_info/show-paypal-200.xml'),
       array('GET', '/accounts/amazon1234567890/billing_info', 'billing_info/show-amazon-200.xml'),
       array('GET', '/accounts/bankaccount1234567890/billing_info', 'billing_info/show-bank-account-200.xml'),
@@ -27,10 +28,17 @@ class Recurly_BillingInfoTest extends Recurly_TestCase
     $this->assertEquals($billing_info->address1, '123 Pretty Pretty Good St.');
     $this->assertEquals($billing_info->country, 'US');
     $this->assertEquals($billing_info->card_type, 'Visa');
-    $this->assertEquals($billing_info->year, 2015);
+    $this->assertEquals($billing_info->year, 2049);
     $this->assertEquals($billing_info->month, 1);
+    $this->assertTrue($billing_info->primary_payment_method);
+    $this->assertFalse($billing_info->backup_payment_method);
     $this->assertEquals($billing_info->getHref(), 'https://api.recurly.com/v2/accounts/abcdef1234567890/billing_info');
     $this->assertEquals($billing_info->getType(), 'credit_card');
+  }
+
+  public function testGetBillingInfos() {
+    $billing_infos = Recurly_BillingInfoList::get('abcdef1234567890', $this->client);
+    $this->assertInstanceOf('Recurly_BillingInfoList', $billing_infos);
   }
 
   public function testGetPayPalBillingInfo() {
