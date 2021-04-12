@@ -14,6 +14,7 @@ class BillingInfo extends RecurlyResource
 {
     private $_account_id;
     private $_address;
+    private $_backup_payment_method;
     private $_company;
     private $_created_at;
     private $_first_name;
@@ -76,6 +77,29 @@ class BillingInfo extends RecurlyResource
     public function setAddress(\Recurly\Resources\Address $address): void
     {
         $this->_address = $address;
+    }
+
+    /**
+    * Getter method for the backup_payment_method attribute.
+    * The `backup_payment_method` indicator is used to designate a billing info as a backup on the account that will be tried if the billing info marked `primary_payment_method` fails.
+    *
+    * @return ?bool
+    */
+    public function getBackupPaymentMethod(): ?bool
+    {
+        return $this->_backup_payment_method;
+    }
+
+    /**
+    * Setter method for the backup_payment_method attribute.
+    *
+    * @param bool $backup_payment_method
+    *
+    * @return void
+    */
+    public function setBackupPaymentMethod(bool $backup_payment_method): void
+    {
+        $this->_backup_payment_method = $backup_payment_method;
     }
 
     /**
