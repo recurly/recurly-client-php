@@ -1,0 +1,32 @@
+on:
+  release:
+    types:
+      - released
+name: Documentation
+jobs:
+  build:
+    name: Publish
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+
+      # Using tag 2.10.0
+    - uses: shivammathur/setup-php@e9a7adef28d778846228a0d481e041db73bd6db2
+      with:
+        php-version: '7.4'
+        coverage: xdebug2
+
+    - name: Build Library and Docs
+      run: ./scripts/build
+
+    - name: Deploy
+      if: success()
+      # use the specific sha of 3rd party libraries for security reasons https://julienrenaux.fr/2019/12/20/github-actions-security-risk/
+      # Using tag v2.3.0
+      uses: crazy-max/ghaction-github-pages@b8f8d291c97fe0edd9fb4ee73018163593418e8f
+      with:
+        target_branch: gh-pages
+        build_dir: ./docs
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+

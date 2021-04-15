@@ -2,3 +2,6 @@
 set -e
 
 composer install --dev
+
+rm -rf ./docs
+./vendor/bin/phpdoc -d ./lib/recurly -t ./docs/ --title "Recurly v3 API"
