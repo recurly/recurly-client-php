@@ -4,6 +4,7 @@
  * @property Recurly_Account $account The account for the purchase. Can create an account or use existing.
  * @property Recurly_Adjustment[] $adjustments The array of adjustments for the purchase.
  * @property string $collection_method The invoice collection method ('automatic' or 'manual').
+ * @property string $billing_info_uuid The uuid to indicate which billing info to use from wallet.
  * @property string $currency The currency to use in this invoice.
  * @property string $po_number The po number for the invoice.
  * @property integer $net_terms The net terms of the invoice.
@@ -115,7 +116,7 @@ class Recurly_Purchase extends Recurly_Resource
   }
   protected function getWriteableAttributes() {
     return array(
-      'account', 'adjustments', 'collection_method', 'currency', 'po_number',
+      'account', 'adjustments', 'billing_info_uuid', 'collection_method', 'currency', 'po_number',
       'net_terms', 'subscriptions', 'gift_card', 'coupon_codes', 'customer_notes',
       'terms_and_conditions', 'vat_reverse_charge_notes', 'shipping_address', 'shipping_address_id',
       'gateway_code', 'shipping_fees', 'transaction_type'

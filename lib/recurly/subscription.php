@@ -7,6 +7,7 @@
  * @property string $plan_code plan_code for the subscription.
  * @property-read Recurly_Plan $plan Nested plan_code and plan name
  * @property Recurly_Stub $account Nested account attributes.
+ * @property string $billing_info_uuid The uuid to indicate which billing info to use from wallet.
  * @property string $currency Currency for the subscription.
  * @property mixed[] $subscription_add_ons Nested add-ons.
  * @property string $coupon_code Optional coupon code to redeem on the account and discount the subscription. Please note, the subscription request will fail if the coupon is invalid.
@@ -312,7 +313,7 @@ class Recurly_Subscription extends Recurly_Resource
   protected function getWriteableAttributes() {
     return array(
       'account', 'billing_info', 'plan_code', 'coupon_code', 'coupon_codes',
-      'unit_amount_in_cents', 'quantity', 'currency', 'starts_at',
+      'unit_amount_in_cents', 'quantity', 'billing_info_uuid', 'currency', 'starts_at',
       'trial_ends_at', 'total_billing_cycles', 'first_renewal_date',
       'timeframe', 'subscription_add_ons', 'net_terms', 'po_number',
       'collection_method', 'cost_in_cents', 'remaining_billing_cycles', 'bulk',

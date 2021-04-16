@@ -7,6 +7,7 @@
  * @property Recurly_ShippingAddress $shipping_address
  * @property Recurly_BillingInfo $billing_info
  * @property string $uuid
+ * @property string $billing_info_uuid The uuid to indicate which billing info to use from wallet.
  * @property string $state
  * @property int $invoice_number_prefix
  * @property int $invoice_number
@@ -234,7 +235,7 @@ class Recurly_Invoice extends Recurly_Resource
   }
   protected function getWriteableAttributes() {
     return array(
-      'address', 'billing_info', 'terms_and_conditions', 'customer_notes', 'vat_reverse_charge_notes',
+      'address', 'billing_info', 'billing_info_uuid', 'terms_and_conditions', 'customer_notes', 'vat_reverse_charge_notes',
       'collection_method', 'net_terms', 'po_number', 'currency', 'credit_customer_notes',
       'gateway_code'
     );

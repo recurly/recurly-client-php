@@ -92,6 +92,32 @@ class Recurly_Account extends Recurly_Resource
     $shippingAddress->_save(Recurly_Client::POST, $this->uri() . '/shipping_addresses');
   }
 
+  public function createBillingInfo($billingInfo, $client = null) {
+    if ($client) {
+      $billingInfo -> _client = $client;
+    }
+    $billingInfo -> _save(Recurly_Client::POST, $this->uri() . '/billing_infos');
+  }
+  
+  public function updateBillingInfo($billingInfo, $client = null) {
+    if ($client) {
+      $billingInfo -> _client = $client;
+    }
+    $billingInfo -> _save(Recurly_Client::PUT, $this->uri() . '/billing_infos/' . $billingInfo->uuid);
+  }
+
+  public function getBillingInfos($client = null) {
+    return Recurly_Base::_get($this->uriForBillingInfos(), $client);
+  }
+
+  public function getBillingInfo($billingInfoUuid, $client = null) {
+    return Recurly_Base::_get($this->uriForBillingInfos() . '/' . $billingInfoUuid, $client);
+  }
+
+  public function deleteBillingInfo($billingInfoUuid, $client = null) {
+    return Recurly_Base::_delete($this->uriForBillingInfos() . '/' . $billingInfoUuid, $client);
+  }
+
   protected function uri() {
     if (!empty($this->_href))
       return $this->getHref();
@@ -100,6 +126,10 @@ class Recurly_Account extends Recurly_Resource
   }
   protected static function uriForAccount($accountCode) {
     return self::_safeUri(Recurly_Client::PATH_ACCOUNTS, $accountCode);
+  }
+
+  protected function uriForBillingInfos() {
+    return Recurly_Account::uriForAccount($this->account_code) . '/' . Recurly_Client::PATH_BILLING_INFOS;
   }
 
   protected function getNodeName() {

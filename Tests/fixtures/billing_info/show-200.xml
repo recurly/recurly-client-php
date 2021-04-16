@@ -18,9 +18,11 @@ Content-Type: application/xml; charset=utf-8
   <ip_address>127.0.0.1</ip_address>
   <ip_address_country nil="nil"></ip_address_country>
   <card_type>Visa</card_type>
-  <year type="integer">2015</year>
+  <year type="integer">2049</year>
   <month type="integer">1</month>
   <first_six>411111</first_six>
   <last_four>1111</last_four>
+  <primary_payment_method type="boolean">true</primary_payment_method>
+  <backup_payment_method type="boolean">false</backup_payment_method>
   <updated_at type="datetime">2017-02-17T15:38:53Z</updated_at>
 </billing_info>
