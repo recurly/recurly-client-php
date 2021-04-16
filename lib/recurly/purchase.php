@@ -116,7 +116,7 @@ class Recurly_Purchase extends Recurly_Resource
   }
   protected function getWriteableAttributes() {
     return array(
-      'account', 'adjustments', 'collection_method', 'billing_info_uuid', 'currency', 'po_number',
+      'account', 'adjustments', 'billing_info_uuid', 'collection_method', 'currency', 'po_number',
       'net_terms', 'subscriptions', 'gift_card', 'coupon_codes', 'customer_notes',
       'terms_and_conditions', 'vat_reverse_charge_notes', 'shipping_address', 'shipping_address_id',
       'gateway_code', 'shipping_fees', 'transaction_type'
