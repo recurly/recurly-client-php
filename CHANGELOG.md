@@ -1,5 +1,14 @@
 # Changelog
 
+## [2.12.22](https://github.com/recurly/recurly-client-php/tree/2.12.22) (2021-05-24)
+
+[Full Changelog](https://github.com/recurly/recurly-client-php/compare/2.12.21...2.12.22)
+
+**Merged Pull Requests**
+
+- [Postpone subscriptions](https://developers.recurly.com/api-v2/v2.29/index.html#operation/postponeSubscriptionOrExtendTrial) using `next_bill_date` instead the deprecated `next_renewal_date`. [#TODO](https://github.com/recurly/recurly-client-php/pull/) ([cyberxander90](https://github.com/cyberxander90))
+
+
 ## [2.12.21](https://github.com/recurly/recurly-client-php/tree/2.12.21) (2021-04-22)
 
 [Full Changelog](https://github.com/recurly/recurly-client-php/compare/2.12.20...2.12.21)
