@@ -294,6 +294,22 @@ class Client extends BaseClient
     }
   
     /**
+     * Verify an account's credit card billing information
+     *
+     * @param string $account_id Account ID or code. For ID no prefix is used e.g. `e28zov4fw0v2`. For code use prefix `code-`, e.g. `code-bob`.
+     * @param array  $body       The body of the request.
+     * @param array  $options    Associative array of optional parameters
+     *
+     * @return \Recurly\Resources\Transaction Transaction information from verify.
+     * @link   https://developers.recurly.com/api/v2021-02-25#operation/verify_billing_info
+     */
+    public function verifyBillingInfo(string $account_id, array $body = [], array $options = []): \Recurly\Resources\Transaction
+    {
+        $path = $this->interpolatePath("/accounts/{account_id}/billing_info/verify", ['account_id' => $account_id]);
+        return $this->makeRequest('POST', $path, $body, $options);
+    }
+  
+    /**
      * Get the list of billing information associated with an account
      *
      * @param string $account_id Account ID or code. For ID no prefix is used e.g. `e28zov4fw0v2`. For code use prefix `code-`, e.g. `code-bob`.
@@ -330,7 +346,7 @@ class Client extends BaseClient
     }
   
     /**
-     * Set an account's billing information when the wallet feature is enabled
+     * Add new billing information on an account
      *
      * @param string $account_id Account ID or code. For ID no prefix is used e.g. `e28zov4fw0v2`. For code use prefix `code-`, e.g. `code-bob`.
      * @param array  $body       The body of the request.
