@@ -10,21 +10,20 @@ namespace Recurly\Resources;
 use Recurly\RecurlyResource;
 
 // phpcs:disable
-class TaxInfo extends RecurlyResource
+class TaxDetail extends RecurlyResource
 {
     private $_rate;
     private $_region;
-    private $_tax_details;
+    private $_tax;
     private $_type;
 
     protected static $array_hints = [
-        'setTaxDetails' => '\Recurly\Resources\TaxDetail',
     ];
 
     
     /**
     * Getter method for the rate attribute.
-    * Rate
+    * Provides the tax rate for the region.
     *
     * @return ?float
     */
@@ -47,7 +46,7 @@ class TaxInfo extends RecurlyResource
 
     /**
     * Getter method for the region attribute.
-    * Provides the tax region applied on an invoice. For U.S. Sales Tax, this will be the 2 letter state code. For EU VAT this will be the 2 letter country code. For all country level tax types, this will display the regional tax, like VAT, GST, or PST.
+    * Provides the tax region applied on an invoice. For Canadian Sales Tax, this will be either the 2 letter province code or country code.
     *
     * @return ?string
     */
@@ -69,31 +68,31 @@ class TaxInfo extends RecurlyResource
     }
 
     /**
-    * Getter method for the tax_details attribute.
-    * 
+    * Getter method for the tax attribute.
+    * The total tax applied for this tax type.
     *
-    * @return array
+    * @return ?float
     */
-    public function getTaxDetails(): array
+    public function getTax(): ?float
     {
-        return $this->_tax_details ?? [] ;
+        return $this->_tax;
     }
 
     /**
-    * Setter method for the tax_details attribute.
+    * Setter method for the tax attribute.
     *
-    * @param array $tax_details
+    * @param float $tax
     *
     * @return void
     */
-    public function setTaxDetails(array $tax_details): void
+    public function setTax(float $tax): void
     {
-        $this->_tax_details = $tax_details;
+        $this->_tax = $tax;
     }
 
     /**
     * Getter method for the type attribute.
-    * Provides the tax type as "vat" for EU VAT, "usst" for U.S. Sales Tax, or the 2 letter country code for country level tax types like Canada, Australia, New Zealand, Israel, and all non-EU European countries.
+    * Provides the tax type for the region. For Canadian Sales Tax, this will be GST, HST, QST or PST.
     *
     * @return ?string
     */
