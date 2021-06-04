@@ -1,5 +1,17 @@
 # Changelog
 
+## [4.3.0](https://github.com/recurly/recurly-client-php/tree/4.3.0) (2021-06-04)
+
+[Full Changelog](https://github.com/recurly/recurly-client-php/compare/4.2.0...4.3.0)
+
+
+**Merged Pull Requests**
+
+- Generated Latest Changes for v2021-02-25 [#612](https://github.com/recurly/recurly-client-php/pull/612) ([recurly-integrations](https://github.com/recurly-integrations))
+- Adding psr/log requirement to composer.json [#611](https://github.com/recurly/recurly-client-php/pull/611) ([douglasmiller](https://github.com/douglasmiller))
+
+
+
 ## [4.2.0](https://github.com/recurly/recurly-client-php/tree/4.2.0) (2021-04-21)
 
 [Full Changelog](https://github.com/recurly/recurly-client-php/compare/4.1.0...4.2.0)
