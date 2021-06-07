@@ -326,6 +326,16 @@ class Recurly_SubscriptionTest extends Recurly_TestCase
     $subscription->resume();
   }
 
+  public function testPostponeSubscription() {
+    $this->client->addResponse('GET', '/subscriptions/012345678901234567890123456789ab', 'subscriptions/show-200.xml');
+    $this->client->addResponse('PUT', 'https://api.recurly.com/v2/subscriptions/012345678901234567890123456789ab/postpone?next_bill_date=2019-12-30T16:00:00-08:00&bulk=', 'subscriptions/postpone-200.xml');
+    $subscription = Recurly_Subscription::get('012345678901234567890123456789ab', $this->client);
+
+    $subscription->postpone(date('c', strtotime('2019-12-31Z')));
+    
+    $this->assertEquals(new DateTime('2019-12-31Z'), $subscription->current_period_ends_at);
+  }
+
   public function testConvertTrialWithTransactionType() {
     $this->client->addResponse('GET', '/subscriptions/012345678901234567890123456789ab', 'subscriptions/show-200-trial.xml');
     $this->client->addResponse('PUT', 'https://api.recurly.com/v2/subscriptions/012345678901234567890123456789ab/convert_trial', 'subscriptions/convert-trial-200.xml');
