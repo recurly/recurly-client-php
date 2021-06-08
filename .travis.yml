@@ -1,10 +1,13 @@
 language: php
-php:
-  - 7.4
-  - 7.3
-  - 7.2
+matrix:
+  include:
+    - php: 8.0
+    - php: 7.4
+    - php: 7.3
+      dist: trusty
+    - php: 7.2
+      dist: trusty
 sudo: false
-dist: trusty
 install:
   - composer install --dev
 script: vendor/bin/phpunit tests
