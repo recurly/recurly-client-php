@@ -1,5 +1,17 @@
 # Changelog
 
+## [4.4.0](https://github.com/recurly/recurly-client-php/tree/4.4.0) (2021-06-15)
+
+[Full Changelog](https://github.com/recurly/recurly-client-php/compare/4.3.0...4.4.0)
+
+
+**Merged Pull Requests**
+
+- Generated Latest Changes for v2021-02-25 [#613](https://github.com/recurly/recurly-client-php/pull/613) ([recurly-integrations](https://github.com/recurly-integrations))
+- Add PHP 8.0 to travis matrix [#592](https://github.com/recurly/recurly-client-php/pull/592) ([douglasmiller](https://github.com/douglasmiller))
+
+
+
 ## [4.3.0](https://github.com/recurly/recurly-client-php/tree/4.3.0) (2021-06-04)
 
 [Full Changelog](https://github.com/recurly/recurly-client-php/compare/4.2.0...4.3.0)
