@@ -1,5 +1,16 @@
 # Changelog
 
+## [2.12.22](https://github.com/recurly/recurly-client-php/tree/2.12.22) (2021-06-16)
+
+[Full Changelog](https://github.com/recurly/recurly-client-php/compare/2.12.21...2.12.22)
+
+
+**Merged Pull Requests**
+
+- Postpone subscriptions using the field next_bill_date [#610](https://github.com/recurly/recurly-client-php/pull/610) ([cyberxander90](https://github.com/cyberxander90))
+
+
+
 ## [2.12.21](https://github.com/recurly/recurly-client-php/tree/2.12.21) (2021-04-22)
 
 [Full Changelog](https://github.com/recurly/recurly-client-php/compare/2.12.20...2.12.21)
