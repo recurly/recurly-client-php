@@ -59,6 +59,7 @@ require_once(__DIR__ . '/recurly/subscription.php');
 require_once(__DIR__ . '/recurly/subscription_list.php');
 require_once(__DIR__ . '/recurly/subscription_addon.php');
 require_once(__DIR__ . '/recurly/tax_detail.php');
+require_once(__DIR__ . '/recurly/tier.php');
 require_once(__DIR__ . '/recurly/transaction.php');
 require_once(__DIR__ . '/recurly/transaction_error.php');
 require_once(__DIR__ . '/recurly/transaction_list.php');
