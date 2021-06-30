@@ -518,7 +518,7 @@ class Transaction extends RecurlyResource
 
     /**
     * Getter method for the ip_address_country attribute.
-    * IP address's country
+    * Origin IP address country, 2-letter ISO 3166-1 alpha-2 code, if known by Recurly.
     *
     * @return ?string
     */

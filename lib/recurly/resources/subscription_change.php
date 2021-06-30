@@ -15,6 +15,7 @@ class SubscriptionChange extends RecurlyResource
     private $_activate_at;
     private $_activated;
     private $_add_ons;
+    private $_billing_info;
     private $_created_at;
     private $_custom_fields;
     private $_deleted_at;
@@ -103,6 +104,29 @@ class SubscriptionChange extends RecurlyResource
     public function setAddOns(array $add_ons): void
     {
         $this->_add_ons = $add_ons;
+    }
+
+    /**
+    * Getter method for the billing_info attribute.
+    * Accept nested attributes for three_d_secure_action_result_token_id
+    *
+    * @return ?\Recurly\Resources\SubscriptionChangeBillingInfo
+    */
+    public function getBillingInfo(): ?\Recurly\Resources\SubscriptionChangeBillingInfo
+    {
+        return $this->_billing_info;
+    }
+
+    /**
+    * Setter method for the billing_info attribute.
+    *
+    * @param \Recurly\Resources\SubscriptionChangeBillingInfo $billing_info
+    *
+    * @return void
+    */
+    public function setBillingInfo(\Recurly\Resources\SubscriptionChangeBillingInfo $billing_info): void
+    {
+        $this->_billing_info = $billing_info;
     }
 
     /**
