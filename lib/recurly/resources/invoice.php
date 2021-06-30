@@ -632,7 +632,7 @@ class Invoice extends RecurlyResource
 
     /**
     * Getter method for the subtotal attribute.
-    * The summation of charges, discounts, and credits, before tax.
+    * The summation of charges and credits, before discounts and taxes.
     *
     * @return ?float
     */

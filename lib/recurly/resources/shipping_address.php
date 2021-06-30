@@ -106,7 +106,7 @@ class ShippingAddress extends RecurlyResource
 
     /**
     * Getter method for the country attribute.
-    * Country, 2-letter ISO code.
+    * Country, 2-letter ISO 3166-1 alpha-2 code.
     *
     * @return ?string
     */
