@@ -155,6 +155,16 @@ class Recurly_Subscription extends Recurly_Resource
   }
 
   /**
+   * Make an update that applies at the term end date of the subscription.
+   *
+   * @throws Recurly_Error
+   */
+  public function updateAtTermEnd() {
+    $this->timeframe = 'term_end';
+    $this->_save(Recurly_Client::PUT, $this->uri());
+  }
+
+  /**
    * Terminate the subscription immediately and issue a full refund of the last renewal
    *
    * @param bool $charge If true, unbilled usage is billed on final invoice, else negative usage record created to zero out final invoice.
