@@ -21,7 +21,7 @@ class BillingInfoUpdatedBy extends RecurlyResource
     
     /**
     * Getter method for the country attribute.
-    * Country of IP address, if known by Recurly.
+    * Country, 2-letter ISO 3166-1 alpha-2 code matching the origin IP address, if known by Recurly.
     *
     * @return ?string
     */

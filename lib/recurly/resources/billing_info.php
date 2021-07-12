@@ -14,6 +14,7 @@ class BillingInfo extends RecurlyResource
 {
     private $_account_id;
     private $_address;
+    private $_backup_payment_method;
     private $_company;
     private $_created_at;
     private $_first_name;
@@ -76,6 +77,29 @@ class BillingInfo extends RecurlyResource
     public function setAddress(\Recurly\Resources\Address $address): void
     {
         $this->_address = $address;
+    }
+
+    /**
+    * Getter method for the backup_payment_method attribute.
+    * The `backup_payment_method` field is used to indicate a billing info as a backup on the account that will be tried if the initial billing info used for an invoice is declined.
+    *
+    * @return ?bool
+    */
+    public function getBackupPaymentMethod(): ?bool
+    {
+        return $this->_backup_payment_method;
+    }
+
+    /**
+    * Setter method for the backup_payment_method attribute.
+    *
+    * @param bool $backup_payment_method
+    *
+    * @return void
+    */
+    public function setBackupPaymentMethod(bool $backup_payment_method): void
+    {
+        $this->_backup_payment_method = $backup_payment_method;
     }
 
     /**
@@ -264,7 +288,7 @@ class BillingInfo extends RecurlyResource
 
     /**
     * Getter method for the primary_payment_method attribute.
-    * The `primary_payment_method` indicator is used to designate the primary billing info on the account. The first billing info created on an account will always become primary. Adding additional billing infos provides the flexibility to mark another billing info as primary, or adding additional non-primary billing infos. This can be accomplished by passing the `primary_payment_method` indicator. When adding billing infos via the billing_info and /accounts endpoints, this value is not permitted, and will return an error if provided.
+    * The `primary_payment_method` field is used to indicate the primary billing info on the account. The first billing info created on an account will always become primary. This payment method will be used
     *
     * @return ?bool
     */

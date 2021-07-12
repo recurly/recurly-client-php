@@ -15,6 +15,7 @@ class Transaction extends RecurlyResource
     private $_account;
     private $_amount;
     private $_avs_check;
+    private $_backup_payment_method_used;
     private $_billing_address;
     private $_collected_at;
     private $_collection_method;
@@ -122,6 +123,29 @@ class Transaction extends RecurlyResource
     public function setAvsCheck(string $avs_check): void
     {
         $this->_avs_check = $avs_check;
+    }
+
+    /**
+    * Getter method for the backup_payment_method_used attribute.
+    * Indicates if the transaction was completed using a backup payment
+    *
+    * @return ?bool
+    */
+    public function getBackupPaymentMethodUsed(): ?bool
+    {
+        return $this->_backup_payment_method_used;
+    }
+
+    /**
+    * Setter method for the backup_payment_method_used attribute.
+    *
+    * @param bool $backup_payment_method_used
+    *
+    * @return void
+    */
+    public function setBackupPaymentMethodUsed(bool $backup_payment_method_used): void
+    {
+        $this->_backup_payment_method_used = $backup_payment_method_used;
     }
 
     /**
@@ -494,7 +518,7 @@ class Transaction extends RecurlyResource
 
     /**
     * Getter method for the ip_address_country attribute.
-    * IP address's country
+    * Origin IP address country, 2-letter ISO 3166-1 alpha-2 code, if known by Recurly.
     *
     * @return ?string
     */
