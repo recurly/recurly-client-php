@@ -217,4 +217,25 @@ final class BaseClientTest extends RecurlyTestCase
         $this->expectException(\Recurly\RecurlyError::class);
         $resource = $this->client->getResource("iexist", $options);
     }
+
+    public function testBooleanParams(): void
+    {
+        $url = "https://v3.recurly.com/resources/booleans?param-1=true&param-2=false";
+        $result = '{"id": "booleans", "object": "test_resource"}';
+        $headers = [
+            'Accept-Language' => 'fr'
+        ];
+        $this->client->addScenario("GET", $url, NULL, $result, "200 OK", [], $headers);
+
+        $options = [
+            'params' => [
+                'param-1' => true,
+                'param-2' => false,
+            ],
+            'headers' => $headers
+        ];
+
+        $resource = $this->client->getResource("booleans", $options);
+        $this->assertEquals($resource->getId(), "booleans");
+    }
 }
