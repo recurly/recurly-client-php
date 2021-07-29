@@ -70,7 +70,7 @@ class TaxInfo extends RecurlyResource
 
     /**
     * Getter method for the tax_details attribute.
-    * 
+    * Provides additional tax details for Canadian Sales Tax when there is tax applied at both the country and province levels. This will only be populated for the Invoice response when fetching a single invoice and not for the InvoiceList or LineItem.
     *
     * @return array
     */
