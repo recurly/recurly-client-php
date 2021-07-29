@@ -15,6 +15,7 @@ class PaymentMethod extends RecurlyResource
     private $_account_type;
     private $_billing_agreement_id;
     private $_card_type;
+    private $_cc_bin_country;
     private $_exp_month;
     private $_exp_year;
     private $_first_six;
@@ -98,6 +99,29 @@ class PaymentMethod extends RecurlyResource
     public function setCardType(string $card_type): void
     {
         $this->_card_type = $card_type;
+    }
+
+    /**
+    * Getter method for the cc_bin_country attribute.
+    * The 2-letter ISO 3166-1 alpha-2 country code associated with the credit card BIN, if known by Recurly. Available on the BillingInfo object only. Available when the BIN country lookup feature is enabled.
+    *
+    * @return ?string
+    */
+    public function getCcBinCountry(): ?string
+    {
+        return $this->_cc_bin_country;
+    }
+
+    /**
+    * Setter method for the cc_bin_country attribute.
+    *
+    * @param string $cc_bin_country
+    *
+    * @return void
+    */
+    public function setCcBinCountry(string $cc_bin_country): void
+    {
+        $this->_cc_bin_country = $cc_bin_country;
     }
 
     /**
