@@ -146,17 +146,18 @@ abstract class BaseClient
 
     /**
      * Build the URL that the API request will be sent to
-     * 
+     *
      * @param string $path    The path to be requested
      * @param array  $options Additional request parameters (including query parameters)
-     * 
+     *
      * @return string The combined URL
      */
     private function _buildPath(string $path, array $options): string
     {
         if (array_key_exists('params', $options) && !empty($options['params'])) {
             $mappedParams = $this->_mapArrayParams($options['params']);
-            return $this->baseUrl . $path . '?' . http_build_query($this->_formatDateTimes($mappedParams));
+            $mappedWithBooleans = $this->_mapBooleanParams($mappedParams);
+            return $this->baseUrl . $path . '?' . http_build_query($this->_formatDateTimes($mappedWithBooleans));
         } else {
             return $this->baseUrl . $path;
         }
@@ -178,6 +179,29 @@ abstract class BaseClient
                 $params, function (&$param, $key) {
                     if (is_array($param)) {
                         $param = join(',', $param);
+                    }
+                }
+            );
+        }
+        return $params;
+    }
+
+    /**
+     * Maps parameters with boolean value into strings. The API expects these
+     * values to be booleans, but http_build_query transforms actual php booleans
+     * into integers. So the workaround is to provide them as strings instead.
+     *
+     * @param array $params Associative array of parameters
+     *
+     * @return array
+     */
+    private function _mapBooleanParams(?array $params = []): ?array
+    {
+        if (!is_null($params)) {
+            array_walk_recursive(
+                $params, function (&$param, $key) {
+                    if (is_bool($param)) {
+                        $param = var_export($param, true);
                     }
                 }
             );
