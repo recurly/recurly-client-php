@@ -1,5 +1,17 @@
 # Changelog
 
+## [4.5.0](https://github.com/recurly/recurly-client-php/tree/4.5.0) (2021-08-02)
+
+[Full Changelog](https://github.com/recurly/recurly-client-php/compare/4.4.0...4.5.0)
+
+
+**Merged Pull Requests**
+
+- Generated Latest Changes for v2021-02-25 [#623](https://github.com/recurly/recurly-client-php/pull/623) ([recurly-integrations](https://github.com/recurly-integrations))
+- Fixing issue with http_build_query converting booleans in params to integers [#621](https://github.com/recurly/recurly-client-php/pull/621) ([ZloeSabo](https://github.com/ZloeSabo))
+
+
+
 ## [4.4.0](https://github.com/recurly/recurly-client-php/tree/4.4.0) (2021-06-15)
 
 [Full Changelog](https://github.com/recurly/recurly-client-php/compare/4.3.0...4.4.0)
