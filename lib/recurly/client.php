@@ -2345,6 +2345,21 @@ endpoint to obtain only the newly generated `UniqueCouponCodes`.
     }
   
     /**
+     * Fetch a preview of a subscription's renewal invoice(s)
+     *
+     * @param string $subscription_id Subscription ID or UUID. For ID no prefix is used e.g. `e28zov4fw0v2`. For UUID use prefix `uuid-`, e.g. `uuid-123457890`.
+     * @param array  $options         Associative array of optional parameters
+     *
+     * @return \Recurly\Resources\InvoiceCollection A preview of the subscription's renewal invoice(s).
+     * @link   https://developers.recurly.com/api/v2021-02-25#operation/get_preview_renewal
+     */
+    public function getPreviewRenewal(string $subscription_id, array $options = []): \Recurly\Resources\InvoiceCollection
+    {
+        $path = $this->interpolatePath("/subscriptions/{subscription_id}/preview_renewal", ['subscription_id' => $subscription_id]);
+        return $this->makeRequest('GET', $path, [], $options);
+    }
+  
+    /**
      * Fetch a subscription's pending change
      *
      * @param string $subscription_id Subscription ID or UUID. For ID no prefix is used e.g. `e28zov4fw0v2`. For UUID use prefix `uuid-`, e.g. `uuid-123457890`.
