@@ -2248,6 +2248,20 @@ class Client extends BaseClient
     }
   
     /**
+     * Fetch a preview of a subscription's renewal invoice(s)
+     *
+     * @param string $subscription_id Subscription ID or UUID. For ID no prefix is used e.g. `e28zov4fw0v2`. For UUID use prefix `uuid-`, e.g. `uuid-123457890`.
+     *
+     * @return \Recurly\Resources\InvoiceCollection A preview of the subscription's renewal invoice(s).
+     * @link   https://developers.recurly.com/api/v2019-10-10#operation/get_preview_renewal
+     */
+    public function getPreviewRenewal(string $subscription_id): \Recurly\Resources\InvoiceCollection
+    {
+        $path = $this->interpolatePath("/subscriptions/{subscription_id}/preview_renewal", ['subscription_id' => $subscription_id]);
+        return $this->makeRequest('GET', $path, null, null);
+    }
+  
+    /**
      * Fetch a subscription's pending change
      *
      * @param string $subscription_id Subscription ID or UUID. For ID no prefix is used e.g. `e28zov4fw0v2`. For UUID use prefix `uuid-`, e.g. `uuid-123457890`.
