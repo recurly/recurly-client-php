@@ -24,6 +24,7 @@ class Invoice extends RecurlyResource
     private $_customer_notes;
     private $_discount;
     private $_due_at;
+    private $_dunning_campaign_id;
     private $_has_more_line_items;
     private $_id;
     private $_line_items;
@@ -331,6 +332,29 @@ class Invoice extends RecurlyResource
     public function setDueAt(string $due_at): void
     {
         $this->_due_at = $due_at;
+    }
+
+    /**
+    * Getter method for the dunning_campaign_id attribute.
+    * Unique ID to identify the dunning campaign used when dunning the invoice. Available when the Dunning Campaigns feature is enabled. For sites without multiple dunning campaigns enabled, this will always be the default dunning campaign.
+    *
+    * @return ?string
+    */
+    public function getDunningCampaignId(): ?string
+    {
+        return $this->_dunning_campaign_id;
+    }
+
+    /**
+    * Setter method for the dunning_campaign_id attribute.
+    *
+    * @param string $dunning_campaign_id
+    *
+    * @return void
+    */
+    public function setDunningCampaignId(string $dunning_campaign_id): void
+    {
+        $this->_dunning_campaign_id = $dunning_campaign_id;
     }
 
     /**
