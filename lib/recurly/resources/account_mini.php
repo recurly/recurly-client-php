@@ -15,6 +15,7 @@ class AccountMini extends RecurlyResource
     private $_bill_to;
     private $_code;
     private $_company;
+    private $_dunning_campaign_id;
     private $_email;
     private $_first_name;
     private $_id;
@@ -93,6 +94,29 @@ class AccountMini extends RecurlyResource
     public function setCompany(string $company): void
     {
         $this->_company = $company;
+    }
+
+    /**
+    * Getter method for the dunning_campaign_id attribute.
+    * Unique ID to identify a dunning campaign. Available when the Dunning Campaigns feature is enabled. Used to specify if a non-default dunning campaign should be assigned to this account. For sites without multiple dunning campaigns enabled, the default dunning campaign will always be used.
+    *
+    * @return ?string
+    */
+    public function getDunningCampaignId(): ?string
+    {
+        return $this->_dunning_campaign_id;
+    }
+
+    /**
+    * Setter method for the dunning_campaign_id attribute.
+    *
+    * @param string $dunning_campaign_id
+    *
+    * @return void
+    */
+    public function setDunningCampaignId(string $dunning_campaign_id): void
+    {
+        $this->_dunning_campaign_id = $dunning_campaign_id;
     }
 
     /**

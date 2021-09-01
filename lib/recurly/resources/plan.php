@@ -22,6 +22,7 @@ class Plan extends RecurlyResource
     private $_currencies;
     private $_deleted_at;
     private $_description;
+    private $_dunning_campaign_id;
     private $_hosted_pages;
     private $_id;
     private $_interval_length;
@@ -276,6 +277,29 @@ If `false`, only plan add-ons can be used.
     public function setDescription(string $description): void
     {
         $this->_description = $description;
+    }
+
+    /**
+    * Getter method for the dunning_campaign_id attribute.
+    * Unique ID to identify a dunning campaign. Available when the Dunning Campaigns feature is enabled. Used to specify if a non-default dunning campaign should be assigned to this plan. For sites without multiple dunning campaigns enabled, the default dunning campaign will always be used.
+    *
+    * @return ?string
+    */
+    public function getDunningCampaignId(): ?string
+    {
+        return $this->_dunning_campaign_id;
+    }
+
+    /**
+    * Setter method for the dunning_campaign_id attribute.
+    *
+    * @param string $dunning_campaign_id
+    *
+    * @return void
+    */
+    public function setDunningCampaignId(string $dunning_campaign_id): void
+    {
+        $this->_dunning_campaign_id = $dunning_campaign_id;
     }
 
     /**

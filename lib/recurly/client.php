@@ -2687,4 +2687,52 @@ class Client extends BaseClient
         return $this->makeRequest('GET', $path, null, null);
     }
   
+    /**
+     * Show the dunning campaigns for a site
+     *
+     * @param array $options Associative array of optional parameters
+     *
+     * Supported optional query string parameters:
+     *
+     * - $options['sort'] (string): Sort field. You *really* only want to sort by `updated_at` in ascending
+     *        order. In descending order updated records will move behind the cursor and could
+     *        prevent some records from being returned.
+     *
+     * @return \Recurly\Pager A list of the the dunning_campaigns on an account.
+     * @link   https://developers.recurly.com/api/v2019-10-10#operation/list_dunning_campaigns
+     */
+    public function listDunningCampaigns(array $options = []): \Recurly\Pager
+    {
+        $path = $this->interpolatePath("/dunning_campaigns", []);
+        return new \Recurly\Pager($this, $path, $options);
+    }
+  
+    /**
+     * Show the settings for a dunning campaign
+     *
+     * @param string $dunning_campaign_id Dunning Campaign ID, e.g. `e28zov4fw0v2`.
+     *
+     * @return \Recurly\Resources\DunningCampaign Settings for a dunning campaign.
+     * @link   https://developers.recurly.com/api/v2019-10-10#operation/get_dunning_campaign
+     */
+    public function getDunningCampaign(string $dunning_campaign_id): \Recurly\Resources\DunningCampaign
+    {
+        $path = $this->interpolatePath("/dunning_campaigns/{dunning_campaign_id}", ['dunning_campaign_id' => $dunning_campaign_id]);
+        return $this->makeRequest('GET', $path, null, null);
+    }
+  
+    /**
+     * Assign a dunning campaign to multiple plans
+     *
+     * @param array $body The body of the request.
+     *
+     * @return \Recurly\Resources\DunningCampaignsBulkUpdateResponse A list of updated plans.
+     * @link   https://developers.recurly.com/api/v2019-10-10#operation/put_dunning_campaign_bulk_update
+     */
+    public function putDunningCampaignBulkUpdate(array $body): \Recurly\Resources\DunningCampaignsBulkUpdateResponse
+    {
+        $path = $this->interpolatePath("/dunning_campaigns/{dunning_campaign_id}/bulk_update", []);
+        return $this->makeRequest('PUT', $path, $body, null);
+    }
+  
 }
