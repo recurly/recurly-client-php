@@ -2802,4 +2802,54 @@ endpoint to obtain only the newly generated `UniqueCouponCodes`.
         return $this->makeRequest('GET', $path, [], $options);
     }
   
+    /**
+     * Show the dunning campaigns for a site
+     *
+     * @param array $options Associative array of optional parameters
+     *
+     * Supported optional query string parameters:
+     *
+     * - $options['params']['sort'] (string): Sort field. You *really* only want to sort by `updated_at` in ascending
+     *        order. In descending order updated records will move behind the cursor and could
+     *        prevent some records from being returned.
+     *
+     * @return \Recurly\Pager A list of the the dunning_campaigns on an account.
+     * @link   https://developers.recurly.com/api/v2021-02-25#operation/list_dunning_campaigns
+     */
+    public function listDunningCampaigns(array $options = []): \Recurly\Pager
+    {
+        $path = $this->interpolatePath("/dunning_campaigns", []);
+        return new \Recurly\Pager($this, $path, $options);
+    }
+  
+    /**
+     * Show the settings for a dunning campaign
+     *
+     * @param string $dunning_campaign_id Dunning Campaign ID, e.g. `e28zov4fw0v2`.
+     * @param array  $options             Associative array of optional parameters
+     *
+     * @return \Recurly\Resources\DunningCampaign Settings for a dunning campaign.
+     * @link   https://developers.recurly.com/api/v2021-02-25#operation/get_dunning_campaign
+     */
+    public function getDunningCampaign(string $dunning_campaign_id, array $options = []): \Recurly\Resources\DunningCampaign
+    {
+        $path = $this->interpolatePath("/dunning_campaigns/{dunning_campaign_id}", ['dunning_campaign_id' => $dunning_campaign_id]);
+        return $this->makeRequest('GET', $path, [], $options);
+    }
+  
+    /**
+     * Assign a dunning campaign to multiple plans
+     *
+     * @param array $body    The body of the request.
+     * @param array $options Associative array of optional parameters
+     *
+     * @return \Recurly\Resources\DunningCampaignsBulkUpdateResponse A list of updated plans.
+     * @link   https://developers.recurly.com/api/v2021-02-25#operation/put_dunning_campaign_bulk_update
+     */
+    public function putDunningCampaignBulkUpdate(array $body, array $options = []): \Recurly\Resources\DunningCampaignsBulkUpdateResponse
+    {
+        $path = $this->interpolatePath("/dunning_campaigns/{dunning_campaign_id}/bulk_update", []);
+        return $this->makeRequest('PUT', $path, $body, $options);
+    }
+  
 }
