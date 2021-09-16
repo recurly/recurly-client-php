@@ -32,6 +32,7 @@ class Subscription extends RecurlyResource
     private $_customer_notes;
     private $_expiration_reason;
     private $_expires_at;
+    private $_gateway_code;
     private $_id;
     private $_net_terms;
     private $_object;
@@ -47,7 +48,10 @@ class Subscription extends RecurlyResource
     private $_shipping;
     private $_state;
     private $_subtotal;
+    private $_tax;
+    private $_tax_info;
     private $_terms_and_conditions;
+    private $_total;
     private $_total_billing_cycles;
     private $_trial_ends_at;
     private $_trial_started_at;
@@ -523,6 +527,29 @@ class Subscription extends RecurlyResource
     }
 
     /**
+    * Getter method for the gateway_code attribute.
+    * If present, this subscription's transactions will use the payment gateway with this code.
+    *
+    * @return ?string
+    */
+    public function getGatewayCode(): ?string
+    {
+        return $this->_gateway_code;
+    }
+
+    /**
+    * Setter method for the gateway_code attribute.
+    *
+    * @param string $gateway_code
+    *
+    * @return void
+    */
+    public function setGatewayCode(string $gateway_code): void
+    {
+        $this->_gateway_code = $gateway_code;
+    }
+
+    /**
     * Getter method for the id attribute.
     * Subscription ID
     *
@@ -868,6 +895,52 @@ class Subscription extends RecurlyResource
     }
 
     /**
+    * Getter method for the tax attribute.
+    * Estimated tax
+    *
+    * @return ?float
+    */
+    public function getTax(): ?float
+    {
+        return $this->_tax;
+    }
+
+    /**
+    * Setter method for the tax attribute.
+    *
+    * @param float $tax
+    *
+    * @return void
+    */
+    public function setTax(float $tax): void
+    {
+        $this->_tax = $tax;
+    }
+
+    /**
+    * Getter method for the tax_info attribute.
+    * Tax info
+    *
+    * @return ?\Recurly\Resources\TaxInfo
+    */
+    public function getTaxInfo(): ?\Recurly\Resources\TaxInfo
+    {
+        return $this->_tax_info;
+    }
+
+    /**
+    * Setter method for the tax_info attribute.
+    *
+    * @param \Recurly\Resources\TaxInfo $tax_info
+    *
+    * @return void
+    */
+    public function setTaxInfo(\Recurly\Resources\TaxInfo $tax_info): void
+    {
+        $this->_tax_info = $tax_info;
+    }
+
+    /**
     * Getter method for the terms_and_conditions attribute.
     * Terms and conditions
     *
@@ -888,6 +961,29 @@ class Subscription extends RecurlyResource
     public function setTermsAndConditions(string $terms_and_conditions): void
     {
         $this->_terms_and_conditions = $terms_and_conditions;
+    }
+
+    /**
+    * Getter method for the total attribute.
+    * Estimated total
+    *
+    * @return ?float
+    */
+    public function getTotal(): ?float
+    {
+        return $this->_total;
+    }
+
+    /**
+    * Setter method for the total attribute.
+    *
+    * @param float $total
+    *
+    * @return void
+    */
+    public function setTotal(float $total): void
+    {
+        $this->_total = $total;
     }
 
     /**
