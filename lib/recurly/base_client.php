@@ -23,10 +23,13 @@ abstract class BaseClient
      * 
      * @param string $api_key The API key to use when making requests
      */
-    public function __construct(string $api_key, LoggerInterface $logger = null)
+    public function __construct(string $api_key, LoggerInterface $logger = null, HttpAdapterInterface $http_adapter = null)
     {
         $this->_api_key = $api_key;
-        $this->http = new HttpAdapter;
+        if (is_null($http_adapter)) {
+            $http_adapter = new HttpAdapter;
+        }
+        $this->http = $http_adapter;
         if (is_null($logger)) {
             $logger = new \Recurly\Logger('Recurly', LogLevel::WARNING);
         }
