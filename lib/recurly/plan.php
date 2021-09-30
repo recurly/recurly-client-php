@@ -33,6 +33,7 @@
  * @property boolean $trial_requires_billing_info Setting to determine if subscriptions to this plan will always require billing info or will only require it when either not in a trial or when money is due, defaults to true.
  * @property boolean $auto_renew Determines whether subscriptions to this plan should auto-renew term at the end of the current term or expire. Defaults to true.
  * @property boolean $allow_any_item_on_subscriptions Used to determine whether items can be assigned as add-ons to individual subscriptions. If `true`, items can be assigned as add-ons to individual subscription add-ons. If `false`, only plan add-ons can be used.
+ * @property string $dunning_campaign_id Unique ID to identify the dunning campaign used when dunning the invoice.
  */
 class Recurly_Plan extends Recurly_Resource
 {
@@ -99,7 +100,8 @@ class Recurly_Plan extends Recurly_Resource
       'trial_interval_unit', 'unit_amount_in_cents', 'setup_fee_in_cents',
       'total_billing_cycles', 'accounting_code', 'setup_fee_accounting_code',
       'revenue_schedule_type', 'setup_fee_revenue_schedule_type',
-      'tax_exempt', 'tax_code', 'trial_requires_billing_info', 'auto_renew', 'allow_any_item_on_subscriptions'
+      'tax_exempt', 'tax_code', 'trial_requires_billing_info', 'auto_renew', 'allow_any_item_on_subscriptions',
+      'dunning_campaign_id'
     );
   }
 }

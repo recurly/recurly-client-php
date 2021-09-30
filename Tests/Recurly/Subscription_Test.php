@@ -83,6 +83,7 @@ class Recurly_SubscriptionTest extends Recurly_TestCase
     $account->last_name = 'Example';
     $account->email = 'verena@example.com';
     $account->accept_language = 'en-US';
+    $account->dunning_campaign_id = '1234abcd';
 
     $billing_info = new Recurly_BillingInfo();
     $billing_info->first_name = 'Verena';
@@ -116,7 +117,7 @@ class Recurly_SubscriptionTest extends Recurly_TestCase
     $subscription->renewal_billing_cycles = 1;
 
     $this->assertEquals(
-      "<?xml version=\"1.0\"?>\n<subscription><account><account_code>account_code</account_code><username>username</username><first_name>Verena</first_name><last_name>Example</last_name><email>verena@example.com</email><accept_language>en-US</accept_language><billing_info><first_name>Verena</first_name><last_name>Example</last_name><ip_address>192.168.0.1</ip_address><number>4111-1111-1111-1111</number><month>11</month><year>2015</year><verification_value>123</verification_value></billing_info></account><plan_code>gold</plan_code><quantity>1</quantity><currency>USD</currency><subscription_add_ons></subscription_add_ons><bulk>true</bulk><terms_and_conditions>Some Terms and Conditions</terms_and_conditions><customer_notes>Some Customer Notes</customer_notes><shipping_address><address1>123 Main St.</address1><city>San Francisco</city><state>CA</state><zip>94110</zip><country>US</country><phone>555-555-5555</phone><email>verena@example.com</email><nickname>Work</nickname><first_name>Verena</first_name><last_name>Example</last_name><company>Recurly Inc.</company></shipping_address><custom_fields><custom_field><name>serial_number</name><value>4567-8900-1234</value></custom_field></custom_fields><auto_renew>false</auto_renew><renewal_billing_cycles>1</renewal_billing_cycles></subscription>\n",
+      "<?xml version=\"1.0\"?>\n<subscription><account><account_code>account_code</account_code><username>username</username><first_name>Verena</first_name><last_name>Example</last_name><email>verena@example.com</email><accept_language>en-US</accept_language><billing_info><first_name>Verena</first_name><last_name>Example</last_name><ip_address>192.168.0.1</ip_address><number>4111-1111-1111-1111</number><month>11</month><year>2015</year><verification_value>123</verification_value></billing_info><dunning_campaign_id>1234abcd</dunning_campaign_id></account><plan_code>gold</plan_code><quantity>1</quantity><currency>USD</currency><subscription_add_ons></subscription_add_ons><bulk>true</bulk><terms_and_conditions>Some Terms and Conditions</terms_and_conditions><customer_notes>Some Customer Notes</customer_notes><shipping_address><address1>123 Main St.</address1><city>San Francisco</city><state>CA</state><zip>94110</zip><country>US</country><phone>555-555-5555</phone><email>verena@example.com</email><nickname>Work</nickname><first_name>Verena</first_name><last_name>Example</last_name><company>Recurly Inc.</company></shipping_address><custom_fields><custom_field><name>serial_number</name><value>4567-8900-1234</value></custom_field></custom_fields><auto_renew>false</auto_renew><renewal_billing_cycles>1</renewal_billing_cycles></subscription>\n",
       $subscription->xml()
     );
   }
@@ -332,7 +333,7 @@ class Recurly_SubscriptionTest extends Recurly_TestCase
     $subscription = Recurly_Subscription::get('012345678901234567890123456789ab', $this->client);
 
     $subscription->postpone(date('c', strtotime('2019-12-31Z')));
-    
+
     $this->assertEquals(new DateTime('2019-12-31Z'), $subscription->current_period_ends_at);
   }
 
@@ -355,10 +356,10 @@ class Recurly_SubscriptionTest extends Recurly_TestCase
   public function testConvertTrialWithout3DSToken() {
     $this->client->addResponse('GET', '/subscriptions/012345678901234567890123456789ab', 'subscriptions/show-200-trial.xml');
     $this->client->addResponse('PUT', 'https://api.recurly.com/v2/subscriptions/012345678901234567890123456789ab/convert_trial', 'subscriptions/convert-trial-200.xml');
-    $subscription = Recurly_Subscription::get('012345678901234567890123456789ab', $this->client);    
+    $subscription = Recurly_Subscription::get('012345678901234567890123456789ab', $this->client);
     $subscription->convertTrial();
     $this->assertEquals($subscription->trial_ends_at, $subscription->current_period_started_at);
   }
 
 
-}         
+}
