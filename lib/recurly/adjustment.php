@@ -4,6 +4,7 @@
  * class Recurly_Adjustment
  * @property string $type The type of adjustment to return: charge or credit.
  * @property Recurly_Stub $account The URL of the account for the specified adjustment.
+ * @property Recurly_Stub $bill_for_account The URL of the bill_for_account for the specified adjustment.
  * @property Recurly_Stub $invoice The URL of the invoice for the specified adjustment.
  * @property Recurly_Stub $item The URL of the item for the specified adjustment.
  * @property string $item_code The item_code for the item associated with the adjustment, if there is one. Associates the adjustment with an item and sets related attributes on the adjustment from the default values on the item. <description>, <product_code>, <accounting_code>, <tax_exempt> and <tax_code> are not accepted when <item_code> is present.
