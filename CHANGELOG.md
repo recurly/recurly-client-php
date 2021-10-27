@@ -1,5 +1,16 @@
 # Changelog
 
+## [2.12.23](https://github.com/recurly/recurly-client-php/tree/2.12.23) (2021-10-27)
+
+[Full Changelog](https://github.com/recurly/recurly-client-php/compare/2.12.22...2.12.23)
+
+
+**Merged Pull Requests**
+
+- Client lib updates for v2 dunning campaigns [#638](https://github.com/recurly/recurly-client-php/pull/638) ([sunnyw1212](https://github.com/sunnyw1212))
+
+
+
 ## [2.12.22](https://github.com/recurly/recurly-client-php/tree/2.12.22) (2021-06-16)
 
 [Full Changelog](https://github.com/recurly/recurly-client-php/compare/2.12.21...2.12.22)
@@ -161,13 +172,13 @@
 - Updating client to be compliant with RFC 2616: case-insensitive headers [#556](https://github.com/recurly/recurly-client-php/pull/556) ([douglasmiller](https://github.com/douglasmiller))
 - Bump to version 2.10.6 / API version 2.16 [#379](https://github.com/recurly/recurly-client-php/pull/379) ([aaron-suarez](https://github.com/aaron-suarez))
 - Fix pager->current() breaking when no data [#378](https://github.com/recurly/recurly-client-php/pull/378) ([aaron-suarez](https://github.com/aaron-suarez))
-- Added missing account_acquisition to writable attributes [#377](https://github.com/recurly/recurly-client-php/pull/377) ([mickpaliokas](https://github.com/mickpaliokas))
+- Added missing account_acquisition to writable attributes [#377](https://github.com/recurly/recurly-client-php/pull/377) ([emycakes](https://github.com/emycakes))
 - Fix errors specified by PHPStorm [#375](https://github.com/recurly/recurly-client-php/pull/375) ([aaron-suarez](https://github.com/aaron-suarez))
 - Add charge parameter to subscription termination functions [#374](https://github.com/recurly/recurly-client-php/pull/374) ([aaron-suarez](https://github.com/aaron-suarez))
 - Add details to error messages to make them more helpful [#372](https://github.com/recurly/recurly-client-php/pull/372) ([aaron-suarez](https://github.com/aaron-suarez))
 - Bump to version 2.10.5 / API version 2.15 [#371](https://github.com/recurly/recurly-client-php/pull/371) ([aaron-suarez](https://github.com/aaron-suarez))
 - Add missing possible childnode names [#368](https://github.com/recurly/recurly-client-php/pull/368) ([aaron-suarez](https://github.com/aaron-suarez))
-- provide a correct recurly code when responding with a 404 [#366](https://github.com/recurly/recurly-client-php/pull/366) ([mickpaliokas](https://github.com/mickpaliokas))
+- provide a correct recurly code when responding with a 404 [#366](https://github.com/recurly/recurly-client-php/pull/366) ([emycakes](https://github.com/emycakes))
 - Added `scripts` folder [#364](https://github.com/recurly/recurly-client-php/pull/364) ([bhelx](https://github.com/bhelx))
 - Bump to 2.10.4 / API version 2.14 [#363](https://github.com/recurly/recurly-client-php/pull/363) ([aaron-suarez](https://github.com/aaron-suarez))
 - Fix the serialization of custom fields [#361](https://github.com/recurly/recurly-client-php/pull/361) ([drewish](https://github.com/drewish))
@@ -1340,7 +1351,7 @@
 
 - Bump to version 2.10.6 / API version 2.16 [#379](https://github.com/recurly/recurly-client-php/pull/379) ([aaron-suarez](https://github.com/aaron-suarez))
 - Fix pager->current() breaking when no data [#378](https://github.com/recurly/recurly-client-php/pull/378) ([aaron-suarez](https://github.com/aaron-suarez))
-- Added missing account_acquisition to writable attributes [#377](https://github.com/recurly/recurly-client-php/pull/377) ([mickpaliokas](https://github.com/mickpaliokas))
+- Added missing account_acquisition to writable attributes [#377](https://github.com/recurly/recurly-client-php/pull/377) ([emycakes](https://github.com/emycakes))
 - Fix errors specified by PHPStorm [#375](https://github.com/recurly/recurly-client-php/pull/375) ([aaron-suarez](https://github.com/aaron-suarez))
 - Add charge parameter to subscription termination functions [#374](https://github.com/recurly/recurly-client-php/pull/374) ([aaron-suarez](https://github.com/aaron-suarez))
 - Add details to error messages to make them more helpful [#372](https://github.com/recurly/recurly-client-php/pull/372) ([aaron-suarez](https://github.com/aaron-suarez))
@@ -1366,7 +1377,7 @@
 
 - Bump to version 2.10.5 / API version 2.15 [#371](https://github.com/recurly/recurly-client-php/pull/371) ([aaron-suarez](https://github.com/aaron-suarez))
 - Add missing possible childnode names [#368](https://github.com/recurly/recurly-client-php/pull/368) ([aaron-suarez](https://github.com/aaron-suarez))
-- provide a correct recurly code when responding with a 404 [#366](https://github.com/recurly/recurly-client-php/pull/366) ([mickpaliokas](https://github.com/mickpaliokas))
+- provide a correct recurly code when responding with a 404 [#366](https://github.com/recurly/recurly-client-php/pull/366) ([emycakes](https://github.com/emycakes))
 - Added `scripts` folder [#364](https://github.com/recurly/recurly-client-php/pull/364) ([bhelx](https://github.com/bhelx))
 
 **Closed Issues**
