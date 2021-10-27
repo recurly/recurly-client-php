@@ -29,6 +29,7 @@ class Recurly_InvoiceTest extends Recurly_TestCase
     $this->assertEquals($invoice->customer_notes, 'Some Customer Notes');
     $this->assertEquals($invoice->vat_reverse_charge_notes, 'Some VAT Notes');
     $this->assertEquals($invoice->invoice_number_prefix, '');
+    $this->assertEquals($invoice->dunning_campaign_id, '1234abcd');
     $this->assertEquals($invoice->invoiceNumberWithPrefix(), '1001');
   }
 

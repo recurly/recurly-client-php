@@ -42,6 +42,7 @@ class Recurly_PlanTest extends Recurly_TestCase
     $this->assertEquals(500, $plan->setup_fee_in_cents['USD']->amount_in_cents);
     $this->assertEquals(400, $plan->setup_fee_in_cents['EUR']->amount_in_cents);
     $this->assertTrue($plan->tax_exempt);
+    $this->assertEquals('1234abcd', $plan->dunning_campaign_id);
   }
 
   public function testDeletePlan() {
@@ -60,9 +61,10 @@ class Recurly_PlanTest extends Recurly_TestCase
     $plan->trial_requires_billing_info = false;
     $plan->total_billing_cycles = 6;
     $plan->auto_renew = false;
+    $plan->dunning_campaign_id = '1234abcd';
 
     $this->assertEquals(
-      "<?xml version=\"1.0\"?>\n<plan><plan_code>platinum</plan_code><name>Platinum &amp; Gold Plan</name><unit_amount_in_cents><USD>1500</USD><EUR>1200</EUR></unit_amount_in_cents><setup_fee_in_cents><EUR>500</EUR></setup_fee_in_cents><total_billing_cycles>6</total_billing_cycles><trial_requires_billing_info>false</trial_requires_billing_info><auto_renew>false</auto_renew></plan>\n",
+      "<?xml version=\"1.0\"?>\n<plan><plan_code>platinum</plan_code><name>Platinum &amp; Gold Plan</name><unit_amount_in_cents><USD>1500</USD><EUR>1200</EUR></unit_amount_in_cents><setup_fee_in_cents><EUR>500</EUR></setup_fee_in_cents><total_billing_cycles>6</total_billing_cycles><trial_requires_billing_info>false</trial_requires_billing_info><auto_renew>false</auto_renew><dunning_campaign_id>1234abcd</dunning_campaign_id></plan>\n",
       $plan->xml()
     );
   }
@@ -78,9 +80,10 @@ class Recurly_PlanTest extends Recurly_TestCase
     $plan->tax_exempt = false;
     $plan->trial_requires_billing_info = false;
     $plan->tax_code = 'fake-tax-code';
+    $plan->dunning_campaign_id = '1234abcd';
 
     $this->assertEquals(
-      "<?xml version=\"1.0\"?>\n<plan><plan_code>platinum</plan_code><name>Platinum Plan</name><unit_amount_in_cents><USD>1500</USD><EUR>1200</EUR></unit_amount_in_cents><setup_fee_in_cents><USD>500</USD><EUR>500</EUR></setup_fee_in_cents><total_billing_cycles nil=\"nil\"></total_billing_cycles><tax_exempt>false</tax_exempt><tax_code>fake-tax-code</tax_code><trial_requires_billing_info>false</trial_requires_billing_info></plan>\n",
+      "<?xml version=\"1.0\"?>\n<plan><plan_code>platinum</plan_code><name>Platinum Plan</name><unit_amount_in_cents><USD>1500</USD><EUR>1200</EUR></unit_amount_in_cents><setup_fee_in_cents><USD>500</USD><EUR>500</EUR></setup_fee_in_cents><total_billing_cycles nil=\"nil\"></total_billing_cycles><tax_exempt>false</tax_exempt><tax_code>fake-tax-code</tax_code><trial_requires_billing_info>false</trial_requires_billing_info><dunning_campaign_id>1234abcd</dunning_campaign_id></plan>\n",
       $plan->xml()
     );
   }

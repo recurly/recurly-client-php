@@ -82,6 +82,7 @@ class Recurly_Client
   const PATH_TRANSACTIONS = 'transactions';
   const PATH_MEASURED_UNITS = 'measured_units';
   const PATH_USAGE = 'usage';
+  const PATH_DUNNING_CAMPAIGNS = 'dunning_campaigns';
 
   /**
    * Create a new Recurly Client

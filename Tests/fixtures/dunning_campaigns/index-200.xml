@@ -1,0 +1,161 @@
+HTTP/1.1 200 OK
+Content-Type: application/xml; charset=utf-8
+
+<?xml version="1.0" encoding="UTF-8"?>
+<dunning_campaigns type="array">
+    <dunning_campaign>
+        <id>pcnqbl7k1lq8</id>
+        <code>newdefault</code>
+        <name>newdefault</name>
+        <description></description>
+        <default_campaign type="boolean">false</default_campaign>
+        <created_at type="datetime">2021-08-09T22:38:52Z</created_at>
+        <updated_at type="datetime">2021-08-09T22:38:52Z</updated_at>
+        <deleted_at nil="nil"></deleted_at>
+        <dunning_cycles type="array">
+            <dunning_cycle>
+                <type>automatic</type>
+                <applies_to_manual_trial type="boolean">false</applies_to_manual_trial>
+                <first_communication_interval type="integer">0</first_communication_interval>
+                <send_immediately_on_hard_decline type="boolean">false</send_immediately_on_hard_decline>
+                <intervals type="array">
+                    <interval>
+                        <days>0</days>
+                        <email_template>payment_declined</email_template>
+                    </interval>
+                    <interval>
+                        <days>5</days>
+                        <email_template>paymentdeclined2</email_template>
+                    </interval>
+                    <interval>
+                        <days>4</days>
+                        <email_template>paymentdeclined2</email_template>
+                    </interval>
+                    <interval>
+                        <days>1</days>
+                        <email_template>paymentdeclined2</email_template>
+                    </interval>
+                </intervals>
+                <expire_subscription type="boolean">true</expire_subscription>
+                <fail_invoice type="boolean">true</fail_invoice>
+                <total_dunning_days type="integer">10</total_dunning_days>
+                <total_recycling_days type="integer">10</total_recycling_days>
+                <version>9</version>
+                <created_at type="datetime">2021-08-31T15:56:03Z</created_at>
+                <updated_at type="datetime">2021-08-31T15:56:03Z</updated_at>
+            </dunning_cycle>
+            <dunning_cycle>
+                <type>manual</type>
+                <applies_to_manual_trial type="boolean">false</applies_to_manual_trial>
+                <first_communication_interval type="integer">0</first_communication_interval>
+                <send_immediately_on_hard_decline type="boolean">false</send_immediately_on_hard_decline>
+                <intervals type="array">
+                    <interval>
+                        <days>0</days>
+                        <email_template>invoice_past_due</email_template>
+                    </interval>
+                    <interval>
+                        <days>3</days>
+                        <email_template>subscription_canceled_nonpayment</email_template>
+                    </interval>
+                </intervals>
+                <expire_subscription type="boolean">true</expire_subscription>
+                <fail_invoice type="boolean">true</fail_invoice>
+                <total_dunning_days type="integer">3</total_dunning_days>
+                <total_recycling_days type="integer">3</total_recycling_days>
+                <version>8</version>
+                <created_at type="datetime">2021-08-09T23:16:01Z</created_at>
+                <updated_at type="datetime">2021-08-09T23:16:01Z</updated_at>
+            </dunning_cycle>
+            <dunning_cycle>
+                <type>trial</type>
+                <applies_to_manual_trial type="boolean">true</applies_to_manual_trial>
+                <first_communication_interval type="integer">0</first_communication_interval>
+                <send_immediately_on_hard_decline type="boolean">false</send_immediately_on_hard_decline>
+                <intervals type="array">
+                    <interval>
+                        <days>0</days>
+                        <email_template>post_trial_payment_declined</email_template>
+                    </interval>
+                    <interval>
+                        <days>3</days>
+                        <email_template>post_trial_payment_declined</email_template>
+                    </interval>
+                    <interval>
+                        <days>4</days>
+                        <email_template>post_trial_payment_declined</email_template>
+                    </interval>
+                    <interval>
+                        <days>3</days>
+                        <email_template>subscription_canceled_nonpayment</email_template>
+                    </interval>
+                </intervals>
+                <expire_subscription type="boolean">true</expire_subscription>
+                <fail_invoice type="boolean">true</fail_invoice>
+                <total_dunning_days type="integer">10</total_dunning_days>
+                <total_recycling_days type="integer">10</total_recycling_days>
+                <version>1</version>
+                <created_at type="datetime">2021-08-31T15:56:03Z</created_at>
+                <updated_at type="datetime">2021-08-31T15:56:03Z</updated_at>
+            </dunning_cycle>
+        </dunning_cycles>
+    </dunning_campaign>
+    <dunning_campaign>
+        <id>pbhylb5ud0wx</id>
+        <code>notdefaultthing</code>
+        <name>notdefaultthing</name>
+        <description></description>
+        <default_campaign type="boolean">false</default_campaign>
+        <created_at type="datetime">2021-08-04T02:10:24Z</created_at>
+        <updated_at type="datetime">2021-08-04T02:10:24Z</updated_at>
+        <deleted_at nil="nil"></deleted_at>
+        <dunning_cycles type="array">
+            <dunning_cycle>
+                <type>automatic</type>
+                <applies_to_manual_trial type="boolean">false</applies_to_manual_trial>
+                <first_communication_interval type="integer">0</first_communication_interval>
+                <send_immediately_on_hard_decline type="boolean">false</send_immediately_on_hard_decline>
+                <intervals type="array">
+                    <interval>
+                        <days>0</days>
+                        <email_template>subscription_canceled_nonpayment</email_template>
+                    </interval>
+                </intervals>
+                <expire_subscription type="boolean">true</expire_subscription>
+                <fail_invoice type="boolean">true</fail_invoice>
+                <total_dunning_days type="integer">0</total_dunning_days>
+                <total_recycling_days type="integer">0</total_recycling_days>
+                <version>3</version>
+                <created_at type="datetime">2021-08-05T19:18:01Z</created_at>
+                <updated_at type="datetime">2021-08-05T19:18:01Z</updated_at>
+            </dunning_cycle>
+            <dunning_cycle>
+                <type>manual</type>
+                <applies_to_manual_trial type="boolean">false</applies_to_manual_trial>
+                <first_communication_interval type="integer">0</first_communication_interval>
+                <send_immediately_on_hard_decline type="boolean">false</send_immediately_on_hard_decline>
+                <intervals type="array">
+                    <interval>
+                        <days>0</days>
+                        <email_template>invoice_past_due</email_template>
+                    </interval>
+                    <interval>
+                        <days>7</days>
+                        <email_template>invoice_past_due</email_template>
+                    </interval>
+                    <interval>
+                        <days>3</days>
+                        <email_template>subscription_canceled_nonpayment</email_template>
+                    </interval>
+                </intervals>
+                <expire_subscription type="boolean">true</expire_subscription>
+                <fail_invoice type="boolean">true</fail_invoice>
+                <total_dunning_days type="integer">10</total_dunning_days>
+                <total_recycling_days type="integer">10</total_recycling_days>
+                <version>3</version>
+                <created_at type="datetime">2021-08-05T19:18:01Z</created_at>
+                <updated_at type="datetime">2021-08-05T19:18:01Z</updated_at>
+            </dunning_cycle>
+        </dunning_cycles>
+    </dunning_campaign>
+</dunning_campaigns>

@@ -50,4 +50,5 @@ Content-Type: application/xml; charset=utf-8
   <has_past_due_invoice type="boolean">false</has_past_due_invoice>
   <has_paused_subscription type="boolean">false</has_paused_subscription>
   <vat_location_valid type="boolean">true</vat_location_valid>
+  <dunning_campaign_id>1234abcd</dunning_campaign_id>
 </account>
