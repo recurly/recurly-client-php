@@ -19,6 +19,7 @@ class LineItem extends RecurlyResource
     private $_amount;
     private $_avalara_service_type;
     private $_avalara_transaction_type;
+    private $_bill_for_account_id;
     private $_created_at;
     private $_credit_applied;
     private $_credit_reason_code;
@@ -224,6 +225,29 @@ class LineItem extends RecurlyResource
     public function setAvalaraTransactionType(int $avalara_transaction_type): void
     {
         $this->_avalara_transaction_type = $avalara_transaction_type;
+    }
+
+    /**
+    * Getter method for the bill_for_account_id attribute.
+    * The UUID of the account responsible for originating the line item.
+    *
+    * @return ?string
+    */
+    public function getBillForAccountId(): ?string
+    {
+        return $this->_bill_for_account_id;
+    }
+
+    /**
+    * Setter method for the bill_for_account_id attribute.
+    *
+    * @param string $bill_for_account_id
+    *
+    * @return void
+    */
+    public function setBillForAccountId(string $bill_for_account_id): void
+    {
+        $this->_bill_for_account_id = $bill_for_account_id;
     }
 
     /**
