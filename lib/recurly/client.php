@@ -350,7 +350,7 @@ class Client extends BaseClient
      * Fetch a billing info
      *
      * @param string $account_id      Account ID or code. For ID no prefix is used e.g. `e28zov4fw0v2`. For code use prefix `code-`, e.g. `code-bob`.
-     * @param string $billing_info_id Billing Info ID.
+     * @param string $billing_info_id Billing Info ID. Can ONLY be used for sites utilizing the Wallet feature.
      *
      * @return \Recurly\Resources\BillingInfo A billing info.
      * @link   https://developers.recurly.com/api/v2019-10-10#operation/get_a_billing_info
@@ -365,7 +365,7 @@ class Client extends BaseClient
      * Update an account's billing information
      *
      * @param string $account_id      Account ID or code. For ID no prefix is used e.g. `e28zov4fw0v2`. For code use prefix `code-`, e.g. `code-bob`.
-     * @param string $billing_info_id Billing Info ID.
+     * @param string $billing_info_id Billing Info ID. Can ONLY be used for sites utilizing the Wallet feature.
      * @param array  $body            The body of the request.
      *
      * @return \Recurly\Resources\BillingInfo Updated billing information.
@@ -381,7 +381,7 @@ class Client extends BaseClient
      * Remove an account's billing information
      *
      * @param string $account_id      Account ID or code. For ID no prefix is used e.g. `e28zov4fw0v2`. For code use prefix `code-`, e.g. `code-bob`.
-     * @param string $billing_info_id Billing Info ID.
+     * @param string $billing_info_id Billing Info ID. Can ONLY be used for sites utilizing the Wallet feature.
      *
      * @return \Recurly\EmptyResource Billing information deleted
      * @link   https://developers.recurly.com/api/v2019-10-10#operation/remove_a_billing_info
