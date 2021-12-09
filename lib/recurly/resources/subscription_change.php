@@ -28,6 +28,7 @@ class SubscriptionChange extends RecurlyResource
     private $_setup_fee_revenue_schedule_type;
     private $_shipping;
     private $_subscription_id;
+    private $_tax_inclusive;
     private $_unit_amount;
     private $_updated_at;
 
@@ -403,6 +404,29 @@ class SubscriptionChange extends RecurlyResource
     public function setSubscriptionId(string $subscription_id): void
     {
         $this->_subscription_id = $subscription_id;
+    }
+
+    /**
+    * Getter method for the tax_inclusive attribute.
+    * Determines whether or not tax is included in the unit amount. The Tax Inclusive Pricing feature (separate from the Mixed Tax Pricing feature) must be enabled to use this flag.
+    *
+    * @return ?bool
+    */
+    public function getTaxInclusive(): ?bool
+    {
+        return $this->_tax_inclusive;
+    }
+
+    /**
+    * Setter method for the tax_inclusive attribute.
+    *
+    * @param bool $tax_inclusive
+    *
+    * @return void
+    */
+    public function setTaxInclusive(bool $tax_inclusive): void
+    {
+        $this->_tax_inclusive = $tax_inclusive;
     }
 
     /**
