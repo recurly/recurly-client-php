@@ -365,7 +365,7 @@ class Client extends BaseClient
      * Fetch a billing info
      *
      * @param string $account_id      Account ID or code. For ID no prefix is used e.g. `e28zov4fw0v2`. For code use prefix `code-`, e.g. `code-bob`.
-     * @param string $billing_info_id Billing Info ID.
+     * @param string $billing_info_id Billing Info ID. Can ONLY be used for sites utilizing the Wallet feature.
      * @param array  $options         Associative array of optional parameters
      *
      * @return \Recurly\Resources\BillingInfo A billing info.
@@ -381,7 +381,7 @@ class Client extends BaseClient
      * Update an account's billing information
      *
      * @param string $account_id      Account ID or code. For ID no prefix is used e.g. `e28zov4fw0v2`. For code use prefix `code-`, e.g. `code-bob`.
-     * @param string $billing_info_id Billing Info ID.
+     * @param string $billing_info_id Billing Info ID. Can ONLY be used for sites utilizing the Wallet feature.
      * @param array  $body            The body of the request.
      * @param array  $options         Associative array of optional parameters
      *
@@ -398,7 +398,7 @@ class Client extends BaseClient
      * Remove an account's billing information
      *
      * @param string $account_id      Account ID or code. For ID no prefix is used e.g. `e28zov4fw0v2`. For code use prefix `code-`, e.g. `code-bob`.
-     * @param string $billing_info_id Billing Info ID.
+     * @param string $billing_info_id Billing Info ID. Can ONLY be used for sites utilizing the Wallet feature.
      * @param array  $options         Associative array of optional parameters
      *
      * @return \Recurly\EmptyResource Billing information deleted
