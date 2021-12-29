@@ -1,5 +1,16 @@
 # Changelog
 
+## [4.11.0](https://github.com/recurly/recurly-client-php/tree/4.11.0) (2021-12-29)
+
+[Full Changelog](https://github.com/recurly/recurly-client-php/compare/4.10.0...4.11.0)
+
+
+**Merged Pull Requests**
+
+- Generated Latest Changes for v2021-02-25 (Tax Inclusive Pricing) [#650](https://github.com/recurly/recurly-client-php/pull/650) ([recurly-integrations](https://github.com/recurly-integrations))
+
+
+
 ## [4.10.0](https://github.com/recurly/recurly-client-php/tree/4.10.0) (2021-11-22)
 
 [Full Changelog](https://github.com/recurly/recurly-client-php/compare/4.9.0...4.10.0)
