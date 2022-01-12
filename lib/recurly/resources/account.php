@@ -33,6 +33,7 @@ class Account extends RecurlyResource
     private $_has_paused_subscription;
     private $_hosted_login_token;
     private $_id;
+    private $_invoice_template;
     private $_last_name;
     private $_object;
     private $_parent_account_id;
@@ -531,6 +532,29 @@ class Account extends RecurlyResource
     public function setId(string $id): void
     {
         $this->_id = $id;
+    }
+
+    /**
+    * Getter method for the invoice_template attribute.
+    * Invoice template associated to the account. Available when invoice customization flag is enabled.
+    *
+    * @return ?\Recurly\Resources\AccountInvoiceTemplate
+    */
+    public function getInvoiceTemplate(): ?\Recurly\Resources\AccountInvoiceTemplate
+    {
+        return $this->_invoice_template;
+    }
+
+    /**
+    * Setter method for the invoice_template attribute.
+    *
+    * @param \Recurly\Resources\AccountInvoiceTemplate $invoice_template
+    *
+    * @return void
+    */
+    public function setInvoiceTemplate(\Recurly\Resources\AccountInvoiceTemplate $invoice_template): void
+    {
+        $this->_invoice_template = $invoice_template;
     }
 
     /**
