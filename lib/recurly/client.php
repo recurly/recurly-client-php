@@ -81,8 +81,8 @@ class Recurly_Client
   const PATH_TRANSACTIONS = 'transactions';
   const PATH_MEASURED_UNITS = 'measured_units';
   const PATH_USAGE = 'usage';
-  public static $last_response;
-  public static $last_request;
+  public $last_response;
+  public $last_request;
 
   /**
    * Create a new Recurly Client
@@ -185,7 +185,7 @@ class Recurly_Client
     ));
     curl_setopt($ch, CURLOPT_USERPWD, $this->apiKey());
     
-    self::$last_request = [ 'url'=>$uri, 'method'=>$method, 'data'=>$data ];
+    $this->last_request = [ 'url'=>$uri, 'method'=>$method, 'data'=>$data ];
 
     if ('POST' == $method)
     {
@@ -227,8 +227,8 @@ class Recurly_Client
     }
     $headers = $this->_getHeaders($header);
 
-    self::$last_response = new Recurly_ClientResponse($statusCode, $headers, $body);
-    return self::$last_response;
+    $this->last_response = new Recurly_ClientResponse($statusCode, $headers, $body);
+    return $this->last_response;
   }
 
   private static function __userAgent() {
