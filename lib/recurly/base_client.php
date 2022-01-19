@@ -9,7 +9,11 @@ abstract class BaseClient
 {
     use RecurlyTraits;
 
-    protected $baseUrl = 'https://v3.recurly.com';
+    private const API_HOSTS = [
+        'us' => 'https://v3.recurly.com',
+        'eu' => 'https://v3.eu.recurly.com'
+    ];
+    protected $baseUrl = BaseClient::API_HOSTS['us'];
     private $_api_key;
     protected $http;
     private const ALLOWED_OPTIONS = [
@@ -20,12 +24,23 @@ abstract class BaseClient
 
     /**
      * Constructor
-     * 
+     *
      * @param string $api_key The API key to use when making requests
+     * @param string $options initialize options
+     *
+     * In addition to the options managed by BaseClient, it accepts the following options:
+     *  - "region" to define the Data Center connection - defaults to "us";
      */
-    public function __construct(string $api_key, LoggerInterface $logger = null)
+    public function __construct(string $api_key, LoggerInterface $logger = null, array $options = [])
     {
         $this->_api_key = $api_key;
+        if (isset($options['region'])) {
+            if (!array_key_exists($options['region'], BaseClient::API_HOSTS)) {
+                throw new RecurlyError('Invalid region type. Expected one of: ' . join(', ', array_keys(BaseClient::API_HOSTS)));
+            }
+            $this->baseUrl = BaseClient::API_HOSTS[$options['region']];
+        }
+
         $this->http = new HttpAdapter;
         if (is_null($logger)) {
             $logger = new \Recurly\Logger('Recurly', LogLevel::WARNING);
@@ -42,19 +57,19 @@ abstract class BaseClient
 
     /**
      *  Recurly API version that the client was generated for
-     * 
+     *
      * @return string Recurly API version that the client was generated for
      */
     abstract protected function apiVersion(): string;
 
     /**
      * Performs API requests and processes the response into a Recurly Resource
-     * 
+     *
      * @param string $method  HTTP method to use
      * @param string $path    Tokenized path to request
      * @param array  $body    The request body
      * @param array  $options Additional request parameters (including query parameters)
-     * 
+     *
      * @return \Recurly\RecurlyResource A Recurly Resource
      */
     protected function makeRequest(string $method, string $path, array $body = [], array $options = []): \Recurly\RecurlyResource
@@ -74,9 +89,9 @@ abstract class BaseClient
 
     /**
      * Performs the HTTP request to the Recurly API
-     * 
+     *
      * @param \Recurly\Request $request The \Recurly\Request object
-     * 
+     *
      * @return \Recurly\Response A Recurly Response object
      */
     private function _getResponse(\Recurly\Request $request): \Recurly\Response
@@ -117,10 +132,10 @@ abstract class BaseClient
 
     /**
      * Used by the \Recurly\Pager to make requests to the API.
-     * 
+     *
      * @param string $path    The URL to make the pager request to
      * @param array  $options An associative array optional parameters
-     * 
+     *
      * @return \Recurly\Page
      */
     public function nextPage(string $path, array $options = []): \Recurly\Page
@@ -130,10 +145,10 @@ abstract class BaseClient
 
     /**
      * Used by the \Recurly\Pager to obtain total counts from the API.
-     * 
+     *
      * @param string $path    The URL to make the pager request to
      * @param array  $options An associative array optional parameters
-     * 
+     *
      * @return \Recurly\Response
      */
     public function pagerCount(string $path, ?array $options = []): \Recurly\Response
@@ -167,9 +182,9 @@ abstract class BaseClient
     /**
      * Maps parameters with array values into csv strings. The API expects these
      * values to be csv strings, but an array is a nicer interface for developers.
-     * 
+     *
      * @param array $params Associative array of parameters
-     * 
+     *
      * @return array
      */
     private function _mapArrayParams(?array $params = []): ?array
@@ -211,9 +226,9 @@ abstract class BaseClient
 
     /**
      * Converts any DateTime values in $arr to ISO8601 strings
-     * 
+     *
      * @param array $arr The Associative array to format
-     * 
+     *
      * @return array The formatted array
      */
     private function _formatDateTimes(array $arr): ?array
@@ -251,7 +266,7 @@ abstract class BaseClient
         if (!empty($emptyValues)) {
             throw new RecurlyError(join(', ', array_keys($emptyValues)) . ' cannot be an empty value');
         }
-    } 
+    }
 
     /**
      * Checks that $options keys are valid
@@ -271,14 +286,14 @@ abstract class BaseClient
             $joinedOptions = join(', ', BaseClient::ALLOWED_OPTIONS);
             throw new RecurlyError("Invalid options: '{$joinedKeys}'. Allowed options: '{$joinedOptions}'");
         }
-    } 
+    }
 
     /**
      * Replaces placeholder values with supplied values
-     * 
+     *
      * @param string $path    Tokenized path to make replacements on
      * @param array  $options Associatve array of tokens and their replacement values
-     * 
+     *
      * @return string The path with it's tokens replaced with the supplied values
      */
     protected function interpolatePath(string $path, array $options = []): string
@@ -293,7 +308,7 @@ abstract class BaseClient
 
     /**
      * Generates core headers to be sent with the HTTP request
-     * 
+     *
      * @return array Array representation of the core request HTTP headers
      */
     private function _coreHeaders(): array

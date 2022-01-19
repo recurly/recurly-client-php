@@ -36,6 +36,15 @@ $api_key = 'myApiKey';
 $client = new \Recurly\Client($api_key);
 ```
 
+To access Recurly API in Europe, you will need to specify the EU Region in the options.
+
+```php
+// You should store your API key somewhere safe
+// and not in plain text if possible
+$api_key = 'myApiKey';
+$client = new \Recurly\Client($api_key, ['region' => 'eu']);
+```
+
 #### Logging
 
 The client constructor optionally accepts a logger provided by the programmer. The logger you pass should implement the [PSR-3 Logger Interface](https://www.php-fig.org/psr/psr-3/). By default, the client creates an instance of the `\Recurly\Logger` which is a basic implementation that prints log messages to `php://stdout` with the `\Psr\Log\LogLevel::WARNING` level.

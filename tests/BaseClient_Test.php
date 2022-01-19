@@ -36,11 +36,30 @@ final class BaseClientTest extends RecurlyTestCase
     public function testDefaultLogger(): void
     {
         $client = new MockClient(NULL);
-        $reflector = new ReflectionProperty('Recurly\BaseClient', '_logger');
-        $reflector->setAccessible(true);
-        $logger = $reflector->getValue($client);
+        $logger = ReflectionHelper::getProperty($client, 'Recurly\BaseClient', '_logger');
         $this->expectOutputRegex("/Recurly.warning: warning-log/");
         $logger->warning('warning-log');
+    }
+
+    public function testClientInUSRegion(): void
+    {
+        $client = new MockClient(NULL);
+        $baseUrl = ReflectionHelper::getProperty($client, 'Recurly\BaseClient', 'baseUrl');
+        $this->assertEquals($baseUrl, 'https://v3.recurly.com');
+    }
+
+    public function testClientInEURegion(): void
+    {
+        $client = new MockClient(NULL, ['region' => 'eu']);
+        $baseUrl = ReflectionHelper::getProperty($client, 'Recurly\BaseClient', 'baseUrl');
+        $this->assertEquals($baseUrl, 'https://v3.eu.recurly.com');
+    }
+
+    public function testClientInInvalidRegion(): void
+    {
+        $this->expectException(\Recurly\RecurlyError::class);
+        $this->expectExceptionMessage('Invalid region type. Expected one of: us, eu');
+        $client = new MockClient(NULL, ['region' => 'none']);
     }
 
     public function testParameterValidation(): void
