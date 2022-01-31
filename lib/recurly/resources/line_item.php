@@ -412,7 +412,7 @@ class LineItem extends RecurlyResource
 
     /**
     * Getter method for the external_sku attribute.
-    * Optional Stock Keeping Unit assigned to an item. Available when the Credit Invoices and Subscription Billing Terms features are enabled.
+    * Optional Stock Keeping Unit assigned to an item. Available when the Credit Invoices feature is enabled.
     *
     * @return ?string
     */
@@ -504,7 +504,7 @@ class LineItem extends RecurlyResource
 
     /**
     * Getter method for the item_code attribute.
-    * Unique code to identify an item. Available when the Credit Invoices and Subscription Billing Terms features are enabled.
+    * Unique code to identify an item. Available when the Credit Invoices feature is enabled.
     *
     * @return ?string
     */
@@ -527,7 +527,7 @@ class LineItem extends RecurlyResource
 
     /**
     * Getter method for the item_id attribute.
-    * System-generated unique identifier for an item. Available when the Credit Invoices and Subscription Billing Terms features are enabled.
+    * System-generated unique identifier for an item. Available when the Credit Invoices feature is enabled.
     *
     * @return ?string
     */
