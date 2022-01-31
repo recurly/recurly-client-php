@@ -11,9 +11,9 @@ class MockClient extends BaseClient
 {
     use Recurly\RecurlyTraits;
 
-    public function __construct($logger)
+    public function __construct($logger, $options = [])
     {
-        parent::__construct("apikey", $logger);
+        parent::__construct("apikey", $logger, $options);
         $this->http = (new Generator())->getMock(HttpAdapter::class);
     }
 

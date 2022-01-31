@@ -61,3 +61,13 @@ class FixtureLoader
         }
     }
 }
+
+class ReflectionHelper
+{
+    public static function getProperty($object, $class, $property)
+    {
+	    $reflector = new ReflectionProperty($class, $property);
+	    $reflector->setAccessible(true);
+	    return $reflector->getValue($object);
+    }
+}
