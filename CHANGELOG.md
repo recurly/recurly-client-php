@@ -1,5 +1,17 @@
 # Changelog
 
+## [4.13.0](https://github.com/recurly/recurly-client-php/tree/4.13.0) (2022-01-31)
+
+[Full Changelog](https://github.com/recurly/recurly-client-php/compare/4.12.0...4.13.0)
+
+
+**Merged Pull Requests**
+
+- Generated Latest Changes for v2021-02-25 [#655](https://github.com/recurly/recurly-client-php/pull/655) ([recurly-integrations](https://github.com/recurly-integrations))
+- Add region argument to client to connect in EU data center [#653](https://github.com/recurly/recurly-client-php/pull/653) ([FabricioCoutinho](https://github.com/FabricioCoutinho))
+
+
+
 ## [4.12.0](https://github.com/recurly/recurly-client-php/tree/4.12.0) (2022-01-28)
 
 [Full Changelog](https://github.com/recurly/recurly-client-php/compare/4.11.0...4.12.0)
