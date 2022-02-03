@@ -43,6 +43,8 @@ require_once(__DIR__ . '/recurly/export_file_list.php');
 require_once(__DIR__ . '/recurly/invoice.php');
 require_once(__DIR__ . '/recurly/invoice_collection.php');
 require_once(__DIR__ . '/recurly/invoice_list.php');
+require_once(__DIR__ . '/recurly/invoice_template.php');
+require_once(__DIR__ . '/recurly/invoice_template_list.php');
 require_once(__DIR__ . '/recurly/item.php');
 require_once(__DIR__ . '/recurly/item_list.php');
 require_once(__DIR__ . '/recurly/measured_unit.php');
