@@ -11,6 +11,8 @@ Documentation for the HTTP API and example code can be found
 
 ## Getting Started
 
+Reference documentation can be found on [Github Pages](https://recurly.github.io/recurly-client-php/).
+
 ### Installing
 
 This package is published on Packagist under the name [recurly/recurly-client](https://packagist.org/packages/recurly/recurly-client) and can be added as a dependency to your project's `composer.json` file. We recommend using [Composer](http://getcomposer.org/) to install and maintain this dependency.
