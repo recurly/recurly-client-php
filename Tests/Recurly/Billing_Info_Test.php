@@ -184,6 +184,18 @@ class Recurly_BillingInfoTest extends Recurly_TestCase
     );
   }
 
+  public function testForOnlineBankingPaymentType() {
+    $billing_info = new Recurly_BillingInfo(null, $this->client);
+    $billing_info->token_id = 'abc123';
+    $billing_info->online_banking_payment_type = 'ideal';
+
+    $this->assertInstanceOf('Recurly_BillingInfo', $billing_info);
+    $this->assertEquals(
+      $billing_info->xml(),
+      "<?xml version=\"1.0\"?>\n<billing_info><token_id>abc123</token_id><online_banking_payment_type>ideal</online_banking_payment_type></billing_info>\n"
+    );
+  }
+
   public function testForGatewayToken() {
     $billing_info = new Recurly_BillingInfo(null, $this->client);
     $billing_info->gateway_token = 'x1x2x3';

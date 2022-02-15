@@ -137,6 +137,17 @@ class Recurly_PurchaseTest extends Recurly_TestCase
     $this->assertNull($collection->charge_invoice->uuid);
   }
 
+  public function testOnlineBankingPendingPurchase() {
+    $purchase = $this->mockPurchase();
+    $purchase->account->email = 'benjamin.dumonde@example.com';
+    $purchase->account->billing_info->online_banking_payment_type = 'ideal';
+    $collection = Recurly_Purchase::pending($purchase, $this->client);
+
+    $this->assertInstanceOf('Recurly_InvoiceCollection', $collection);
+    $this->assertInstanceOf('Recurly_Invoice', $collection->charge_invoice);
+    $this->assertNull($collection->charge_invoice->uuid);
+  }
+
   public function testTransactionError() {
     $this->client->addResponse('POST', '/purchases', 'purchases/create-422.xml');
     $purchase = $this->mockPurchase();
