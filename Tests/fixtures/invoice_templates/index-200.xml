@@ -1,0 +1,23 @@
+HTTP/1.1 200 OK
+Content-Type: application/xml; charset=utf-8
+
+<?xml version="1.0" encoding="UTF-8"?>
+<dunning_campaigns type="array">
+    <invoice_template href="https://api.recurly.com/v2/invoice_templates/q0tzf7o7fpbl">
+      <uuid>q0tzf7o7fpbl</uuid>
+      <name>Alternate Invoice Template 1</name>
+      <code>code2</code>
+      <description>Some Description</description>
+      <created_at type="datetime">2021-12-09T21:19:47Z</created_at>
+      <updated_at type="datetime">2022-01-14T13:48:24Z</updated_at>
+    </invoice_template>
+
+    <invoice_template href="https://api.recurly.com/v2/invoice_templates/q0tzaixicfrf">
+      <uuid>q0tzaixicfrf</uuid>
+      <name>Alternate Invoice Template 2</name>
+      <code>code2</code>
+      <description>Some Description 2</description>
+      <created_at type="datetime">2021-12-09T21:19:47Z</created_at>
+      <updated_at type="datetime">2022-01-14T13:48:24Z</updated_at>
+    </invoice_template>
+</dunning_campaigns>

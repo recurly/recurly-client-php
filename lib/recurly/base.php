@@ -278,6 +278,8 @@ abstract class Recurly_Base
     'invoice' => 'Recurly_Invoice',
     'invoices' => 'Recurly_InvoiceList',
     'invoice_collection' => 'Recurly_InvoiceCollection',
+    'invoice_template' => 'Recurly_InvoiceTemplate',
+    'invoice_templates' => 'Recurly_InvoiceTemplateList',
     'item' => 'Recurly_Item',
     'items' => 'Recurly_ItemList',
     'item_code' => 'string',

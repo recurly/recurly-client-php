@@ -83,6 +83,7 @@ class Recurly_Client
   const PATH_MEASURED_UNITS = 'measured_units';
   const PATH_USAGE = 'usage';
   const PATH_DUNNING_CAMPAIGNS = 'dunning_campaigns';
+  const PATH_INVOICE_TEMPLATES = 'invoice_templates';
 
   /**
    * Create a new Recurly Client

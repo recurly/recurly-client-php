@@ -9,6 +9,7 @@
  * @property Recurly_Stub $redemption The URL of the coupon redemption for the specified account.
  * @property Recurly_Stub $subscriptions The URL of subscriptions for the specified account.
  * @property Recurly_Stub $transactions The URL of transactions for the specified account.
+ * @property Recurly_Stub $invoice_template The URL of the invoice template for the specified account.
  * @property string $account_code The unique identifier of the account.
  * @property string $state The state of accounts to return: active or closed.
  * @property string $username The username of the account.
@@ -142,7 +143,7 @@ class Recurly_Account extends Recurly_Resource
       'email', 'company_name', 'accept_language', 'billing_info', 'address',
       'tax_exempt', 'entity_use_code', 'cc_emails', 'shipping_addresses',
       'preferred_locale', 'custom_fields', 'account_acquisition', 'exemption_certificate',
-      'parent_account_code', 'transaction_type', 'dunning_campaign_id'
+      'parent_account_code', 'transaction_type', 'dunning_campaign_id', 'invoice_template_uuid',
     );
   }
   protected function getRequiredAttributes() {
