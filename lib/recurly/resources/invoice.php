@@ -334,7 +334,7 @@ class Invoice extends RecurlyResource
 
     /**
     * Getter method for the dunning_campaign_id attribute.
-    * Unique ID to identify the dunning campaign used when dunning the invoice. Available when the Dunning Campaigns feature is enabled. For sites without multiple dunning campaigns enabled, this will always be the default dunning campaign.
+    * Unique ID to identify the dunning campaign used when dunning the invoice. For sites without multiple dunning campaigns enabled, this will always be the default dunning campaign.
     *
     * @return ?string
     */
