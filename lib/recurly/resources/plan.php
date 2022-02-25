@@ -281,7 +281,7 @@ If `false`, only plan add-ons can be used.
 
     /**
     * Getter method for the dunning_campaign_id attribute.
-    * Unique ID to identify a dunning campaign. Available when the Dunning Campaigns feature is enabled. Used to specify if a non-default dunning campaign should be assigned to this plan. For sites without multiple dunning campaigns enabled, the default dunning campaign will always be used.
+    * Unique ID to identify a dunning campaign. Used to specify if a non-default dunning campaign should be assigned to this plan. For sites without multiple dunning campaigns enabled, the default dunning campaign will always be used.
     *
     * @return ?string
     */
