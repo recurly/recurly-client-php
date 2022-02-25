@@ -33,7 +33,7 @@ class Account extends RecurlyResource
     private $_has_paused_subscription;
     private $_hosted_login_token;
     private $_id;
-    private $_invoice_template;
+    private $_invoice_template_id;
     private $_last_name;
     private $_object;
     private $_parent_account_id;
@@ -260,7 +260,7 @@ class Account extends RecurlyResource
 
     /**
     * Getter method for the dunning_campaign_id attribute.
-    * Unique ID to identify a dunning campaign. Available when the Dunning Campaigns feature is enabled. Used to specify if a non-default dunning campaign should be assigned to this account. For sites without multiple dunning campaigns enabled, the default dunning campaign will always be used.
+    * Unique ID to identify a dunning campaign. Used to specify if a non-default dunning campaign should be assigned to this account. For sites without multiple dunning campaigns enabled, the default dunning campaign will always be used.
     *
     * @return ?string
     */
@@ -535,26 +535,26 @@ class Account extends RecurlyResource
     }
 
     /**
-    * Getter method for the invoice_template attribute.
-    * Invoice template associated to the account. Available when invoice customization flag is enabled.
+    * Getter method for the invoice_template_id attribute.
+    * Unique ID to identify an invoice template. Available when the Invoice Customization feature is enabled. Used to specify if a non-default invoice template will be used to generate invoices for the account. For sites without multiple invoice templates enabled, the default template will always be used.
     *
-    * @return ?\Recurly\Resources\AccountInvoiceTemplate
+    * @return ?string
     */
-    public function getInvoiceTemplate(): ?\Recurly\Resources\AccountInvoiceTemplate
+    public function getInvoiceTemplateId(): ?string
     {
-        return $this->_invoice_template;
+        return $this->_invoice_template_id;
     }
 
     /**
-    * Setter method for the invoice_template attribute.
+    * Setter method for the invoice_template_id attribute.
     *
-    * @param \Recurly\Resources\AccountInvoiceTemplate $invoice_template
+    * @param string $invoice_template_id
     *
     * @return void
     */
-    public function setInvoiceTemplate(\Recurly\Resources\AccountInvoiceTemplate $invoice_template): void
+    public function setInvoiceTemplateId(string $invoice_template_id): void
     {
-        $this->_invoice_template = $invoice_template;
+        $this->_invoice_template_id = $invoice_template_id;
     }
 
     /**

@@ -18,6 +18,7 @@ class SubscriptionAddOn extends RecurlyResource
     private $_expired_at;
     private $_id;
     private $_object;
+    private $_percentage_tiers;
     private $_quantity;
     private $_revenue_schedule_type;
     private $_subscription_id;
@@ -29,6 +30,7 @@ class SubscriptionAddOn extends RecurlyResource
     private $_usage_percentage;
 
     protected static $array_hints = [
+        'setPercentageTiers' => '\Recurly\Resources\SubscriptionAddOnPercentageTier',
         'setTiers' => '\Recurly\Resources\SubscriptionAddOnTier',
     ];
 
@@ -173,6 +175,31 @@ the associated add-on data will be pulled from the site's item catalog.
     public function setObject(string $object): void
     {
         $this->_object = $object;
+    }
+
+    /**
+    * Getter method for the percentage_tiers attribute.
+    * If percentage tiers are provided in the request, all existing percentage tiers on the Subscription Add-on will be
+removed and replaced by the percentage tiers in the request.
+
+    *
+    * @return array
+    */
+    public function getPercentageTiers(): array
+    {
+        return $this->_percentage_tiers ?? [] ;
+    }
+
+    /**
+    * Setter method for the percentage_tiers attribute.
+    *
+    * @param array $percentage_tiers
+    *
+    * @return void
+    */
+    public function setPercentageTiers(array $percentage_tiers): void
+    {
+        $this->_percentage_tiers = $percentage_tiers;
     }
 
     /**

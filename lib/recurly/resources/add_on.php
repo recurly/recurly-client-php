@@ -29,6 +29,7 @@ class AddOn extends RecurlyResource
     private $_name;
     private $_object;
     private $_optional;
+    private $_percentage_tiers;
     private $_plan_id;
     private $_revenue_schedule_type;
     private $_state;
@@ -41,6 +42,7 @@ class AddOn extends RecurlyResource
 
     protected static $array_hints = [
         'setCurrencies' => '\Recurly\Resources\AddOnPricing',
+        'setPercentageTiers' => '\Recurly\Resources\PercentageTiersByCurrency',
         'setTiers' => '\Recurly\Resources\Tier',
     ];
 
@@ -434,6 +436,29 @@ class AddOn extends RecurlyResource
     public function setOptional(bool $optional): void
     {
         $this->_optional = $optional;
+    }
+
+    /**
+    * Getter method for the percentage_tiers attribute.
+    * Percentage Tiers
+    *
+    * @return array
+    */
+    public function getPercentageTiers(): array
+    {
+        return $this->_percentage_tiers ?? [] ;
+    }
+
+    /**
+    * Setter method for the percentage_tiers attribute.
+    *
+    * @param array $percentage_tiers
+    *
+    * @return void
+    */
+    public function setPercentageTiers(array $percentage_tiers): void
+    {
+        $this->_percentage_tiers = $percentage_tiers;
     }
 
     /**

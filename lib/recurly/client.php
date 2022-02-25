@@ -1229,7 +1229,7 @@ endpoint to obtain only the newly generated `UniqueCouponCodes`.
     /**
      * List an invoice template's associated accounts
      *
-     * @param string $invoice_template_id Invoice template ID.
+     * @param string $invoice_template_id Invoice template ID or code. For ID no prefix is used e.g. `e28zov4fw0v2`. For code use prefix `code-`, e.g. `code-bob`.
      * @param array  $options             Associative array of optional parameters
      *
      * Supported optional query string parameters:
@@ -2816,6 +2816,21 @@ endpoint to obtain only the newly generated `UniqueCouponCodes`.
     }
   
     /**
+     * Create a pending purchase
+     *
+     * @param array $body    The body of the request.
+     * @param array $options Associative array of optional parameters
+     *
+     * @return \Recurly\Resources\InvoiceCollection Returns the pending invoice
+     * @link   https://developers.recurly.com/api/v2021-02-25#operation/create_pending_purchase
+     */
+    public function createPendingPurchase(array $body, array $options = []): \Recurly\Resources\InvoiceCollection
+    {
+        $path = $this->interpolatePath("/purchases/pending", []);
+        return $this->makeRequest('POST', $path, $body, $options);
+    }
+  
+    /**
      * List the dates that have an available export to download.
      *
      * @param array $options Associative array of optional parameters
@@ -2892,6 +2907,41 @@ endpoint to obtain only the newly generated `UniqueCouponCodes`.
     {
         $path = $this->interpolatePath("/dunning_campaigns/{dunning_campaign_id}/bulk_update", []);
         return $this->makeRequest('PUT', $path, $body, $options);
+    }
+  
+    /**
+     * Show the invoice templates for a site
+     *
+     * @param array $options Associative array of optional parameters
+     *
+     * Supported optional query string parameters:
+     *
+     * - $options['params']['sort'] (string): Sort field. You *really* only want to sort by `updated_at` in ascending
+     *        order. In descending order updated records will move behind the cursor and could
+     *        prevent some records from being returned.
+     *
+     * @return \Recurly\Pager A list of the the invoice templates on a site.
+     * @link   https://developers.recurly.com/api/v2021-02-25#operation/list_invoice_templates
+     */
+    public function listInvoiceTemplates(array $options = []): \Recurly\Pager
+    {
+        $path = $this->interpolatePath("/invoice_templates", []);
+        return new \Recurly\Pager($this, $path, $options);
+    }
+  
+    /**
+     * Show the settings for an invoice template
+     *
+     * @param string $invoice_template_id Invoice template ID or code. For ID no prefix is used e.g. `e28zov4fw0v2`. For code use prefix `code-`, e.g. `code-bob`.
+     * @param array  $options             Associative array of optional parameters
+     *
+     * @return \Recurly\Resources\InvoiceTemplate Settings for an invoice template.
+     * @link   https://developers.recurly.com/api/v2021-02-25#operation/get_invoice_template
+     */
+    public function getInvoiceTemplate(string $invoice_template_id, array $options = []): \Recurly\Resources\InvoiceTemplate
+    {
+        $path = $this->interpolatePath("/invoice_templates/{invoice_template_id}", ['invoice_template_id' => $invoice_template_id]);
+        return $this->makeRequest('GET', $path, [], $options);
     }
   
 }
