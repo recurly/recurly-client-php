@@ -47,6 +47,7 @@ class Invoice extends RecurlyResource
     private $_transactions;
     private $_type;
     private $_updated_at;
+    private $_uuid;
     private $_vat_number;
     private $_vat_reverse_charge_notes;
 
@@ -336,7 +337,7 @@ class Invoice extends RecurlyResource
 
     /**
     * Getter method for the dunning_campaign_id attribute.
-    * Unique ID to identify the dunning campaign used when dunning the invoice. Available when the Dunning Campaigns feature is enabled. For sites without multiple dunning campaigns enabled, this will always be the default dunning campaign.
+    * Unique ID to identify the dunning campaign used when dunning the invoice. For sites without multiple dunning campaigns enabled, this will always be the default dunning campaign.
     *
     * @return ?string
     */
@@ -861,6 +862,29 @@ class Invoice extends RecurlyResource
     public function setUpdatedAt(string $updated_at): void
     {
         $this->_updated_at = $updated_at;
+    }
+
+    /**
+    * Getter method for the uuid attribute.
+    * Invoice UUID
+    *
+    * @return ?string
+    */
+    public function getUuid(): ?string
+    {
+        return $this->_uuid;
+    }
+
+    /**
+    * Setter method for the uuid attribute.
+    *
+    * @param string $uuid
+    *
+    * @return void
+    */
+    public function setUuid(string $uuid): void
+    {
+        $this->_uuid = $uuid;
     }
 
     /**

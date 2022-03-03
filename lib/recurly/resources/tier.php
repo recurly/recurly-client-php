@@ -69,7 +69,7 @@ class Tier extends RecurlyResource
 
     /**
     * Getter method for the usage_percentage attribute.
-    * Decimal usage percentage.
+    * This field is deprecated. Do not used it anymore for percentage tiers add ons. Use the percentage_tiers object instead.
     *
     * @return ?string
     */
