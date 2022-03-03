@@ -1,5 +1,16 @@
 # Changelog
 
+## [2.12.24](https://github.com/recurly/recurly-client-php/tree/2.12.24) (2022-03-03)
+
+[Full Changelog](https://github.com/recurly/recurly-client-php/compare/2.12.23...2.12.24)
+
+
+**Merged Pull Requests**
+
+- Add online_banking_payment_type to billing_info [#660](https://github.com/recurly/recurly-client-php/pull/660) ([cyberxander90](https://github.com/cyberxander90))
+
+
+
 ## [2.12.23](https://github.com/recurly/recurly-client-php/tree/2.12.23) (2021-10-27)
 
 [Full Changelog](https://github.com/recurly/recurly-client-php/compare/2.12.22...2.12.23)
