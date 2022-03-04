@@ -51,6 +51,13 @@ class HttpAdapter
                     $result = gzdecode($result);
                 }
             }
+        } else {
+            // handle connection errors that prevented any valid response
+
+	    $meta = stream_get_meta_data($context);
+	    if ($meta['timed_out']) throw new \Recurly\Errors\ConnectionError("timed out");
+
+	    error_log(print_r($meta,1));
         }
         return [$result, $http_response_header];
     }
