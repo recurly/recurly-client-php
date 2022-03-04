@@ -31,7 +31,7 @@ abstract class BaseClient
      * In addition to the options managed by BaseClient, it accepts the following options:
      *  - "region" to define the Data Center connection - defaults to "us";
      */
-    public function __construct(string $api_key, LoggerInterface $logger = null, array $options = [], HttpAdapterInterface $http_adapter = null)
+    public function __construct(string $api_key, LoggerInterface $logger = null, array $options = [])
     {
         $this->_api_key = $api_key;
         if (isset($options['region'])) {
@@ -41,11 +41,7 @@ abstract class BaseClient
             $this->baseUrl = BaseClient::API_HOSTS[$options['region']];
         }
 
-        if (is_null($http_adapter)) {
-            $http_adapter = new HttpAdapter;
-        }
-        $this->http = $http_adapter;
-
+        $this->http = new HttpAdapter;
         if (is_null($logger)) {
             $logger = new \Recurly\Logger('Recurly', LogLevel::WARNING);
         }
