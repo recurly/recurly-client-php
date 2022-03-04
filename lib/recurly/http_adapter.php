@@ -11,7 +11,7 @@ namespace Recurly;
 /**
  * @codeCoverageIgnore
  */
-class HttpAdapter
+class HttpAdapter implements HttpAdapterInterface
 {
     private static $_default_options = [
         'ignore_errors' => true
