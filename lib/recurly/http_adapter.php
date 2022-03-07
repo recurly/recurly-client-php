@@ -43,8 +43,10 @@ class HttpAdapter
         }
         $options['header'] = $headers_str;
         $context = stream_context_create(['http' => $options]);
-        $result = file_get_contents($url, false, $context);
-
+        //error_clear_last();
+        $result = file_get_contents("Q".$url, false, $context);
+		//$error = error_get_last();
+	
         if (!empty($result)) {
             foreach($http_response_header as $h) {
                 if(preg_match('/Content-Encoding:.*gzip/i', $h)) {
@@ -53,11 +55,16 @@ class HttpAdapter
             }
         } else {
             // handle connection errors that prevented any valid response
+            //error_log(print_r($error,1));
+            if ($error['type']==E_WARNING) { error_log(__FILE__.": ".$error['message']); throw new \Recurly\Errors\ConnectionError($error['message']); }
+            
+            //if (!is_resource($context)) { error_log(__FILE__.": stream not created"); throw new \Recurly\Errors\ConnectionError("stream not created"); }
+	    	if (is_resource($context)) {
+	    		$meta = stream_get_meta_data($context);
+		    	if ($meta['timed_out']) { error_log(__FILE__.": timed out"); throw new \Recurly\Errors\ConnectionError("timed out"); }
 
-	    $meta = stream_get_meta_data($context);
-	    if ($meta['timed_out']) throw new \Recurly\Errors\ConnectionError("timed out");
-
-	    error_log(print_r($meta,1));
+			    error_log(print_r($meta,1));
+			}
         }
         return [$result, $http_response_header];
     }
