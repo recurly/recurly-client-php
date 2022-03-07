@@ -43,7 +43,7 @@ class HttpAdapter extends HttpAdapterInterface
         }
         $options['header'] = $headers_str;
         $context = stream_context_create(['http' => $options]);
-        $result = file_get_contents("Q".$url, false, $context);
+        $result = file_get_contents($url, false, $context);
 	
         if (!empty($result)) {
             foreach($http_response_header as $h) {
