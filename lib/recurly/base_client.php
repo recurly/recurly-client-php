@@ -44,8 +44,8 @@ abstract class BaseClient
         if (!isset($options['http_adapter'])) {
             $options['http_adapter'] = new HttpAdapter;
         }
-        if (!is_a($options['http_adapter'],'\Recurly\HttpAdapter') {
-			throw new TypeError("http_adapter option must be of type HttpAdapter");
+        if (!is_a($options['http_adapter'],'\Recurly\HttpAdapter')) {
+		throw new TypeError("http_adapter option must be of type HttpAdapter");
         }
         $this->http = $options['http_adapter'];
 
