@@ -15,7 +15,6 @@ class SubscriptionAddOnTier extends RecurlyResource
     private $_ending_quantity;
     private $_unit_amount;
     private $_unit_amount_decimal;
-    private $_usage_percentage;
 
     protected static $array_hints = [
     ];
@@ -46,7 +45,7 @@ class SubscriptionAddOnTier extends RecurlyResource
 
     /**
     * Getter method for the unit_amount attribute.
-    * Allows up to 2 decimal places. Optionally, override the tiers' default unit amount. If add-on's `add_on_type` is `usage` and `usage_type` is `percentage`, cannot be provided.
+    * Allows up to 2 decimal places. Optionally, override the tiers' default unit amount.
     *
     * @return ?float
     */
@@ -71,7 +70,6 @@ class SubscriptionAddOnTier extends RecurlyResource
     * Getter method for the unit_amount_decimal attribute.
     * Allows up to 9 decimal places.  Optionally, override tiers' default unit amount.
 If `unit_amount_decimal` is provided, `unit_amount` cannot be provided.
-If add-on's `add_on_type` is `usage` and `usage_type` is `percentage`, cannot be provided.
 
     *
     * @return ?string
@@ -91,28 +89,5 @@ If add-on's `add_on_type` is `usage` and `usage_type` is `percentage`, cannot be
     public function setUnitAmountDecimal(string $unit_amount_decimal): void
     {
         $this->_unit_amount_decimal = $unit_amount_decimal;
-    }
-
-    /**
-    * Getter method for the usage_percentage attribute.
-    * This field is deprecated. Do not used it anymore for percentage tiers subscription add ons. Use the percentage_tiers object instead.
-    *
-    * @return ?string
-    */
-    public function getUsagePercentage(): ?string
-    {
-        return $this->_usage_percentage;
-    }
-
-    /**
-    * Setter method for the usage_percentage attribute.
-    *
-    * @param string $usage_percentage
-    *
-    * @return void
-    */
-    public function setUsagePercentage(string $usage_percentage): void
-    {
-        $this->_usage_percentage = $usage_percentage;
     }
 }

@@ -19,6 +19,7 @@ class Usage extends RecurlyResource
     private $_measured_unit_id;
     private $_merchant_tag;
     private $_object;
+    private $_percentage_tiers;
     private $_recording_timestamp;
     private $_tier_type;
     private $_tiers;
@@ -30,6 +31,7 @@ class Usage extends RecurlyResource
     private $_usage_type;
 
     protected static $array_hints = [
+        'setPercentageTiers' => '\Recurly\Resources\SubscriptionAddOnPercentageTier',
         'setTiers' => '\Recurly\Resources\SubscriptionAddOnTier',
     ];
 
@@ -196,6 +198,29 @@ class Usage extends RecurlyResource
     }
 
     /**
+    * Getter method for the percentage_tiers attribute.
+    * The percentage tiers of the subscription based on the usage_timestamp. If tier_type = flat, percentage_tiers = []
+    *
+    * @return array
+    */
+    public function getPercentageTiers(): array
+    {
+        return $this->_percentage_tiers ?? [] ;
+    }
+
+    /**
+    * Setter method for the percentage_tiers attribute.
+    *
+    * @param array $percentage_tiers
+    *
+    * @return void
+    */
+    public function setPercentageTiers(array $percentage_tiers): void
+    {
+        $this->_percentage_tiers = $percentage_tiers;
+    }
+
+    /**
     * Getter method for the recording_timestamp attribute.
     * When the usage was recorded in your system.
     *
@@ -247,7 +272,7 @@ to configure quantity-based pricing models.
 
     /**
     * Getter method for the tiers attribute.
-    * The tiers and prices of the subscription based on the usage_timestamp. If tier_type = flat, tiers = null
+    * The tiers and prices of the subscription based on the usage_timestamp. If tier_type = flat, tiers = []
     *
     * @return array
     */
