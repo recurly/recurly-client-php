@@ -1,5 +1,16 @@
 # Changelog
 
+## [4.15.0](https://github.com/recurly/recurly-client-php/tree/4.15.0) (2022-03-14)
+
+[Full Changelog](https://github.com/recurly/recurly-client-php/compare/4.14.0...4.15.0)
+
+
+**Merged Pull Requests**
+
+- Generated Latest Changes for v2021-02-25 (Percentage tiers feature) [#668](https://github.com/recurly/recurly-client-php/pull/668) ([recurly-integrations](https://github.com/recurly-integrations))
+
+
+
 ## [4.14.0](https://github.com/recurly/recurly-client-php/tree/4.14.0) (2022-03-03)
 
 [Full Changelog](https://github.com/recurly/recurly-client-php/compare/4.13.0...4.14.0)
