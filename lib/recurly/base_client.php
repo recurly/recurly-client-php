@@ -133,6 +133,7 @@ abstract class BaseClient
             'response_headers' => $response->getHeaders()
             ]
         );
+        $response->assertValid(); // throws \Recurly\RecurlyError if response is bad
 
         return $response;
     }
