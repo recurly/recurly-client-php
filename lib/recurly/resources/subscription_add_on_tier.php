@@ -95,7 +95,7 @@ If add-on's `add_on_type` is `usage` and `usage_type` is `percentage`, cannot be
 
     /**
     * Getter method for the usage_percentage attribute.
-    * This field is deprecated. Do not used it anymore for percentage tiers subscription add ons. Use the percentage_tiers object instead.
+    * (deprecated) -- Use the percentage_tiers object instead.
     *
     * @return ?string
     */

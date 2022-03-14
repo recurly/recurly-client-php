@@ -180,7 +180,8 @@ the associated add-on data will be pulled from the site's item catalog.
     /**
     * Getter method for the percentage_tiers attribute.
     * If percentage tiers are provided in the request, all existing percentage tiers on the Subscription Add-on will be
-removed and replaced by the percentage tiers in the request.
+removed and replaced by the percentage tiers in the request. Use only if add_on.tier_type is tiered or volume and
+add_on.usage_type is percentage
 
     *
     * @return array
@@ -301,7 +302,8 @@ to configure quantity-based pricing models.
     /**
     * Getter method for the tiers attribute.
     * If tiers are provided in the request, all existing tiers on the Subscription Add-on will be
-removed and replaced by the tiers in the request.
+removed and replaced by the tiers in the request. If add_on.tier_type is tiered or volume and
+add_on.usage_type is percentage use percentage_tiers instead.
 
     *
     * @return array
