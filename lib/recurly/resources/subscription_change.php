@@ -24,6 +24,7 @@ class SubscriptionChange extends RecurlyResource
     private $_object;
     private $_plan;
     private $_quantity;
+    private $_ramp_intervals;
     private $_revenue_schedule_type;
     private $_shipping;
     private $_subscription_id;
@@ -34,6 +35,7 @@ class SubscriptionChange extends RecurlyResource
     protected static $array_hints = [
         'setAddOns' => '\Recurly\Resources\SubscriptionAddOn',
         'setCustomFields' => '\Recurly\Resources\CustomField',
+        'setRampIntervals' => '\Recurly\Resources\SubscriptionRampIntervalResponse',
     ];
 
     
@@ -311,6 +313,29 @@ class SubscriptionChange extends RecurlyResource
     public function setQuantity(int $quantity): void
     {
         $this->_quantity = $quantity;
+    }
+
+    /**
+    * Getter method for the ramp_intervals attribute.
+    * Ramp Intervals
+    *
+    * @return array
+    */
+    public function getRampIntervals(): array
+    {
+        return $this->_ramp_intervals ?? [] ;
+    }
+
+    /**
+    * Setter method for the ramp_intervals attribute.
+    *
+    * @param array $ramp_intervals
+    *
+    * @return void
+    */
+    public function setRampIntervals(array $ramp_intervals): void
+    {
+        $this->_ramp_intervals = $ramp_intervals;
     }
 
     /**
