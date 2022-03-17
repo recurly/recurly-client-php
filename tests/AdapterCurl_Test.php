@@ -1,8 +1,11 @@
 <?php
 
 use PHPUnit\Framework\TestCase;
+use Recurly\HttpAdapterCurl;
 use Recurly\Response;
 
+define("CURLE_COULDNT_RESOLVE_HOST",6);
+        
 final class AdapterCurlTest extends TestCase
 {
     public $logger;
@@ -15,6 +18,14 @@ final class AdapterCurlTest extends TestCase
         }
         parent::setUp();
         //$this->logger = new Recurly\Logger('Recurly');
+    }
+
+    function testInvalidHostname(): void
+    {
+        $this->client = new Recurly\Client("invalid-api-key", $this->logger, ['http_adapter'=>new HttpAdapterCurl_InvalidHost()]);
+        $this->expectException(\Recurly\Errors\ConnectionError::class);
+        $this->expectExceptionCode(CURLE_COULDNT_RESOLVE_HOST);
+        $this->client->listSites()->getCount();
     }
 
     /**
@@ -57,5 +68,14 @@ final class AdapterCurlTest extends TestCase
         $this->assertIsObject($site);
         $this->assertIsString($site->getObject());
         $this->assertEquals("site",$site->getObject());
+    }
+}
+
+/**
+ * This mock of HttpAdapterCurl will try to connect to an invalid host.
+ */
+class HttpAdapterCurl_InvalidHost extends Recurly\HttpAdapterCurl {
+    function execute($method, $url, $body, $headers): array {
+        return parent::execute($method,"https://wrong.hostname.qwerty",$body,$headers);
     }
 }

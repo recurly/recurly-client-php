@@ -13,6 +13,7 @@ namespace Recurly;
  */
 class HttpAdapterCurl implements HttpAdapterInterface
 {
+
     /**
      * Performs HTTP request
      * 
@@ -79,9 +80,9 @@ class HttpAdapterCurl implements HttpAdapterInterface
         $curl_info = curl_getinfo($curl);
 		curl_close($curl);
 
-        $response_header[]='_curl_errno: '.$curl_errno;
-        $response_header[]='_curl_error: '.$curl_error;
-        $response_header[]='_curl_info: '.serialize($curl_info);
+        // Cram errors into curl_info to make it a complete diagnostic box
+        $curl_info['_errno'] = $curl_errno;
+        $curl_info['_error'] = $curl_error;
 
         if (defined("RECURLY_CURL_DEBUG_2")) {
             echo "\nHeaders:\n"; print_r($req_headers);
@@ -90,13 +91,12 @@ class HttpAdapterCurl implements HttpAdapterInterface
             echo "\nBody:\n"; print_r($result);
         }
 
-        if ($curl_errno==0) {
-            // no processing needed; curl ungzips as needed
-        } else {
-            // handle connection errors that prevented any valid response
-            //error_log(print_r($error,1));
-            throw new \Recurly\Errors\ConnectionError("Curl error: ".$curl_error);        
+        if ($curl_errno>0) {
+            throw new \Recurly\Errors\ConnectionError("Curl error: ".$curl_error, $curl_errno, $curl_info);
         }
+
+        // Cram curl_info into the response header, for when the request is valid.
+        $response_header[]='_curl_info: '.serialize($curl_info);
         return [$result, $response_header];
     }
 }
