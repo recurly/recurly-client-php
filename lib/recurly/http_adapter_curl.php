@@ -35,6 +35,7 @@ class HttpAdapterCurl implements HttpAdapterInterface
         // Connection:
         curl_setopt($curl, CURLOPT_CONNECTTIMEOUT, 10);
         curl_setopt($curl, CURLOPT_TIMEOUT, 45);
+        curl_setopt($curl, CURLOPT_ENCODING , "gzip");
 
         // Request:
     	if ($method == "POST") {
@@ -82,10 +83,11 @@ class HttpAdapterCurl implements HttpAdapterInterface
         $response_header[]='_curl_error: '.$curl_error;
         $response_header[]='_curl_info: '.serialize($curl_info);
 
-        if (defined("RECURLY_CURL_DEBUG")) {
-            print_r($req_headers);
-            print_r($response_header);
-            print_r($curl_info);
+        if (defined("RECURLY_CURL_DEBUG_2")) {
+            echo "\nHeaders:\n"; print_r($req_headers);
+            echo "\nResponse h:\n"; print_r($response_header);
+            echo "\nCurlinfo:\n"; print_r($curl_info);
+            echo "\nBody:\n"; print_r($result);
         }
 
         if ($curl_errno==0) {
