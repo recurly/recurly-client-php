@@ -23,7 +23,7 @@ class SubscriptionAddOnTier extends RecurlyResource
     
     /**
     * Getter method for the ending_quantity attribute.
-    * Ending quantity
+    * Ending quantity for the tier.  This represents a unit amount for unit-priced add ons. Must be left empty if it is the final tier.
     *
     * @return ?int
     */

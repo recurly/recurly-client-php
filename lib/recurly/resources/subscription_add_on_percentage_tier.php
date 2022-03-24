@@ -21,7 +21,7 @@ class SubscriptionAddOnPercentageTier extends RecurlyResource
     
     /**
     * Getter method for the ending_amount attribute.
-    * Ending amount
+    * Ending amount for the tier. Allows up to 2 decimal places. Must be left empty if it is the final tier.
     *
     * @return ?float
     */
@@ -45,8 +45,7 @@ class SubscriptionAddOnPercentageTier extends RecurlyResource
     /**
     * Getter method for the usage_percentage attribute.
     * The percentage taken of the monetary amount of usage tracked.
-This can be up to 4 decimal places represented as a string. A value between
-0.0 and 100.0.
+This can be up to 4 decimal places represented as a string.
 
     *
     * @return ?string
