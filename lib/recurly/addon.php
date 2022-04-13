@@ -67,7 +67,7 @@ class Recurly_Addon extends Recurly_Resource
       'add_on_code', 'item_code', 'name', 'display_quantity', 'default_quantity',
       'unit_amount_in_cents', 'accounting_code', 'tax_code',
       'measured_unit_id', 'usage_type', 'usage_percentage', 'add_on_type', 'revenue_schedule_type',
-      'optional', 'display_quantity_on_hosted_page', 'tier_type', 'tiers'
+      'optional', 'display_quantity_on_hosted_page', 'tier_type', 'tiers', 'percentage_tiers'
     );
   }
 }

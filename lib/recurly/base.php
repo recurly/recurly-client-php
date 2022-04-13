@@ -299,6 +299,8 @@ abstract class Recurly_Base
     'tax_details' => 'array',
     'tier' => 'Recurly_Tier',
     'tiers' => 'array',
+    'percentage_tier' => 'Recurly_PercentageTier',
+    'percentage_tiers' => 'array',
     'transaction' => 'Recurly_Transaction',
     'transactions' => 'Recurly_TransactionList',
     'transaction_error' => 'Recurly_TransactionError',
@@ -492,6 +494,12 @@ abstract class Recurly_Base
     else {
       if ($node_class == 'Recurly_CurrencyList') {
         $new_obj = new $node_class($nodeName);
+      } else if( $node_class == 'Recurly_Tier' ) {
+        if( $node->firstChild->tagName == 'ending_amount_in_cents' ) {
+          $new_obj = new Recurly_CurrencyPercentageTier($nodeName);
+        } else {
+          $new_obj = new $node_class();
+        }
       } else {
         $new_obj = new $node_class();
       }
