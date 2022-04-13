@@ -3,7 +3,7 @@
 /**
  * class Recurly_Percentage_Tier
  * @property string $currency 3 digits currency code. Ex: USD, BRL
- * @property Recurly_CurrencyPercentageTier $tiers List of percentage tiers.
+ * @property Recurly_CurrencyPercentageTier[] $tiers List of percentage tiers.
  */
 
 class Recurly_PercentageTier extends Recurly_Resource

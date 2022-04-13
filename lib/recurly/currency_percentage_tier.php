@@ -2,8 +2,8 @@
 
 /**
  * class Recurly_CurrencyPercentageTier
- * @property float $ending_amount_in_cents 3 digits currency code. Ex: USD, BRL
- * @property string $usage_percentage List of percentage tiers.
+ * @property float $ending_amount_in_cents Ending amount for the tier. Must be left empty if it is the final tier.
+ * @property string $usage_percentage The percentage taken of the monetary amount of usage tracked. This can be up to 4 decimal places represented as a string.
  */
 
 class Recurly_CurrencyPercentageTier extends Recurly_Resource
