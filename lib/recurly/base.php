@@ -495,7 +495,11 @@ abstract class Recurly_Base
       if ($node_class == 'Recurly_CurrencyList') {
         $new_obj = new $node_class($nodeName);
       } else if( $node_class == 'Recurly_Tier' ) {
-        if( $node->firstChild->tagName == 'ending_amount_in_cents' ) {
+        $nodeNames = array();
+        foreach($node->childNodes as $node_item) {
+          $nodeNames[] = $node_item->tagName;
+        }
+        if( empty(array_diff($nodeNames, ['ending_amount_in_cents', 'usage_percentage'])) ) {
           $new_obj = new Recurly_CurrencyPercentageTier($nodeName);
         } else {
           $new_obj = new $node_class();
