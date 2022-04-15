@@ -16,12 +16,14 @@ class Recurly_CurrencyPercentageTier extends Recurly_Resource
     return 'tier';
   }
 
-  protected function populateXmlDoc(&$doc, &$node, &$obj, $nested = false) {
-    if ($this->isEmbedded($node, 'tiers')) {
-      $percentageTierNode = $node->appendChild($doc->createElement($this->getNodeName()));
-      parent::populateXmlDoc($doc, $percentageTierNode, $obj, $nested);
-    } else {
-      parent::populateXmlDoc($doc, $node, $obj, $nested);
+  public function populateXmlDoc(&$doc, &$node, &$obj, $nested = false) {
+    if(!empty($this->usage_percentage)) {
+      if ($this->isEmbedded($node, 'tiers')) {
+        $percentageTierNode = $node->appendChild($doc->createElement($this->getNodeName()));
+        parent::populateXmlDoc($doc, $percentageTierNode, $obj, $nested);
+      } else {
+        parent::populateXmlDoc($doc, $node, $obj, $nested);
+      }
     }
   }
 
