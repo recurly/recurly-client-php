@@ -14,6 +14,7 @@ class Subscription extends RecurlyResource
 {
     private $_account;
     private $_activated_at;
+    private $_active_invoice_id;
     private $_add_ons;
     private $_add_ons_total;
     private $_auto_renew;
@@ -106,6 +107,29 @@ class Subscription extends RecurlyResource
     public function setActivatedAt(string $activated_at): void
     {
         $this->_activated_at = $activated_at;
+    }
+
+    /**
+    * Getter method for the active_invoice_id attribute.
+    * The invoice ID of the latest invoice created for an active subscription.
+    *
+    * @return ?string
+    */
+    public function getActiveInvoiceId(): ?string
+    {
+        return $this->_active_invoice_id;
+    }
+
+    /**
+    * Setter method for the active_invoice_id attribute.
+    *
+    * @param string $active_invoice_id
+    *
+    * @return void
+    */
+    public function setActiveInvoiceId(string $active_invoice_id): void
+    {
+        $this->_active_invoice_id = $active_invoice_id;
     }
 
     /**
