@@ -28,6 +28,7 @@ class SubscriptionAddOn extends RecurlyResource
     private $_unit_amount_decimal;
     private $_updated_at;
     private $_usage_percentage;
+    private $_usage_timeframe;
 
     protected static $array_hints = [
         'setPercentageTiers' => '\Recurly\Resources\SubscriptionAddOnPercentageTier',
@@ -417,5 +418,28 @@ There must be one tier without an `ending_quantity` value which represents the f
     public function setUsagePercentage(float $usage_percentage): void
     {
         $this->_usage_percentage = $usage_percentage;
+    }
+
+    /**
+    * Getter method for the usage_timeframe attribute.
+    * The time at which usage totals are reset for billing purposes.
+    *
+    * @return ?string
+    */
+    public function getUsageTimeframe(): ?string
+    {
+        return $this->_usage_timeframe;
+    }
+
+    /**
+    * Setter method for the usage_timeframe attribute.
+    *
+    * @param string $usage_timeframe
+    *
+    * @return void
+    */
+    public function setUsageTimeframe(string $usage_timeframe): void
+    {
+        $this->_usage_timeframe = $usage_timeframe;
     }
 }
