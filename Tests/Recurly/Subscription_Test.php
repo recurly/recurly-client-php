@@ -282,6 +282,16 @@ class Recurly_SubscriptionTest extends Recurly_TestCase
     );
   }
 
+  public function testUpdateSubscriptionWithAddOnsPercentageBasedPricing() {
+    $this->client->addResponse('GET', '/subscriptions/6198b0c8d844f1c58633fa4953a4e961', 'subscriptions/show-200-PBP.xml');
+    $subscription = Recurly_Subscription::get('6198b0c8d844f1c58633fa4953a4e961', $this->client);
+    
+    $this->assertEquals(
+      "<?xml version=\"1.0\"?>\n<subscription><subscription_add_ons><subscription_add_on><add_on_code>teste 20220228 2</add_on_code><quantity>1</quantity><usage_timeframe>subscription_term</usage_timeframe><tier_type>tiered</tier_type><percentage_tiers><percentage_tier><ending_amount_in_cents>3000</ending_amount_in_cents><usage_percentage>30.0</usage_percentage></percentage_tier><percentage_tier><usage_percentage>60.0</usage_percentage></percentage_tier></percentage_tiers><add_on_source>plan_add_on</add_on_source></subscription_add_on></subscription_add_ons></subscription>\n",
+      $subscription->xml()
+    );
+  }
+
   public function testGetSubscriptionRedemptions() {
     $this->client->addResponse('GET', '/subscriptions/012345678901234567890123456789ab', 'subscriptions/show-200.xml');
     $this->client->addResponse('GET', 'https://api.recurly.com/v2/subscriptions/012345678901234567890123456789ab/redemptions', 'subscriptions/redemptions-200.xml');

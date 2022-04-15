@@ -1,0 +1,76 @@
+HTTP/1.1 200 OK
+Content-Type: application/xml; charset=utf-8
+
+<?xml version="1.0" encoding="UTF-8"?>
+<subscription href="https://api.recurly.com/v2/subscriptions/6198b0c8d844f1c58633fa4953a4e961">
+    <account href="https://api.recurly.com/v2/accounts/pphino"/>
+    <invoice href="https://api.recurly.com/v2/invoices/1085"/>
+    <plan href="https://api.recurly.com/v2/plans/teste_20220228">
+        <plan_code>teste_20220228</plan_code>
+        <name>teste 20220228</name>
+    </plan>
+    <auto_renew type="boolean">true</auto_renew>
+    <renewal_billing_cycles type="integer">12</renewal_billing_cycles>
+    <current_term_started_at type="datetime">2022-04-14T21:05:50Z</current_term_started_at>
+    <current_term_ends_at type="datetime">2023-04-14T21:05:50Z</current_term_ends_at>
+    <revenue_schedule_type>evenly</revenue_schedule_type>
+    <uuid>6198b0c8d844f1c58633fa4953a4e961</uuid>
+    <state>active</state>
+    <unit_amount_in_cents type="integer">1000</unit_amount_in_cents>
+    <currency>USD</currency>
+    <quantity type="integer">1</quantity>
+    <activated_at type="datetime">2022-04-14T21:05:50Z</activated_at>
+    <canceled_at nil="nil"></canceled_at>
+    <expires_at nil="nil"></expires_at>
+    <updated_at type="datetime">2022-04-14T21:14:51Z</updated_at>
+    <total_billing_cycles type="integer">12</total_billing_cycles>
+    <remaining_billing_cycles type="integer">11</remaining_billing_cycles>
+    <current_period_started_at type="datetime">2022-04-14T21:05:50Z</current_period_started_at>
+    <current_period_ends_at type="datetime">2022-05-14T21:05:50Z</current_period_ends_at>
+    <trial_started_at nil="nil"></trial_started_at>
+    <trial_ends_at nil="nil"></trial_ends_at>
+    <terms_and_conditions nil="nil"></terms_and_conditions>
+    <customer_notes nil="nil"></customer_notes>
+    <started_with_gift type="boolean">false</started_with_gift>
+    <converted_at nil="nil"></converted_at>
+    <imported_trial type="boolean">false</imported_trial>
+    <paused_at nil="nil"></paused_at>
+    <remaining_pause_cycles nil="nil"></remaining_pause_cycles>
+    <no_billing_info_reason></no_billing_info_reason>
+    <gateway_code nil="nil"></gateway_code>
+    <po_number nil="nil"></po_number>
+    <net_terms type="integer">0</net_terms>
+    <collection_method>automatic</collection_method>
+    <shipping_amount_in_cents>0</shipping_amount_in_cents>
+    <shipping_method_code nil="nil"></shipping_method_code>
+    <subscription_add_ons type="array">
+        <subscription_add_on>
+            <add_on_type>usage</add_on_type>
+            <measured_unit href="https://api.recurly.com/v2/measured_units/3435883248763069353"/>
+            <usage href="https://api.recurly.com/v2/subscriptions/6198b0c8d844f1c58633fa4953a4e961/add_ons/teste%2020220228%202/usage"/>
+            <unit_amount_in_cents nil="nil"></unit_amount_in_cents>
+            <add_on_code>teste 20220228 2</add_on_code>
+            <quantity type="integer">1</quantity>
+            <usage_type>percentage</usage_type>
+            <usage_percentage nil="nil"></usage_percentage>
+            <usage_timeframe>subscription_term</usage_timeframe>
+            <tier_type>tiered</tier_type>
+            <percentage_tiers type="array">
+                <percentage_tier>
+                    <ending_amount_in_cents type="integer">3000</ending_amount_in_cents>
+                    <usage_percentage>30.0</usage_percentage>
+                </percentage_tier>
+                <percentage_tier>
+                    <ending_amount_in_cents nil="nil"></ending_amount_in_cents>
+                    <usage_percentage>60.0</usage_percentage>
+                </percentage_tier>
+            </percentage_tiers>
+            <add_on_source>plan_add_on</add_on_source>
+        </subscription_add_on>
+    </subscription_add_ons>
+  <custom_fields type="array"></custom_fields>
+  <a name="cancel" href="https://api.recurly.com/v2/subscriptions/6198b0c8d844f1c58633fa4953a4e961/cancel" method="put"/>
+  <a name="terminate" href="https://api.recurly.com/v2/subscriptions/6198b0c8d844f1c58633fa4953a4e961/terminate" method="put"/>
+  <a name="postpone" href="https://api.recurly.com/v2/subscriptions/6198b0c8d844f1c58633fa4953a4e961/postpone" method="put"/>
+  <a name="notes" href="https://api.recurly.com/v2/subscriptions/6198b0c8d844f1c58633fa4953a4e961/notes" method="put"/>
+</subscription>
