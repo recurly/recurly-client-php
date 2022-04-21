@@ -28,6 +28,7 @@ class SubscriptionAddOn extends RecurlyResource
     private $_unit_amount_decimal;
     private $_updated_at;
     private $_usage_percentage;
+    private $_usage_timeframe;
 
     protected static $array_hints = [
         'setPercentageTiers' => '\Recurly\Resources\SubscriptionAddOnPercentageTier',
@@ -182,6 +183,7 @@ the associated add-on data will be pulled from the site's item catalog.
     * If percentage tiers are provided in the request, all existing percentage tiers on the Subscription Add-on will be
 removed and replaced by the percentage tiers in the request. Use only if add_on.tier_type is tiered or volume and
 add_on.usage_type is percentage.
+There must be one tier without an `ending_amount` value which represents the final tier.
 
     *
     * @return array
@@ -304,6 +306,7 @@ to configure quantity-based pricing models.
     * If tiers are provided in the request, all existing tiers on the Subscription Add-on will be
 removed and replaced by the tiers in the request. If add_on.tier_type is tiered or volume and
 add_on.usage_type is percentage use percentage_tiers instead.
+There must be one tier without an `ending_quantity` value which represents the final tier.
 
     *
     * @return array
@@ -415,5 +418,28 @@ add_on.usage_type is percentage use percentage_tiers instead.
     public function setUsagePercentage(float $usage_percentage): void
     {
         $this->_usage_percentage = $usage_percentage;
+    }
+
+    /**
+    * Getter method for the usage_timeframe attribute.
+    * The time at which usage totals are reset for billing purposes.
+    *
+    * @return ?string
+    */
+    public function getUsageTimeframe(): ?string
+    {
+        return $this->_usage_timeframe;
+    }
+
+    /**
+    * Setter method for the usage_timeframe attribute.
+    *
+    * @param string $usage_timeframe
+    *
+    * @return void
+    */
+    public function setUsageTimeframe(string $usage_timeframe): void
+    {
+        $this->_usage_timeframe = $usage_timeframe;
     }
 }

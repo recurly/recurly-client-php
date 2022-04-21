@@ -38,6 +38,7 @@ class AddOn extends RecurlyResource
     private $_tiers;
     private $_updated_at;
     private $_usage_percentage;
+    private $_usage_timeframe;
     private $_usage_type;
 
     protected static $array_hints = [
@@ -647,6 +648,29 @@ to configure quantity-based pricing models.
     public function setUsagePercentage(string $usage_percentage): void
     {
         $this->_usage_percentage = $usage_percentage;
+    }
+
+    /**
+    * Getter method for the usage_timeframe attribute.
+    * The time at which usage totals are reset for billing purposes.
+    *
+    * @return ?string
+    */
+    public function getUsageTimeframe(): ?string
+    {
+        return $this->_usage_timeframe;
+    }
+
+    /**
+    * Setter method for the usage_timeframe attribute.
+    *
+    * @param string $usage_timeframe
+    *
+    * @return void
+    */
+    public function setUsageTimeframe(string $usage_timeframe): void
+    {
+        $this->_usage_timeframe = $usage_timeframe;
     }
 
     /**

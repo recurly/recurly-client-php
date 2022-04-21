@@ -10,11 +10,10 @@ namespace Recurly\Resources;
 use Recurly\RecurlyResource;
 
 // phpcs:disable
-class AddOnPricing extends RecurlyResource
+class PlanRampPricing extends RecurlyResource
 {
     private $_currency;
     private $_unit_amount;
-    private $_unit_amount_decimal;
 
     protected static $array_hints = [
     ];
@@ -45,7 +44,7 @@ class AddOnPricing extends RecurlyResource
 
     /**
     * Getter method for the unit_amount attribute.
-    * Allows up to 2 decimal places. Required unless `unit_amount_decimal` is provided.
+    * Represents the price for the Ramp Interval.
     *
     * @return ?float
     */
@@ -64,30 +63,5 @@ class AddOnPricing extends RecurlyResource
     public function setUnitAmount(float $unit_amount): void
     {
         $this->_unit_amount = $unit_amount;
-    }
-
-    /**
-    * Getter method for the unit_amount_decimal attribute.
-    * Allows up to 9 decimal places. Only supported when `add_on_type` = `usage`.
-If `unit_amount_decimal` is provided, `unit_amount` cannot be provided.
-
-    *
-    * @return ?string
-    */
-    public function getUnitAmountDecimal(): ?string
-    {
-        return $this->_unit_amount_decimal;
-    }
-
-    /**
-    * Setter method for the unit_amount_decimal attribute.
-    *
-    * @param string $unit_amount_decimal
-    *
-    * @return void
-    */
-    public function setUnitAmountDecimal(string $unit_amount_decimal): void
-    {
-        $this->_unit_amount_decimal = $unit_amount_decimal;
     }
 }
