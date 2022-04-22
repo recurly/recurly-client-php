@@ -1,0 +1,32 @@
+name: CI
+on: [push]
+concurrency:
+  group: ${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    name: PHP ${{ matrix.php }} tests
+    strategy:
+      matrix:
+        php: [7.2, 7.3, 7.4]
+    steps:
+      - uses: actions/checkout@v3
+      - name: Setup PHP
+        # Using tag 2.18.0
+        uses: shivammathur/setup-php@448bd61c6fe9db2113173467e4c22b87ddc2971a
+        with:
+          php-version: ${{ matrix.php }}
+          coverage: xdebug2
+          tools: composer:2.2
+      - run: ./scripts/build
+      - run: ./scripts/test
+  buildall:
+    if: ${{ always() }}
+    runs-on: ubuntu-latest
+    name: Build (matrix)
+    needs: build
+    steps:
+      - name: Check build matrix status
+        if: ${{ needs.build.result != 'success' }}
+        run: exit 1
