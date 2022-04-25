@@ -27,6 +27,8 @@ class Recurly_SubscriptionAddOn extends Recurly_Resource
       'usage_percentage',
       'revenue_schedule_type',
       'add_on_source',
+      'usage_timeframe',
+      'percentage_tiers'
     );
   }
 

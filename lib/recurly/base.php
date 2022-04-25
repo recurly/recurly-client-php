@@ -310,6 +310,8 @@ abstract class Recurly_Base
     'tax_details' => 'array',
     'tier' => 'Recurly_Tier',
     'tiers' => 'array',
+    'percentage_tier' => 'Recurly_PercentageTier',
+    'percentage_tiers' => 'array',
     'transaction' => 'Recurly_Transaction',
     'transactions' => 'Recurly_TransactionList',
     'transaction_error' => 'Recurly_TransactionError',
@@ -484,6 +486,19 @@ abstract class Recurly_Base
     return $error;
   }
 
+  private static function __getTierInstance($node, $node_class)
+  {
+    $nodeNames = array();
+    foreach($node->childNodes as $node_item) {
+      $nodeNames[] = $node_item->tagName;
+    }
+    if( empty(array_diff($nodeNames, ['ending_amount_in_cents', 'usage_percentage'])) ) {
+      return new Recurly_CurrencyPercentageTier($nodeName);
+    } else {
+      return new $node_class();
+    }
+  }
+
   private static function __createNodeObject($node, $client)
   {
     $nodeName = str_replace("-", "_", $node->nodeName);
@@ -503,6 +518,8 @@ abstract class Recurly_Base
     else {
       if ($node_class == 'Recurly_CurrencyList') {
         $new_obj = new $node_class($nodeName);
+      } else if( $node_class == 'Recurly_Tier' ) {
+        $new_obj = Recurly_Base::__getTierInstance($node, $node_class);
       } else {
         $new_obj = new $node_class();
       }

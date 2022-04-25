@@ -61,10 +61,19 @@ class Recurly_SubscriptionTest extends Recurly_TestCase
 
     $subscription->account = $account;
 
-    $this->assertEquals(
-      "<?xml version=\"1.0\"?>\n<subscription><account><account_code>123</account_code></account><plan_code>gold</plan_code><currency>USD</currency><subscription_add_ons></subscription_add_ons><net_terms>10</net_terms><po_number>1000</po_number><collection_method>manual</collection_method><imported_trial>true</imported_trial></subscription>\n",
-      $subscription->xml()
-  );
+    $this->assertXmlStringEqualsXmlString(
+      "<subscription>
+        <account>
+          <account_code>123</account_code>
+        </account>
+        <plan_code>gold</plan_code>
+        <currency>USD</currency>
+        <subscription_add_ons></subscription_add_ons>
+        <net_terms>10</net_terms>
+        <po_number>1000</po_number>
+        <collection_method>manual</collection_method>
+        <imported_trial>true</imported_trial>
+      </subscription>", $subscription->xml());
   }
 
   public function testCreateSubscriptionXml() {
@@ -116,10 +125,55 @@ class Recurly_SubscriptionTest extends Recurly_TestCase
     $subscription->auto_renew = false;
     $subscription->renewal_billing_cycles = 1;
 
-    $this->assertEquals(
-      "<?xml version=\"1.0\"?>\n<subscription><account><account_code>account_code</account_code><username>username</username><first_name>Verena</first_name><last_name>Example</last_name><email>verena@example.com</email><accept_language>en-US</accept_language><billing_info><first_name>Verena</first_name><last_name>Example</last_name><ip_address>192.168.0.1</ip_address><number>4111-1111-1111-1111</number><month>11</month><year>2015</year><verification_value>123</verification_value></billing_info><dunning_campaign_id>1234abcd</dunning_campaign_id></account><plan_code>gold</plan_code><quantity>1</quantity><currency>USD</currency><subscription_add_ons></subscription_add_ons><bulk>true</bulk><terms_and_conditions>Some Terms and Conditions</terms_and_conditions><customer_notes>Some Customer Notes</customer_notes><shipping_address><address1>123 Main St.</address1><city>San Francisco</city><state>CA</state><zip>94110</zip><country>US</country><phone>555-555-5555</phone><email>verena@example.com</email><nickname>Work</nickname><first_name>Verena</first_name><last_name>Example</last_name><company>Recurly Inc.</company></shipping_address><custom_fields><custom_field><name>serial_number</name><value>4567-8900-1234</value></custom_field></custom_fields><auto_renew>false</auto_renew><renewal_billing_cycles>1</renewal_billing_cycles></subscription>\n",
-      $subscription->xml()
-    );
+    $this->assertXmlStringEqualsXmlString(
+      "<subscription>
+        <account>
+          <account_code>account_code</account_code>
+          <username>username</username>
+          <first_name>Verena</first_name>
+          <last_name>Example</last_name>
+          <email>verena@example.com</email>
+          <accept_language>en-US</accept_language>
+          <billing_info>
+            <first_name>Verena</first_name>
+            <last_name>Example</last_name>
+            <ip_address>192.168.0.1</ip_address>
+            <number>4111-1111-1111-1111</number>
+            <month>11</month>
+            <year>2015</year>
+            <verification_value>123</verification_value>
+          </billing_info>
+          <dunning_campaign_id>1234abcd</dunning_campaign_id>
+        </account>
+        <plan_code>gold</plan_code>
+        <quantity>1</quantity>
+        <currency>USD</currency>
+        <subscription_add_ons></subscription_add_ons>
+        <bulk>true</bulk>
+        <terms_and_conditions>Some Terms and Conditions</terms_and_conditions>
+        <customer_notes>Some Customer Notes</customer_notes>
+        <shipping_address>
+          <address1>123 Main St.</address1>
+          <city>San Francisco</city>
+          <state>CA</state>
+          <zip>94110</zip>
+          <country>US</country>
+          <phone>555-555-5555</phone>
+          <email>verena@example.com</email>
+          <nickname>Work</nickname>
+          <first_name>Verena</first_name>
+          <last_name>Example</last_name>
+          <company>Recurly Inc.</company>
+        </shipping_address>
+        <custom_fields>
+          <custom_field>
+            <name>serial_number</name>
+            <value>4567-8900-1234</value>
+          </custom_field>
+        </custom_fields>
+        <auto_renew>false</auto_renew>
+        <renewal_billing_cycles>1</renewal_billing_cycles>
+      </subscription>", $subscription->xml());
   }
 
   public function testUpdateShippingAddressXml() {
@@ -128,10 +182,27 @@ class Recurly_SubscriptionTest extends Recurly_TestCase
 
     $subscription->shipping_address_id = 1234567890;
 
-    $this->assertEquals(
-      "<?xml version=\"1.0\"?>\n<subscription><subscription_add_ons><subscription_add_on><add_on_code>marketing_emails</add_on_code><unit_amount_in_cents>5</unit_amount_in_cents><quantity>1</quantity></subscription_add_on><subscription_add_on><item>&lt;Recurly_Stub[item] href=https://api.recurlyqa.com/v2/items/mockitem&gt;</item><external_sku>tester-sku</external_sku><add_on_code>mockitem</add_on_code><unit_amount_in_cents>199</unit_amount_in_cents><quantity>1</quantity><revenue_schedule_type>never</revenue_schedule_type><tier_type>flat</tier_type><add_on_source>item</add_on_source></subscription_add_on></subscription_add_ons><shipping_address_id>1234567890</shipping_address_id></subscription>\n",
-      $subscription->xml()
-    );
+    $this->assertXmlStringEqualsXmlString("
+    <subscription>
+      <subscription_add_ons>
+        <subscription_add_on>
+          <add_on_code>marketing_emails</add_on_code>
+          <unit_amount_in_cents>5</unit_amount_in_cents>
+          <quantity>1</quantity>
+        </subscription_add_on>
+        <subscription_add_on>
+          <item>&lt;Recurly_Stub[item] href=https://api.recurlyqa.com/v2/items/mockitem&gt;</item>
+          <external_sku>tester-sku</external_sku>
+          <add_on_code>mockitem</add_on_code>
+          <unit_amount_in_cents>199</unit_amount_in_cents>
+          <quantity>1</quantity>
+          <revenue_schedule_type>never</revenue_schedule_type>
+          <tier_type>flat</tier_type>
+          <add_on_source>item</add_on_source>
+        </subscription_add_on>
+      </subscription_add_ons>
+      <shipping_address_id>1234567890</shipping_address_id>
+    </subscription>", $subscription->xml());
   }
 
   public function testCreateSubscripionWithExistingAccountXml() {
@@ -144,7 +215,16 @@ class Recurly_SubscriptionTest extends Recurly_TestCase
     $subscription->currency = 'USD';
     $subscription->account = $account;
 
-    $this->assertEquals("<?xml version=\"1.0\"?>\n<subscription><account><account_code>abcdef1234567890</account_code></account><plan_code>gold</plan_code><quantity>1</quantity><currency>USD</currency><subscription_add_ons></subscription_add_ons></subscription>\n", $subscription->xml());
+    $this->assertXmlStringEqualsXmlString("
+    <subscription>
+      <account>
+        <account_code>abcdef1234567890</account_code>
+      </account>
+      <plan_code>gold</plan_code>
+      <quantity>1</quantity>
+      <currency>USD</currency>
+      <subscription_add_ons></subscription_add_ons>
+    </subscription>", $subscription->xml());
   }
 
   public function testCreateSubscriptionWithAddonsXml() {
@@ -179,10 +259,35 @@ class Recurly_SubscriptionTest extends Recurly_TestCase
     $subscription->account = $account;
     $account->billing_info = $billing_info;
 
-    $this->assertEquals(
-      "<?xml version=\"1.0\"?>\n<subscription><account><account_code>account_code</account_code><username>username</username><first_name>Verena</first_name><last_name>Example</last_name><email>verena@example.com</email><accept_language>en-US</accept_language><billing_info><first_name>Verena</first_name><last_name>Example</last_name><ip_address>192.168.0.1</ip_address><number>4111-1111-1111-1111</number><month>11</month><year>2015</year><verification_value>123</verification_value></billing_info></account><plan_code>gold</plan_code><quantity>1</quantity><currency>USD</currency><subscription_add_ons><subscription_add_on><add_on_code>more</add_on_code><quantity>1</quantity></subscription_add_on></subscription_add_ons></subscription>\n",
-      $subscription->xml()
-    );
+    $this->assertXmlStringEqualsXmlString("
+    <subscription>
+      <account>
+        <account_code>account_code</account_code>
+        <username>username</username>
+        <first_name>Verena</first_name>
+        <last_name>Example</last_name>
+        <email>verena@example.com</email>
+        <accept_language>en-US</accept_language>
+        <billing_info>
+          <first_name>Verena</first_name>
+          <last_name>Example</last_name>
+          <ip_address>192.168.0.1</ip_address>
+          <number>4111-1111-1111-1111</number>
+          <month>11</month>
+          <year>2015</year>
+          <verification_value>123</verification_value>
+        </billing_info>
+      </account>
+      <plan_code>gold</plan_code>
+      <quantity>1</quantity>
+      <currency>USD</currency>
+      <subscription_add_ons>
+        <subscription_add_on>
+          <add_on_code>more</add_on_code>
+          <quantity>1</quantity>
+        </subscription_add_on>
+      </subscription_add_ons>
+    </subscription>", $subscription->xml());
   }
 
   public function testCreateSubscriptionWithBillingInfoTokenXml() {
@@ -197,10 +302,19 @@ class Recurly_SubscriptionTest extends Recurly_TestCase
     $subscription->account->billing_info = new Recurly_BillingInfo();
     $subscription->account->billing_info->token_id = 'abc123';
 
-    $this->assertEquals(
-      "<?xml version=\"1.0\"?>\n<subscription><account><account_code>account_code</account_code><billing_info><token_id>abc123</token_id></billing_info></account><plan_code>gold</plan_code><quantity>1</quantity><currency>USD</currency><subscription_add_ons></subscription_add_ons></subscription>\n",
-      $subscription->xml()
-    );
+    $this->assertXmlStringEqualsXmlString("
+    <subscription>
+      <account>
+        <account_code>account_code</account_code>
+        <billing_info>
+          <token_id>abc123</token_id>
+        </billing_info>
+      </account>
+      <plan_code>gold</plan_code>
+      <quantity>1</quantity>
+      <currency>USD</currency>
+      <subscription_add_ons></subscription_add_ons>
+    </subscription>", $subscription->xml());
   }
 
   public function testPreviewNewSubscription() {
@@ -264,10 +378,27 @@ class Recurly_SubscriptionTest extends Recurly_TestCase
 
     $subscription->quantity = 2;
 
-    $this->assertEquals(
-      "<?xml version=\"1.0\"?>\n<subscription><quantity>2</quantity><subscription_add_ons><subscription_add_on><add_on_code>marketing_emails</add_on_code><unit_amount_in_cents>5</unit_amount_in_cents><quantity>1</quantity></subscription_add_on><subscription_add_on><item>&lt;Recurly_Stub[item] href=https://api.recurlyqa.com/v2/items/mockitem&gt;</item><external_sku>tester-sku</external_sku><add_on_code>mockitem</add_on_code><unit_amount_in_cents>199</unit_amount_in_cents><quantity>1</quantity><revenue_schedule_type>never</revenue_schedule_type><tier_type>flat</tier_type><add_on_source>item</add_on_source></subscription_add_on></subscription_add_ons></subscription>\n",
-      $subscription->xml()
-    );
+    $this->assertXmlStringEqualsXmlString("
+    <subscription>
+      <quantity>2</quantity>
+      <subscription_add_ons>
+        <subscription_add_on>
+          <add_on_code>marketing_emails</add_on_code>
+          <unit_amount_in_cents>5</unit_amount_in_cents>
+          <quantity>1</quantity>
+        </subscription_add_on>
+        <subscription_add_on>
+          <item>&lt;Recurly_Stub[item] href=https://api.recurlyqa.com/v2/items/mockitem&gt;</item>
+          <external_sku>tester-sku</external_sku>
+          <add_on_code>mockitem</add_on_code>
+          <unit_amount_in_cents>199</unit_amount_in_cents>
+          <quantity>1</quantity>
+          <revenue_schedule_type>never</revenue_schedule_type>
+          <tier_type>flat</tier_type>
+          <add_on_source>item</add_on_source>
+        </subscription_add_on>
+      </subscription_add_ons>
+    </subscription>", $subscription->xml());
   }
 
   public function testUpdateSubscriptionWithAddOnsQuantityBasedPricing() {
@@ -277,10 +408,55 @@ class Recurly_SubscriptionTest extends Recurly_TestCase
     $subscription->collection_method = "automatic";
     $subscription->subscription_add_ons[0]->tiers[0]->ending_quantity = 50;
 
-    $this->assertEquals(
-      "<?xml version=\"1.0\"?>\n<subscription><subscription_add_ons><subscription_add_on><add_on_code>marketing_emails</add_on_code><quantity>1</quantity><revenue_schedule_type>evenly</revenue_schedule_type><tier_type>tiered</tier_type><tiers><tier><unit_amount_in_cents>123</unit_amount_in_cents><ending_quantity>50</ending_quantity></tier><tier><unit_amount_in_cents>80</unit_amount_in_cents><ending_quantity>999999999</ending_quantity></tier></tiers></subscription_add_on></subscription_add_ons><collection_method>automatic</collection_method></subscription>\n",
-      $subscription->xml()
-    );
+    $this->assertXmlStringEqualsXmlString("
+    <subscription>
+      <subscription_add_ons>
+        <subscription_add_on>
+          <add_on_code>marketing_emails</add_on_code>
+          <quantity>1</quantity>
+          <revenue_schedule_type>evenly</revenue_schedule_type>
+          <tier_type>tiered</tier_type>
+          <tiers>
+            <tier>
+              <unit_amount_in_cents>123</unit_amount_in_cents>
+              <ending_quantity>50</ending_quantity>
+            </tier>
+            <tier>
+              <unit_amount_in_cents>80</unit_amount_in_cents>
+              <ending_quantity>999999999</ending_quantity>
+            </tier>
+          </tiers>
+        </subscription_add_on>
+      </subscription_add_ons>
+      <collection_method>automatic</collection_method>
+    </subscription>", $subscription->xml());
+  }
+
+  public function testUpdateSubscriptionWithAddOnsPercentageBasedPricing() {
+    $this->client->addResponse('GET', '/subscriptions/6198b0c8d844f1c58633fa4953a4e961', 'subscriptions/show-200-PBP.xml');
+    $subscription = Recurly_Subscription::get('6198b0c8d844f1c58633fa4953a4e961', $this->client);
+    
+    $this->assertXmlStringEqualsXmlString("
+    <subscription>
+      <subscription_add_ons>
+        <subscription_add_on>
+          <add_on_code>teste 20220228 2</add_on_code>
+          <quantity>1</quantity>
+          <usage_timeframe>subscription_term</usage_timeframe>
+          <tier_type>tiered</tier_type>
+          <percentage_tiers>
+            <percentage_tier>
+              <ending_amount_in_cents>3000</ending_amount_in_cents>
+              <usage_percentage>30.0</usage_percentage>
+            </percentage_tier>
+            <percentage_tier>
+              <usage_percentage>60.0</usage_percentage>
+            </percentage_tier>
+          </percentage_tiers>
+          <add_on_source>plan_add_on</add_on_source>
+        </subscription_add_on>
+      </subscription_add_ons>
+    </subscription>", $subscription->xml());
   }
 
   public function testGetSubscriptionRedemptions() {

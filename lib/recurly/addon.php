@@ -67,9 +67,9 @@ class Recurly_Addon extends Recurly_Resource
   protected function getWriteableAttributes() {
     return array(
       'add_on_code', 'item_code', 'name', 'display_quantity', 'default_quantity',
-      'unit_amount_in_cents', 'accounting_code', 'tax_code',
+      'unit_amount_in_cents', 'accounting_code', 'tax_code', 'usage_timeframe',
       'measured_unit_id', 'usage_type', 'usage_percentage', 'add_on_type', 'revenue_schedule_type',
-      'optional', 'display_quantity_on_hosted_page', 'tier_type', 'tiers'
+      'optional', 'display_quantity_on_hosted_page', 'tier_type', 'tiers', 'percentage_tiers'
     );
   }
 }
