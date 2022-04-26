@@ -16,7 +16,7 @@ class Client extends BaseClient
      */
     protected function apiVersion(): string
     {
-        return "v2021-02-25";
+        return "v2022-01-01";
     }
 
   
@@ -46,7 +46,7 @@ class Client extends BaseClient
      * - $options['params']['state'] (string): Filter by state.
      *
      * @return \Recurly\Pager A list of sites.
-     * @link   https://developers.recurly.com/api/v2021-02-25#operation/list_sites
+     * @link   https://developers.recurly.com/api/v2022-01-01#operation/list_sites
      */
     public function listSites(array $options = []): \Recurly\Pager
     {
@@ -61,7 +61,7 @@ class Client extends BaseClient
      * @param array  $options Associative array of optional parameters
      *
      * @return \Recurly\Resources\Site A site.
-     * @link   https://developers.recurly.com/api/v2021-02-25#operation/get_site
+     * @link   https://developers.recurly.com/api/v2022-01-01#operation/get_site
      */
     public function getSite(string $site_id, array $options = []): \Recurly\Resources\Site
     {
@@ -102,7 +102,7 @@ class Client extends BaseClient
      * - $options['params']['past_due'] (string): Filter for accounts with an invoice in the `past_due` state.
      *
      * @return \Recurly\Pager A list of the site's accounts.
-     * @link   https://developers.recurly.com/api/v2021-02-25#operation/list_accounts
+     * @link   https://developers.recurly.com/api/v2022-01-01#operation/list_accounts
      */
     public function listAccounts(array $options = []): \Recurly\Pager
     {
@@ -117,7 +117,7 @@ class Client extends BaseClient
      * @param array $options Associative array of optional parameters
      *
      * @return \Recurly\Resources\Account An account.
-     * @link   https://developers.recurly.com/api/v2021-02-25#operation/create_account
+     * @link   https://developers.recurly.com/api/v2022-01-01#operation/create_account
      */
     public function createAccount(array $body, array $options = []): \Recurly\Resources\Account
     {
@@ -132,7 +132,7 @@ class Client extends BaseClient
      * @param array  $options    Associative array of optional parameters
      *
      * @return \Recurly\Resources\Account An account.
-     * @link   https://developers.recurly.com/api/v2021-02-25#operation/get_account
+     * @link   https://developers.recurly.com/api/v2022-01-01#operation/get_account
      */
     public function getAccount(string $account_id, array $options = []): \Recurly\Resources\Account
     {
@@ -148,7 +148,7 @@ class Client extends BaseClient
      * @param array  $options    Associative array of optional parameters
      *
      * @return \Recurly\Resources\Account An account.
-     * @link   https://developers.recurly.com/api/v2021-02-25#operation/update_account
+     * @link   https://developers.recurly.com/api/v2022-01-01#operation/update_account
      */
     public function updateAccount(string $account_id, array $body, array $options = []): \Recurly\Resources\Account
     {
@@ -163,7 +163,7 @@ class Client extends BaseClient
      * @param array  $options    Associative array of optional parameters
      *
      * @return \Recurly\Resources\Account An account.
-     * @link   https://developers.recurly.com/api/v2021-02-25#operation/deactivate_account
+     * @link   https://developers.recurly.com/api/v2022-01-01#operation/deactivate_account
      */
     public function deactivateAccount(string $account_id, array $options = []): \Recurly\Resources\Account
     {
@@ -178,7 +178,7 @@ class Client extends BaseClient
      * @param array  $options    Associative array of optional parameters
      *
      * @return \Recurly\Resources\AccountAcquisition An account's acquisition data.
-     * @link   https://developers.recurly.com/api/v2021-02-25#operation/get_account_acquisition
+     * @link   https://developers.recurly.com/api/v2022-01-01#operation/get_account_acquisition
      */
     public function getAccountAcquisition(string $account_id, array $options = []): \Recurly\Resources\AccountAcquisition
     {
@@ -194,7 +194,7 @@ class Client extends BaseClient
      * @param array  $options    Associative array of optional parameters
      *
      * @return \Recurly\Resources\AccountAcquisition An account's updated acquisition data.
-     * @link   https://developers.recurly.com/api/v2021-02-25#operation/update_account_acquisition
+     * @link   https://developers.recurly.com/api/v2022-01-01#operation/update_account_acquisition
      */
     public function updateAccountAcquisition(string $account_id, array $body, array $options = []): \Recurly\Resources\AccountAcquisition
     {
@@ -209,7 +209,7 @@ class Client extends BaseClient
      * @param array  $options    Associative array of optional parameters
      *
      * @return \Recurly\EmptyResource Acquisition data was succesfully deleted.
-     * @link   https://developers.recurly.com/api/v2021-02-25#operation/remove_account_acquisition
+     * @link   https://developers.recurly.com/api/v2022-01-01#operation/remove_account_acquisition
      */
     public function removeAccountAcquisition(string $account_id, array $options = []): \Recurly\EmptyResource
     {
@@ -224,7 +224,7 @@ class Client extends BaseClient
      * @param array  $options    Associative array of optional parameters
      *
      * @return \Recurly\Resources\Account An account.
-     * @link   https://developers.recurly.com/api/v2021-02-25#operation/reactivate_account
+     * @link   https://developers.recurly.com/api/v2022-01-01#operation/reactivate_account
      */
     public function reactivateAccount(string $account_id, array $options = []): \Recurly\Resources\Account
     {
@@ -239,7 +239,7 @@ class Client extends BaseClient
      * @param array  $options    Associative array of optional parameters
      *
      * @return \Recurly\Resources\AccountBalance An account's balance.
-     * @link   https://developers.recurly.com/api/v2021-02-25#operation/get_account_balance
+     * @link   https://developers.recurly.com/api/v2022-01-01#operation/get_account_balance
      */
     public function getAccountBalance(string $account_id, array $options = []): \Recurly\Resources\AccountBalance
     {
@@ -254,7 +254,7 @@ class Client extends BaseClient
      * @param array  $options    Associative array of optional parameters
      *
      * @return \Recurly\Resources\BillingInfo An account's billing information.
-     * @link   https://developers.recurly.com/api/v2021-02-25#operation/get_billing_info
+     * @link   https://developers.recurly.com/api/v2022-01-01#operation/get_billing_info
      */
     public function getBillingInfo(string $account_id, array $options = []): \Recurly\Resources\BillingInfo
     {
@@ -270,7 +270,7 @@ class Client extends BaseClient
      * @param array  $options    Associative array of optional parameters
      *
      * @return \Recurly\Resources\BillingInfo Updated billing information.
-     * @link   https://developers.recurly.com/api/v2021-02-25#operation/update_billing_info
+     * @link   https://developers.recurly.com/api/v2022-01-01#operation/update_billing_info
      */
     public function updateBillingInfo(string $account_id, array $body, array $options = []): \Recurly\Resources\BillingInfo
     {
@@ -285,7 +285,7 @@ class Client extends BaseClient
      * @param array  $options    Associative array of optional parameters
      *
      * @return \Recurly\EmptyResource Billing information deleted
-     * @link   https://developers.recurly.com/api/v2021-02-25#operation/remove_billing_info
+     * @link   https://developers.recurly.com/api/v2022-01-01#operation/remove_billing_info
      */
     public function removeBillingInfo(string $account_id, array $options = []): \Recurly\EmptyResource
     {
@@ -301,7 +301,7 @@ class Client extends BaseClient
      * @param array  $options    Associative array of optional parameters
      *
      * @return \Recurly\Resources\Transaction Transaction information from verify.
-     * @link   https://developers.recurly.com/api/v2021-02-25#operation/verify_billing_info
+     * @link   https://developers.recurly.com/api/v2022-01-01#operation/verify_billing_info
      */
     public function verifyBillingInfo(string $account_id, array $body = [], array $options = []): \Recurly\Resources\Transaction
     {
@@ -337,7 +337,7 @@ class Client extends BaseClient
      *        **Note:** this value is an ISO8601 timestamp. A partial timestamp that does not include a time zone will default to UTC.
      *
      * @return \Recurly\Pager A list of the the billing information for an account's
-     * @link   https://developers.recurly.com/api/v2021-02-25#operation/list_billing_infos
+     * @link   https://developers.recurly.com/api/v2022-01-01#operation/list_billing_infos
      */
     public function listBillingInfos(string $account_id, array $options = []): \Recurly\Pager
     {
@@ -353,7 +353,7 @@ class Client extends BaseClient
      * @param array  $options    Associative array of optional parameters
      *
      * @return \Recurly\Resources\BillingInfo Updated billing information.
-     * @link   https://developers.recurly.com/api/v2021-02-25#operation/create_billing_info
+     * @link   https://developers.recurly.com/api/v2022-01-01#operation/create_billing_info
      */
     public function createBillingInfo(string $account_id, array $body, array $options = []): \Recurly\Resources\BillingInfo
     {
@@ -369,7 +369,7 @@ class Client extends BaseClient
      * @param array  $options         Associative array of optional parameters
      *
      * @return \Recurly\Resources\BillingInfo A billing info.
-     * @link   https://developers.recurly.com/api/v2021-02-25#operation/get_a_billing_info
+     * @link   https://developers.recurly.com/api/v2022-01-01#operation/get_a_billing_info
      */
     public function getABillingInfo(string $account_id, string $billing_info_id, array $options = []): \Recurly\Resources\BillingInfo
     {
@@ -386,7 +386,7 @@ class Client extends BaseClient
      * @param array  $options         Associative array of optional parameters
      *
      * @return \Recurly\Resources\BillingInfo Updated billing information.
-     * @link   https://developers.recurly.com/api/v2021-02-25#operation/update_a_billing_info
+     * @link   https://developers.recurly.com/api/v2022-01-01#operation/update_a_billing_info
      */
     public function updateABillingInfo(string $account_id, string $billing_info_id, array $body, array $options = []): \Recurly\Resources\BillingInfo
     {
@@ -402,7 +402,7 @@ class Client extends BaseClient
      * @param array  $options         Associative array of optional parameters
      *
      * @return \Recurly\EmptyResource Billing information deleted
-     * @link   https://developers.recurly.com/api/v2021-02-25#operation/remove_a_billing_info
+     * @link   https://developers.recurly.com/api/v2022-01-01#operation/remove_a_billing_info
      */
     public function removeABillingInfo(string $account_id, string $billing_info_id, array $options = []): \Recurly\EmptyResource
     {
@@ -439,7 +439,7 @@ class Client extends BaseClient
      * - $options['params']['state'] (string): Filter by state.
      *
      * @return \Recurly\Pager A list of the the coupon redemptions on an account.
-     * @link   https://developers.recurly.com/api/v2021-02-25#operation/list_account_coupon_redemptions
+     * @link   https://developers.recurly.com/api/v2022-01-01#operation/list_account_coupon_redemptions
      */
     public function listAccountCouponRedemptions(string $account_id, array $options = []): \Recurly\Pager
     {
@@ -454,7 +454,7 @@ class Client extends BaseClient
      * @param array  $options    Associative array of optional parameters
      *
      * @return \Recurly\Pager Active coupon redemptions on an account.
-     * @link   https://developers.recurly.com/api/v2021-02-25#operation/list_active_coupon_redemptions
+     * @link   https://developers.recurly.com/api/v2022-01-01#operation/list_active_coupon_redemptions
      */
     public function listActiveCouponRedemptions(string $account_id, array $options = []): \Recurly\Pager
     {
@@ -470,7 +470,7 @@ class Client extends BaseClient
      * @param array  $options    Associative array of optional parameters
      *
      * @return \Recurly\Resources\CouponRedemption Returns the new coupon redemption.
-     * @link   https://developers.recurly.com/api/v2021-02-25#operation/create_coupon_redemption
+     * @link   https://developers.recurly.com/api/v2022-01-01#operation/create_coupon_redemption
      */
     public function createCouponRedemption(string $account_id, array $body, array $options = []): \Recurly\Resources\CouponRedemption
     {
@@ -485,7 +485,7 @@ class Client extends BaseClient
      * @param array  $options    Associative array of optional parameters
      *
      * @return \Recurly\Resources\CouponRedemption Coupon redemption deleted.
-     * @link   https://developers.recurly.com/api/v2021-02-25#operation/remove_coupon_redemption
+     * @link   https://developers.recurly.com/api/v2022-01-01#operation/remove_coupon_redemption
      */
     public function removeCouponRedemption(string $account_id, array $options = []): \Recurly\Resources\CouponRedemption
     {
@@ -512,7 +512,7 @@ class Client extends BaseClient
      *        **Note:** this value is an ISO8601 timestamp. A partial timestamp that does not include a time zone will default to UTC.
      *
      * @return \Recurly\Pager A list of the account's credit payments.
-     * @link   https://developers.recurly.com/api/v2021-02-25#operation/list_account_credit_payments
+     * @link   https://developers.recurly.com/api/v2022-01-01#operation/list_account_credit_payments
      */
     public function listAccountCreditPayments(string $account_id, array $options = []): \Recurly\Pager
     {
@@ -555,7 +555,7 @@ class Client extends BaseClient
      *        - `type=legacy`, only legacy invoices will be returned.
      *
      * @return \Recurly\Pager A list of the account's invoices.
-     * @link   https://developers.recurly.com/api/v2021-02-25#operation/list_account_invoices
+     * @link   https://developers.recurly.com/api/v2022-01-01#operation/list_account_invoices
      */
     public function listAccountInvoices(string $account_id, array $options = []): \Recurly\Pager
     {
@@ -571,7 +571,7 @@ class Client extends BaseClient
      * @param array  $options    Associative array of optional parameters
      *
      * @return \Recurly\Resources\InvoiceCollection Returns the new invoices.
-     * @link   https://developers.recurly.com/api/v2021-02-25#operation/create_invoice
+     * @link   https://developers.recurly.com/api/v2022-01-01#operation/create_invoice
      */
     public function createInvoice(string $account_id, array $body, array $options = []): \Recurly\Resources\InvoiceCollection
     {
@@ -587,7 +587,7 @@ class Client extends BaseClient
      * @param array  $options    Associative array of optional parameters
      *
      * @return \Recurly\Resources\InvoiceCollection Returns the invoice previews.
-     * @link   https://developers.recurly.com/api/v2021-02-25#operation/preview_invoice
+     * @link   https://developers.recurly.com/api/v2022-01-01#operation/preview_invoice
      */
     public function previewInvoice(string $account_id, array $body, array $options = []): \Recurly\Resources\InvoiceCollection
     {
@@ -628,7 +628,7 @@ class Client extends BaseClient
      * - $options['params']['type'] (string): Filter by type field.
      *
      * @return \Recurly\Pager A list of the account's line items.
-     * @link   https://developers.recurly.com/api/v2021-02-25#operation/list_account_line_items
+     * @link   https://developers.recurly.com/api/v2022-01-01#operation/list_account_line_items
      */
     public function listAccountLineItems(string $account_id, array $options = []): \Recurly\Pager
     {
@@ -644,7 +644,7 @@ class Client extends BaseClient
      * @param array  $options    Associative array of optional parameters
      *
      * @return \Recurly\Resources\LineItem Returns the new line item.
-     * @link   https://developers.recurly.com/api/v2021-02-25#operation/create_line_item
+     * @link   https://developers.recurly.com/api/v2022-01-01#operation/create_line_item
      */
     public function createLineItem(string $account_id, array $body, array $options = []): \Recurly\Resources\LineItem
     {
@@ -673,7 +673,7 @@ class Client extends BaseClient
      *          returned at once you can sort the records yourself.
      *
      * @return \Recurly\Pager A list of an account's notes.
-     * @link   https://developers.recurly.com/api/v2021-02-25#operation/list_account_notes
+     * @link   https://developers.recurly.com/api/v2022-01-01#operation/list_account_notes
      */
     public function listAccountNotes(string $account_id, array $options = []): \Recurly\Pager
     {
@@ -689,7 +689,7 @@ class Client extends BaseClient
      * @param array  $options         Associative array of optional parameters
      *
      * @return \Recurly\Resources\AccountNote An account note.
-     * @link   https://developers.recurly.com/api/v2021-02-25#operation/get_account_note
+     * @link   https://developers.recurly.com/api/v2022-01-01#operation/get_account_note
      */
     public function getAccountNote(string $account_id, string $account_note_id, array $options = []): \Recurly\Resources\AccountNote
     {
@@ -727,7 +727,7 @@ class Client extends BaseClient
      *        **Note:** this value is an ISO8601 timestamp. A partial timestamp that does not include a time zone will default to UTC.
      *
      * @return \Recurly\Pager A list of an account's shipping addresses.
-     * @link   https://developers.recurly.com/api/v2021-02-25#operation/list_shipping_addresses
+     * @link   https://developers.recurly.com/api/v2022-01-01#operation/list_shipping_addresses
      */
     public function listShippingAddresses(string $account_id, array $options = []): \Recurly\Pager
     {
@@ -743,7 +743,7 @@ class Client extends BaseClient
      * @param array  $options    Associative array of optional parameters
      *
      * @return \Recurly\Resources\ShippingAddress Returns the new shipping address.
-     * @link   https://developers.recurly.com/api/v2021-02-25#operation/create_shipping_address
+     * @link   https://developers.recurly.com/api/v2022-01-01#operation/create_shipping_address
      */
     public function createShippingAddress(string $account_id, array $body, array $options = []): \Recurly\Resources\ShippingAddress
     {
@@ -759,7 +759,7 @@ class Client extends BaseClient
      * @param array  $options             Associative array of optional parameters
      *
      * @return \Recurly\Resources\ShippingAddress A shipping address.
-     * @link   https://developers.recurly.com/api/v2021-02-25#operation/get_shipping_address
+     * @link   https://developers.recurly.com/api/v2022-01-01#operation/get_shipping_address
      */
     public function getShippingAddress(string $account_id, string $shipping_address_id, array $options = []): \Recurly\Resources\ShippingAddress
     {
@@ -776,7 +776,7 @@ class Client extends BaseClient
      * @param array  $options             Associative array of optional parameters
      *
      * @return \Recurly\Resources\ShippingAddress The updated shipping address.
-     * @link   https://developers.recurly.com/api/v2021-02-25#operation/update_shipping_address
+     * @link   https://developers.recurly.com/api/v2022-01-01#operation/update_shipping_address
      */
     public function updateShippingAddress(string $account_id, string $shipping_address_id, array $body, array $options = []): \Recurly\Resources\ShippingAddress
     {
@@ -792,7 +792,7 @@ class Client extends BaseClient
      * @param array  $options             Associative array of optional parameters
      *
      * @return \Recurly\EmptyResource Shipping address deleted.
-     * @link   https://developers.recurly.com/api/v2021-02-25#operation/remove_shipping_address
+     * @link   https://developers.recurly.com/api/v2022-01-01#operation/remove_shipping_address
      */
     public function removeShippingAddress(string $account_id, string $shipping_address_id, array $options = []): \Recurly\EmptyResource
     {
@@ -835,7 +835,7 @@ class Client extends BaseClient
      *        - When `state=live`, only subscriptions that are in an active, canceled, or future state or are in trial will be returned.
      *
      * @return \Recurly\Pager A list of the account's subscriptions.
-     * @link   https://developers.recurly.com/api/v2021-02-25#operation/list_account_subscriptions
+     * @link   https://developers.recurly.com/api/v2022-01-01#operation/list_account_subscriptions
      */
     public function listAccountSubscriptions(string $account_id, array $options = []): \Recurly\Pager
     {
@@ -875,7 +875,7 @@ class Client extends BaseClient
      * - $options['params']['success'] (string): Filter by success field.
      *
      * @return \Recurly\Pager A list of the account's transactions.
-     * @link   https://developers.recurly.com/api/v2021-02-25#operation/list_account_transactions
+     * @link   https://developers.recurly.com/api/v2022-01-01#operation/list_account_transactions
      */
     public function listAccountTransactions(string $account_id, array $options = []): \Recurly\Pager
     {
@@ -917,7 +917,7 @@ class Client extends BaseClient
      * - $options['params']['past_due'] (string): Filter for accounts with an invoice in the `past_due` state.
      *
      * @return \Recurly\Pager A list of an account's child accounts.
-     * @link   https://developers.recurly.com/api/v2021-02-25#operation/list_child_accounts
+     * @link   https://developers.recurly.com/api/v2022-01-01#operation/list_child_accounts
      */
     public function listChildAccounts(string $account_id, array $options = []): \Recurly\Pager
     {
@@ -954,7 +954,7 @@ class Client extends BaseClient
      *        **Note:** this value is an ISO8601 timestamp. A partial timestamp that does not include a time zone will default to UTC.
      *
      * @return \Recurly\Pager A list of the site's account acquisition data.
-     * @link   https://developers.recurly.com/api/v2021-02-25#operation/list_account_acquisition
+     * @link   https://developers.recurly.com/api/v2022-01-01#operation/list_account_acquisition
      */
     public function listAccountAcquisition(array $options = []): \Recurly\Pager
     {
@@ -991,7 +991,7 @@ class Client extends BaseClient
      *        **Note:** this value is an ISO8601 timestamp. A partial timestamp that does not include a time zone will default to UTC.
      *
      * @return \Recurly\Pager A list of the site's coupons.
-     * @link   https://developers.recurly.com/api/v2021-02-25#operation/list_coupons
+     * @link   https://developers.recurly.com/api/v2022-01-01#operation/list_coupons
      */
     public function listCoupons(array $options = []): \Recurly\Pager
     {
@@ -1006,7 +1006,7 @@ class Client extends BaseClient
      * @param array $options Associative array of optional parameters
      *
      * @return \Recurly\Resources\Coupon A new coupon.
-     * @link   https://developers.recurly.com/api/v2021-02-25#operation/create_coupon
+     * @link   https://developers.recurly.com/api/v2022-01-01#operation/create_coupon
      */
     public function createCoupon(array $body, array $options = []): \Recurly\Resources\Coupon
     {
@@ -1021,7 +1021,7 @@ class Client extends BaseClient
      * @param array  $options   Associative array of optional parameters
      *
      * @return \Recurly\Resources\Coupon A coupon.
-     * @link   https://developers.recurly.com/api/v2021-02-25#operation/get_coupon
+     * @link   https://developers.recurly.com/api/v2022-01-01#operation/get_coupon
      */
     public function getCoupon(string $coupon_id, array $options = []): \Recurly\Resources\Coupon
     {
@@ -1037,7 +1037,7 @@ class Client extends BaseClient
      * @param array  $options   Associative array of optional parameters
      *
      * @return \Recurly\Resources\Coupon The updated coupon.
-     * @link   https://developers.recurly.com/api/v2021-02-25#operation/update_coupon
+     * @link   https://developers.recurly.com/api/v2022-01-01#operation/update_coupon
      */
     public function updateCoupon(string $coupon_id, array $body, array $options = []): \Recurly\Resources\Coupon
     {
@@ -1052,7 +1052,7 @@ class Client extends BaseClient
      * @param array  $options   Associative array of optional parameters
      *
      * @return \Recurly\Resources\Coupon The expired Coupon
-     * @link   https://developers.recurly.com/api/v2021-02-25#operation/deactivate_coupon
+     * @link   https://developers.recurly.com/api/v2022-01-01#operation/deactivate_coupon
      */
     public function deactivateCoupon(string $coupon_id, array $options = []): \Recurly\Resources\Coupon
     {
@@ -1070,7 +1070,7 @@ class Client extends BaseClient
      * @return \Recurly\Resources\UniqueCouponCodeParams A set of parameters that can be passed to the `list_unique_coupon_codes`
 endpoint to obtain only the newly generated `UniqueCouponCodes`.
 
-     * @link https://developers.recurly.com/api/v2021-02-25#operation/generate_unique_coupon_codes
+     * @link https://developers.recurly.com/api/v2022-01-01#operation/generate_unique_coupon_codes
      */
     public function generateUniqueCouponCodes(string $coupon_id, array $body, array $options = []): \Recurly\Resources\UniqueCouponCodeParams
     {
@@ -1086,7 +1086,7 @@ endpoint to obtain only the newly generated `UniqueCouponCodes`.
      * @param array  $options   Associative array of optional parameters
      *
      * @return \Recurly\Resources\Coupon The restored coupon.
-     * @link   https://developers.recurly.com/api/v2021-02-25#operation/restore_coupon
+     * @link   https://developers.recurly.com/api/v2022-01-01#operation/restore_coupon
      */
     public function restoreCoupon(string $coupon_id, array $body, array $options = []): \Recurly\Resources\Coupon
     {
@@ -1124,7 +1124,7 @@ endpoint to obtain only the newly generated `UniqueCouponCodes`.
      *        **Note:** this value is an ISO8601 timestamp. A partial timestamp that does not include a time zone will default to UTC.
      *
      * @return \Recurly\Pager A list of unique coupon codes that were generated
-     * @link   https://developers.recurly.com/api/v2021-02-25#operation/list_unique_coupon_codes
+     * @link   https://developers.recurly.com/api/v2022-01-01#operation/list_unique_coupon_codes
      */
     public function listUniqueCouponCodes(string $coupon_id, array $options = []): \Recurly\Pager
     {
@@ -1150,7 +1150,7 @@ endpoint to obtain only the newly generated `UniqueCouponCodes`.
      *        **Note:** this value is an ISO8601 timestamp. A partial timestamp that does not include a time zone will default to UTC.
      *
      * @return \Recurly\Pager A list of the site's credit payments.
-     * @link   https://developers.recurly.com/api/v2021-02-25#operation/list_credit_payments
+     * @link   https://developers.recurly.com/api/v2022-01-01#operation/list_credit_payments
      */
     public function listCreditPayments(array $options = []): \Recurly\Pager
     {
@@ -1165,7 +1165,7 @@ endpoint to obtain only the newly generated `UniqueCouponCodes`.
      * @param array  $options           Associative array of optional parameters
      *
      * @return \Recurly\Resources\CreditPayment A credit payment.
-     * @link   https://developers.recurly.com/api/v2021-02-25#operation/get_credit_payment
+     * @link   https://developers.recurly.com/api/v2022-01-01#operation/get_credit_payment
      */
     public function getCreditPayment(string $credit_payment_id, array $options = []): \Recurly\Resources\CreditPayment
     {
@@ -1203,7 +1203,7 @@ endpoint to obtain only the newly generated `UniqueCouponCodes`.
      * - $options['params']['related_type'] (string): Filter by related type.
      *
      * @return \Recurly\Pager A list of the site's custom field definitions.
-     * @link   https://developers.recurly.com/api/v2021-02-25#operation/list_custom_field_definitions
+     * @link   https://developers.recurly.com/api/v2022-01-01#operation/list_custom_field_definitions
      */
     public function listCustomFieldDefinitions(array $options = []): \Recurly\Pager
     {
@@ -1218,7 +1218,7 @@ endpoint to obtain only the newly generated `UniqueCouponCodes`.
      * @param array  $options                    Associative array of optional parameters
      *
      * @return \Recurly\Resources\CustomFieldDefinition An custom field definition.
-     * @link   https://developers.recurly.com/api/v2021-02-25#operation/get_custom_field_definition
+     * @link   https://developers.recurly.com/api/v2022-01-01#operation/get_custom_field_definition
      */
     public function getCustomFieldDefinition(string $custom_field_definition_id, array $options = []): \Recurly\Resources\CustomFieldDefinition
     {
@@ -1260,7 +1260,7 @@ endpoint to obtain only the newly generated `UniqueCouponCodes`.
      * - $options['params']['past_due'] (string): Filter for accounts with an invoice in the `past_due` state.
      *
      * @return \Recurly\Pager A list of an invoice template's associated accounts.
-     * @link   https://developers.recurly.com/api/v2021-02-25#operation/list_invoice_template_accounts
+     * @link   https://developers.recurly.com/api/v2022-01-01#operation/list_invoice_template_accounts
      */
     public function listInvoiceTemplateAccounts(string $invoice_template_id, array $options = []): \Recurly\Pager
     {
@@ -1298,7 +1298,7 @@ endpoint to obtain only the newly generated `UniqueCouponCodes`.
      * - $options['params']['state'] (string): Filter by state.
      *
      * @return \Recurly\Pager A list of the site's items.
-     * @link   https://developers.recurly.com/api/v2021-02-25#operation/list_items
+     * @link   https://developers.recurly.com/api/v2022-01-01#operation/list_items
      */
     public function listItems(array $options = []): \Recurly\Pager
     {
@@ -1313,7 +1313,7 @@ endpoint to obtain only the newly generated `UniqueCouponCodes`.
      * @param array $options Associative array of optional parameters
      *
      * @return \Recurly\Resources\Item A new item.
-     * @link   https://developers.recurly.com/api/v2021-02-25#operation/create_item
+     * @link   https://developers.recurly.com/api/v2022-01-01#operation/create_item
      */
     public function createItem(array $body, array $options = []): \Recurly\Resources\Item
     {
@@ -1328,7 +1328,7 @@ endpoint to obtain only the newly generated `UniqueCouponCodes`.
      * @param array  $options Associative array of optional parameters
      *
      * @return \Recurly\Resources\Item An item.
-     * @link   https://developers.recurly.com/api/v2021-02-25#operation/get_item
+     * @link   https://developers.recurly.com/api/v2022-01-01#operation/get_item
      */
     public function getItem(string $item_id, array $options = []): \Recurly\Resources\Item
     {
@@ -1344,7 +1344,7 @@ endpoint to obtain only the newly generated `UniqueCouponCodes`.
      * @param array  $options Associative array of optional parameters
      *
      * @return \Recurly\Resources\Item The updated item.
-     * @link   https://developers.recurly.com/api/v2021-02-25#operation/update_item
+     * @link   https://developers.recurly.com/api/v2022-01-01#operation/update_item
      */
     public function updateItem(string $item_id, array $body, array $options = []): \Recurly\Resources\Item
     {
@@ -1359,7 +1359,7 @@ endpoint to obtain only the newly generated `UniqueCouponCodes`.
      * @param array  $options Associative array of optional parameters
      *
      * @return \Recurly\Resources\Item An item.
-     * @link   https://developers.recurly.com/api/v2021-02-25#operation/deactivate_item
+     * @link   https://developers.recurly.com/api/v2022-01-01#operation/deactivate_item
      */
     public function deactivateItem(string $item_id, array $options = []): \Recurly\Resources\Item
     {
@@ -1374,7 +1374,7 @@ endpoint to obtain only the newly generated `UniqueCouponCodes`.
      * @param array  $options Associative array of optional parameters
      *
      * @return \Recurly\Resources\Item An item.
-     * @link   https://developers.recurly.com/api/v2021-02-25#operation/reactivate_item
+     * @link   https://developers.recurly.com/api/v2022-01-01#operation/reactivate_item
      */
     public function reactivateItem(string $item_id, array $options = []): \Recurly\Resources\Item
     {
@@ -1412,7 +1412,7 @@ endpoint to obtain only the newly generated `UniqueCouponCodes`.
      * - $options['params']['state'] (string): Filter by state.
      *
      * @return \Recurly\Pager A list of the site's measured units.
-     * @link   https://developers.recurly.com/api/v2021-02-25#operation/list_measured_unit
+     * @link   https://developers.recurly.com/api/v2022-01-01#operation/list_measured_unit
      */
     public function listMeasuredUnit(array $options = []): \Recurly\Pager
     {
@@ -1427,7 +1427,7 @@ endpoint to obtain only the newly generated `UniqueCouponCodes`.
      * @param array $options Associative array of optional parameters
      *
      * @return \Recurly\Resources\MeasuredUnit A new measured unit.
-     * @link   https://developers.recurly.com/api/v2021-02-25#operation/create_measured_unit
+     * @link   https://developers.recurly.com/api/v2022-01-01#operation/create_measured_unit
      */
     public function createMeasuredUnit(array $body, array $options = []): \Recurly\Resources\MeasuredUnit
     {
@@ -1442,7 +1442,7 @@ endpoint to obtain only the newly generated `UniqueCouponCodes`.
      * @param array  $options          Associative array of optional parameters
      *
      * @return \Recurly\Resources\MeasuredUnit An item.
-     * @link   https://developers.recurly.com/api/v2021-02-25#operation/get_measured_unit
+     * @link   https://developers.recurly.com/api/v2022-01-01#operation/get_measured_unit
      */
     public function getMeasuredUnit(string $measured_unit_id, array $options = []): \Recurly\Resources\MeasuredUnit
     {
@@ -1458,7 +1458,7 @@ endpoint to obtain only the newly generated `UniqueCouponCodes`.
      * @param array  $options          Associative array of optional parameters
      *
      * @return \Recurly\Resources\MeasuredUnit The updated measured_unit.
-     * @link   https://developers.recurly.com/api/v2021-02-25#operation/update_measured_unit
+     * @link   https://developers.recurly.com/api/v2022-01-01#operation/update_measured_unit
      */
     public function updateMeasuredUnit(string $measured_unit_id, array $body, array $options = []): \Recurly\Resources\MeasuredUnit
     {
@@ -1473,7 +1473,7 @@ endpoint to obtain only the newly generated `UniqueCouponCodes`.
      * @param array  $options          Associative array of optional parameters
      *
      * @return \Recurly\Resources\MeasuredUnit A measured unit.
-     * @link   https://developers.recurly.com/api/v2021-02-25#operation/remove_measured_unit
+     * @link   https://developers.recurly.com/api/v2022-01-01#operation/remove_measured_unit
      */
     public function removeMeasuredUnit(string $measured_unit_id, array $options = []): \Recurly\Resources\MeasuredUnit
     {
@@ -1515,7 +1515,7 @@ endpoint to obtain only the newly generated `UniqueCouponCodes`.
      *        - `type=legacy`, only legacy invoices will be returned.
      *
      * @return \Recurly\Pager A list of the site's invoices.
-     * @link   https://developers.recurly.com/api/v2021-02-25#operation/list_invoices
+     * @link   https://developers.recurly.com/api/v2022-01-01#operation/list_invoices
      */
     public function listInvoices(array $options = []): \Recurly\Pager
     {
@@ -1530,7 +1530,7 @@ endpoint to obtain only the newly generated `UniqueCouponCodes`.
      * @param array  $options    Associative array of optional parameters
      *
      * @return \Recurly\Resources\Invoice An invoice.
-     * @link   https://developers.recurly.com/api/v2021-02-25#operation/get_invoice
+     * @link   https://developers.recurly.com/api/v2022-01-01#operation/get_invoice
      */
     public function getInvoice(string $invoice_id, array $options = []): \Recurly\Resources\Invoice
     {
@@ -1546,7 +1546,7 @@ endpoint to obtain only the newly generated `UniqueCouponCodes`.
      * @param array  $options    Associative array of optional parameters
      *
      * @return \Recurly\Resources\Invoice An invoice.
-     * @link   https://developers.recurly.com/api/v2021-02-25#operation/update_invoice
+     * @link   https://developers.recurly.com/api/v2022-01-01#operation/update_invoice
      */
     public function updateInvoice(string $invoice_id, array $body, array $options = []): \Recurly\Resources\Invoice
     {
@@ -1561,7 +1561,7 @@ endpoint to obtain only the newly generated `UniqueCouponCodes`.
      * @param array  $options    Associative array of optional parameters
      *
      * @return \Recurly\Resources\BinaryFile An invoice as a PDF.
-     * @link   https://developers.recurly.com/api/v2021-02-25#operation/get_invoice_pdf
+     * @link   https://developers.recurly.com/api/v2022-01-01#operation/get_invoice_pdf
      */
     public function getInvoicePdf(string $invoice_id, array $options = []): \Recurly\Resources\BinaryFile
     {
@@ -1577,7 +1577,7 @@ endpoint to obtain only the newly generated `UniqueCouponCodes`.
      * @param array  $options    Associative array of optional parameters
      *
      * @return \Recurly\Resources\Invoice The updated invoice.
-     * @link   https://developers.recurly.com/api/v2021-02-25#operation/collect_invoice
+     * @link   https://developers.recurly.com/api/v2022-01-01#operation/collect_invoice
      */
     public function collectInvoice(string $invoice_id, array $body = [], array $options = []): \Recurly\Resources\Invoice
     {
@@ -1592,7 +1592,7 @@ endpoint to obtain only the newly generated `UniqueCouponCodes`.
      * @param array  $options    Associative array of optional parameters
      *
      * @return \Recurly\Resources\Invoice The updated invoice.
-     * @link   https://developers.recurly.com/api/v2021-02-25#operation/mark_invoice_failed
+     * @link   https://developers.recurly.com/api/v2022-01-01#operation/mark_invoice_failed
      */
     public function markInvoiceFailed(string $invoice_id, array $options = []): \Recurly\Resources\Invoice
     {
@@ -1607,7 +1607,7 @@ endpoint to obtain only the newly generated `UniqueCouponCodes`.
      * @param array  $options    Associative array of optional parameters
      *
      * @return \Recurly\Resources\Invoice The updated invoice.
-     * @link   https://developers.recurly.com/api/v2021-02-25#operation/mark_invoice_successful
+     * @link   https://developers.recurly.com/api/v2022-01-01#operation/mark_invoice_successful
      */
     public function markInvoiceSuccessful(string $invoice_id, array $options = []): \Recurly\Resources\Invoice
     {
@@ -1622,7 +1622,7 @@ endpoint to obtain only the newly generated `UniqueCouponCodes`.
      * @param array  $options    Associative array of optional parameters
      *
      * @return \Recurly\Resources\Invoice The updated invoice.
-     * @link   https://developers.recurly.com/api/v2021-02-25#operation/reopen_invoice
+     * @link   https://developers.recurly.com/api/v2022-01-01#operation/reopen_invoice
      */
     public function reopenInvoice(string $invoice_id, array $options = []): \Recurly\Resources\Invoice
     {
@@ -1637,7 +1637,7 @@ endpoint to obtain only the newly generated `UniqueCouponCodes`.
      * @param array  $options    Associative array of optional parameters
      *
      * @return \Recurly\Resources\Invoice The updated invoice.
-     * @link   https://developers.recurly.com/api/v2021-02-25#operation/void_invoice
+     * @link   https://developers.recurly.com/api/v2022-01-01#operation/void_invoice
      */
     public function voidInvoice(string $invoice_id, array $options = []): \Recurly\Resources\Invoice
     {
@@ -1653,7 +1653,7 @@ endpoint to obtain only the newly generated `UniqueCouponCodes`.
      * @param array  $options    Associative array of optional parameters
      *
      * @return \Recurly\Resources\Transaction The recorded transaction.
-     * @link   https://developers.recurly.com/api/v2021-02-25#operation/record_external_transaction
+     * @link   https://developers.recurly.com/api/v2022-01-01#operation/record_external_transaction
      */
     public function recordExternalTransaction(string $invoice_id, array $body, array $options = []): \Recurly\Resources\Transaction
     {
@@ -1694,7 +1694,7 @@ endpoint to obtain only the newly generated `UniqueCouponCodes`.
      * - $options['params']['type'] (string): Filter by type field.
      *
      * @return \Recurly\Pager A list of the invoice's line items.
-     * @link   https://developers.recurly.com/api/v2021-02-25#operation/list_invoice_line_items
+     * @link   https://developers.recurly.com/api/v2022-01-01#operation/list_invoice_line_items
      */
     public function listInvoiceLineItems(string $invoice_id, array $options = []): \Recurly\Pager
     {
@@ -1730,7 +1730,7 @@ endpoint to obtain only the newly generated `UniqueCouponCodes`.
      *        **Note:** this value is an ISO8601 timestamp. A partial timestamp that does not include a time zone will default to UTC.
      *
      * @return \Recurly\Pager A list of the the coupon redemptions associated with the invoice.
-     * @link   https://developers.recurly.com/api/v2021-02-25#operation/list_invoice_coupon_redemptions
+     * @link   https://developers.recurly.com/api/v2022-01-01#operation/list_invoice_coupon_redemptions
      */
     public function listInvoiceCouponRedemptions(string $invoice_id, array $options = []): \Recurly\Pager
     {
@@ -1745,7 +1745,7 @@ endpoint to obtain only the newly generated `UniqueCouponCodes`.
      * @param array  $options    Associative array of optional parameters
      *
      * @return \Recurly\Pager A list of the credit or charge invoices associated with the invoice.
-     * @link   https://developers.recurly.com/api/v2021-02-25#operation/list_related_invoices
+     * @link   https://developers.recurly.com/api/v2022-01-01#operation/list_related_invoices
      */
     public function listRelatedInvoices(string $invoice_id, array $options = []): \Recurly\Pager
     {
@@ -1761,7 +1761,7 @@ endpoint to obtain only the newly generated `UniqueCouponCodes`.
      * @param array  $options    Associative array of optional parameters
      *
      * @return \Recurly\Resources\Invoice Returns the new credit invoice.
-     * @link   https://developers.recurly.com/api/v2021-02-25#operation/refund_invoice
+     * @link   https://developers.recurly.com/api/v2022-01-01#operation/refund_invoice
      */
     public function refundInvoice(string $invoice_id, array $body, array $options = []): \Recurly\Resources\Invoice
     {
@@ -1801,7 +1801,7 @@ endpoint to obtain only the newly generated `UniqueCouponCodes`.
      * - $options['params']['type'] (string): Filter by type field.
      *
      * @return \Recurly\Pager A list of the site's line items.
-     * @link   https://developers.recurly.com/api/v2021-02-25#operation/list_line_items
+     * @link   https://developers.recurly.com/api/v2022-01-01#operation/list_line_items
      */
     public function listLineItems(array $options = []): \Recurly\Pager
     {
@@ -1816,7 +1816,7 @@ endpoint to obtain only the newly generated `UniqueCouponCodes`.
      * @param array  $options      Associative array of optional parameters
      *
      * @return \Recurly\Resources\LineItem A line item.
-     * @link   https://developers.recurly.com/api/v2021-02-25#operation/get_line_item
+     * @link   https://developers.recurly.com/api/v2022-01-01#operation/get_line_item
      */
     public function getLineItem(string $line_item_id, array $options = []): \Recurly\Resources\LineItem
     {
@@ -1831,7 +1831,7 @@ endpoint to obtain only the newly generated `UniqueCouponCodes`.
      * @param array  $options      Associative array of optional parameters
      *
      * @return \Recurly\EmptyResource Line item deleted.
-     * @link   https://developers.recurly.com/api/v2021-02-25#operation/remove_line_item
+     * @link   https://developers.recurly.com/api/v2022-01-01#operation/remove_line_item
      */
     public function removeLineItem(string $line_item_id, array $options = []): \Recurly\EmptyResource
     {
@@ -1869,7 +1869,7 @@ endpoint to obtain only the newly generated `UniqueCouponCodes`.
      * - $options['params']['state'] (string): Filter by state.
      *
      * @return \Recurly\Pager A list of plans.
-     * @link   https://developers.recurly.com/api/v2021-02-25#operation/list_plans
+     * @link   https://developers.recurly.com/api/v2022-01-01#operation/list_plans
      */
     public function listPlans(array $options = []): \Recurly\Pager
     {
@@ -1884,7 +1884,7 @@ endpoint to obtain only the newly generated `UniqueCouponCodes`.
      * @param array $options Associative array of optional parameters
      *
      * @return \Recurly\Resources\Plan A plan.
-     * @link   https://developers.recurly.com/api/v2021-02-25#operation/create_plan
+     * @link   https://developers.recurly.com/api/v2022-01-01#operation/create_plan
      */
     public function createPlan(array $body, array $options = []): \Recurly\Resources\Plan
     {
@@ -1899,7 +1899,7 @@ endpoint to obtain only the newly generated `UniqueCouponCodes`.
      * @param array  $options Associative array of optional parameters
      *
      * @return \Recurly\Resources\Plan A plan.
-     * @link   https://developers.recurly.com/api/v2021-02-25#operation/get_plan
+     * @link   https://developers.recurly.com/api/v2022-01-01#operation/get_plan
      */
     public function getPlan(string $plan_id, array $options = []): \Recurly\Resources\Plan
     {
@@ -1915,7 +1915,7 @@ endpoint to obtain only the newly generated `UniqueCouponCodes`.
      * @param array  $options Associative array of optional parameters
      *
      * @return \Recurly\Resources\Plan A plan.
-     * @link   https://developers.recurly.com/api/v2021-02-25#operation/update_plan
+     * @link   https://developers.recurly.com/api/v2022-01-01#operation/update_plan
      */
     public function updatePlan(string $plan_id, array $body, array $options = []): \Recurly\Resources\Plan
     {
@@ -1930,7 +1930,7 @@ endpoint to obtain only the newly generated `UniqueCouponCodes`.
      * @param array  $options Associative array of optional parameters
      *
      * @return \Recurly\Resources\Plan Plan deleted
-     * @link   https://developers.recurly.com/api/v2021-02-25#operation/remove_plan
+     * @link   https://developers.recurly.com/api/v2022-01-01#operation/remove_plan
      */
     public function removePlan(string $plan_id, array $options = []): \Recurly\Resources\Plan
     {
@@ -1969,7 +1969,7 @@ endpoint to obtain only the newly generated `UniqueCouponCodes`.
      * - $options['params']['state'] (string): Filter by state.
      *
      * @return \Recurly\Pager A list of add-ons.
-     * @link   https://developers.recurly.com/api/v2021-02-25#operation/list_plan_add_ons
+     * @link   https://developers.recurly.com/api/v2022-01-01#operation/list_plan_add_ons
      */
     public function listPlanAddOns(string $plan_id, array $options = []): \Recurly\Pager
     {
@@ -1985,7 +1985,7 @@ endpoint to obtain only the newly generated `UniqueCouponCodes`.
      * @param array  $options Associative array of optional parameters
      *
      * @return \Recurly\Resources\AddOn An add-on.
-     * @link   https://developers.recurly.com/api/v2021-02-25#operation/create_plan_add_on
+     * @link   https://developers.recurly.com/api/v2022-01-01#operation/create_plan_add_on
      */
     public function createPlanAddOn(string $plan_id, array $body, array $options = []): \Recurly\Resources\AddOn
     {
@@ -2001,7 +2001,7 @@ endpoint to obtain only the newly generated `UniqueCouponCodes`.
      * @param array  $options   Associative array of optional parameters
      *
      * @return \Recurly\Resources\AddOn An add-on.
-     * @link   https://developers.recurly.com/api/v2021-02-25#operation/get_plan_add_on
+     * @link   https://developers.recurly.com/api/v2022-01-01#operation/get_plan_add_on
      */
     public function getPlanAddOn(string $plan_id, string $add_on_id, array $options = []): \Recurly\Resources\AddOn
     {
@@ -2018,7 +2018,7 @@ endpoint to obtain only the newly generated `UniqueCouponCodes`.
      * @param array  $options   Associative array of optional parameters
      *
      * @return \Recurly\Resources\AddOn An add-on.
-     * @link   https://developers.recurly.com/api/v2021-02-25#operation/update_plan_add_on
+     * @link   https://developers.recurly.com/api/v2022-01-01#operation/update_plan_add_on
      */
     public function updatePlanAddOn(string $plan_id, string $add_on_id, array $body, array $options = []): \Recurly\Resources\AddOn
     {
@@ -2034,7 +2034,7 @@ endpoint to obtain only the newly generated `UniqueCouponCodes`.
      * @param array  $options   Associative array of optional parameters
      *
      * @return \Recurly\Resources\AddOn Add-on deleted
-     * @link   https://developers.recurly.com/api/v2021-02-25#operation/remove_plan_add_on
+     * @link   https://developers.recurly.com/api/v2022-01-01#operation/remove_plan_add_on
      */
     public function removePlanAddOn(string $plan_id, string $add_on_id, array $options = []): \Recurly\Resources\AddOn
     {
@@ -2072,7 +2072,7 @@ endpoint to obtain only the newly generated `UniqueCouponCodes`.
      * - $options['params']['state'] (string): Filter by state.
      *
      * @return \Recurly\Pager A list of add-ons.
-     * @link   https://developers.recurly.com/api/v2021-02-25#operation/list_add_ons
+     * @link   https://developers.recurly.com/api/v2022-01-01#operation/list_add_ons
      */
     public function listAddOns(array $options = []): \Recurly\Pager
     {
@@ -2087,7 +2087,7 @@ endpoint to obtain only the newly generated `UniqueCouponCodes`.
      * @param array  $options   Associative array of optional parameters
      *
      * @return \Recurly\Resources\AddOn An add-on.
-     * @link   https://developers.recurly.com/api/v2021-02-25#operation/get_add_on
+     * @link   https://developers.recurly.com/api/v2022-01-01#operation/get_add_on
      */
     public function getAddOn(string $add_on_id, array $options = []): \Recurly\Resources\AddOn
     {
@@ -2124,7 +2124,7 @@ endpoint to obtain only the newly generated `UniqueCouponCodes`.
      *        **Note:** this value is an ISO8601 timestamp. A partial timestamp that does not include a time zone will default to UTC.
      *
      * @return \Recurly\Pager A list of the site's shipping methods.
-     * @link   https://developers.recurly.com/api/v2021-02-25#operation/list_shipping_methods
+     * @link   https://developers.recurly.com/api/v2022-01-01#operation/list_shipping_methods
      */
     public function listShippingMethods(array $options = []): \Recurly\Pager
     {
@@ -2139,7 +2139,7 @@ endpoint to obtain only the newly generated `UniqueCouponCodes`.
      * @param array $options Associative array of optional parameters
      *
      * @return \Recurly\Resources\ShippingMethod A new shipping method.
-     * @link   https://developers.recurly.com/api/v2021-02-25#operation/create_shipping_method
+     * @link   https://developers.recurly.com/api/v2022-01-01#operation/create_shipping_method
      */
     public function createShippingMethod(array $body, array $options = []): \Recurly\Resources\ShippingMethod
     {
@@ -2154,7 +2154,7 @@ endpoint to obtain only the newly generated `UniqueCouponCodes`.
      * @param array  $options            Associative array of optional parameters
      *
      * @return \Recurly\Resources\ShippingMethod A shipping method.
-     * @link   https://developers.recurly.com/api/v2021-02-25#operation/get_shipping_method
+     * @link   https://developers.recurly.com/api/v2022-01-01#operation/get_shipping_method
      */
     public function getShippingMethod(string $shipping_method_id, array $options = []): \Recurly\Resources\ShippingMethod
     {
@@ -2170,7 +2170,7 @@ endpoint to obtain only the newly generated `UniqueCouponCodes`.
      * @param array  $options            Associative array of optional parameters
      *
      * @return \Recurly\Resources\ShippingMethod The updated shipping method.
-     * @link   https://developers.recurly.com/api/v2021-02-25#operation/update_shipping_method
+     * @link   https://developers.recurly.com/api/v2022-01-01#operation/update_shipping_method
      */
     public function updateShippingMethod(string $shipping_method_id, array $body, array $options = []): \Recurly\Resources\ShippingMethod
     {
@@ -2185,7 +2185,7 @@ endpoint to obtain only the newly generated `UniqueCouponCodes`.
      * @param array  $options            Associative array of optional parameters
      *
      * @return \Recurly\Resources\ShippingMethod A shipping method.
-     * @link   https://developers.recurly.com/api/v2021-02-25#operation/deactivate_shipping_method
+     * @link   https://developers.recurly.com/api/v2022-01-01#operation/deactivate_shipping_method
      */
     public function deactivateShippingMethod(string $shipping_method_id, array $options = []): \Recurly\Resources\ShippingMethod
     {
@@ -2227,7 +2227,7 @@ endpoint to obtain only the newly generated `UniqueCouponCodes`.
      *        - When `state=live`, only subscriptions that are in an active, canceled, or future state or are in trial will be returned.
      *
      * @return \Recurly\Pager A list of the site's subscriptions.
-     * @link   https://developers.recurly.com/api/v2021-02-25#operation/list_subscriptions
+     * @link   https://developers.recurly.com/api/v2022-01-01#operation/list_subscriptions
      */
     public function listSubscriptions(array $options = []): \Recurly\Pager
     {
@@ -2242,7 +2242,7 @@ endpoint to obtain only the newly generated `UniqueCouponCodes`.
      * @param array $options Associative array of optional parameters
      *
      * @return \Recurly\Resources\Subscription A subscription.
-     * @link   https://developers.recurly.com/api/v2021-02-25#operation/create_subscription
+     * @link   https://developers.recurly.com/api/v2022-01-01#operation/create_subscription
      */
     public function createSubscription(array $body, array $options = []): \Recurly\Resources\Subscription
     {
@@ -2257,7 +2257,7 @@ endpoint to obtain only the newly generated `UniqueCouponCodes`.
      * @param array  $options         Associative array of optional parameters
      *
      * @return \Recurly\Resources\Subscription A subscription.
-     * @link   https://developers.recurly.com/api/v2021-02-25#operation/get_subscription
+     * @link   https://developers.recurly.com/api/v2022-01-01#operation/get_subscription
      */
     public function getSubscription(string $subscription_id, array $options = []): \Recurly\Resources\Subscription
     {
@@ -2273,7 +2273,7 @@ endpoint to obtain only the newly generated `UniqueCouponCodes`.
      * @param array  $options         Associative array of optional parameters
      *
      * @return \Recurly\Resources\Subscription A subscription.
-     * @link   https://developers.recurly.com/api/v2021-02-25#operation/update_subscription
+     * @link   https://developers.recurly.com/api/v2022-01-01#operation/update_subscription
      */
     public function updateSubscription(string $subscription_id, array $body, array $options = []): \Recurly\Resources\Subscription
     {
@@ -2301,7 +2301,7 @@ endpoint to obtain only the newly generated `UniqueCouponCodes`.
      * - $options['params']['charge'] (bool): Applicable only if the subscription has usage based add-ons and unbilled usage logged for the current billing cycle. If true, current billing cycle unbilled usage is billed on the final invoice. If false, Recurly will create a negative usage record for current billing cycle usage that will zero out the final invoice line items.
      *
      * @return \Recurly\Resources\Subscription An expired subscription.
-     * @link   https://developers.recurly.com/api/v2021-02-25#operation/terminate_subscription
+     * @link   https://developers.recurly.com/api/v2022-01-01#operation/terminate_subscription
      */
     public function terminateSubscription(string $subscription_id, array $options = []): \Recurly\Resources\Subscription
     {
@@ -2317,7 +2317,7 @@ endpoint to obtain only the newly generated `UniqueCouponCodes`.
      * @param array  $options         Associative array of optional parameters
      *
      * @return \Recurly\Resources\Subscription A canceled or failed subscription.
-     * @link   https://developers.recurly.com/api/v2021-02-25#operation/cancel_subscription
+     * @link   https://developers.recurly.com/api/v2022-01-01#operation/cancel_subscription
      */
     public function cancelSubscription(string $subscription_id, array $body = [], array $options = []): \Recurly\Resources\Subscription
     {
@@ -2332,7 +2332,7 @@ endpoint to obtain only the newly generated `UniqueCouponCodes`.
      * @param array  $options         Associative array of optional parameters
      *
      * @return \Recurly\Resources\Subscription An active subscription.
-     * @link   https://developers.recurly.com/api/v2021-02-25#operation/reactivate_subscription
+     * @link   https://developers.recurly.com/api/v2022-01-01#operation/reactivate_subscription
      */
     public function reactivateSubscription(string $subscription_id, array $options = []): \Recurly\Resources\Subscription
     {
@@ -2348,7 +2348,7 @@ endpoint to obtain only the newly generated `UniqueCouponCodes`.
      * @param array  $options         Associative array of optional parameters
      *
      * @return \Recurly\Resources\Subscription A subscription.
-     * @link   https://developers.recurly.com/api/v2021-02-25#operation/pause_subscription
+     * @link   https://developers.recurly.com/api/v2022-01-01#operation/pause_subscription
      */
     public function pauseSubscription(string $subscription_id, array $body, array $options = []): \Recurly\Resources\Subscription
     {
@@ -2363,7 +2363,7 @@ endpoint to obtain only the newly generated `UniqueCouponCodes`.
      * @param array  $options         Associative array of optional parameters
      *
      * @return \Recurly\Resources\Subscription A subscription.
-     * @link   https://developers.recurly.com/api/v2021-02-25#operation/resume_subscription
+     * @link   https://developers.recurly.com/api/v2022-01-01#operation/resume_subscription
      */
     public function resumeSubscription(string $subscription_id, array $options = []): \Recurly\Resources\Subscription
     {
@@ -2378,7 +2378,7 @@ endpoint to obtain only the newly generated `UniqueCouponCodes`.
      * @param array  $options         Associative array of optional parameters
      *
      * @return \Recurly\Resources\Subscription A subscription.
-     * @link   https://developers.recurly.com/api/v2021-02-25#operation/convert_trial
+     * @link   https://developers.recurly.com/api/v2022-01-01#operation/convert_trial
      */
     public function convertTrial(string $subscription_id, array $options = []): \Recurly\Resources\Subscription
     {
@@ -2393,7 +2393,7 @@ endpoint to obtain only the newly generated `UniqueCouponCodes`.
      * @param array  $options         Associative array of optional parameters
      *
      * @return \Recurly\Resources\InvoiceCollection A preview of the subscription's renewal invoice(s).
-     * @link   https://developers.recurly.com/api/v2021-02-25#operation/get_preview_renewal
+     * @link   https://developers.recurly.com/api/v2022-01-01#operation/get_preview_renewal
      */
     public function getPreviewRenewal(string $subscription_id, array $options = []): \Recurly\Resources\InvoiceCollection
     {
@@ -2408,7 +2408,7 @@ endpoint to obtain only the newly generated `UniqueCouponCodes`.
      * @param array  $options         Associative array of optional parameters
      *
      * @return \Recurly\Resources\SubscriptionChange A subscription's pending change.
-     * @link   https://developers.recurly.com/api/v2021-02-25#operation/get_subscription_change
+     * @link   https://developers.recurly.com/api/v2022-01-01#operation/get_subscription_change
      */
     public function getSubscriptionChange(string $subscription_id, array $options = []): \Recurly\Resources\SubscriptionChange
     {
@@ -2424,7 +2424,7 @@ endpoint to obtain only the newly generated `UniqueCouponCodes`.
      * @param array  $options         Associative array of optional parameters
      *
      * @return \Recurly\Resources\SubscriptionChange A subscription change.
-     * @link   https://developers.recurly.com/api/v2021-02-25#operation/create_subscription_change
+     * @link   https://developers.recurly.com/api/v2022-01-01#operation/create_subscription_change
      */
     public function createSubscriptionChange(string $subscription_id, array $body, array $options = []): \Recurly\Resources\SubscriptionChange
     {
@@ -2439,7 +2439,7 @@ endpoint to obtain only the newly generated `UniqueCouponCodes`.
      * @param array  $options         Associative array of optional parameters
      *
      * @return \Recurly\EmptyResource Subscription change was deleted.
-     * @link   https://developers.recurly.com/api/v2021-02-25#operation/remove_subscription_change
+     * @link   https://developers.recurly.com/api/v2022-01-01#operation/remove_subscription_change
      */
     public function removeSubscriptionChange(string $subscription_id, array $options = []): \Recurly\EmptyResource
     {
@@ -2455,7 +2455,7 @@ endpoint to obtain only the newly generated `UniqueCouponCodes`.
      * @param array  $options         Associative array of optional parameters
      *
      * @return \Recurly\Resources\SubscriptionChange A subscription change.
-     * @link   https://developers.recurly.com/api/v2021-02-25#operation/preview_subscription_change
+     * @link   https://developers.recurly.com/api/v2022-01-01#operation/preview_subscription_change
      */
     public function previewSubscriptionChange(string $subscription_id, array $body, array $options = []): \Recurly\Resources\SubscriptionChange
     {
@@ -2498,7 +2498,7 @@ endpoint to obtain only the newly generated `UniqueCouponCodes`.
      *        - `type=legacy`, only legacy invoices will be returned.
      *
      * @return \Recurly\Pager A list of the subscription's invoices.
-     * @link   https://developers.recurly.com/api/v2021-02-25#operation/list_subscription_invoices
+     * @link   https://developers.recurly.com/api/v2022-01-01#operation/list_subscription_invoices
      */
     public function listSubscriptionInvoices(string $subscription_id, array $options = []): \Recurly\Pager
     {
@@ -2539,7 +2539,7 @@ endpoint to obtain only the newly generated `UniqueCouponCodes`.
      * - $options['params']['type'] (string): Filter by type field.
      *
      * @return \Recurly\Pager A list of the subscription's line items.
-     * @link   https://developers.recurly.com/api/v2021-02-25#operation/list_subscription_line_items
+     * @link   https://developers.recurly.com/api/v2022-01-01#operation/list_subscription_line_items
      */
     public function listSubscriptionLineItems(string $subscription_id, array $options = []): \Recurly\Pager
     {
@@ -2575,7 +2575,7 @@ endpoint to obtain only the newly generated `UniqueCouponCodes`.
      *        **Note:** this value is an ISO8601 timestamp. A partial timestamp that does not include a time zone will default to UTC.
      *
      * @return \Recurly\Pager A list of the the coupon redemptions on a subscription.
-     * @link   https://developers.recurly.com/api/v2021-02-25#operation/list_subscription_coupon_redemptions
+     * @link   https://developers.recurly.com/api/v2022-01-01#operation/list_subscription_coupon_redemptions
      */
     public function listSubscriptionCouponRedemptions(string $subscription_id, array $options = []): \Recurly\Pager
     {
@@ -2615,7 +2615,7 @@ endpoint to obtain only the newly generated `UniqueCouponCodes`.
      * - $options['params']['billing_status'] (string): Filter by usage record's billing status
      *
      * @return \Recurly\Pager A list of the subscription add-on's usage records.
-     * @link   https://developers.recurly.com/api/v2021-02-25#operation/list_usage
+     * @link   https://developers.recurly.com/api/v2022-01-01#operation/list_usage
      */
     public function listUsage(string $subscription_id, string $add_on_id, array $options = []): \Recurly\Pager
     {
@@ -2632,7 +2632,7 @@ endpoint to obtain only the newly generated `UniqueCouponCodes`.
      * @param array  $options         Associative array of optional parameters
      *
      * @return \Recurly\Resources\Usage The created usage record.
-     * @link   https://developers.recurly.com/api/v2021-02-25#operation/create_usage
+     * @link   https://developers.recurly.com/api/v2022-01-01#operation/create_usage
      */
     public function createUsage(string $subscription_id, string $add_on_id, array $body, array $options = []): \Recurly\Resources\Usage
     {
@@ -2647,7 +2647,7 @@ endpoint to obtain only the newly generated `UniqueCouponCodes`.
      * @param array  $options  Associative array of optional parameters
      *
      * @return \Recurly\Resources\Usage The usage record.
-     * @link   https://developers.recurly.com/api/v2021-02-25#operation/get_usage
+     * @link   https://developers.recurly.com/api/v2022-01-01#operation/get_usage
      */
     public function getUsage(string $usage_id, array $options = []): \Recurly\Resources\Usage
     {
@@ -2663,7 +2663,7 @@ endpoint to obtain only the newly generated `UniqueCouponCodes`.
      * @param array  $options  Associative array of optional parameters
      *
      * @return \Recurly\Resources\Usage The updated usage record.
-     * @link   https://developers.recurly.com/api/v2021-02-25#operation/update_usage
+     * @link   https://developers.recurly.com/api/v2022-01-01#operation/update_usage
      */
     public function updateUsage(string $usage_id, array $body, array $options = []): \Recurly\Resources\Usage
     {
@@ -2678,7 +2678,7 @@ endpoint to obtain only the newly generated `UniqueCouponCodes`.
      * @param array  $options  Associative array of optional parameters
      *
      * @return \Recurly\EmptyResource Usage was successfully deleted.
-     * @link   https://developers.recurly.com/api/v2021-02-25#operation/remove_usage
+     * @link   https://developers.recurly.com/api/v2022-01-01#operation/remove_usage
      */
     public function removeUsage(string $usage_id, array $options = []): \Recurly\EmptyResource
     {
@@ -2717,7 +2717,7 @@ endpoint to obtain only the newly generated `UniqueCouponCodes`.
      * - $options['params']['success'] (string): Filter by success field.
      *
      * @return \Recurly\Pager A list of the site's transactions.
-     * @link   https://developers.recurly.com/api/v2021-02-25#operation/list_transactions
+     * @link   https://developers.recurly.com/api/v2022-01-01#operation/list_transactions
      */
     public function listTransactions(array $options = []): \Recurly\Pager
     {
@@ -2732,7 +2732,7 @@ endpoint to obtain only the newly generated `UniqueCouponCodes`.
      * @param array  $options        Associative array of optional parameters
      *
      * @return \Recurly\Resources\Transaction A transaction.
-     * @link   https://developers.recurly.com/api/v2021-02-25#operation/get_transaction
+     * @link   https://developers.recurly.com/api/v2022-01-01#operation/get_transaction
      */
     public function getTransaction(string $transaction_id, array $options = []): \Recurly\Resources\Transaction
     {
@@ -2747,7 +2747,7 @@ endpoint to obtain only the newly generated `UniqueCouponCodes`.
      * @param array  $options               Associative array of optional parameters
      *
      * @return \Recurly\Resources\UniqueCouponCode A unique coupon code.
-     * @link   https://developers.recurly.com/api/v2021-02-25#operation/get_unique_coupon_code
+     * @link   https://developers.recurly.com/api/v2022-01-01#operation/get_unique_coupon_code
      */
     public function getUniqueCouponCode(string $unique_coupon_code_id, array $options = []): \Recurly\Resources\UniqueCouponCode
     {
@@ -2762,7 +2762,7 @@ endpoint to obtain only the newly generated `UniqueCouponCodes`.
      * @param array  $options               Associative array of optional parameters
      *
      * @return \Recurly\Resources\UniqueCouponCode A unique coupon code.
-     * @link   https://developers.recurly.com/api/v2021-02-25#operation/deactivate_unique_coupon_code
+     * @link   https://developers.recurly.com/api/v2022-01-01#operation/deactivate_unique_coupon_code
      */
     public function deactivateUniqueCouponCode(string $unique_coupon_code_id, array $options = []): \Recurly\Resources\UniqueCouponCode
     {
@@ -2777,7 +2777,7 @@ endpoint to obtain only the newly generated `UniqueCouponCodes`.
      * @param array  $options               Associative array of optional parameters
      *
      * @return \Recurly\Resources\UniqueCouponCode A unique coupon code.
-     * @link   https://developers.recurly.com/api/v2021-02-25#operation/reactivate_unique_coupon_code
+     * @link   https://developers.recurly.com/api/v2022-01-01#operation/reactivate_unique_coupon_code
      */
     public function reactivateUniqueCouponCode(string $unique_coupon_code_id, array $options = []): \Recurly\Resources\UniqueCouponCode
     {
@@ -2792,7 +2792,7 @@ endpoint to obtain only the newly generated `UniqueCouponCodes`.
      * @param array $options Associative array of optional parameters
      *
      * @return \Recurly\Resources\InvoiceCollection Returns the new invoices
-     * @link   https://developers.recurly.com/api/v2021-02-25#operation/create_purchase
+     * @link   https://developers.recurly.com/api/v2022-01-01#operation/create_purchase
      */
     public function createPurchase(array $body, array $options = []): \Recurly\Resources\InvoiceCollection
     {
@@ -2807,7 +2807,7 @@ endpoint to obtain only the newly generated `UniqueCouponCodes`.
      * @param array $options Associative array of optional parameters
      *
      * @return \Recurly\Resources\InvoiceCollection Returns preview of the new invoices
-     * @link   https://developers.recurly.com/api/v2021-02-25#operation/preview_purchase
+     * @link   https://developers.recurly.com/api/v2022-01-01#operation/preview_purchase
      */
     public function previewPurchase(array $body, array $options = []): \Recurly\Resources\InvoiceCollection
     {
@@ -2822,7 +2822,7 @@ endpoint to obtain only the newly generated `UniqueCouponCodes`.
      * @param array $options Associative array of optional parameters
      *
      * @return \Recurly\Resources\InvoiceCollection Returns the pending invoice
-     * @link   https://developers.recurly.com/api/v2021-02-25#operation/create_pending_purchase
+     * @link   https://developers.recurly.com/api/v2022-01-01#operation/create_pending_purchase
      */
     public function createPendingPurchase(array $body, array $options = []): \Recurly\Resources\InvoiceCollection
     {
@@ -2836,7 +2836,7 @@ endpoint to obtain only the newly generated `UniqueCouponCodes`.
      * @param array $options Associative array of optional parameters
      *
      * @return \Recurly\Resources\ExportDates Returns a list of dates.
-     * @link   https://developers.recurly.com/api/v2021-02-25#operation/get_export_dates
+     * @link   https://developers.recurly.com/api/v2022-01-01#operation/get_export_dates
      */
     public function getExportDates(array $options = []): \Recurly\Resources\ExportDates
     {
@@ -2851,7 +2851,7 @@ endpoint to obtain only the newly generated `UniqueCouponCodes`.
      * @param array  $options     Associative array of optional parameters
      *
      * @return \Recurly\Resources\ExportFiles Returns a list of export files to download.
-     * @link   https://developers.recurly.com/api/v2021-02-25#operation/get_export_files
+     * @link   https://developers.recurly.com/api/v2022-01-01#operation/get_export_files
      */
     public function getExportFiles(string $export_date, array $options = []): \Recurly\Resources\ExportFiles
     {
@@ -2871,7 +2871,7 @@ endpoint to obtain only the newly generated `UniqueCouponCodes`.
      *        prevent some records from being returned.
      *
      * @return \Recurly\Pager A list of the the dunning_campaigns on an account.
-     * @link   https://developers.recurly.com/api/v2021-02-25#operation/list_dunning_campaigns
+     * @link   https://developers.recurly.com/api/v2022-01-01#operation/list_dunning_campaigns
      */
     public function listDunningCampaigns(array $options = []): \Recurly\Pager
     {
@@ -2886,7 +2886,7 @@ endpoint to obtain only the newly generated `UniqueCouponCodes`.
      * @param array  $options             Associative array of optional parameters
      *
      * @return \Recurly\Resources\DunningCampaign Settings for a dunning campaign.
-     * @link   https://developers.recurly.com/api/v2021-02-25#operation/get_dunning_campaign
+     * @link   https://developers.recurly.com/api/v2022-01-01#operation/get_dunning_campaign
      */
     public function getDunningCampaign(string $dunning_campaign_id, array $options = []): \Recurly\Resources\DunningCampaign
     {
@@ -2901,7 +2901,7 @@ endpoint to obtain only the newly generated `UniqueCouponCodes`.
      * @param array $options Associative array of optional parameters
      *
      * @return \Recurly\Resources\DunningCampaignsBulkUpdateResponse A list of updated plans.
-     * @link   https://developers.recurly.com/api/v2021-02-25#operation/put_dunning_campaign_bulk_update
+     * @link   https://developers.recurly.com/api/v2022-01-01#operation/put_dunning_campaign_bulk_update
      */
     public function putDunningCampaignBulkUpdate(array $body, array $options = []): \Recurly\Resources\DunningCampaignsBulkUpdateResponse
     {
@@ -2921,7 +2921,7 @@ endpoint to obtain only the newly generated `UniqueCouponCodes`.
      *        prevent some records from being returned.
      *
      * @return \Recurly\Pager A list of the the invoice templates on a site.
-     * @link   https://developers.recurly.com/api/v2021-02-25#operation/list_invoice_templates
+     * @link   https://developers.recurly.com/api/v2022-01-01#operation/list_invoice_templates
      */
     public function listInvoiceTemplates(array $options = []): \Recurly\Pager
     {
@@ -2936,7 +2936,7 @@ endpoint to obtain only the newly generated `UniqueCouponCodes`.
      * @param array  $options             Associative array of optional parameters
      *
      * @return \Recurly\Resources\InvoiceTemplate Settings for an invoice template.
-     * @link   https://developers.recurly.com/api/v2021-02-25#operation/get_invoice_template
+     * @link   https://developers.recurly.com/api/v2022-01-01#operation/get_invoice_template
      */
     public function getInvoiceTemplate(string $invoice_template_id, array $options = []): \Recurly\Resources\InvoiceTemplate
     {
