@@ -14,7 +14,6 @@ class PlanPricing extends RecurlyResource
 {
     private $_currency;
     private $_setup_fee;
-    private $_tax_inclusive;
     private $_unit_amount;
 
     protected static $array_hints = [
@@ -68,31 +67,8 @@ class PlanPricing extends RecurlyResource
     }
 
     /**
-    * Getter method for the tax_inclusive attribute.
-    * Determines whether or not tax is included in the unit amount. The Tax Inclusive Pricing feature (separate from the Mixed Tax Pricing feature) must be enabled to use this flag.
-    *
-    * @return ?bool
-    */
-    public function getTaxInclusive(): ?bool
-    {
-        return $this->_tax_inclusive;
-    }
-
-    /**
-    * Setter method for the tax_inclusive attribute.
-    *
-    * @param bool $tax_inclusive
-    *
-    * @return void
-    */
-    public function setTaxInclusive(bool $tax_inclusive): void
-    {
-        $this->_tax_inclusive = $tax_inclusive;
-    }
-
-    /**
     * Getter method for the unit_amount attribute.
-    * Unit price
+    * This field should not be sent when the pricing model is 'ramp'.
     *
     * @return ?float
     */

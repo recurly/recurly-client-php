@@ -629,11 +629,11 @@ to configure quantity-based pricing models.
 
     /**
     * Getter method for the usage_percentage attribute.
-    * The percentage taken of the monetary amount of usage tracked. This can be up to 4 decimal places. A value between 0.0 and 100.0.
+    * The percentage taken of the monetary amount of usage tracked. This can be up to 4 decimal places. A value between 0.0 and 100.0, represented as a string.
     *
-    * @return ?float
+    * @return ?string
     */
-    public function getUsagePercentage(): ?float
+    public function getUsagePercentage(): ?string
     {
         return $this->_usage_percentage;
     }
@@ -641,11 +641,11 @@ to configure quantity-based pricing models.
     /**
     * Setter method for the usage_percentage attribute.
     *
-    * @param float $usage_percentage
+    * @param string $usage_percentage
     *
     * @return void
     */
-    public function setUsagePercentage(float $usage_percentage): void
+    public function setUsagePercentage(string $usage_percentage): void
     {
         $this->_usage_percentage = $usage_percentage;
     }
