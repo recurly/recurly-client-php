@@ -10,19 +10,19 @@ namespace Recurly\Resources;
 use Recurly\RecurlyResource;
 
 // phpcs:disable
-class Tier extends RecurlyResource
+class PlanRampInterval extends RecurlyResource
 {
     private $_currencies;
-    private $_ending_quantity;
+    private $_starting_billing_cycle;
 
     protected static $array_hints = [
-        'setCurrencies' => '\Recurly\Resources\TierPricing',
+        'setCurrencies' => '\Recurly\Resources\PlanRampPricing',
     ];
 
     
     /**
     * Getter method for the currencies attribute.
-    * Tier pricing
+    * Represents the price for the ramp interval.
     *
     * @return array
     */
@@ -44,25 +44,25 @@ class Tier extends RecurlyResource
     }
 
     /**
-    * Getter method for the ending_quantity attribute.
-    * Ending quantity for the tier. This represents a unit amount for unit-priced add ons. Must be left empty if it is the final tier.
+    * Getter method for the starting_billing_cycle attribute.
+    * Represents the first billing cycle of a ramp.
     *
     * @return ?int
     */
-    public function getEndingQuantity(): ?int
+    public function getStartingBillingCycle(): ?int
     {
-        return $this->_ending_quantity;
+        return $this->_starting_billing_cycle;
     }
 
     /**
-    * Setter method for the ending_quantity attribute.
+    * Setter method for the starting_billing_cycle attribute.
     *
-    * @param int $ending_quantity
+    * @param int $starting_billing_cycle
     *
     * @return void
     */
-    public function setEndingQuantity(int $ending_quantity): void
+    public function setStartingBillingCycle(int $starting_billing_cycle): void
     {
-        $this->_ending_quantity = $ending_quantity;
+        $this->_starting_billing_cycle = $starting_billing_cycle;
     }
 }

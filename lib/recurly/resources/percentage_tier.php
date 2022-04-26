@@ -21,7 +21,7 @@ class PercentageTier extends RecurlyResource
     
     /**
     * Getter method for the ending_amount attribute.
-    * Ending amount for the tier. Allows up to 2 decimal places. The last tier ending_amount is null.
+    * Ending amount for the tier. Allows up to 2 decimal places. Must be left empty if it is the final tier.
     *
     * @return ?float
     */
@@ -44,7 +44,9 @@ class PercentageTier extends RecurlyResource
 
     /**
     * Getter method for the usage_percentage attribute.
-    * Decimal usage percentage.
+    * The percentage taken of the monetary amount of usage tracked.
+This can be up to 4 decimal places represented as a string.
+
     *
     * @return ?string
     */
