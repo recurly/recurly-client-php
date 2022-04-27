@@ -23,6 +23,10 @@ class Recurly_MeasuredUnit extends Recurly_Resource
     return Recurly_Base::_get(Recurly_MeasuredUnit::uriForMeasuredUnit($id), $client);
   }
 
+  public function delete() {
+    return Recurly_Base::_delete($this->uri(), $this->_client);
+  }
+
   protected function uri() {
     if (!empty($this->_href))
       return $this->getHref();

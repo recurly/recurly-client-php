@@ -493,15 +493,20 @@ abstract class Recurly_Base
       $nodeNames[] = $node_item->tagName;
     }
     if( empty(array_diff($nodeNames, ['ending_amount_in_cents', 'usage_percentage'])) ) {
-      return new Recurly_CurrencyPercentageTier($nodeName);
+      return new Recurly_CurrencyPercentageTier(Recurly_Base::__getNodeName($node));
     } else {
       return new $node_class();
     }
   }
 
+  private static function __getNodeName($node)
+  {
+    return str_replace("-", "_", $node->nodeName);
+  }
+
   private static function __createNodeObject($node, $client)
   {
-    $nodeName = str_replace("-", "_", $node->nodeName);
+    $nodeName = Recurly_Base::__getNodeName($node);
 
     if (!array_key_exists($nodeName, Recurly_Resource::$class_map)) {
       return null; // Unknown element
