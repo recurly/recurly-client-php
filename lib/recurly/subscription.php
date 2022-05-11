@@ -270,7 +270,7 @@ class Recurly_Subscription extends Recurly_Resource
       $account = $root->appendChild($doc->createElement("account"));
       $billingInfo = $account->appendChild($doc->createElement("billing_info"));
       $billingInfo->appendChild($doc->createElement("three_d_secure_action_result_token_id", $three_d_secure_action_result_token_id));
-      $this->_save(Recurly_Client::PUT, $this->uri() . '/convert_trial', $this->renderXML($doc));    
+      $this->_save(Recurly_Client::PUT, $this->uri() . '/convert_trial', $this->renderXML($doc));
     }
     $this->_save(Recurly_Client::PUT, $this->uri() . '/convert_trial');
   }
@@ -322,7 +322,7 @@ class Recurly_Subscription extends Recurly_Resource
       'shipping_address', 'shipping_address_id', 'imported_trial',
       'remaining_pause_cycles', 'custom_fields', 'auto_renew',
       'renewal_billing_cycles', 'gateway_code', 'shipping_method_code',
-      'shipping_amount_in_cents', 'transaction_type'
+      'shipping_amount_in_cents', 'transaction_type', 'tax_inclusive'
     );
   }
 }
