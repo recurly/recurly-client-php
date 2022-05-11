@@ -102,7 +102,7 @@ class Recurly_Adjustment extends Recurly_Resource
   protected function getWriteableAttributes() {
     return array(
       'currency', 'unit_amount_in_cents', 'quantity', 'description',
-      'accounting_code', 'tax_exempt', 'tax_code', 'start_date', 'end_date',
+      'accounting_code', 'tax_exempt', 'tax_inclusive', 'tax_code', 'start_date', 'end_date',
       'revenue_schedule_type', 'origin', 'product_code', 'credit_reason_code',
       'shipping_address', 'shipping_address_id', 'item_code', 'external_sku'
     );
