@@ -384,7 +384,7 @@ class SubscriptionChange extends RecurlyResource
 
     /**
     * Getter method for the tax_inclusive attribute.
-    * Determines whether or not tax is included in the unit amount. The Tax Inclusive Pricing feature (separate from the Mixed Tax Pricing feature) must be enabled to use this flag.
+    * This field is deprecated. Please do not use it.
     *
     * @return ?bool
     */

@@ -14,6 +14,7 @@ class AccountBalanceAmount extends RecurlyResource
 {
     private $_amount;
     private $_currency;
+    private $_processing_prepayment_amount;
 
     protected static $array_hints = [
     ];
@@ -63,5 +64,28 @@ class AccountBalanceAmount extends RecurlyResource
     public function setCurrency(string $currency): void
     {
         $this->_currency = $currency;
+    }
+
+    /**
+    * Getter method for the processing_prepayment_amount attribute.
+    * Total amount for the prepayment credit invoices in a `processing` state on the account.
+    *
+    * @return ?float
+    */
+    public function getProcessingPrepaymentAmount(): ?float
+    {
+        return $this->_processing_prepayment_amount;
+    }
+
+    /**
+    * Setter method for the processing_prepayment_amount attribute.
+    *
+    * @param float $processing_prepayment_amount
+    *
+    * @return void
+    */
+    public function setProcessingPrepaymentAmount(float $processing_prepayment_amount): void
+    {
+        $this->_processing_prepayment_amount = $processing_prepayment_amount;
     }
 }
