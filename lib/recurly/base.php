@@ -294,6 +294,7 @@ abstract class Recurly_Base
     'plan_code' => 'string',
     'plan_codes' => 'array',
     'pending_subscription' => 'Recurly_Subscription',
+    'processing_prepayment_balance_in_cents' => 'Recurly_CurrencyList',
     'redemption' => 'Recurly_CouponRedemption',
     'redemptions' => 'Recurly_CouponRedemptionList',
     'setup_fee_in_cents' => 'Recurly_CurrencyList',
