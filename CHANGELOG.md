@@ -1,5 +1,18 @@
 # Changelog
 
+## [2.12.25](https://github.com/recurly/recurly-client-php/tree/2.12.25) (2022-06-17)
+
+[Full Changelog](https://github.com/recurly/recurly-client-php/compare/2.12.24...2.12.25)
+
+
+**Merged Pull Requests**
+
+- V2 add processing_prepayment_balance_in_cents to Recurly_AccountBalance [#691](https://github.com/recurly/recurly-client-php/pull/691) ([judith](https://github.com/judith))
+- [API V2] Client Library and Doc Update - PHP [#690](https://github.com/recurly/recurly-client-php/pull/690) ([paulorbpinho-fullstacklabs](https://github.com/paulorbpinho-fullstacklabs))
+- [API V2] Client Library and Doc Update - PHP #680 [#681](https://github.com/recurly/recurly-client-php/pull/681) ([paulorbpinho-fullstacklabs](https://github.com/paulorbpinho-fullstacklabs))
+
+
+
 ## [2.12.24](https://github.com/recurly/recurly-client-php/tree/2.12.24) (2022-03-03)
 
 [Full Changelog](https://github.com/recurly/recurly-client-php/compare/2.12.23...2.12.24)
@@ -133,31 +146,31 @@
 - Moto transactions [#420](https://github.com/recurly/recurly-client-php/pull/420) ([bhelx](https://github.com/bhelx))
 - Subscription timeframe changes [#419](https://github.com/recurly/recurly-client-php/pull/419) ([bhelx](https://github.com/bhelx))
 - Add missing phpdocs [#418](https://github.com/recurly/recurly-client-php/pull/418) ([glaubinix](https://github.com/glaubinix))
-- Release version 2.12.4 [#416](https://github.com/recurly/recurly-client-php/pull/416) ([aaron-suarez](https://github.com/aaron-suarez))
-- Add 3DS tokens to transaction error and billing info [#415](https://github.com/recurly/recurly-client-php/pull/415) ([aaron-suarez](https://github.com/aaron-suarez))
-- Release version 2.12.3 [#414](https://github.com/recurly/recurly-client-php/pull/414) ([aaron-suarez](https://github.com/aaron-suarez))
-- Release version 2.12.2 [#411](https://github.com/recurly/recurly-client-php/pull/411) ([aaron-suarez](https://github.com/aaron-suarez))
-- Make API url private [#410](https://github.com/recurly/recurly-client-php/pull/410) ([aaron-suarez](https://github.com/aaron-suarez))
+- Release version 2.12.4 [#416](https://github.com/recurly/recurly-client-php/pull/416) ([aaron-junot](https://github.com/aaron-junot))
+- Add 3DS tokens to transaction error and billing info [#415](https://github.com/recurly/recurly-client-php/pull/415) ([aaron-junot](https://github.com/aaron-junot))
+- Release version 2.12.3 [#414](https://github.com/recurly/recurly-client-php/pull/414) ([aaron-junot](https://github.com/aaron-junot))
+- Release version 2.12.2 [#411](https://github.com/recurly/recurly-client-php/pull/411) ([aaron-junot](https://github.com/aaron-junot))
+- Make API url private [#410](https://github.com/recurly/recurly-client-php/pull/410) ([aaron-junot](https://github.com/aaron-junot))
 - Fix: pass client to objects in an array [#409](https://github.com/recurly/recurly-client-php/pull/409) ([glaubinix](https://github.com/glaubinix))
 - Update issue templates [#407](https://github.com/recurly/recurly-client-php/pull/407) ([bhelx](https://github.com/bhelx))
 - Remove out of date version from README [#406](https://github.com/recurly/recurly-client-php/pull/406) ([bhelx](https://github.com/bhelx))
-- Release version 2.12.1 [#403](https://github.com/recurly/recurly-client-php/pull/403) ([aaron-suarez](https://github.com/aaron-suarez))
-- Fix broken _verifyUri method [#402](https://github.com/recurly/recurly-client-php/pull/402) ([aaron-suarez](https://github.com/aaron-suarez))
-- Release version 2.12.0 / API version 2.19 [#401](https://github.com/recurly/recurly-client-php/pull/401) ([aaron-suarez](https://github.com/aaron-suarez))
-- Release version 2.11.2 / API version 2.18 [#400](https://github.com/recurly/recurly-client-php/pull/400) ([aaron-suarez](https://github.com/aaron-suarez))
-- Specify which versions of HHVM we should test in travis [#399](https://github.com/recurly/recurly-client-php/pull/399) ([aaron-suarez](https://github.com/aaron-suarez))
-- Add X-Api-Version header to getPdf and getFile [#398](https://github.com/recurly/recurly-client-php/pull/398) ([aaron-suarez](https://github.com/aaron-suarez))
-- Bump to version 2.11.1 [#396](https://github.com/recurly/recurly-client-php/pull/396) ([aaron-suarez](https://github.com/aaron-suarez))
-- Add missing properties to Billing Info [#395](https://github.com/recurly/recurly-client-php/pull/395) ([aaron-suarez](https://github.com/aaron-suarez))
+- Release version 2.12.1 [#403](https://github.com/recurly/recurly-client-php/pull/403) ([aaron-junot](https://github.com/aaron-junot))
+- Fix broken _verifyUri method [#402](https://github.com/recurly/recurly-client-php/pull/402) ([aaron-junot](https://github.com/aaron-junot))
+- Release version 2.12.0 / API version 2.19 [#401](https://github.com/recurly/recurly-client-php/pull/401) ([aaron-junot](https://github.com/aaron-junot))
+- Release version 2.11.2 / API version 2.18 [#400](https://github.com/recurly/recurly-client-php/pull/400) ([aaron-junot](https://github.com/aaron-junot))
+- Specify which versions of HHVM we should test in travis [#399](https://github.com/recurly/recurly-client-php/pull/399) ([aaron-junot](https://github.com/aaron-junot))
+- Add X-Api-Version header to getPdf and getFile [#398](https://github.com/recurly/recurly-client-php/pull/398) ([aaron-junot](https://github.com/aaron-junot))
+- Bump to version 2.11.1 [#396](https://github.com/recurly/recurly-client-php/pull/396) ([aaron-junot](https://github.com/aaron-junot))
+- Add missing properties to Billing Info [#395](https://github.com/recurly/recurly-client-php/pull/395) ([aaron-junot](https://github.com/aaron-junot))
 - Handle HTTP headers in a more case insensitive way [#392](https://github.com/recurly/recurly-client-php/pull/392) ([billtomczak](https://github.com/billtomczak))
-- Add note about OpenSSL support to README [#390](https://github.com/recurly/recurly-client-php/pull/390) ([aaron-suarez](https://github.com/aaron-suarez))
+- Add note about OpenSSL support to README [#390](https://github.com/recurly/recurly-client-php/pull/390) ([aaron-junot](https://github.com/aaron-junot))
 - per recurly support, docs are wrong and canceling should give a state… [#389](https://github.com/recurly/recurly-client-php/pull/389) ([aarontkennedy](https://github.com/aarontkennedy))
 - Add missing breaking change in 2.10 changelog [#388](https://github.com/recurly/recurly-client-php/pull/388) ([bhelx](https://github.com/bhelx))
 - Add Capture and Cancel enpoints to go with the Authorize Endpoint [#386](https://github.com/recurly/recurly-client-php/pull/386) ([aarontkennedy](https://github.com/aarontkennedy))
-- Release version 2.11.0 / API version 2.17 [#385](https://github.com/recurly/recurly-client-php/pull/385) ([aaron-suarez](https://github.com/aaron-suarez))
-- Add OpenSSL version to User-Agent [#384](https://github.com/recurly/recurly-client-php/pull/384) ([aaron-suarez](https://github.com/aaron-suarez))
+- Release version 2.11.0 / API version 2.17 [#385](https://github.com/recurly/recurly-client-php/pull/385) ([aaron-junot](https://github.com/aaron-junot))
+- Add OpenSSL version to User-Agent [#384](https://github.com/recurly/recurly-client-php/pull/384) ([aaron-junot](https://github.com/aaron-junot))
 - Added new method getHeaders(), which will allow to get all response headers after each API call [#383](https://github.com/recurly/recurly-client-php/pull/383) ([developer-devPHP](https://github.com/developer-devPHP))
-- Remove deprecated Recurly JS module [#382](https://github.com/recurly/recurly-client-php/pull/382) ([aaron-suarez](https://github.com/aaron-suarez))
+- Remove deprecated Recurly JS module [#382](https://github.com/recurly/recurly-client-php/pull/382) ([aaron-junot](https://github.com/aaron-junot))
 
 **Closed Issues**
 
@@ -175,25 +188,25 @@
 
 ## [2.10.7](https://github.com/recurly/recurly-client-php/tree/2.10.7) (2020-10-01)
 
-[Full Changelog](https://github.com/recurly/recurly-client-php/compare/2.2.7...2.10.7)
+[Full Changelog](https://github.com/recurly/recurly-client-php/compare/2.9.1...2.10.7)
 
 
 **Merged Pull Requests**
 
 - Updating client to be compliant with RFC 2616: case-insensitive headers [#556](https://github.com/recurly/recurly-client-php/pull/556) ([douglasmiller](https://github.com/douglasmiller))
-- Bump to version 2.10.6 / API version 2.16 [#379](https://github.com/recurly/recurly-client-php/pull/379) ([aaron-suarez](https://github.com/aaron-suarez))
-- Fix pager->current() breaking when no data [#378](https://github.com/recurly/recurly-client-php/pull/378) ([aaron-suarez](https://github.com/aaron-suarez))
+- Bump to version 2.10.6 / API version 2.16 [#379](https://github.com/recurly/recurly-client-php/pull/379) ([aaron-junot](https://github.com/aaron-junot))
+- Fix pager->current() breaking when no data [#378](https://github.com/recurly/recurly-client-php/pull/378) ([aaron-junot](https://github.com/aaron-junot))
 - Added missing account_acquisition to writable attributes [#377](https://github.com/recurly/recurly-client-php/pull/377) ([emycakes](https://github.com/emycakes))
-- Fix errors specified by PHPStorm [#375](https://github.com/recurly/recurly-client-php/pull/375) ([aaron-suarez](https://github.com/aaron-suarez))
-- Add charge parameter to subscription termination functions [#374](https://github.com/recurly/recurly-client-php/pull/374) ([aaron-suarez](https://github.com/aaron-suarez))
-- Add details to error messages to make them more helpful [#372](https://github.com/recurly/recurly-client-php/pull/372) ([aaron-suarez](https://github.com/aaron-suarez))
-- Bump to version 2.10.5 / API version 2.15 [#371](https://github.com/recurly/recurly-client-php/pull/371) ([aaron-suarez](https://github.com/aaron-suarez))
-- Add missing possible childnode names [#368](https://github.com/recurly/recurly-client-php/pull/368) ([aaron-suarez](https://github.com/aaron-suarez))
+- Fix errors specified by PHPStorm [#375](https://github.com/recurly/recurly-client-php/pull/375) ([aaron-junot](https://github.com/aaron-junot))
+- Add charge parameter to subscription termination functions [#374](https://github.com/recurly/recurly-client-php/pull/374) ([aaron-junot](https://github.com/aaron-junot))
+- Add details to error messages to make them more helpful [#372](https://github.com/recurly/recurly-client-php/pull/372) ([aaron-junot](https://github.com/aaron-junot))
+- Bump to version 2.10.5 / API version 2.15 [#371](https://github.com/recurly/recurly-client-php/pull/371) ([aaron-junot](https://github.com/aaron-junot))
+- Add missing possible childnode names [#368](https://github.com/recurly/recurly-client-php/pull/368) ([aaron-junot](https://github.com/aaron-junot))
 - provide a correct recurly code when responding with a 404 [#366](https://github.com/recurly/recurly-client-php/pull/366) ([emycakes](https://github.com/emycakes))
 - Added `scripts` folder [#364](https://github.com/recurly/recurly-client-php/pull/364) ([bhelx](https://github.com/bhelx))
-- Bump to 2.10.4 / API version 2.14 [#363](https://github.com/recurly/recurly-client-php/pull/363) ([aaron-suarez](https://github.com/aaron-suarez))
+- Bump to 2.10.4 / API version 2.14 [#363](https://github.com/recurly/recurly-client-php/pull/363) ([aaron-junot](https://github.com/aaron-junot))
 - Fix the serialization of custom fields [#361](https://github.com/recurly/recurly-client-php/pull/361) ([drewish](https://github.com/drewish))
-- Remove deprecated --dev flag to composer install command instructions [#359](https://github.com/recurly/recurly-client-php/pull/359) ([aaron-suarez](https://github.com/aaron-suarez))
+- Remove deprecated --dev flag to composer install command instructions [#359](https://github.com/recurly/recurly-client-php/pull/359) ([aaron-junot](https://github.com/aaron-junot))
 - Release 2.10.3 / API version 2.13 [#357](https://github.com/recurly/recurly-client-php/pull/357) ([bhelx](https://github.com/bhelx))
 - Update php version info [#355](https://github.com/recurly/recurly-client-php/pull/355) ([bhelx](https://github.com/bhelx))
 - Client Release 2.10.2 / API version 2.12 [#349](https://github.com/recurly/recurly-client-php/pull/349) ([bhelx](https://github.com/bhelx))
@@ -207,66 +220,51 @@
 - API Version 2.9 [#337](https://github.com/recurly/recurly-client-php/pull/337) ([bhelx](https://github.com/bhelx))
 - Ensure compatibility between Recurly_Resource constructors [#335](https://github.com/recurly/recurly-client-php/pull/335) ([stevegrunwell](https://github.com/stevegrunwell))
 - Adds documentation for subscriptions links [#334](https://github.com/recurly/recurly-client-php/pull/334) ([bhelx](https://github.com/bhelx))
+
+**Closed Issues**
+
+- V 2.9 - Deprecated function : implode() in PHP 7.4 [#507](https://github.com/recurly/recurly-client-php/issues/507)
+- Recurly_Invoice::getInvoicePdf doesn't validate response code [#465](https://github.com/recurly/recurly-client-php/issues/465)
+- "Class 'Recurly_Client' not found" after the recurly.php __DIR__ change [#434](https://github.com/recurly/recurly-client-php/issues/434)
+- getId() method on Recurly_Stub [#405](https://github.com/recurly/recurly-client-php/issues/405)
+- 2.12.* versions not exists in composer (packagist.org) [#404](https://github.com/recurly/recurly-client-php/issues/404)
+- Letter case changes in HTTP/2 [#391](https://github.com/recurly/recurly-client-php/issues/391)
+- BC Break 2.8 -> 2.9ff. not documented Recurly_Invoice#subscription -> Recurly_Invoice#subscriptions [#387](https://github.com/recurly/recurly-client-php/issues/387)
+- Small PHPStorm reported errors [#376](https://github.com/recurly/recurly-client-php/issues/376)
+-  Getting error, "The provided XML was invalid." when setting $subscription->starts_at [#373](https://github.com/recurly/recurly-client-php/issues/373)
+- Error-Response not useful for non-valid subscription addon. [#370](https://github.com/recurly/recurly-client-php/issues/370)
+- BC break with custom fields on Subscription when updating customer notes [#369](https://github.com/recurly/recurly-client-php/issues/369)
+- Updating trial_ends_at results in "The provided XML was invalid." [#365](https://github.com/recurly/recurly-client-php/issues/365)
+- Missing Property Declarations give "Field accessed via magic method" warnings [#358](https://github.com/recurly/recurly-client-php/issues/358)
+- Recurly_Pager->current() breaks if the returned data is empty [#354](https://github.com/recurly/recurly-client-php/issues/354)
+- How to add GDPR Compliance? [#346](https://github.com/recurly/recurly-client-php/issues/346)
+- The provided XML was invalid. [#344](https://github.com/recurly/recurly-client-php/issues/344)
+- Missing two parameters for create/update add-on [#336](https://github.com/recurly/recurly-client-php/issues/336)
+- Make the library usable without the \Recurly_Client::$apiKey [#318](https://github.com/recurly/recurly-client-php/issues/318)
+- Subscription termination - add charge argument [#313](https://github.com/recurly/recurly-client-php/issues/313)
+- DOMDocument::loadXML() - Premature end of data in tag html line 1 in Entity, [#306](https://github.com/recurly/recurly-client-php/issues/306)
+- Enhancement: Enable IntelliSense (IDE friendly) for class properties [#277](https://github.com/recurly/recurly-client-php/issues/277)
+- Recurly_Transaction::get should return HOST CODE for failed transactions [#244](https://github.com/recurly/recurly-client-php/issues/244)
+- Manual transaction authorization [#221](https://github.com/recurly/recurly-client-php/issues/221)
+- How to get "cursor" value to access "next" page and how to access nth page ? [#208](https://github.com/recurly/recurly-client-php/issues/208)
+- Subscription Reactivation Webhook should supply time of reactivation [#183](https://github.com/recurly/recurly-client-php/issues/183)
+- Webhook reactivated_account should be reactivated_subscription [#178](https://github.com/recurly/recurly-client-php/issues/178)
+- Logging mechanism for debugging [#126](https://github.com/recurly/recurly-client-php/issues/126)
+- Use a standard for class names and paths [#96](https://github.com/recurly/recurly-client-php/issues/96)
+
+
+## [2.9.1](https://github.com/recurly/recurly-client-php/tree/2.9.1) (2020-10-01)
+
+[Full Changelog](https://github.com/recurly/recurly-client-php/compare/2.8.3...2.9.1)
+
+
+**Merged Pull Requests**
+
+- Updating client to be compliant with RFC 2616: case-insensitive headers [#555](https://github.com/recurly/recurly-client-php/pull/555) ([douglasmiller](https://github.com/douglasmiller))
 - Bump 2.9.0, API version 2.8 [#333](https://github.com/recurly/recurly-client-php/pull/333) ([bhelx](https://github.com/bhelx))
 - Custom Invoice notes on Purchase [#332](https://github.com/recurly/recurly-client-php/pull/332) ([bhelx](https://github.com/bhelx))
 - Add writeable imported_trial bool to subscription [#331](https://github.com/recurly/recurly-client-php/pull/331) ([bhelx](https://github.com/bhelx))
 - More nested flags [#328](https://github.com/recurly/recurly-client-php/pull/328) ([g30rg](https://github.com/g30rg))
-- Release 2.8.2 [#327](https://github.com/recurly/recurly-client-php/pull/327) ([drewish](https://github.com/drewish))
-- Add nested flag [#326](https://github.com/recurly/recurly-client-php/pull/326) ([g30rg](https://github.com/g30rg))
-- Run tests with 7.0 and 7.1 [#324](https://github.com/recurly/recurly-client-php/pull/324) ([bhelx](https://github.com/bhelx))
-- Bump 2.8.1 [#323](https://github.com/recurly/recurly-client-php/pull/323) ([bhelx](https://github.com/bhelx))
-- Update CHANGELOG with 2.8.0 release [#322](https://github.com/recurly/recurly-client-php/pull/322) ([bhelx](https://github.com/bhelx))
-- Finish inline property docs [#321](https://github.com/recurly/recurly-client-php/pull/321) ([bhelx](https://github.com/bhelx))
-- API version 2.7 [#319](https://github.com/recurly/recurly-client-php/pull/319) ([bhelx](https://github.com/bhelx))
-- API Version 2.6 [#317](https://github.com/recurly/recurly-client-php/pull/317) ([bhelx](https://github.com/bhelx))
-- Remove 5.3 Support and upgrade Travis to support HHVM [#316](https://github.com/recurly/recurly-client-php/pull/316) ([bhelx](https://github.com/bhelx))
-- Purchases endpoint [#315](https://github.com/recurly/recurly-client-php/pull/315) ([bhelx](https://github.com/bhelx))
-- Remove X-Records header [#314](https://github.com/recurly/recurly-client-php/pull/314) ([bhelx](https://github.com/bhelx))
-- Add trial requires billing info field and no billing info reason field [#312](https://github.com/recurly/recurly-client-php/pull/312) ([Dania02525](https://github.com/Dania02525))
-- Bump 2.7.2 [#311](https://github.com/recurly/recurly-client-php/pull/311) ([bhelx](https://github.com/bhelx))
-- Changes for API version 2.5 [#310](https://github.com/recurly/recurly-client-php/pull/310) ([bhelx](https://github.com/bhelx))
-- Adds external payments to invoices [#309](https://github.com/recurly/recurly-client-php/pull/309) ([bhelx](https://github.com/bhelx))
-- GiftCard: deliver_at goes on the Delivery object [#307](https://github.com/recurly/recurly-client-php/pull/307) ([bhelx](https://github.com/bhelx))
-- Adds a getType method to all Resources [#299](https://github.com/recurly/recurly-client-php/pull/299) ([bhelx](https://github.com/bhelx))
-- Parse incorrectly shaped validation errors [#298](https://github.com/recurly/recurly-client-php/pull/298) ([bhelx](https://github.com/bhelx))
-- Writeable and updatable coupon description [#297](https://github.com/recurly/recurly-client-php/pull/297) ([bhelx](https://github.com/bhelx))
-- Require export files [#296](https://github.com/recurly/recurly-client-php/pull/296) ([bhelx](https://github.com/bhelx))
-- Bump 2.7.1 [#292](https://github.com/recurly/recurly-client-php/pull/292) ([bhelx](https://github.com/bhelx))
-- Adding ability to get Recurly error code from Recurly_Error Exception [#291](https://github.com/recurly/recurly-client-php/pull/291) ([izhyvaiev](https://github.com/izhyvaiev))
-- Create shipping addresses on existing accounts and allow updates [#289](https://github.com/recurly/recurly-client-php/pull/289) ([bhelx](https://github.com/bhelx))
-- Fixed addon creation bug. [#286](https://github.com/recurly/recurly-client-php/pull/286) ([xastor](https://github.com/xastor))
-- The Pager should implement the Countable interface [#282](https://github.com/recurly/recurly-client-php/pull/282) ([naderman](https://github.com/naderman))
-- adds company to writeable billing_info attributes [#280](https://github.com/recurly/recurly-client-php/pull/280) ([lmnleaf](https://github.com/lmnleaf))
-- Enhancement: Enable IntelliSense (IDE friendly) for class properties (Part 2) Invoice and Subscription [#279](https://github.com/recurly/recurly-client-php/pull/279) ([phpdave](https://github.com/phpdave))
-- Enhancement: Enable IntelliSense (IDE friendly) for class properties [#278](https://github.com/recurly/recurly-client-php/pull/278) ([phpdave](https://github.com/phpdave))
-- Release 2.7.0 [#275](https://github.com/recurly/recurly-client-php/pull/275) ([drewish](https://github.com/drewish))
-- Adding missing account balance require [#273](https://github.com/recurly/recurly-client-php/pull/273) ([bhelx](https://github.com/bhelx))
-- Added filters support for stub [#270](https://github.com/recurly/recurly-client-php/pull/270) ([developer-devPHP](https://github.com/developer-devPHP))
-- Simplify writable attributes [#267](https://github.com/recurly/recurly-client-php/pull/267) ([drewish](https://github.com/drewish))
-- Pass the client from pager to its items [#265](https://github.com/recurly/recurly-client-php/pull/265) ([drewish](https://github.com/drewish))
-- Bump versions for 2.6.0 release [#264](https://github.com/recurly/recurly-client-php/pull/264) ([drewish](https://github.com/drewish))
-- Changes for API 2.4 [#258](https://github.com/recurly/recurly-client-php/pull/258) ([drewish](https://github.com/drewish))
-- Add revenue_schedule_type support [#257](https://github.com/recurly/recurly-client-php/pull/257) ([drewish](https://github.com/drewish))
-- Warn on API deprecation [#250](https://github.com/recurly/recurly-client-php/pull/250) ([drewish](https://github.com/drewish))
-- Add support for new pagination [#249](https://github.com/recurly/recurly-client-php/pull/249) ([drewish](https://github.com/drewish))
-- Bump version to 2.5.3 and add another missing changelog entry [#248](https://github.com/recurly/recurly-client-php/pull/248) ([drewish](https://github.com/drewish))
-- Update release notes [#247](https://github.com/recurly/recurly-client-php/pull/247) ([drewish](https://github.com/drewish))
-- Changes for API 2.3  [#246](https://github.com/recurly/recurly-client-php/pull/246) ([drewish](https://github.com/drewish))
-- Coupon lists require a parent object [#243](https://github.com/recurly/recurly-client-php/pull/243) ([drewish](https://github.com/drewish))
-- Fix subscription updates when subcription has add_ons [#242](https://github.com/recurly/recurly-client-php/pull/242) ([bhelx](https://github.com/bhelx))
-- Provide default getRequiredAttributes() [#241](https://github.com/recurly/recurly-client-php/pull/241) ([drewish](https://github.com/drewish))
-- Drop old transparent post paths [#237](https://github.com/recurly/recurly-client-php/pull/237) ([drewish](https://github.com/drewish))
-- Return correct node name for Recurly_NoteList [#236](https://github.com/recurly/recurly-client-php/pull/236) ([drewish](https://github.com/drewish))
-- Assign to a variable to allow returning a reference [#235](https://github.com/recurly/recurly-client-php/pull/235) ([davedevelopment](https://github.com/davedevelopment))
-- Use PHPUnit configuration file [#234](https://github.com/recurly/recurly-client-php/pull/234) ([davedevelopment](https://github.com/davedevelopment))
-- Bump 2.5.2 [#233](https://github.com/recurly/recurly-client-php/pull/233) ([bhelx](https://github.com/bhelx))
-- Adding recent merges to change log [#230](https://github.com/recurly/recurly-client-php/pull/230) ([drewish](https://github.com/drewish))
-- fix for add charge. start_date and end_date was not getting set [#229](https://github.com/recurly/recurly-client-php/pull/229) ([imsagar](https://github.com/imsagar))
-- Parse Fraud object when available [#228](https://github.com/recurly/recurly-client-php/pull/228) ([bhelx](https://github.com/bhelx))
-- Usage Based Billing [#227](https://github.com/recurly/recurly-client-php/pull/227) ([bhelx](https://github.com/bhelx))
-- updates Recurly_Coupon for free trial coupons [#224](https://github.com/recurly/recurly-client-php/pull/224) ([lmnleaf](https://github.com/lmnleaf))
-- Add a note about supporting TLS in the README.md [#217](https://github.com/recurly/recurly-client-php/pull/217) ([rafdizzle86](https://github.com/rafdizzle86))
-- Adding closed_at account tag to fixtures [#170](https://github.com/recurly/recurly-client-php/pull/170) ([rafdizzle86](https://github.com/rafdizzle86))
 
 **Closed Issues**
 
@@ -292,83 +290,71 @@
 - Make the library usable without the \Recurly_Client::$apiKey [#318](https://github.com/recurly/recurly-client-php/issues/318)
 - Subscription termination - add charge argument [#313](https://github.com/recurly/recurly-client-php/issues/313)
 - DOMDocument::loadXML() - Premature end of data in tag html line 1 in Entity, [#306](https://github.com/recurly/recurly-client-php/issues/306)
-- Can't get Coupon list using Recurly_CouponList [#305](https://github.com/recurly/recurly-client-php/issues/305)
-- Hydrate class from PushNotification [#303](https://github.com/recurly/recurly-client-php/issues/303)
-- export_date.php, export_date_list.php, export_file.php, export_file_list.php not included in /lib/recurly.php [#295](https://github.com/recurly/recurly-client-php/issues/295)
-- Paypal and EU vat issue [#294](https://github.com/recurly/recurly-client-php/issues/294)
-- Create Subscription and user (with billing info) [#293](https://github.com/recurly/recurly-client-php/issues/293)
-- Recurly Error Code is not accessible from Recurly_Error Exception [#290](https://github.com/recurly/recurly-client-php/issues/290)
-- Coupon `description` field not writeable [#288](https://github.com/recurly/recurly-client-php/issues/288)
-- Is there an easy way to set the default timezone for all api calls? [#285](https://github.com/recurly/recurly-client-php/issues/285)
-- Updating subscription with coupon code returns dot mark '.' [#284](https://github.com/recurly/recurly-client-php/issues/284)
-- pending_subscription node removal [#283](https://github.com/recurly/recurly-client-php/issues/283)
-- Exception 'Recurly_ValidationError' with message '.'  [#281](https://github.com/recurly/recurly-client-php/issues/281)
 - Enhancement: Enable IntelliSense (IDE friendly) for class properties [#277](https://github.com/recurly/recurly-client-php/issues/277)
-- Cut down on OOP fluff [#272](https://github.com/recurly/recurly-client-php/issues/272)
-- Missing an entry for account_balance.php in lib/recurly.php [#271](https://github.com/recurly/recurly-client-php/issues/271)
-- Get count of total successful payments for a subscription? [#266](https://github.com/recurly/recurly-client-php/issues/266)
-- Hydrating a Resource node object doesn't transfer client instance from Recurly_Pager [#254](https://github.com/recurly/recurly-client-php/issues/254)
-- Unable to Update Subscriptions using 2.5.* in Laravel 5.1 [#253](https://github.com/recurly/recurly-client-php/issues/253)
-- Can't Update Account Info, But Can Update Billing Info [#252](https://github.com/recurly/recurly-client-php/issues/252)
-- Get the type of an adjustment [#245](https://github.com/recurly/recurly-client-php/issues/245)
 - Recurly_Transaction::get should return HOST CODE for failed transactions [#244](https://github.com/recurly/recurly-client-php/issues/244)
-- Cannot update subscriptions with usage based addons [#240](https://github.com/recurly/recurly-client-php/issues/240)
-- About domain name compability [#226](https://github.com/recurly/recurly-client-php/issues/226)
-- Clear queued transactions upon subscription cancellation [#222](https://github.com/recurly/recurly-client-php/issues/222)
 - Manual transaction authorization [#221](https://github.com/recurly/recurly-client-php/issues/221)
-- Recurly_Transaction::get should return original_transaction_id for refunds [#216](https://github.com/recurly/recurly-client-php/issues/216)
-- Extra unnecessary(?) requests happening whenever `Recurly_Pager::rewind()` called. [#212](https://github.com/recurly/recurly-client-php/issues/212)
-- How to get data by filter date via canceled at in Recurly_SubscriptionList::get() method [#211](https://github.com/recurly/recurly-client-php/issues/211)
-- Innaccessible billing info type [#210](https://github.com/recurly/recurly-client-php/issues/210)
-- Accessing next page with the cursor value returns same page  [#209](https://github.com/recurly/recurly-client-php/issues/209)
 - How to get "cursor" value to access "next" page and how to access nth page ? [#208](https://github.com/recurly/recurly-client-php/issues/208)
-- Reworked pager is a breaking change in the API [#207](https://github.com/recurly/recurly-client-php/issues/207)
-- [Semantical Error] The annotation "@parameter" in method Recurly_Resource::setValues() was never imported [#203](https://github.com/recurly/recurly-client-php/issues/203)
-- Coupon redemption issues [#196](https://github.com/recurly/recurly-client-php/issues/196)
-- Request: Separate Billing Email [#194](https://github.com/recurly/recurly-client-php/issues/194)
-- Support for getting a list of coupon redemptions for a given coupon [#193](https://github.com/recurly/recurly-client-php/issues/193)
-- Undefined variable $redemption [#187](https://github.com/recurly/recurly-client-php/issues/187)
-- Recurly_js.php needs update for recurlyjs v3.  [#185](https://github.com/recurly/recurly-client-php/issues/185)
 - Subscription Reactivation Webhook should supply time of reactivation [#183](https://github.com/recurly/recurly-client-php/issues/183)
 - Webhook reactivated_account should be reactivated_subscription [#178](https://github.com/recurly/recurly-client-php/issues/178)
-- Resource#_nestedAttributes is potentially unused code [#177](https://github.com/recurly/recurly-client-php/issues/177)
-- Packaging crt bundle with the library [#173](https://github.com/recurly/recurly-client-php/issues/173)
-- Subscription Object: updateImmediately() only allows account credit [#169](https://github.com/recurly/recurly-client-php/issues/169)
-- Call to subscription->create never returns result [#158](https://github.com/recurly/recurly-client-php/issues/158)
-- Requests with ampersand fail [#148](https://github.com/recurly/recurly-client-php/issues/148)
-- phpStorm files keep popping up in git client [#146](https://github.com/recurly/recurly-client-php/issues/146)
-- Responses returned are unorganized [#144](https://github.com/recurly/recurly-client-php/issues/144)
-- Recurly_Invoice::getPdf does not take invoice_number_prefix into account [#143](https://github.com/recurly/recurly-client-php/issues/143)
-- Trouble accessing the DateTime object in response [#142](https://github.com/recurly/recurly-client-php/issues/142)
-- Enter an offline payment for a manual invoice  [#141](https://github.com/recurly/recurly-client-php/issues/141)
-- Unable to filter an account's subscriptions [#140](https://github.com/recurly/recurly-client-php/issues/140)
-- Silently Failing [#139](https://github.com/recurly/recurly-client-php/issues/139)
-- Enter an offline partial payment for a manual invoice [#129](https://github.com/recurly/recurly-client-php/issues/129)
 - Logging mechanism for debugging [#126](https://github.com/recurly/recurly-client-php/issues/126)
-- Invoice-based refunding [#124](https://github.com/recurly/recurly-client-php/issues/124)
-- Issue with refunding a Recurly_Transaction [#119](https://github.com/recurly/recurly-client-php/issues/119)
-- balance_in_cents_invoiced / unvoiced doesn't appear to populate properly. [#116](https://github.com/recurly/recurly-client-php/issues/116)
-- Account list not paging correctly [#99](https://github.com/recurly/recurly-client-php/issues/99)
 - Use a standard for class names and paths [#96](https://github.com/recurly/recurly-client-php/issues/96)
-- Push notifications for Invoice transactions [#92](https://github.com/recurly/recurly-client-php/issues/92)
-- Subscription Add-Ons causing 422 Header [#86](https://github.com/recurly/recurly-client-php/issues/86)
-- add collecting payments for manual invoicing [#84](https://github.com/recurly/recurly-client-php/issues/84)
-- Don't use static methods [#69](https://github.com/recurly/recurly-client-php/issues/69)
-- add remaining_billing_cycles to the writable attributes for subscriptions [#63](https://github.com/recurly/recurly-client-php/issues/63)
-- "PHP Warning:  DOMDocument::loadXML()" when sending very looooooong fields [#54](https://github.com/recurly/recurly-client-php/issues/54)
-- Add a way to get current values/fields from a Recurly_Resource [#44](https://github.com/recurly/recurly-client-php/issues/44)
-- Infinite Loop created in pager.php [#23](https://github.com/recurly/recurly-client-php/issues/23)
 
 
-## [2.2.7](https://github.com/recurly/recurly-client-php/tree/2.2.7) (2020-10-01)
+## [2.8.3](https://github.com/recurly/recurly-client-php/tree/2.8.3) (2020-10-01)
 
-[Full Changelog](https://github.com/recurly/recurly-client-php/compare/2.7.3...2.2.7)
+[Full Changelog](https://github.com/recurly/recurly-client-php/compare/2.7.3...2.8.3)
 
 
 **Merged Pull Requests**
 
-- Updating client to be compliant with RFC 2616: case-insensitive headers [#548](https://github.com/recurly/recurly-client-php/pull/548) ([douglasmiller](https://github.com/douglasmiller))
+- Updating client to be compliant with RFC 2616: case-insensitive headers [#554](https://github.com/recurly/recurly-client-php/pull/554) ([douglasmiller](https://github.com/douglasmiller))
+- Release 2.8.2 [#327](https://github.com/recurly/recurly-client-php/pull/327) ([drewish](https://github.com/drewish))
+- Add nested flag [#326](https://github.com/recurly/recurly-client-php/pull/326) ([g30rg](https://github.com/g30rg))
+- Run tests with 7.0 and 7.1 [#324](https://github.com/recurly/recurly-client-php/pull/324) ([bhelx](https://github.com/bhelx))
+- Bump 2.8.1 [#323](https://github.com/recurly/recurly-client-php/pull/323) ([bhelx](https://github.com/bhelx))
+- Update CHANGELOG with 2.8.0 release [#322](https://github.com/recurly/recurly-client-php/pull/322) ([bhelx](https://github.com/bhelx))
+- Finish inline property docs [#321](https://github.com/recurly/recurly-client-php/pull/321) ([bhelx](https://github.com/bhelx))
+- API version 2.7 [#319](https://github.com/recurly/recurly-client-php/pull/319) ([bhelx](https://github.com/bhelx))
+- API Version 2.6 [#317](https://github.com/recurly/recurly-client-php/pull/317) ([bhelx](https://github.com/bhelx))
+- Remove 5.3 Support and upgrade Travis to support HHVM [#316](https://github.com/recurly/recurly-client-php/pull/316) ([bhelx](https://github.com/bhelx))
+- Purchases endpoint [#315](https://github.com/recurly/recurly-client-php/pull/315) ([bhelx](https://github.com/bhelx))
+- Remove X-Records header [#314](https://github.com/recurly/recurly-client-php/pull/314) ([bhelx](https://github.com/bhelx))
+- Add trial requires billing info field and no billing info reason field [#312](https://github.com/recurly/recurly-client-php/pull/312) ([Dania02525](https://github.com/Dania02525))
+- Enhancement: Enable IntelliSense (IDE friendly) for class properties (Part 2) Invoice and Subscription [#279](https://github.com/recurly/recurly-client-php/pull/279) ([phpdave](https://github.com/phpdave))
 
+**Closed Issues**
+
+- V 2.9 - Deprecated function : implode() in PHP 7.4 [#507](https://github.com/recurly/recurly-client-php/issues/507)
+- Recurly_Invoice::getInvoicePdf doesn't validate response code [#465](https://github.com/recurly/recurly-client-php/issues/465)
+- "Class 'Recurly_Client' not found" after the recurly.php __DIR__ change [#434](https://github.com/recurly/recurly-client-php/issues/434)
+- getId() method on Recurly_Stub [#405](https://github.com/recurly/recurly-client-php/issues/405)
+- 2.12.* versions not exists in composer (packagist.org) [#404](https://github.com/recurly/recurly-client-php/issues/404)
+- Letter case changes in HTTP/2 [#391](https://github.com/recurly/recurly-client-php/issues/391)
+- BC Break 2.8 -> 2.9ff. not documented Recurly_Invoice#subscription -> Recurly_Invoice#subscriptions [#387](https://github.com/recurly/recurly-client-php/issues/387)
+- Small PHPStorm reported errors [#376](https://github.com/recurly/recurly-client-php/issues/376)
+-  Getting error, "The provided XML was invalid." when setting $subscription->starts_at [#373](https://github.com/recurly/recurly-client-php/issues/373)
+- Error-Response not useful for non-valid subscription addon. [#370](https://github.com/recurly/recurly-client-php/issues/370)
+- BC break with custom fields on Subscription when updating customer notes [#369](https://github.com/recurly/recurly-client-php/issues/369)
+- Updating trial_ends_at results in "The provided XML was invalid." [#365](https://github.com/recurly/recurly-client-php/issues/365)
+- Missing Property Declarations give "Field accessed via magic method" warnings [#358](https://github.com/recurly/recurly-client-php/issues/358)
+- Recurly_Pager->current() breaks if the returned data is empty [#354](https://github.com/recurly/recurly-client-php/issues/354)
+- How to add GDPR Compliance? [#346](https://github.com/recurly/recurly-client-php/issues/346)
+- The provided XML was invalid. [#344](https://github.com/recurly/recurly-client-php/issues/344)
+- Missing two parameters for create/update add-on [#336](https://github.com/recurly/recurly-client-php/issues/336)
+- Recurly's SSL certificate error [#330](https://github.com/recurly/recurly-client-php/issues/330)
+- returning user and plan info on invoice [#329](https://github.com/recurly/recurly-client-php/issues/329)
+- Make the library usable without the \Recurly_Client::$apiKey [#318](https://github.com/recurly/recurly-client-php/issues/318)
+- Subscription termination - add charge argument [#313](https://github.com/recurly/recurly-client-php/issues/313)
+- DOMDocument::loadXML() - Premature end of data in tag html line 1 in Entity, [#306](https://github.com/recurly/recurly-client-php/issues/306)
+- Enhancement: Enable IntelliSense (IDE friendly) for class properties [#277](https://github.com/recurly/recurly-client-php/issues/277)
+- Recurly_Transaction::get should return HOST CODE for failed transactions [#244](https://github.com/recurly/recurly-client-php/issues/244)
+- Manual transaction authorization [#221](https://github.com/recurly/recurly-client-php/issues/221)
+- How to get "cursor" value to access "next" page and how to access nth page ? [#208](https://github.com/recurly/recurly-client-php/issues/208)
+- Reworked pager is a breaking change in the API [#207](https://github.com/recurly/recurly-client-php/issues/207)
+- Subscription Reactivation Webhook should supply time of reactivation [#183](https://github.com/recurly/recurly-client-php/issues/183)
+- Webhook reactivated_account should be reactivated_subscription [#178](https://github.com/recurly/recurly-client-php/issues/178)
+- Logging mechanism for debugging [#126](https://github.com/recurly/recurly-client-php/issues/126)
+- Use a standard for class names and paths [#96](https://github.com/recurly/recurly-client-php/issues/96)
 
 
 ## [2.7.3](https://github.com/recurly/recurly-client-php/tree/2.7.3) (2020-10-01)
@@ -737,12 +723,217 @@
 
 ## [2.3.2](https://github.com/recurly/recurly-client-php/tree/2.3.2) (2020-10-01)
 
-[Full Changelog](https://github.com/recurly/recurly-client-php/compare/2.0.9...2.3.2)
+[Full Changelog](https://github.com/recurly/recurly-client-php/compare/2.2.7...2.3.2)
 
 
 **Merged Pull Requests**
 
 - Updating client to be compliant with RFC 2616: case-insensitive headers [#549](https://github.com/recurly/recurly-client-php/pull/549) ([douglasmiller](https://github.com/douglasmiller))
+
+**Closed Issues**
+
+- V 2.9 - Deprecated function : implode() in PHP 7.4 [#507](https://github.com/recurly/recurly-client-php/issues/507)
+- Recurly_Invoice::getInvoicePdf doesn't validate response code [#465](https://github.com/recurly/recurly-client-php/issues/465)
+- "Class 'Recurly_Client' not found" after the recurly.php __DIR__ change [#434](https://github.com/recurly/recurly-client-php/issues/434)
+- getId() method on Recurly_Stub [#405](https://github.com/recurly/recurly-client-php/issues/405)
+- 2.12.* versions not exists in composer (packagist.org) [#404](https://github.com/recurly/recurly-client-php/issues/404)
+- Letter case changes in HTTP/2 [#391](https://github.com/recurly/recurly-client-php/issues/391)
+- BC Break 2.8 -> 2.9ff. not documented Recurly_Invoice#subscription -> Recurly_Invoice#subscriptions [#387](https://github.com/recurly/recurly-client-php/issues/387)
+- Small PHPStorm reported errors [#376](https://github.com/recurly/recurly-client-php/issues/376)
+-  Getting error, "The provided XML was invalid." when setting $subscription->starts_at [#373](https://github.com/recurly/recurly-client-php/issues/373)
+- Error-Response not useful for non-valid subscription addon. [#370](https://github.com/recurly/recurly-client-php/issues/370)
+- BC break with custom fields on Subscription when updating customer notes [#369](https://github.com/recurly/recurly-client-php/issues/369)
+- Updating trial_ends_at results in "The provided XML was invalid." [#365](https://github.com/recurly/recurly-client-php/issues/365)
+- Missing Property Declarations give "Field accessed via magic method" warnings [#358](https://github.com/recurly/recurly-client-php/issues/358)
+- Recurly_Pager->current() breaks if the returned data is empty [#354](https://github.com/recurly/recurly-client-php/issues/354)
+- How to add GDPR Compliance? [#346](https://github.com/recurly/recurly-client-php/issues/346)
+- The provided XML was invalid. [#344](https://github.com/recurly/recurly-client-php/issues/344)
+- Missing two parameters for create/update add-on [#336](https://github.com/recurly/recurly-client-php/issues/336)
+- Recurly's SSL certificate error [#330](https://github.com/recurly/recurly-client-php/issues/330)
+- returning user and plan info on invoice [#329](https://github.com/recurly/recurly-client-php/issues/329)
+- Make the library usable without the \Recurly_Client::$apiKey [#318](https://github.com/recurly/recurly-client-php/issues/318)
+- Subscription termination - add charge argument [#313](https://github.com/recurly/recurly-client-php/issues/313)
+- DOMDocument::loadXML() - Premature end of data in tag html line 1 in Entity, [#306](https://github.com/recurly/recurly-client-php/issues/306)
+- Can't get Coupon list using Recurly_CouponList [#305](https://github.com/recurly/recurly-client-php/issues/305)
+- Hydrate class from PushNotification [#303](https://github.com/recurly/recurly-client-php/issues/303)
+- export_date.php, export_date_list.php, export_file.php, export_file_list.php not included in /lib/recurly.php [#295](https://github.com/recurly/recurly-client-php/issues/295)
+- Paypal and EU vat issue [#294](https://github.com/recurly/recurly-client-php/issues/294)
+- Create Subscription and user (with billing info) [#293](https://github.com/recurly/recurly-client-php/issues/293)
+- Recurly Error Code is not accessible from Recurly_Error Exception [#290](https://github.com/recurly/recurly-client-php/issues/290)
+- Coupon `description` field not writeable [#288](https://github.com/recurly/recurly-client-php/issues/288)
+- Is there an easy way to set the default timezone for all api calls? [#285](https://github.com/recurly/recurly-client-php/issues/285)
+- Updating subscription with coupon code returns dot mark '.' [#284](https://github.com/recurly/recurly-client-php/issues/284)
+- pending_subscription node removal [#283](https://github.com/recurly/recurly-client-php/issues/283)
+- Exception 'Recurly_ValidationError' with message '.'  [#281](https://github.com/recurly/recurly-client-php/issues/281)
+- Enhancement: Enable IntelliSense (IDE friendly) for class properties [#277](https://github.com/recurly/recurly-client-php/issues/277)
+- Cut down on OOP fluff [#272](https://github.com/recurly/recurly-client-php/issues/272)
+- Missing an entry for account_balance.php in lib/recurly.php [#271](https://github.com/recurly/recurly-client-php/issues/271)
+- Get count of total successful payments for a subscription? [#266](https://github.com/recurly/recurly-client-php/issues/266)
+- Hydrating a Resource node object doesn't transfer client instance from Recurly_Pager [#254](https://github.com/recurly/recurly-client-php/issues/254)
+- Unable to Update Subscriptions using 2.5.* in Laravel 5.1 [#253](https://github.com/recurly/recurly-client-php/issues/253)
+- Can't Update Account Info, But Can Update Billing Info [#252](https://github.com/recurly/recurly-client-php/issues/252)
+- Get the type of an adjustment [#245](https://github.com/recurly/recurly-client-php/issues/245)
+- Recurly_Transaction::get should return HOST CODE for failed transactions [#244](https://github.com/recurly/recurly-client-php/issues/244)
+- Cannot update subscriptions with usage based addons [#240](https://github.com/recurly/recurly-client-php/issues/240)
+- About domain name compability [#226](https://github.com/recurly/recurly-client-php/issues/226)
+- Clear queued transactions upon subscription cancellation [#222](https://github.com/recurly/recurly-client-php/issues/222)
+- Manual transaction authorization [#221](https://github.com/recurly/recurly-client-php/issues/221)
+- Recurly_Transaction::get should return original_transaction_id for refunds [#216](https://github.com/recurly/recurly-client-php/issues/216)
+- Extra unnecessary(?) requests happening whenever `Recurly_Pager::rewind()` called. [#212](https://github.com/recurly/recurly-client-php/issues/212)
+- How to get data by filter date via canceled at in Recurly_SubscriptionList::get() method [#211](https://github.com/recurly/recurly-client-php/issues/211)
+- Innaccessible billing info type [#210](https://github.com/recurly/recurly-client-php/issues/210)
+- Accessing next page with the cursor value returns same page  [#209](https://github.com/recurly/recurly-client-php/issues/209)
+- How to get "cursor" value to access "next" page and how to access nth page ? [#208](https://github.com/recurly/recurly-client-php/issues/208)
+- Reworked pager is a breaking change in the API [#207](https://github.com/recurly/recurly-client-php/issues/207)
+- [Semantical Error] The annotation "@parameter" in method Recurly_Resource::setValues() was never imported [#203](https://github.com/recurly/recurly-client-php/issues/203)
+- Coupon redemption issues [#196](https://github.com/recurly/recurly-client-php/issues/196)
+- Request: Separate Billing Email [#194](https://github.com/recurly/recurly-client-php/issues/194)
+- Support for getting a list of coupon redemptions for a given coupon [#193](https://github.com/recurly/recurly-client-php/issues/193)
+- Undefined variable $redemption [#187](https://github.com/recurly/recurly-client-php/issues/187)
+- Recurly_js.php needs update for recurlyjs v3.  [#185](https://github.com/recurly/recurly-client-php/issues/185)
+- Subscription Reactivation Webhook should supply time of reactivation [#183](https://github.com/recurly/recurly-client-php/issues/183)
+- Webhook reactivated_account should be reactivated_subscription [#178](https://github.com/recurly/recurly-client-php/issues/178)
+- Resource#_nestedAttributes is potentially unused code [#177](https://github.com/recurly/recurly-client-php/issues/177)
+- Packaging crt bundle with the library [#173](https://github.com/recurly/recurly-client-php/issues/173)
+- Subscription Object: updateImmediately() only allows account credit [#169](https://github.com/recurly/recurly-client-php/issues/169)
+- Call to subscription->create never returns result [#158](https://github.com/recurly/recurly-client-php/issues/158)
+- Requests with ampersand fail [#148](https://github.com/recurly/recurly-client-php/issues/148)
+- phpStorm files keep popping up in git client [#146](https://github.com/recurly/recurly-client-php/issues/146)
+- Responses returned are unorganized [#144](https://github.com/recurly/recurly-client-php/issues/144)
+- Recurly_Invoice::getPdf does not take invoice_number_prefix into account [#143](https://github.com/recurly/recurly-client-php/issues/143)
+- Trouble accessing the DateTime object in response [#142](https://github.com/recurly/recurly-client-php/issues/142)
+- Enter an offline payment for a manual invoice  [#141](https://github.com/recurly/recurly-client-php/issues/141)
+- Unable to filter an account's subscriptions [#140](https://github.com/recurly/recurly-client-php/issues/140)
+- Silently Failing [#139](https://github.com/recurly/recurly-client-php/issues/139)
+- Enter an offline partial payment for a manual invoice [#129](https://github.com/recurly/recurly-client-php/issues/129)
+- Logging mechanism for debugging [#126](https://github.com/recurly/recurly-client-php/issues/126)
+- Invoice-based refunding [#124](https://github.com/recurly/recurly-client-php/issues/124)
+- Issue with refunding a Recurly_Transaction [#119](https://github.com/recurly/recurly-client-php/issues/119)
+- balance_in_cents_invoiced / unvoiced doesn't appear to populate properly. [#116](https://github.com/recurly/recurly-client-php/issues/116)
+- Account list not paging correctly [#99](https://github.com/recurly/recurly-client-php/issues/99)
+- Use a standard for class names and paths [#96](https://github.com/recurly/recurly-client-php/issues/96)
+- Push notifications for Invoice transactions [#92](https://github.com/recurly/recurly-client-php/issues/92)
+- Subscription Add-Ons causing 422 Header [#86](https://github.com/recurly/recurly-client-php/issues/86)
+- add collecting payments for manual invoicing [#84](https://github.com/recurly/recurly-client-php/issues/84)
+- Don't use static methods [#69](https://github.com/recurly/recurly-client-php/issues/69)
+- add remaining_billing_cycles to the writable attributes for subscriptions [#63](https://github.com/recurly/recurly-client-php/issues/63)
+- "PHP Warning:  DOMDocument::loadXML()" when sending very looooooong fields [#54](https://github.com/recurly/recurly-client-php/issues/54)
+- Add a way to get current values/fields from a Recurly_Resource [#44](https://github.com/recurly/recurly-client-php/issues/44)
+- Infinite Loop created in pager.php [#23](https://github.com/recurly/recurly-client-php/issues/23)
+
+
+## [2.2.7](https://github.com/recurly/recurly-client-php/tree/2.2.7) (2020-10-01)
+
+[Full Changelog](https://github.com/recurly/recurly-client-php/compare/2.1.5...2.2.7)
+
+
+**Merged Pull Requests**
+
+- Updating client to be compliant with RFC 2616: case-insensitive headers [#548](https://github.com/recurly/recurly-client-php/pull/548) ([douglasmiller](https://github.com/douglasmiller))
+
+**Closed Issues**
+
+- V 2.9 - Deprecated function : implode() in PHP 7.4 [#507](https://github.com/recurly/recurly-client-php/issues/507)
+- Recurly_Invoice::getInvoicePdf doesn't validate response code [#465](https://github.com/recurly/recurly-client-php/issues/465)
+- "Class 'Recurly_Client' not found" after the recurly.php __DIR__ change [#434](https://github.com/recurly/recurly-client-php/issues/434)
+- getId() method on Recurly_Stub [#405](https://github.com/recurly/recurly-client-php/issues/405)
+- 2.12.* versions not exists in composer (packagist.org) [#404](https://github.com/recurly/recurly-client-php/issues/404)
+- Letter case changes in HTTP/2 [#391](https://github.com/recurly/recurly-client-php/issues/391)
+- BC Break 2.8 -> 2.9ff. not documented Recurly_Invoice#subscription -> Recurly_Invoice#subscriptions [#387](https://github.com/recurly/recurly-client-php/issues/387)
+- Small PHPStorm reported errors [#376](https://github.com/recurly/recurly-client-php/issues/376)
+-  Getting error, "The provided XML was invalid." when setting $subscription->starts_at [#373](https://github.com/recurly/recurly-client-php/issues/373)
+- Error-Response not useful for non-valid subscription addon. [#370](https://github.com/recurly/recurly-client-php/issues/370)
+- BC break with custom fields on Subscription when updating customer notes [#369](https://github.com/recurly/recurly-client-php/issues/369)
+- Updating trial_ends_at results in "The provided XML was invalid." [#365](https://github.com/recurly/recurly-client-php/issues/365)
+- Missing Property Declarations give "Field accessed via magic method" warnings [#358](https://github.com/recurly/recurly-client-php/issues/358)
+- Recurly_Pager->current() breaks if the returned data is empty [#354](https://github.com/recurly/recurly-client-php/issues/354)
+- How to add GDPR Compliance? [#346](https://github.com/recurly/recurly-client-php/issues/346)
+- The provided XML was invalid. [#344](https://github.com/recurly/recurly-client-php/issues/344)
+- Missing two parameters for create/update add-on [#336](https://github.com/recurly/recurly-client-php/issues/336)
+- Recurly's SSL certificate error [#330](https://github.com/recurly/recurly-client-php/issues/330)
+- returning user and plan info on invoice [#329](https://github.com/recurly/recurly-client-php/issues/329)
+- Make the library usable without the \Recurly_Client::$apiKey [#318](https://github.com/recurly/recurly-client-php/issues/318)
+- Subscription termination - add charge argument [#313](https://github.com/recurly/recurly-client-php/issues/313)
+- DOMDocument::loadXML() - Premature end of data in tag html line 1 in Entity, [#306](https://github.com/recurly/recurly-client-php/issues/306)
+- Can't get Coupon list using Recurly_CouponList [#305](https://github.com/recurly/recurly-client-php/issues/305)
+- Hydrate class from PushNotification [#303](https://github.com/recurly/recurly-client-php/issues/303)
+- export_date.php, export_date_list.php, export_file.php, export_file_list.php not included in /lib/recurly.php [#295](https://github.com/recurly/recurly-client-php/issues/295)
+- Paypal and EU vat issue [#294](https://github.com/recurly/recurly-client-php/issues/294)
+- Create Subscription and user (with billing info) [#293](https://github.com/recurly/recurly-client-php/issues/293)
+- Recurly Error Code is not accessible from Recurly_Error Exception [#290](https://github.com/recurly/recurly-client-php/issues/290)
+- Coupon `description` field not writeable [#288](https://github.com/recurly/recurly-client-php/issues/288)
+- Is there an easy way to set the default timezone for all api calls? [#285](https://github.com/recurly/recurly-client-php/issues/285)
+- Updating subscription with coupon code returns dot mark '.' [#284](https://github.com/recurly/recurly-client-php/issues/284)
+- pending_subscription node removal [#283](https://github.com/recurly/recurly-client-php/issues/283)
+- Exception 'Recurly_ValidationError' with message '.'  [#281](https://github.com/recurly/recurly-client-php/issues/281)
+- Enhancement: Enable IntelliSense (IDE friendly) for class properties [#277](https://github.com/recurly/recurly-client-php/issues/277)
+- Cut down on OOP fluff [#272](https://github.com/recurly/recurly-client-php/issues/272)
+- Missing an entry for account_balance.php in lib/recurly.php [#271](https://github.com/recurly/recurly-client-php/issues/271)
+- Get count of total successful payments for a subscription? [#266](https://github.com/recurly/recurly-client-php/issues/266)
+- Hydrating a Resource node object doesn't transfer client instance from Recurly_Pager [#254](https://github.com/recurly/recurly-client-php/issues/254)
+- Unable to Update Subscriptions using 2.5.* in Laravel 5.1 [#253](https://github.com/recurly/recurly-client-php/issues/253)
+- Can't Update Account Info, But Can Update Billing Info [#252](https://github.com/recurly/recurly-client-php/issues/252)
+- Get the type of an adjustment [#245](https://github.com/recurly/recurly-client-php/issues/245)
+- Recurly_Transaction::get should return HOST CODE for failed transactions [#244](https://github.com/recurly/recurly-client-php/issues/244)
+- Cannot update subscriptions with usage based addons [#240](https://github.com/recurly/recurly-client-php/issues/240)
+- About domain name compability [#226](https://github.com/recurly/recurly-client-php/issues/226)
+- Clear queued transactions upon subscription cancellation [#222](https://github.com/recurly/recurly-client-php/issues/222)
+- Manual transaction authorization [#221](https://github.com/recurly/recurly-client-php/issues/221)
+- Recurly_Transaction::get should return original_transaction_id for refunds [#216](https://github.com/recurly/recurly-client-php/issues/216)
+- Extra unnecessary(?) requests happening whenever `Recurly_Pager::rewind()` called. [#212](https://github.com/recurly/recurly-client-php/issues/212)
+- How to get data by filter date via canceled at in Recurly_SubscriptionList::get() method [#211](https://github.com/recurly/recurly-client-php/issues/211)
+- Innaccessible billing info type [#210](https://github.com/recurly/recurly-client-php/issues/210)
+- Accessing next page with the cursor value returns same page  [#209](https://github.com/recurly/recurly-client-php/issues/209)
+- How to get "cursor" value to access "next" page and how to access nth page ? [#208](https://github.com/recurly/recurly-client-php/issues/208)
+- Reworked pager is a breaking change in the API [#207](https://github.com/recurly/recurly-client-php/issues/207)
+- [Semantical Error] The annotation "@parameter" in method Recurly_Resource::setValues() was never imported [#203](https://github.com/recurly/recurly-client-php/issues/203)
+- Coupon redemption issues [#196](https://github.com/recurly/recurly-client-php/issues/196)
+- Request: Separate Billing Email [#194](https://github.com/recurly/recurly-client-php/issues/194)
+- Support for getting a list of coupon redemptions for a given coupon [#193](https://github.com/recurly/recurly-client-php/issues/193)
+- Undefined variable $redemption [#187](https://github.com/recurly/recurly-client-php/issues/187)
+- Recurly_js.php needs update for recurlyjs v3.  [#185](https://github.com/recurly/recurly-client-php/issues/185)
+- Subscription Reactivation Webhook should supply time of reactivation [#183](https://github.com/recurly/recurly-client-php/issues/183)
+- Webhook reactivated_account should be reactivated_subscription [#178](https://github.com/recurly/recurly-client-php/issues/178)
+- Resource#_nestedAttributes is potentially unused code [#177](https://github.com/recurly/recurly-client-php/issues/177)
+- Packaging crt bundle with the library [#173](https://github.com/recurly/recurly-client-php/issues/173)
+- Subscription Object: updateImmediately() only allows account credit [#169](https://github.com/recurly/recurly-client-php/issues/169)
+- Call to subscription->create never returns result [#158](https://github.com/recurly/recurly-client-php/issues/158)
+- Requests with ampersand fail [#148](https://github.com/recurly/recurly-client-php/issues/148)
+- phpStorm files keep popping up in git client [#146](https://github.com/recurly/recurly-client-php/issues/146)
+- Responses returned are unorganized [#144](https://github.com/recurly/recurly-client-php/issues/144)
+- Recurly_Invoice::getPdf does not take invoice_number_prefix into account [#143](https://github.com/recurly/recurly-client-php/issues/143)
+- Trouble accessing the DateTime object in response [#142](https://github.com/recurly/recurly-client-php/issues/142)
+- Enter an offline payment for a manual invoice  [#141](https://github.com/recurly/recurly-client-php/issues/141)
+- Unable to filter an account's subscriptions [#140](https://github.com/recurly/recurly-client-php/issues/140)
+- Silently Failing [#139](https://github.com/recurly/recurly-client-php/issues/139)
+- Enter an offline partial payment for a manual invoice [#129](https://github.com/recurly/recurly-client-php/issues/129)
+- Logging mechanism for debugging [#126](https://github.com/recurly/recurly-client-php/issues/126)
+- Invoice-based refunding [#124](https://github.com/recurly/recurly-client-php/issues/124)
+- Issue with refunding a Recurly_Transaction [#119](https://github.com/recurly/recurly-client-php/issues/119)
+- balance_in_cents_invoiced / unvoiced doesn't appear to populate properly. [#116](https://github.com/recurly/recurly-client-php/issues/116)
+- Account list not paging correctly [#99](https://github.com/recurly/recurly-client-php/issues/99)
+- Use a standard for class names and paths [#96](https://github.com/recurly/recurly-client-php/issues/96)
+- Push notifications for Invoice transactions [#92](https://github.com/recurly/recurly-client-php/issues/92)
+- Subscription Add-Ons causing 422 Header [#86](https://github.com/recurly/recurly-client-php/issues/86)
+- add collecting payments for manual invoicing [#84](https://github.com/recurly/recurly-client-php/issues/84)
+- Recurly_CouponRedemption::get() method throws inappropriate Recurly_NotFoundError exception. [#81](https://github.com/recurly/recurly-client-php/issues/81)
+- Invalid Argument Warning in coupon.php [#70](https://github.com/recurly/recurly-client-php/issues/70)
+- Don't use static methods [#69](https://github.com/recurly/recurly-client-php/issues/69)
+- add remaining_billing_cycles to the writable attributes for subscriptions [#63](https://github.com/recurly/recurly-client-php/issues/63)
+- Error "Your API Key is not authorized to connect to Recurly" [#58](https://github.com/recurly/recurly-client-php/issues/58)
+- "PHP Warning:  DOMDocument::loadXML()" when sending very looooooong fields [#54](https://github.com/recurly/recurly-client-php/issues/54)
+- Add a way to get current values/fields from a Recurly_Resource [#44](https://github.com/recurly/recurly-client-php/issues/44)
+- Infinite Loop created in pager.php [#23](https://github.com/recurly/recurly-client-php/issues/23)
+
+
+## [2.1.5](https://github.com/recurly/recurly-client-php/tree/2.1.5) (2020-10-01)
+
+[Full Changelog](https://github.com/recurly/recurly-client-php/compare/2.0.9...2.1.5)
+
+
+**Merged Pull Requests**
+
+- Updating client to be compliant with RFC 2616: case-insensitive headers [#546](https://github.com/recurly/recurly-client-php/pull/546) ([douglasmiller](https://github.com/douglasmiller))
 
 **Closed Issues**
 
@@ -852,198 +1043,12 @@
 
 ## [2.0.9](https://github.com/recurly/recurly-client-php/tree/2.0.9) (2020-10-01)
 
-[Full Changelog](https://github.com/recurly/recurly-client-php/compare/2.8.3...2.0.9)
+[Full Changelog](https://github.com/recurly/recurly-client-php/compare/2.12.17...2.0.9)
 
 
 **Merged Pull Requests**
 
 - Updating client to be compliant with RFC 2616: case-insensitive headers [#547](https://github.com/recurly/recurly-client-php/pull/547) ([douglasmiller](https://github.com/douglasmiller))
-
-
-
-## [2.8.3](https://github.com/recurly/recurly-client-php/tree/2.8.3) (2020-10-01)
-
-[Full Changelog](https://github.com/recurly/recurly-client-php/compare/2.9.1...2.8.3)
-
-
-**Merged Pull Requests**
-
-- Updating client to be compliant with RFC 2616: case-insensitive headers [#554](https://github.com/recurly/recurly-client-php/pull/554) ([douglasmiller](https://github.com/douglasmiller))
-
-
-
-## [2.9.1](https://github.com/recurly/recurly-client-php/tree/2.9.1) (2020-10-01)
-
-[Full Changelog](https://github.com/recurly/recurly-client-php/compare/2.1.5...2.9.1)
-
-
-**Merged Pull Requests**
-
-- Updating client to be compliant with RFC 2616: case-insensitive headers [#555](https://github.com/recurly/recurly-client-php/pull/555) ([douglasmiller](https://github.com/douglasmiller))
-- Bump 2.9.0, API version 2.8 [#333](https://github.com/recurly/recurly-client-php/pull/333) ([bhelx](https://github.com/bhelx))
-- Custom Invoice notes on Purchase [#332](https://github.com/recurly/recurly-client-php/pull/332) ([bhelx](https://github.com/bhelx))
-- Add writeable imported_trial bool to subscription [#331](https://github.com/recurly/recurly-client-php/pull/331) ([bhelx](https://github.com/bhelx))
-- More nested flags [#328](https://github.com/recurly/recurly-client-php/pull/328) ([g30rg](https://github.com/g30rg))
-- Release 2.8.2 [#327](https://github.com/recurly/recurly-client-php/pull/327) ([drewish](https://github.com/drewish))
-- Add nested flag [#326](https://github.com/recurly/recurly-client-php/pull/326) ([g30rg](https://github.com/g30rg))
-- Run tests with 7.0 and 7.1 [#324](https://github.com/recurly/recurly-client-php/pull/324) ([bhelx](https://github.com/bhelx))
-- Bump 2.8.1 [#323](https://github.com/recurly/recurly-client-php/pull/323) ([bhelx](https://github.com/bhelx))
-- Update CHANGELOG with 2.8.0 release [#322](https://github.com/recurly/recurly-client-php/pull/322) ([bhelx](https://github.com/bhelx))
-- Finish inline property docs [#321](https://github.com/recurly/recurly-client-php/pull/321) ([bhelx](https://github.com/bhelx))
-- API version 2.7 [#319](https://github.com/recurly/recurly-client-php/pull/319) ([bhelx](https://github.com/bhelx))
-- API Version 2.6 [#317](https://github.com/recurly/recurly-client-php/pull/317) ([bhelx](https://github.com/bhelx))
-- Remove 5.3 Support and upgrade Travis to support HHVM [#316](https://github.com/recurly/recurly-client-php/pull/316) ([bhelx](https://github.com/bhelx))
-- Purchases endpoint [#315](https://github.com/recurly/recurly-client-php/pull/315) ([bhelx](https://github.com/bhelx))
-- Remove X-Records header [#314](https://github.com/recurly/recurly-client-php/pull/314) ([bhelx](https://github.com/bhelx))
-- Add trial requires billing info field and no billing info reason field [#312](https://github.com/recurly/recurly-client-php/pull/312) ([Dania02525](https://github.com/Dania02525))
-- Bump 2.7.2 [#311](https://github.com/recurly/recurly-client-php/pull/311) ([bhelx](https://github.com/bhelx))
-- Changes for API version 2.5 [#310](https://github.com/recurly/recurly-client-php/pull/310) ([bhelx](https://github.com/bhelx))
-- Adds external payments to invoices [#309](https://github.com/recurly/recurly-client-php/pull/309) ([bhelx](https://github.com/bhelx))
-- GiftCard: deliver_at goes on the Delivery object [#307](https://github.com/recurly/recurly-client-php/pull/307) ([bhelx](https://github.com/bhelx))
-- Adds a getType method to all Resources [#299](https://github.com/recurly/recurly-client-php/pull/299) ([bhelx](https://github.com/bhelx))
-- Parse incorrectly shaped validation errors [#298](https://github.com/recurly/recurly-client-php/pull/298) ([bhelx](https://github.com/bhelx))
-- Writeable and updatable coupon description [#297](https://github.com/recurly/recurly-client-php/pull/297) ([bhelx](https://github.com/bhelx))
-- Require export files [#296](https://github.com/recurly/recurly-client-php/pull/296) ([bhelx](https://github.com/bhelx))
-- Bump 2.7.1 [#292](https://github.com/recurly/recurly-client-php/pull/292) ([bhelx](https://github.com/bhelx))
-- Adding ability to get Recurly error code from Recurly_Error Exception [#291](https://github.com/recurly/recurly-client-php/pull/291) ([izhyvaiev](https://github.com/izhyvaiev))
-- Create shipping addresses on existing accounts and allow updates [#289](https://github.com/recurly/recurly-client-php/pull/289) ([bhelx](https://github.com/bhelx))
-- Fixed addon creation bug. [#286](https://github.com/recurly/recurly-client-php/pull/286) ([xastor](https://github.com/xastor))
-- The Pager should implement the Countable interface [#282](https://github.com/recurly/recurly-client-php/pull/282) ([naderman](https://github.com/naderman))
-- adds company to writeable billing_info attributes [#280](https://github.com/recurly/recurly-client-php/pull/280) ([lmnleaf](https://github.com/lmnleaf))
-- Enhancement: Enable IntelliSense (IDE friendly) for class properties (Part 2) Invoice and Subscription [#279](https://github.com/recurly/recurly-client-php/pull/279) ([phpdave](https://github.com/phpdave))
-- Enhancement: Enable IntelliSense (IDE friendly) for class properties [#278](https://github.com/recurly/recurly-client-php/pull/278) ([phpdave](https://github.com/phpdave))
-- Release 2.7.0 [#275](https://github.com/recurly/recurly-client-php/pull/275) ([drewish](https://github.com/drewish))
-- Adding missing account balance require [#273](https://github.com/recurly/recurly-client-php/pull/273) ([bhelx](https://github.com/bhelx))
-- Added filters support for stub [#270](https://github.com/recurly/recurly-client-php/pull/270) ([developer-devPHP](https://github.com/developer-devPHP))
-- Simplify writable attributes [#267](https://github.com/recurly/recurly-client-php/pull/267) ([drewish](https://github.com/drewish))
-- Pass the client from pager to its items [#265](https://github.com/recurly/recurly-client-php/pull/265) ([drewish](https://github.com/drewish))
-- Bump versions for 2.6.0 release [#264](https://github.com/recurly/recurly-client-php/pull/264) ([drewish](https://github.com/drewish))
-- Changes for API 2.4 [#258](https://github.com/recurly/recurly-client-php/pull/258) ([drewish](https://github.com/drewish))
-- Add revenue_schedule_type support [#257](https://github.com/recurly/recurly-client-php/pull/257) ([drewish](https://github.com/drewish))
-- Warn on API deprecation [#250](https://github.com/recurly/recurly-client-php/pull/250) ([drewish](https://github.com/drewish))
-- Add support for new pagination [#249](https://github.com/recurly/recurly-client-php/pull/249) ([drewish](https://github.com/drewish))
-- Bump version to 2.5.3 and add another missing changelog entry [#248](https://github.com/recurly/recurly-client-php/pull/248) ([drewish](https://github.com/drewish))
-- Update release notes [#247](https://github.com/recurly/recurly-client-php/pull/247) ([drewish](https://github.com/drewish))
-- Changes for API 2.3  [#246](https://github.com/recurly/recurly-client-php/pull/246) ([drewish](https://github.com/drewish))
-- Coupon lists require a parent object [#243](https://github.com/recurly/recurly-client-php/pull/243) ([drewish](https://github.com/drewish))
-- Fix subscription updates when subcription has add_ons [#242](https://github.com/recurly/recurly-client-php/pull/242) ([bhelx](https://github.com/bhelx))
-- Provide default getRequiredAttributes() [#241](https://github.com/recurly/recurly-client-php/pull/241) ([drewish](https://github.com/drewish))
-- Drop old transparent post paths [#237](https://github.com/recurly/recurly-client-php/pull/237) ([drewish](https://github.com/drewish))
-- Return correct node name for Recurly_NoteList [#236](https://github.com/recurly/recurly-client-php/pull/236) ([drewish](https://github.com/drewish))
-- Assign to a variable to allow returning a reference [#235](https://github.com/recurly/recurly-client-php/pull/235) ([davedevelopment](https://github.com/davedevelopment))
-- Use PHPUnit configuration file [#234](https://github.com/recurly/recurly-client-php/pull/234) ([davedevelopment](https://github.com/davedevelopment))
-- Bump 2.5.2 [#233](https://github.com/recurly/recurly-client-php/pull/233) ([bhelx](https://github.com/bhelx))
-- Adding recent merges to change log [#230](https://github.com/recurly/recurly-client-php/pull/230) ([drewish](https://github.com/drewish))
-- fix for add charge. start_date and end_date was not getting set [#229](https://github.com/recurly/recurly-client-php/pull/229) ([imsagar](https://github.com/imsagar))
-- Parse Fraud object when available [#228](https://github.com/recurly/recurly-client-php/pull/228) ([bhelx](https://github.com/bhelx))
-- Usage Based Billing [#227](https://github.com/recurly/recurly-client-php/pull/227) ([bhelx](https://github.com/bhelx))
-- updates Recurly_Coupon for free trial coupons [#224](https://github.com/recurly/recurly-client-php/pull/224) ([lmnleaf](https://github.com/lmnleaf))
-- Add a note about supporting TLS in the README.md [#217](https://github.com/recurly/recurly-client-php/pull/217) ([rafdizzle86](https://github.com/rafdizzle86))
-- Adding closed_at account tag to fixtures [#170](https://github.com/recurly/recurly-client-php/pull/170) ([rafdizzle86](https://github.com/rafdizzle86))
-
-**Closed Issues**
-
-- V 2.9 - Deprecated function : implode() in PHP 7.4 [#507](https://github.com/recurly/recurly-client-php/issues/507)
-- Recurly_Invoice::getInvoicePdf doesn't validate response code [#465](https://github.com/recurly/recurly-client-php/issues/465)
-- "Class 'Recurly_Client' not found" after the recurly.php __DIR__ change [#434](https://github.com/recurly/recurly-client-php/issues/434)
-- getId() method on Recurly_Stub [#405](https://github.com/recurly/recurly-client-php/issues/405)
-- 2.12.* versions not exists in composer (packagist.org) [#404](https://github.com/recurly/recurly-client-php/issues/404)
-- Letter case changes in HTTP/2 [#391](https://github.com/recurly/recurly-client-php/issues/391)
-- BC Break 2.8 -> 2.9ff. not documented Recurly_Invoice#subscription -> Recurly_Invoice#subscriptions [#387](https://github.com/recurly/recurly-client-php/issues/387)
-- Small PHPStorm reported errors [#376](https://github.com/recurly/recurly-client-php/issues/376)
--  Getting error, "The provided XML was invalid." when setting $subscription->starts_at [#373](https://github.com/recurly/recurly-client-php/issues/373)
-- Error-Response not useful for non-valid subscription addon. [#370](https://github.com/recurly/recurly-client-php/issues/370)
-- BC break with custom fields on Subscription when updating customer notes [#369](https://github.com/recurly/recurly-client-php/issues/369)
-- Updating trial_ends_at results in "The provided XML was invalid." [#365](https://github.com/recurly/recurly-client-php/issues/365)
-- Missing Property Declarations give "Field accessed via magic method" warnings [#358](https://github.com/recurly/recurly-client-php/issues/358)
-- Recurly_Pager->current() breaks if the returned data is empty [#354](https://github.com/recurly/recurly-client-php/issues/354)
-- How to add GDPR Compliance? [#346](https://github.com/recurly/recurly-client-php/issues/346)
-- The provided XML was invalid. [#344](https://github.com/recurly/recurly-client-php/issues/344)
-- Missing two parameters for create/update add-on [#336](https://github.com/recurly/recurly-client-php/issues/336)
-- Recurly's SSL certificate error [#330](https://github.com/recurly/recurly-client-php/issues/330)
-- returning user and plan info on invoice [#329](https://github.com/recurly/recurly-client-php/issues/329)
-- Make the library usable without the \Recurly_Client::$apiKey [#318](https://github.com/recurly/recurly-client-php/issues/318)
-- Subscription termination - add charge argument [#313](https://github.com/recurly/recurly-client-php/issues/313)
-- DOMDocument::loadXML() - Premature end of data in tag html line 1 in Entity, [#306](https://github.com/recurly/recurly-client-php/issues/306)
-- Can't get Coupon list using Recurly_CouponList [#305](https://github.com/recurly/recurly-client-php/issues/305)
-- Hydrate class from PushNotification [#303](https://github.com/recurly/recurly-client-php/issues/303)
-- export_date.php, export_date_list.php, export_file.php, export_file_list.php not included in /lib/recurly.php [#295](https://github.com/recurly/recurly-client-php/issues/295)
-- Paypal and EU vat issue [#294](https://github.com/recurly/recurly-client-php/issues/294)
-- Create Subscription and user (with billing info) [#293](https://github.com/recurly/recurly-client-php/issues/293)
-- Recurly Error Code is not accessible from Recurly_Error Exception [#290](https://github.com/recurly/recurly-client-php/issues/290)
-- Coupon `description` field not writeable [#288](https://github.com/recurly/recurly-client-php/issues/288)
-- Is there an easy way to set the default timezone for all api calls? [#285](https://github.com/recurly/recurly-client-php/issues/285)
-- Updating subscription with coupon code returns dot mark '.' [#284](https://github.com/recurly/recurly-client-php/issues/284)
-- pending_subscription node removal [#283](https://github.com/recurly/recurly-client-php/issues/283)
-- Exception 'Recurly_ValidationError' with message '.'  [#281](https://github.com/recurly/recurly-client-php/issues/281)
-- Enhancement: Enable IntelliSense (IDE friendly) for class properties [#277](https://github.com/recurly/recurly-client-php/issues/277)
-- Cut down on OOP fluff [#272](https://github.com/recurly/recurly-client-php/issues/272)
-- Missing an entry for account_balance.php in lib/recurly.php [#271](https://github.com/recurly/recurly-client-php/issues/271)
-- Get count of total successful payments for a subscription? [#266](https://github.com/recurly/recurly-client-php/issues/266)
-- Hydrating a Resource node object doesn't transfer client instance from Recurly_Pager [#254](https://github.com/recurly/recurly-client-php/issues/254)
-- Unable to Update Subscriptions using 2.5.* in Laravel 5.1 [#253](https://github.com/recurly/recurly-client-php/issues/253)
-- Can't Update Account Info, But Can Update Billing Info [#252](https://github.com/recurly/recurly-client-php/issues/252)
-- Get the type of an adjustment [#245](https://github.com/recurly/recurly-client-php/issues/245)
-- Recurly_Transaction::get should return HOST CODE for failed transactions [#244](https://github.com/recurly/recurly-client-php/issues/244)
-- Cannot update subscriptions with usage based addons [#240](https://github.com/recurly/recurly-client-php/issues/240)
-- About domain name compability [#226](https://github.com/recurly/recurly-client-php/issues/226)
-- Clear queued transactions upon subscription cancellation [#222](https://github.com/recurly/recurly-client-php/issues/222)
-- Manual transaction authorization [#221](https://github.com/recurly/recurly-client-php/issues/221)
-- Recurly_Transaction::get should return original_transaction_id for refunds [#216](https://github.com/recurly/recurly-client-php/issues/216)
-- Extra unnecessary(?) requests happening whenever `Recurly_Pager::rewind()` called. [#212](https://github.com/recurly/recurly-client-php/issues/212)
-- How to get data by filter date via canceled at in Recurly_SubscriptionList::get() method [#211](https://github.com/recurly/recurly-client-php/issues/211)
-- Innaccessible billing info type [#210](https://github.com/recurly/recurly-client-php/issues/210)
-- Accessing next page with the cursor value returns same page  [#209](https://github.com/recurly/recurly-client-php/issues/209)
-- How to get "cursor" value to access "next" page and how to access nth page ? [#208](https://github.com/recurly/recurly-client-php/issues/208)
-- Reworked pager is a breaking change in the API [#207](https://github.com/recurly/recurly-client-php/issues/207)
-- [Semantical Error] The annotation "@parameter" in method Recurly_Resource::setValues() was never imported [#203](https://github.com/recurly/recurly-client-php/issues/203)
-- Coupon redemption issues [#196](https://github.com/recurly/recurly-client-php/issues/196)
-- Request: Separate Billing Email [#194](https://github.com/recurly/recurly-client-php/issues/194)
-- Support for getting a list of coupon redemptions for a given coupon [#193](https://github.com/recurly/recurly-client-php/issues/193)
-- Undefined variable $redemption [#187](https://github.com/recurly/recurly-client-php/issues/187)
-- Recurly_js.php needs update for recurlyjs v3.  [#185](https://github.com/recurly/recurly-client-php/issues/185)
-- Subscription Reactivation Webhook should supply time of reactivation [#183](https://github.com/recurly/recurly-client-php/issues/183)
-- Webhook reactivated_account should be reactivated_subscription [#178](https://github.com/recurly/recurly-client-php/issues/178)
-- Resource#_nestedAttributes is potentially unused code [#177](https://github.com/recurly/recurly-client-php/issues/177)
-- Packaging crt bundle with the library [#173](https://github.com/recurly/recurly-client-php/issues/173)
-- Subscription Object: updateImmediately() only allows account credit [#169](https://github.com/recurly/recurly-client-php/issues/169)
-- Call to subscription->create never returns result [#158](https://github.com/recurly/recurly-client-php/issues/158)
-- Requests with ampersand fail [#148](https://github.com/recurly/recurly-client-php/issues/148)
-- phpStorm files keep popping up in git client [#146](https://github.com/recurly/recurly-client-php/issues/146)
-- Responses returned are unorganized [#144](https://github.com/recurly/recurly-client-php/issues/144)
-- Recurly_Invoice::getPdf does not take invoice_number_prefix into account [#143](https://github.com/recurly/recurly-client-php/issues/143)
-- Trouble accessing the DateTime object in response [#142](https://github.com/recurly/recurly-client-php/issues/142)
-- Enter an offline payment for a manual invoice  [#141](https://github.com/recurly/recurly-client-php/issues/141)
-- Unable to filter an account's subscriptions [#140](https://github.com/recurly/recurly-client-php/issues/140)
-- Silently Failing [#139](https://github.com/recurly/recurly-client-php/issues/139)
-- Enter an offline partial payment for a manual invoice [#129](https://github.com/recurly/recurly-client-php/issues/129)
-- Logging mechanism for debugging [#126](https://github.com/recurly/recurly-client-php/issues/126)
-- Invoice-based refunding [#124](https://github.com/recurly/recurly-client-php/issues/124)
-- Issue with refunding a Recurly_Transaction [#119](https://github.com/recurly/recurly-client-php/issues/119)
-- balance_in_cents_invoiced / unvoiced doesn't appear to populate properly. [#116](https://github.com/recurly/recurly-client-php/issues/116)
-- Account list not paging correctly [#99](https://github.com/recurly/recurly-client-php/issues/99)
-- Use a standard for class names and paths [#96](https://github.com/recurly/recurly-client-php/issues/96)
-- Push notifications for Invoice transactions [#92](https://github.com/recurly/recurly-client-php/issues/92)
-- Subscription Add-Ons causing 422 Header [#86](https://github.com/recurly/recurly-client-php/issues/86)
-- add collecting payments for manual invoicing [#84](https://github.com/recurly/recurly-client-php/issues/84)
-- Recurly_CouponRedemption::get() method throws inappropriate Recurly_NotFoundError exception. [#81](https://github.com/recurly/recurly-client-php/issues/81)
-- Invalid Argument Warning in coupon.php [#70](https://github.com/recurly/recurly-client-php/issues/70)
-- Don't use static methods [#69](https://github.com/recurly/recurly-client-php/issues/69)
-- add remaining_billing_cycles to the writable attributes for subscriptions [#63](https://github.com/recurly/recurly-client-php/issues/63)
-- Error "Your API Key is not authorized to connect to Recurly" [#58](https://github.com/recurly/recurly-client-php/issues/58)
-- "PHP Warning:  DOMDocument::loadXML()" when sending very looooooong fields [#54](https://github.com/recurly/recurly-client-php/issues/54)
-- Add a way to get current values/fields from a Recurly_Resource [#44](https://github.com/recurly/recurly-client-php/issues/44)
-- Infinite Loop created in pager.php [#23](https://github.com/recurly/recurly-client-php/issues/23)
-
-
-## [2.1.5](https://github.com/recurly/recurly-client-php/tree/2.1.5) (2020-10-01)
-
-[Full Changelog](https://github.com/recurly/recurly-client-php/compare/2.12.17...2.1.5)
-
-
-**Merged Pull Requests**
-
-- Updating client to be compliant with RFC 2616: case-insensitive headers [#546](https://github.com/recurly/recurly-client-php/pull/546) ([douglasmiller](https://github.com/douglasmiller))
 
 
 
@@ -1248,8 +1253,8 @@
 
 **Merged Pull Requests**
 
-- Release version 2.12.4 [#416](https://github.com/recurly/recurly-client-php/pull/416) ([aaron-suarez](https://github.com/aaron-suarez))
-- Add 3DS tokens to transaction error and billing info [#415](https://github.com/recurly/recurly-client-php/pull/415) ([aaron-suarez](https://github.com/aaron-suarez))
+- Release version 2.12.4 [#416](https://github.com/recurly/recurly-client-php/pull/416) ([aaron-junot](https://github.com/aaron-junot))
+- Add 3DS tokens to transaction error and billing info [#415](https://github.com/recurly/recurly-client-php/pull/415) ([aaron-junot](https://github.com/aaron-junot))
 
 
 
@@ -1260,7 +1265,7 @@
 
 **Merged Pull Requests**
 
-- Release version 2.12.3 [#414](https://github.com/recurly/recurly-client-php/pull/414) ([aaron-suarez](https://github.com/aaron-suarez))
+- Release version 2.12.3 [#414](https://github.com/recurly/recurly-client-php/pull/414) ([aaron-junot](https://github.com/aaron-junot))
 
 
 
@@ -1271,8 +1276,8 @@
 
 **Merged Pull Requests**
 
-- Release version 2.12.2 [#411](https://github.com/recurly/recurly-client-php/pull/411) ([aaron-suarez](https://github.com/aaron-suarez))
-- Make API url private [#410](https://github.com/recurly/recurly-client-php/pull/410) ([aaron-suarez](https://github.com/aaron-suarez))
+- Release version 2.12.2 [#411](https://github.com/recurly/recurly-client-php/pull/411) ([aaron-junot](https://github.com/aaron-junot))
+- Make API url private [#410](https://github.com/recurly/recurly-client-php/pull/410) ([aaron-junot](https://github.com/aaron-junot))
 - Fix: pass client to objects in an array [#409](https://github.com/recurly/recurly-client-php/pull/409) ([glaubinix](https://github.com/glaubinix))
 - Update issue templates [#407](https://github.com/recurly/recurly-client-php/pull/407) ([bhelx](https://github.com/bhelx))
 - Remove out of date version from README [#406](https://github.com/recurly/recurly-client-php/pull/406) ([bhelx](https://github.com/bhelx))
@@ -1286,8 +1291,8 @@
 
 **Merged Pull Requests**
 
-- Release version 2.12.1 [#403](https://github.com/recurly/recurly-client-php/pull/403) ([aaron-suarez](https://github.com/aaron-suarez))
-- Fix broken _verifyUri method [#402](https://github.com/recurly/recurly-client-php/pull/402) ([aaron-suarez](https://github.com/aaron-suarez))
+- Release version 2.12.1 [#403](https://github.com/recurly/recurly-client-php/pull/403) ([aaron-junot](https://github.com/aaron-junot))
+- Fix broken _verifyUri method [#402](https://github.com/recurly/recurly-client-php/pull/402) ([aaron-junot](https://github.com/aaron-junot))
 
 
 
@@ -1298,7 +1303,7 @@
 
 **Merged Pull Requests**
 
-- Release version 2.12.0 / API version 2.19 [#401](https://github.com/recurly/recurly-client-php/pull/401) ([aaron-suarez](https://github.com/aaron-suarez))
+- Release version 2.12.0 / API version 2.19 [#401](https://github.com/recurly/recurly-client-php/pull/401) ([aaron-junot](https://github.com/aaron-junot))
 
 
 
@@ -1309,9 +1314,9 @@
 
 **Merged Pull Requests**
 
-- Release version 2.11.2 / API version 2.18 [#400](https://github.com/recurly/recurly-client-php/pull/400) ([aaron-suarez](https://github.com/aaron-suarez))
-- Specify which versions of HHVM we should test in travis [#399](https://github.com/recurly/recurly-client-php/pull/399) ([aaron-suarez](https://github.com/aaron-suarez))
-- Add X-Api-Version header to getPdf and getFile [#398](https://github.com/recurly/recurly-client-php/pull/398) ([aaron-suarez](https://github.com/aaron-suarez))
+- Release version 2.11.2 / API version 2.18 [#400](https://github.com/recurly/recurly-client-php/pull/400) ([aaron-junot](https://github.com/aaron-junot))
+- Specify which versions of HHVM we should test in travis [#399](https://github.com/recurly/recurly-client-php/pull/399) ([aaron-junot](https://github.com/aaron-junot))
+- Add X-Api-Version header to getPdf and getFile [#398](https://github.com/recurly/recurly-client-php/pull/398) ([aaron-junot](https://github.com/aaron-junot))
 
 
 
@@ -1322,10 +1327,10 @@
 
 **Merged Pull Requests**
 
-- Bump to version 2.11.1 [#396](https://github.com/recurly/recurly-client-php/pull/396) ([aaron-suarez](https://github.com/aaron-suarez))
-- Add missing properties to Billing Info [#395](https://github.com/recurly/recurly-client-php/pull/395) ([aaron-suarez](https://github.com/aaron-suarez))
+- Bump to version 2.11.1 [#396](https://github.com/recurly/recurly-client-php/pull/396) ([aaron-junot](https://github.com/aaron-junot))
+- Add missing properties to Billing Info [#395](https://github.com/recurly/recurly-client-php/pull/395) ([aaron-junot](https://github.com/aaron-junot))
 - Handle HTTP headers in a more case insensitive way [#392](https://github.com/recurly/recurly-client-php/pull/392) ([billtomczak](https://github.com/billtomczak))
-- Add note about OpenSSL support to README [#390](https://github.com/recurly/recurly-client-php/pull/390) ([aaron-suarez](https://github.com/aaron-suarez))
+- Add note about OpenSSL support to README [#390](https://github.com/recurly/recurly-client-php/pull/390) ([aaron-junot](https://github.com/aaron-junot))
 - per recurly support, docs are wrong and canceling should give a state… [#389](https://github.com/recurly/recurly-client-php/pull/389) ([aarontkennedy](https://github.com/aarontkennedy))
 - Add missing breaking change in 2.10 changelog [#388](https://github.com/recurly/recurly-client-php/pull/388) ([bhelx](https://github.com/bhelx))
 - Add Capture and Cancel enpoints to go with the Authorize Endpoint [#386](https://github.com/recurly/recurly-client-php/pull/386) ([aarontkennedy](https://github.com/aarontkennedy))
@@ -1343,10 +1348,10 @@
 
 **Merged Pull Requests**
 
-- Release version 2.11.0 / API version 2.17 [#385](https://github.com/recurly/recurly-client-php/pull/385) ([aaron-suarez](https://github.com/aaron-suarez))
-- Add OpenSSL version to User-Agent [#384](https://github.com/recurly/recurly-client-php/pull/384) ([aaron-suarez](https://github.com/aaron-suarez))
+- Release version 2.11.0 / API version 2.17 [#385](https://github.com/recurly/recurly-client-php/pull/385) ([aaron-junot](https://github.com/aaron-junot))
+- Add OpenSSL version to User-Agent [#384](https://github.com/recurly/recurly-client-php/pull/384) ([aaron-junot](https://github.com/aaron-junot))
 - Added new method getHeaders(), which will allow to get all response headers after each API call [#383](https://github.com/recurly/recurly-client-php/pull/383) ([developer-devPHP](https://github.com/developer-devPHP))
-- Remove deprecated Recurly JS module [#382](https://github.com/recurly/recurly-client-php/pull/382) ([aaron-suarez](https://github.com/aaron-suarez))
+- Remove deprecated Recurly JS module [#382](https://github.com/recurly/recurly-client-php/pull/382) ([aaron-junot](https://github.com/aaron-junot))
 
 **Closed Issues**
 
@@ -1360,12 +1365,12 @@
 
 **Merged Pull Requests**
 
-- Bump to version 2.10.6 / API version 2.16 [#379](https://github.com/recurly/recurly-client-php/pull/379) ([aaron-suarez](https://github.com/aaron-suarez))
-- Fix pager->current() breaking when no data [#378](https://github.com/recurly/recurly-client-php/pull/378) ([aaron-suarez](https://github.com/aaron-suarez))
+- Bump to version 2.10.6 / API version 2.16 [#379](https://github.com/recurly/recurly-client-php/pull/379) ([aaron-junot](https://github.com/aaron-junot))
+- Fix pager->current() breaking when no data [#378](https://github.com/recurly/recurly-client-php/pull/378) ([aaron-junot](https://github.com/aaron-junot))
 - Added missing account_acquisition to writable attributes [#377](https://github.com/recurly/recurly-client-php/pull/377) ([emycakes](https://github.com/emycakes))
-- Fix errors specified by PHPStorm [#375](https://github.com/recurly/recurly-client-php/pull/375) ([aaron-suarez](https://github.com/aaron-suarez))
-- Add charge parameter to subscription termination functions [#374](https://github.com/recurly/recurly-client-php/pull/374) ([aaron-suarez](https://github.com/aaron-suarez))
-- Add details to error messages to make them more helpful [#372](https://github.com/recurly/recurly-client-php/pull/372) ([aaron-suarez](https://github.com/aaron-suarez))
+- Fix errors specified by PHPStorm [#375](https://github.com/recurly/recurly-client-php/pull/375) ([aaron-junot](https://github.com/aaron-junot))
+- Add charge parameter to subscription termination functions [#374](https://github.com/recurly/recurly-client-php/pull/374) ([aaron-junot](https://github.com/aaron-junot))
+- Add details to error messages to make them more helpful [#372](https://github.com/recurly/recurly-client-php/pull/372) ([aaron-junot](https://github.com/aaron-junot))
 
 **Closed Issues**
 
@@ -1386,8 +1391,8 @@
 
 **Merged Pull Requests**
 
-- Bump to version 2.10.5 / API version 2.15 [#371](https://github.com/recurly/recurly-client-php/pull/371) ([aaron-suarez](https://github.com/aaron-suarez))
-- Add missing possible childnode names [#368](https://github.com/recurly/recurly-client-php/pull/368) ([aaron-suarez](https://github.com/aaron-suarez))
+- Bump to version 2.10.5 / API version 2.15 [#371](https://github.com/recurly/recurly-client-php/pull/371) ([aaron-junot](https://github.com/aaron-junot))
+- Add missing possible childnode names [#368](https://github.com/recurly/recurly-client-php/pull/368) ([aaron-junot](https://github.com/aaron-junot))
 - provide a correct recurly code when responding with a 404 [#366](https://github.com/recurly/recurly-client-php/pull/366) ([emycakes](https://github.com/emycakes))
 - Added `scripts` folder [#364](https://github.com/recurly/recurly-client-php/pull/364) ([bhelx](https://github.com/bhelx))
 
@@ -1404,9 +1409,9 @@
 
 **Merged Pull Requests**
 
-- Bump to 2.10.4 / API version 2.14 [#363](https://github.com/recurly/recurly-client-php/pull/363) ([aaron-suarez](https://github.com/aaron-suarez))
+- Bump to 2.10.4 / API version 2.14 [#363](https://github.com/recurly/recurly-client-php/pull/363) ([aaron-junot](https://github.com/aaron-junot))
 - Fix the serialization of custom fields [#361](https://github.com/recurly/recurly-client-php/pull/361) ([drewish](https://github.com/drewish))
-- Remove deprecated --dev flag to composer install command instructions [#359](https://github.com/recurly/recurly-client-php/pull/359) ([aaron-suarez](https://github.com/aaron-suarez))
+- Remove deprecated --dev flag to composer install command instructions [#359](https://github.com/recurly/recurly-client-php/pull/359) ([aaron-junot](https://github.com/aaron-junot))
 - Update php version info [#355](https://github.com/recurly/recurly-client-php/pull/355) ([bhelx](https://github.com/bhelx))
 
 
@@ -1841,7 +1846,7 @@
 
 ## [2.2.5](https://github.com/recurly/recurly-client-php/tree/2.2.5) (2014-04-24)
 
-[Full Changelog](https://github.com/recurly/recurly-client-php/compare/2.2.0...2.2.5)
+[Full Changelog](https://github.com/recurly/recurly-client-php/compare/2.2.4...2.2.5)
 
 
 
@@ -1849,20 +1854,22 @@
 
 - Recurly_CouponRedemption::get() method throws inappropriate Recurly_NotFoundError exception. [#81](https://github.com/recurly/recurly-client-php/issues/81)
 - Invalid Argument Warning in coupon.php [#70](https://github.com/recurly/recurly-client-php/issues/70)
-- Error "Your API Key is not authorized to connect to Recurly" [#58](https://github.com/recurly/recurly-client-php/issues/58)
 
 
-## [2.2.0](https://github.com/recurly/recurly-client-php/tree/2.2.0) (2013-05-10)
+## [2.2.4](https://github.com/recurly/recurly-client-php/tree/2.2.4) (2014-01-07)
 
-[Full Changelog](https://github.com/recurly/recurly-client-php/compare/2.2.1...2.2.0)
-
-
+[Full Changelog](https://github.com/recurly/recurly-client-php/compare/2.2.3...2.2.4)
 
 
 
-## [2.2.1](https://github.com/recurly/recurly-client-php/tree/2.2.1) (2013-07-19)
+**Closed Issues**
 
-[Full Changelog](https://github.com/recurly/recurly-client-php/compare/2.2.2...2.2.1)
+- Invalid Argument Warning in coupon.php [#70](https://github.com/recurly/recurly-client-php/issues/70)
+
+
+## [2.2.3](https://github.com/recurly/recurly-client-php/tree/2.2.3) (2013-11-11)
+
+[Full Changelog](https://github.com/recurly/recurly-client-php/compare/2.2.2...2.2.3)
 
 
 
@@ -1870,21 +1877,24 @@
 
 ## [2.2.2](https://github.com/recurly/recurly-client-php/tree/2.2.2) (2013-10-07)
 
-[Full Changelog](https://github.com/recurly/recurly-client-php/compare/2.2.3...2.2.2)
+[Full Changelog](https://github.com/recurly/recurly-client-php/compare/2.2.1...2.2.2)
 
 
 
 
 
-## [2.2.3](https://github.com/recurly/recurly-client-php/tree/2.2.3) (2013-11-11)
+## [2.2.1](https://github.com/recurly/recurly-client-php/tree/2.2.1) (2013-07-19)
 
-[Full Changelog](https://github.com/recurly/recurly-client-php/compare/2.2.4...2.2.3)
-
-
+[Full Changelog](https://github.com/recurly/recurly-client-php/compare/2.2.0...2.2.1)
 
 
 
-## [2.2.4](https://github.com/recurly/recurly-client-php/tree/2.2.4) (2014-01-07)
+**Closed Issues**
+
+- Error "Your API Key is not authorized to connect to Recurly" [#58](https://github.com/recurly/recurly-client-php/issues/58)
+
+
+## [2.2.0](https://github.com/recurly/recurly-client-php/tree/2.2.0) (2013-05-10)
 
 
 
