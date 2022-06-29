@@ -48,6 +48,7 @@ class Subscription extends RecurlyResource
     private $_shipping;
     private $_state;
     private $_subtotal;
+    private $_tax_inclusive;
     private $_terms_and_conditions;
     private $_total_billing_cycles;
     private $_trial_ends_at;
@@ -889,6 +890,29 @@ class Subscription extends RecurlyResource
     public function setSubtotal(float $subtotal): void
     {
         $this->_subtotal = $subtotal;
+    }
+
+    /**
+    * Getter method for the tax_inclusive attribute.
+    * Determines whether or not tax is included in the unit amount. The Tax Inclusive Pricing feature (separate from the Mixed Tax Pricing feature) must be enabled to utilize this flag.
+    *
+    * @return ?bool
+    */
+    public function getTaxInclusive(): ?bool
+    {
+        return $this->_tax_inclusive;
+    }
+
+    /**
+    * Setter method for the tax_inclusive attribute.
+    *
+    * @param bool $tax_inclusive
+    *
+    * @return void
+    */
+    public function setTaxInclusive(bool $tax_inclusive): void
+    {
+        $this->_tax_inclusive = $tax_inclusive;
     }
 
     /**
