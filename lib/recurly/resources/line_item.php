@@ -54,6 +54,7 @@ class LineItem extends RecurlyResource
     private $_tax;
     private $_tax_code;
     private $_tax_exempt;
+    private $_tax_inclusive;
     private $_tax_info;
     private $_taxable;
     private $_type;
@@ -1035,6 +1036,29 @@ class LineItem extends RecurlyResource
     public function setTaxExempt(bool $tax_exempt): void
     {
         $this->_tax_exempt = $tax_exempt;
+    }
+
+    /**
+    * Getter method for the tax_inclusive attribute.
+    * Determines whether or not tax is included in the unit amount. The Tax Inclusive Pricing feature (separate from the Mixed Tax Pricing feature) must be enabled to utilize this flag.
+    *
+    * @return ?bool
+    */
+    public function getTaxInclusive(): ?bool
+    {
+        return $this->_tax_inclusive;
+    }
+
+    /**
+    * Setter method for the tax_inclusive attribute.
+    *
+    * @param bool $tax_inclusive
+    *
+    * @return void
+    */
+    public function setTaxInclusive(bool $tax_inclusive): void
+    {
+        $this->_tax_inclusive = $tax_inclusive;
     }
 
     /**
