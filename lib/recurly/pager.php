@@ -104,10 +104,10 @@ class Pager implements \Iterator
      * Implementation of the Iterator interfaces `key` method.
      * Will return NULL for every iteration.
      * 
-     * @return             void
+     * @return             mixed
      * @codeCoverageIgnore
      */
-    public function key(): void
+    public function key(): mixed
     {
         //NOOP
     }
