@@ -1,5 +1,20 @@
 # Changelog
 
+## [4.19.0](https://github.com/recurly/recurly-client-php/tree/4.19.0) (2022-07-07)
+
+[Full Changelog](https://github.com/recurly/recurly-client-php/compare/4.18.0...4.19.0)
+
+
+**Merged Pull Requests**
+
+- Fixing deprecation warnings in client [#697](https://github.com/recurly/recurly-client-php/pull/697) ([douglasmiller](https://github.com/douglasmiller))
+- Generated Latest Changes for v2021-02-25 [#695](https://github.com/recurly/recurly-client-php/pull/695) ([recurly-integrations](https://github.com/recurly-integrations))
+
+**Closed Issues**
+
+- Recurly\Pager and \Iterator return type mismatch (PHP 8.1 deprecation) [#677](https://github.com/recurly/recurly-client-php/issues/677)
+
+
 ## [4.18.0](https://github.com/recurly/recurly-client-php/tree/4.18.0) (2022-06-16)
 
 [Full Changelog](https://github.com/recurly/recurly-client-php/compare/4.17.0...4.18.0)
