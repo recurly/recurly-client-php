@@ -230,10 +230,10 @@ class Recurly_Subscription extends Recurly_Resource
    * @throws Recurly_Error
    */
   public function pause($remaining_pause_cycles) {
-    $doc = $this->createDocument();
+    $doc = XmlTools::createDocument();
     $root = $doc->appendChild($doc->createElement($this->getNodeName()));
     $root->appendChild($doc->createElement('remaining_pause_cycles', $remaining_pause_cycles));
-    $this->_save(Recurly_Client::PUT, $this->uri() . '/pause', $this->renderXML($doc));
+    $this->_save(Recurly_Client::PUT, $this->uri() . '/pause', XmlTools::renderXML($doc));
   }
 
   /**
@@ -254,10 +254,10 @@ class Recurly_Subscription extends Recurly_Resource
    * Converts trial to paid subscription when transaction_type == "moto"
    */
   public function convertTrialMoto() {
-    $doc = $this->createDocument();
+    $doc = XmlTools::createDocument();
     $root = $doc->appendChild($doc->createElement($this->getNodeName()));
     $root->appendChild($doc->createElement('transaction_type', "moto"));
-    $this->_save(Recurly_Client::PUT, $this->uri() . '/convert_trial', $this->renderXML($doc));
+    $this->_save(Recurly_Client::PUT, $this->uri() . '/convert_trial', XmlTools::renderXML($doc));
   }
 
   /**
@@ -265,12 +265,12 @@ class Recurly_Subscription extends Recurly_Resource
    */
   public function convertTrial($three_d_secure_action_result_token_id = null) {
     if ($three_d_secure_action_result_token_id != null) {
-      $doc = $this->createDocument();
+      $doc = XmlTools::createDocument();
       $root = $doc->appendChild($doc->createElement($this->getNodeName()));
       $account = $root->appendChild($doc->createElement("account"));
       $billingInfo = $account->appendChild($doc->createElement("billing_info"));
       $billingInfo->appendChild($doc->createElement("three_d_secure_action_result_token_id", $three_d_secure_action_result_token_id));
-      $this->_save(Recurly_Client::PUT, $this->uri() . '/convert_trial', $this->renderXML($doc));
+      $this->_save(Recurly_Client::PUT, $this->uri() . '/convert_trial', XmlTools::renderXML($doc));
     }
     $this->_save(Recurly_Client::PUT, $this->uri() . '/convert_trial');
   }
@@ -299,7 +299,7 @@ class Recurly_Subscription extends Recurly_Resource
     return self::_safeUri(Recurly_Client::PATH_SUBSCRIPTIONS, $uuid);
   }
 
-  protected function populateXmlDoc(&$doc, &$node, &$obj, $nested = false) {
+  public function populateXmlDoc(&$doc, &$node, &$obj, $nested = false) {
     if ($this->isEmbedded($node, 'subscriptions')) {
       $subscriptionNode = $node->appendChild($doc->createElement($this->getNodeName()));
       parent::populateXmlDoc($doc, $subscriptionNode, $obj, $nested);

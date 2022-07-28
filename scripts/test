@@ -7,4 +7,4 @@ if [ "$CODEFRESH" == "false" ]; then
     composer dump-autoload
 fi
 
-./vendor/bin/phpunit
+./vendor/bin/phpunit $@

@@ -6,7 +6,6 @@ abstract class Recurly_Base
   protected $_type;
   protected $_client;
   protected $_links;
-  protected $_values;
   protected $_errors;
   protected $_headers;
 
@@ -15,6 +14,7 @@ abstract class Recurly_Base
     $this->_href = $href;
     $this->_client = is_null($client) ? new Recurly_Client() : $client;
     $this->_links = array();
+    $this->resetErrors();
   }
 
   /**
@@ -159,43 +159,15 @@ abstract class Recurly_Base
       $href = '[href=' . $href . ']';
 
     $class = get_class($this);
-    $values = $this->__valuesString();
+    $values = $this->getValuesString(); // should be in resource?
     return "<$class$href $values>";
   }
 
-  protected function __valuesString() {
-    $values = array();
-    ksort($this->_values);
-
-    foreach($this->_values as $key => $value) {
-      if (is_null($value)) {
-        $values[] = "$key=null";
-      } else if (is_int($value)) {
-        $values[] = "$key=$value";
-      } else if (is_bool($value)) {
-        $values[] = "$key=" . ($value ? 'true' : 'false');
-      } else if ($value instanceof Recurly_Stub) {
-        $values[] = "$key=$value";
-      } else if (is_array($value)) {
-        $innerValues = array();
-        foreach ($value as $innerValue)
-          $innerValues[] = strval($innerValue);
-        $innerValues = implode(', ', $innerValues);
-        $values[] = "$key=[$innerValues]";
-      } else if ($value instanceof DateTime) {
-        $values[] = "$key=\"" . $value->format('Y-m-d H:i:s P') . '"';
-      } else {
-        $values[] = "$key=\"$value\"";
-      }
-    }
-
-    return implode(', ', $values);
-  }
 
   public function getHref() {
     return $this->_href;
   }
-  protected function setHref($href) {
+  public function setHref($href) {
     $this->_href = $href;
   }
 
@@ -227,99 +199,37 @@ abstract class Recurly_Base
     return $this->_links;
   }
 
+  public function getErrors()
+  {
+    return $this->_errors;
+  }
+
+  public function resetErrors()
+  {
+    $this->_errors = array();
+  }
+
+  // depends on $this->getNodeName()
+  protected function updateErrorAttributes()
+  {
+    if (sizeof($this->_errors) > 0) {
+      for ($i = sizeof($this->_errors) - 1; $i >= 0; $i--) {
+        $error = $this->_errors[$i];
+
+        if (isset($error->field)) {
+          if (substr($error->field, 0, strlen($this->getNodeName()) + 1) == ($this->getNodeName() . '.'))
+            $error->field = substr($error->field, strlen($this->getNodeName()) + 1);
+        }
+
+        // TODO: If there are more dots, then apply these to sub elements
+      }
+    }
+  }
+
+
   /* ******************************************************
      ** XML Parser
      ****************************************************** */
-  /**
-   * Mapping of XML node to PHP object name
-   */
-  static $class_map = array(
-    'account' => 'Recurly_Account',
-    'account_acquisition' => 'Recurly_AccountAcquisition',
-    'accounts' => 'Recurly_AccountList',
-    'account_balance' => 'Recurly_AccountBalance',
-    'address' => 'Recurly_Address',
-    'add_on' => 'Recurly_Addon',
-    'add_ons' => 'Recurly_AddonList',
-    'adjustment' => 'Recurly_Adjustment',
-    'adjustments' => 'Recurly_AdjustmentList',
-    'balance_in_cents' => 'Recurly_CurrencyList',
-    'billing_info' => 'Recurly_BillingInfo',
-    'billing_infos' => 'Recurly_BillingInfoList',
-    'coupon' => 'Recurly_Coupon',
-    'unique_coupon_codes' => 'Recurly_UniqueCouponCodeList',
-    'charge_invoice' => 'Recurly_Invoice',
-    'credit_invoice' => 'Recurly_Invoice',
-    'currency' => 'Recurly_Currency',
-    'custom_fields' => 'Recurly_CustomFieldList',
-    'custom_field' => 'Recurly_CustomField',
-    'credit_invoices' => 'array',
-    'credit_payment' => 'Recurly_CreditPayment',
-    'credit_payments' => 'Recurly_CreditPaymentList',
-    'details' => 'array',
-    'discount_in_cents' => 'Recurly_CurrencyList',
-    'delivery' => 'Recurly_Delivery',
-    'dunning_campaign' => 'Recurly_DunningCampaign',
-    'dunning_campaigns' => 'Recurly_DunningCampaignList',
-    'dunning_cycle' => 'Recurly_DunningCycle',
-    'dunning_cycles' => 'array',
-    'error' => 'Recurly_FieldError',
-    'errors' => 'Recurly_ErrorList',
-    'export_date' => 'Recurly_ExportDate',
-    'export_dates' => 'Recurly_ExportDateList',
-    'export_file' => 'Recurly_ExportFile',
-    'export_files' => 'Recurly_ExportFileList',
-    'fraud' => 'Recurly_FraudInfo',
-    'gift_card' => 'Recurly_GiftCard',
-    'gift_cards' => 'Recurly_GiftCardList',
-    'gifter_account' => 'Recurly_Account',
-    'interval' => 'Recurly_DunningInterval',
-    'intervals' => 'array',
-    'invoice' => 'Recurly_Invoice',
-    'invoices' => 'Recurly_InvoiceList',
-    'invoice_collection' => 'Recurly_InvoiceCollection',
-    'invoice_template' => 'Recurly_InvoiceTemplate',
-    'invoice_templates' => 'Recurly_InvoiceTemplateList',
-    'item' => 'Recurly_Item',
-    'items' => 'Recurly_ItemList',
-    'item_code' => 'string',
-    'item_codes' => 'array',
-    'line_items' => 'array',
-    'measured_unit' => 'Recurly_MeasuredUnit',
-    'measured_units' => 'Recurly_MeasuredUnitList',
-    'note' => 'Recurly_Note',
-    'notes' => 'Recurly_NoteList',
-    'plan' => 'Recurly_Plan',
-    'plans' => 'Recurly_PlanList',
-    'plan_code' => 'string',
-    'plan_codes' => 'array',
-    'pending_subscription' => 'Recurly_Subscription',
-    'processing_prepayment_balance_in_cents' => 'Recurly_CurrencyList',
-    'redemption' => 'Recurly_CouponRedemption',
-    'redemptions' => 'Recurly_CouponRedemptionList',
-    'setup_fee_in_cents' => 'Recurly_CurrencyList',
-    'shipping_address' => 'Recurly_ShippingAddress',
-    'shipping_addresses' => 'Recurly_ShippingAddressList',
-    'shipping_fee' => 'Recurly_ShippingFee',
-    'shipping_method' => 'Recurly_ShippingMethod',
-    'shipping_methods' => 'Recurly_ShippingMethodList',
-    'subscription' => 'Recurly_Subscription',
-    'subscriptions' => 'Recurly_SubscriptionList',
-    'subscription_add_ons' => 'array',
-    'subscription_add_on' => 'Recurly_SubscriptionAddOn',
-    'tax_detail' => 'Recurly_Tax_Detail',
-    'tax_details' => 'array',
-    'tier' => 'Recurly_Tier',
-    'tiers' => 'array',
-    'percentage_tier' => 'Recurly_PercentageTier',
-    'percentage_tiers' => 'array',
-    'transaction' => 'Recurly_Transaction',
-    'transactions' => 'Recurly_TransactionList',
-    'transaction_error' => 'Recurly_TransactionError',
-    'unit_amount_in_cents' => 'Recurly_CurrencyList',
-    'usage' => 'Recurly_Usage',
-    'usages' => 'Recurly_UsageList'
-  );
 
   // Use a valid Recurly_Response to populate a new object.
   protected static function __parseResponseToNewObject($response, $uri, $client) {
@@ -333,8 +243,10 @@ abstract class Recurly_Base
 
     $rootNode = $dom->documentElement;
 
-    $obj = Recurly_Resource::__createNodeObject($rootNode, $client);
-    Recurly_Resource::__parseXmlToObject($rootNode->firstChild, $obj, $client);
+    $obj = self::__createNodeObject($rootNode, $client);
+
+    self::__parseXmlToObject($rootNode->firstChild, $obj, $client);
+
     if ($obj instanceof self) {
       $obj->_afterParseResponse($response, $uri);
       $obj->setHeaders($response->headers);
@@ -358,15 +270,25 @@ abstract class Recurly_Base
 
     if ($rootNode->nodeName == $this->getNodeName()) {
       // update the current object
-      Recurly_Resource::__parseXmlToObject($rootNode->firstChild, $this, $this->_client);
+      self::__parseXmlToObject($rootNode->firstChild, $this, $this->_client);
     } else if ($rootNode->nodeName == 'errors') {
-      // add element to existing object
-      Recurly_Resource::__parseXmlToObject($rootNode->firstChild, $this->_errors, $this->_client);
+      // update object as errors
+      self::__parseXmlToObject($rootNode->firstChild, $this->_errors, $this->_client);
     }
+
     $this->updateErrorAttributes();
   }
 
-  protected static function __parseXmlToObject($node, &$object, $client)
+  /**
+   * @param DOMElement $node    The node to parse.
+   * @param mixed $parentObject An instantiation of some class, usually a Recurly_* class.
+   *                            This class represents the "parent" of the current node
+   *                            being parsed.
+   * @param Recurly_Client $client The api client instance.
+   *
+   * @return mixed The instantiated object representing the `$node`.
+   */
+  protected static function __parseXmlToObject($node, &$parentObject, $client)
   {
     while ($node) {
       //print "Node: {$node->nodeType} -- {$node->nodeName}\n";
@@ -375,177 +297,121 @@ abstract class Recurly_Base
         if ($node->wholeText != null) {
           $text = trim($node->wholeText);
           if (!empty($text)) {
-            $object->description = $text;
+            $parentObject->description = $text;
           }
         }
       } else if ($node->nodeType == XML_ELEMENT_NODE) {
-        $nodeName = str_replace("-", "_", $node->nodeName);
+        $nodeName = XmlTools::parseNodeName($node);
 
-        if ($object instanceof Recurly_Pager) {
-          $new_obj = Recurly_Resource::__createNodeObject($node, $object->_client);
+        if ($parentObject instanceof Recurly_Pager) {
+          $new_obj = self::__createNodeObject($node, $parentObject->_client);
           if (!is_null($new_obj)) {
-            Recurly_Resource::__parseXmlToObject($node->firstChild, $new_obj, $object->_client);
-            $object->_objects[] = $new_obj;
+            self::__parseXmlToObject($node->firstChild, $new_obj, $parentObject->_client);
+            $parentObject->_objects[] = $new_obj;
           }
           $node = $node->nextSibling;
           continue;
-        } else if ($object instanceof Recurly_ErrorList) {
+        } else if ($parentObject instanceof Recurly_ErrorList) {
           if ($nodeName == 'error') {
-            $object[] = Recurly_Resource::parseErrorNode($node);
+            $parentObject[] = self::__createNodeObject($node, $client);
             $node = $node->nextSibling;
             continue;
           }
-        // Would prefer to do `$object instanceof ArrayAccess` but Recurly_CurrencyList
+        // Would prefer to do `$parentObject instanceof ArrayAccess` but Recurly_CurrencyList
         // implements that and expects to have its children assigned like `$list->USD = 123`.
-        } else if (is_array($object) || $object instanceof Recurly_CustomFieldList) {
+        } else if (is_array($parentObject) || $parentObject instanceof Recurly_CustomFieldList) {
           if ($nodeName == 'error') {
-            $object[] = Recurly_Resource::parseErrorNode($node);
+            $parentObject[] = self::__createNodeObject($node, $client);
             $node = $node->nextSibling;
             continue;
           }
 
-          $new_obj = Recurly_Resource::__createNodeObject($node, $client);
-          if (!is_null($new_obj)) {
-            if (is_object($new_obj) || is_array($new_obj)) {
-              Recurly_Resource::__parseXmlToObject($node->firstChild, $new_obj, $client);
+          $newObj = self::__createNodeObject($node, $client);
+
+          if (!is_null($newObj)) {
+            if (is_object($newObj) || is_array($newObj)) {
+              self::__parseXmlToObject($node->firstChild, $newObj, $client);
             }
-            $object[] = $new_obj;
+            $parentObject[] = $newObj;
           }
+
           $node = $node->nextSibling;
           continue;
         }
 
         $numChildren = $node->childNodes->length;
+
         if ($numChildren == 0) {
           // No children, we might have a link
-          $href = $node->getAttribute('href');
-          if (!empty($href)) {
-            if ($nodeName == 'a') {
-              $linkName = $node->getAttribute('name');
-              $method = $node->getAttribute('method');
-              $object->addLink($linkName, $href, $method);
-            } else {
-              if (!is_object($object)) {
-                $object->$nodeName = new Recurly_Stub($nodeName, $href);
-              }
-              else {
-                $object->$nodeName = new Recurly_Stub($nodeName, $href, $object->_client);
-              }
-            }
-          }
+          self::__processLink($node, $parentObject);
         } else if ($node->firstChild->nodeType == XML_ELEMENT_NODE) {
           // has element children, drop in and continue parsing
-          $new_obj = Recurly_Resource::__createNodeObject($node, $object->_client);
-          if (!is_null($new_obj)) {
-            $object->$nodeName = Recurly_Resource::__parseXmlToObject($node->firstChild, $new_obj, $object->_client);
+          $parentObjClient = property_exists($parentObject, '_client') ? $parentObject->_client : null;
+          $newObj = self::__createNodeObject($node, $parentObjClient);
+
+          if (!is_null($newObj)) {
+            // sets ramp intervals to plan
+            $parentObject->$nodeName = self::__parseXmlToObject($node->firstChild, $newObj, $parentObjClient);
           }
         } else {
           // we have a single text child
-          if ($node->hasAttribute('nil')) {
-            $object->$nodeName = null;
-          } else {
-            switch ($node->getAttribute('type')) {
-              case 'boolean':
-                $object->$nodeName = ($node->nodeValue == 'true');
-                break;
-              case 'date':
-              case 'datetime':
-                $object->$nodeName = new DateTime($node->nodeValue);
-                break;
-              case 'float':
-                $object->$nodeName = (float)$node->nodeValue;
-                break;
-              case 'integer':
-                $object->$nodeName = (int)$node->nodeValue;
-                break;
-              case 'array':
-                $object->$nodeName = array();
-                break;
-              default:
-                $object->$nodeName = $node->nodeValue;
-            }
-          }
+          $parentObject->$nodeName = XmlTools::getNodeValueFromTypeAttribute($node);
         }
       }
 
       $node = $node->nextSibling;
     }
 
-    if (isset($object->_unsavedKeys))
-      $object->_unsavedKeys = array();
+    // needs to be addressed since this property lives in a trait
+    // applied to a Recurly_Resourse.
+    if (isset($parentObject->_unsavedKeys))
+      $parentObject->_unsavedKeys = array();
 
-    return $object;
-  }
-
-  private static function parseErrorNode($node)
-  {
-    $error = new Recurly_FieldError();
-    $error->field = $node->getAttribute('field');
-    $error->symbol = $node->getAttribute('symbol');
-    $error->description = $node->firstChild->wholeText;
-
-    return $error;
-  }
-
-  private static function __getTierInstance($node, $node_class)
-  {
-    $nodeNames = array();
-    foreach($node->childNodes as $node_item) {
-      $nodeNames[] = $node_item->tagName;
-    }
-    if( empty(array_diff($nodeNames, ['ending_amount_in_cents', 'usage_percentage'])) ) {
-      return new Recurly_CurrencyPercentageTier(Recurly_Base::__getNodeName($node));
-    } else {
-      return new $node_class();
-    }
-  }
-
-  private static function __getNodeName($node)
-  {
-    return str_replace("-", "_", $node->nodeName);
+    return $parentObject;
   }
 
   private static function __createNodeObject($node, $client)
   {
-    $nodeName = Recurly_Base::__getNodeName($node);
+    $newObj = XmlTools::nodeToObject($node, $client);
 
-    if (!array_key_exists($nodeName, Recurly_Resource::$class_map)) {
-      return null; // Unknown element
-    }
-
-    $node_class = Recurly_Resource::$class_map[$nodeName];
-
-    if ($node_class == null)
-      return new Recurly_Object();
-    else if ($node_class == 'array')
-      return array();
-    else if ($node_class == 'string')
-      return $node->firstChild->wholeText;
-    else {
-      if ($node_class == 'Recurly_CurrencyList') {
-        $new_obj = new $node_class($nodeName);
-      } else if( $node_class == 'Recurly_Tier' ) {
-        $new_obj = Recurly_Base::__getTierInstance($node, $node_class);
-      } else {
-        $new_obj = new $node_class();
+    if ($newObj instanceof self) {
+      // Recurly_Base is set up to accept a href as first arg on
+      // instantiation, but some custom classes implement their own
+      // construction args.
+      $href = $node->getAttribute('href');
+      if (!empty($href)) {
+        $newObj->setHref($href);
       }
 
       // It may have a type attribute we wish to capture
       $typeAttribute = $node->getAttribute('type');
       if (!empty($typeAttribute)) {
-        $new_obj->_type = $typeAttribute;
+        $newObj->_type = $typeAttribute;
       }
+    }
 
-      $new_obj->_client = $client;
-      $href = $node->getAttribute('href');
-      if (!empty($href)) {
-        $new_obj->setHref($href);
+    return $newObj;
+  }
+
+  private static function __processLink($node, &$object)
+  {
+    $href = $node->getAttribute('href');
+
+    if (!empty($href)) {
+      $nodeName = XmlTools::parseNodeName($node);
+
+      if ($nodeName == 'a') {
+        $linkName = $node->getAttribute('name');
+        $method = $node->getAttribute('method');
+        $object->addLink($linkName, $href, $method);
+      } else {
+        if (!is_object($object)) {
+          $object->$nodeName = new Recurly_Stub($nodeName, $href);
+        }
+        else {
+          $object->$nodeName = new Recurly_Stub($nodeName, $href, $object->_client);
+        }
       }
-
-      return $new_obj;
     }
   }
 }
-
-// In case node_class is not specified.
-class Recurly_Object {}

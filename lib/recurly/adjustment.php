@@ -86,7 +86,7 @@ class Recurly_Adjustment extends Recurly_Resource
     return self::_safeUri(Recurly_Client::PATH_ACCOUNTS, $this->account_code, Recurly_Client::PATH_ADJUSTMENTS);
   }
 
-  protected function populateXmlDoc(&$doc, &$node, &$obj, $nested = false) {
+  public function populateXmlDoc(&$doc, &$node, &$obj, $nested = false) {
     if ($this->isEmbedded($node, 'adjustments')) {
       $adjustmentNode = $node->appendChild($doc->createElement($this->getNodeName()));
       parent::populateXmlDoc($doc, $adjustmentNode, $obj, $nested);

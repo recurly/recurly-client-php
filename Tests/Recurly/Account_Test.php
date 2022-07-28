@@ -89,10 +89,10 @@ class Recurly_AccountTest extends Recurly_TestCase
     }
 
     $this->assertInstanceOf('Recurly_Account', $account);
-    $this->assertInstanceOf('Recurly_FieldError', $account->errors[0]);
-    $this->assertEquals('email', $account->errors[0]->field);
-    $this->assertEquals('invalid_email', $account->errors[0]->symbol);
-    $this->assertEquals('is not a valid email address', $account->errors[0]->description);
+    $this->assertInstanceOf('Recurly_FieldError', $account->getErrors()[0]);
+    $this->assertEquals('email', $account->getErrors()[0]->field);
+    $this->assertEquals('invalid_email', $account->getErrors()[0]->symbol);
+    $this->assertEquals('is not a valid email address', $account->getErrors()[0]->description);
   }
 
   public function testXml() {

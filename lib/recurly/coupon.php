@@ -111,7 +111,7 @@ class Recurly_Coupon extends Recurly_Resource
   // generates the xml needed for a coupon update
   // only uses the updateable attributes
   public function createUpdateXML() {
-    $doc = $this->createDocument();
+    $doc = XmlTools::createDocument();
 
     $root = $doc->appendChild($doc->createElement($this->getNodeName()));
 
@@ -125,7 +125,7 @@ class Recurly_Coupon extends Recurly_Resource
       $root->appendChild($doc->createElement($attr, $val));
     }
 
-    return $this->renderXML($doc);
+    return XmlTools::renderXML($doc);
   }
 
   /**
@@ -134,12 +134,12 @@ class Recurly_Coupon extends Recurly_Resource
    * @throws Recurly_Error
    */
   public function generate($number) {
-    $doc = $this->createDocument();
+    $doc = XmlTools::createDocument();
 
     $root = $doc->appendChild($doc->createElement($this->getNodeName()));
     $root->appendChild($doc->createElement('number_of_unique_codes', $number));
 
-    $response = $this->_client->request(Recurly_Client::POST, $this->uri() . '/generate', $this->renderXML($doc));
+    $response = $this->_client->request(Recurly_Client::POST, $this->uri() . '/generate', XmlTools::renderXML($doc));
     $response->assertValidResponse();
 
     $coupons = array();
