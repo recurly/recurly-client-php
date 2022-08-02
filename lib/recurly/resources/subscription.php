@@ -41,6 +41,7 @@ class Subscription extends RecurlyResource
     private $_plan;
     private $_po_number;
     private $_quantity;
+    private $_ramp_intervals;
     private $_remaining_billing_cycles;
     private $_remaining_pause_cycles;
     private $_renewal_billing_cycles;
@@ -61,6 +62,7 @@ class Subscription extends RecurlyResource
         'setAddOns' => '\Recurly\Resources\SubscriptionAddOn',
         'setCouponRedemptions' => '\Recurly\Resources\CouponRedemptionMini',
         'setCustomFields' => '\Recurly\Resources\CustomField',
+        'setRampIntervals' => '\Recurly\Resources\SubscriptionRampIntervalResponse',
     ];
 
     
@@ -729,6 +731,29 @@ class Subscription extends RecurlyResource
     public function setQuantity(int $quantity): void
     {
         $this->_quantity = $quantity;
+    }
+
+    /**
+    * Getter method for the ramp_intervals attribute.
+    * The ramp intervals representing the pricing schedule for the subscription.
+    *
+    * @return array
+    */
+    public function getRampIntervals(): array
+    {
+        return $this->_ramp_intervals ?? [] ;
+    }
+
+    /**
+    * Setter method for the ramp_intervals attribute.
+    *
+    * @param array $ramp_intervals
+    *
+    * @return void
+    */
+    public function setRampIntervals(array $ramp_intervals): void
+    {
+        $this->_ramp_intervals = $ramp_intervals;
     }
 
     /**
