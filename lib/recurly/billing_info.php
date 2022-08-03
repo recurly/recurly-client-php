@@ -134,7 +134,7 @@ class Recurly_BillingInfo extends Recurly_Resource
       'braintree_payment_nonce', 'roku_billing_agreement_id',
       'three_d_secure_action_result_token_id', 'transaction_type', 'iban', 'sort_code', 'bsb_code', 'type',
       'tax_identifier', 'tax_identifier_type', 'primary_payment_method', 'backup_payment_method',
-      'online_banking_payment_type',
+      'online_banking_payment_type', 'username'
     );
   }
 }
