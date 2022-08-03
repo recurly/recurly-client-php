@@ -5,6 +5,7 @@ class Recurly_BillingInfoTest extends Recurly_TestCase
 {
   function defaultResponses() {
     return array(
+      array('GET', '/accounts/venmo1234567890/billing_info', 'billing_info/show-venmo-200.xml'),
       array('GET', '/accounts/abcdef1234567890/billing_info', 'billing_info/show-200.xml'),
       array('GET', '/accounts/abcdef1234567890z/billing_infos', 'billing_info/show-200-wallet.xml'),
       array('GET', '/accounts/paypal1234567890/billing_info', 'billing_info/show-paypal-200.xml'),
@@ -84,6 +85,12 @@ class Recurly_BillingInfoTest extends Recurly_TestCase
 
     $this->assertEquals($billing_info->card_type, null);
     $this->assertEquals($billing_info->getHref(), 'https://api.recurly.com/v2/accounts/bankaccount1234567890/billing_info');
+  }
+
+  public function testGetVenmoBillingInfo() {
+    $billing_info = Recurly_BillingInfo::get('venmo1234567890', $this->client);
+    $this->assertInstanceOf('Recurly_BillingInfo', $billing_info);
+    $this->assertEquals($billing_info->username, 'johnrambo');
   }
 
   public function testGetIbanBillingInfo() {
