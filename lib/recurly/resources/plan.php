@@ -29,6 +29,8 @@ class Plan extends RecurlyResource
     private $_interval_unit;
     private $_name;
     private $_object;
+    private $_pricing_model;
+    private $_ramp_intervals;
     private $_revenue_schedule_type;
     private $_setup_fee_accounting_code;
     private $_setup_fee_revenue_schedule_type;
@@ -43,6 +45,7 @@ class Plan extends RecurlyResource
 
     protected static $array_hints = [
         'setCurrencies' => '\Recurly\Resources\PlanPricing',
+        'setRampIntervals' => '\Recurly\Resources\PlanRampInterval',
     ];
 
     
@@ -438,6 +441,55 @@ If `false`, only plan add-ons can be used.
     public function setObject(string $object): void
     {
         $this->_object = $object;
+    }
+
+    /**
+    * Getter method for the pricing_model attribute.
+    * A fixed pricing model has the same price for each billing period.
+A ramp pricing model defines a set of Ramp Intervals, where a subscription changes price on
+a specified cadence of billing periods. The price change could be an increase or decrease.
+
+    *
+    * @return ?string
+    */
+    public function getPricingModel(): ?string
+    {
+        return $this->_pricing_model;
+    }
+
+    /**
+    * Setter method for the pricing_model attribute.
+    *
+    * @param string $pricing_model
+    *
+    * @return void
+    */
+    public function setPricingModel(string $pricing_model): void
+    {
+        $this->_pricing_model = $pricing_model;
+    }
+
+    /**
+    * Getter method for the ramp_intervals attribute.
+    * Ramp Intervals
+    *
+    * @return array
+    */
+    public function getRampIntervals(): array
+    {
+        return $this->_ramp_intervals ?? [] ;
+    }
+
+    /**
+    * Setter method for the ramp_intervals attribute.
+    *
+    * @param array $ramp_intervals
+    *
+    * @return void
+    */
+    public function setRampIntervals(array $ramp_intervals): void
+    {
+        $this->_ramp_intervals = $ramp_intervals;
     }
 
     /**
