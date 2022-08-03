@@ -27,6 +27,7 @@ class PaymentMethod extends RecurlyResource
     private $_object;
     private $_routing_number;
     private $_routing_number_bank;
+    private $_username;
 
     protected static $array_hints = [
     ];
@@ -375,5 +376,28 @@ class PaymentMethod extends RecurlyResource
     public function setRoutingNumberBank(string $routing_number_bank): void
     {
         $this->_routing_number_bank = $routing_number_bank;
+    }
+
+    /**
+    * Getter method for the username attribute.
+    * Username of the associated payment method. Currently only associated with Venmo.
+    *
+    * @return ?string
+    */
+    public function getUsername(): ?string
+    {
+        return $this->_username;
+    }
+
+    /**
+    * Setter method for the username attribute.
+    *
+    * @param string $username
+    *
+    * @return void
+    */
+    public function setUsername(string $username): void
+    {
+        $this->_username = $username;
     }
 }

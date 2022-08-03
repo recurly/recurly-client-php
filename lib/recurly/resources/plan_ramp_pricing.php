@@ -10,11 +10,9 @@ namespace Recurly\Resources;
 use Recurly\RecurlyResource;
 
 // phpcs:disable
-class PlanPricing extends RecurlyResource
+class PlanRampPricing extends RecurlyResource
 {
     private $_currency;
-    private $_setup_fee;
-    private $_tax_inclusive;
     private $_unit_amount;
 
     protected static $array_hints = [
@@ -45,54 +43,8 @@ class PlanPricing extends RecurlyResource
     }
 
     /**
-    * Getter method for the setup_fee attribute.
-    * Amount of one-time setup fee automatically charged at the beginning of a subscription billing cycle. For subscription plans with a trial, the setup fee will be charged at the time of signup. Setup fees do not increase with the quantity of a subscription plan.
-    *
-    * @return ?float
-    */
-    public function getSetupFee(): ?float
-    {
-        return $this->_setup_fee;
-    }
-
-    /**
-    * Setter method for the setup_fee attribute.
-    *
-    * @param float $setup_fee
-    *
-    * @return void
-    */
-    public function setSetupFee(float $setup_fee): void
-    {
-        $this->_setup_fee = $setup_fee;
-    }
-
-    /**
-    * Getter method for the tax_inclusive attribute.
-    * This field is deprecated. Please do not use it.
-    *
-    * @return ?bool
-    */
-    public function getTaxInclusive(): ?bool
-    {
-        return $this->_tax_inclusive;
-    }
-
-    /**
-    * Setter method for the tax_inclusive attribute.
-    *
-    * @param bool $tax_inclusive
-    *
-    * @return void
-    */
-    public function setTaxInclusive(bool $tax_inclusive): void
-    {
-        $this->_tax_inclusive = $tax_inclusive;
-    }
-
-    /**
     * Getter method for the unit_amount attribute.
-    * This field should not be sent when the pricing model is 'ramp'.
+    * Represents the price for the Ramp Interval.
     *
     * @return ?float
     */
