@@ -1,0 +1,49 @@
+HTTP/1.1 200 OK
+Content-Type: application/xml; charset=utf-8
+
+<?xml version="1.0" encoding="UTF-8"?>
+<subscription href="https://api.recurly.com/v2/subscriptions/32558dd8a07smo471fbe6642d3a422f4">
+    <account href="https://api.recurly.com/v2/accounts/13daac568eab9337da5235a3e23899"/>
+    <invoice href="https://api.recurly.com/v2/invoices/1111"/>
+    <plan href="https://api.recurly.com/v2/plans/ramped-plan">
+      <plan_code>ramped-plan</plan_code>
+      <name>Get Ramped UP</name>
+    </plan>
+    <uuid>32558dd8a07smo471fbe6642d3a422f4</uuid>
+    <state>active</state>
+    <unit_amount_in_cents type="integer">123</unit_amount_in_cents>
+    <currency>USD</currency>
+    <quantity type="integer">1</quantity>
+    <activated_at type="datetime">2022-08-01T11:02:04Z</activated_at>
+    <canceled_at nil="nil"></canceled_at>
+    <expires_at nil="nil"></expires_at>
+    <total_billing_cycles type="integer">6</total_billing_cycles>
+    <remaining_billing_cycles type="integer">5</remaining_billing_cycles>
+    <current_period_started_at type="datetime">2022-08-08T11:02:04Z</current_period_started_at>
+    <current_period_ends_at type="datetime">2022-09-08T11:02:04Z</current_period_ends_at>
+    <trial_started_at nil="nil"></trial_started_at>
+    <trial_ends_at nil="nil"></trial_ends_at>
+    <terms_and_conditions>Some Terms and Conditions</terms_and_conditions>
+    <customer_notes>Some Customer Notes</customer_notes>
+    <po_number nil="nil"></po_number>
+    <net_terms type="integer">0</net_terms>
+    <collection_method>automatic</collection_method>
+    <subscription_add_ons type="array">
+    </subscription_add_ons>
+    <ramp_intervals type="array">
+      <ramp_interval>
+        <starting_billing_cycle type="integer">1</starting_billing_cycle>,
+        <unit_amount_in_cents type="integer">123</unit_amount_in_cents>
+        <remaining_billing_cycles type="integer">2</remaining_billing_cycles>
+      </ramp_interval>
+      <ramp_interval>
+        <starting_billing_cycle type="integer">4</starting_billing_cycle>
+        <unit_amount_in_cents type="integer">456</unit_amount_in_cents>
+        <remaining_billing_cycles nil="nil"></remaining_billing_cycles>
+      </ramp_interval>
+    </ramp_intervals>
+    <a name="cancel" href="https://api.recurly.com/v2/subscriptions/32558dd8a07smo471fbe6642d3a422f4/cancel" method="put"/>
+    <a name="terminate" href="https://api.recurly.com/v2/subscriptions/32558dd8a07smo471fbe6642d3a422f4/terminate" method="put"/>
+    <a name="postpone" href="https://api.recurly.com/v2/subscriptions/32558dd8a07smo471fbe6642d3a422f4/postpone" method="put"/>
+    <a name="notes" href="https://api.recurly.com/v2/subscriptions/32558dd8a07smo471fbe6642d3a422f4/notes" method="put"/>
+  </subscription>

@@ -2,8 +2,8 @@ HTTP/1.1 200 OK
 Content-Type: application/xml; charset=utf-8
 
 <?xml version="1.0" encoding="UTF-8"?>
-<plan href="https://api.recurly.com/v2/plans/ramps">
-  <add_ons href="https://api.recurly.com/v2/plans/ramps/add_ons"/>
+<plan href="https://api.recurly.com/v2/plans/ramp-priced-plan">
+  <add_ons href="https://api.recurly.com/v2/plans/ramp-priced-plan/add_ons"/>
   <plan_code>ramp-priced-plan</plan_code>
   <name>Ramp Plan</name>
   <description>Silver is everything but gold</description>
