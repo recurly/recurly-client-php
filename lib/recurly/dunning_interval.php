@@ -14,7 +14,7 @@ class Recurly_DunningInterval extends Recurly_Resource
    return array();
   }
 
-  protected function populateXmlDoc(&$doc, &$node, &$obj, $nested = false) {
+  public function populateXmlDoc(&$doc, &$node, &$obj, $nested = false) {
     if ($this->isEmbedded($node, 'intervals')) {
       $intervalNode = $node->appendChild($doc->createElement($this->getNodeName()));
       parent::populateXmlDoc($doc, $intervalNode, $obj, $nested);

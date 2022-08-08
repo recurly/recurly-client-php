@@ -4,7 +4,9 @@
  * class Recurly_Plan
  * @property string $plan_code Unique code to identify the plan. This code may only contain the following characters: [a-z 0-9 @ - _ .]. Max of 50 characters.
  * @property string $name Plan name. Max of 255 characters.
+ * @property string $pricing_model Plan's pricing model (Pro/Enterprise). Either 'fixed' or 'ramp'.
  * @property Recurly_CurrencyList $unit_amount_in_cents Array of currency objects, see example below. Max 10000000.
+ * @property array $ramp_intervals Array of Recurly_PlanRampInterval objects when `pricing_model` == 'ramp'. is 'fixed
  * @property string $description Optional plan description, not displayed.
  * @property string $plan_interval_unit days, or months, defaults to months.
  * @property integer $plan_interval_length Plan interval length, defaults to 1
@@ -40,8 +42,27 @@ class Recurly_Plan extends Recurly_Resource
   function __construct($href = null, $client = null) {
     parent::__construct($href, $client);
     $this->setup_fee_in_cents = new Recurly_CurrencyList('setup_fee_in_cents');
-    $this->unit_amount_in_cents = new Recurly_CurrencyList('unit_amount_in_cents');
+    $this->pricing_model = 'fixed';
   }
+
+  // ramp pricing has very specific requirements around api requests.
+  // when pricing model is 'ramp' there can be no base fee currencies.
+  // similarly, when pricing model is fixed there should be no ramps.
+  public function __set($k, $v) {
+    if ($k === 'pricing_model') {
+      if ($v === 'ramp') {
+        unset($this->unit_amount_in_cents);
+        $this->ramp_intervals = array();
+      } else if ($v === 'fixed') {
+        unset($this->ramp_intervals);
+        if (!isset($this->unit_amount_in_cents)) {
+          $this->unit_amount_in_cents = new Recurly_CurrencyList('unit_amount_in_cents');
+        }
+      }
+    }
+    parent::__set($k, $v);
+  }
+
 
   /**
    * @param string $planCode The plan code
@@ -93,15 +114,36 @@ class Recurly_Plan extends Recurly_Resource
   }
   protected function getWriteableAttributes() {
     return array(
-      'plan_code', 'name', 'description', 'success_url', 'cancel_url',
-      'display_donation_amounts', 'display_quantity', 'display_phone_number',
-      'bypass_hosted_confirmation', 'unit_name', 'payment_page_tos_link',
-      'plan_interval_length', 'plan_interval_unit', 'trial_interval_length',
-      'trial_interval_unit', 'unit_amount_in_cents', 'setup_fee_in_cents',
-      'total_billing_cycles', 'accounting_code', 'setup_fee_accounting_code',
-      'revenue_schedule_type', 'setup_fee_revenue_schedule_type',
-      'tax_exempt', 'tax_code', 'trial_requires_billing_info', 'auto_renew', 'allow_any_item_on_subscriptions',
-      'dunning_campaign_id'
+      'accounting_code',
+      'allow_any_item_on_subscriptions',
+      'auto_renew',
+      'bypass_hosted_confirmation',
+      'cancel_url',
+      'description',
+      'display_donation_amounts',
+      'display_phone_number',
+      'display_quantity',
+      'dunning_campaign_id',
+      'name',
+      'payment_page_tos_link',
+      'plan_code',
+      'plan_interval_length',
+      'plan_interval_unit',
+      'pricing_model',
+      'ramp_intervals',
+      'revenue_schedule_type',
+      'setup_fee_accounting_code',
+      'setup_fee_in_cents',
+      'setup_fee_revenue_schedule_type',
+      'success_url',
+      'tax_code',
+      'tax_exempt',
+      'total_billing_cycles',
+      'trial_interval_length',
+      'trial_interval_unit',
+      'trial_requires_billing_info',
+      'unit_amount_in_cents',
+      'unit_name'
     );
   }
 }

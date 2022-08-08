@@ -42,12 +42,12 @@ class Recurly_GiftCard extends Recurly_Resource
    * @throws Recurly_Error
    */
   public function redeem($accountCode) {
-    $doc = $this->createDocument();
+    $doc = XmlTools::createDocument();
     $root = $doc->appendChild($doc->createElement('recipient_account'));
     $root->appendChild($doc->createElement('account_code', $accountCode));
     $uri = Recurly_GiftCard::uriForGiftCard($this->redemption_code) . '/redeem';
 
-    $this->_save(Recurly_Client::POST, $uri, $this->renderXML($doc));
+    $this->_save(Recurly_Client::POST, $uri, XmlTools::renderXML($doc));
   }
 
   public function create() {

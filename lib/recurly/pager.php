@@ -154,6 +154,7 @@ abstract class Recurly_Pager extends Recurly_Base implements Iterator, Countable
     }
   }
 
+  // probs should look into exactly what this class needs from Recurly_Base..
   protected function updateErrorAttributes() {}
 
   public function __toString()

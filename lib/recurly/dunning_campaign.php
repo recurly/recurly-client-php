@@ -19,7 +19,7 @@ class Recurly_DunningCampaign extends Recurly_Resource
   }
 
   public function bulkUpdate($planCodes = []) {
-    $doc = $this->createDocument();
+    $doc = XmlTools::createDocument();
 
     $root = $doc->appendChild($doc->createElement($this->getNodeName()));
     $planCodesNode = $root->appendChild($doc->createElement('plan_codes'));
@@ -28,7 +28,7 @@ class Recurly_DunningCampaign extends Recurly_Resource
       $planCodeNode = $planCodesNode->appendChild($doc->createElement('plan_code', $planCode));
     }
 
-    $response = $this->_client->request(Recurly_Client::PUT, $this->uri() . '/bulk_update', $this->renderXML($doc));
+    $response = $this->_client->request(Recurly_Client::PUT, $this->uri() . '/bulk_update', XmlTools::renderXML($doc));
     $response->assertValidResponse();
 
     return null;

@@ -2,6 +2,8 @@
 
 // Require all Recurly classes
 require_once(__DIR__ . '/recurly/util/http_validations.php');
+require_once(__DIR__ . '/recurly/util/xml_tools.php');
+require_once(__DIR__ . '/recurly/traits/xml_doc.php');
 require_once(__DIR__ . '/recurly/base.php');
 require_once(__DIR__ . '/recurly/client.php');
 require_once(__DIR__ . '/recurly/currency.php');
@@ -55,6 +57,7 @@ require_once(__DIR__ . '/recurly/note_list.php');
 require_once(__DIR__ . '/recurly/percentage_tier.php');
 require_once(__DIR__ . '/recurly/plan.php');
 require_once(__DIR__ . '/recurly/plan_list.php');
+require_once(__DIR__ . '/recurly/plan_ramp_interval.php');
 require_once(__DIR__ . '/recurly/purchase.php');
 require_once(__DIR__ . '/recurly/redemption.php');
 require_once(__DIR__ . '/recurly/redemption_list.php');

@@ -17,7 +17,7 @@ class Recurly_Tier extends Recurly_Resource
     return 'tier';
   }
 
-  protected function populateXmlDoc(&$doc, &$node, &$obj, $nested = false) {
+  public function populateXmlDoc(&$doc, &$node, &$obj, $nested = false) {
     if ($this->isEmbedded($node, 'tiers')) {
       $tierNode = $node->appendChild($doc->createElement($this->getNodeName()));
       parent::populateXmlDoc($doc, $tierNode, $obj, $nested);

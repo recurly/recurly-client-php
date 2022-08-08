@@ -23,7 +23,7 @@ class Recurly_ShippingAddress extends Recurly_Resource
       'first_name', 'last_name', 'company', 'vat_number'
     );
   }
-  protected function populateXmlDoc(&$doc, &$node, &$obj, $nested = false) {
+  public function populateXmlDoc(&$doc, &$node, &$obj, $nested = false) {
     if ($this->isEmbedded($node, 'shipping_addresses')) {
       $shippingAddressNode = $node->appendChild($doc->createElement($this->getNodeName()));
       parent::populateXmlDoc($doc, $shippingAddressNode, $obj, $nested);

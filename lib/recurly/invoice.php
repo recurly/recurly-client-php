@@ -131,10 +131,10 @@ class Recurly_Invoice extends Recurly_Resource
   public function forceCollect($transaction_type = null) {
     $body = null;
     if ($transaction_type != null) {
-      $doc = $this->createDocument();
+      $doc = XmlTools::createDocument();
       $root = $doc->appendChild($doc->createElement('invoice'));
       $root->appendChild($doc->createElement('transaction_type', $transaction_type));
-      $body = $this->renderXML($doc);
+      $body = XmlTools::renderXML($doc);
     }
     $this->_save(Recurly_Client::PUT, $this->uri() . '/collect', $body, $this->_client);
   }
@@ -176,13 +176,13 @@ class Recurly_Invoice extends Recurly_Resource
    * @throws Recurly_Error
    */
   public function refundAmount($amount_in_cents, $refund_method = 'credit_first') {
-    $doc = $this->createDocument();
+    $doc = XmlTools::createDocument();
 
     $root = $doc->appendChild($doc->createElement($this->getNodeName()));
     $root->appendChild($doc->createElement('refund_method', $refund_method));
     $root->appendChild($doc->createElement('amount_in_cents', $amount_in_cents));
 
-    return $this->createRefundInvoice($this->renderXML($doc));
+    return $this->createRefundInvoice(XmlTools::renderXML($doc));
   }
 
   /**
@@ -197,7 +197,7 @@ class Recurly_Invoice extends Recurly_Resource
   public function refund($line_items, $refund_method = 'credit_first') {
     if (isset($line_items['uuid'])) { $line_items = array($line_items); }
 
-    $doc = $this->createDocument();
+    $doc = XmlTools::createDocument();
 
     $root = $doc->appendChild($doc->createElement($this->getNodeName()));
     $root->appendChild($doc->createElement('refund_method', $refund_method));
@@ -210,7 +210,7 @@ class Recurly_Invoice extends Recurly_Resource
       $adjustment_node->appendChild($doc->createElement('prorate', $line_item['prorate'] ? 'true' : 'false'));
     }
 
-    return $this->createRefundInvoice($this->renderXML($doc));
+    return $this->createRefundInvoice(XmlTools::renderXML($doc));
   }
 
   /**

@@ -2,10 +2,10 @@ HTTP/1.1 200 OK
 Content-Type: application/xml; charset=utf-8
 
 <?xml version="1.0" encoding="UTF-8"?>
-<plan href="https://api.recurly.com/v2/plans/silver">
-  <add_ons href="https://api.recurly.com/v2/plans/silver/add_ons"/>
-  <plan_code>silver</plan_code>
-  <name>Silver Plan</name>
+<plan href="https://api.recurly.com/v2/plans/ramps">
+  <add_ons href="https://api.recurly.com/v2/plans/ramps/add_ons"/>
+  <plan_code>ramp-priced-plan</plan_code>
+  <name>Ramp Plan</name>
   <description>Silver is everything but gold</description>
   <success_url>http://example.com/api100_success</success_url>
   <cancel_url>http://example.com/api100_cancel</cancel_url>
@@ -25,14 +25,29 @@ Content-Type: application/xml; charset=utf-8
   <setup_fee_accounting_code>Setup Fee AC</setup_fee_accounting_code>
   <created_at type="datetime">2011-04-19T07:00:00Z</created_at>
   <tax_exempt type="boolean">true</tax_exempt>
-  <unit_amount_in_cents>
-    <USD type="integer">1000</USD>
-    <EUR type="integer">800</EUR>
-  </unit_amount_in_cents>
   <setup_fee_in_cents>
     <USD type="integer">500</USD>
-    <EUR type="integer">400</EUR>
   </setup_fee_in_cents>
   <dunning_campaign_id>1234abcd</dunning_campaign_id>
-  <pricing_model>fixed</pricing_model>
+  <pricing_model>ramp</pricing_model>
+  <ramp_intervals>
+    <ramp_interval>
+      <starting_billing_cycle type="integer">1</starting_billing_cycle>
+      <unit_amount_in_cents>
+        <USD type="integer">500</USD>
+      </unit_amount_in_cents>
+    </ramp_interval>
+    <ramp_interval>
+      <starting_billing_cycle type="integer">3</starting_billing_cycle>
+      <unit_amount_in_cents>
+        <USD type="integer">700</USD>
+      </unit_amount_in_cents>
+    </ramp_interval>
+    <ramp_interval>
+      <starting_billing_cycle type="integer">6</starting_billing_cycle>
+      <unit_amount_in_cents>
+        <USD type="integer">1000</USD>
+      </unit_amount_in_cents>
+    </ramp_interval>
+  </ramp_intervals>
 </plan>

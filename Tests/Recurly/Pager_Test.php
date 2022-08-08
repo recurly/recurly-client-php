@@ -11,13 +11,13 @@ class Mock_Pager extends Recurly_Pager {
     parent::_loadFrom($uri);
   }
 }
-Recurly_Resource::$class_map['mocks'] = 'Mock_Pager';
+XmlTools::$CLASS_MAP['mocks'] = 'Mock_Pager';
 
 class Mock_Item extends Recurly_Resource {
   protected function getNodeName()            { return 'mock'; }
   protected function getWriteableAttributes() { return array(); }
 }
-Recurly_Resource::$class_map['mock'] = 'Mock_Item';
+XmlTools::$CLASS_MAP['mock'] = 'Mock_Item';
 
 
 class Recurly_PagerTest extends Recurly_TestCase

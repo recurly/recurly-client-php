@@ -35,6 +35,17 @@
  */
 class Recurly_Transaction extends Recurly_Resource
 {
+  public function __construct($href = null, $client = null)
+  {
+    parent::__construct($href, $client);
+
+    // this likely needs some refactoring as Recurly_Base
+    // manages its own version of these errors. Recurly_ErrorList
+    // is likely outdated as it actually only pertains to transactions
+    // (which is evident from its `__toString()` method).
+    $this->_errors = new Recurly_ErrorList();
+  }
+
   /**
    * Get Transaction by uuid
    *

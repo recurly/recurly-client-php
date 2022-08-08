@@ -13,7 +13,7 @@ class Recurly_ShippingFee extends Recurly_Resource
     return 'shipping_fee';
   }
 
-  protected function populateXmlDoc(&$doc, &$node, &$obj, $nested = false) {
+  public function populateXmlDoc(&$doc, &$node, &$obj, $nested = false) {
     if ($this->isEmbedded($node, 'shipping_fees')) {
       $feeNode = $node->appendChild($doc->createElement($this->getNodeName()));
       parent::populateXmlDoc($doc, $feeNode, $obj, $nested);
