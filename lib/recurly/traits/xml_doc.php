@@ -6,6 +6,10 @@
  * name that ends up being the root node when the xml is built.
  * It also sets up a way to add children so that a single render
  * of a node will render all its children in a cascaded manner.
+ * Essentially, the `$_values` array represents child nodes. Keys
+ * represent the node names and the values are either the primitive
+ * values themselves or an object that represents another tree
+ * of nodes (e.g. $plan->unit_amount_in_cents is a Recurly_CurrencyList).
  */
 trait XmlDoc {
   protected $_values = array();

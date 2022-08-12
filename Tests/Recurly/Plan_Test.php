@@ -49,7 +49,7 @@ class Recurly_PlanTest extends Recurly_TestCase
 
   public function testGetPlanWithRamps() {
     $plan = Recurly_Plan::get('ramp-priced-plan', $this->client);
-    
+
     $this->assertEquals('ramp', $plan->pricing_model);
     $this->assertEquals(null, $plan->unit_amount_in_cents);
 
@@ -94,11 +94,35 @@ class Recurly_PlanTest extends Recurly_TestCase
     $plan = new Recurly_Plan();
     $plan->plan_code = 'platinum-ramps';
     $plan->name = 'Platinum Ramp Plan';
+    $plan->pricing_model = 'ramp';
+
+    // switching to ramp eliminates normal base fee node
+    $this->assertNull($plan->unit_amount_in_cents);
+    $this->assertNotNull($plan->ramp_intervals);
 
     $plan->ramp_intervals = $this->mockRampIntervals();
 
-    $this->assertEquals(
-      "<?xml version=\"1.0\"?>\n<plan><name>Platinum Ramp Plan</name><plan_code>platinum-ramps</plan_code><pricing_model>fixed</pricing_model><ramp_intervals><ramp_interval><starting_billing_cycle>1</starting_billing_cycle><unit_amount_in_cents><USD>400</USD></unit_amount_in_cents></ramp_interval><ramp_interval><starting_billing_cycle>3</starting_billing_cycle><unit_amount_in_cents><USD>200</USD></unit_amount_in_cents></ramp_interval></ramp_intervals></plan>\n",
+    $this->assertXmlStringEqualsXmlString(
+      "<?xml version=\"1.0\"?>
+      <plan>
+        <name>Platinum Ramp Plan</name>
+        <plan_code>platinum-ramps</plan_code>
+        <pricing_model>ramp</pricing_model>
+        <ramp_intervals>
+          <ramp_interval>
+            <starting_billing_cycle>1</starting_billing_cycle>
+            <unit_amount_in_cents>
+              <USD>400</USD>
+            </unit_amount_in_cents>
+          </ramp_interval>
+          <ramp_interval>
+            <starting_billing_cycle>3</starting_billing_cycle>
+            <unit_amount_in_cents>
+              <USD>200</USD>
+            </unit_amount_in_cents>
+          </ramp_interval>
+        </ramp_intervals>
+      </plan>",
       $plan->xml()
     );
   }
@@ -122,31 +146,14 @@ class Recurly_PlanTest extends Recurly_TestCase
     );
   }
 
-  public function testUpdateWithRampsXml() {
-    $plan = Recurly_Plan::get('ramp-priced-plan', $this->client);
-    $plan->plan_code = 'platinum-ramp';
-    $plan->name = 'Platinum Ramp Plan';
-    $plan->setup_fee_in_cents->addCurrency('EUR', 500);
 
-    $plan->ramp_intervals = $this->mockRampIntervals();
-
-    $this->assertEquals(
-      "<?xml version=\"1.0\"?>\n<plan><name>Platinum Ramp Plan</name><plan_code>platinum-ramp</plan_code><ramp_intervals><ramp_interval><starting_billing_cycle>1</starting_billing_cycle><unit_amount_in_cents><USD>400</USD></unit_amount_in_cents></ramp_interval><ramp_interval><starting_billing_cycle>3</starting_billing_cycle><unit_amount_in_cents><USD>200</USD></unit_amount_in_cents></ramp_interval></ramp_intervals><setup_fee_in_cents><USD>500</USD><EUR>500</EUR></setup_fee_in_cents></plan>\n",
-      $plan->xml()
-    );
-  }
-
-  // sets ramp intervals to plan
   protected function mockRampIntervals() {
-    $ramp1 = new Recurly_PlanRampInterval();
+    $ramp1 = new Recurly_PlanRampInterval(1);
     $ramp1->unit_amount_in_cents->addCurrency('USD', 400);
-    $ramp1->starting_billing_cycle = 1;
 
-    $ramp2 = new Recurly_PlanRampInterval();
+    $ramp2 = new Recurly_PlanRampInterval(3);
     $ramp2->unit_amount_in_cents->addCurrency('USD', 200);
-    $ramp2->starting_billing_cycle = 3;
 
     return array($ramp1, $ramp2);
   }
-
 }

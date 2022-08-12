@@ -65,6 +65,22 @@ class Recurly_Subscription extends Recurly_Resource
     $this->custom_fields = new Recurly_CustomFieldList();
   }
 
+  // instead of creating a new class with a "mini plan" we can
+  // simply prune the plan after it's attached to the subscription.
+  public function __set($k, $v) {
+    if ($k === 'plan') {
+      $plan = $v;
+      $miniPlanKeys = array('plan_code', 'name');
+
+      foreach ($plan->getValues() as $key => $value) {
+        if (!in_array($key, $miniPlanKeys)) {
+          unset($plan->$key);
+        }
+      }
+    }
+    parent::__set($k, $v);
+  }
+
   /**
    * @param $uuid
    * @param Recurly_Client $client Optional client for the request, useful for mocking the client
@@ -322,7 +338,8 @@ class Recurly_Subscription extends Recurly_Resource
       'shipping_address', 'shipping_address_id', 'imported_trial',
       'remaining_pause_cycles', 'custom_fields', 'auto_renew',
       'renewal_billing_cycles', 'gateway_code', 'shipping_method_code',
-      'shipping_amount_in_cents', 'transaction_type', 'tax_inclusive'
+      'shipping_amount_in_cents', 'transaction_type', 'tax_inclusive',
+      'ramp_intervals'
     );
   }
 }

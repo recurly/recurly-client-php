@@ -71,7 +71,7 @@ class XmlTools
     'plans' => 'Recurly_PlanList',
     'plan_code' => 'string',
     'plan_codes' => 'array',
-    'ramp_interval' => 'Recurly_PlanRampInterval',
+    'ramp_interval' => 'Recurly_RampInterval',
     'ramp_intervals' => 'array',
     'pending_subscription' => 'Recurly_Subscription',
     'processing_prepayment_balance_in_cents' => 'Recurly_CurrencyList',
@@ -187,6 +187,7 @@ class XmlTools
   }
 
 
+  // @return mixed
   private static function nodeToObjectFromCustomClass($node, $nodeClass, $client)
   {
     $nodeName = XmlTools::parseNodeName($node);
@@ -197,6 +198,8 @@ class XmlTools
       $newObj = new $nodeClass($nodeName);
     } else if($nodeClass == 'Recurly_Tier') {
       $newObj = XmlTools::nodeToTierObject($node, $nodeClass);
+    } else if($nodeClass == 'Recurly_RampInterval') {
+      $newObj = Recurly_RampInterval::nodeToObject($node);
     } else if($nodeClass == 'Recurly_FieldError') {
       $newObj = XmlTools::nodeToErrorObject($node);
     } else if ($reflectionClass->isSubclassOf('Recurly_Base')) {

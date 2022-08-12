@@ -47,6 +47,55 @@ class Recurly_SubscriptionTest extends Recurly_TestCase
     # TODO: Should test the rest of the parsing.
   }
 
+  public function testSubscriptionMiniPlan()
+  {
+    // on subscription#get, the associated plan is represented
+    // as a "mini plan" containing only the code and name but
+    // omitting everything else. some of the default plan values
+    // are removed.
+    $plan = new Recurly_Plan();
+    $plan->plan_code = 'mini-plan';
+    $plan->name = 'Mini Plan';
+
+    $this->assertNotNull($plan->pricing_model);
+    $this->assertNotNull($plan->unit_amount_in_cents);
+    $this->assertNotNull($plan->setup_fee_in_cents);
+
+    $subscription = new Recurly_Subscription();
+    $subscription->plan = $plan;
+
+    $this->assertEquals($subscription->plan->plan_code, 'mini-plan');
+    $this->assertEquals($subscription->plan->name, 'Mini Plan');
+    $this->assertNull($subscription->plan->pricing_model);
+    $this->assertNull($subscription->plan->unit_amount_in_cents);
+    $this->assertNull($subscription->plan->setup_fee_in_cents);
+  }
+
+  public function testGetSubscriptionWithRampIntervals()
+  {
+    $this->client->addResponse('GET', '/subscriptions/012345678901234567890123456789ab', 'subscriptions/show-200-ramp-intervals.xml');
+
+    $subscription = Recurly_Subscription::get('012345678901234567890123456789ab', $this->client);
+    $this->assertInstanceOf('Recurly_Subscription', $subscription);
+    $this->assertInstanceOf('Recurly_Stub', $subscription->account);
+    $this->assertEquals($subscription->account->getHref(), 'https://api.recurly.com/v2/accounts/13daac568eab9337da5235a3e23899');
+
+    $this->assertCount(2, $subscription->ramp_intervals);
+
+    $ramp1 = $subscription->ramp_intervals[0];
+    $this->assertInstanceOf('Recurly_SubscriptionRampInterval', $ramp1);
+    $this->assertEquals($subscription->unit_amount_in_cents, $ramp1->unit_amount_in_cents);
+    $this->assertEquals(1, $ramp1->starting_billing_cycle);
+    $this->assertEquals(123, $ramp1->unit_amount_in_cents);
+    $this->assertEquals(2, $ramp1->remaining_billing_cycles);
+
+    $ramp2 = $subscription->ramp_intervals[1];
+    $this->assertInstanceOf('Recurly_SubscriptionRampInterval', $ramp2);
+    $this->assertEquals(4, $ramp2->starting_billing_cycle);
+    $this->assertEquals(456, $ramp2->unit_amount_in_cents);
+    $this->assertEmpty($ramp2->remaining_billing_cycles);
+  }
+
   public function testCreateManualCollectionSubscriptionXml() {
     $subscription = new Recurly_Subscription();
     $subscription->plan_code = 'gold';
@@ -174,6 +223,45 @@ class Recurly_SubscriptionTest extends Recurly_TestCase
         <auto_renew>false</auto_renew>
         <renewal_billing_cycles>1</renewal_billing_cycles>
       </subscription>", $subscription->xml());
+  }
+
+  public function testCreateSubscripionWithRampIntervalsXml() {
+    $this->client->addResponse('GET', "/accounts/abcdef1234567890", 'accounts/show-200.xml');
+    $account = Recurly_Account::get('abcdef1234567890', $this->client);
+
+    $subscription = new Recurly_Subscription();
+    $subscription->plan_code = 'get-ramped-up';
+    $subscription->quantity = 1;
+    $subscription->currency = 'USD';
+    $subscription->account = $account;
+
+    $ramp1 = new Recurly_SubscriptionRampInterval(1);
+    $ramp1->unit_amount_in_cents = 123;
+    $ramp2 = new Recurly_SubscriptionRampInterval(4);
+    $ramp2->unit_amount_in_cents = 456;
+
+    $subscription->ramp_intervals = array($ramp1, $ramp2);
+
+    $this->assertXmlStringEqualsXmlString("
+    <subscription>
+      <account>
+        <account_code>abcdef1234567890</account_code>
+      </account>
+      <plan_code>get-ramped-up</plan_code>
+      <quantity>1</quantity>
+      <currency>USD</currency>
+      <subscription_add_ons></subscription_add_ons>
+      <ramp_intervals>
+        <ramp_interval>
+          <starting_billing_cycle>1</starting_billing_cycle>
+          <unit_amount_in_cents>123</unit_amount_in_cents>
+        </ramp_interval>
+        <ramp_interval>
+          <starting_billing_cycle>4</starting_billing_cycle>
+          <unit_amount_in_cents>456</unit_amount_in_cents>
+        </ramp_interval>
+      </ramp_intervals>
+    </subscription>", $subscription->xml());
   }
 
   public function testUpdateShippingAddressXml() {
@@ -435,7 +523,7 @@ class Recurly_SubscriptionTest extends Recurly_TestCase
   public function testUpdateSubscriptionWithAddOnsPercentageBasedPricing() {
     $this->client->addResponse('GET', '/subscriptions/6198b0c8d844f1c58633fa4953a4e961', 'subscriptions/show-200-PBP.xml');
     $subscription = Recurly_Subscription::get('6198b0c8d844f1c58633fa4953a4e961', $this->client);
-    
+
     $this->assertXmlStringEqualsXmlString("
     <subscription>
       <subscription_add_ons>
@@ -536,6 +624,4 @@ class Recurly_SubscriptionTest extends Recurly_TestCase
     $subscription->convertTrial();
     $this->assertEquals($subscription->trial_ends_at, $subscription->current_period_started_at);
   }
-
-
 }

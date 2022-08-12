@@ -1,4 +1,6 @@
 <?php
+// ensure levels are consistent across local/ci test runs
+error_reporting(E_ALL);
 
 use PHPUnit\Framework\TestCase;
 
