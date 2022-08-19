@@ -118,6 +118,15 @@ class Recurly_BillingInfoTest extends Recurly_TestCase
     $this->assertEquals($verified_gateway->origin, 'api_verify_card');
   }
 
+  public function testVerifyCvvBillingInfoCreditCard() {
+    $billing_info = Recurly_BillingInfo::get('abcdef1234567890', $this->client);
+    $this->client->addResponse('POST', 'https://api.recurly.com/v2/accounts/abcdef1234567890/billing_info/verify_cvv', 'billing_info/verify-cvv-200.xml');
+    
+    $verified = $billing_info->verifyCvv('988');
+    $this->assertInstanceOf('Recurly_BillingInfo', $billing_info);
+    $this->assertEquals($verified->year, 2015);
+  }
+
   public function testVerifyBillingInfoBankAccount() {
     $billing_info = Recurly_BillingInfo::get('bankaccount1234567890', $this->client);
     $this->client->addResponse('POST', 'https://api.recurly.com/v2/accounts/bankaccount1234567890/billing_info/verify', 'billing_info/verify-422.xml');

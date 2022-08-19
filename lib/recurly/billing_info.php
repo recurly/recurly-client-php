@@ -82,6 +82,21 @@ class Recurly_BillingInfo extends Recurly_Resource
   }
 
   /**
+   * @param string verification_value is the credit card CVV
+   * @throws Recurly_Error
+   */
+  public function verifyCvv($verification_value = null) {
+    $uri = $this->uri() . '/verify_cvv';
+    $doc = $this->createDocument();
+    $root = $doc->appendChild($doc->createElement('billing_info'));
+    if ($verification_value != null) {
+      $root->appendChild($doc->createElement('verification_value', $verification_value));
+    }
+
+    return Recurly_BillingInfo::_post($uri, $this->renderXML($doc), $this->_client);
+  }
+
+  /**
    * @throws Recurly_Error
    */
   public function update() {
