@@ -2897,15 +2897,16 @@ endpoint to obtain only the newly generated `UniqueCouponCodes`.
     /**
      * Assign a dunning campaign to multiple plans
      *
-     * @param array $body    The body of the request.
-     * @param array $options Associative array of optional parameters
+     * @param string $dunning_campaign_id Dunning Campaign ID, e.g. `e28zov4fw0v2`.
+     * @param array  $body                The body of the request.
+     * @param array  $options             Associative array of optional parameters
      *
      * @return \Recurly\Resources\DunningCampaignsBulkUpdateResponse A list of updated plans.
      * @link   https://developers.recurly.com/api/v2021-02-25#operation/put_dunning_campaign_bulk_update
      */
-    public function putDunningCampaignBulkUpdate(array $body, array $options = []): \Recurly\Resources\DunningCampaignsBulkUpdateResponse
+    public function putDunningCampaignBulkUpdate(string $dunning_campaign_id, array $body, array $options = []): \Recurly\Resources\DunningCampaignsBulkUpdateResponse
     {
-        $path = $this->interpolatePath("/dunning_campaigns/{dunning_campaign_id}/bulk_update", []);
+        $path = $this->interpolatePath("/dunning_campaigns/{dunning_campaign_id}/bulk_update", ['dunning_campaign_id' => $dunning_campaign_id]);
         return $this->makeRequest('PUT', $path, $body, $options);
     }
   
