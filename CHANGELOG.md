@@ -1,5 +1,17 @@
 # Changelog
 
+## [2.12.26](https://github.com/recurly/recurly-client-php/tree/2.12.26) (2022-08-24)
+
+[Full Changelog](https://github.com/recurly/recurly-client-php/compare/2.12.25...2.12.26)
+
+
+**Merged Pull Requests**
+
+- Add Ramp Pricing Feature to Subscriptions [#703](https://github.com/recurly/recurly-client-php/pull/703) ([Smolations](https://github.com/Smolations))
+- Add ramp pricing feature to plans [#700](https://github.com/recurly/recurly-client-php/pull/700) ([Smolations](https://github.com/Smolations))
+
+
+
 ## [2.12.25](https://github.com/recurly/recurly-client-php/tree/2.12.25) (2022-06-17)
 
 [Full Changelog](https://github.com/recurly/recurly-client-php/compare/2.12.24...2.12.25)
@@ -1032,7 +1044,6 @@
 - throw error when keys not set correctly [#42](https://github.com/recurly/recurly-client-php/issues/42)
 - Composer Package and PSR-0 compliance [#40](https://github.com/recurly/recurly-client-php/issues/40)
 - Recurly_CurrencyList should implement Iterator interface [#37](https://github.com/recurly/recurly-client-php/issues/37)
-- Iterating over TransactionList returns null instead of object when retrieved from Invoice [#30](https://github.com/recurly/recurly-client-php/issues/30)
 - Recurly Postpone (next_renewal/edit) API feature [#28](https://github.com/recurly/recurly-client-php/issues/28)
 - No Account Reopen [#24](https://github.com/recurly/recurly-client-php/issues/24)
 - Infinite Loop created in pager.php [#23](https://github.com/recurly/recurly-client-php/issues/23)
