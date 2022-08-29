@@ -143,7 +143,7 @@ class Recurly_BillingInfo extends Recurly_Resource
     return array(
       'first_name', 'last_name', 'mandate_reference', 'name_on_account', 'company', 'ip_address',
       'address1', 'address2', 'city', 'state', 'country', 'zip', 'phone',
-      'vat_number', 'number', 'month', 'year', 'verification_value',
+      'vat_number', 'number', 'month', 'year', 'verification_value', 'card_type',
       'account_number', 'routing_number', 'account_type',
       'paypal_billing_agreement_id', 'amazon_billing_agreement_id', 'currency',
       'token_id', 'external_hpp_type', 'gateway_token', 'gateway_code',
