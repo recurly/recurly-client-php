@@ -1,5 +1,17 @@
 # Changelog
 
+## [2.12.27](https://github.com/recurly/recurly-client-php/tree/2.12.27) (2022-08-31)
+
+[Full Changelog](https://github.com/recurly/recurly-client-php/compare/2.12.26...2.12.27)
+
+
+**Merged Pull Requests**
+
+- change method call [#709](https://github.com/recurly/recurly-client-php/pull/709) ([ricardopaul0](https://github.com/ricardopaul0))
+- add verify_cvv endpoint [#704](https://github.com/recurly/recurly-client-php/pull/704) ([ricardopaul0](https://github.com/ricardopaul0))
+
+
+
 ## [2.12.26](https://github.com/recurly/recurly-client-php/tree/2.12.26) (2022-08-24)
 
 [Full Changelog](https://github.com/recurly/recurly-client-php/compare/2.12.25...2.12.26)
@@ -10,6 +22,9 @@
 - Add Ramp Pricing Feature to Subscriptions [#703](https://github.com/recurly/recurly-client-php/pull/703) ([Smolations](https://github.com/Smolations))
 - Add ramp pricing feature to plans [#700](https://github.com/recurly/recurly-client-php/pull/700) ([Smolations](https://github.com/Smolations))
 
+**Closed Issues**
+
+- Iterating over TransactionList returns null instead of object when retrieved from Invoice [#30](https://github.com/recurly/recurly-client-php/issues/30)
 
 
 ## [2.12.25](https://github.com/recurly/recurly-client-php/tree/2.12.25) (2022-06-17)
