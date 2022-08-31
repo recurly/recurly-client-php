@@ -88,7 +88,7 @@ class Recurly_BillingInfo extends Recurly_Resource
    */
   public function verifyCvv($verification_value = null) {
     $uri = $this->uri() . '/verify_cvv';
-    $doc = $this->createDocument();
+    $doc = XmlTools::createDocument();
     $root = $doc->appendChild($doc->createElement('billing_info'));
     if ($verification_value != null) {
       $root->appendChild($doc->createElement('verification_value', $verification_value));
