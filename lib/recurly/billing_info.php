@@ -94,7 +94,7 @@ class Recurly_BillingInfo extends Recurly_Resource
       $root->appendChild($doc->createElement('verification_value', $verification_value));
     }
 
-    return Recurly_BillingInfo::_post($uri, $this->renderXML($doc), $this->_client);
+    return Recurly_BillingInfo::_post($uri, XmlTools::renderXML($doc), $this->_client);
   }
 
   /**
