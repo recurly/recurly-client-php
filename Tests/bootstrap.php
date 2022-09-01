@@ -17,7 +17,7 @@ if (! class_exists(TestCase::class)) {
  * @property Recurly_MockClient $client
  */
 abstract class Recurly_TestCase extends TestCase {
-  function setUp() {
+  protected function setUp(): void {
     $this->client = new Recurly_MockClient();
     foreach ($this->defaultResponses() as $request) {
       call_user_func_array(array($this->client, 'addResponse'), $request);
