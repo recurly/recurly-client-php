@@ -97,7 +97,7 @@ trait XmlDoc {
       }
 
       // Check for nested objects.
-      if (method_exists($attrValue, 'getChangedAttributes')) {
+      if (is_object($attrValue) && method_exists($attrValue, 'getChangedAttributes')) {
         if ($attrValue->getChangedAttributes()) {
           $attributes[$attrName] = $attrValue;
         }
