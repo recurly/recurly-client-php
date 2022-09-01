@@ -1,5 +1,16 @@
 # Changelog
 
+## [2.12.28](https://github.com/recurly/recurly-client-php/tree/2.12.28) (2022-09-01)
+
+[Full Changelog](https://github.com/recurly/recurly-client-php/compare/2.12.27...2.12.28)
+
+
+**Merged Pull Requests**
+
+- Fixes method_exists exception on xml_doc.php [#711](https://github.com/recurly/recurly-client-php/pull/711) ([Smolations](https://github.com/Smolations))
+
+
+
 ## [2.12.27](https://github.com/recurly/recurly-client-php/tree/2.12.27) (2022-08-31)
 
 [Full Changelog](https://github.com/recurly/recurly-client-php/compare/2.12.26...2.12.27)
