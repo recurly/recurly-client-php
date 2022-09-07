@@ -1,5 +1,17 @@
 # Changelog
 
+## [4.21.0](https://github.com/recurly/recurly-client-php/tree/4.21.0) (2022-09-07)
+
+[Full Changelog](https://github.com/recurly/recurly-client-php/compare/4.20.0...4.21.0)
+
+
+**Merged Pull Requests**
+
+- Generated Latest Changes for v2021-02-25 [#713](https://github.com/recurly/recurly-client-php/pull/713) ([recurly-integrations](https://github.com/recurly-integrations))
+- Fixes bug with putDunningCampaignBulkUpdate [#706](https://github.com/recurly/recurly-client-php/pull/706) ([recurly-integrations](https://github.com/recurly-integrations))
+
+
+
 ## [4.20.0](https://github.com/recurly/recurly-client-php/tree/4.20.0) (2022-08-03)
 
 [Full Changelog](https://github.com/recurly/recurly-client-php/compare/4.19.0...4.20.0)
