@@ -70,9 +70,9 @@ class SubscriptionRampIntervalResponse extends RecurlyResource
     * Getter method for the unit_amount attribute.
     * Represents the price for the ramp interval.
     *
-    * @return ?int
+    * @return ?float
     */
-    public function getUnitAmount(): ?int
+    public function getUnitAmount(): ?float
     {
         return $this->_unit_amount;
     }
@@ -80,11 +80,11 @@ class SubscriptionRampIntervalResponse extends RecurlyResource
     /**
     * Setter method for the unit_amount attribute.
     *
-    * @param int $unit_amount
+    * @param float $unit_amount
     *
     * @return void
     */
-    public function setUnitAmount(int $unit_amount): void
+    public function setUnitAmount(float $unit_amount): void
     {
         $this->_unit_amount = $unit_amount;
     }
