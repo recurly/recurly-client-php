@@ -172,7 +172,7 @@ class Recurly_BillingInfoTest extends Recurly_TestCase
     $this->assertInstanceOf('Recurly_BillingInfo', $billing_info);
     $this->assertEquals(
       $billing_info->xml(),
-      "<?xml version=\"1.0\"?>\n<billing_info><token_id>abc123</token_id></billing_info>\n"
+      "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n<billing_info><token_id>abc123</token_id></billing_info>\n"
     );
     $billing_info->create();
   }
@@ -184,7 +184,7 @@ class Recurly_BillingInfoTest extends Recurly_TestCase
     $this->assertInstanceOf('Recurly_BillingInfo', $billing_info);
     $this->assertEquals(
       $billing_info->xml(),
-      "<?xml version=\"1.0\"?>\n<billing_info><transaction_type>moto</transaction_type></billing_info>\n"
+      "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n<billing_info><transaction_type>moto</transaction_type></billing_info>\n"
     );
   }
 
@@ -196,7 +196,7 @@ class Recurly_BillingInfoTest extends Recurly_TestCase
     $this->assertInstanceOf('Recurly_BillingInfo', $billing_info);
     $this->assertEquals(
       $billing_info->xml(),
-      "<?xml version=\"1.0\"?>\n<billing_info><token_id>abc123</token_id><external_hpp_type>adyen</external_hpp_type></billing_info>\n"
+      "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n<billing_info><token_id>abc123</token_id><external_hpp_type>adyen</external_hpp_type></billing_info>\n"
     );
   }
 
@@ -208,7 +208,7 @@ class Recurly_BillingInfoTest extends Recurly_TestCase
     $this->assertInstanceOf('Recurly_BillingInfo', $billing_info);
     $this->assertEquals(
       $billing_info->xml(),
-      "<?xml version=\"1.0\"?>\n<billing_info><token_id>abc123</token_id><online_banking_payment_type>ideal</online_banking_payment_type></billing_info>\n"
+      "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n<billing_info><token_id>abc123</token_id><online_banking_payment_type>ideal</online_banking_payment_type></billing_info>\n"
     );
   }
 
@@ -222,7 +222,7 @@ class Recurly_BillingInfoTest extends Recurly_TestCase
     $this->assertInstanceOf('Recurly_BillingInfo', $billing_info);
     $this->assertEquals(
       $billing_info->xml(),
-      "<?xml version=\"1.0\"?>\n<billing_info><month>11</month><year>2025</year><gateway_token>x1x2x3</gateway_token><gateway_code>abc123</gateway_code></billing_info>\n"
+      "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n<billing_info><month>11</month><year>2025</year><gateway_token>x1x2x3</gateway_token><gateway_code>abc123</gateway_code></billing_info>\n"
     );
   }
 

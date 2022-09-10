@@ -9,11 +9,12 @@ class Recurly_CurrecyListTest extends Recurly_TestCase
     $currencyList->addCurrency('EUR', 1200);
 
     $doc = new DOMDocument("1.0");
+    $doc->encoding = 'utf-8';
     $root = $doc->appendChild($doc->createElement('wrapper'));
     $currencyList->populateXmlDoc($doc, $root);
 
     $this->assertEquals(
-      "<?xml version=\"1.0\"?>\n<wrapper><element_name><USD>1500</USD><EUR>1200</EUR></element_name></wrapper>\n",
+      "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n<wrapper><element_name><USD>1500</USD><EUR>1200</EUR></element_name></wrapper>\n",
       $doc->saveXML()
     );
   }
@@ -22,11 +23,12 @@ class Recurly_CurrecyListTest extends Recurly_TestCase
     $currencyList = new Recurly_CurrencyList('setup_fee_in_cents');
 
     $doc = new DOMDocument("1.0");
+    $doc->encoding = 'utf-8';
     $root = $doc->appendChild($doc->createElement('wrapper'));
     $currencyList->populateXmlDoc($doc, $root);
 
     $this->assertEquals(
-      "<?xml version=\"1.0\"?>\n<wrapper/>\n",
+      "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n<wrapper/>\n",
       $doc->saveXML()
     );
   }

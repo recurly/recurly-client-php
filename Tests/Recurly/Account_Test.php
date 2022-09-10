@@ -147,7 +147,7 @@ class Recurly_AccountTest extends Recurly_TestCase
     $account->custom_fields[] = new Recurly_CustomField("serial_number", "4567-8900-1234");
 
     $this->assertEquals(
-      "<?xml version=\"1.0\"?>\n<account><account_code>act123</account_code><first_name>Verena</first_name><address><address1>123 Main St.</address1></address><tax_exempt>false</tax_exempt><entity_use_code>I</entity_use_code><shipping_addresses><shipping_address><address1>123 Main St.</address1><city>San Francisco</city><state>CA</state><zip>94110</zip><country>US</country><phone>555-555-5555</phone><email>verena@example.com</email><nickname>Work</nickname><first_name>Verena</first_name><last_name>Example</last_name><company>Recurly Inc.</company></shipping_address><shipping_address><address1>123 Dolores St.</address1><city>San Francisco</city><state>CA</state><zip>94110</zip><country>US</country><phone>555-555-5555</phone><email>verena@example.com</email><nickname>Home</nickname><first_name>Verena</first_name><last_name>Example</last_name></shipping_address></shipping_addresses><preferred_locale>en-US</preferred_locale><custom_fields><custom_field><name>serial_number</name><value>4567-8900-1234</value></custom_field></custom_fields><account_acquisition><cost_in_cents>599</cost_in_cents><currency>USD</currency><channel>marketing_content</channel><subchannel>pickle sticks blog post</subchannel><campaign>mailchimp67a904de95.0914d8f4b4</campaign></account_acquisition><exemption_certificate>Some Certificate</exemption_certificate><dunning_campaign_id>1234abcd</dunning_campaign_id></account>\n",
+      "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n<account><account_code>act123</account_code><first_name>Verena</first_name><address><address1>123 Main St.</address1></address><tax_exempt>false</tax_exempt><entity_use_code>I</entity_use_code><shipping_addresses><shipping_address><address1>123 Main St.</address1><city>San Francisco</city><state>CA</state><zip>94110</zip><country>US</country><phone>555-555-5555</phone><email>verena@example.com</email><nickname>Work</nickname><first_name>Verena</first_name><last_name>Example</last_name><company>Recurly Inc.</company></shipping_address><shipping_address><address1>123 Dolores St.</address1><city>San Francisco</city><state>CA</state><zip>94110</zip><country>US</country><phone>555-555-5555</phone><email>verena@example.com</email><nickname>Home</nickname><first_name>Verena</first_name><last_name>Example</last_name></shipping_address></shipping_addresses><preferred_locale>en-US</preferred_locale><custom_fields><custom_field><name>serial_number</name><value>4567-8900-1234</value></custom_field></custom_fields><account_acquisition><cost_in_cents>599</cost_in_cents><currency>USD</currency><channel>marketing_content</channel><subchannel>pickle sticks blog post</subchannel><campaign>mailchimp67a904de95.0914d8f4b4</campaign></account_acquisition><exemption_certificate>Some Certificate</exemption_certificate><dunning_campaign_id>1234abcd</dunning_campaign_id></account>\n",
       $account->xml()
     );
   }
@@ -159,7 +159,7 @@ class Recurly_AccountTest extends Recurly_TestCase
     $account = Recurly_Account::get('abcdef1234567890', $this->client);
     $account->transaction_type = 'moto';
     $this->assertEquals(
-      "<?xml version=\"1.0\"?>\n<account><transaction_type>moto</transaction_type></account>\n",
+      "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n<account><transaction_type>moto</transaction_type></account>\n",
       $account->xml()
     );
   }
@@ -172,7 +172,7 @@ class Recurly_AccountTest extends Recurly_TestCase
     $account = Recurly_Account::get('abcdef1234567890', $this->client);
     $account->address->address1 = '987 Alternate St.';
     $this->assertEquals(
-      "<?xml version=\"1.0\"?>\n<account><address><address1>987 Alternate St.</address1></address></account>\n",
+      "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n<account><address><address1>987 Alternate St.</address1></address></account>\n",
       $account->xml()
     );
   }
@@ -187,7 +187,7 @@ class Recurly_AccountTest extends Recurly_TestCase
     $account->custom_fields[] = new Recurly_CustomField('shasta', '');
 
     $this->assertEquals(
-      "<?xml version=\"1.0\"?>\n<account><custom_fields><custom_field><name>shasta</name><value></value></custom_field><custom_field><name>new_field</name><value>something</value></custom_field></custom_fields></account>\n",
+      "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n<account><custom_fields><custom_field><name>shasta</name><value></value></custom_field><custom_field><name>new_field</name><value>something</value></custom_field></custom_fields></account>\n",
       $account->xml()
     );
   }

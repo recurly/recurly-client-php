@@ -105,7 +105,9 @@ class XmlTools
   // @returns DOMDocument
   public static function createDocument($version = '1.0')
   {
-    return new DOMDocument($version);
+    $doc = new DOMDocument($version);
+    $doc->encoding = 'utf-8';
+    return $doc;
   }
 
   public static function getNodeTextContent($node)

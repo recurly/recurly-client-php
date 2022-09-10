@@ -32,7 +32,7 @@ class Recurly_ItemTest extends Recurly_TestCase
     $item->custom_fields[] = new Recurly_CustomField('size', 'small');
 
     $this->assertEquals(
-      "<?xml version=\"1.0\"?>\n<item><custom_fields><custom_field><name>size</name><value>small</value></custom_field></custom_fields></item>\n",
+      "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n<item><custom_fields><custom_field><name>size</name><value>small</value></custom_field></custom_fields></item>\n",
       $item->xml()
     );
   }
@@ -74,7 +74,7 @@ class Recurly_ItemTest extends Recurly_TestCase
     $item->custom_fields[] = new Recurly_CustomField('size', 'small');
 
     $this->assertEquals(
-      "<?xml version=\"1.0\"?>\n<item><item_code>little_llama</item_code><name>Little Llama</name><description>A description about llamas</description><custom_fields><custom_field><name>size</name><value>small</value></custom_field></custom_fields></item>\n",
+      "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n<item><item_code>little_llama</item_code><name>Little Llama</name><description>A description about llamas</description><custom_fields><custom_field><name>size</name><value>small</value></custom_field></custom_fields></item>\n",
       $item->xml()
     );
   }
@@ -84,7 +84,7 @@ class Recurly_ItemTest extends Recurly_TestCase
     $item->description = 'A new description about gloves.';
 
     $this->assertEquals(
-      "<?xml version=\"1.0\"?>\n<item><description>A new description about gloves.</description></item>\n",
+      "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n<item><description>A new description about gloves.</description></item>\n",
       $item->xml()
     );
   }

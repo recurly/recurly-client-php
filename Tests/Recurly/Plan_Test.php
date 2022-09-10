@@ -85,7 +85,7 @@ class Recurly_PlanTest extends Recurly_TestCase
     $plan->dunning_campaign_id = '1234abcd';
 
     $this->assertEquals(
-      "<?xml version=\"1.0\"?>\n<plan><auto_renew>false</auto_renew><dunning_campaign_id>1234abcd</dunning_campaign_id><name>Platinum &amp; Gold Plan</name><plan_code>platinum</plan_code><pricing_model>fixed</pricing_model><setup_fee_in_cents><EUR>500</EUR></setup_fee_in_cents><total_billing_cycles>6</total_billing_cycles><trial_requires_billing_info>false</trial_requires_billing_info><unit_amount_in_cents><USD>1500</USD><EUR>1200</EUR></unit_amount_in_cents></plan>\n",
+      "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n<plan><auto_renew>false</auto_renew><dunning_campaign_id>1234abcd</dunning_campaign_id><name>Platinum &amp; Gold Plan</name><plan_code>platinum</plan_code><pricing_model>fixed</pricing_model><setup_fee_in_cents><EUR>500</EUR></setup_fee_in_cents><total_billing_cycles>6</total_billing_cycles><trial_requires_billing_info>false</trial_requires_billing_info><unit_amount_in_cents><USD>1500</USD><EUR>1200</EUR></unit_amount_in_cents></plan>\n",
       $plan->xml()
     );
   }
@@ -103,7 +103,7 @@ class Recurly_PlanTest extends Recurly_TestCase
     $plan->ramp_intervals = $this->mockRampIntervals();
 
     $this->assertXmlStringEqualsXmlString(
-      "<?xml version=\"1.0\"?>
+      "<?xml version=\"1.0\" encoding=\"utf-8\"?>
       <plan>
         <name>Platinum Ramp Plan</name>
         <plan_code>platinum-ramps</plan_code>
@@ -141,7 +141,7 @@ class Recurly_PlanTest extends Recurly_TestCase
     $plan->dunning_campaign_id = '1234abcd';
 
     $this->assertEquals(
-      "<?xml version=\"1.0\"?>\n<plan><dunning_campaign_id>1234abcd</dunning_campaign_id><name>Platinum Plan</name><plan_code>platinum</plan_code><setup_fee_in_cents><USD>500</USD><EUR>500</EUR></setup_fee_in_cents><tax_code>fake-tax-code</tax_code><tax_exempt>false</tax_exempt><total_billing_cycles nil=\"nil\"></total_billing_cycles><trial_requires_billing_info>false</trial_requires_billing_info><unit_amount_in_cents><USD>1500</USD><EUR>1200</EUR></unit_amount_in_cents></plan>\n",
+      "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n<plan><dunning_campaign_id>1234abcd</dunning_campaign_id><name>Platinum Plan</name><plan_code>platinum</plan_code><setup_fee_in_cents><USD>500</USD><EUR>500</EUR></setup_fee_in_cents><tax_code>fake-tax-code</tax_code><tax_exempt>false</tax_exempt><total_billing_cycles nil=\"nil\"></total_billing_cycles><trial_requires_billing_info>false</trial_requires_billing_info><unit_amount_in_cents><USD>1500</USD><EUR>1200</EUR></unit_amount_in_cents></plan>\n",
       $plan->xml()
     );
   }

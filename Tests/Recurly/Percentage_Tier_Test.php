@@ -15,6 +15,7 @@ class Recurly_PercentageTierTest extends Recurly_TestCase
     $percentageTier->tiers = array($percentageTierByCurrency, $percentageTierByCurrency2);
 
     $doc = new DOMDocument("1.0");
+    $doc->encoding = 'utf-8';
     $root = $doc->appendChild($doc->createElement('percentage_tiers'));
     $percentageTier->populateXmlDoc($doc, $root, $percentageTier);
 
@@ -40,11 +41,12 @@ class Recurly_PercentageTierTest extends Recurly_TestCase
     $percentageTier = new Recurly_PercentageTier();
 
     $doc = new DOMDocument("1.0");
+    $doc->encoding = 'utf-8';
     $root = $doc->appendChild($doc->createElement('wrapper'));
     $percentageTier->populateXmlDoc($doc, $root, $percentageTier);
 
     $this->assertEquals(
-      "<?xml version=\"1.0\"?>\n<wrapper/>\n",
+      "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n<wrapper/>\n",
       $doc->saveXml()
     );
   }
