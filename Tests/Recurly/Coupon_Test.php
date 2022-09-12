@@ -113,7 +113,7 @@ class Recurly_CouponTest extends Recurly_TestCase
     $coupon->invoice_description = 'Invoice description';
 
     $this->assertEquals(
-      "<?xml version=\"1.0\"?>\n<coupon><coupon_code>fifteen-off</coupon_code><name>$15 Off</name><discount_type>dollar</discount_type><discount_in_cents><USD>1500</USD></discount_in_cents><invoice_description>Invoice description</invoice_description></coupon>\n",
+      "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n<coupon><coupon_code>fifteen-off</coupon_code><name>$15 Off</name><discount_type>dollar</discount_type><discount_in_cents><USD>1500</USD></discount_in_cents><invoice_description>Invoice description</invoice_description></coupon>\n",
       $coupon->xml()
     );
   }
@@ -128,7 +128,7 @@ class Recurly_CouponTest extends Recurly_TestCase
     $coupon->invoice_description = 'Invoice description';
 
     $this->assertEquals(
-      "<?xml version=\"1.0\"?>\n<coupon><coupon_code>fifteen-off</coupon_code><name>$15 Off</name><discount_type>dollar</discount_type><discount_in_cents><USD>1500</USD></discount_in_cents><plan_codes><plan_code>gold</plan_code><plan_code>monthly</plan_code></plan_codes><invoice_description>Invoice description</invoice_description></coupon>\n",
+      "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n<coupon><coupon_code>fifteen-off</coupon_code><name>$15 Off</name><discount_type>dollar</discount_type><discount_in_cents><USD>1500</USD></discount_in_cents><plan_codes><plan_code>gold</plan_code><plan_code>monthly</plan_code></plan_codes><invoice_description>Invoice description</invoice_description></coupon>\n",
       $coupon->xml()
     );
   }
@@ -143,7 +143,7 @@ class Recurly_CouponTest extends Recurly_TestCase
     $coupon->invoice_description = 'Invoice description';
 
     $this->assertEquals(
-      "<?xml version=\"1.0\"?>\n<coupon><coupon_code>twenty-off</coupon_code><name>$20 Off</name><discount_type>dollar</discount_type><discount_in_cents><USD>2000</USD></discount_in_cents><item_codes><item_code>item_one</item_code><item_code>item_two</item_code><item_code>item_three</item_code></item_codes><invoice_description>Invoice description</invoice_description></coupon>\n",
+      "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n<coupon><coupon_code>twenty-off</coupon_code><name>$20 Off</name><discount_type>dollar</discount_type><discount_in_cents><USD>2000</USD></discount_in_cents><item_codes><item_code>item_one</item_code><item_code>item_two</item_code><item_code>item_three</item_code></item_codes><invoice_description>Invoice description</invoice_description></coupon>\n",
       $coupon->xml()
     );
   }
@@ -167,7 +167,7 @@ class Recurly_CouponTest extends Recurly_TestCase
     $coupon->description = 'New Description';
 
     $this->assertEquals(
-      "<?xml version=\"1.0\"?>\n<coupon><name>$15 Off</name><max_redemptions>100</max_redemptions><max_redemptions_per_account>3</max_redemptions_per_account><hosted_description></hosted_description><invoice_description>Invoice description</invoice_description><redeem_by_date>2017-12-01</redeem_by_date><description>New Description</description></coupon>\n",
+      "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n<coupon><name>$15 Off</name><max_redemptions>100</max_redemptions><max_redemptions_per_account>3</max_redemptions_per_account><hosted_description></hosted_description><invoice_description>Invoice description</invoice_description><redeem_by_date>2017-12-01</redeem_by_date><description>New Description</description></coupon>\n",
       $coupon->createUpdateXML()
     );
   }

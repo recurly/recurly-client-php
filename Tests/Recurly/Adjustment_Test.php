@@ -113,7 +113,7 @@ class Recurly_AdjustmentTest extends Recurly_TestCase
     // This deprecated parameter should be ignored:
     $charge->taxable = 0;
 
-    $expected = "<?xml version=\"1.0\"?>\n<adjustment><currency>USD</currency><unit_amount_in_cents>5000</unit_amount_in_cents><quantity>1</quantity><description>Charge for extra bandwidth</description><accounting_code>bandwidth</accounting_code><tax_exempt>false</tax_exempt><tax_code>fake-tax-code</tax_code><origin>external_gift_card</origin><product_code>abc123</product_code><shipping_address><address1>123 Main St.</address1><city>San Francisco</city><state>CA</state><zip>94110</zip><country>US</country><phone>555-555-5555</phone><email>verena@example.com</email><nickname>Work</nickname><first_name>Verena</first_name><last_name>Example</last_name><company>Recurly Inc.</company></shipping_address><shipping_address_id>123456789</shipping_address_id></adjustment>\n";
+    $expected = "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n<adjustment><currency>USD</currency><unit_amount_in_cents>5000</unit_amount_in_cents><quantity>1</quantity><description>Charge for extra bandwidth</description><accounting_code>bandwidth</accounting_code><tax_exempt>false</tax_exempt><tax_code>fake-tax-code</tax_code><origin>external_gift_card</origin><product_code>abc123</product_code><shipping_address><address1>123 Main St.</address1><city>San Francisco</city><state>CA</state><zip>94110</zip><country>US</country><phone>555-555-5555</phone><email>verena@example.com</email><nickname>Work</nickname><first_name>Verena</first_name><last_name>Example</last_name><company>Recurly Inc.</company></shipping_address><shipping_address_id>123456789</shipping_address_id></adjustment>\n";
     $this->assertEquals($expected, $charge->xml());
   }
 }

@@ -30,7 +30,7 @@ class Recurly_ShippingAddressTest extends Recurly_TestCase
     $shad = $this->mockShippingAddress();
 
     $this->assertEquals(
-      "<?xml version=\"1.0\"?>\n<shipping_address><address1>123 Dolores St.</address1><city>San Francisco</city><state>CA</state><zip>94110</zip><country>US</country><phone>555-555-5555</phone><email>verena@example.com</email><nickname>Work</nickname><first_name>Verena</first_name><last_name>Example</last_name><company>Recurly Inc.</company><vat_number>12345</vat_number></shipping_address>\n",
+      "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n<shipping_address><address1>123 Dolores St.</address1><city>San Francisco</city><state>CA</state><zip>94110</zip><country>US</country><phone>555-555-5555</phone><email>verena@example.com</email><nickname>Work</nickname><first_name>Verena</first_name><last_name>Example</last_name><company>Recurly Inc.</company><vat_number>12345</vat_number></shipping_address>\n",
       $shad->xml()
     );
   }
