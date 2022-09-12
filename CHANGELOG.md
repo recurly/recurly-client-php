@@ -1,5 +1,16 @@
 # Changelog
 
+## [2.12.29](https://github.com/recurly/recurly-client-php/tree/2.12.29) (2022-09-12)
+
+[Full Changelog](https://github.com/recurly/recurly-client-php/compare/2.12.28...2.12.29)
+
+
+**Merged Pull Requests**
+
+- Add UTF-8 encoding to the DomDocument [#715](https://github.com/recurly/recurly-client-php/pull/715) ([douglasmiller](https://github.com/douglasmiller))
+
+
+
 ## [2.12.28](https://github.com/recurly/recurly-client-php/tree/2.12.28) (2022-09-01)
 
 [Full Changelog](https://github.com/recurly/recurly-client-php/compare/2.12.27...2.12.28)
