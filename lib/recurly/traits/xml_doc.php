@@ -66,7 +66,7 @@ trait XmlDoc {
   public function setValues($values)
   {
     foreach($values as $key => $value) {
-      $this->_values[$key] = $value;
+      $this->$key = $value;
     }
     return $this;
   }
