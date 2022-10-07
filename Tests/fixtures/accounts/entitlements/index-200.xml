@@ -1,0 +1,73 @@
+HTTP/1.1 200 OK
+Content-Type: application/xml; charset=utf-8
+
+<?xml version="1.0" encoding="UTF-8"?>
+<entitlements type="array">
+    <entitlement>
+        <customer_permission>
+            <id>rmi7c52kfr1h</id>
+            <code>hellocode</code>
+            <name>helloname</name>
+            <description>hellodesc</description>
+        </customer_permission>
+        <granted_by type="array">
+            <subscription href="https://api.recurly.com/v2/subscriptions/rnw57d283ico"/>
+            <subscription href="https://api.recurly.com/v2/subscriptions/pd218a6qtggo"/>
+            <subscription href="https://api.recurly.com/v2/subscriptions/qbxlpbh7e3qi"/>
+            <external_subscription href="https://api.recurly.com/v2/external_subscriptions/rnw57d283ic3"/>
+        </granted_by>
+    </entitlement>
+    <entitlement>
+        <customer_permission>
+            <id>rlbuyejhtt3q</id>
+            <code>heycode</code>
+            <name>heyname</name>
+            <description>heydesc</description>
+        </customer_permission>
+        <granted_by type="array">
+            <subscription href="https://api.recurly.com/v2/subscriptions/rnw57d283ico"/>
+            <subscription href="https://api.recurly.com/v2/subscriptions/pd218a6qtggo"/>
+            <subscription href="https://api.recurly.com/v2/subscriptions/qbxlpbh7e3qi"/>
+            <external_subscription href="https://api.recurly.com/v2/external_subscriptions/rnw57d283ic3" />
+        </granted_by>
+    </entitlement>
+    <entitlement>
+        <customer_permission>
+            <id>rj6ayv2y0fkj</id>
+            <code>hi</code>
+            <name>hi</name>
+            <description></description>
+        </customer_permission>
+        <granted_by type="array">
+            <subscription href="https://api.recurly.com/v2/subscriptions/rnw57d283ico"/>
+            <subscription href="https://api.recurly.com/v2/subscriptions/pd218a6qtggo"/>
+            <subscription href="https://api.recurly.com/v2/subscriptions/qbxlpbh7e3qi"/>
+        </granted_by>
+    </entitlement>
+    <entitlement>
+        <customer_permission>
+            <id>rj6ap2aept6c</id>
+            <code>yo</code>
+            <name>yo</name>
+            <description></description>
+        </customer_permission>
+        <granted_by type="array">
+            <subscription href="https://api.recurly.com/v2/subscriptions/rnw57d283ico"/>
+            <subscription href="https://api.recurly.com/v2/subscriptions/pd218a6qtggo"/>
+            <subscription href="https://api.recurly.com/v2/subscriptions/qbxlpbh7e3qi"/>
+        </granted_by>
+    </entitlement>
+    <entitlement>
+        <customer_permission>
+            <id>rixk4k1v3i8q</id>
+            <code>howdy</code>
+            <name>howdy</name>
+            <description></description>
+        </customer_permission>
+        <granted_by type="array">
+            <subscription href="https://api.recurly.com/v2/subscriptions/rnw57d283ico"/>
+            <subscription href="https://api.recurly.com/v2/subscriptions/pd218a6qtggo"/>
+            <subscription href="https://api.recurly.com/v2/subscriptions/qbxlpbh7e3qi"/>
+        </granted_by>
+    </entitlement>
+</entitlements>
