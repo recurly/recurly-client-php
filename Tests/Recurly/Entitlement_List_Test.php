@@ -9,7 +9,7 @@ class RecurlyEntitlementListTest extends Recurly_TestCase
   }
 
   public function testLoad() {
-    $entitlements = Recurly_EntitlementList::get('abcdef1234567890',null, $this->client);
+    $entitlements = Recurly_EntitlementList::get('abcdef1234567890', null, $this->client);
 
     $this->assertInstanceOf('Recurly_EntitlementList', $entitlements);
 
