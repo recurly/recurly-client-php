@@ -34,6 +34,7 @@ class Recurly_AccountTest extends Recurly_TestCase
     $this->assertEquals($account->has_paused_subscription, false);
     $this->assertEquals($account->preferred_locale, 'en-US');
     $this->assertEquals($account->dunning_campaign_id, '1234abcd');
+    $this->assertInstanceOf('Recurly_Stub', $account->entitlements);
 
     $this->assertInstanceOf('Recurly_CustomFieldList', $account->custom_fields);
     $this->assertCount(2, $account->custom_fields);

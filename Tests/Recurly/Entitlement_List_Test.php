@@ -15,6 +15,9 @@ class RecurlyEntitlementListTest extends Recurly_TestCase
 
     $entitlement = $entitlements->current();
     $this->assertInstanceOf('Recurly_Entitlement', $entitlement);
+    $this->assertInstanceOf('Recurly_Stub', $entitlement->account);
+    $this->assertInstanceOf('DateTime', $entitlement->created_at);
+    $this->assertInstanceOf('DateTime', $entitlement->updated_at);
 
     $customer_permission = $entitlement->customer_permission;
     $this->assertEquals($customer_permission->id, 'rmi7c52kfr1h');

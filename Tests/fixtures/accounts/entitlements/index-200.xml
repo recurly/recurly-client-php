@@ -4,6 +4,7 @@ Content-Type: application/xml; charset=utf-8
 <?xml version="1.0" encoding="UTF-8"?>
 <entitlements type="array">
     <entitlement>
+        <account href="https://api.recurly.com/v2/accounts/anothernewaccount"/>
         <customer_permission>
             <id>rmi7c52kfr1h</id>
             <code>hellocode</code>
@@ -16,8 +17,11 @@ Content-Type: application/xml; charset=utf-8
             <subscription href="https://api.recurly.com/v2/subscriptions/qbxlpbh7e3qi"/>
             <external_subscription href="https://api.recurly.com/v2/external_subscriptions/rnw57d283ic3"/>
         </granted_by>
+        <created_at type="datetime">2022-10-08T19:15:58Z</created_at>
+        <updated_at type="datetime">2022-10-08T19:15:58Z</updated_at>
     </entitlement>
     <entitlement>
+        <account href="https://api.recurly.com/v2/accounts/anothernewaccount"/>
         <customer_permission>
             <id>rlbuyejhtt3q</id>
             <code>heycode</code>
@@ -30,8 +34,11 @@ Content-Type: application/xml; charset=utf-8
             <subscription href="https://api.recurly.com/v2/subscriptions/qbxlpbh7e3qi"/>
             <external_subscription href="https://api.recurly.com/v2/external_subscriptions/rnw57d283ic3" />
         </granted_by>
+        <created_at type="datetime">2022-09-26T19:42:33Z</created_at>
+        <updated_at type="datetime">2022-09-26T21:32:32Z</updated_at>
     </entitlement>
     <entitlement>
+        <account href="https://api.recurly.com/v2/accounts/anothernewaccount"/>
         <customer_permission>
             <id>rj6ayv2y0fkj</id>
             <code>hi</code>
@@ -43,8 +50,11 @@ Content-Type: application/xml; charset=utf-8
             <subscription href="https://api.recurly.com/v2/subscriptions/pd218a6qtggo"/>
             <subscription href="https://api.recurly.com/v2/subscriptions/qbxlpbh7e3qi"/>
         </granted_by>
+        <created_at type="datetime">2022-09-20T21:18:20Z</created_at>
+        <updated_at type="datetime">2022-09-26T19:36:33Z</updated_at>
     </entitlement>
     <entitlement>
+        <account href="https://api.recurly.com/v2/accounts/anothernewaccount"/>
         <customer_permission>
             <id>rj6ap2aept6c</id>
             <code>yo</code>
@@ -56,8 +66,11 @@ Content-Type: application/xml; charset=utf-8
             <subscription href="https://api.recurly.com/v2/subscriptions/pd218a6qtggo"/>
             <subscription href="https://api.recurly.com/v2/subscriptions/qbxlpbh7e3qi"/>
         </granted_by>
+        <created_at type="datetime">2022-09-10T00:29:07Z</created_at>
+        <updated_at type="datetime">2022-09-10T00:29:07Z</updated_at>
     </entitlement>
     <entitlement>
+        <account href="https://api.recurly.com/v2/accounts/anothernewaccount"/>
         <customer_permission>
             <id>rixk4k1v3i8q</id>
             <code>howdy</code>
@@ -69,5 +82,7 @@ Content-Type: application/xml; charset=utf-8
             <subscription href="https://api.recurly.com/v2/subscriptions/pd218a6qtggo"/>
             <subscription href="https://api.recurly.com/v2/subscriptions/qbxlpbh7e3qi"/>
         </granted_by>
+        <created_at type="datetime">2022-09-10T00:27:36Z</created_at>
+        <updated_at type="datetime">2022-09-10T00:27:36Z</updated_at>
     </entitlement>
 </entitlements>
