@@ -25,6 +25,8 @@ class Invoice extends RecurlyResource
     private $_discount;
     private $_due_at;
     private $_dunning_campaign_id;
+    private $_dunning_events_sent;
+    private $_final_dunning_event;
     private $_has_more_line_items;
     private $_id;
     private $_line_items;
@@ -356,6 +358,52 @@ class Invoice extends RecurlyResource
     public function setDunningCampaignId(string $dunning_campaign_id): void
     {
         $this->_dunning_campaign_id = $dunning_campaign_id;
+    }
+
+    /**
+    * Getter method for the dunning_events_sent attribute.
+    * Number of times the event was sent.
+    *
+    * @return ?int
+    */
+    public function getDunningEventsSent(): ?int
+    {
+        return $this->_dunning_events_sent;
+    }
+
+    /**
+    * Setter method for the dunning_events_sent attribute.
+    *
+    * @param int $dunning_events_sent
+    *
+    * @return void
+    */
+    public function setDunningEventsSent(int $dunning_events_sent): void
+    {
+        $this->_dunning_events_sent = $dunning_events_sent;
+    }
+
+    /**
+    * Getter method for the final_dunning_event attribute.
+    * Last communication attempt.
+    *
+    * @return ?bool
+    */
+    public function getFinalDunningEvent(): ?bool
+    {
+        return $this->_final_dunning_event;
+    }
+
+    /**
+    * Setter method for the final_dunning_event attribute.
+    *
+    * @param bool $final_dunning_event
+    *
+    * @return void
+    */
+    public function setFinalDunningEvent(bool $final_dunning_event): void
+    {
+        $this->_final_dunning_event = $final_dunning_event;
     }
 
     /**
