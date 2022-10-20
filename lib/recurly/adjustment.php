@@ -16,6 +16,9 @@
  * @property string $origin The origin of the adjustment to return: plan, plan_trial, setup_fee, add_on, add_on_trial, one_time, debit, credit, coupon, or carryforward.
  * @property integer $unit_amount_in_cents Positive amount for a charge, negative amount for a credit. Max 10000000.
  * @property integer $quantity Quantity.
+ * @property string $quantity_decimal Quantity if usage amounts are logged with decimal values.
+ * @property integer $quantity_remaining Remaining quantity available to be refunded.
+ * @property string $quantity_decimal_remaining Remaining quantity available to be refunded, with decimal precision (up to 9 decimal places).
  * @property string $original_adjustment_uuid Only shows if adjustment is a credit created from another credit.
  * @property integer $discount_in_cents The discount on the adjustment, in cents.
  * @property integer $tax_in_cents The tax on the adjustment, in cents.
@@ -56,6 +59,7 @@ class Recurly_Adjustment extends Recurly_Resource
    * Only 'invoiced' adjustments can be refunded.
    *
    * @param Integer the quantity you wish to refund, defaults to refunding the entire quantity
+   * @param String the quantity you wish to refund with decimal precision (up to 9 decimal places), defaults to refunding the entire quantity_decimal
    * @param Boolean indicates whether you want this adjustment refund prorated
    * @param String indicates the refund order to apply, valid options: {'credit_first', 'transaction_first'}, defaults to 'credit_first'
    * @return Recurly_Invoice the new refund invoice
@@ -69,10 +73,18 @@ class Recurly_Adjustment extends Recurly_Resource
     return $invoice->refund($this->toRefundAttributes($quantity, $prorate), $refund_apply_order);
   }
 
+  public function refundWithDecimal($quantity_decimal = null, $prorate = false, $refund_apply_order = 'credit_first') {
+    if ($this->state == 'pending') {
+      throw new Recurly_Error("Only invoiced adjustments can be refunded");
+    }
+    $invoice = $this->invoice->get();
+    return $invoice->refund($this->toRefundAttributesWithDecimal($quantity_decimal, $prorate), $refund_apply_order);
+  }
   /**
    * Converts this adjustment into the attributes needed for a refund.
    *
    * @param Integer the quantity you wish to refund, defaults to refunding the entire quantity
+   * @param String the quantity you wish to refund with decimal precision, defaults to refunding the entire quantity_decimal
    * @param Boolean indicates whether you want this adjustment refund prorated
    * @return Array an array of refund attributes to be fed into invoice->refund()
    */
@@ -80,6 +92,12 @@ class Recurly_Adjustment extends Recurly_Resource
     if (is_null($quantity)) $quantity = $this->quantity;
 
     return array('uuid' => $this->uuid, 'quantity' => $quantity, 'prorate' => $prorate);
+  }
+
+  public function toRefundAttributesWithDecimal($quantity_decimal = null, $prorate = false) {
+    if (is_null($quantity_decimal)) $quantity_decimal = $this->quantity_decimal;
+
+    return array('uuid' => $this->uuid, 'quantity_decimal' => $quantity_decimal, 'prorate' => $prorate);
   }
 
   protected function createUriForAccount() {
@@ -101,7 +119,7 @@ class Recurly_Adjustment extends Recurly_Resource
 
   protected function getWriteableAttributes() {
     return array(
-      'currency', 'unit_amount_in_cents', 'quantity', 'description',
+      'currency', 'unit_amount_in_cents', 'quantity', 'quantity_decimal', 'description',
       'accounting_code', 'tax_exempt', 'tax_inclusive', 'tax_code', 'start_date', 'end_date',
       'revenue_schedule_type', 'origin', 'product_code', 'credit_reason_code',
       'shipping_address', 'shipping_address_id', 'item_code', 'external_sku'

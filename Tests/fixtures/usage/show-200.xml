@@ -5,6 +5,7 @@ Content-Type: application/xml; charset=utf-8
 <usage href="https://api.recurly.com/v2/subscriptions/012345678901234567890123456789ab/add_ons/marketing_emails/usage/123456">
   <measured_unit href="https://yoursubdomain.recurly.com/v2/measured_units/7610" />
   <amount type="integer">6</amount>
+  <amount_decimal type="float">6.27934</amount_decimal>
   <merchant_tag>Order Number: #198349243975</merchant_tag>
   <recording_timestamp type="date">2016-03-15T23:17:15+00:00</recording_timestamp>
   <usage_timestamp type="date">2016-03-15T23:17:14+00:00</usage_timestamp>

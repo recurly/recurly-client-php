@@ -26,6 +26,7 @@ class Recurly_AdjustmentTest extends Recurly_TestCase
     $this->assertEquals('plan', $adjustment->origin);
     $this->assertEquals(1200, $adjustment->unit_amount_in_cents);
     $this->assertEquals(1, $adjustment->quantity);
+    $this->assertEquals('1.2', $adjustment->quantity_decimal);
     $this->assertEquals(0, $adjustment->discount_in_cents);
     $this->assertEquals(5000, $adjustment->tax_in_cents);
     $this->assertEquals(1200, $adjustment->total_in_cents);
@@ -72,6 +73,17 @@ class Recurly_AdjustmentTest extends Recurly_TestCase
     $this->assertEquals($attributes['quantity'], $adjustment->quantity);
   }
 
+  public function testToRefundAttributesWithDecimal() {
+    $this->client->addResponse('GET', '/adjustments/abcdef1234567890', 'adjustments/show-200.xml');
+
+    $adjustment = Recurly_Adjustment::get('abcdef1234567890', $this->client);
+
+    $attributes = $adjustment->toRefundAttributesWithDecimal();
+    $this->assertEquals($attributes['uuid'], $adjustment->uuid);
+    $this->assertEquals($attributes['prorate'], false);
+    $this->assertEquals($attributes['quantity_decimal'], $adjustment->quantity_decimal);
+  }
+
   public function testAdjustmentRefund() {
     $this->client->addResponse('GET', '/adjustments/abcdef1234567890', 'adjustments/show-200.xml');
     $this->client->addResponse('GET', 'https://api.recurly.com/v2/invoices/1234', 'invoices/show-200.xml');
@@ -90,6 +102,7 @@ class Recurly_AdjustmentTest extends Recurly_TestCase
     $charge->unit_amount_in_cents = 5000; // $50.00
     $charge->currency = 'USD';
     $charge->quantity = 1;
+    $charge->quantity_decimal = '1.2';
     $charge->accounting_code = 'bandwidth';
     $charge->tax_exempt = false;
     $charge->tax_code = 'fake-tax-code';
@@ -113,7 +126,7 @@ class Recurly_AdjustmentTest extends Recurly_TestCase
     // This deprecated parameter should be ignored:
     $charge->taxable = 0;
 
-    $expected = "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n<adjustment><currency>USD</currency><unit_amount_in_cents>5000</unit_amount_in_cents><quantity>1</quantity><description>Charge for extra bandwidth</description><accounting_code>bandwidth</accounting_code><tax_exempt>false</tax_exempt><tax_code>fake-tax-code</tax_code><origin>external_gift_card</origin><product_code>abc123</product_code><shipping_address><address1>123 Main St.</address1><city>San Francisco</city><state>CA</state><zip>94110</zip><country>US</country><phone>555-555-5555</phone><email>verena@example.com</email><nickname>Work</nickname><first_name>Verena</first_name><last_name>Example</last_name><company>Recurly Inc.</company></shipping_address><shipping_address_id>123456789</shipping_address_id></adjustment>\n";
+    $expected = "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n<adjustment><currency>USD</currency><unit_amount_in_cents>5000</unit_amount_in_cents><quantity>1</quantity><quantity_decimal>1.2</quantity_decimal><description>Charge for extra bandwidth</description><accounting_code>bandwidth</accounting_code><tax_exempt>false</tax_exempt><tax_code>fake-tax-code</tax_code><origin>external_gift_card</origin><product_code>abc123</product_code><shipping_address><address1>123 Main St.</address1><city>San Francisco</city><state>CA</state><zip>94110</zip><country>US</country><phone>555-555-5555</phone><email>verena@example.com</email><nickname>Work</nickname><first_name>Verena</first_name><last_name>Example</last_name><company>Recurly Inc.</company></shipping_address><shipping_address_id>123456789</shipping_address_id></adjustment>\n";
     $this->assertEquals($expected, $charge->xml());
   }
 }

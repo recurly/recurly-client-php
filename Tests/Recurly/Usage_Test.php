@@ -11,6 +11,7 @@ class Recurly_UsageTest extends Recurly_TestCase
     $this->assertInstanceOf('Recurly_Usage', $usage);
     $this->assertInstanceOf('Recurly_Stub', $usage->measured_unit);
     $this->assertEquals(6, $usage->amount);
+    $this->assertEquals(6.27934, $usage->amount_decimal);
     $this->assertEquals('Order Number: #198349243975', $usage->merchant_tag);
     $this->assertEquals('percentage', $usage->usage_type);
     $this->assertEquals(1.25, $usage->usage_percentage);

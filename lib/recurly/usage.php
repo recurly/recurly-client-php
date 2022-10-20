@@ -4,6 +4,7 @@
  * Class Recurly_Usage
  * @property Recurly_Stub $measured_unit The URL to the Recurly_MeasuredUnit associated with this usage.
  * @property integer $amount The amount of usage. Can be positive, negative, or 0. No decimals allowed, we will strip them. If the usage-based add-on is billed with a percentage, your usage will be a monetary amount you will want to format in cents. (e.g. - $5.00 is "500").
+ * @property float $amount_decimal A floating-point alternative for the amount of usage. Can be positive, negative, or 0. If the Decimal Quantity feature is enabled, this value will be rounded to nine decimal places for requests.  Otherwise, this field will not be used.
  * @property string $merchant_tag Custom field great for recording the id in your own system associated with the usage, so you can provide auditable usage displays to your customers using a GET on this endpoint.
  * @property string $usage_type Whether the associated add-on has a pricing model of "price per unit" (price) or "percentage of an amount" (percentage).
  * @property integer $unit_amount_in_cents If usage_type = price, this is the price of the add-on at the usage_timestamp time and the price at which the usage will be billed on the invoice.
@@ -58,7 +59,7 @@ class Recurly_Usage extends Recurly_Resource
 
   protected static function uriForUsages($subUuid, $addOnCode) {
     return self::_safeUri(
-      Recurly_Client::PATH_SUBSCRIPTIONS, $subUuid, 
+      Recurly_Client::PATH_SUBSCRIPTIONS, $subUuid,
       Recurly_Client::PATH_ADDONS, $addOnCode,
       Recurly_Client::PATH_USAGE
     );
@@ -66,7 +67,7 @@ class Recurly_Usage extends Recurly_Resource
 
   protected static function uriForUsage($subUuid, $addOnCode, $usageId) {
     return self::_safeUri(
-      Recurly_Client::PATH_SUBSCRIPTIONS, $subUuid, 
+      Recurly_Client::PATH_SUBSCRIPTIONS, $subUuid,
       Recurly_Client::PATH_ADDONS, $addOnCode,
       Recurly_Client::PATH_USAGE, $usageId
     );
@@ -77,7 +78,7 @@ class Recurly_Usage extends Recurly_Resource
   }
   protected function getWriteableAttributes() {
     return array(
-      'amount', 'merchant_tag', 'usage_type', 'unit_amount_in_cents',
+      'amount', 'amount_decimal', 'merchant_tag', 'usage_type', 'unit_amount_in_cents',
       'billed_at', 'recording_timestamp', 'usage_timestamp', 'measured_unit'
     );
   }
