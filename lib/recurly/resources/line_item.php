@@ -43,8 +43,10 @@ class LineItem extends RecurlyResource
     private $_product_code;
     private $_proration_rate;
     private $_quantity;
+    private $_quantity_decimal;
     private $_refund;
     private $_refunded_quantity;
+    private $_refunded_quantity_decimal;
     private $_revenue_schedule_type;
     private $_shipping_address;
     private $_start_date;
@@ -54,6 +56,7 @@ class LineItem extends RecurlyResource
     private $_tax;
     private $_tax_code;
     private $_tax_exempt;
+    private $_tax_inclusive;
     private $_tax_info;
     private $_taxable;
     private $_type;
@@ -785,6 +788,29 @@ class LineItem extends RecurlyResource
     }
 
     /**
+    * Getter method for the quantity_decimal attribute.
+    * A floating-point alternative to Quantity. If this value is present, it will be used in place of Quantity for calculations, and Quantity will be the rounded integer value of this number. This field supports up to 9 decimal places. The Decimal Quantity feature must be enabled to utilize this field.
+    *
+    * @return ?string
+    */
+    public function getQuantityDecimal(): ?string
+    {
+        return $this->_quantity_decimal;
+    }
+
+    /**
+    * Setter method for the quantity_decimal attribute.
+    *
+    * @param string $quantity_decimal
+    *
+    * @return void
+    */
+    public function setQuantityDecimal(string $quantity_decimal): void
+    {
+        $this->_quantity_decimal = $quantity_decimal;
+    }
+
+    /**
     * Getter method for the refund attribute.
     * Refund?
     *
@@ -828,6 +854,29 @@ class LineItem extends RecurlyResource
     public function setRefundedQuantity(int $refunded_quantity): void
     {
         $this->_refunded_quantity = $refunded_quantity;
+    }
+
+    /**
+    * Getter method for the refunded_quantity_decimal attribute.
+    * A floating-point alternative to Refunded Quantity. For refund charges, the quantity being refunded. For non-refund charges, the total quantity refunded (possibly over multiple refunds). The Decimal Quantity feature must be enabled to utilize this field.
+    *
+    * @return ?string
+    */
+    public function getRefundedQuantityDecimal(): ?string
+    {
+        return $this->_refunded_quantity_decimal;
+    }
+
+    /**
+    * Setter method for the refunded_quantity_decimal attribute.
+    *
+    * @param string $refunded_quantity_decimal
+    *
+    * @return void
+    */
+    public function setRefundedQuantityDecimal(string $refunded_quantity_decimal): void
+    {
+        $this->_refunded_quantity_decimal = $refunded_quantity_decimal;
     }
 
     /**
@@ -1035,6 +1084,29 @@ class LineItem extends RecurlyResource
     public function setTaxExempt(bool $tax_exempt): void
     {
         $this->_tax_exempt = $tax_exempt;
+    }
+
+    /**
+    * Getter method for the tax_inclusive attribute.
+    * Determines whether or not tax is included in the unit amount. The Tax Inclusive Pricing feature (separate from the Mixed Tax Pricing feature) must be enabled to utilize this flag.
+    *
+    * @return ?bool
+    */
+    public function getTaxInclusive(): ?bool
+    {
+        return $this->_tax_inclusive;
+    }
+
+    /**
+    * Setter method for the tax_inclusive attribute.
+    *
+    * @param bool $tax_inclusive
+    *
+    * @return void
+    */
+    public function setTaxInclusive(bool $tax_inclusive): void
+    {
+        $this->_tax_inclusive = $tax_inclusive;
     }
 
     /**

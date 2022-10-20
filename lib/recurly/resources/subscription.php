@@ -42,6 +42,7 @@ class Subscription extends RecurlyResource
     private $_plan;
     private $_po_number;
     private $_quantity;
+    private $_ramp_intervals;
     private $_remaining_billing_cycles;
     private $_remaining_pause_cycles;
     private $_renewal_billing_cycles;
@@ -50,6 +51,7 @@ class Subscription extends RecurlyResource
     private $_state;
     private $_subtotal;
     private $_tax;
+    private $_tax_inclusive;
     private $_tax_info;
     private $_terms_and_conditions;
     private $_total;
@@ -64,6 +66,7 @@ class Subscription extends RecurlyResource
         'setAddOns' => '\Recurly\Resources\SubscriptionAddOn',
         'setCouponRedemptions' => '\Recurly\Resources\CouponRedemptionMini',
         'setCustomFields' => '\Recurly\Resources\CustomField',
+        'setRampIntervals' => '\Recurly\Resources\SubscriptionRampIntervalResponse',
     ];
 
     
@@ -758,6 +761,29 @@ class Subscription extends RecurlyResource
     }
 
     /**
+    * Getter method for the ramp_intervals attribute.
+    * The ramp intervals representing the pricing schedule for the subscription.
+    *
+    * @return array
+    */
+    public function getRampIntervals(): array
+    {
+        return $this->_ramp_intervals ?? [] ;
+    }
+
+    /**
+    * Setter method for the ramp_intervals attribute.
+    *
+    * @param array $ramp_intervals
+    *
+    * @return void
+    */
+    public function setRampIntervals(array $ramp_intervals): void
+    {
+        $this->_ramp_intervals = $ramp_intervals;
+    }
+
+    /**
     * Getter method for the remaining_billing_cycles attribute.
     * The remaining billing cycles in the current term.
     *
@@ -939,6 +965,29 @@ class Subscription extends RecurlyResource
     public function setTax(float $tax): void
     {
         $this->_tax = $tax;
+    }
+
+    /**
+    * Getter method for the tax_inclusive attribute.
+    * Determines whether or not tax is included in the unit amount. The Tax Inclusive Pricing feature (separate from the Mixed Tax Pricing feature) must be enabled to utilize this flag.
+    *
+    * @return ?bool
+    */
+    public function getTaxInclusive(): ?bool
+    {
+        return $this->_tax_inclusive;
+    }
+
+    /**
+    * Setter method for the tax_inclusive attribute.
+    *
+    * @param bool $tax_inclusive
+    *
+    * @return void
+    */
+    public function setTaxInclusive(bool $tax_inclusive): void
+    {
+        $this->_tax_inclusive = $tax_inclusive;
     }
 
     /**

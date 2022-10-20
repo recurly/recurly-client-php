@@ -316,7 +316,7 @@ class SubscriptionChange extends RecurlyResource
 
     /**
     * Getter method for the ramp_intervals attribute.
-    * Ramp Intervals
+    * The ramp intervals representing the pricing schedule for the subscription.
     *
     * @return array
     */
