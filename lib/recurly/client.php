@@ -22,7 +22,6 @@ class Client extends BaseClient
   
     /**
      * List sites
-     *
      * @param array $options Associative array of optional parameters
      *
      * Supported optional query string parameters:
@@ -45,6 +44,7 @@ class Client extends BaseClient
      *        prevent some records from being returned.
      * - $options['params']['state'] (string): Filter by state.
      *
+     *
      * @return \Recurly\Pager A list of sites.
      * @link   https://developers.recurly.com/api/v2021-02-25#operation/list_sites
      */
@@ -56,7 +56,6 @@ class Client extends BaseClient
   
     /**
      * Fetch a site
-     *
      * @param string $site_id Site ID or subdomain. For ID no prefix is used e.g. `e28zov4fw0v2`. For subdomain use prefix `subdomain-`, e.g. `subdomain-recurly`.
      * @param array  $options Associative array of optional parameters
      *
@@ -71,7 +70,6 @@ class Client extends BaseClient
   
     /**
      * List a site's accounts
-     *
      * @param array $options Associative array of optional parameters
      *
      * Supported optional query string parameters:
@@ -101,6 +99,7 @@ class Client extends BaseClient
      *        `canceled`, or `future` state.
      * - $options['params']['past_due'] (string): Filter for accounts with an invoice in the `past_due` state.
      *
+     *
      * @return \Recurly\Pager A list of the site's accounts.
      * @link   https://developers.recurly.com/api/v2021-02-25#operation/list_accounts
      */
@@ -112,8 +111,7 @@ class Client extends BaseClient
   
     /**
      * Create an account
-     *
-     * @param array $body    The body of the request.
+     * @param array $body The body of the request.
      * @param array $options Associative array of optional parameters
      *
      * @return \Recurly\Resources\Account An account.
@@ -127,7 +125,6 @@ class Client extends BaseClient
   
     /**
      * Fetch an account
-     *
      * @param string $account_id Account ID or code. For ID no prefix is used e.g. `e28zov4fw0v2`. For code use prefix `code-`, e.g. `code-bob`.
      * @param array  $options    Associative array of optional parameters
      *
@@ -142,7 +139,6 @@ class Client extends BaseClient
   
     /**
      * Update an account
-     *
      * @param string $account_id Account ID or code. For ID no prefix is used e.g. `e28zov4fw0v2`. For code use prefix `code-`, e.g. `code-bob`.
      * @param array  $body       The body of the request.
      * @param array  $options    Associative array of optional parameters
@@ -158,7 +154,6 @@ class Client extends BaseClient
   
     /**
      * Deactivate an account
-     *
      * @param string $account_id Account ID or code. For ID no prefix is used e.g. `e28zov4fw0v2`. For code use prefix `code-`, e.g. `code-bob`.
      * @param array  $options    Associative array of optional parameters
      *
@@ -173,7 +168,6 @@ class Client extends BaseClient
   
     /**
      * Fetch an account's acquisition data
-     *
      * @param string $account_id Account ID or code. For ID no prefix is used e.g. `e28zov4fw0v2`. For code use prefix `code-`, e.g. `code-bob`.
      * @param array  $options    Associative array of optional parameters
      *
@@ -188,7 +182,6 @@ class Client extends BaseClient
   
     /**
      * Update an account's acquisition data
-     *
      * @param string $account_id Account ID or code. For ID no prefix is used e.g. `e28zov4fw0v2`. For code use prefix `code-`, e.g. `code-bob`.
      * @param array  $body       The body of the request.
      * @param array  $options    Associative array of optional parameters
@@ -204,7 +197,6 @@ class Client extends BaseClient
   
     /**
      * Remove an account's acquisition data
-     *
      * @param string $account_id Account ID or code. For ID no prefix is used e.g. `e28zov4fw0v2`. For code use prefix `code-`, e.g. `code-bob`.
      * @param array  $options    Associative array of optional parameters
      *
@@ -219,7 +211,6 @@ class Client extends BaseClient
   
     /**
      * Reactivate an inactive account
-     *
      * @param string $account_id Account ID or code. For ID no prefix is used e.g. `e28zov4fw0v2`. For code use prefix `code-`, e.g. `code-bob`.
      * @param array  $options    Associative array of optional parameters
      *
@@ -234,7 +225,6 @@ class Client extends BaseClient
   
     /**
      * Fetch an account's balance and past due status
-     *
      * @param string $account_id Account ID or code. For ID no prefix is used e.g. `e28zov4fw0v2`. For code use prefix `code-`, e.g. `code-bob`.
      * @param array  $options    Associative array of optional parameters
      *
@@ -249,7 +239,6 @@ class Client extends BaseClient
   
     /**
      * Fetch an account's billing information
-     *
      * @param string $account_id Account ID or code. For ID no prefix is used e.g. `e28zov4fw0v2`. For code use prefix `code-`, e.g. `code-bob`.
      * @param array  $options    Associative array of optional parameters
      *
@@ -264,7 +253,6 @@ class Client extends BaseClient
   
     /**
      * Set an account's billing information
-     *
      * @param string $account_id Account ID or code. For ID no prefix is used e.g. `e28zov4fw0v2`. For code use prefix `code-`, e.g. `code-bob`.
      * @param array  $body       The body of the request.
      * @param array  $options    Associative array of optional parameters
@@ -280,7 +268,6 @@ class Client extends BaseClient
   
     /**
      * Remove an account's billing information
-     *
      * @param string $account_id Account ID or code. For ID no prefix is used e.g. `e28zov4fw0v2`. For code use prefix `code-`, e.g. `code-bob`.
      * @param array  $options    Associative array of optional parameters
      *
@@ -295,7 +282,6 @@ class Client extends BaseClient
   
     /**
      * Verify an account's credit card billing information
-     *
      * @param string $account_id Account ID or code. For ID no prefix is used e.g. `e28zov4fw0v2`. For code use prefix `code-`, e.g. `code-bob`.
      * @param array  $body       The body of the request.
      * @param array  $options    Associative array of optional parameters
@@ -311,7 +297,6 @@ class Client extends BaseClient
   
     /**
      * Verify an account's credit card billing cvv
-     *
      * @param string $account_id Account ID or code. For ID no prefix is used e.g. `e28zov4fw0v2`. For code use prefix `code-`, e.g. `code-bob`.
      * @param array  $body       The body of the request.
      * @param array  $options    Associative array of optional parameters
@@ -327,7 +312,6 @@ class Client extends BaseClient
   
     /**
      * Get the list of billing information associated with an account
-     *
      * @param string $account_id Account ID or code. For ID no prefix is used e.g. `e28zov4fw0v2`. For code use prefix `code-`, e.g. `code-bob`.
      * @param array  $options    Associative array of optional parameters
      *
@@ -352,6 +336,7 @@ class Client extends BaseClient
      * - $options['params']['end_time'] (string): Inclusively filter by end_time when `sort=created_at` or `sort=updated_at`.
      *        **Note:** this value is an ISO8601 timestamp. A partial timestamp that does not include a time zone will default to UTC.
      *
+     *
      * @return \Recurly\Pager A list of the the billing information for an account's
      * @link   https://developers.recurly.com/api/v2021-02-25#operation/list_billing_infos
      */
@@ -363,7 +348,6 @@ class Client extends BaseClient
   
     /**
      * Add new billing information on an account
-     *
      * @param string $account_id Account ID or code. For ID no prefix is used e.g. `e28zov4fw0v2`. For code use prefix `code-`, e.g. `code-bob`.
      * @param array  $body       The body of the request.
      * @param array  $options    Associative array of optional parameters
@@ -379,7 +363,6 @@ class Client extends BaseClient
   
     /**
      * Fetch a billing info
-     *
      * @param string $account_id      Account ID or code. For ID no prefix is used e.g. `e28zov4fw0v2`. For code use prefix `code-`, e.g. `code-bob`.
      * @param string $billing_info_id Billing Info ID. Can ONLY be used for sites utilizing the Wallet feature.
      * @param array  $options         Associative array of optional parameters
@@ -395,7 +378,6 @@ class Client extends BaseClient
   
     /**
      * Update an account's billing information
-     *
      * @param string $account_id      Account ID or code. For ID no prefix is used e.g. `e28zov4fw0v2`. For code use prefix `code-`, e.g. `code-bob`.
      * @param string $billing_info_id Billing Info ID. Can ONLY be used for sites utilizing the Wallet feature.
      * @param array  $body            The body of the request.
@@ -412,7 +394,6 @@ class Client extends BaseClient
   
     /**
      * Remove an account's billing information
-     *
      * @param string $account_id      Account ID or code. For ID no prefix is used e.g. `e28zov4fw0v2`. For code use prefix `code-`, e.g. `code-bob`.
      * @param string $billing_info_id Billing Info ID. Can ONLY be used for sites utilizing the Wallet feature.
      * @param array  $options         Associative array of optional parameters
@@ -428,7 +409,6 @@ class Client extends BaseClient
   
     /**
      * Show the coupon redemptions for an account
-     *
      * @param string $account_id Account ID or code. For ID no prefix is used e.g. `e28zov4fw0v2`. For code use prefix `code-`, e.g. `code-bob`.
      * @param array  $options    Associative array of optional parameters
      *
@@ -454,6 +434,7 @@ class Client extends BaseClient
      *        **Note:** this value is an ISO8601 timestamp. A partial timestamp that does not include a time zone will default to UTC.
      * - $options['params']['state'] (string): Filter by state.
      *
+     *
      * @return \Recurly\Pager A list of the the coupon redemptions on an account.
      * @link   https://developers.recurly.com/api/v2021-02-25#operation/list_account_coupon_redemptions
      */
@@ -465,7 +446,6 @@ class Client extends BaseClient
   
     /**
      * Show the coupon redemptions that are active on an account
-     *
      * @param string $account_id Account ID or code. For ID no prefix is used e.g. `e28zov4fw0v2`. For code use prefix `code-`, e.g. `code-bob`.
      * @param array  $options    Associative array of optional parameters
      *
@@ -480,7 +460,6 @@ class Client extends BaseClient
   
     /**
      * Generate an active coupon redemption on an account or subscription
-     *
      * @param string $account_id Account ID or code. For ID no prefix is used e.g. `e28zov4fw0v2`. For code use prefix `code-`, e.g. `code-bob`.
      * @param array  $body       The body of the request.
      * @param array  $options    Associative array of optional parameters
@@ -496,7 +475,6 @@ class Client extends BaseClient
   
     /**
      * Delete the active coupon redemption from an account
-     *
      * @param string $account_id Account ID or code. For ID no prefix is used e.g. `e28zov4fw0v2`. For code use prefix `code-`, e.g. `code-bob`.
      * @param array  $options    Associative array of optional parameters
      *
@@ -511,7 +489,6 @@ class Client extends BaseClient
   
     /**
      * List an account's credit payments
-     *
      * @param string $account_id Account ID or code. For ID no prefix is used e.g. `e28zov4fw0v2`. For code use prefix `code-`, e.g. `code-bob`.
      * @param array  $options    Associative array of optional parameters
      *
@@ -527,6 +504,7 @@ class Client extends BaseClient
      * - $options['params']['end_time'] (string): Inclusively filter by end_time when `sort=created_at` or `sort=updated_at`.
      *        **Note:** this value is an ISO8601 timestamp. A partial timestamp that does not include a time zone will default to UTC.
      *
+     *
      * @return \Recurly\Pager A list of the account's credit payments.
      * @link   https://developers.recurly.com/api/v2021-02-25#operation/list_account_credit_payments
      */
@@ -538,7 +516,6 @@ class Client extends BaseClient
   
     /**
      * List an account's invoices
-     *
      * @param string $account_id Account ID or code. For ID no prefix is used e.g. `e28zov4fw0v2`. For code use prefix `code-`, e.g. `code-bob`.
      * @param array  $options    Associative array of optional parameters
      *
@@ -570,6 +547,7 @@ class Client extends BaseClient
      *        - `type=non-legacy`, only charge and credit invoices will be returned.
      *        - `type=legacy`, only legacy invoices will be returned.
      *
+     *
      * @return \Recurly\Pager A list of the account's invoices.
      * @link   https://developers.recurly.com/api/v2021-02-25#operation/list_account_invoices
      */
@@ -581,7 +559,6 @@ class Client extends BaseClient
   
     /**
      * Create an invoice for pending line items
-     *
      * @param string $account_id Account ID or code. For ID no prefix is used e.g. `e28zov4fw0v2`. For code use prefix `code-`, e.g. `code-bob`.
      * @param array  $body       The body of the request.
      * @param array  $options    Associative array of optional parameters
@@ -597,7 +574,6 @@ class Client extends BaseClient
   
     /**
      * Preview new invoice for pending line items
-     *
      * @param string $account_id Account ID or code. For ID no prefix is used e.g. `e28zov4fw0v2`. For code use prefix `code-`, e.g. `code-bob`.
      * @param array  $body       The body of the request.
      * @param array  $options    Associative array of optional parameters
@@ -613,7 +589,6 @@ class Client extends BaseClient
   
     /**
      * List an account's line items
-     *
      * @param string $account_id Account ID or code. For ID no prefix is used e.g. `e28zov4fw0v2`. For code use prefix `code-`, e.g. `code-bob`.
      * @param array  $options    Associative array of optional parameters
      *
@@ -643,6 +618,7 @@ class Client extends BaseClient
      * - $options['params']['state'] (string): Filter by state field.
      * - $options['params']['type'] (string): Filter by type field.
      *
+     *
      * @return \Recurly\Pager A list of the account's line items.
      * @link   https://developers.recurly.com/api/v2021-02-25#operation/list_account_line_items
      */
@@ -654,7 +630,6 @@ class Client extends BaseClient
   
     /**
      * Create a new line item for the account
-     *
      * @param string $account_id Account ID or code. For ID no prefix is used e.g. `e28zov4fw0v2`. For code use prefix `code-`, e.g. `code-bob`.
      * @param array  $body       The body of the request.
      * @param array  $options    Associative array of optional parameters
@@ -670,7 +645,6 @@ class Client extends BaseClient
   
     /**
      * Fetch a list of an account's notes
-     *
      * @param string $account_id Account ID or code. For ID no prefix is used e.g. `e28zov4fw0v2`. For code use prefix `code-`, e.g. `code-bob`.
      * @param array  $options    Associative array of optional parameters
      *
@@ -688,6 +662,7 @@ class Client extends BaseClient
      *        * Records are returned in an arbitrary order. Since results are all
      *          returned at once you can sort the records yourself.
      *
+     *
      * @return \Recurly\Pager A list of an account's notes.
      * @link   https://developers.recurly.com/api/v2021-02-25#operation/list_account_notes
      */
@@ -699,7 +674,6 @@ class Client extends BaseClient
   
     /**
      * Fetch an account note
-     *
      * @param string $account_id      Account ID or code. For ID no prefix is used e.g. `e28zov4fw0v2`. For code use prefix `code-`, e.g. `code-bob`.
      * @param string $account_note_id Account Note ID.
      * @param array  $options         Associative array of optional parameters
@@ -715,7 +689,6 @@ class Client extends BaseClient
   
     /**
      * Fetch a list of an account's shipping addresses
-     *
      * @param string $account_id Account ID or code. For ID no prefix is used e.g. `e28zov4fw0v2`. For code use prefix `code-`, e.g. `code-bob`.
      * @param array  $options    Associative array of optional parameters
      *
@@ -742,6 +715,7 @@ class Client extends BaseClient
      * - $options['params']['end_time'] (string): Inclusively filter by end_time when `sort=created_at` or `sort=updated_at`.
      *        **Note:** this value is an ISO8601 timestamp. A partial timestamp that does not include a time zone will default to UTC.
      *
+     *
      * @return \Recurly\Pager A list of an account's shipping addresses.
      * @link   https://developers.recurly.com/api/v2021-02-25#operation/list_shipping_addresses
      */
@@ -753,7 +727,6 @@ class Client extends BaseClient
   
     /**
      * Create a new shipping address for the account
-     *
      * @param string $account_id Account ID or code. For ID no prefix is used e.g. `e28zov4fw0v2`. For code use prefix `code-`, e.g. `code-bob`.
      * @param array  $body       The body of the request.
      * @param array  $options    Associative array of optional parameters
@@ -769,7 +742,6 @@ class Client extends BaseClient
   
     /**
      * Fetch an account's shipping address
-     *
      * @param string $account_id          Account ID or code. For ID no prefix is used e.g. `e28zov4fw0v2`. For code use prefix `code-`, e.g. `code-bob`.
      * @param string $shipping_address_id Shipping Address ID.
      * @param array  $options             Associative array of optional parameters
@@ -785,7 +757,6 @@ class Client extends BaseClient
   
     /**
      * Update an account's shipping address
-     *
      * @param string $account_id          Account ID or code. For ID no prefix is used e.g. `e28zov4fw0v2`. For code use prefix `code-`, e.g. `code-bob`.
      * @param string $shipping_address_id Shipping Address ID.
      * @param array  $body                The body of the request.
@@ -802,7 +773,6 @@ class Client extends BaseClient
   
     /**
      * Remove an account's shipping address
-     *
      * @param string $account_id          Account ID or code. For ID no prefix is used e.g. `e28zov4fw0v2`. For code use prefix `code-`, e.g. `code-bob`.
      * @param string $shipping_address_id Shipping Address ID.
      * @param array  $options             Associative array of optional parameters
@@ -818,7 +788,6 @@ class Client extends BaseClient
   
     /**
      * List an account's subscriptions
-     *
      * @param string $account_id Account ID or code. For ID no prefix is used e.g. `e28zov4fw0v2`. For code use prefix `code-`, e.g. `code-bob`.
      * @param array  $options    Associative array of optional parameters
      *
@@ -850,6 +819,7 @@ class Client extends BaseClient
      *        - When `state=in_trial`, only subscriptions that have a trial_started_at date earlier than now and a trial_ends_at date later than now will be returned.
      *        - When `state=live`, only subscriptions that are in an active, canceled, or future state or are in trial will be returned.
      *
+     *
      * @return \Recurly\Pager A list of the account's subscriptions.
      * @link   https://developers.recurly.com/api/v2021-02-25#operation/list_account_subscriptions
      */
@@ -861,7 +831,6 @@ class Client extends BaseClient
   
     /**
      * List an account's transactions
-     *
      * @param string $account_id Account ID or code. For ID no prefix is used e.g. `e28zov4fw0v2`. For code use prefix `code-`, e.g. `code-bob`.
      * @param array  $options    Associative array of optional parameters
      *
@@ -890,6 +859,7 @@ class Client extends BaseClient
      * - $options['params']['type'] (string): Filter by type field. The value `payment` will return both `purchase` and `capture` transactions.
      * - $options['params']['success'] (string): Filter by success field.
      *
+     *
      * @return \Recurly\Pager A list of the account's transactions.
      * @link   https://developers.recurly.com/api/v2021-02-25#operation/list_account_transactions
      */
@@ -901,7 +871,6 @@ class Client extends BaseClient
   
     /**
      * List an account's child accounts
-     *
      * @param string $account_id Account ID or code. For ID no prefix is used e.g. `e28zov4fw0v2`. For code use prefix `code-`, e.g. `code-bob`.
      * @param array  $options    Associative array of optional parameters
      *
@@ -932,6 +901,7 @@ class Client extends BaseClient
      *        `canceled`, or `future` state.
      * - $options['params']['past_due'] (string): Filter for accounts with an invoice in the `past_due` state.
      *
+     *
      * @return \Recurly\Pager A list of an account's child accounts.
      * @link   https://developers.recurly.com/api/v2021-02-25#operation/list_child_accounts
      */
@@ -943,7 +913,6 @@ class Client extends BaseClient
   
     /**
      * List a site's account acquisition data
-     *
      * @param array $options Associative array of optional parameters
      *
      * Supported optional query string parameters:
@@ -968,6 +937,7 @@ class Client extends BaseClient
      *        **Note:** this value is an ISO8601 timestamp. A partial timestamp that does not include a time zone will default to UTC.
      * - $options['params']['end_time'] (string): Inclusively filter by end_time when `sort=created_at` or `sort=updated_at`.
      *        **Note:** this value is an ISO8601 timestamp. A partial timestamp that does not include a time zone will default to UTC.
+     *
      *
      * @return \Recurly\Pager A list of the site's account acquisition data.
      * @link   https://developers.recurly.com/api/v2021-02-25#operation/list_account_acquisition
@@ -980,7 +950,6 @@ class Client extends BaseClient
   
     /**
      * List a site's coupons
-     *
      * @param array $options Associative array of optional parameters
      *
      * Supported optional query string parameters:
@@ -1006,6 +975,7 @@ class Client extends BaseClient
      * - $options['params']['end_time'] (string): Inclusively filter by end_time when `sort=created_at` or `sort=updated_at`.
      *        **Note:** this value is an ISO8601 timestamp. A partial timestamp that does not include a time zone will default to UTC.
      *
+     *
      * @return \Recurly\Pager A list of the site's coupons.
      * @link   https://developers.recurly.com/api/v2021-02-25#operation/list_coupons
      */
@@ -1017,8 +987,7 @@ class Client extends BaseClient
   
     /**
      * Create a new coupon
-     *
-     * @param array $body    The body of the request.
+     * @param array $body The body of the request.
      * @param array $options Associative array of optional parameters
      *
      * @return \Recurly\Resources\Coupon A new coupon.
@@ -1032,7 +1001,6 @@ class Client extends BaseClient
   
     /**
      * Fetch a coupon
-     *
      * @param string $coupon_id Coupon ID or code. For ID no prefix is used e.g. `e28zov4fw0v2`. For code use prefix `code-`, e.g. `code-10off`.
      * @param array  $options   Associative array of optional parameters
      *
@@ -1047,7 +1015,6 @@ class Client extends BaseClient
   
     /**
      * Update an active coupon
-     *
      * @param string $coupon_id Coupon ID or code. For ID no prefix is used e.g. `e28zov4fw0v2`. For code use prefix `code-`, e.g. `code-10off`.
      * @param array  $body      The body of the request.
      * @param array  $options   Associative array of optional parameters
@@ -1063,7 +1030,6 @@ class Client extends BaseClient
   
     /**
      * Expire a coupon
-     *
      * @param string $coupon_id Coupon ID or code. For ID no prefix is used e.g. `e28zov4fw0v2`. For code use prefix `code-`, e.g. `code-10off`.
      * @param array  $options   Associative array of optional parameters
      *
@@ -1078,7 +1044,6 @@ class Client extends BaseClient
   
     /**
      * Generate unique coupon codes
-     *
      * @param string $coupon_id Coupon ID or code. For ID no prefix is used e.g. `e28zov4fw0v2`. For code use prefix `code-`, e.g. `code-10off`.
      * @param array  $body      The body of the request.
      * @param array  $options   Associative array of optional parameters
@@ -1086,7 +1051,7 @@ class Client extends BaseClient
      * @return \Recurly\Resources\UniqueCouponCodeParams A set of parameters that can be passed to the `list_unique_coupon_codes`
 endpoint to obtain only the newly generated `UniqueCouponCodes`.
 
-     * @link https://developers.recurly.com/api/v2021-02-25#operation/generate_unique_coupon_codes
+     * @link   https://developers.recurly.com/api/v2021-02-25#operation/generate_unique_coupon_codes
      */
     public function generateUniqueCouponCodes(string $coupon_id, array $body, array $options = []): \Recurly\Resources\UniqueCouponCodeParams
     {
@@ -1096,7 +1061,6 @@ endpoint to obtain only the newly generated `UniqueCouponCodes`.
   
     /**
      * Restore an inactive coupon
-     *
      * @param string $coupon_id Coupon ID or code. For ID no prefix is used e.g. `e28zov4fw0v2`. For code use prefix `code-`, e.g. `code-10off`.
      * @param array  $body      The body of the request.
      * @param array  $options   Associative array of optional parameters
@@ -1112,7 +1076,6 @@ endpoint to obtain only the newly generated `UniqueCouponCodes`.
   
     /**
      * List unique coupon codes associated with a bulk coupon
-     *
      * @param string $coupon_id Coupon ID or code. For ID no prefix is used e.g. `e28zov4fw0v2`. For code use prefix `code-`, e.g. `code-10off`.
      * @param array  $options   Associative array of optional parameters
      *
@@ -1139,6 +1102,7 @@ endpoint to obtain only the newly generated `UniqueCouponCodes`.
      * - $options['params']['end_time'] (string): Inclusively filter by end_time when `sort=created_at` or `sort=updated_at`.
      *        **Note:** this value is an ISO8601 timestamp. A partial timestamp that does not include a time zone will default to UTC.
      *
+     *
      * @return \Recurly\Pager A list of unique coupon codes that were generated
      * @link   https://developers.recurly.com/api/v2021-02-25#operation/list_unique_coupon_codes
      */
@@ -1150,7 +1114,6 @@ endpoint to obtain only the newly generated `UniqueCouponCodes`.
   
     /**
      * List a site's credit payments
-     *
      * @param array $options Associative array of optional parameters
      *
      * Supported optional query string parameters:
@@ -1165,6 +1128,7 @@ endpoint to obtain only the newly generated `UniqueCouponCodes`.
      * - $options['params']['end_time'] (string): Inclusively filter by end_time when `sort=created_at` or `sort=updated_at`.
      *        **Note:** this value is an ISO8601 timestamp. A partial timestamp that does not include a time zone will default to UTC.
      *
+     *
      * @return \Recurly\Pager A list of the site's credit payments.
      * @link   https://developers.recurly.com/api/v2021-02-25#operation/list_credit_payments
      */
@@ -1176,7 +1140,6 @@ endpoint to obtain only the newly generated `UniqueCouponCodes`.
   
     /**
      * Fetch a credit payment
-     *
      * @param string $credit_payment_id Credit Payment ID or UUID. For ID no prefix is used e.g. `e28zov4fw0v2`. For UUID use prefix `uuid-`, e.g. `uuid-123457890`.
      * @param array  $options           Associative array of optional parameters
      *
@@ -1191,7 +1154,6 @@ endpoint to obtain only the newly generated `UniqueCouponCodes`.
   
     /**
      * List a site's custom field definitions
-     *
      * @param array $options Associative array of optional parameters
      *
      * Supported optional query string parameters:
@@ -1218,6 +1180,7 @@ endpoint to obtain only the newly generated `UniqueCouponCodes`.
      *        **Note:** this value is an ISO8601 timestamp. A partial timestamp that does not include a time zone will default to UTC.
      * - $options['params']['related_type'] (string): Filter by related type.
      *
+     *
      * @return \Recurly\Pager A list of the site's custom field definitions.
      * @link   https://developers.recurly.com/api/v2021-02-25#operation/list_custom_field_definitions
      */
@@ -1229,7 +1192,6 @@ endpoint to obtain only the newly generated `UniqueCouponCodes`.
   
     /**
      * Fetch an custom field definition
-     *
      * @param string $custom_field_definition_id Custom Field Definition ID
      * @param array  $options                    Associative array of optional parameters
      *
@@ -1244,7 +1206,6 @@ endpoint to obtain only the newly generated `UniqueCouponCodes`.
   
     /**
      * List an invoice template's associated accounts
-     *
      * @param string $invoice_template_id Invoice template ID or code. For ID no prefix is used e.g. `e28zov4fw0v2`. For code use prefix `code-`, e.g. `code-bob`.
      * @param array  $options             Associative array of optional parameters
      *
@@ -1275,6 +1236,7 @@ endpoint to obtain only the newly generated `UniqueCouponCodes`.
      *        `canceled`, or `future` state.
      * - $options['params']['past_due'] (string): Filter for accounts with an invoice in the `past_due` state.
      *
+     *
      * @return \Recurly\Pager A list of an invoice template's associated accounts.
      * @link   https://developers.recurly.com/api/v2021-02-25#operation/list_invoice_template_accounts
      */
@@ -1286,7 +1248,6 @@ endpoint to obtain only the newly generated `UniqueCouponCodes`.
   
     /**
      * List a site's items
-     *
      * @param array $options Associative array of optional parameters
      *
      * Supported optional query string parameters:
@@ -1313,6 +1274,7 @@ endpoint to obtain only the newly generated `UniqueCouponCodes`.
      *        **Note:** this value is an ISO8601 timestamp. A partial timestamp that does not include a time zone will default to UTC.
      * - $options['params']['state'] (string): Filter by state.
      *
+     *
      * @return \Recurly\Pager A list of the site's items.
      * @link   https://developers.recurly.com/api/v2021-02-25#operation/list_items
      */
@@ -1324,8 +1286,7 @@ endpoint to obtain only the newly generated `UniqueCouponCodes`.
   
     /**
      * Create a new item
-     *
-     * @param array $body    The body of the request.
+     * @param array $body The body of the request.
      * @param array $options Associative array of optional parameters
      *
      * @return \Recurly\Resources\Item A new item.
@@ -1339,7 +1300,6 @@ endpoint to obtain only the newly generated `UniqueCouponCodes`.
   
     /**
      * Fetch an item
-     *
      * @param string $item_id Item ID or code. For ID no prefix is used e.g. `e28zov4fw0v2`. For code use prefix `code-`, e.g. `code-red`.
      * @param array  $options Associative array of optional parameters
      *
@@ -1354,7 +1314,6 @@ endpoint to obtain only the newly generated `UniqueCouponCodes`.
   
     /**
      * Update an active item
-     *
      * @param string $item_id Item ID or code. For ID no prefix is used e.g. `e28zov4fw0v2`. For code use prefix `code-`, e.g. `code-red`.
      * @param array  $body    The body of the request.
      * @param array  $options Associative array of optional parameters
@@ -1370,7 +1329,6 @@ endpoint to obtain only the newly generated `UniqueCouponCodes`.
   
     /**
      * Deactivate an item
-     *
      * @param string $item_id Item ID or code. For ID no prefix is used e.g. `e28zov4fw0v2`. For code use prefix `code-`, e.g. `code-red`.
      * @param array  $options Associative array of optional parameters
      *
@@ -1385,7 +1343,6 @@ endpoint to obtain only the newly generated `UniqueCouponCodes`.
   
     /**
      * Reactivate an inactive item
-     *
      * @param string $item_id Item ID or code. For ID no prefix is used e.g. `e28zov4fw0v2`. For code use prefix `code-`, e.g. `code-red`.
      * @param array  $options Associative array of optional parameters
      *
@@ -1400,7 +1357,6 @@ endpoint to obtain only the newly generated `UniqueCouponCodes`.
   
     /**
      * List a site's measured units
-     *
      * @param array $options Associative array of optional parameters
      *
      * Supported optional query string parameters:
@@ -1427,6 +1383,7 @@ endpoint to obtain only the newly generated `UniqueCouponCodes`.
      *        **Note:** this value is an ISO8601 timestamp. A partial timestamp that does not include a time zone will default to UTC.
      * - $options['params']['state'] (string): Filter by state.
      *
+     *
      * @return \Recurly\Pager A list of the site's measured units.
      * @link   https://developers.recurly.com/api/v2021-02-25#operation/list_measured_unit
      */
@@ -1438,8 +1395,7 @@ endpoint to obtain only the newly generated `UniqueCouponCodes`.
   
     /**
      * Create a new measured unit
-     *
-     * @param array $body    The body of the request.
+     * @param array $body The body of the request.
      * @param array $options Associative array of optional parameters
      *
      * @return \Recurly\Resources\MeasuredUnit A new measured unit.
@@ -1453,7 +1409,6 @@ endpoint to obtain only the newly generated `UniqueCouponCodes`.
   
     /**
      * Fetch a measured unit
-     *
      * @param string $measured_unit_id Measured unit ID or name. For ID no prefix is used e.g. `e28zov4fw0v2`. For name use prefix `name-`, e.g. `name-Storage`.
      * @param array  $options          Associative array of optional parameters
      *
@@ -1468,7 +1423,6 @@ endpoint to obtain only the newly generated `UniqueCouponCodes`.
   
     /**
      * Update a measured unit
-     *
      * @param string $measured_unit_id Measured unit ID or name. For ID no prefix is used e.g. `e28zov4fw0v2`. For name use prefix `name-`, e.g. `name-Storage`.
      * @param array  $body             The body of the request.
      * @param array  $options          Associative array of optional parameters
@@ -1484,7 +1438,6 @@ endpoint to obtain only the newly generated `UniqueCouponCodes`.
   
     /**
      * Remove a measured unit
-     *
      * @param string $measured_unit_id Measured unit ID or name. For ID no prefix is used e.g. `e28zov4fw0v2`. For name use prefix `name-`, e.g. `name-Storage`.
      * @param array  $options          Associative array of optional parameters
      *
@@ -1499,7 +1452,6 @@ endpoint to obtain only the newly generated `UniqueCouponCodes`.
   
     /**
      * List a site's invoices
-     *
      * @param array $options Associative array of optional parameters
      *
      * Supported optional query string parameters:
@@ -1530,6 +1482,7 @@ endpoint to obtain only the newly generated `UniqueCouponCodes`.
      *        - `type=non-legacy`, only charge and credit invoices will be returned.
      *        - `type=legacy`, only legacy invoices will be returned.
      *
+     *
      * @return \Recurly\Pager A list of the site's invoices.
      * @link   https://developers.recurly.com/api/v2021-02-25#operation/list_invoices
      */
@@ -1541,7 +1494,6 @@ endpoint to obtain only the newly generated `UniqueCouponCodes`.
   
     /**
      * Fetch an invoice
-     *
      * @param string $invoice_id Invoice ID or number. For ID no prefix is used e.g. `e28zov4fw0v2`. For number use prefix `number-`, e.g. `number-1000`.
      * @param array  $options    Associative array of optional parameters
      *
@@ -1556,7 +1508,6 @@ endpoint to obtain only the newly generated `UniqueCouponCodes`.
   
     /**
      * Update an invoice
-     *
      * @param string $invoice_id Invoice ID or number. For ID no prefix is used e.g. `e28zov4fw0v2`. For number use prefix `number-`, e.g. `number-1000`.
      * @param array  $body       The body of the request.
      * @param array  $options    Associative array of optional parameters
@@ -1572,7 +1523,6 @@ endpoint to obtain only the newly generated `UniqueCouponCodes`.
   
     /**
      * Fetch an invoice as a PDF
-     *
      * @param string $invoice_id Invoice ID or number. For ID no prefix is used e.g. `e28zov4fw0v2`. For number use prefix `number-`, e.g. `number-1000`.
      * @param array  $options    Associative array of optional parameters
      *
@@ -1587,7 +1537,6 @@ endpoint to obtain only the newly generated `UniqueCouponCodes`.
   
     /**
      * Collect a pending or past due, automatic invoice
-     *
      * @param string $invoice_id Invoice ID or number. For ID no prefix is used e.g. `e28zov4fw0v2`. For number use prefix `number-`, e.g. `number-1000`.
      * @param array  $body       The body of the request.
      * @param array  $options    Associative array of optional parameters
@@ -1603,7 +1552,6 @@ endpoint to obtain only the newly generated `UniqueCouponCodes`.
   
     /**
      * Mark an open invoice as failed
-     *
      * @param string $invoice_id Invoice ID or number. For ID no prefix is used e.g. `e28zov4fw0v2`. For number use prefix `number-`, e.g. `number-1000`.
      * @param array  $options    Associative array of optional parameters
      *
@@ -1618,7 +1566,6 @@ endpoint to obtain only the newly generated `UniqueCouponCodes`.
   
     /**
      * Mark an open invoice as successful
-     *
      * @param string $invoice_id Invoice ID or number. For ID no prefix is used e.g. `e28zov4fw0v2`. For number use prefix `number-`, e.g. `number-1000`.
      * @param array  $options    Associative array of optional parameters
      *
@@ -1633,7 +1580,6 @@ endpoint to obtain only the newly generated `UniqueCouponCodes`.
   
     /**
      * Reopen a closed, manual invoice
-     *
      * @param string $invoice_id Invoice ID or number. For ID no prefix is used e.g. `e28zov4fw0v2`. For number use prefix `number-`, e.g. `number-1000`.
      * @param array  $options    Associative array of optional parameters
      *
@@ -1648,7 +1594,6 @@ endpoint to obtain only the newly generated `UniqueCouponCodes`.
   
     /**
      * Void a credit invoice.
-     *
      * @param string $invoice_id Invoice ID or number. For ID no prefix is used e.g. `e28zov4fw0v2`. For number use prefix `number-`, e.g. `number-1000`.
      * @param array  $options    Associative array of optional parameters
      *
@@ -1663,7 +1608,6 @@ endpoint to obtain only the newly generated `UniqueCouponCodes`.
   
     /**
      * Record an external payment for a manual invoices.
-     *
      * @param string $invoice_id Invoice ID or number. For ID no prefix is used e.g. `e28zov4fw0v2`. For number use prefix `number-`, e.g. `number-1000`.
      * @param array  $body       The body of the request.
      * @param array  $options    Associative array of optional parameters
@@ -1679,7 +1623,6 @@ endpoint to obtain only the newly generated `UniqueCouponCodes`.
   
     /**
      * List an invoice's line items
-     *
      * @param string $invoice_id Invoice ID or number. For ID no prefix is used e.g. `e28zov4fw0v2`. For number use prefix `number-`, e.g. `number-1000`.
      * @param array  $options    Associative array of optional parameters
      *
@@ -1709,6 +1652,7 @@ endpoint to obtain only the newly generated `UniqueCouponCodes`.
      * - $options['params']['state'] (string): Filter by state field.
      * - $options['params']['type'] (string): Filter by type field.
      *
+     *
      * @return \Recurly\Pager A list of the invoice's line items.
      * @link   https://developers.recurly.com/api/v2021-02-25#operation/list_invoice_line_items
      */
@@ -1720,7 +1664,6 @@ endpoint to obtain only the newly generated `UniqueCouponCodes`.
   
     /**
      * Show the coupon redemptions applied to an invoice
-     *
      * @param string $invoice_id Invoice ID or number. For ID no prefix is used e.g. `e28zov4fw0v2`. For number use prefix `number-`, e.g. `number-1000`.
      * @param array  $options    Associative array of optional parameters
      *
@@ -1745,6 +1688,7 @@ endpoint to obtain only the newly generated `UniqueCouponCodes`.
      * - $options['params']['end_time'] (string): Inclusively filter by end_time when `sort=created_at` or `sort=updated_at`.
      *        **Note:** this value is an ISO8601 timestamp. A partial timestamp that does not include a time zone will default to UTC.
      *
+     *
      * @return \Recurly\Pager A list of the the coupon redemptions associated with the invoice.
      * @link   https://developers.recurly.com/api/v2021-02-25#operation/list_invoice_coupon_redemptions
      */
@@ -1756,7 +1700,6 @@ endpoint to obtain only the newly generated `UniqueCouponCodes`.
   
     /**
      * List an invoice's related credit or charge invoices
-     *
      * @param string $invoice_id Invoice ID or number. For ID no prefix is used e.g. `e28zov4fw0v2`. For number use prefix `number-`, e.g. `number-1000`.
      * @param array  $options    Associative array of optional parameters
      *
@@ -1771,7 +1714,6 @@ endpoint to obtain only the newly generated `UniqueCouponCodes`.
   
     /**
      * Refund an invoice
-     *
      * @param string $invoice_id Invoice ID or number. For ID no prefix is used e.g. `e28zov4fw0v2`. For number use prefix `number-`, e.g. `number-1000`.
      * @param array  $body       The body of the request.
      * @param array  $options    Associative array of optional parameters
@@ -1787,7 +1729,6 @@ endpoint to obtain only the newly generated `UniqueCouponCodes`.
   
     /**
      * List a site's line items
-     *
      * @param array $options Associative array of optional parameters
      *
      * Supported optional query string parameters:
@@ -1816,6 +1757,7 @@ endpoint to obtain only the newly generated `UniqueCouponCodes`.
      * - $options['params']['state'] (string): Filter by state field.
      * - $options['params']['type'] (string): Filter by type field.
      *
+     *
      * @return \Recurly\Pager A list of the site's line items.
      * @link   https://developers.recurly.com/api/v2021-02-25#operation/list_line_items
      */
@@ -1827,7 +1769,6 @@ endpoint to obtain only the newly generated `UniqueCouponCodes`.
   
     /**
      * Fetch a line item
-     *
      * @param string $line_item_id Line Item ID.
      * @param array  $options      Associative array of optional parameters
      *
@@ -1842,7 +1783,6 @@ endpoint to obtain only the newly generated `UniqueCouponCodes`.
   
     /**
      * Delete an uninvoiced line item
-     *
      * @param string $line_item_id Line Item ID.
      * @param array  $options      Associative array of optional parameters
      *
@@ -1857,7 +1797,6 @@ endpoint to obtain only the newly generated `UniqueCouponCodes`.
   
     /**
      * List a site's plans
-     *
      * @param array $options Associative array of optional parameters
      *
      * Supported optional query string parameters:
@@ -1884,6 +1823,7 @@ endpoint to obtain only the newly generated `UniqueCouponCodes`.
      *        **Note:** this value is an ISO8601 timestamp. A partial timestamp that does not include a time zone will default to UTC.
      * - $options['params']['state'] (string): Filter by state.
      *
+     *
      * @return \Recurly\Pager A list of plans.
      * @link   https://developers.recurly.com/api/v2021-02-25#operation/list_plans
      */
@@ -1895,8 +1835,7 @@ endpoint to obtain only the newly generated `UniqueCouponCodes`.
   
     /**
      * Create a plan
-     *
-     * @param array $body    The body of the request.
+     * @param array $body The body of the request.
      * @param array $options Associative array of optional parameters
      *
      * @return \Recurly\Resources\Plan A plan.
@@ -1910,7 +1849,6 @@ endpoint to obtain only the newly generated `UniqueCouponCodes`.
   
     /**
      * Fetch a plan
-     *
      * @param string $plan_id Plan ID or code. For ID no prefix is used e.g. `e28zov4fw0v2`. For code use prefix `code-`, e.g. `code-gold`.
      * @param array  $options Associative array of optional parameters
      *
@@ -1925,7 +1863,6 @@ endpoint to obtain only the newly generated `UniqueCouponCodes`.
   
     /**
      * Update a plan
-     *
      * @param string $plan_id Plan ID or code. For ID no prefix is used e.g. `e28zov4fw0v2`. For code use prefix `code-`, e.g. `code-gold`.
      * @param array  $body    The body of the request.
      * @param array  $options Associative array of optional parameters
@@ -1941,7 +1878,6 @@ endpoint to obtain only the newly generated `UniqueCouponCodes`.
   
     /**
      * Remove a plan
-     *
      * @param string $plan_id Plan ID or code. For ID no prefix is used e.g. `e28zov4fw0v2`. For code use prefix `code-`, e.g. `code-gold`.
      * @param array  $options Associative array of optional parameters
      *
@@ -1956,7 +1892,6 @@ endpoint to obtain only the newly generated `UniqueCouponCodes`.
   
     /**
      * List a plan's add-ons
-     *
      * @param string $plan_id Plan ID or code. For ID no prefix is used e.g. `e28zov4fw0v2`. For code use prefix `code-`, e.g. `code-gold`.
      * @param array  $options Associative array of optional parameters
      *
@@ -1984,6 +1919,7 @@ endpoint to obtain only the newly generated `UniqueCouponCodes`.
      *        **Note:** this value is an ISO8601 timestamp. A partial timestamp that does not include a time zone will default to UTC.
      * - $options['params']['state'] (string): Filter by state.
      *
+     *
      * @return \Recurly\Pager A list of add-ons.
      * @link   https://developers.recurly.com/api/v2021-02-25#operation/list_plan_add_ons
      */
@@ -1995,7 +1931,6 @@ endpoint to obtain only the newly generated `UniqueCouponCodes`.
   
     /**
      * Create an add-on
-     *
      * @param string $plan_id Plan ID or code. For ID no prefix is used e.g. `e28zov4fw0v2`. For code use prefix `code-`, e.g. `code-gold`.
      * @param array  $body    The body of the request.
      * @param array  $options Associative array of optional parameters
@@ -2011,7 +1946,6 @@ endpoint to obtain only the newly generated `UniqueCouponCodes`.
   
     /**
      * Fetch a plan's add-on
-     *
      * @param string $plan_id   Plan ID or code. For ID no prefix is used e.g. `e28zov4fw0v2`. For code use prefix `code-`, e.g. `code-gold`.
      * @param string $add_on_id Add-on ID or code. For ID no prefix is used e.g. `e28zov4fw0v2`. For code use prefix `code-`, e.g. `code-gold`.
      * @param array  $options   Associative array of optional parameters
@@ -2027,7 +1961,6 @@ endpoint to obtain only the newly generated `UniqueCouponCodes`.
   
     /**
      * Update an add-on
-     *
      * @param string $plan_id   Plan ID or code. For ID no prefix is used e.g. `e28zov4fw0v2`. For code use prefix `code-`, e.g. `code-gold`.
      * @param string $add_on_id Add-on ID or code. For ID no prefix is used e.g. `e28zov4fw0v2`. For code use prefix `code-`, e.g. `code-gold`.
      * @param array  $body      The body of the request.
@@ -2044,7 +1977,6 @@ endpoint to obtain only the newly generated `UniqueCouponCodes`.
   
     /**
      * Remove an add-on
-     *
      * @param string $plan_id   Plan ID or code. For ID no prefix is used e.g. `e28zov4fw0v2`. For code use prefix `code-`, e.g. `code-gold`.
      * @param string $add_on_id Add-on ID or code. For ID no prefix is used e.g. `e28zov4fw0v2`. For code use prefix `code-`, e.g. `code-gold`.
      * @param array  $options   Associative array of optional parameters
@@ -2060,7 +1992,6 @@ endpoint to obtain only the newly generated `UniqueCouponCodes`.
   
     /**
      * List a site's add-ons
-     *
      * @param array $options Associative array of optional parameters
      *
      * Supported optional query string parameters:
@@ -2087,6 +2018,7 @@ endpoint to obtain only the newly generated `UniqueCouponCodes`.
      *        **Note:** this value is an ISO8601 timestamp. A partial timestamp that does not include a time zone will default to UTC.
      * - $options['params']['state'] (string): Filter by state.
      *
+     *
      * @return \Recurly\Pager A list of add-ons.
      * @link   https://developers.recurly.com/api/v2021-02-25#operation/list_add_ons
      */
@@ -2098,7 +2030,6 @@ endpoint to obtain only the newly generated `UniqueCouponCodes`.
   
     /**
      * Fetch an add-on
-     *
      * @param string $add_on_id Add-on ID or code. For ID no prefix is used e.g. `e28zov4fw0v2`. For code use prefix `code-`, e.g. `code-gold`.
      * @param array  $options   Associative array of optional parameters
      *
@@ -2113,7 +2044,6 @@ endpoint to obtain only the newly generated `UniqueCouponCodes`.
   
     /**
      * List a site's shipping methods
-     *
      * @param array $options Associative array of optional parameters
      *
      * Supported optional query string parameters:
@@ -2139,6 +2069,7 @@ endpoint to obtain only the newly generated `UniqueCouponCodes`.
      * - $options['params']['end_time'] (string): Inclusively filter by end_time when `sort=created_at` or `sort=updated_at`.
      *        **Note:** this value is an ISO8601 timestamp. A partial timestamp that does not include a time zone will default to UTC.
      *
+     *
      * @return \Recurly\Pager A list of the site's shipping methods.
      * @link   https://developers.recurly.com/api/v2021-02-25#operation/list_shipping_methods
      */
@@ -2150,8 +2081,7 @@ endpoint to obtain only the newly generated `UniqueCouponCodes`.
   
     /**
      * Create a new shipping method
-     *
-     * @param array $body    The body of the request.
+     * @param array $body The body of the request.
      * @param array $options Associative array of optional parameters
      *
      * @return \Recurly\Resources\ShippingMethod A new shipping method.
@@ -2165,7 +2095,6 @@ endpoint to obtain only the newly generated `UniqueCouponCodes`.
   
     /**
      * Fetch a shipping method
-     *
      * @param string $shipping_method_id Shipping Method ID or code. For ID no prefix is used e.g. `e28zov4fw0v2`. For code use prefix `code-`, e.g. `code-usps_2-day`.
      * @param array  $options            Associative array of optional parameters
      *
@@ -2180,7 +2109,6 @@ endpoint to obtain only the newly generated `UniqueCouponCodes`.
   
     /**
      * Update an active Shipping Method
-     *
      * @param string $shipping_method_id Shipping Method ID or code. For ID no prefix is used e.g. `e28zov4fw0v2`. For code use prefix `code-`, e.g. `code-usps_2-day`.
      * @param array  $body               The body of the request.
      * @param array  $options            Associative array of optional parameters
@@ -2196,7 +2124,6 @@ endpoint to obtain only the newly generated `UniqueCouponCodes`.
   
     /**
      * Deactivate a shipping method
-     *
      * @param string $shipping_method_id Shipping Method ID or code. For ID no prefix is used e.g. `e28zov4fw0v2`. For code use prefix `code-`, e.g. `code-usps_2-day`.
      * @param array  $options            Associative array of optional parameters
      *
@@ -2211,7 +2138,6 @@ endpoint to obtain only the newly generated `UniqueCouponCodes`.
   
     /**
      * List a site's subscriptions
-     *
      * @param array $options Associative array of optional parameters
      *
      * Supported optional query string parameters:
@@ -2242,6 +2168,7 @@ endpoint to obtain only the newly generated `UniqueCouponCodes`.
      *        - When `state=in_trial`, only subscriptions that have a trial_started_at date earlier than now and a trial_ends_at date later than now will be returned.
      *        - When `state=live`, only subscriptions that are in an active, canceled, or future state or are in trial will be returned.
      *
+     *
      * @return \Recurly\Pager A list of the site's subscriptions.
      * @link   https://developers.recurly.com/api/v2021-02-25#operation/list_subscriptions
      */
@@ -2253,8 +2180,7 @@ endpoint to obtain only the newly generated `UniqueCouponCodes`.
   
     /**
      * Create a new subscription
-     *
-     * @param array $body    The body of the request.
+     * @param array $body The body of the request.
      * @param array $options Associative array of optional parameters
      *
      * @return \Recurly\Resources\Subscription A subscription.
@@ -2268,7 +2194,6 @@ endpoint to obtain only the newly generated `UniqueCouponCodes`.
   
     /**
      * Fetch a subscription
-     *
      * @param string $subscription_id Subscription ID or UUID. For ID no prefix is used e.g. `e28zov4fw0v2`. For UUID use prefix `uuid-`, e.g. `uuid-123457890`.
      * @param array  $options         Associative array of optional parameters
      *
@@ -2283,7 +2208,6 @@ endpoint to obtain only the newly generated `UniqueCouponCodes`.
   
     /**
      * Update a subscription
-     *
      * @param string $subscription_id Subscription ID or UUID. For ID no prefix is used e.g. `e28zov4fw0v2`. For UUID use prefix `uuid-`, e.g. `uuid-123457890`.
      * @param array  $body            The body of the request.
      * @param array  $options         Associative array of optional parameters
@@ -2299,7 +2223,6 @@ endpoint to obtain only the newly generated `UniqueCouponCodes`.
   
     /**
      * Terminate a subscription
-     *
      * @param string $subscription_id Subscription ID or UUID. For ID no prefix is used e.g. `e28zov4fw0v2`. For UUID use prefix `uuid-`, e.g. `uuid-123457890`.
      * @param array  $options         Associative array of optional parameters
      *
@@ -2316,6 +2239,7 @@ endpoint to obtain only the newly generated `UniqueCouponCodes`.
      *        You may also terminate a subscription with no refund and then manually refund specific invoices.
      * - $options['params']['charge'] (bool): Applicable only if the subscription has usage based add-ons and unbilled usage logged for the current billing cycle. If true, current billing cycle unbilled usage is billed on the final invoice. If false, Recurly will create a negative usage record for current billing cycle usage that will zero out the final invoice line items.
      *
+     *
      * @return \Recurly\Resources\Subscription An expired subscription.
      * @link   https://developers.recurly.com/api/v2021-02-25#operation/terminate_subscription
      */
@@ -2327,7 +2251,6 @@ endpoint to obtain only the newly generated `UniqueCouponCodes`.
   
     /**
      * Cancel a subscription
-     *
      * @param string $subscription_id Subscription ID or UUID. For ID no prefix is used e.g. `e28zov4fw0v2`. For UUID use prefix `uuid-`, e.g. `uuid-123457890`.
      * @param array  $body            The body of the request.
      * @param array  $options         Associative array of optional parameters
@@ -2343,7 +2266,6 @@ endpoint to obtain only the newly generated `UniqueCouponCodes`.
   
     /**
      * Reactivate a canceled subscription
-     *
      * @param string $subscription_id Subscription ID or UUID. For ID no prefix is used e.g. `e28zov4fw0v2`. For UUID use prefix `uuid-`, e.g. `uuid-123457890`.
      * @param array  $options         Associative array of optional parameters
      *
@@ -2358,7 +2280,6 @@ endpoint to obtain only the newly generated `UniqueCouponCodes`.
   
     /**
      * Pause subscription
-     *
      * @param string $subscription_id Subscription ID or UUID. For ID no prefix is used e.g. `e28zov4fw0v2`. For UUID use prefix `uuid-`, e.g. `uuid-123457890`.
      * @param array  $body            The body of the request.
      * @param array  $options         Associative array of optional parameters
@@ -2374,7 +2295,6 @@ endpoint to obtain only the newly generated `UniqueCouponCodes`.
   
     /**
      * Resume subscription
-     *
      * @param string $subscription_id Subscription ID or UUID. For ID no prefix is used e.g. `e28zov4fw0v2`. For UUID use prefix `uuid-`, e.g. `uuid-123457890`.
      * @param array  $options         Associative array of optional parameters
      *
@@ -2389,7 +2309,6 @@ endpoint to obtain only the newly generated `UniqueCouponCodes`.
   
     /**
      * Convert trial subscription
-     *
      * @param string $subscription_id Subscription ID or UUID. For ID no prefix is used e.g. `e28zov4fw0v2`. For UUID use prefix `uuid-`, e.g. `uuid-123457890`.
      * @param array  $options         Associative array of optional parameters
      *
@@ -2404,7 +2323,6 @@ endpoint to obtain only the newly generated `UniqueCouponCodes`.
   
     /**
      * Fetch a preview of a subscription's renewal invoice(s)
-     *
      * @param string $subscription_id Subscription ID or UUID. For ID no prefix is used e.g. `e28zov4fw0v2`. For UUID use prefix `uuid-`, e.g. `uuid-123457890`.
      * @param array  $options         Associative array of optional parameters
      *
@@ -2419,7 +2337,6 @@ endpoint to obtain only the newly generated `UniqueCouponCodes`.
   
     /**
      * Fetch a subscription's pending change
-     *
      * @param string $subscription_id Subscription ID or UUID. For ID no prefix is used e.g. `e28zov4fw0v2`. For UUID use prefix `uuid-`, e.g. `uuid-123457890`.
      * @param array  $options         Associative array of optional parameters
      *
@@ -2434,7 +2351,6 @@ endpoint to obtain only the newly generated `UniqueCouponCodes`.
   
     /**
      * Create a new subscription change
-     *
      * @param string $subscription_id Subscription ID or UUID. For ID no prefix is used e.g. `e28zov4fw0v2`. For UUID use prefix `uuid-`, e.g. `uuid-123457890`.
      * @param array  $body            The body of the request.
      * @param array  $options         Associative array of optional parameters
@@ -2450,7 +2366,6 @@ endpoint to obtain only the newly generated `UniqueCouponCodes`.
   
     /**
      * Delete the pending subscription change
-     *
      * @param string $subscription_id Subscription ID or UUID. For ID no prefix is used e.g. `e28zov4fw0v2`. For UUID use prefix `uuid-`, e.g. `uuid-123457890`.
      * @param array  $options         Associative array of optional parameters
      *
@@ -2465,7 +2380,6 @@ endpoint to obtain only the newly generated `UniqueCouponCodes`.
   
     /**
      * Preview a new subscription change
-     *
      * @param string $subscription_id Subscription ID or UUID. For ID no prefix is used e.g. `e28zov4fw0v2`. For UUID use prefix `uuid-`, e.g. `uuid-123457890`.
      * @param array  $body            The body of the request.
      * @param array  $options         Associative array of optional parameters
@@ -2481,7 +2395,6 @@ endpoint to obtain only the newly generated `UniqueCouponCodes`.
   
     /**
      * List a subscription's invoices
-     *
      * @param string $subscription_id Subscription ID or UUID. For ID no prefix is used e.g. `e28zov4fw0v2`. For UUID use prefix `uuid-`, e.g. `uuid-123457890`.
      * @param array  $options         Associative array of optional parameters
      *
@@ -2513,6 +2426,7 @@ endpoint to obtain only the newly generated `UniqueCouponCodes`.
      *        - `type=non-legacy`, only charge and credit invoices will be returned.
      *        - `type=legacy`, only legacy invoices will be returned.
      *
+     *
      * @return \Recurly\Pager A list of the subscription's invoices.
      * @link   https://developers.recurly.com/api/v2021-02-25#operation/list_subscription_invoices
      */
@@ -2524,7 +2438,6 @@ endpoint to obtain only the newly generated `UniqueCouponCodes`.
   
     /**
      * List a subscription's line items
-     *
      * @param string $subscription_id Subscription ID or UUID. For ID no prefix is used e.g. `e28zov4fw0v2`. For UUID use prefix `uuid-`, e.g. `uuid-123457890`.
      * @param array  $options         Associative array of optional parameters
      *
@@ -2554,6 +2467,7 @@ endpoint to obtain only the newly generated `UniqueCouponCodes`.
      * - $options['params']['state'] (string): Filter by state field.
      * - $options['params']['type'] (string): Filter by type field.
      *
+     *
      * @return \Recurly\Pager A list of the subscription's line items.
      * @link   https://developers.recurly.com/api/v2021-02-25#operation/list_subscription_line_items
      */
@@ -2565,7 +2479,6 @@ endpoint to obtain only the newly generated `UniqueCouponCodes`.
   
     /**
      * Show the coupon redemptions for a subscription
-     *
      * @param string $subscription_id Subscription ID or UUID. For ID no prefix is used e.g. `e28zov4fw0v2`. For UUID use prefix `uuid-`, e.g. `uuid-123457890`.
      * @param array  $options         Associative array of optional parameters
      *
@@ -2590,6 +2503,7 @@ endpoint to obtain only the newly generated `UniqueCouponCodes`.
      * - $options['params']['end_time'] (string): Inclusively filter by end_time when `sort=created_at` or `sort=updated_at`.
      *        **Note:** this value is an ISO8601 timestamp. A partial timestamp that does not include a time zone will default to UTC.
      *
+     *
      * @return \Recurly\Pager A list of the the coupon redemptions on a subscription.
      * @link   https://developers.recurly.com/api/v2021-02-25#operation/list_subscription_coupon_redemptions
      */
@@ -2601,7 +2515,6 @@ endpoint to obtain only the newly generated `UniqueCouponCodes`.
   
     /**
      * List a subscription add-on's usage records
-     *
      * @param string $subscription_id Subscription ID or UUID. For ID no prefix is used e.g. `e28zov4fw0v2`. For UUID use prefix `uuid-`, e.g. `uuid-123457890`.
      * @param string $add_on_id       Add-on ID or code. For ID no prefix is used e.g. `e28zov4fw0v2`. For code use prefix `code-`, e.g. `code-gold`.
      * @param array  $options         Associative array of optional parameters
@@ -2630,6 +2543,7 @@ endpoint to obtain only the newly generated `UniqueCouponCodes`.
      *        **Note:** this value is an ISO8601 timestamp. A partial timestamp that does not include a time zone will default to UTC.
      * - $options['params']['billing_status'] (string): Filter by usage record's billing status
      *
+     *
      * @return \Recurly\Pager A list of the subscription add-on's usage records.
      * @link   https://developers.recurly.com/api/v2021-02-25#operation/list_usage
      */
@@ -2641,7 +2555,6 @@ endpoint to obtain only the newly generated `UniqueCouponCodes`.
   
     /**
      * Log a usage record on this subscription add-on
-     *
      * @param string $subscription_id Subscription ID or UUID. For ID no prefix is used e.g. `e28zov4fw0v2`. For UUID use prefix `uuid-`, e.g. `uuid-123457890`.
      * @param string $add_on_id       Add-on ID or code. For ID no prefix is used e.g. `e28zov4fw0v2`. For code use prefix `code-`, e.g. `code-gold`.
      * @param array  $body            The body of the request.
@@ -2658,7 +2571,6 @@ endpoint to obtain only the newly generated `UniqueCouponCodes`.
   
     /**
      * Get a usage record
-     *
      * @param string $usage_id Usage Record ID.
      * @param array  $options  Associative array of optional parameters
      *
@@ -2673,7 +2585,6 @@ endpoint to obtain only the newly generated `UniqueCouponCodes`.
   
     /**
      * Update a usage record
-     *
      * @param string $usage_id Usage Record ID.
      * @param array  $body     The body of the request.
      * @param array  $options  Associative array of optional parameters
@@ -2689,7 +2600,6 @@ endpoint to obtain only the newly generated `UniqueCouponCodes`.
   
     /**
      * Delete a usage record.
-     *
      * @param string $usage_id Usage Record ID.
      * @param array  $options  Associative array of optional parameters
      *
@@ -2704,7 +2614,6 @@ endpoint to obtain only the newly generated `UniqueCouponCodes`.
   
     /**
      * List a site's transactions
-     *
      * @param array $options Associative array of optional parameters
      *
      * Supported optional query string parameters:
@@ -2732,6 +2641,7 @@ endpoint to obtain only the newly generated `UniqueCouponCodes`.
      * - $options['params']['type'] (string): Filter by type field. The value `payment` will return both `purchase` and `capture` transactions.
      * - $options['params']['success'] (string): Filter by success field.
      *
+     *
      * @return \Recurly\Pager A list of the site's transactions.
      * @link   https://developers.recurly.com/api/v2021-02-25#operation/list_transactions
      */
@@ -2743,7 +2653,6 @@ endpoint to obtain only the newly generated `UniqueCouponCodes`.
   
     /**
      * Fetch a transaction
-     *
      * @param string $transaction_id Transaction ID or UUID. For ID no prefix is used e.g. `e28zov4fw0v2`. For UUID use prefix `uuid-`, e.g. `uuid-123457890`.
      * @param array  $options        Associative array of optional parameters
      *
@@ -2758,7 +2667,6 @@ endpoint to obtain only the newly generated `UniqueCouponCodes`.
   
     /**
      * Fetch a unique coupon code
-     *
      * @param string $unique_coupon_code_id Unique Coupon Code ID or code. For ID no prefix is used e.g. `e28zov4fw0v2`. For code use prefix `code-`, e.g. `code-abc-8dh2-def`.
      * @param array  $options               Associative array of optional parameters
      *
@@ -2773,7 +2681,6 @@ endpoint to obtain only the newly generated `UniqueCouponCodes`.
   
     /**
      * Deactivate a unique coupon code
-     *
      * @param string $unique_coupon_code_id Unique Coupon Code ID or code. For ID no prefix is used e.g. `e28zov4fw0v2`. For code use prefix `code-`, e.g. `code-abc-8dh2-def`.
      * @param array  $options               Associative array of optional parameters
      *
@@ -2788,7 +2695,6 @@ endpoint to obtain only the newly generated `UniqueCouponCodes`.
   
     /**
      * Restore a unique coupon code
-     *
      * @param string $unique_coupon_code_id Unique Coupon Code ID or code. For ID no prefix is used e.g. `e28zov4fw0v2`. For code use prefix `code-`, e.g. `code-abc-8dh2-def`.
      * @param array  $options               Associative array of optional parameters
      *
@@ -2803,8 +2709,7 @@ endpoint to obtain only the newly generated `UniqueCouponCodes`.
   
     /**
      * Create a new purchase
-     *
-     * @param array $body    The body of the request.
+     * @param array $body The body of the request.
      * @param array $options Associative array of optional parameters
      *
      * @return \Recurly\Resources\InvoiceCollection Returns the new invoices
@@ -2818,8 +2723,7 @@ endpoint to obtain only the newly generated `UniqueCouponCodes`.
   
     /**
      * Preview a new purchase
-     *
-     * @param array $body    The body of the request.
+     * @param array $body The body of the request.
      * @param array $options Associative array of optional parameters
      *
      * @return \Recurly\Resources\InvoiceCollection Returns preview of the new invoices
@@ -2833,8 +2737,7 @@ endpoint to obtain only the newly generated `UniqueCouponCodes`.
   
     /**
      * Create a pending purchase
-     *
-     * @param array $body    The body of the request.
+     * @param array $body The body of the request.
      * @param array $options Associative array of optional parameters
      *
      * @return \Recurly\Resources\InvoiceCollection Returns the pending invoice
@@ -2848,7 +2751,6 @@ endpoint to obtain only the newly generated `UniqueCouponCodes`.
   
     /**
      * List the dates that have an available export to download.
-     *
      * @param array $options Associative array of optional parameters
      *
      * @return \Recurly\Resources\ExportDates Returns a list of dates.
@@ -2862,7 +2764,6 @@ endpoint to obtain only the newly generated `UniqueCouponCodes`.
   
     /**
      * List of the export files that are available to download.
-     *
      * @param string $export_date Date for which to get a list of available automated export files. Date must be in YYYY-MM-DD format.
      * @param array  $options     Associative array of optional parameters
      *
@@ -2877,7 +2778,6 @@ endpoint to obtain only the newly generated `UniqueCouponCodes`.
   
     /**
      * Show the dunning campaigns for a site
-     *
      * @param array $options Associative array of optional parameters
      *
      * Supported optional query string parameters:
@@ -2885,6 +2785,7 @@ endpoint to obtain only the newly generated `UniqueCouponCodes`.
      * - $options['params']['sort'] (string): Sort field. You *really* only want to sort by `updated_at` in ascending
      *        order. In descending order updated records will move behind the cursor and could
      *        prevent some records from being returned.
+     *
      *
      * @return \Recurly\Pager A list of the the dunning_campaigns on an account.
      * @link   https://developers.recurly.com/api/v2021-02-25#operation/list_dunning_campaigns
@@ -2897,7 +2798,6 @@ endpoint to obtain only the newly generated `UniqueCouponCodes`.
   
     /**
      * Show the settings for a dunning campaign
-     *
      * @param string $dunning_campaign_id Dunning Campaign ID, e.g. `e28zov4fw0v2`.
      * @param array  $options             Associative array of optional parameters
      *
@@ -2912,7 +2812,6 @@ endpoint to obtain only the newly generated `UniqueCouponCodes`.
   
     /**
      * Assign a dunning campaign to multiple plans
-     *
      * @param string $dunning_campaign_id Dunning Campaign ID, e.g. `e28zov4fw0v2`.
      * @param array  $body                The body of the request.
      * @param array  $options             Associative array of optional parameters
@@ -2928,7 +2827,6 @@ endpoint to obtain only the newly generated `UniqueCouponCodes`.
   
     /**
      * Show the invoice templates for a site
-     *
      * @param array $options Associative array of optional parameters
      *
      * Supported optional query string parameters:
@@ -2936,6 +2834,7 @@ endpoint to obtain only the newly generated `UniqueCouponCodes`.
      * - $options['params']['sort'] (string): Sort field. You *really* only want to sort by `updated_at` in ascending
      *        order. In descending order updated records will move behind the cursor and could
      *        prevent some records from being returned.
+     *
      *
      * @return \Recurly\Pager A list of the the invoice templates on a site.
      * @link   https://developers.recurly.com/api/v2021-02-25#operation/list_invoice_templates
@@ -2948,7 +2847,6 @@ endpoint to obtain only the newly generated `UniqueCouponCodes`.
   
     /**
      * Show the settings for an invoice template
-     *
      * @param string $invoice_template_id Invoice template ID or code. For ID no prefix is used e.g. `e28zov4fw0v2`. For code use prefix `code-`, e.g. `code-bob`.
      * @param array  $options             Associative array of optional parameters
      *
