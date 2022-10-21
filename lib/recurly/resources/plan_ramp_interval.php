@@ -45,7 +45,7 @@ class PlanRampInterval extends RecurlyResource
 
     /**
     * Getter method for the starting_billing_cycle attribute.
-    * Represents the first billing cycle of a ramp.
+    * Represents the billing cycle where a ramp interval starts.
     *
     * @return ?int
     */

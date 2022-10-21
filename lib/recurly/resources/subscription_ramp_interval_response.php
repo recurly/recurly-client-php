@@ -45,7 +45,7 @@ class SubscriptionRampIntervalResponse extends RecurlyResource
 
     /**
     * Getter method for the starting_billing_cycle attribute.
-    * Represents how many billing cycles are included in a ramp interval.
+    * Represents the billing cycle where a ramp interval starts.
     *
     * @return ?int
     */
