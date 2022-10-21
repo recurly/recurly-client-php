@@ -1,5 +1,16 @@
 # Changelog
 
+## [3.15.0](https://github.com/recurly/recurly-client-php/tree/3.15.0) (2022-10-21)
+
+[Full Changelog](https://github.com/recurly/recurly-client-php/compare/3.14.0...3.15.0)
+
+
+**Merged Pull Requests**
+
+- Generated Latest Changes for v2019-10-10(Decimal Usage and Quantities) [#721](https://github.com/recurly/recurly-client-php/pull/721) ([recurly-integrations](https://github.com/recurly-integrations))
+
+
+
 ## [3.14.0](https://github.com/recurly/recurly-client-php/tree/3.14.0) (2022-08-03)
 
 [Full Changelog](https://github.com/recurly/recurly-client-php/compare/3.13.0...3.14.0)
