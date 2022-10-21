@@ -1,10 +1,24 @@
 # Changelog
 
+## [4.22.0](https://github.com/recurly/recurly-client-php/tree/4.22.0) (2022-10-21)
+
+[Full Changelog](https://github.com/recurly/recurly-client-php/compare/4.21.2...4.22.0)
+
+
+**Merged Pull Requests**
+
+- Generated Latest Changes for v2021-02-25(Decimal Usage and Quantities and DunningEvent new fields) [#722](https://github.com/recurly/recurly-client-php/pull/722) ([recurly-integrations](https://github.com/recurly-integrations))
+
+
+
 ## [4.21.2](https://github.com/recurly/recurly-client-php/tree/4.21.2) (2022-09-21)
 
 [Full Changelog](https://github.com/recurly/recurly-client-php/compare/4.21.1...4.21.2)
 
 
+**Merged Pull Requests**
+
+- feat: allow for psr/log ^2/3 [#716](https://github.com/recurly/recurly-client-php/pull/716) ([trickeyone](https://github.com/trickeyone))
 
 
 
