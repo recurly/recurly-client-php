@@ -2961,4 +2961,26 @@ endpoint to obtain only the newly generated `UniqueCouponCodes`.
         return $this->makeRequest('GET', $path, [], $options);
     }
   
+    /**
+     * Show all entitlements granted to an account
+     *
+     * @param string $account_id Account ID or code. For ID no prefix is used e.g. `e28zov4fw0v2`. For code use prefix `code-`, e.g. `code-bob`.
+     * @param array  $options    Associative array of optional parameters
+     *
+     * Supported optional query string parameters:
+     *
+     * - $options['params']['state'] (string): Filter the entitlements based on the state of the applicable subscription.
+     *        
+     *        - When `state=active`, `state=canceled`, `state=expired`, or `state=future`, subscriptions with states that match the query and only those subscriptions will be returned.
+     *        - When no state is provided, subscriptions with active or canceled states will be returned.
+     *
+     * @return \Recurly\Pager A list of the entitlements granted to an account.
+     * @link   https://developers.recurly.com/api/v2021-02-25#operation/list_entitlements
+     */
+    public function listEntitlements(string $account_id, array $options = []): \Recurly\Pager
+    {
+        $path = $this->interpolatePath("/accounts/{account_id}/entitlements", ['account_id' => $account_id]);
+        return new \Recurly\Pager($this, $path, $options);
+    }
+  
 }
