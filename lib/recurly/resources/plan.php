@@ -20,6 +20,7 @@ class Plan extends RecurlyResource
     private $_code;
     private $_created_at;
     private $_currencies;
+    private $_custom_fields;
     private $_deleted_at;
     private $_description;
     private $_dunning_campaign_id;
@@ -45,6 +46,7 @@ class Plan extends RecurlyResource
 
     protected static $array_hints = [
         'setCurrencies' => '\Recurly\Resources\PlanPricing',
+        'setCustomFields' => '\Recurly\Resources\CustomField',
         'setRampIntervals' => '\Recurly\Resources\PlanRampInterval',
     ];
 
@@ -234,6 +236,29 @@ If `false`, only plan add-ons can be used.
     public function setCurrencies(array $currencies): void
     {
         $this->_currencies = $currencies;
+    }
+
+    /**
+    * Getter method for the custom_fields attribute.
+    * The custom fields will only be altered when they are included in a request. Sending an empty array will not remove any existing values. To remove a field send the name with a null or empty value.
+    *
+    * @return array
+    */
+    public function getCustomFields(): array
+    {
+        return $this->_custom_fields ?? [] ;
+    }
+
+    /**
+    * Setter method for the custom_fields attribute.
+    *
+    * @param array $custom_fields
+    *
+    * @return void
+    */
+    public function setCustomFields(array $custom_fields): void
+    {
+        $this->_custom_fields = $custom_fields;
     }
 
     /**
