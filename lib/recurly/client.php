@@ -427,7 +427,7 @@ class Client extends BaseClient
     }
   
     /**
-     * Show the coupon redemptions for an account
+     * List the coupon redemptions for an account
      *
      * @param string $account_id Account ID or code. For ID no prefix is used e.g. `e28zov4fw0v2`. For code use prefix `code-`, e.g. `code-bob`.
      * @param array  $options    Associative array of optional parameters
@@ -464,7 +464,7 @@ class Client extends BaseClient
     }
   
     /**
-     * Show the coupon redemptions that are active on an account
+     * List the coupon redemptions that are active on an account
      *
      * @param string $account_id Account ID or code. For ID no prefix is used e.g. `e28zov4fw0v2`. For code use prefix `code-`, e.g. `code-bob`.
      * @param array  $options    Associative array of optional parameters
@@ -669,7 +669,7 @@ class Client extends BaseClient
     }
   
     /**
-     * Fetch a list of an account's notes
+     * List an account's notes
      *
      * @param string $account_id Account ID or code. For ID no prefix is used e.g. `e28zov4fw0v2`. For code use prefix `code-`, e.g. `code-bob`.
      * @param array  $options    Associative array of optional parameters
@@ -1719,7 +1719,7 @@ endpoint to obtain only the newly generated `UniqueCouponCodes`.
     }
   
     /**
-     * Show the coupon redemptions applied to an invoice
+     * List the coupon redemptions applied to an invoice
      *
      * @param string $invoice_id Invoice ID or number. For ID no prefix is used e.g. `e28zov4fw0v2`. For number use prefix `number-`, e.g. `number-1000`.
      * @param array  $options    Associative array of optional parameters
@@ -2564,7 +2564,7 @@ endpoint to obtain only the newly generated `UniqueCouponCodes`.
     }
   
     /**
-     * Show the coupon redemptions for a subscription
+     * List the coupon redemptions for a subscription
      *
      * @param string $subscription_id Subscription ID or UUID. For ID no prefix is used e.g. `e28zov4fw0v2`. For UUID use prefix `uuid-`, e.g. `uuid-123457890`.
      * @param array  $options         Associative array of optional parameters
@@ -2876,7 +2876,7 @@ endpoint to obtain only the newly generated `UniqueCouponCodes`.
     }
   
     /**
-     * Show the dunning campaigns for a site
+     * List the dunning campaigns for a site
      *
      * @param array $options Associative array of optional parameters
      *
@@ -2896,7 +2896,7 @@ endpoint to obtain only the newly generated `UniqueCouponCodes`.
     }
   
     /**
-     * Show the settings for a dunning campaign
+     * Fetch a dunning campaign
      *
      * @param string $dunning_campaign_id Dunning Campaign ID, e.g. `e28zov4fw0v2`.
      * @param array  $options             Associative array of optional parameters
@@ -2947,7 +2947,7 @@ endpoint to obtain only the newly generated `UniqueCouponCodes`.
     }
   
     /**
-     * Show the settings for an invoice template
+     * Fetch an invoice template
      *
      * @param string $invoice_template_id Invoice template ID or code. For ID no prefix is used e.g. `e28zov4fw0v2`. For code use prefix `code-`, e.g. `code-bob`.
      * @param array  $options             Associative array of optional parameters
@@ -2962,7 +2962,7 @@ endpoint to obtain only the newly generated `UniqueCouponCodes`.
     }
   
     /**
-     * Show all entitlements granted to an account
+     * List entitlements granted to an account
      *
      * @param string $account_id Account ID or code. For ID no prefix is used e.g. `e28zov4fw0v2`. For code use prefix `code-`, e.g. `code-bob`.
      * @param array  $options    Associative array of optional parameters

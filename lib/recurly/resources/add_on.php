@@ -558,7 +558,7 @@ class AddOn extends RecurlyResource
     * Getter method for the tier_type attribute.
     * The pricing model for the add-on.  For more information,
 [click here](https://docs.recurly.com/docs/billing-models#section-quantity-based). See our
-[Guide](https://developers.recurly.com/guides/item-addon-guide.html) for an overview of how
+[Guide](https://recurly.com/developers/guides/item-addon-guide.html) for an overview of how
 to configure quantity-based pricing models.
 
     *
