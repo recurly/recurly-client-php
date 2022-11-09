@@ -1,0 +1,39 @@
+HTTP/1.1 200 OK
+Content-Type: application/xml; charset=utf-8
+
+<?xml version="1.0" encoding="UTF-8"?>
+<external_products type="array">
+  <external_product href="https://api.recurly.com/v2/external_products/rjozfa4jgsri">
+    <plan href="https://api.recurly.com/v2/plans/plan-code">
+      <plan_code>plan-code</plan_code>
+      <name>Plan Code</name>
+    </plan>
+    <name>name</name>
+    <created_at type="datetime">2022-09-12T15:18:16Z</created_at>
+    <updated_at type="datetime">2022-09-12T15:18:16Z</updated_at>
+    <external_product_references type="array">
+      <external_product_reference>
+        <id>rj3vo231wzb4</id>
+        <reference_code>12345</reference_code>
+        <external_connection_type>apple_app_store</external_connection_type>
+        <created_at type="datetime">2022-09-09T16:19:48Z</created_at>
+        <updated_at type="datetime">2022-09-09T16:19:48Z</updated_at>
+      </external_product_reference>
+    </external_product_references>
+  </external_product>
+  <external_product href="https://api.recurly.com/v2/external_products/riy42jh3g2i5">
+    <plan nil="nil"></plan>
+    <name>name 2</name>
+    <created_at type="datetime">2022-09-12T15:18:16Z</created_at>
+    <updated_at type="datetime">2022-09-12T15:18:16Z</updated_at>
+    <external_product_references type="array">
+      <external_product_reference>
+        <id>rj3vo231wzb4</id>
+        <reference_code>12345</reference_code>
+        <external_connection_type>apple_app_store</external_connection_type>
+        <created_at type="datetime">2022-09-09T16:19:48Z</created_at>
+        <updated_at type="datetime">2022-09-09T16:19:48Z</updated_at>
+      </external_product_reference>
+    </external_product_references>
+  </external_product>
+</external_products>
