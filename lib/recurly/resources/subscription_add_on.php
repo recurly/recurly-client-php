@@ -27,6 +27,7 @@ class SubscriptionAddOn extends RecurlyResource
     private $_unit_amount;
     private $_unit_amount_decimal;
     private $_updated_at;
+    private $_usage_calculation_type;
     private $_usage_percentage;
     private $_usage_timeframe;
 
@@ -395,6 +396,29 @@ There must be one tier without an `ending_quantity` value which represents the f
     public function setUpdatedAt(string $updated_at): void
     {
         $this->_updated_at = $updated_at;
+    }
+
+    /**
+    * Getter method for the usage_calculation_type attribute.
+    * The type of calculation to be employed for an add-on.  Cumulative billing will sum all usage records created in the current billing cycle.  Last-in-period billing will apply only the most recent usage record in the billing period.  If no value is specified, cumulative billing will be used.
+    *
+    * @return ?string
+    */
+    public function getUsageCalculationType(): ?string
+    {
+        return $this->_usage_calculation_type;
+    }
+
+    /**
+    * Setter method for the usage_calculation_type attribute.
+    *
+    * @param string $usage_calculation_type
+    *
+    * @return void
+    */
+    public function setUsageCalculationType(string $usage_calculation_type): void
+    {
+        $this->_usage_calculation_type = $usage_calculation_type;
     }
 
     /**
