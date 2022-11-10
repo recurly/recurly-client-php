@@ -51,7 +51,7 @@ class Recurly_Client
    */
   private static $apiUrl = 'https://%s.recurly.com/v2';
 
-  const API_CLIENT_VERSION = '2.12.31';
+  const API_CLIENT_VERSION = '2.12.32';
   const DEFAULT_ENCODING = 'UTF-8';
 
   const GET = 'GET';
@@ -84,6 +84,7 @@ class Recurly_Client
   const PATH_USAGE = 'usage';
   const PATH_DUNNING_CAMPAIGNS = 'dunning_campaigns';
   const PATH_INVOICE_TEMPLATES = 'invoice_templates';
+  const PATH_ENTITLEMENTS = 'entitlements';
 
   /**
    * Create a new Recurly Client

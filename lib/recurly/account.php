@@ -10,6 +10,7 @@
  * @property Recurly_Stub $subscriptions The URL of subscriptions for the specified account.
  * @property Recurly_Stub $transactions The URL of transactions for the specified account.
  * @property Recurly_Stub $invoice_template The URL of the invoice template for the specified account.
+ * @property Recurly_Stub $entitlements The URL of the entitlements for the specified account.
  * @property string $account_code The unique identifier of the account.
  * @property string $state The state of accounts to return: active or closed.
  * @property string $username The username of the account.

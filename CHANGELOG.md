@@ -1,5 +1,16 @@
 # Changelog
 
+## [2.12.32](https://github.com/recurly/recurly-client-php/tree/2.12.32) (2022-10-27)
+
+[Full Changelog](https://github.com/recurly/recurly-client-php/compare/2.12.31...2.12.32)
+
+
+**Merged Pull Requests**
+
+- Client lib updates for v2 entitlements [#719](https://github.com/recurly/recurly-client-php/pull/719) ([sunnyw1212](https://github.com/sunnyw1212))
+
+
+
 ## [2.12.31](https://github.com/recurly/recurly-client-php/tree/2.12.31) (2022-10-20)
 
 [Full Changelog](https://github.com/recurly/recurly-client-php/compare/2.12.30...2.12.31)
