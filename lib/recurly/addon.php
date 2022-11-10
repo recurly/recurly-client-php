@@ -19,6 +19,7 @@
  * @property boolean $optional Whether the add-on is optional for the customer to include in their purchase on the hosted payment page.
  * @property string $usage_type string If add_on_type = usage, you must set a usage_type, which can be 'price' or 'percentage'. If 'price', the price is defined in unit_amount_in_cents. If 'percentage', the percentage is defined in usage_percentage. If 'item_code' present, usage_type must be absent.
  * @property float $usage_percentage If add_on_type = usage and usage_type = percentage, you must set a usage_percentage. Must be between 0.0000 and 100.0000. If item_code is present, usage_percentage must be absent.
+ * @property string $usage_calculation_type The method of calculation used for usage-based add-ons with type 'price'.  Can be 'cumulative' or 'last_in_period'.  If no type is selected, type 'cumulative' will apply.
  * @property string $revenue_schedule_type Optional field for setting a revenue schedule type. This will determine how revenue for the associated Plan should be recognized. When creating a Plan, if you supply an end_date and end_date available schedule types are never, evenly, at_range_start, or at_range_end. If item_code is present, revenue_schedule_type must be absent.
  * @property DateTime $created_at The date and time the add-on was created.
  * @property DateTime $updated_at The date and time the add-on was last updated.
@@ -56,7 +57,7 @@ class Recurly_Addon extends Recurly_Resource
     else
       return Recurly_Addon::uriForAddOn($this->plan_code, $this->add_on_code);
   }
-  
+
   protected static function uriForAddOn($planCode, $addonCode) {
     return self::_safeUri(Recurly_Client::PATH_PLANS, $planCode, Recurly_Client::PATH_ADDONS, $addonCode);
   }
@@ -67,7 +68,7 @@ class Recurly_Addon extends Recurly_Resource
   protected function getWriteableAttributes() {
     return array(
       'add_on_code', 'item_code', 'name', 'display_quantity', 'default_quantity',
-      'unit_amount_in_cents', 'accounting_code', 'tax_code', 'usage_timeframe',
+      'unit_amount_in_cents', 'accounting_code', 'tax_code', 'usage_timeframe', 'usage_calculation_type',
       'measured_unit_id', 'usage_type', 'usage_percentage', 'add_on_type', 'revenue_schedule_type',
       'optional', 'display_quantity_on_hosted_page', 'tier_type', 'tiers', 'percentage_tiers'
     );
