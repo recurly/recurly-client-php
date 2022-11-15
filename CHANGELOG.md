@@ -1,5 +1,16 @@
 # Changelog
 
+## [2.12.34](https://github.com/recurly/recurly-client-php/tree/2.12.34) (2022-11-15)
+
+[Full Changelog](https://github.com/recurly/recurly-client-php/compare/2.12.33...2.12.34)
+
+
+**Merged Pull Requests**
+
+- v2 updates for external subscriptions and products [#730](https://github.com/recurly/recurly-client-php/pull/730) ([amandamfielding](https://github.com/amandamfielding))
+
+
+
 ## [2.12.33](https://github.com/recurly/recurly-client-php/tree/2.12.33) (2022-11-10)
 
 [Full Changelog](https://github.com/recurly/recurly-client-php/compare/2.12.32...2.12.33)
