@@ -85,6 +85,8 @@ class Recurly_Client
   const PATH_DUNNING_CAMPAIGNS = 'dunning_campaigns';
   const PATH_INVOICE_TEMPLATES = 'invoice_templates';
   const PATH_ENTITLEMENTS = 'entitlements';
+  const PATH_EXTERNAL_SUBSCRIPTIONS = 'external_subscriptions';
+  const PATH_EXTERNAL_PRODUCTS = 'external_products';
 
   /**
    * Create a new Recurly Client
