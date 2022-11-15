@@ -1,5 +1,17 @@
 # Changelog
 
+## [4.24.0](https://github.com/recurly/recurly-client-php/tree/4.24.0) (2022-11-15)
+
+[Full Changelog](https://github.com/recurly/recurly-client-php/compare/4.23.0...4.24.0)
+
+
+**Merged Pull Requests**
+
+- Generated Latest Changes for v2021-02-25 (External Subscriptions feature) [#729](https://github.com/recurly/recurly-client-php/pull/729) ([recurly-integrations](https://github.com/recurly-integrations))
+- Generated Latest Changes for v2021-02-25 [#728](https://github.com/recurly/recurly-client-php/pull/728) ([recurly-integrations](https://github.com/recurly-integrations))
+
+
+
 ## [4.23.0](https://github.com/recurly/recurly-client-php/tree/4.23.0) (2022-10-27)
 
 [Full Changelog](https://github.com/recurly/recurly-client-php/compare/4.22.0...4.23.0)
