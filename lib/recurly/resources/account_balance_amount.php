@@ -13,6 +13,7 @@ use Recurly\RecurlyResource;
 class AccountBalanceAmount extends RecurlyResource
 {
     private $_amount;
+    private $_available_credit_amount;
     private $_currency;
     private $_processing_prepayment_amount;
 
@@ -41,6 +42,29 @@ class AccountBalanceAmount extends RecurlyResource
     public function setAmount(float $amount): void
     {
         $this->_amount = $amount;
+    }
+
+    /**
+    * Getter method for the available_credit_amount attribute.
+    * Total amount of the open balances on credit invoices for the account.
+    *
+    * @return ?float
+    */
+    public function getAvailableCreditAmount(): ?float
+    {
+        return $this->_available_credit_amount;
+    }
+
+    /**
+    * Setter method for the available_credit_amount attribute.
+    *
+    * @param float $available_credit_amount
+    *
+    * @return void
+    */
+    public function setAvailableCreditAmount(float $available_credit_amount): void
+    {
+        $this->_available_credit_amount = $available_credit_amount;
     }
 
     /**
