@@ -1462,6 +1462,20 @@ class Client extends BaseClient
     }
   
     /**
+     * Apply available credit to a pending or past due charge invoice
+     *
+     * @param string $invoice_id Invoice ID or number. For ID no prefix is used e.g. `e28zov4fw0v2`. For number use prefix `number-`, e.g. `number-1000`.
+     *
+     * @return \Recurly\Resources\Invoice The updated invoice.
+     * @link   https://developers.recurly.com/api/v2019-10-10#operation/apply_credit_balance
+     */
+    public function applyCreditBalance(string $invoice_id): \Recurly\Resources\Invoice
+    {
+        $path = $this->interpolatePath("/invoices/{invoice_id}/apply_credit_balance", ['invoice_id' => $invoice_id]);
+        return $this->makeRequest('PUT', $path, null, null);
+    }
+  
+    /**
      * Collect a pending or past due, automatic invoice
      *
      * @param string $invoice_id Invoice ID or number. For ID no prefix is used e.g. `e28zov4fw0v2`. For number use prefix `number-`, e.g. `number-1000`.
