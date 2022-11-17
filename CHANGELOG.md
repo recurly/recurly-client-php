@@ -1,5 +1,17 @@
 # Changelog
 
+## [3.16.0](https://github.com/recurly/recurly-client-php/tree/3.16.0) (2022-11-17)
+
+[Full Changelog](https://github.com/recurly/recurly-client-php/compare/3.15.0...3.16.0)
+
+
+**Merged Pull Requests**
+
+- Generated Latest Changes for v2019-10-10 (Apply Credit Balance feature) [#731](https://github.com/recurly/recurly-client-php/pull/731) ([recurly-integrations](https://github.com/recurly-integrations))
+- Generated Latest Changes for v2019-10-10 [#727](https://github.com/recurly/recurly-client-php/pull/727) ([recurly-integrations](https://github.com/recurly-integrations))
+
+
+
 ## [3.15.0](https://github.com/recurly/recurly-client-php/tree/3.15.0) (2022-10-21)
 
 [Full Changelog](https://github.com/recurly/recurly-client-php/compare/3.14.0...3.15.0)
