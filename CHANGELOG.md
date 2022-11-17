@@ -1,5 +1,16 @@
 # Changelog
 
+## [4.25.0](https://github.com/recurly/recurly-client-php/tree/4.25.0) (2022-11-17)
+
+[Full Changelog](https://github.com/recurly/recurly-client-php/compare/4.24.0...4.25.0)
+
+
+**Merged Pull Requests**
+
+- Generated Latest Changes for v2021-02-25 (Apply Credit Balance feature) [#732](https://github.com/recurly/recurly-client-php/pull/732) ([recurly-integrations](https://github.com/recurly-integrations))
+
+
+
 ## [4.24.0](https://github.com/recurly/recurly-client-php/tree/4.24.0) (2022-11-15)
 
 [Full Changelog](https://github.com/recurly/recurly-client-php/compare/4.23.0...4.24.0)
