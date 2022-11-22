@@ -21,6 +21,7 @@ class XmlTools
     'add_ons' => 'Recurly_AddonList',
     'adjustment' => 'Recurly_Adjustment',
     'adjustments' => 'Recurly_AdjustmentList',
+    'available_credit_balance_in_cents' => 'Recurly_CurrencyList',
     'balance_in_cents' => 'Recurly_CurrencyList',
     'billing_info' => 'Recurly_BillingInfo',
     'billing_infos' => 'Recurly_BillingInfoList',

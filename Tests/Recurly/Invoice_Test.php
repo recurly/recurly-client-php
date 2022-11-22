@@ -117,6 +117,15 @@ class Recurly_InvoiceTest extends Recurly_TestCase
     $this->assertEquals($invoice->state, 'paid');
   }
 
+  public function testApplyCreditBalance() {
+    // See the notes in testMarkSuccessful().
+    $this->client->addResponse('PUT', 'https://api.recurly.com/v2/invoices/1001/apply_credit_balance', 'invoices/apply_credit_balance-200.xml');
+
+    $invoice = Recurly_Invoice::get('1001', $this->client);
+    $invoice->applyCreditBalance();
+    $this->assertEquals($invoice->state, 'paid');
+  }
+
   public function testMarkFailed() {
     // See the notes in testMarkSuccessful().
     $this->client->addResponse('PUT', 'https://api.recurly.com/v2/invoices/1001/mark_failed', 'invoices/mark_failed-200.xml');
