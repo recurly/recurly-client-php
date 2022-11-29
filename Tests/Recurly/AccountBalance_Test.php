@@ -33,5 +33,9 @@ class Recurly_AccountBalanceTest extends Recurly_TestCase
     $this->assertInstanceOf('Recurly_CurrencyList', $balance->processing_prepayment_balance_in_cents);
     $this->assertEquals(-3000, $balance->processing_prepayment_balance_in_cents['USD']->amount_in_cents);
     $this->assertEquals(0, $balance->processing_prepayment_balance_in_cents['EUR']->amount_in_cents);
+
+    $this->assertInstanceOf('Recurly_CurrencyList', $balance->available_credit_balance_in_cents);
+    $this->assertEquals(-3000, $balance->available_credit_balance_in_cents['USD']->amount_in_cents);
+    $this->assertEquals(0, $balance->available_credit_balance_in_cents['EUR']->amount_in_cents);
   }
 }

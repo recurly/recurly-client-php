@@ -142,6 +142,13 @@ class Recurly_Invoice extends Recurly_Resource
   /**
    * @throws Recurly_Error
    */
+  public function applyCreditBalance() {
+    $this->_save(Recurly_Client::PUT, $this->uri() . '/apply_credit_balance');
+  }
+
+  /**
+   * @throws Recurly_Error
+   */
   public function void() {
     $this->_save(Recurly_Client::PUT, $this->uri() . '/void');
   }

@@ -7,6 +7,8 @@
  * @property Recurly_CurrencyList $balance_in_cents The account balance in cents for each currency.
  * @property Recurly_CurrencyList $processing_prepayment_balance_in_cents The account processing
  * prepayment balance in cents for each currency.
+ * @property Recurly_CurrencyList $available_credit_balance_in_cents The account open
+ * credit balance in cents for each currency.
  */
 class Recurly_AccountBalance extends Recurly_Resource
 {
@@ -18,6 +20,7 @@ class Recurly_AccountBalance extends Recurly_Resource
     parent::__construct($href, $client);
     $this->balance_in_cents = new Recurly_CurrencyList('balance_in_cents');
     $this->processing_prepayment_balance_in_cents = new Recurly_CurrencyList('processing_prepayment_balance_in_cents');
+    $this->available_credit_balance_in_cents = new Recurly_CurrencyList('available_credit_balance_in_cents');
   }
 
   protected function getNodeName() {
