@@ -1,5 +1,16 @@
 # Changelog
 
+## [2.12.35](https://github.com/recurly/recurly-client-php/tree/2.12.35) (2022-11-29)
+
+[Full Changelog](https://github.com/recurly/recurly-client-php/compare/2.12.34...2.12.35)
+
+
+**Merged Pull Requests**
+
+- V2 add support for Apply Credit Balance to existing invoice feature [#733](https://github.com/recurly/recurly-client-php/pull/733) ([judith](https://github.com/judith))
+
+
+
 ## [2.12.34](https://github.com/recurly/recurly-client-php/tree/2.12.34) (2022-11-15)
 
 [Full Changelog](https://github.com/recurly/recurly-client-php/compare/2.12.33...2.12.34)
