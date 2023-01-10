@@ -38,6 +38,7 @@ class Account extends RecurlyResource
     private $_object;
     private $_parent_account_id;
     private $_preferred_locale;
+    private $_preferred_time_zone;
     private $_shipping_addresses;
     private $_state;
     private $_tax_exempt;
@@ -647,6 +648,29 @@ class Account extends RecurlyResource
     public function setPreferredLocale(string $preferred_locale): void
     {
         $this->_preferred_locale = $preferred_locale;
+    }
+
+    /**
+    * Getter method for the preferred_time_zone attribute.
+    * The [IANA time zone name](https://docs.recurly.com/docs/email-time-zones-and-time-stamps#supported-api-iana-time-zone-names) used to determine the time zone of emails sent on behalf of the merchant to the customer.
+    *
+    * @return ?string
+    */
+    public function getPreferredTimeZone(): ?string
+    {
+        return $this->_preferred_time_zone;
+    }
+
+    /**
+    * Setter method for the preferred_time_zone attribute.
+    *
+    * @param string $preferred_time_zone
+    *
+    * @return void
+    */
+    public function setPreferredTimeZone(string $preferred_time_zone): void
+    {
+        $this->_preferred_time_zone = $preferred_time_zone;
     }
 
     /**

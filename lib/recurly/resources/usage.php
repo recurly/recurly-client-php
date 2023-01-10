@@ -199,7 +199,7 @@ class Usage extends RecurlyResource
 
     /**
     * Getter method for the percentage_tiers attribute.
-    * The percentage tiers of the subscription based on the usage_timestamp. If tier_type = flat, percentage_tiers = []
+    * The percentage tiers of the subscription based on the usage_timestamp. If tier_type = flat, percentage_tiers = []. This feature is currently in development and requires approval and enablement, please contact support.
     *
     * @return array
     */

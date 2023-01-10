@@ -442,7 +442,7 @@ class AddOn extends RecurlyResource
 
     /**
     * Getter method for the percentage_tiers attribute.
-    * Percentage Tiers
+    * This feature is currently in development and requires approval and enablement, please contact support.
     *
     * @return array
     */
