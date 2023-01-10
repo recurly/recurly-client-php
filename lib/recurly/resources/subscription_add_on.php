@@ -183,8 +183,8 @@ the associated add-on data will be pulled from the site's item catalog.
     * Getter method for the percentage_tiers attribute.
     * If percentage tiers are provided in the request, all existing percentage tiers on the Subscription Add-on will be
 removed and replaced by the percentage tiers in the request. Use only if add_on.tier_type is tiered or volume and
-add_on.usage_type is percentage.
-There must be one tier without an `ending_amount` value which represents the final tier.
+add_on.usage_type is percentage. There must be one tier without an `ending_amount` value which represents the final tier.
+This feature is currently in development and requires approval and enablement, please contact support.
 
     *
     * @return array
