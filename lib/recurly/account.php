@@ -26,6 +26,7 @@
  * @property string $accept_language The ISO 639-1 language code from the user's browser, indicating their preferred language and locale.
  * @property string $hosted_login_token The unique token for automatically logging the account in to the hosted management pages. You may automatically log the user into their hosted management pages by directing the user to: https://:subdomain.recurly.com/account/:hosted_login_token.
  * @property string $preferred_locale The locale for the emails
+ * @property string $preferred_time_zone The IANA time zone name to use for the emails
  * @property string $has_live_subscription True if the account has at least one live subscription.
  * @property string $has_active_subscription True if the account has at least one active subscription.
  * @property string $has_future_subscription True if the account has at least one future subscription.
@@ -143,7 +144,7 @@ class Recurly_Account extends Recurly_Resource
       'account_code', 'username', 'first_name', 'last_name', 'vat_number',
       'email', 'company_name', 'accept_language', 'billing_info', 'address',
       'tax_exempt', 'entity_use_code', 'cc_emails', 'shipping_addresses',
-      'preferred_locale', 'custom_fields', 'account_acquisition', 'exemption_certificate',
+      'preferred_locale', 'preferred_time_zone', 'custom_fields', 'account_acquisition', 'exemption_certificate',
       'parent_account_code', 'transaction_type', 'dunning_campaign_id', 'invoice_template_uuid',
     );
   }
