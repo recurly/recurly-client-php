@@ -541,7 +541,7 @@ class Invoice extends RecurlyResource
 
     /**
     * Getter method for the previous_invoice_id attribute.
-    * On refund invoices, this value will exist and show the invoice ID of the purchase invoice the refund was created from.
+    * On refund invoices, this value will exist and show the invoice ID of the purchase invoice the refund was created from. This field is only populated for sites without the [Only Bill What Changed](https://docs.recurly.com/docs/only-bill-what-changed) feature enabled. Sites with Only Bill What Changed enabled should use the [related_invoices endpoint](https://recurly.com/developers/api/v2019-10-10/index.html#operation/list_related_invoices) to see purchase invoices refunded by this invoice.
     *
     * @return ?string
     */
