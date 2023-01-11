@@ -8,6 +8,11 @@ class Recurly_TransactionError
   var $error_code;
 
   /**
+   * Decline code
+   */
+  var $decline_code;
+
+  /**
    * Error category
    */
   var $error_category;
@@ -33,6 +38,6 @@ class Recurly_TransactionError
   var $three_d_secure_action_token_id;
 
   public function __toString() {
-    return "<Recurly_TransactionError error_code=\"{$this->error_code}\" error_category=\"{$this->error_category}\" customer_message=\"{$this->customer_message}\" transaction_error=\"{$this->merchant_message}\" gateway_error_code=\"{$this->gateway_error_code}\">";
+    return "<Recurly_TransactionError error_code=\"{$this->error_code}\" decline_code=\"{$this->decline_code}\" error_category=\"{$this->error_category}\" customer_message=\"{$this->customer_message}\" transaction_error=\"{$this->merchant_message}\" gateway_error_code=\"{$this->gateway_error_code}\">";
   }
 }

@@ -16,6 +16,7 @@ Content-Type: application/xml; charset=utf-8
   <refundable type="boolean">true</refundable>
   <transaction_error>
     <error_code>invalid_card_number</error_code>
+    <decline_code>invalid_number</decline_code>
     <error_category>hard</error_category>
     <merchant_message>The credit card number is not valid. The customer needs to try a different number.</merchant_message>
     <customer_message>Your card number is not valid. Please update your card number.</customer_message>
