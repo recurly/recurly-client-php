@@ -1,5 +1,16 @@
 # Changelog
 
+## [2.12.36](https://github.com/recurly/recurly-client-php/tree/2.12.36) (2023-01-11)
+
+[Full Changelog](https://github.com/recurly/recurly-client-php/compare/2.12.35...2.12.36)
+
+
+**Merged Pull Requests**
+
+- Add `preferred_time_zone` to Account [#734](https://github.com/recurly/recurly-client-php/pull/734) ([cbarton](https://github.com/cbarton))
+
+
+
 ## [2.12.35](https://github.com/recurly/recurly-client-php/tree/2.12.35) (2022-11-29)
 
 [Full Changelog](https://github.com/recurly/recurly-client-php/compare/2.12.34...2.12.35)
