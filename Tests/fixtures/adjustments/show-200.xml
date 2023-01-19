@@ -12,6 +12,12 @@ Content-Type: application/xml; charset=utf-8
   <description>$12 Annual Subscription</description>
   <accounting_code></accounting_code>
   <product_code nil="nil"></product_code>
+  <custom_fields>
+    <custom_field>
+      <name>size</name>
+      <value>small</value>
+    </custom_field>
+  </custom_fields>
   <origin>plan</origin>
   <unit_amount_in_cents type="integer">1200</unit_amount_in_cents>
   <quantity type="integer">1</quantity>

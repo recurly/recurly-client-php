@@ -38,9 +38,15 @@
  * @property DateTime $start_date A timestamp associated with when the adjustment began.
  * @property DateTime $end_date A timestamp associated with when the adjustment ended.
  * @property DateTime $created_at A timestamp associated with when the adjustment was created.
+ * @property Recurly_CustomFieldList $custom_fields Optional custom fields for the adjustment.
  */
 class Recurly_Adjustment extends Recurly_Resource
 {
+  public function __construct($href = null, $client = null) {
+    parent::__construct($href, $client);
+    $this->custom_fields = new Recurly_CustomFieldList();
+  }
+
   public static function get($adjustment_uuid, $client = null) {
     return Recurly_Base::_get(self::_safeUri(Recurly_Client::PATH_ADJUSTMENTS, $adjustment_uuid), $client);
   }
@@ -122,7 +128,7 @@ class Recurly_Adjustment extends Recurly_Resource
       'currency', 'unit_amount_in_cents', 'quantity', 'quantity_decimal', 'description',
       'accounting_code', 'tax_exempt', 'tax_inclusive', 'tax_code', 'start_date', 'end_date',
       'revenue_schedule_type', 'origin', 'product_code', 'credit_reason_code',
-      'shipping_address', 'shipping_address_id', 'item_code', 'external_sku'
+      'shipping_address', 'shipping_address_id', 'item_code', 'external_sku', 'custom_fields'
     );
   }
 }
