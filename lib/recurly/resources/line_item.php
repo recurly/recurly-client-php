@@ -24,6 +24,7 @@ class LineItem extends RecurlyResource
     private $_credit_applied;
     private $_credit_reason_code;
     private $_currency;
+    private $_custom_fields;
     private $_description;
     private $_discount;
     private $_end_date;
@@ -65,6 +66,7 @@ class LineItem extends RecurlyResource
     private $_uuid;
 
     protected static $array_hints = [
+        'setCustomFields' => '\Recurly\Resources\CustomField',
     ];
 
     
@@ -342,6 +344,29 @@ class LineItem extends RecurlyResource
     public function setCurrency(string $currency): void
     {
         $this->_currency = $currency;
+    }
+
+    /**
+    * Getter method for the custom_fields attribute.
+    * The custom fields will only be altered when they are included in a request. Sending an empty array will not remove any existing values. To remove a field send the name with a null or empty value.
+    *
+    * @return array
+    */
+    public function getCustomFields(): array
+    {
+        return $this->_custom_fields ?? [] ;
+    }
+
+    /**
+    * Setter method for the custom_fields attribute.
+    *
+    * @param array $custom_fields
+    *
+    * @return void
+    */
+    public function setCustomFields(array $custom_fields): void
+    {
+        $this->_custom_fields = $custom_fields;
     }
 
     /**
