@@ -53,7 +53,7 @@ class Recurly_PurchaseTest extends Recurly_TestCase
     $adjustment->currency = 'USD';
     $adjustment->quantity = 1;
     $adjustment->revenue_schedule_type = 'at_invoice';
-    $adjustment->custom_fields[] = new RecurlyCustomField('size', 'small');
+    $adjustment->custom_fields[] = new Recurly_CustomField('size', 'small');
 
     $purchase->adjustments[] = $adjustment;
 
