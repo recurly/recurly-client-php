@@ -12,7 +12,7 @@ Content-Type: application/xml; charset=utf-8
   <description>$12 Annual Subscription</description>
   <accounting_code></accounting_code>
   <product_code nil="nil"></product_code>
-  <custom_fields>
+  <custom_fields type="array">
     <custom_field>
       <name>size</name>
       <value>small</value>
