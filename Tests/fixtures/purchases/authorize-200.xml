@@ -58,6 +58,12 @@ Location: https://api.recurly.com/v2/invoices
         <created_at nil="nil"></created_at>
         <updated_at nil="nil"></updated_at>
         <revenue_schedule_type>at_invoice</revenue_schedule_type>
+        <custom_fields type="array">
+          <custom_field>
+            <name>size</name>
+            <value>small</value>
+          </custom_field>
+        </custom_fields>
       </adjustment>
     </line_items>
     <transactions type="array">

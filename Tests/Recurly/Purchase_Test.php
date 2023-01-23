@@ -53,6 +53,7 @@ class Recurly_PurchaseTest extends Recurly_TestCase
     $adjustment->currency = 'USD';
     $adjustment->quantity = 1;
     $adjustment->revenue_schedule_type = 'at_invoice';
+    $adjustment->custom_fields[] = new Recurly_CustomField('size', 'small');
 
     $purchase->adjustments[] = $adjustment;
 
@@ -63,7 +64,7 @@ class Recurly_PurchaseTest extends Recurly_TestCase
     $purchase = $this->mockPurchase();
 
     $this->assertEquals(
-      "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n<purchase><account><account_code>aba9209a-aa61-4790-8e61-0a2692435fee</account_code><billing_info><token_id>7z6furn4jvb9</token_id></billing_info><address><address1>123 Main St.</address1><city>San Francisco</city><state>CA</state><zip>94110</zip><country>US</country><phone>555-555-5555</phone></address><dunning_campaign_id>1234abcd</dunning_campaign_id></account><adjustments><adjustment><currency>USD</currency><unit_amount_in_cents>1000</unit_amount_in_cents><quantity>1</quantity><revenue_schedule_type>at_invoice</revenue_schedule_type><product_code>abcd123</product_code></adjustment></adjustments><collection_method>automatic</collection_method><currency>USD</currency><customer_notes>Customer Notes</customer_notes><terms_and_conditions>Terms and Conditions</terms_and_conditions><vat_reverse_charge_notes>VAT Reverse Charge Notes</vat_reverse_charge_notes><shipping_address><address1>400 Dolores St</address1><city>San Francisco</city><state>CA</state><zip>94110</zip><country>US</country><nickname>Home</nickname><first_name>Dolores</first_name><last_name>Du Monde</last_name></shipping_address><gateway_code>aBcD1234</gateway_code><transaction_type>moto</transaction_type></purchase>\n",
+      "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n<purchase><account><account_code>aba9209a-aa61-4790-8e61-0a2692435fee</account_code><billing_info><token_id>7z6furn4jvb9</token_id></billing_info><address><address1>123 Main St.</address1><city>San Francisco</city><state>CA</state><zip>94110</zip><country>US</country><phone>555-555-5555</phone></address><dunning_campaign_id>1234abcd</dunning_campaign_id></account><adjustments><adjustment><currency>USD</currency><unit_amount_in_cents>1000</unit_amount_in_cents><quantity>1</quantity><revenue_schedule_type>at_invoice</revenue_schedule_type><product_code>abcd123</product_code><custom_fields><custom_field><name>size</name><value>small</value></custom_field></custom_fields></adjustment></adjustments><collection_method>automatic</collection_method><currency>USD</currency><customer_notes>Customer Notes</customer_notes><terms_and_conditions>Terms and Conditions</terms_and_conditions><vat_reverse_charge_notes>VAT Reverse Charge Notes</vat_reverse_charge_notes><shipping_address><address1>400 Dolores St</address1><city>San Francisco</city><state>CA</state><zip>94110</zip><country>US</country><nickname>Home</nickname><first_name>Dolores</first_name><last_name>Du Monde</last_name></shipping_address><gateway_code>aBcD1234</gateway_code><transaction_type>moto</transaction_type></purchase>\n",
       $purchase->xml()
     );
   }

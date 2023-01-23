@@ -70,6 +70,12 @@ Location: https://api.recurly.com/v2/invoices/3704
           <country>US</country>
           <nickname>Home</nickname>
         </shipping_address>
+        <custom_fields type="array">
+          <custom_field>
+            <name>size</name>
+            <value>small</value>
+          </custom_field>
+        </custom_fields>
       </adjustment>
     </line_items>
     <transactions type="array">
