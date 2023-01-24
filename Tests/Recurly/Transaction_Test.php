@@ -87,6 +87,7 @@ class Recurly_TransactionTest extends Recurly_TestCase
     $this->assertInstanceOf('Recurly_Transaction', $transaction);
     $this->assertInstanceOf('Recurly_TransactionError', $transaction->transaction_error);
     $this->assertEquals('invalid_card_number', $transaction->transaction_error->error_code);
+    $this->assertEquals('invalid_number', $transaction->transaction_error->decline_code);
     $this->assertEquals('hard', $transaction->transaction_error->error_category);
     $this->assertEquals('The credit card number is not valid. The customer needs to try a different number.', $transaction->transaction_error->merchant_message);
     $this->assertEquals('Your card number is not valid. Please update your card number.', $transaction->transaction_error->customer_message);
