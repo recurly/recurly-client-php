@@ -146,6 +146,30 @@ class Recurly_PlanTest extends Recurly_TestCase
     );
   }
 
+  public function createPlanWithCustomField() {
+    $plan = new Recurly_Plan();
+    $plan->plan_code = 'platinum';
+    $plan->name = 'Platinum & Gold Plan';
+    $plan->unit_amount_in_cents->addCurrency('USD', 1500);
+    $plan->unit_amount_in_cents->addCurrency('EUR', 1200);
+    $plan->setup_fee_in_cents->addCurrency('EUR', 500);
+    $plan->trial_requires_billing_info = false;
+    $plan->total_billing_cycles = 6;
+    $plan->auto_renew = false;
+    $plan->dunning_campaign_id = '1234abcd';
+    $plan->custom_fields[] = new Recurly_CustomField('size', 'small');
+
+    $this->assertEquals(
+      "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n<plan><dunning_campaign_id>1234abcd</dunning_campaign_id><name>Platinum Plan</name><plan_code>platinum</plan_code><setup_fee_in_cents><USD>500</USD><EUR>500</EUR></setup_fee_in_cents><tax_code>fake-tax-code</tax_code><tax_exempt>false</tax_exempt><total_billing_cycles nil=\"nil\"></total_billing_cycles><trial_requires_billing_info>false</trial_requires_billing_info><unit_amount_in_cents><USD>1500</USD><EUR>1200</EUR></unit_amount_in_cents><custom_fields><custom_field><name>size</name><value>small</value></custom_field></custom_fields></plan>\n",
+      $plan->xml()
+    );
+  }
+
+  public function getPlanWithCustomField() {
+    $plan = Recurly_Plan::get('silver', $this->client);
+
+    $this->assertEquals(sizeof($plan->custom_fields), 1);
+  }
 
   protected function mockRampIntervals() {
     $ramp1 = new Recurly_PlanRampInterval(1);

@@ -43,6 +43,7 @@ class Recurly_Plan extends Recurly_Resource
     parent::__construct($href, $client);
     $this->setup_fee_in_cents = new Recurly_CurrencyList('setup_fee_in_cents');
     $this->pricing_model = 'fixed';
+    $this->custom_fields = new Recurly_CustomFieldList();
   }
 
   // ramp pricing has very specific requirements around api requests.
@@ -143,7 +144,8 @@ class Recurly_Plan extends Recurly_Resource
       'trial_interval_unit',
       'trial_requires_billing_info',
       'unit_amount_in_cents',
-      'unit_name'
+      'unit_name',
+      'custom_fields'
     );
   }
 }
