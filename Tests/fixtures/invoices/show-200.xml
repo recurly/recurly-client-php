@@ -50,6 +50,12 @@ Content-Type: application/xml; charset=utf-8
       <start_date type="datetime">2012-05-28T17:44:13Z</start_date>
       <end_date type="datetime">2013-05-28T17:44:13Z</end_date>
       <created_at type="datetime">2012-05-28T17:44:13Z</created_at>
+      <custom_fields type="array">
+        <custom_field>
+          <name>size</name>
+          <value>small</value>
+        </custom_field>
+      </custom_fields>
     </adjustment>
   </line_items>
   <transactions type="array">

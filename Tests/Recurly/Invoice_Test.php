@@ -207,4 +207,14 @@ class Recurly_InvoiceTest extends Recurly_TestCase
     );
     $invoice->update();
   }
+
+  public function testGetInvoiceWithCustomFields() {
+    $invoice = Recurly_Invoice::get('1001', $this->client);
+    $this->client->addResponse('GET', 'https://api.recurly.com/v2/invoices/1001', 'invoices/show-200-updated-invoice.xml');
+    $line_items = $invoice->line_items;
+
+    foreach($line_items as $line_item) {
+      $this->assertEquals(sizeof($line_item->custom_fields), 1);
+    }
+  }
 }
