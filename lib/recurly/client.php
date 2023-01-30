@@ -71,6 +71,7 @@ class Recurly_Client
   const PATH_COUPON_REDEMPTIONS = 'redemptions';
   const PATH_COUPONS = 'coupons';
   const PATH_CREDIT_PAYMENTS = 'credit_payments';
+  const PATH_CUSTOM_FIELD_DEFINITIONS = 'custom_field_definitions';
   const PATH_GIFT_CARDS = 'gift_cards';
   const PATH_UNIQUE_COUPONS = 'unique_coupon_codes';
   const PATH_INVOICES = 'invoices';

@@ -32,6 +32,8 @@ class XmlTools
     'currency' => 'Recurly_Currency',
     'custom_fields' => 'Recurly_CustomFieldList',
     'custom_field' => 'Recurly_CustomField',
+    'custom_field_definition' => 'Recurly_CustomFieldDefinition',
+    'custom_field_definitions' => 'Recurly_CustomFieldDefinitionList',
     'customer_permission' => 'Recurly_CustomerPermission',
     'credit_invoices' => 'array',
     'credit_payment' => 'Recurly_CreditPayment',
