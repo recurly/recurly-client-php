@@ -34,6 +34,8 @@ require_once(__DIR__ . '/recurly/credit_payment_list.php');
 require_once(__DIR__ . '/recurly/currency_percentage_tier.php');
 require_once(__DIR__ . '/recurly/custom_field.php');
 require_once(__DIR__ . '/recurly/custom_field_list.php');
+require_once(__DIR__ . '/recurly/custom_field_definition.php');
+require_once(__DIR__ . '/recurly/custom_field_definition_list.php');
 require_once(__DIR__ . '/recurly/customer_permission.php');
 require_once(__DIR__ . '/recurly/dunning_campaign.php');
 require_once(__DIR__ . '/recurly/dunning_campaign_list.php');
