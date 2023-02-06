@@ -3089,4 +3089,79 @@ endpoint to obtain only the newly generated `UniqueCouponCodes`.
         return new \Recurly\Pager($this, $path, $options);
     }
   
+    /**
+     * List gift cards
+     *
+     * @param array $options Associative array of optional parameters
+     *
+     * @return \Recurly\Pager List of all created gift cards on your site.
+     * @link   https://developers.recurly.com/api/v2021-02-25#operation/list_gift_cards
+     */
+    public function listGiftCards(array $options = []): \Recurly\Pager
+    {
+        $path = $this->interpolatePath("/gift_cards", []);
+        return new \Recurly\Pager($this, $path, $options);
+    }
+  
+    /**
+     * Create gift card
+     *
+     * @param array $body    The body of the request.
+     * @param array $options Associative array of optional parameters
+     *
+     * @return \Recurly\Resources\GiftCard Returns the gift card
+     * @link   https://developers.recurly.com/api/v2021-02-25#operation/create_gift_card
+     */
+    public function createGiftCard(array $body, array $options = []): \Recurly\Resources\GiftCard
+    {
+        $path = $this->interpolatePath("/gift_cards", []);
+        return $this->makeRequest('POST', $path, $body, $options);
+    }
+  
+    /**
+     * Fetch a gift card
+     *
+     * @param string $gift_card_id Gift Card ID, e.g. `e28zov4fw0v2`.
+     * @param array  $options      Associative array of optional parameters
+     *
+     * @return \Recurly\Resources\GiftCard Gift card details
+     * @link   https://developers.recurly.com/api/v2021-02-25#operation/get_gift_card
+     */
+    public function getGiftCard(string $gift_card_id, array $options = []): \Recurly\Resources\GiftCard
+    {
+        $path = $this->interpolatePath("/gift_cards/{gift_card_id}", ['gift_card_id' => $gift_card_id]);
+        return $this->makeRequest('GET', $path, [], $options);
+    }
+  
+    /**
+     * Preview gift card
+     *
+     * @param array $body    The body of the request.
+     * @param array $options Associative array of optional parameters
+     *
+     * @return \Recurly\Resources\GiftCard Returns the gift card
+     * @link   https://developers.recurly.com/api/v2021-02-25#operation/preview_gift_card
+     */
+    public function previewGiftCard(array $body, array $options = []): \Recurly\Resources\GiftCard
+    {
+        $path = $this->interpolatePath("/gift_cards/preview", []);
+        return $this->makeRequest('POST', $path, $body, $options);
+    }
+  
+    /**
+     * Redeem gift card
+     *
+     * @param string $redemption_code Gift Card redemption code, e.g., `N1A2T8IRXSCMO40V`.
+     * @param array  $body            The body of the request.
+     * @param array  $options         Associative array of optional parameters
+     *
+     * @return \Recurly\Resources\GiftCard Redeems and returns the gift card
+     * @link   https://developers.recurly.com/api/v2021-02-25#operation/redeem_gift_card
+     */
+    public function redeemGiftCard(string $redemption_code, array $body, array $options = []): \Recurly\Resources\GiftCard
+    {
+        $path = $this->interpolatePath("/gift_cards/{redemption_code}/redeem", ['redemption_code' => $redemption_code]);
+        return $this->makeRequest('POST', $path, $body, $options);
+    }
+  
 }
