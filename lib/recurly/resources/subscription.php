@@ -22,6 +22,7 @@ class Subscription extends RecurlyResource
     private $_billing_info_id;
     private $_canceled_at;
     private $_collection_method;
+    private $_converted_at;
     private $_coupon_redemptions;
     private $_created_at;
     private $_currency;
@@ -48,6 +49,7 @@ class Subscription extends RecurlyResource
     private $_renewal_billing_cycles;
     private $_revenue_schedule_type;
     private $_shipping;
+    private $_started_with_gift;
     private $_state;
     private $_subtotal;
     private $_tax;
@@ -298,6 +300,29 @@ class Subscription extends RecurlyResource
     public function setCollectionMethod(string $collection_method): void
     {
         $this->_collection_method = $collection_method;
+    }
+
+    /**
+    * Getter method for the converted_at attribute.
+    * When the subscription was converted from a gift card.
+    *
+    * @return ?string
+    */
+    public function getConvertedAt(): ?string
+    {
+        return $this->_converted_at;
+    }
+
+    /**
+    * Setter method for the converted_at attribute.
+    *
+    * @param string $converted_at
+    *
+    * @return void
+    */
+    public function setConvertedAt(string $converted_at): void
+    {
+        $this->_converted_at = $converted_at;
     }
 
     /**
@@ -896,6 +921,29 @@ class Subscription extends RecurlyResource
     public function setShipping(\Recurly\Resources\SubscriptionShipping $shipping): void
     {
         $this->_shipping = $shipping;
+    }
+
+    /**
+    * Getter method for the started_with_gift attribute.
+    * Whether the subscription was started with a gift certificate.
+    *
+    * @return ?bool
+    */
+    public function getStartedWithGift(): ?bool
+    {
+        return $this->_started_with_gift;
+    }
+
+    /**
+    * Setter method for the started_with_gift attribute.
+    *
+    * @param bool $started_with_gift
+    *
+    * @return void
+    */
+    public function setStartedWithGift(bool $started_with_gift): void
+    {
+        $this->_started_with_gift = $started_with_gift;
     }
 
     /**
