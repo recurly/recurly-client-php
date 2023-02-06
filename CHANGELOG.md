@@ -1,5 +1,17 @@
 # Changelog
 
+## [2.12.37](https://github.com/recurly/recurly-client-php/tree/2.12.37) (2023-02-06)
+
+[Full Changelog](https://github.com/recurly/recurly-client-php/compare/2.12.36...2.12.37)
+
+
+**Merged Pull Requests**
+
+- Add Custom Fields on Adjustments [#740](https://github.com/recurly/recurly-client-php/pull/740) ([ngleiser](https://github.com/ngleiser))
+- Added decline code to transaction error [#737](https://github.com/recurly/recurly-client-php/pull/737) ([arzitney](https://github.com/arzitney))
+
+
+
 ## [2.12.36](https://github.com/recurly/recurly-client-php/tree/2.12.36) (2023-01-11)
 
 [Full Changelog](https://github.com/recurly/recurly-client-php/compare/2.12.35...2.12.36)
