@@ -14,6 +14,7 @@ class TransactionError extends RecurlyResource
 {
     private $_category;
     private $_code;
+    private $_decline_code;
     private $_merchant_advice;
     private $_message;
     private $_object;
@@ -68,6 +69,29 @@ class TransactionError extends RecurlyResource
     public function setCode(string $code): void
     {
         $this->_code = $code;
+    }
+
+    /**
+    * Getter method for the decline_code attribute.
+    * Decline code
+    *
+    * @return ?string
+    */
+    public function getDeclineCode(): ?string
+    {
+        return $this->_decline_code;
+    }
+
+    /**
+    * Setter method for the decline_code attribute.
+    *
+    * @param string $decline_code
+    *
+    * @return void
+    */
+    public function setDeclineCode(string $decline_code): void
+    {
+        $this->_decline_code = $decline_code;
     }
 
     /**
