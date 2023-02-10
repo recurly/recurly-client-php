@@ -2,14 +2,15 @@
 /**
  * class Recurly_ExternalSubscription
  * @property Recurly_Stub $account
- * @property Recurly_ExternalResource $external_resource
  * @property Recurly_ExternalProductReference $external_product_reference
  * @property DateTime $last_purchased
  * @property boolean $auto_renew
  * @property string $app_identifier
  * @property integer $quantity
+ * @property string $external_id
  * @property DateTime $activated_at
  * @property DateTime $expires_at
+ * @property string $state
  * @property DateTime $created_at
  * @property DateTime $updated_at
  */
