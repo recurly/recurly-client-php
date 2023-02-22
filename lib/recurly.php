@@ -52,7 +52,6 @@ require_once(__DIR__ . '/recurly/export_file_list.php');
 require_once(__DIR__ . '/recurly/external_product.php');
 require_once(__DIR__ . '/recurly/external_product_list.php');
 require_once(__DIR__ . '/recurly/external_product_reference.php');
-require_once(__DIR__ . '/recurly/external_resource.php');
 require_once(__DIR__ . '/recurly/external_subscription.php');
 require_once(__DIR__ . '/recurly/external_subscription_list.php');
 require_once(__DIR__ . '/recurly/invoice.php');

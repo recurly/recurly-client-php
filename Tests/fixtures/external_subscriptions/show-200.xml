@@ -4,9 +4,6 @@ Content-Type: application/xml; charset=utf-8
 <?xml version="1.0" encoding="UTF-8"?>
 <external_subscription href="https://api.recurly.com/v2/external_subscriptions/rjx71rx8gs2m">
   <account href="https://api.recurly.com/v2/accounts/1"/>
-  <external_resource>
-    <external_object_reference>external-object-reference</external_object_reference>
-  </external_resource>
   <external_product_reference>
     <id>rauqpcdmxc4a</id>
     <reference_code>1234</reference_code>
@@ -18,8 +15,10 @@ Content-Type: application/xml; charset=utf-8
   <auto_renew type="boolean">false</auto_renew>
   <app_identifier nil="nil"></app_identifier>
   <quantity type="integer">18</quantity>
+  <external_id>1_ext_id</external_id>
   <activated_at type="datetime">2022-09-13T18:55:15Z</activated_at>
   <expires_at type="datetime">2026-09-13T18:55:15Z</expires_at>
+  <state>active</state>
   <created_at type="datetime">2022-09-13T18:55:15Z</created_at>
   <updated_at type="datetime">2022-09-13T18:55:15Z</updated_at>
 </external_subscription>

@@ -62,7 +62,6 @@ class XmlTools
     'external_products' => 'Recurly_ExternalProductList',
     'external_product_reference' => 'Recurly_ExternalProductReference',
     'external_product_references' => 'array',
-    'external_resource' => 'Recurly_ExternalResource',
     'external_subscription' => 'Recurly_ExternalSubscription',
     'external_subscriptions' => 'Recurly_ExternalSubscriptionList',
     'interval' => 'Recurly_DunningInterval',

@@ -18,12 +18,12 @@ class Recurly_ExternalSubscriptionListTest extends Recurly_TestCase
     $this->assertInstanceOf('DateTime', $external_subscription->created_at);
     $this->assertInstanceOf('DateTime', $external_subscription->updated_at);
     $this->assertEquals($external_subscription->quantity, 18);
-    $external_resource = $external_subscription->external_resource;
-    $this->assertEquals($external_resource->external_object_reference, 'external-object-reference');
+    $this->assertEquals($external_subscription->external_id, '1_ext_id');
     $external_product_reference = $external_subscription->external_product_reference;
     $this->assertEquals($external_product_reference->id, 'rauqpcdmxc4a');
     $this->assertEquals($external_product_reference->reference_code, '1234');
     $this->assertEquals($external_product_reference->external_connection_type, 'apple_app_store');
+    $this->assertEquals($external_subscription->state, 'active');
     $this->assertInstanceOf('DateTime', $external_product_reference->created_at);
     $this->assertInstanceOf('DateTime', $external_product_reference->updated_at);
   }
