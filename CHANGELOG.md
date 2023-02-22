@@ -1,5 +1,16 @@
 # Changelog
 
+## [2.12.38](https://github.com/recurly/recurly-client-php/tree/2.12.38) (2023-02-22)
+
+[Full Changelog](https://github.com/recurly/recurly-client-php/compare/2.12.37...2.12.38)
+
+
+**Merged Pull Requests**
+
+- Modify external subscriptions [#746](https://github.com/recurly/recurly-client-php/pull/746) ([paulorbpinho-fullstacklabs](https://github.com/paulorbpinho-fullstacklabs))
+
+
+
 ## [2.12.37](https://github.com/recurly/recurly-client-php/tree/2.12.37) (2023-02-06)
 
 [Full Changelog](https://github.com/recurly/recurly-client-php/compare/2.12.36...2.12.37)
