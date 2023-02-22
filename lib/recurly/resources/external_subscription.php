@@ -18,12 +18,13 @@ class ExternalSubscription extends RecurlyResource
     private $_auto_renew;
     private $_created_at;
     private $_expires_at;
+    private $_external_id;
     private $_external_product_reference;
-    private $_external_resource;
     private $_id;
     private $_last_purchased;
     private $_object;
     private $_quantity;
+    private $_state;
     private $_updated_at;
 
     protected static $array_hints = [
@@ -169,6 +170,29 @@ class ExternalSubscription extends RecurlyResource
     }
 
     /**
+    * Getter method for the external_id attribute.
+    * The id of the subscription in the external systems., I.e. Apple App Store or Google Play Store.
+    *
+    * @return ?string
+    */
+    public function getExternalId(): ?string
+    {
+        return $this->_external_id;
+    }
+
+    /**
+    * Setter method for the external_id attribute.
+    *
+    * @param string $external_id
+    *
+    * @return void
+    */
+    public function setExternalId(string $external_id): void
+    {
+        $this->_external_id = $external_id;
+    }
+
+    /**
     * Getter method for the external_product_reference attribute.
     * External Product Reference details
     *
@@ -189,29 +213,6 @@ class ExternalSubscription extends RecurlyResource
     public function setExternalProductReference(\Recurly\Resources\ExternalProductReferenceMini $external_product_reference): void
     {
         $this->_external_product_reference = $external_product_reference;
-    }
-
-    /**
-    * Getter method for the external_resource attribute.
-    * External Resource mini details
-    *
-    * @return ?\Recurly\Resources\ExternalResourceMini
-    */
-    public function getExternalResource(): ?\Recurly\Resources\ExternalResourceMini
-    {
-        return $this->_external_resource;
-    }
-
-    /**
-    * Setter method for the external_resource attribute.
-    *
-    * @param \Recurly\Resources\ExternalResourceMini $external_resource
-    *
-    * @return void
-    */
-    public function setExternalResource(\Recurly\Resources\ExternalResourceMini $external_resource): void
-    {
-        $this->_external_resource = $external_resource;
     }
 
     /**
@@ -304,6 +305,29 @@ class ExternalSubscription extends RecurlyResource
     public function setQuantity(int $quantity): void
     {
         $this->_quantity = $quantity;
+    }
+
+    /**
+    * Getter method for the state attribute.
+    * External subscriptions can be active, canceled, expired, or future.
+    *
+    * @return ?string
+    */
+    public function getState(): ?string
+    {
+        return $this->_state;
+    }
+
+    /**
+    * Setter method for the state attribute.
+    *
+    * @param string $state
+    *
+    * @return void
+    */
+    public function setState(string $state): void
+    {
+        $this->_state = $state;
     }
 
     /**
