@@ -26,7 +26,7 @@ class RecurlyError extends \Error
      * 
      * @return \Recurly\Resources\ErrorMayHaveTransaction
      */
-    public function getApiError(): \Recurly\Resources\ErrorMayHaveTransaction
+    public function getApiError(): ?\Recurly\Resources\ErrorMayHaveTransaction
     {
         return $this->_api_error;
     }
