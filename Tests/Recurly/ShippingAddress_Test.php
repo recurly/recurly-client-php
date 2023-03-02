@@ -2,7 +2,7 @@
 
 class Recurly_ShippingAddressTest extends Recurly_TestCase
 {
-  function defaultResponses() {
+  function defaultResponses(): array {
     return array(
       array('GET', '/accounts/abcdef1234567890', 'accounts/show-200.xml')
     );

@@ -2,7 +2,7 @@
 
 class Recurly_DunningCampaignTest extends Recurly_TestCase
 {
-  function defaultResponses() {
+  function defaultResponses(): array {
     return array(
       array('GET', '/dunning_campaigns/1234abcd', 'dunning_campaigns/show-200.xml'),
     );

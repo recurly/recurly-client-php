@@ -13,11 +13,10 @@ if (! class_exists(TestCase::class)) {
 
 /**
  * Base class for our tests that sets up a mock client.
- *
- * @property Recurly_MockClient $client
  */
 abstract class Recurly_TestCase extends TestCase {
-  function setUp() {
+  protected Recurly_MockClient $client;
+  function setUp(): void {
     $this->client = new Recurly_MockClient();
     foreach ($this->defaultResponses() as $request) {
       call_user_func_array(array($this->client, 'addResponse'), $request);
@@ -27,7 +26,8 @@ abstract class Recurly_TestCase extends TestCase {
   /**
    * Return an array of responses that will be added to the mock client.
    */
-  function defaultResponses() {
+  function defaultResponses(): array
+  {
     return array();
   }
 }
@@ -36,18 +36,22 @@ abstract class Recurly_TestCase extends TestCase {
  * Return canned client responses.
  */
 class Recurly_MockClient {
+  private array $_responses;
+
   public function __construct() {
     $this->_responses = array();
   }
 
-  public function addResponse($method, $uri, $fixture_filename) {
+  public function addResponse($method, $uri, $fixture_filename): void
+  {
     if (!isset($this->_responses[$method])) {
       $this->_responses[$method] = array();
     }
     $this->_responses[$method][$uri] = $fixture_filename;
   }
 
-  public function request($method, $uri, $data = null) {
+  public function request($method, $uri, $data = null): Recurly_ClientResponse
+  {
     if (isset($this->_responses[$method][$uri])) {
       $fixture_filename = $this->_responses[$method][$uri];
     }
@@ -58,11 +62,13 @@ class Recurly_MockClient {
     return $this->responseFromFixture($fixture_filename);
   }
 
-  public function getPdf($uri, $locale = null) {
+  public function getPdf($uri, $locale = null): array
+  {
     return array($uri, $locale);
   }
 
-  protected function responseFromFixture($filename) {
+  protected function responseFromFixture($filename): Recurly_ClientResponse
+  {
     $statusCode = 200;
     $headers = array();
     $body = null;

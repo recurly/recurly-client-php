@@ -10,7 +10,7 @@ class Recurly_CurrencyList implements ArrayAccess, Countable, IteratorAggregate
     $this->currencies = array();
   }
 
-  public function addCurrency($currencyCode, $amountInCents) {
+  public function addCurrency($currencyCode, $amountInCents): void {
     if (is_string($currencyCode) && strlen($currencyCode) == 3) {
       $this->currencies[$currencyCode] = new Recurly_Currency($currencyCode, $amountInCents);
     }
@@ -20,18 +20,19 @@ class Recurly_CurrencyList implements ArrayAccess, Countable, IteratorAggregate
     return isset($this->currencies[$currencyCode]) ? $this->currencies[$currencyCode] : null;
   }
 
-  public function offsetSet($offset, $value) {
-    return $this->addCurrency($offset, $value);
+  public function offsetSet($offset, $value): void {
+    $this->addCurrency($offset, $value);
   }
 
-  public function offsetExists($offset) {
+  public function offsetExists($offset): bool {
     return isset($this->currencies[$offset]);
   }
 
-  public function offsetUnset($offset) {
+  public function offsetUnset($offset): void {
     unset($this->currencies[$offset]);
   }
 
+  #[ReturnTypeWillChange]
   public function offsetGet($offset) {
     return $this->getCurrency($offset);
   }
@@ -44,11 +45,11 @@ class Recurly_CurrencyList implements ArrayAccess, Countable, IteratorAggregate
     return $this->offsetGet($k);
   }
 
-  public function count() {
+  public function count(): int {
     return count($this->currencies);
   }
 
-  public function getIterator() {
+  public function getIterator(): Traversable {
     return new ArrayIterator($this->currencies);
   }
 

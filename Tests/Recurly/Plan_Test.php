@@ -3,7 +3,7 @@
 
 class Recurly_PlanTest extends Recurly_TestCase
 {
-  function defaultResponses() {
+  function defaultResponses(): array {
     return array(
       array('GET', '/plans/silver', 'plans/show-200.xml'),
       array('GET', '/plans/ramp-priced-plan', 'plans/show-ramps-200.xml'),

@@ -2,7 +2,7 @@
 
 class Recurly_CouponTest extends Recurly_TestCase
 {
-  function defaultResponses() {
+  function defaultResponses(): array {
     return array(
       array('GET', '/coupons/special', 'coupons/show-200.xml')
     );

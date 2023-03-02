@@ -140,7 +140,9 @@ class Recurly_Client
         $disable = (bool)$disable;
     }
 
-    libxml_disable_entity_loader($disable);
+    if (\PHP_VERSION_ID < 80000) {
+      libxml_disable_entity_loader($disable);
+    }
   }
 
   /**

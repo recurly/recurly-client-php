@@ -3,7 +3,7 @@
 
 class Recurly_BillingInfoTest extends Recurly_TestCase
 {
-  function defaultResponses() {
+  function defaultResponses(): array {
     return array(
       array('GET', '/accounts/venmo1234567890/billing_info', 'billing_info/show-venmo-200.xml'),
       array('GET', '/accounts/abcdef1234567890/billing_info', 'billing_info/show-200.xml'),
@@ -117,7 +117,7 @@ class Recurly_BillingInfoTest extends Recurly_TestCase
   public function testVerifyBillingInfoCreditCard() {
     $billing_info = Recurly_BillingInfo::get('abcdef1234567890', $this->client);
     $this->client->addResponse('POST', 'https://api.recurly.com/v2/accounts/abcdef1234567890/billing_info/verify', 'billing_info/verify-200.xml');
-    
+
     $verified = $billing_info->verify();
     $this->assertEquals($verified->origin, 'api_verify_card');
 
@@ -128,7 +128,7 @@ class Recurly_BillingInfoTest extends Recurly_TestCase
   public function testVerifyCvvBillingInfoCreditCard() {
     $billing_info = Recurly_BillingInfo::get('abcdef1234567890', $this->client);
     $this->client->addResponse('POST', 'https://api.recurly.com/v2/accounts/abcdef1234567890/billing_info/verify_cvv', 'billing_info/verify-cvv-200.xml');
-    
+
     $verified = $billing_info->verifyCvv('988');
     $this->assertInstanceOf('Recurly_BillingInfo', $billing_info);
     $this->assertEquals($verified->year, 2015);

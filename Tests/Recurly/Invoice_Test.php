@@ -4,7 +4,7 @@
 class Recurly_InvoiceTest extends Recurly_TestCase
 {
 
-  function defaultResponses() {
+  function defaultResponses(): array {
     return array(
       array('GET', '/invoices/1001', 'invoices/show-200.xml'),
       array('GET', '/invoices/1002', 'invoices/show-with-prefix-200.xml'),

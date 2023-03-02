@@ -2,7 +2,7 @@
 
 class RecurlyGiftCardListTest extends Recurly_TestCase
 {
-  function defaultResponses() {
+  function defaultResponses(): array {
     return array(
       array('GET', '/gift_cards', 'gift_cards/index-200.xml')
     );

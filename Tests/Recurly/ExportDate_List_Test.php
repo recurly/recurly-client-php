@@ -2,7 +2,7 @@
 
 class Recurly_ExportDateList_Test extends Recurly_TestCase
 {
-  function defaultResponses() {
+  function defaultResponses(): array {
     return array(
       array('GET', '/export_dates', 'export_dates/index-200.xml'),
     );

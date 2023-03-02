@@ -11,7 +11,7 @@
         "ext-curl": "*"
     },
     "require-dev": {
-        "phpunit/phpunit": ">=5.7,<8"
+        "phpunit/phpunit": "9.*"
     },
     "autoload": {
         "classmap": ["lib"]

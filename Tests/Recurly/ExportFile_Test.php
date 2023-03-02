@@ -2,7 +2,7 @@
 
 class Recurly_ExportFile_Test extends Recurly_TestCase
 {
-  function defaultResponses() {
+  function defaultResponses(): array {
     return array(
       array('GET', '/export_dates/2016-08-01/export_files/revenue_schedules_full.csv', 'export_files/show-200.xml'),
     );

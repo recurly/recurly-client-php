@@ -2,7 +2,7 @@
 
 class Recurly_ExportFileList_Test extends Recurly_TestCase
 {
-  function defaultResponses() {
+  function defaultResponses(): array {
     return array(
       array('GET', '/export_dates/2016-08-01/export_files', 'export_files/index-200.xml'),
     );
