@@ -537,6 +537,29 @@ class Client extends BaseClient
     }
   
     /**
+     * List the external invoices on an account
+     *
+     * @param string $account_id Account ID or code. For ID no prefix is used e.g. `e28zov4fw0v2`. For code use prefix `code-`, e.g. `code-bob`.
+     * @param array  $options    Associative array of optional parameters
+     *
+     * Supported optional query string parameters:
+     *
+     * - $options['params']['sort'] (string): Sort field. You *really* only want to sort by `updated_at` in ascending
+     *        order. In descending order updated records will move behind the cursor and could
+     *        prevent some records from being returned.
+     * - $options['params']['limit'] (int): Limit number of records 1-200.
+     * - $options['params']['order'] (string): Sort order.
+     *
+     * @return \Recurly\Pager A list of the the external_invoices on an account.
+     * @link   https://developers.recurly.com/api/v2021-02-25#operation/list_account_external_invoices
+     */
+    public function listAccountExternalInvoices(string $account_id, array $options = []): \Recurly\Pager
+    {
+        $path = $this->interpolatePath("/accounts/{account_id}/external_invoices", ['account_id' => $account_id]);
+        return new \Recurly\Pager($this, $path, $options);
+    }
+  
+    /**
      * List an account's invoices
      *
      * @param string $account_id Account ID or code. For ID no prefix is used e.g. `e28zov4fw0v2`. For code use prefix `code-`, e.g. `code-bob`.
@@ -1565,6 +1588,29 @@ endpoint to obtain only the newly generated `UniqueCouponCodes`.
     {
         $path = $this->interpolatePath("/external_subscriptions/{external_subscription_id}", ['external_subscription_id' => $external_subscription_id]);
         return $this->makeRequest('GET', $path, [], $options);
+    }
+  
+    /**
+     * List the external invoices on an external subscription
+     *
+     * @param string $external_subscription_id External subscription id
+     * @param array  $options                  Associative array of optional parameters
+     *
+     * Supported optional query string parameters:
+     *
+     * - $options['params']['sort'] (string): Sort field. You *really* only want to sort by `updated_at` in ascending
+     *        order. In descending order updated records will move behind the cursor and could
+     *        prevent some records from being returned.
+     * - $options['params']['limit'] (int): Limit number of records 1-200.
+     * - $options['params']['order'] (string): Sort order.
+     *
+     * @return \Recurly\Pager A list of the the external_invoices on a site.
+     * @link   https://developers.recurly.com/api/v2021-02-25#operation/list_external_subscription_external_invoices
+     */
+    public function listExternalSubscriptionExternalInvoices(string $external_subscription_id, array $options = []): \Recurly\Pager
+    {
+        $path = $this->interpolatePath("/external_subscriptions/{external_subscription_id}/external_invoices", ['external_subscription_id' => $external_subscription_id]);
+        return new \Recurly\Pager($this, $path, $options);
     }
   
     /**
@@ -3043,6 +3089,43 @@ endpoint to obtain only the newly generated `UniqueCouponCodes`.
     public function getInvoiceTemplate(string $invoice_template_id, array $options = []): \Recurly\Resources\InvoiceTemplate
     {
         $path = $this->interpolatePath("/invoice_templates/{invoice_template_id}", ['invoice_template_id' => $invoice_template_id]);
+        return $this->makeRequest('GET', $path, [], $options);
+    }
+  
+    /**
+     * List the external invoices on a site
+     *
+     * @param array $options Associative array of optional parameters
+     *
+     * Supported optional query string parameters:
+     *
+     * - $options['params']['sort'] (string): Sort field. You *really* only want to sort by `updated_at` in ascending
+     *        order. In descending order updated records will move behind the cursor and could
+     *        prevent some records from being returned.
+     * - $options['params']['limit'] (int): Limit number of records 1-200.
+     * - $options['params']['order'] (string): Sort order.
+     *
+     * @return \Recurly\Pager A list of the the external_invoices on a site.
+     * @link   https://developers.recurly.com/api/v2021-02-25#operation/list_external_invoices
+     */
+    public function listExternalInvoices(array $options = []): \Recurly\Pager
+    {
+        $path = $this->interpolatePath("/external_invoices", []);
+        return new \Recurly\Pager($this, $path, $options);
+    }
+  
+    /**
+     * Fetch an external invoice
+     *
+     * @param string $external_invoice_id External invoice ID, e.g. `e28zov4fw0v2`.
+     * @param array  $options             Associative array of optional parameters
+     *
+     * @return \Recurly\Resources\ExternalInvoice Returns the external invoice
+     * @link   https://developers.recurly.com/api/v2021-02-25#operation/show_external_invoice
+     */
+    public function showExternalInvoice(string $external_invoice_id, array $options = []): \Recurly\Resources\ExternalInvoice
+    {
+        $path = $this->interpolatePath("/external_invoices/{external_invoice_id}", ['external_invoice_id' => $external_invoice_id]);
         return $this->makeRequest('GET', $path, [], $options);
     }
   
