@@ -1,0 +1,66 @@
+HTTP/1.1 200 OK
+Content-Type: application/xml; charset=utf-8
+
+<?xml version="1.0" encoding="UTF-8"?>
+<external_invoices type="array">
+  <external_invoice href="https://api.recurly.com/v2/external_invoices/sd28t3zdm59r">
+    <account href="https://api.recurly.com/v2/accounts/1"/>
+    <external_subscription href="https://api.recurly.com/v2/external_subscriptions/1"/>
+    <external_id>external-id</external_id>
+    <state>paid</state>
+    <currency>USD</currency>
+    <total>100</total>
+    <line_items type="array">
+      <external_charge>
+        <account href="https://your-subdomain.recurly.com/v2/accounts/1"/>
+        <external_invoice href="https://your-subdomain.recurly.com/v2/external_invoices/sd28t3zdm59r"/>
+        <external_product_reference>
+          <id>scvf0zhrsjpu</id>
+          <reference_code>reference-code</reference_code>
+          <external_connection_type>apple_app_store</external_connection_type>
+          <created_at type="datetime">2023-02-06T19:56:18Z</created_at>
+          <updated_at type="datetime">2023-02-06T19:56:18Z</updated_at>
+        </external_product_reference>
+        <description></description>
+        <unit_amount>50</unit_amount>
+        <currency>USD</currency>
+        <quantity>2</quantity>
+        <created_at>2023-01-13T17:28:02Z</created_at>
+        <updated_at>2023-01-13T17:28:02Z</updated_at>
+      </external_charge>
+    </line_items>
+    <purchased_at type="datetime">2023-01-13T17:28:02Z</purchased_at>
+    <created_at type="datetime">2023-01-13T17:28:02Z</created_at>
+    <updated_at type="datetime">2024-10-10T21:40:57Z</updated_at>
+  </external_invoice>
+  <external_invoice href="https://api.recurly.com/v2/external_invoices/sd28t3zdm59p">
+    <account href="https://api.recurly.com/v2/accounts/2"/>
+    <external_subscription href="https://api.recurly.com/v2/external_subscriptions/1"/>
+    <external_id>external-id</external_id>
+    <state>paid</state>
+    <currency>USD</currency>
+    <total>200</total>
+    <line_items type="array">
+      <external_charge>
+        <account href="https://your-subdomain.recurly.com/v2/accounts/1"/>
+        <external_invoice href="https://your-subdomain.recurly.com/v2/external_invoices/sd28t3zdm59r"/>
+        <external_product_reference>
+          <id>scvf0zhrsjpu</id>
+          <reference_code>reference-code</reference_code>
+          <external_connection_type>apple_app_store</external_connection_type>
+          <created_at type="datetime">2023-02-06T19:56:18Z</created_at>
+          <updated_at type="datetime">2023-02-06T19:56:18Z</updated_at>
+        </external_product_reference>
+        <description></description>
+        <unit_amount>200</unit_amount>
+        <currency>USD</currency>
+        <quantity>1</quantity>
+        <created_at>2023-01-13T17:28:02Z</created_at>
+        <updated_at>2023-01-13T17:28:02Z</updated_at>
+      </external_charge>
+    </line_items>
+    <purchased_at type="datetime">2023-01-13T17:28:02Z</purchased_at>
+    <created_at type="datetime">2023-01-13T17:28:02Z</created_at>
+    <updated_at type="datetime">2024-10-10T21:40:57Z</updated_at>
+  </external_invoice>
+</external_invoices>
