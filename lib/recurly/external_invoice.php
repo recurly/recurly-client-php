@@ -6,7 +6,7 @@
  * @property Recurly_ExternalCharge[] $line_items
  * @property string $external_id
  * @property boolean $state
- * @property integer $total_in_cents
+ * @property integer $total
  * @property string $currency
  * @property DateTime $purchased_at
  * @property DateTime $created_at

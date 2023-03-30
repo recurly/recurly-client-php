@@ -4,7 +4,7 @@
  * @property Recurly_Stub $account
  * @property Recurly_Stub $external_invoice
  * @property Recurly_Stub $external_product_reference
- * @property integer $unit_amount_in_cents
+ * @property integer $unit_amount
  * @property integer $quantity
  * @property string $currency
  * @property string $description

@@ -19,9 +19,9 @@ class Recurly_ExternalInvoiceListTest extends Recurly_TestCase
     $this->assertEquals($external_invoice->external_id, 'external-id');
     $this->assertEquals($external_invoice->state, 'paid');
     $this->assertEquals($external_invoice->currency, 'USD');
-    $this->assertEquals($external_invoice->total, 100);
+    $this->assertEquals($external_invoice->total, '100');
     $external_charge = $external_invoice->line_items[0];
-    $this->assertEquals($external_charge->unit_amount, 50);
+    $this->assertEquals($external_charge->unit_amount, '50');
     $this->assertInstanceOf('DateTime', $external_invoice->purchased_at);
     $this->assertInstanceOf('DateTime', $external_invoice->created_at);
     $this->assertInstanceOf('DateTime', $external_invoice->updated_at);
