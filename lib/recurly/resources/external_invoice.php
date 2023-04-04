@@ -264,9 +264,9 @@ class ExternalInvoice extends RecurlyResource
     * Getter method for the total attribute.
     * Total
     *
-    * @return ?float
+    * @return ?string
     */
-    public function getTotal(): ?float
+    public function getTotal(): ?string
     {
         return $this->_total;
     }
@@ -274,11 +274,11 @@ class ExternalInvoice extends RecurlyResource
     /**
     * Setter method for the total attribute.
     *
-    * @param float $total
+    * @param string $total
     *
     * @return void
     */
-    public function setTotal(float $total): void
+    public function setTotal(string $total): void
     {
         $this->_total = $total;
     }
