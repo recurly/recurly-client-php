@@ -215,9 +215,9 @@ class ExternalCharge extends RecurlyResource
     * Getter method for the unit_amount attribute.
     * Unit Amount
     *
-    * @return ?float
+    * @return ?string
     */
-    public function getUnitAmount(): ?float
+    public function getUnitAmount(): ?string
     {
         return $this->_unit_amount;
     }
@@ -225,11 +225,11 @@ class ExternalCharge extends RecurlyResource
     /**
     * Setter method for the unit_amount attribute.
     *
-    * @param float $unit_amount
+    * @param string $unit_amount
     *
     * @return void
     */
-    public function setUnitAmount(float $unit_amount): void
+    public function setUnitAmount(string $unit_amount): void
     {
         $this->_unit_amount = $unit_amount;
     }
