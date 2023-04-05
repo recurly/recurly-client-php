@@ -1,5 +1,13 @@
 # Changelog
 
+## [2.13.1](https://github.com/recurly/recurly-client-php/tree/2.13.1) (2023-04-05)
+
+[Full Changelog](https://github.com/recurly/recurly-client-php/compare/2.13.0...2.13.1)
+
+
+
+
+
 ## [2.13.0](https://github.com/recurly/recurly-client-php/tree/2.13.0) (2023-03-29)
 
 [Full Changelog](https://github.com/recurly/recurly-client-php/compare/2.12.38...2.13.0)
