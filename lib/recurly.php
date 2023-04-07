@@ -49,6 +49,8 @@ require_once(__DIR__ . '/recurly/export_date.php');
 require_once(__DIR__ . '/recurly/export_date_list.php');
 require_once(__DIR__ . '/recurly/export_file.php');
 require_once(__DIR__ . '/recurly/export_file_list.php');
+require_once(__DIR__ . '/recurly/external_account.php');
+require_once(__DIR__ . '/recurly/external_account_list.php');
 require_once(__DIR__ . '/recurly/external_charge.php');
 require_once(__DIR__ . '/recurly/external_invoice.php');
 require_once(__DIR__ . '/recurly/external_invoice_list.php');
