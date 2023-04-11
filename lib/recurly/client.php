@@ -537,6 +537,86 @@ class Client extends BaseClient
     }
   
     /**
+     * List external accounts for an account
+     *
+     * @param string $account_id Account ID or code. For ID no prefix is used e.g. `e28zov4fw0v2`. For code use prefix `code-`, e.g. `code-bob`.
+     * @param array  $options    Associative array of optional parameters
+     *
+     * @return \Recurly\Pager A list of external accounts on an account.
+     * @link   https://developers.recurly.com/api/v2021-02-25#operation/list_account_external_account
+     */
+    public function listAccountExternalAccount(string $account_id, array $options = []): \Recurly\Pager
+    {
+        $path = $this->interpolatePath("/accounts/{account_id}/external_accounts", ['account_id' => $account_id]);
+        return new \Recurly\Pager($this, $path, $options);
+    }
+  
+    /**
+     * Create an external account
+     *
+     * @param string $account_id Account ID or code. For ID no prefix is used e.g. `e28zov4fw0v2`. For code use prefix `code-`, e.g. `code-bob`.
+     * @param array  $body       The body of the request.
+     * @param array  $options    Associative array of optional parameters
+     *
+     * @return \Recurly\Resources\ExternalAccount A representation of the created external_account.
+     * @link   https://developers.recurly.com/api/v2021-02-25#operation/create_account_external_account
+     */
+    public function createAccountExternalAccount(string $account_id, array $body, array $options = []): \Recurly\Resources\ExternalAccount
+    {
+        $path = $this->interpolatePath("/accounts/{account_id}/external_accounts", ['account_id' => $account_id]);
+        return $this->makeRequest('POST', $path, $body, $options);
+    }
+  
+    /**
+     * Get an external account for an account
+     *
+     * @param string $account_id          Account ID or code. For ID no prefix is used e.g. `e28zov4fw0v2`. For code use prefix `code-`, e.g. `code-bob`.
+     * @param string $external_account_id External account ID, e.g. `s28zov4fw0cb`.
+     * @param array  $options             Associative array of optional parameters
+     *
+     * @return \Recurly\Resources\ExternalAccount A external account on an account.
+     * @link   https://developers.recurly.com/api/v2021-02-25#operation/get_account_external_account
+     */
+    public function getAccountExternalAccount(string $account_id, string $external_account_id, array $options = []): \Recurly\Resources\ExternalAccount
+    {
+        $path = $this->interpolatePath("/accounts/{account_id}/external_accounts/{external_account_id}", ['account_id' => $account_id, 'external_account_id' => $external_account_id]);
+        return $this->makeRequest('GET', $path, [], $options);
+    }
+  
+    /**
+     * Update an external account
+     *
+     * @param string $account_id          Account ID or code. For ID no prefix is used e.g. `e28zov4fw0v2`. For code use prefix `code-`, e.g. `code-bob`.
+     * @param string $external_account_id External account ID, e.g. `s28zov4fw0cb`.
+     * @param array  $body                The body of the request.
+     * @param array  $options             Associative array of optional parameters
+     *
+     * @return \Recurly\Resources\ExternalAccount A representation of the updated external_account.
+     * @link   https://developers.recurly.com/api/v2021-02-25#operation/update_account_external_account
+     */
+    public function updateAccountExternalAccount(string $account_id, string $external_account_id, array $body, array $options = []): \Recurly\Resources\ExternalAccount
+    {
+        $path = $this->interpolatePath("/accounts/{account_id}/external_accounts/{external_account_id}", ['account_id' => $account_id, 'external_account_id' => $external_account_id]);
+        return $this->makeRequest('PUT', $path, $body, $options);
+    }
+  
+    /**
+     * Delete an external account for an account
+     *
+     * @param string $account_id          Account ID or code. For ID no prefix is used e.g. `e28zov4fw0v2`. For code use prefix `code-`, e.g. `code-bob`.
+     * @param string $external_account_id External account ID, e.g. `s28zov4fw0cb`.
+     * @param array  $options             Associative array of optional parameters
+     *
+     * @return \Recurly\Resources\ExternalAccount Successful Delete
+     * @link   https://developers.recurly.com/api/v2021-02-25#operation/delete_account_external_account
+     */
+    public function deleteAccountExternalAccount(string $account_id, string $external_account_id, array $options = []): \Recurly\Resources\ExternalAccount
+    {
+        $path = $this->interpolatePath("/accounts/{account_id}/external_accounts/{external_account_id}", ['account_id' => $account_id, 'external_account_id' => $external_account_id]);
+        return $this->makeRequest('DELETE', $path, [], $options);
+    }
+  
+    /**
      * List the external invoices on an account
      *
      * @param string $account_id Account ID or code. For ID no prefix is used e.g. `e28zov4fw0v2`. For code use prefix `code-`, e.g. `code-bob`.
