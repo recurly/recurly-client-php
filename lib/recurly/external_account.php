@@ -1,6 +1,7 @@
 <?php
 /**
  * class Recurly_ExternalAccount
+ * @property string $id
  * @property string $external_account_code
  * @property string $external_connection_type
  * @property DateTime $created_at
