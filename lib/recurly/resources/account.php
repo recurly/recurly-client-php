@@ -24,6 +24,7 @@ class Account extends RecurlyResource
     private $_dunning_campaign_id;
     private $_email;
     private $_exemption_certificate;
+    private $_external_accounts;
     private $_first_name;
     private $_has_active_subscription;
     private $_has_canceled_subscription;
@@ -48,6 +49,7 @@ class Account extends RecurlyResource
 
     protected static $array_hints = [
         'setCustomFields' => '\Recurly\Resources\CustomField',
+        'setExternalAccounts' => '\Recurly\Resources\ExternalAccount',
         'setShippingAddresses' => '\Recurly\Resources\ShippingAddress',
     ];
 
@@ -326,6 +328,29 @@ class Account extends RecurlyResource
     public function setExemptionCertificate(string $exemption_certificate): void
     {
         $this->_exemption_certificate = $exemption_certificate;
+    }
+
+    /**
+    * Getter method for the external_accounts attribute.
+    * The external accounts belonging to this account
+    *
+    * @return array
+    */
+    public function getExternalAccounts(): array
+    {
+        return $this->_external_accounts ?? [] ;
+    }
+
+    /**
+    * Setter method for the external_accounts attribute.
+    *
+    * @param array $external_accounts
+    *
+    * @return void
+    */
+    public function setExternalAccounts(array $external_accounts): void
+    {
+        $this->_external_accounts = $external_accounts;
     }
 
     /**
