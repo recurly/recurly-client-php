@@ -11,6 +11,9 @@
  * @property Recurly_Stub $transactions The URL of transactions for the specified account.
  * @property Recurly_Stub $invoice_template The URL of the invoice template for the specified account.
  * @property Recurly_Stub $entitlements The URL of the entitlements for the specified account.
+ * @property Recurly_Stub $external_subscriptions The URL of the external_subscriptions for the specified account.
+ * @property Recurly_Stub $external_invoices The URL of the external_invoices for the specified account.
+ * @property Recurly_Stub $external_accounts The URL of the external_accounts for the specified account.
  * @property string $account_code The unique identifier of the account.
  * @property string $state The state of accounts to return: active or closed.
  * @property string $username The username of the account.
@@ -122,6 +125,21 @@ class Recurly_Account extends Recurly_Resource
     return Recurly_Base::_delete($this->uriForBillingInfos() . '/' . $billingInfoUuid, $client);
   }
 
+  public function getExternalAccounts($client = null) {
+    return Recurly_Base::_get($this->uriForExternalAccounts(), $client);
+  }
+
+  public function getExternalAccount($externalAccountUuid, $client = null) {
+    return Recurly_Base::_get($this->uriForExternalAccounts() . '/' . $externalAccountUuid, $client);
+  }
+
+  public function createExternalAccount($externalAccount, $client = null) {
+    if ($client) {
+      $externalAccount -> _client = $client;
+    }
+    $externalAccount -> _save(Recurly_Client::POST, $this->uri() . '/external_accounts');
+  }
+
   protected function uri() {
     if (!empty($this->_href))
       return $this->getHref();
@@ -136,6 +154,10 @@ class Recurly_Account extends Recurly_Resource
     return Recurly_Account::uriForAccount($this->account_code) . '/' . Recurly_Client::PATH_BILLING_INFOS;
   }
 
+  protected function uriForExternalAccounts() {
+    return Recurly_Account::uriForAccount($this->account_code) . '/' . Recurly_Client::PATH_EXTERNAL_ACCOUNTS;
+  }
+
   protected function getNodeName() {
     return 'account';
   }
@@ -146,6 +168,7 @@ class Recurly_Account extends Recurly_Resource
       'tax_exempt', 'entity_use_code', 'cc_emails', 'shipping_addresses',
       'preferred_locale', 'preferred_time_zone', 'custom_fields', 'account_acquisition', 'exemption_certificate',
       'parent_account_code', 'transaction_type', 'dunning_campaign_id', 'invoice_template_uuid',
+      'external_accounts',
     );
   }
   protected function getRequiredAttributes() {
