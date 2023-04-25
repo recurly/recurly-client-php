@@ -44,6 +44,7 @@
  * @property int $subtotal_before_discount_in_cents The total of all adjustments on the invoice before discounts or taxes are applied.
  * @property int $credit_customer_notes Allows merchant to set customer notes on a credit invoice. Will only be rejected if type is set to "charge", otherwise will be ignored if no credit invoice is created.
  * @property string $dunning_campaign_id Unique ID to identify the dunning campaign used when dunning the invoice.
+ * @property boolean $used_tax_service If taxes are enabled for the site, it will be true when the invoice had a successful response from the tax service and `false` when the invoice was not sent to tax service due to a lack of address or enabled jurisdiction or was processed without tax due to a non-blocking error returned from the tax service.
  */
 class Recurly_Invoice extends Recurly_Resource
 {

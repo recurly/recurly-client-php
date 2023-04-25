@@ -23,6 +23,7 @@ Content-Type: application/xml; charset=utf-8
   <terms_and_conditions>Some Terms and Conditions</terms_and_conditions>
   <customer_notes>Some Customer Notes</customer_notes>
   <vat_reverse_charge_notes>Some VAT Notes</vat_reverse_charge_notes>
+  <used_tax_service type="boolean">true</used_tax_service>
   <line_items type="array">
     <adjustment href="https://api.recurly.com/v2/adjustments/012345678901234567890123456789ab" type="charge">
       <account href="https://api.recurly.com/v2/accounts/1"/>
