@@ -1,5 +1,16 @@
 # Changelog
 
+## [2.14.1](https://github.com/recurly/recurly-client-php/tree/2.14.1) (2023-04-26)
+
+[Full Changelog](https://github.com/recurly/recurly-client-php/compare/2.14.0...2.14.1)
+
+
+**Merged Pull Requests**
+
+- Add used_tax_service to Invoice response [#757](https://github.com/recurly/recurly-client-php/pull/757) ([judith](https://github.com/judith))
+
+
+
 ## [2.14.0](https://github.com/recurly/recurly-client-php/tree/2.14.0) (2023-04-13)
 
 [Full Changelog](https://github.com/recurly/recurly-client-php/compare/2.13.1...2.14.0)
