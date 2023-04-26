@@ -49,6 +49,7 @@ class Invoice extends RecurlyResource
     private $_transactions;
     private $_type;
     private $_updated_at;
+    private $_used_tax_service;
     private $_uuid;
     private $_vat_number;
     private $_vat_reverse_charge_notes;
@@ -910,6 +911,29 @@ class Invoice extends RecurlyResource
     public function setUpdatedAt(string $updated_at): void
     {
         $this->_updated_at = $updated_at;
+    }
+
+    /**
+    * Getter method for the used_tax_service attribute.
+    * Will be `true` when the invoice had a successful response from the tax service and `false` when the invoice was not sent to tax service due to a lack of address or enabled jurisdiction or was processed without tax due to a non-blocking error returned from the tax service.
+    *
+    * @return ?bool
+    */
+    public function getUsedTaxService(): ?bool
+    {
+        return $this->_used_tax_service;
+    }
+
+    /**
+    * Setter method for the used_tax_service attribute.
+    *
+    * @param bool $used_tax_service
+    *
+    * @return void
+    */
+    public function setUsedTaxService(bool $used_tax_service): void
+    {
+        $this->_used_tax_service = $used_tax_service;
     }
 
     /**
