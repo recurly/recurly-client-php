@@ -1,6 +1,6 @@
 {
     "name": "recurly/recurly-client",
-    "version": "4.33.0",
+    "version": "4.34.0",
     "type": "library",
     "description": "The PHP client library for the Recurly API",
     "keywords": ["recurly", "payments", "pay"],
