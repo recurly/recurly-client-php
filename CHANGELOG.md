@@ -1,5 +1,16 @@
 # Changelog
 
+## [3.20.0](https://github.com/recurly/recurly-client-php/tree/3.20.0) (2023-05-03)
+
+[Full Changelog](https://github.com/recurly/recurly-client-php/compare/3.19.0...3.20.0)
+
+
+**Merged Pull Requests**
+
+- Generated Latest Changes for v2019-10-10 [#760](https://github.com/recurly/recurly-client-php/pull/760) ([recurly-integrations](https://github.com/recurly-integrations))
+
+
+
 ## [3.19.0](https://github.com/recurly/recurly-client-php/tree/3.19.0) (2023-04-26)
 
 [Full Changelog](https://github.com/recurly/recurly-client-php/compare/3.18.0...3.19.0)
