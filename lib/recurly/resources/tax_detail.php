@@ -12,6 +12,9 @@ use Recurly\RecurlyResource;
 // phpcs:disable
 class TaxDetail extends RecurlyResource
 {
+    private $_billable;
+    private $_level;
+    private $_name;
     private $_rate;
     private $_region;
     private $_tax;
@@ -21,6 +24,75 @@ class TaxDetail extends RecurlyResource
     ];
 
     
+    /**
+    * Getter method for the billable attribute.
+    * Whether or not the line item is taxable. Only populated for a single LineItem fetch when Avalara for Communications is enabled.
+    *
+    * @return ?bool
+    */
+    public function getBillable(): ?bool
+    {
+        return $this->_billable;
+    }
+
+    /**
+    * Setter method for the billable attribute.
+    *
+    * @param bool $billable
+    *
+    * @return void
+    */
+    public function setBillable(bool $billable): void
+    {
+        $this->_billable = $billable;
+    }
+
+    /**
+    * Getter method for the level attribute.
+    * Provides the jurisdiction level for the Communications tax applied. Example values include city, state and federal. Present only when Avalara for Communications is enabled.
+    *
+    * @return ?string
+    */
+    public function getLevel(): ?string
+    {
+        return $this->_level;
+    }
+
+    /**
+    * Setter method for the level attribute.
+    *
+    * @param string $level
+    *
+    * @return void
+    */
+    public function setLevel(string $level): void
+    {
+        $this->_level = $level;
+    }
+
+    /**
+    * Getter method for the name attribute.
+    * Provides the name of the Communications tax applied. Present only when Avalara for Communications is enabled.
+    *
+    * @return ?string
+    */
+    public function getName(): ?string
+    {
+        return $this->_name;
+    }
+
+    /**
+    * Setter method for the name attribute.
+    *
+    * @param string $name
+    *
+    * @return void
+    */
+    public function setName(string $name): void
+    {
+        $this->_name = $name;
+    }
+
     /**
     * Getter method for the rate attribute.
     * Provides the tax rate for the region.
@@ -46,7 +118,7 @@ class TaxDetail extends RecurlyResource
 
     /**
     * Getter method for the region attribute.
-    * Provides the tax region applied on an invoice. For Canadian Sales Tax, this will be either the 2 letter province code or country code.
+    * Provides the tax region applied on an invoice. For Canadian Sales Tax, this will be either the 2 letter province code or country code. Not present when Avalara for Communications is enabled.
     *
     * @return ?string
     */
@@ -92,7 +164,7 @@ class TaxDetail extends RecurlyResource
 
     /**
     * Getter method for the type attribute.
-    * Provides the tax type for the region. For Canadian Sales Tax, this will be GST, HST, QST or PST.
+    * Provides the tax type for the region or type of Comminications tax when Avalara for Communications is enabled. For Canadian Sales Tax, this will be GST, HST, QST or PST.
     *
     * @return ?string
     */
