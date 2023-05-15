@@ -13,7 +13,16 @@ class Recurly_ExternalProductReference extends Recurly_Resource
     return 'external_product_reference';
   }
 
-  protected function getWriteableAttributes() {
-   return array();
+  public function populateXmlDoc(&$doc, &$node, &$obj, $nested = false) {
+    if ($this->isEmbedded($node, 'external_product_references')) {
+      $external_product_reference_node = $node->appendChild($doc->createElement($this->getNodeName()));
+      parent::populateXmlDoc($doc, $external_product_reference_node, $obj, $nested);
+    } else {
+      parent::populateXmlDoc($doc, $node, $obj, $nested);
+    }
   }
+
+  protected function getWriteableAttributes() {
+    return array('reference_code', 'external_connection_type');
+   }
 }
