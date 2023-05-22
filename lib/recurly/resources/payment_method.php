@@ -19,6 +19,7 @@ class PaymentMethod extends RecurlyResource
     private $_exp_month;
     private $_exp_year;
     private $_first_six;
+    private $_gateway_attributes;
     private $_gateway_code;
     private $_gateway_token;
     private $_last_four;
@@ -192,6 +193,29 @@ class PaymentMethod extends RecurlyResource
     public function setFirstSix(string $first_six): void
     {
         $this->_first_six = $first_six;
+    }
+
+    /**
+    * Getter method for the gateway_attributes attribute.
+    * Gateway specific attributes associated with this PaymentMethod
+    *
+    * @return ?\Recurly\Resources\GatewayAttributes
+    */
+    public function getGatewayAttributes(): ?\Recurly\Resources\GatewayAttributes
+    {
+        return $this->_gateway_attributes;
+    }
+
+    /**
+    * Setter method for the gateway_attributes attribute.
+    *
+    * @param \Recurly\Resources\GatewayAttributes $gateway_attributes
+    *
+    * @return void
+    */
+    public function setGatewayAttributes(\Recurly\Resources\GatewayAttributes $gateway_attributes): void
+    {
+        $this->_gateway_attributes = $gateway_attributes;
     }
 
     /**
