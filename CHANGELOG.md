@@ -1,5 +1,16 @@
 # Changelog
 
+## [4.35.0](https://github.com/recurly/recurly-client-php/tree/4.35.0) (2023-05-23)
+
+[Full Changelog](https://github.com/recurly/recurly-client-php/compare/4.34.0...4.35.0)
+
+
+**Merged Pull Requests**
+
+- Generated Latest Changes for v2021-02-25 (gateway_attributes on PaymentMethod) [#764](https://github.com/recurly/recurly-client-php/pull/764) ([recurly-integrations](https://github.com/recurly-integrations))
+
+
+
 ## [4.34.0](https://github.com/recurly/recurly-client-php/tree/4.34.0) (2023-05-03)
 
 [Full Changelog](https://github.com/recurly/recurly-client-php/compare/4.33.0...4.34.0)
