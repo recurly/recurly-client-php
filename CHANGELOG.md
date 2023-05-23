@@ -1,5 +1,16 @@
 # Changelog
 
+## [3.21.0](https://github.com/recurly/recurly-client-php/tree/3.21.0) (2023-05-23)
+
+[Full Changelog](https://github.com/recurly/recurly-client-php/compare/3.20.0...3.21.0)
+
+
+**Merged Pull Requests**
+
+- Generated Latest Changes for v2019-10-10 (gateway_attributes on PaymentMethod) [#765](https://github.com/recurly/recurly-client-php/pull/765) ([recurly-integrations](https://github.com/recurly-integrations))
+
+
+
 ## [3.20.0](https://github.com/recurly/recurly-client-php/tree/3.20.0) (2023-05-03)
 
 [Full Changelog](https://github.com/recurly/recurly-client-php/compare/3.19.0...3.20.0)
