@@ -23,4 +23,19 @@ class Recurly_ExternalProductTest extends Recurly_TestCase
     $this->assertInstanceOf('DateTime', $external_product_reference->created_at);
     $this->assertInstanceOf('DateTime', $external_product_reference->updated_at);
   }
+
+  public function testCreateXml() {
+    $external_product = new Recurly_ExternalProduct();
+    $external_product->plan_code = 'p1';
+    $external_product->name = 'Cool Plan Name';
+    $external_product_reference = new Recurly_ExternalProductReference();
+    $external_product_reference->reference_code = 'reference_code';
+    $external_product_reference->external_connection_type = 'google_play_store';
+    $external_product->external_product_references = [$external_product_reference];
+  
+    $this->assertEquals(
+      "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n<external_product><plan_code>p1</plan_code><name>Cool Plan Name</name><external_product_references><external_product_reference><reference_code>reference_code</reference_code><external_connection_type>google_play_store</external_connection_type></external_product_reference></external_product_references></external_product>\n",
+      $external_product->xml()
+    );
+  }
 }
