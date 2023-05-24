@@ -1621,6 +1621,21 @@ endpoint to obtain only the newly generated `UniqueCouponCodes`.
     }
   
     /**
+     * Create an external product
+     *
+     * @param array $body    The body of the request.
+     * @param array $options Associative array of optional parameters
+     *
+     * @return \Recurly\Resources\ExternalProduct Returns the external product
+     * @link   https://developers.recurly.com/api/v2021-02-25#operation/create_external_product
+     */
+    public function createExternalProduct(array $body, array $options = []): \Recurly\Resources\ExternalProduct
+    {
+        $path = $this->interpolatePath("/external_products", []);
+        return $this->makeRequest('POST', $path, $body, $options);
+    }
+  
+    /**
      * Fetch an external product
      *
      * @param string $external_product_id External product id
@@ -1633,6 +1648,106 @@ endpoint to obtain only the newly generated `UniqueCouponCodes`.
     {
         $path = $this->interpolatePath("/external_products/{external_product_id}", ['external_product_id' => $external_product_id]);
         return $this->makeRequest('GET', $path, [], $options);
+    }
+  
+    /**
+     * Update an external product
+     *
+     * @param string $external_product_id External product id
+     * @param array  $body                The body of the request.
+     * @param array  $options             Associative array of optional parameters
+     *
+     * @return \Recurly\Resources\ExternalProduct Settings for an external product.
+     * @link   https://developers.recurly.com/api/v2021-02-25#operation/update_external_product
+     */
+    public function updateExternalProduct(string $external_product_id, array $body, array $options = []): \Recurly\Resources\ExternalProduct
+    {
+        $path = $this->interpolatePath("/external_products/{external_product_id}", ['external_product_id' => $external_product_id]);
+        return $this->makeRequest('PUT', $path, $body, $options);
+    }
+  
+    /**
+     * Deactivate an external product
+     *
+     * @param string $external_product_id External product id
+     * @param array  $options             Associative array of optional parameters
+     *
+     * @return \Recurly\Resources\ExternalProduct Deactivated external product.
+     * @link   https://developers.recurly.com/api/v2021-02-25#operation/deactivate_external_products
+     */
+    public function deactivateExternalProducts(string $external_product_id, array $options = []): \Recurly\Resources\ExternalProduct
+    {
+        $path = $this->interpolatePath("/external_products/{external_product_id}", ['external_product_id' => $external_product_id]);
+        return $this->makeRequest('DELETE', $path, [], $options);
+    }
+  
+    /**
+     * List the external product references for an external product
+     *
+     * @param string $external_product_id External product id
+     * @param array  $options             Associative array of optional parameters
+     *
+     * Supported optional query string parameters:
+     *
+     * - $options['params']['sort'] (string): Sort field. You *really* only want to sort by `updated_at` in ascending
+     *        order. In descending order updated records will move behind the cursor and could
+     *        prevent some records from being returned.
+     *
+     * @return \Recurly\Pager A list of the the external product references for an external product.
+     * @link   https://developers.recurly.com/api/v2021-02-25#operation/list_external_product_external_product_references
+     */
+    public function listExternalProductExternalProductReferences(string $external_product_id, array $options = []): \Recurly\Pager
+    {
+        $path = $this->interpolatePath("/external_products/{external_product_id}/external_product_references", ['external_product_id' => $external_product_id]);
+        return new \Recurly\Pager($this, $path, $options);
+    }
+  
+    /**
+     * Create an external product reference on an external product
+     *
+     * @param string $external_product_id External product id
+     * @param array  $body                The body of the request.
+     * @param array  $options             Associative array of optional parameters
+     *
+     * @return \Recurly\Resources\ExternalProductReferenceMini Details for the external product reference.
+     * @link   https://developers.recurly.com/api/v2021-02-25#operation/create_external_product_external_product_reference
+     */
+    public function createExternalProductExternalProductReference(string $external_product_id, array $body, array $options = []): \Recurly\Resources\ExternalProductReferenceMini
+    {
+        $path = $this->interpolatePath("/external_products/{external_product_id}/external_product_references", ['external_product_id' => $external_product_id]);
+        return $this->makeRequest('POST', $path, $body, $options);
+    }
+  
+    /**
+     * Fetch an external product reference
+     *
+     * @param string $external_product_id           External product id
+     * @param string $external_product_reference_id External product reference ID, e.g. `d39iun2fw1v4`.
+     * @param array  $options                       Associative array of optional parameters
+     *
+     * @return \Recurly\Resources\ExternalProductReferenceMini Details for an external product reference.
+     * @link   https://developers.recurly.com/api/v2021-02-25#operation/get_external_product_external_product_reference
+     */
+    public function getExternalProductExternalProductReference(string $external_product_id, string $external_product_reference_id, array $options = []): \Recurly\Resources\ExternalProductReferenceMini
+    {
+        $path = $this->interpolatePath("/external_products/{external_product_id}/external_product_references/{external_product_reference_id}", ['external_product_id' => $external_product_id, 'external_product_reference_id' => $external_product_reference_id]);
+        return $this->makeRequest('GET', $path, [], $options);
+    }
+  
+    /**
+     * Deactivate an external product reference
+     *
+     * @param string $external_product_id           External product id
+     * @param string $external_product_reference_id External product reference ID, e.g. `d39iun2fw1v4`.
+     * @param array  $options                       Associative array of optional parameters
+     *
+     * @return \Recurly\Resources\ExternalProductReferenceMini Details for an external product reference.
+     * @link   https://developers.recurly.com/api/v2021-02-25#operation/deactivate_external_product_external_product_reference
+     */
+    public function deactivateExternalProductExternalProductReference(string $external_product_id, string $external_product_reference_id, array $options = []): \Recurly\Resources\ExternalProductReferenceMini
+    {
+        $path = $this->interpolatePath("/external_products/{external_product_id}/external_product_references/{external_product_reference_id}", ['external_product_id' => $external_product_id, 'external_product_reference_id' => $external_product_reference_id]);
+        return $this->makeRequest('DELETE', $path, [], $options);
     }
   
     /**
