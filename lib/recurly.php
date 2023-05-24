@@ -97,6 +97,7 @@ require_once(__DIR__ . '/recurly/usage_list.php');
 require_once(__DIR__ . '/recurly/gift_card.php');
 require_once(__DIR__ . '/recurly/gift_card_list.php');
 require_once(__DIR__ . '/recurly/delivery.php');
+require_once(__DIR__ . '/recurly/gateway_attributes.php');
 
 require_once(__DIR__ . '/recurly/push_notification.php');
 require_once(__DIR__ . '/recurly/util/hmac_hash.php');
