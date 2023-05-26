@@ -65,6 +65,7 @@ class XmlTools
     'external_subscription' => 'Recurly_ExternalSubscription',
     'external_subscriptions' => 'Recurly_ExternalSubscriptionList',
     'fraud' => 'Recurly_FraudInfo',
+    'gateway_attributes' => 'Recurly_GatewayAttributes',
     'gift_card' => 'Recurly_GiftCard',
     'gift_cards' => 'Recurly_GiftCardList',
     'gifter_account' => 'Recurly_Account',
