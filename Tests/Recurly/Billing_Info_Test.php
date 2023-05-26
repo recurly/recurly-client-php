@@ -214,15 +214,18 @@ class Recurly_BillingInfoTest extends Recurly_TestCase
 
   public function testForGatewayToken() {
     $billing_info = new Recurly_BillingInfo(null, $this->client);
+    $gateway_attributes = new Recurly_GatewayAttributes();
+    $gateway_attributes->account_reference = '123ABC';
     $billing_info->gateway_token = 'x1x2x3';
     $billing_info->gateway_code = 'abc123';
     $billing_info->month = '11';
     $billing_info->year = '2025';
+    $billing_info->gateway_attributes = $gateway_attributes;
 
     $this->assertInstanceOf('Recurly_BillingInfo', $billing_info);
     $this->assertEquals(
       $billing_info->xml(),
-      "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n<billing_info><month>11</month><year>2025</year><gateway_token>x1x2x3</gateway_token><gateway_code>abc123</gateway_code></billing_info>\n"
+      "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n<billing_info><month>11</month><year>2025</year><gateway_token>x1x2x3</gateway_token><gateway_code>abc123</gateway_code><gateway_attributes><account_reference>123ABC</account_reference></gateway_attributes></billing_info>\n"
     );
   }
 
