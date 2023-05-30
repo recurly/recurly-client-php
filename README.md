@@ -93,7 +93,7 @@ under the *Query Parameters* section of [any pageable endpoint](https://develope
 Example filtering an sorting accounts:
 
 ```php
-$params = array(
+$options = array('params' = array(
     // the following params are common amongst pageable endpoints
     'limit' => 200,   // 200 resources per page (http call)
     'order' => 'asc', // asc or desc order
@@ -103,8 +103,8 @@ $params = array(
     'email' => 'admin@email.com', // only accounts with this email
     'subscriber' => true, // only accounts with a subscription in the active, canceled, or future state
     'past_due' => false // no accounts with an invoice in the past_due state
-);
-$accounts = $client->listAccounts($params);
+));
+$accounts = $client->listAccounts($options);
 
 foreach($accounts as $account) {
     echo 'Account code: ' . $account->getCode() . PHP_EOL;
