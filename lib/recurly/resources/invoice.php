@@ -16,6 +16,7 @@ class Invoice extends RecurlyResource
     private $_address;
     private $_balance;
     private $_billing_info_id;
+    private $_business_entity_id;
     private $_closed_at;
     private $_collection_method;
     private $_created_at;
@@ -152,6 +153,29 @@ class Invoice extends RecurlyResource
     public function setBillingInfoId(string $billing_info_id): void
     {
         $this->_billing_info_id = $billing_info_id;
+    }
+
+    /**
+    * Getter method for the business_entity_id attribute.
+    * Unique ID to identify the business entity assigned to the invoice. Available when the `Multiple Business Entities` feature is enabled.
+    *
+    * @return ?string
+    */
+    public function getBusinessEntityId(): ?string
+    {
+        return $this->_business_entity_id;
+    }
+
+    /**
+    * Setter method for the business_entity_id attribute.
+    *
+    * @param string $business_entity_id
+    *
+    * @return void
+    */
+    public function setBusinessEntityId(string $business_entity_id): void
+    {
+        $this->_business_entity_id = $business_entity_id;
     }
 
     /**

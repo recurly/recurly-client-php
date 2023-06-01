@@ -3368,6 +3368,35 @@ endpoint to obtain only the newly generated `UniqueCouponCodes`.
     }
   
     /**
+     * Fetch a business entity
+     *
+     * @param string $business_entity_id Business Entity ID. For ID no prefix is used e.g. `e28zov4fw0v2`. For code use prefix `code-`, e.g. `code-entity1`.
+     * @param array  $options            Associative array of optional parameters
+     *
+     * @return \Recurly\Resources\BusinessEntity Business entity details
+     * @link   https://developers.recurly.com/api/v2021-02-25#operation/get_business_entity
+     */
+    public function getBusinessEntity(string $business_entity_id, array $options = []): \Recurly\Resources\BusinessEntity
+    {
+        $path = $this->interpolatePath("/business_entities/{business_entity_id}", ['business_entity_id' => $business_entity_id]);
+        return $this->makeRequest('GET', $path, [], $options);
+    }
+  
+    /**
+     * List business entities
+     *
+     * @param array $options Associative array of optional parameters
+     *
+     * @return \Recurly\Pager List of all business entities on your site.
+     * @link   https://developers.recurly.com/api/v2021-02-25#operation/list_business_entities
+     */
+    public function listBusinessEntities(array $options = []): \Recurly\Pager
+    {
+        $path = $this->interpolatePath("/business_entities", []);
+        return new \Recurly\Pager($this, $path, $options);
+    }
+  
+    /**
      * List gift cards
      *
      * @param array $options Associative array of optional parameters
@@ -3440,6 +3469,49 @@ endpoint to obtain only the newly generated `UniqueCouponCodes`.
     {
         $path = $this->interpolatePath("/gift_cards/{redemption_code}/redeem", ['redemption_code' => $redemption_code]);
         return $this->makeRequest('POST', $path, $body, $options);
+    }
+  
+    /**
+     * List a business entity's invoices
+     *
+     * @param string $business_entity_id Business Entity ID. For ID no prefix is used e.g. `e28zov4fw0v2`. For code use prefix `code-`, e.g. `code-entity1`.
+     * @param array  $options            Associative array of optional parameters
+     *
+     * Supported optional query string parameters:
+     *
+     * - $options['params']['ids'] (array): Filter results by their IDs. Up to 200 IDs can be passed at once using
+     *        commas as separators, e.g. `ids=h1at4d57xlmy,gyqgg0d3v9n1,jrsm5b4yefg6`.
+     *        
+     *        **Important notes:**
+     *        
+     *        * The `ids` parameter cannot be used with any other ordering or filtering
+     *          parameters (`limit`, `order`, `sort`, `begin_time`, `end_time`, etc)
+     *        * Invalid or unknown IDs will be ignored, so you should check that the
+     *          results correspond to your request.
+     *        * Records are returned in an arbitrary order. Since results are all
+     *          returned at once you can sort the records yourself.
+     * - $options['params']['limit'] (int): Limit number of records 1-200.
+     * - $options['params']['order'] (string): Sort order.
+     * - $options['params']['sort'] (string): Sort field. You *really* only want to sort by `updated_at` in ascending
+     *        order. In descending order updated records will move behind the cursor and could
+     *        prevent some records from being returned.
+     * - $options['params']['begin_time'] (string): Inclusively filter by begin_time when `sort=created_at` or `sort=updated_at`.
+     *        **Note:** this value is an ISO8601 timestamp. A partial timestamp that does not include a time zone will default to UTC.
+     * - $options['params']['end_time'] (string): Inclusively filter by end_time when `sort=created_at` or `sort=updated_at`.
+     *        **Note:** this value is an ISO8601 timestamp. A partial timestamp that does not include a time zone will default to UTC.
+     * - $options['params']['type'] (string): Filter by type when:
+     *        - `type=charge`, only charge invoices will be returned.
+     *        - `type=credit`, only credit invoices will be returned.
+     *        - `type=non-legacy`, only charge and credit invoices will be returned.
+     *        - `type=legacy`, only legacy invoices will be returned.
+     *
+     * @return \Recurly\Pager A list of the business entity's invoices.
+     * @link   https://developers.recurly.com/api/v2021-02-25#operation/list_business_entity_invoices
+     */
+    public function listBusinessEntityInvoices(string $business_entity_id, array $options = []): \Recurly\Pager
+    {
+        $path = $this->interpolatePath("/business_entities/{business_entity_id}/invoices", ['business_entity_id' => $business_entity_id]);
+        return new \Recurly\Pager($this, $path, $options);
     }
   
 }
