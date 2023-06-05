@@ -18,6 +18,8 @@ class Recurly_InvoiceTest extends Recurly_TestCase
     $this->assertInstanceOf('Recurly_Stub', $invoice->account);
     $this->assertInstanceOf('Recurly_Stub', $invoice->subscription);
     $this->assertInstanceOf('Recurly_Stub', $invoice->all_transactions);
+    $this->assertInstanceOf('Recurly_Stub', $invoice->business_entity);
+    $this->assertEquals($invoice->business_entity->getHref(), 'https://api.recurly.com/v2/business_entities/sg2e75h5bdr4');
     $this->assertEquals($invoice->state, 'paid');
     $this->assertEquals($invoice->total_in_cents, 2995);
     $this->assertEquals($invoice->getHref(),'https://api.recurly.com/v2/invoices/1001');

@@ -35,6 +35,8 @@ class Recurly_AccountTest extends Recurly_TestCase
     $this->assertEquals($account->preferred_locale, 'en-US');
     $this->assertEquals($account->preferred_time_zone, 'America/Los_Angeles');
     $this->assertEquals($account->dunning_campaign_id, '1234abcd');
+    $this->assertInstanceOf('Recurly_Stub', $account->override_business_entity);
+    $this->assertEquals($account->override_business_entity->getHref(), 'https://api.recurly.com/v2/business_entities/sg2e75h5bdr4');
     $this->assertInstanceOf('Recurly_Stub', $account->entitlements);
 
     $this->assertInstanceOf('Recurly_CustomFieldList', $account->custom_fields);

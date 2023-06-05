@@ -14,6 +14,7 @@
  * @property Recurly_Stub $external_subscriptions The URL of the external_subscriptions for the specified account.
  * @property Recurly_Stub $external_invoices The URL of the external_invoices for the specified account.
  * @property Recurly_Stub $external_accounts The URL of the external_accounts for the specified account.
+ * @property Recurly_Stub $override_business_entity The URL of the account's override business entity.
  * @property string $account_code The unique identifier of the account.
  * @property string $state The state of accounts to return: active or closed.
  * @property string $username The username of the account.
@@ -168,7 +169,7 @@ class Recurly_Account extends Recurly_Resource
       'tax_exempt', 'entity_use_code', 'cc_emails', 'shipping_addresses',
       'preferred_locale', 'preferred_time_zone', 'custom_fields', 'account_acquisition', 'exemption_certificate',
       'parent_account_code', 'transaction_type', 'dunning_campaign_id', 'invoice_template_uuid',
-      'external_accounts',
+      'external_accounts', 'override_business_entity_id'
     );
   }
   protected function getRequiredAttributes() {
