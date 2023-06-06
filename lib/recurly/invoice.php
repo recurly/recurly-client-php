@@ -3,6 +3,7 @@
  * class Recurly_Invoice
  * @property Recurly_Stub $account
  * @property Recurly_Stub $subscriptions
+ * @property Recurly_Stub $business_entity Business entity used to build the invoice. Available when the Multiple Business Entities is enabled for the site.
  * @property Recurly_Address $address
  * @property Recurly_ShippingAddress $shipping_address
  * @property Recurly_BillingInfo $billing_info

@@ -28,6 +28,11 @@ class Recurly_InvoiceList extends Recurly_Pager
     return new self($uri, $client);
   }
 
+  public static function getForBusinessEntity($businessEntityUUID, $params = null, $client = null) {
+    $uri = self::_uriWithParams(self::_safeUri(Recurly_Client::PATH_BUSINESS_ENTITIES, $businessEntityUUID, Recurly_Client::PATH_INVOICES), $params);
+    return new self($uri, $client);
+  }
+
   /**
    * Performs a request with the `per_page` set to `n` and only returns
    * the first `n` results in the response.

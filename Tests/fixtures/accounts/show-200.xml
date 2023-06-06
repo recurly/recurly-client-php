@@ -10,6 +10,7 @@ Content-Type: application/xml; charset=utf-8
   <transactions href="https://api.recurly.com/v2/accounts/abcdef1234567890/transactions"/>
   <entitlements href="https://api.recurly.com/v2/accounts/abcdef1234567890/entitlements"/>
   <external_accounts href="https://api.recurly.com/v2/accounts/abcdef1234567890/external_accounts"/>
+  <override_business_entity href="https://api.recurly.com/v2/business_entities/sg2e75h5bdr4"/>
   <account_code>abcdef1234567890</account_code>
   <username>shmohawk58</username>
   <email>larry.david@example.com</email>

@@ -6,6 +6,7 @@ Content-Type: application/xml; charset=utf-8
   <account href="https://api.recurly.com/v2/accounts/1"/>
   <subscription href="https://api.recurly.com/v2/subscriptions/1234567890abcdef"/>
   <all_transactions href="https://api.recurly.com/v2/invoices/1001/transactions"/>
+  <business_entity href="https://api.recurly.com/v2/business_entities/sg2e75h5bdr4"/>
   <uuid>012345678901234567890123456789aa</uuid>
   <state>paid</state>
   <invoice_number type="integer">1001</invoice_number>
