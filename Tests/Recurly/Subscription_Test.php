@@ -88,12 +88,16 @@ class Recurly_SubscriptionTest extends Recurly_TestCase
     $this->assertEquals(1, $ramp1->starting_billing_cycle);
     $this->assertEquals(123, $ramp1->unit_amount_in_cents);
     $this->assertEquals(2, $ramp1->remaining_billing_cycles);
+    $this->assertInstanceOf('DateTime', $ramp1->starting_on);
+    $this->assertInstanceOf('DateTime', $ramp1->ending_on);
 
     $ramp2 = $subscription->ramp_intervals[1];
     $this->assertInstanceOf('Recurly_SubscriptionRampInterval', $ramp2);
     $this->assertEquals(4, $ramp2->starting_billing_cycle);
     $this->assertEquals(456, $ramp2->unit_amount_in_cents);
     $this->assertEmpty($ramp2->remaining_billing_cycles);
+    $this->assertInstanceOf('DateTime', $ramp1->starting_on);
+    $this->assertEmpty($ramp2->ending_on);
   }
 
   public function testCreateManualCollectionSubscriptionXml() {

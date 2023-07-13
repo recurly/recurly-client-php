@@ -11,6 +11,8 @@
  * @property number $starting_billing_cycle
  * @property number $unit_amount_in_cents
  * @property number $remaining_billing_cycles
+ * @property datetime $starting_on
+ * @property datetime $ending_on
  */
 class Recurly_SubscriptionRampInterval extends Recurly_RampInterval
 {

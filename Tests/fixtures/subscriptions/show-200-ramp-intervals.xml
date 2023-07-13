@@ -35,11 +35,15 @@ Content-Type: application/xml; charset=utf-8
         <starting_billing_cycle type="integer">1</starting_billing_cycle>,
         <unit_amount_in_cents type="integer">123</unit_amount_in_cents>
         <remaining_billing_cycles type="integer">2</remaining_billing_cycles>
+        <starting_on type="datetime">2023-10-12T15:38:05Z</starting_on>
+        <ending_on type="datetime">2024-01-12T15:38:05Z</ending_on>
       </ramp_interval>
       <ramp_interval>
         <starting_billing_cycle type="integer">4</starting_billing_cycle>
         <unit_amount_in_cents type="integer">456</unit_amount_in_cents>
         <remaining_billing_cycles nil="nil"></remaining_billing_cycles>
+        <starting_on type="datetime">2024-01-12T15:38:05Z</starting_on>
+        <ending_on nil="nil"></ending_on>
       </ramp_interval>
     </ramp_intervals>
     <a name="cancel" href="https://api.recurly.com/v2/subscriptions/32558dd8a07smo471fbe6642d3a422f4/cancel" method="put"/>
