@@ -37,6 +37,7 @@ class Subscription extends RecurlyResource
     private $_gateway_code;
     private $_id;
     private $_net_terms;
+    private $_net_terms_type;
     private $_object;
     private $_paused_at;
     private $_pending_change;
@@ -626,7 +627,19 @@ class Subscription extends RecurlyResource
 
     /**
     * Getter method for the net_terms attribute.
-    * Integer representing the number of days after an invoice's creation that the invoice will become past due. If an invoice's net terms are set to '0', it is due 'On Receipt' and will become past due 24 hours after it’s created. If an invoice is due net 30, it will become past due at 31 days exactly.
+    * Integer paired with `Net Terms Type` and representing the number
+of days past the current date (for `net` Net Terms Type) or days after
+the last day of the current month (for `eom` Net Terms Type) that the
+invoice will become past due. For any value, an additional 24 hours is
+added to ensure the customer has the entire last day to make payment before
+becoming past due.  For example:
+
+If an invoice is due `net 0`, it is due 'On Receipt' and will become past due 24 hours after it's created.
+If an invoice is due `net 30`, it will become past due at 31 days exactly.
+If an invoice is due `eom 30`, it will become past due 31 days from the last day of the current month.
+
+When `eom` Net Terms Type is passed, the value for `Net Terms` is restricted to `0, 15, 30, 45, 60, or 90`.
+For more information please visit our docs page (https://docs.recurly.com/docs/manual-payments#section-collection-terms)
     *
     * @return ?int
     */
@@ -645,6 +658,34 @@ class Subscription extends RecurlyResource
     public function setNetTerms(int $net_terms): void
     {
         $this->_net_terms = $net_terms;
+    }
+
+    /**
+    * Getter method for the net_terms_type attribute.
+    * Optionally supplied string that may be either `net` or `eom` (end-of-month).
+When `net`, an invoice becomes past due the specified number of `Net Terms` days from the current date.
+When `eom` an invoice becomes past due the specified number of `Net Terms` days from the last day of the current month.
+
+This field is only available when the EOM Net Terms feature is enabled.
+
+    *
+    * @return ?string
+    */
+    public function getNetTermsType(): ?string
+    {
+        return $this->_net_terms_type;
+    }
+
+    /**
+    * Setter method for the net_terms_type attribute.
+    *
+    * @param string $net_terms_type
+    *
+    * @return void
+    */
+    public function setNetTermsType(string $net_terms_type): void
+    {
+        $this->_net_terms_type = $net_terms_type;
     }
 
     /**

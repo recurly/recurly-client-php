@@ -12,6 +12,7 @@ use Recurly\RecurlyResource;
 // phpcs:disable
 class InvoiceMini extends RecurlyResource
 {
+    private $_business_entity_id;
     private $_id;
     private $_number;
     private $_object;
@@ -22,6 +23,29 @@ class InvoiceMini extends RecurlyResource
     ];
 
     
+    /**
+    * Getter method for the business_entity_id attribute.
+    * Unique ID to identify the business entity assigned to the invoice. Available when the `Multiple Business Entities` feature is enabled.
+    *
+    * @return ?string
+    */
+    public function getBusinessEntityId(): ?string
+    {
+        return $this->_business_entity_id;
+    }
+
+    /**
+    * Setter method for the business_entity_id attribute.
+    *
+    * @param string $business_entity_id
+    *
+    * @return void
+    */
+    public function setBusinessEntityId(string $business_entity_id): void
+    {
+        $this->_business_entity_id = $business_entity_id;
+    }
+
     /**
     * Getter method for the id attribute.
     * Invoice ID
