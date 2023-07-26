@@ -1,5 +1,16 @@
 # Changelog
 
+## [2.14.5](https://github.com/recurly/recurly-client-php/tree/2.14.5) (2023-07-17)
+
+[Full Changelog](https://github.com/recurly/recurly-client-php/compare/2.14.4...2.14.5)
+
+
+**Merged Pull Requests**
+
+- V2 Client Library External Subscription changes [#774](https://github.com/recurly/recurly-client-php/pull/774) ([paulorbpinho-fullstacklabs](https://github.com/paulorbpinho-fullstacklabs))
+
+
+
 ## [2.14.4](https://github.com/recurly/recurly-client-php/tree/2.14.4) (2023-06-13)
 
 [Full Changelog](https://github.com/recurly/recurly-client-php/compare/2.14.3...2.14.4)

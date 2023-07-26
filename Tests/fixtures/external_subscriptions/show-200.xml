@@ -13,11 +13,15 @@ Content-Type: application/xml; charset=utf-8
   </external_product_reference>
   <last_purchased nil="nil"></last_purchased>
   <auto_renew type="boolean">false</auto_renew>
+  <in_grace_period type="boolean">false</in_grace_period>
   <app_identifier nil="nil"></app_identifier>
   <quantity type="integer">18</quantity>
   <external_id>1_ext_id</external_id>
   <activated_at type="datetime">2022-09-13T18:55:15Z</activated_at>
+  <canceled_at type="datetime">2026-09-13T18:55:15Z</canceled_at>
   <expires_at type="datetime">2026-09-13T18:55:15Z</expires_at>
+  <trial_started_at type="datetime">2026-09-13T18:55:15Z</trial_started_at>
+  <trial_ends_at type="datetime">2026-09-13T18:55:15Z</trial_ends_at>
   <state>active</state>
   <created_at type="datetime">2022-09-13T18:55:15Z</created_at>
   <updated_at type="datetime">2022-09-13T18:55:15Z</updated_at>

@@ -5,11 +5,15 @@
  * @property Recurly_ExternalProductReference $external_product_reference
  * @property DateTime $last_purchased
  * @property boolean $auto_renew
+ * @property boolean $in_grace_period
  * @property string $app_identifier
  * @property integer $quantity
  * @property string $external_id
  * @property DateTime $activated_at
+ * @property DateTime $canceled_at
  * @property DateTime $expires_at
+ * @property DateTime $trial_started_at
+ * @property DateTime $trial_ends_at
  * @property string $state
  * @property DateTime $created_at
  * @property DateTime $updated_at
