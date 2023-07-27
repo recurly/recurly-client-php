@@ -1,12 +1,13 @@
 # Changelog
 
-## [4.38.0](https://github.com/recurly/recurly-client-php/tree/4.38.0) (2023-07-26)
+## [4.39.0](https://github.com/recurly/recurly-client-php/tree/4.39.0) (2023-07-27)
 
-[Full Changelog](https://github.com/recurly/recurly-client-php/compare/4.37.0...4.38.0)
+[Full Changelog](https://github.com/recurly/recurly-client-php/compare/4.37.0...4.39.0)
 
 
 **Merged Pull Requests**
 
+- Generated Latest Changes for v2021-02-25 (Ramp Dates, Net Terms, Invoice Business Entity) [#779](https://github.com/recurly/recurly-client-php/pull/779) ([recurly-integrations](https://github.com/recurly-integrations))
 - Generated Latest Changes for v2021-02-25 (App Management - External Subscriptions) [#777](https://github.com/recurly/recurly-client-php/pull/777) ([recurly-integrations](https://github.com/recurly-integrations))
 
 
