@@ -628,4 +628,17 @@ class Recurly_SubscriptionTest extends Recurly_TestCase
     $subscription->convertTrial();
     $this->assertEquals($subscription->trial_ends_at, $subscription->current_period_started_at);
   }
+
+  public function testPreviewNewSubscriptionWithActionResult(){
+  
+    $this->client->addResponse('POST', '/subscriptions/preview', 'subscriptions/preview-200-new-with-action-result.xml');
+    $subscription = new Recurly_Subscription(null, $this->client);
+
+    $subscription->account = new Recurly_Account();
+    $subscription->account->account_code = '1';
+    $subscription->account->billing_info = new Recurly_BillingInfo();
+    $subscription->account->billing_info->token_id = 'abc123';
+    $subscription->preview();
+    $this->assertEquals('example', $subscription->action_result);
+  }
 }

@@ -56,6 +56,7 @@
  * @property Recurly_BillingInfo $billing_info
  * @property-read string $state On of active, canceled, future, expired, paused
  * @property-read Recurly_Subscription $pending_subscription Nested information about a pending subscription change at renewal
+ * @property string $action_result
  */
 class Recurly_Subscription extends Recurly_Resource
 {
@@ -339,7 +340,7 @@ class Recurly_Subscription extends Recurly_Resource
       'remaining_pause_cycles', 'custom_fields', 'auto_renew',
       'renewal_billing_cycles', 'gateway_code', 'shipping_method_code',
       'shipping_amount_in_cents', 'transaction_type', 'tax_inclusive',
-      'ramp_intervals'
+      'ramp_intervals', 'action_result'
     );
   }
 }
