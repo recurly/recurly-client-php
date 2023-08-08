@@ -93,4 +93,12 @@ class Recurly_TransactionTest extends Recurly_TestCase
     $this->assertEquals('Your card number is not valid. Please update your card number.', $transaction->transaction_error->customer_message);
     $this->assertEquals('123', $transaction->transaction_error->gateway_error_code);
   }
+
+  public function testTransactionWithActionResultResponse(){
+    $this->client->addResponse('POST', '/transactions', 'transactions/create-with-action-result-200.xml');
+
+    $transaction = new Recurly_Transaction(null, $this->client);
+    $transaction->create();
+    $this->assertEquals('example', $transaction->action_result);
+  }
 }

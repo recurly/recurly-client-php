@@ -32,6 +32,7 @@
  * @property string $message The message from the gateway
  * @property string $description The description that gets sent to the gateway, if applicable.
  * @property null|Recurly_TransactionError $transaction_error
+ * @property string $action_result
  */
 class Recurly_Transaction extends Recurly_Resource
 {
@@ -111,7 +112,7 @@ class Recurly_Transaction extends Recurly_Resource
   protected function getWriteableAttributes() {
     return array(
       'account', 'amount_in_cents', 'currency', 'description', 'accounting_code',
-      'tax_exempt', 'tax_code', 'product_code', 'payment_method', 'collected_at'
+      'tax_exempt', 'tax_code', 'product_code', 'payment_method', 'collected_at', 'action_result'
     );
   }
 }

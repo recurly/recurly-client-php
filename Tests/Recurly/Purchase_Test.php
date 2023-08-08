@@ -5,6 +5,7 @@ class Recurly_PurchaseTest extends Recurly_TestCase
   function defaultResponses() {
     return array(
       array('POST', '/purchases', 'purchases/create-201.xml'),
+      array('POST', '/purchases', 'purchases/create-with-action-result-201.xml'),
       array('POST', '/purchases/preview', 'purchases/preview-200.xml'),
       array('POST', '/purchases/authorize', 'purchases/authorize-200.xml'),
       array('POST', '/purchases/pending', 'purchases/pending-200.xml'),
@@ -164,5 +165,13 @@ class Recurly_PurchaseTest extends Recurly_TestCase
       print $e->getMessage();
       $this->fail('Purchase should have thrown transaction exception');
     }
+  }
+
+  public function testPurchaseIncludesTransactionActionResultResponse(){
+    $this->client->addResponse('POST', '/purchases', 'purchases/create-with-action-result-201.xml');
+    
+    $purchase = new Recurly_Purchase(null, $this->client);
+    $collection = Recurly_Purchase::invoice($purchase, $this->client);
+    $this->assertEquals('example', $collection->charge_invoice->transactions->current()->action_result);
   }
 }
