@@ -13,6 +13,7 @@ use Recurly\RecurlyResource;
 class Subscription extends RecurlyResource
 {
     private $_account;
+    private $_action_result;
     private $_activated_at;
     private $_active_invoice_id;
     private $_add_ons;
@@ -94,6 +95,29 @@ class Subscription extends RecurlyResource
     public function setAccount(\Recurly\Resources\AccountMini $account): void
     {
         $this->_account = $account;
+    }
+
+    /**
+    * Getter method for the action_result attribute.
+    * Action result params to be used in Recurly-JS to complete a payment when using asynchronous payment methods, e.g., Boleto, iDEAL and Sofort.
+    *
+    * @return ?object
+    */
+    public function getActionResult(): ?object
+    {
+        return $this->_action_result;
+    }
+
+    /**
+    * Setter method for the action_result attribute.
+    *
+    * @param object $action_result
+    *
+    * @return void
+    */
+    public function setActionResult(object $action_result): void
+    {
+        $this->_action_result = $action_result;
     }
 
     /**
