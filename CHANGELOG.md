@@ -1,5 +1,16 @@
 # Changelog
 
+## [2.14.7](https://github.com/recurly/recurly-client-php/tree/2.14.7) (2023-08-10)
+
+[Full Changelog](https://github.com/recurly/recurly-client-php/compare/2.14.6...2.14.7)
+
+
+**Merged Pull Requests**
+
+- [V2] Add action_result to Subscription and Transaction [#780](https://github.com/recurly/recurly-client-php/pull/780) ([fkosouski](https://github.com/fkosouski))
+
+
+
 ## [2.14.6](https://github.com/recurly/recurly-client-php/tree/2.14.6) (2023-07-27)
 
 [Full Changelog](https://github.com/recurly/recurly-client-php/compare/2.14.5...2.14.6)
@@ -393,7 +404,7 @@
 - Add Capture and Cancel enpoints to go with the Authorize Endpoint [#386](https://github.com/recurly/recurly-client-php/pull/386) ([aarontkennedy](https://github.com/aarontkennedy))
 - Release version 2.11.0 / API version 2.17 [#385](https://github.com/recurly/recurly-client-php/pull/385) ([aaron-junot](https://github.com/aaron-junot))
 - Add OpenSSL version to User-Agent [#384](https://github.com/recurly/recurly-client-php/pull/384) ([aaron-junot](https://github.com/aaron-junot))
-- Added new method getHeaders(), which will allow to get all response headers after each API call [#383](https://github.com/recurly/recurly-client-php/pull/383) ([developer-devPHP](https://github.com/developer-devPHP))
+- Added new method getHeaders(), which will allow to get all response headers after each API call [#383](https://github.com/recurly/recurly-client-php/pull/383) ([tigran-m-dev](https://github.com/tigran-m-dev))
 - Remove deprecated Recurly JS module [#382](https://github.com/recurly/recurly-client-php/pull/382) ([aaron-junot](https://github.com/aaron-junot))
 
 **Closed Issues**
@@ -606,7 +617,7 @@
 - Enhancement: Enable IntelliSense (IDE friendly) for class properties [#278](https://github.com/recurly/recurly-client-php/pull/278) ([phpdave](https://github.com/phpdave))
 - Release 2.7.0 [#275](https://github.com/recurly/recurly-client-php/pull/275) ([drewish](https://github.com/drewish))
 - Adding missing account balance require [#273](https://github.com/recurly/recurly-client-php/pull/273) ([bhelx](https://github.com/bhelx))
-- Added filters support for stub [#270](https://github.com/recurly/recurly-client-php/pull/270) ([developer-devPHP](https://github.com/developer-devPHP))
+- Added filters support for stub [#270](https://github.com/recurly/recurly-client-php/pull/270) ([tigran-m-dev](https://github.com/tigran-m-dev))
 - Simplify writable attributes [#267](https://github.com/recurly/recurly-client-php/pull/267) ([drewish](https://github.com/drewish))
 - Pass the client from pager to its items [#265](https://github.com/recurly/recurly-client-php/pull/265) ([drewish](https://github.com/drewish))
 - Changes for API 2.4 [#258](https://github.com/recurly/recurly-client-php/pull/258) ([drewish](https://github.com/drewish))
@@ -1573,7 +1584,7 @@
 
 - Release version 2.11.0 / API version 2.17 [#385](https://github.com/recurly/recurly-client-php/pull/385) ([aaron-junot](https://github.com/aaron-junot))
 - Add OpenSSL version to User-Agent [#384](https://github.com/recurly/recurly-client-php/pull/384) ([aaron-junot](https://github.com/aaron-junot))
-- Added new method getHeaders(), which will allow to get all response headers after each API call [#383](https://github.com/recurly/recurly-client-php/pull/383) ([developer-devPHP](https://github.com/developer-devPHP))
+- Added new method getHeaders(), which will allow to get all response headers after each API call [#383](https://github.com/recurly/recurly-client-php/pull/383) ([tigran-m-dev](https://github.com/tigran-m-dev))
 - Remove deprecated Recurly JS module [#382](https://github.com/recurly/recurly-client-php/pull/382) ([aaron-junot](https://github.com/aaron-junot))
 
 **Closed Issues**
@@ -1833,7 +1844,7 @@
 
 - Release 2.7.0 [#275](https://github.com/recurly/recurly-client-php/pull/275) ([drewish](https://github.com/drewish))
 - Adding missing account balance require [#273](https://github.com/recurly/recurly-client-php/pull/273) ([bhelx](https://github.com/bhelx))
-- Added filters support for stub [#270](https://github.com/recurly/recurly-client-php/pull/270) ([developer-devPHP](https://github.com/developer-devPHP))
+- Added filters support for stub [#270](https://github.com/recurly/recurly-client-php/pull/270) ([tigran-m-dev](https://github.com/tigran-m-dev))
 - Simplify writable attributes [#267](https://github.com/recurly/recurly-client-php/pull/267) ([drewish](https://github.com/drewish))
 - Pass the client from pager to its items [#265](https://github.com/recurly/recurly-client-php/pull/265) ([drewish](https://github.com/drewish))
 - Changes for API 2.4 [#258](https://github.com/recurly/recurly-client-php/pull/258) ([drewish](https://github.com/drewish))
