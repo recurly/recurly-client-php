@@ -49,6 +49,7 @@ class Transaction extends RecurlyResource
     private $_type;
     private $_updated_at;
     private $_uuid;
+    private $_vat_number;
     private $_voided_at;
     private $_voided_by_invoice;
 
@@ -916,6 +917,29 @@ class Transaction extends RecurlyResource
     public function setUuid(string $uuid): void
     {
         $this->_uuid = $uuid;
+    }
+
+    /**
+    * Getter method for the vat_number attribute.
+    * VAT number for the customer on this transaction. If the customer's Billing Info country is BR or AR, then this will be their Tax Identifier. For all other countries this will come from the VAT Number field in the Billing Info.
+    *
+    * @return ?string
+    */
+    public function getVatNumber(): ?string
+    {
+        return $this->_vat_number;
+    }
+
+    /**
+    * Setter method for the vat_number attribute.
+    *
+    * @param string $vat_number
+    *
+    * @return void
+    */
+    public function setVatNumber(string $vat_number): void
+    {
+        $this->_vat_number = $vat_number;
     }
 
     /**
