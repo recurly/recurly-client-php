@@ -1,5 +1,16 @@
 # Changelog
 
+## [4.41.0](https://github.com/recurly/recurly-client-php/tree/4.41.0) (2023-08-29)
+
+[Full Changelog](https://github.com/recurly/recurly-client-php/compare/4.40.0...4.41.0)
+
+
+**Merged Pull Requests**
+
+- Generated Latest Changes for v2021-02-25 (`VATNumber`, `LifecycleDecline`) [#782](https://github.com/recurly/recurly-client-php/pull/782) ([recurly-integrations](https://github.com/recurly-integrations))
+
+
+
 ## [4.40.0](https://github.com/recurly/recurly-client-php/tree/4.40.0) (2023-08-10)
 
 [Full Changelog](https://github.com/recurly/recurly-client-php/compare/4.39.0...4.40.0)
