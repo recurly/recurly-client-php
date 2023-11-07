@@ -14,6 +14,7 @@ class Address extends RecurlyResource
 {
     private $_city;
     private $_country;
+    private $_geo_code;
     private $_phone;
     private $_postal_code;
     private $_region;
@@ -68,6 +69,29 @@ class Address extends RecurlyResource
     public function setCountry(string $country): void
     {
         $this->_country = $country;
+    }
+
+    /**
+    * Getter method for the geo_code attribute.
+    * Code that represents a geographic entity (location or object). Only returned for Sling Vertex Integration
+    *
+    * @return ?string
+    */
+    public function getGeoCode(): ?string
+    {
+        return $this->_geo_code;
+    }
+
+    /**
+    * Setter method for the geo_code attribute.
+    *
+    * @param string $geo_code
+    *
+    * @return void
+    */
+    public function setGeoCode(string $geo_code): void
+    {
+        $this->_geo_code = $geo_code;
     }
 
     /**

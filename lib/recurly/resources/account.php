@@ -563,7 +563,7 @@ class Account extends RecurlyResource
 
     /**
     * Getter method for the invoice_template_id attribute.
-    * Unique ID to identify an invoice template. Available when the site is on a Pro or Enterprise plan. Used to specify if a non-default invoice template will be used to generate invoices for the account. For sites without multiple invoice templates enabled, the default template will always be used.
+    * Unique ID to identify an invoice template. Available when the site is on a Pro or Elite plan. Used to specify if a non-default invoice template will be used to generate invoices for the account. For sites without multiple invoice templates enabled, the default template will always be used.
     *
     * @return ?string
     */

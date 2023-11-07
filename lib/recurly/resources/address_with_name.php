@@ -15,6 +15,7 @@ class AddressWithName extends RecurlyResource
     private $_city;
     private $_country;
     private $_first_name;
+    private $_geo_code;
     private $_last_name;
     private $_phone;
     private $_postal_code;
@@ -93,6 +94,29 @@ class AddressWithName extends RecurlyResource
     public function setFirstName(string $first_name): void
     {
         $this->_first_name = $first_name;
+    }
+
+    /**
+    * Getter method for the geo_code attribute.
+    * Code that represents a geographic entity (location or object). Only returned for Sling Vertex Integration
+    *
+    * @return ?string
+    */
+    public function getGeoCode(): ?string
+    {
+        return $this->_geo_code;
+    }
+
+    /**
+    * Setter method for the geo_code attribute.
+    *
+    * @param string $geo_code
+    *
+    * @return void
+    */
+    public function setGeoCode(string $geo_code): void
+    {
+        $this->_geo_code = $geo_code;
     }
 
     /**
