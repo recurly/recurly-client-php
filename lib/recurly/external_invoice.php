@@ -3,6 +3,7 @@
  * class Recurly_ExternalInvoice
  * @property Recurly_Stub $account
  * @property Recurly_Stub $external_subscription
+ * @property Recurly_Stub $external_payment_phase
  * @property Recurly_ExternalCharge[] $line_items
  * @property string $external_id
  * @property boolean $state

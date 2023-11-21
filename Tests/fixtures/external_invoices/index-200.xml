@@ -6,6 +6,7 @@ Content-Type: application/xml; charset=utf-8
   <external_invoice href="https://api.recurly.com/v2/external_invoices/sd28t3zdm59r">
     <account href="https://api.recurly.com/v2/accounts/1"/>
     <external_subscription href="https://api.recurly.com/v2/external_subscriptions/1"/>
+    <external_payment_phase href="https://api.recurly.com/v2/external_payment_phases/pexv3leeop4w"/>
     <external_id>external-id</external_id>
     <state>paid</state>
     <currency>USD</currency>
@@ -36,6 +37,7 @@ Content-Type: application/xml; charset=utf-8
   <external_invoice href="https://api.recurly.com/v2/external_invoices/sd28t3zdm59p">
     <account href="https://api.recurly.com/v2/accounts/2"/>
     <external_subscription href="https://api.recurly.com/v2/external_subscriptions/1"/>
+    <external_payment_phase href="https://api.recurly.com/v2/external_payment_phases/pexv3leeop4w"/>
     <external_id>external-id</external_id>
     <state>paid</state>
     <currency>USD</currency>

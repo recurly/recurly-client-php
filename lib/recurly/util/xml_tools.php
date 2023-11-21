@@ -64,6 +64,8 @@ class XmlTools
     'external_products' => 'Recurly_ExternalProductList',
     'external_product_reference' => 'Recurly_ExternalProductReference',
     'external_product_references' => 'array',
+    'external_payment_phase' => 'Recurly_ExternalPaymentPhase',
+    'external_payment_phases' => 'Recurly_ExternalPaymentPhaseList',
     'external_subscription' => 'Recurly_ExternalSubscription',
     'external_subscriptions' => 'Recurly_ExternalSubscriptionList',
     'fraud' => 'Recurly_FraudInfo',

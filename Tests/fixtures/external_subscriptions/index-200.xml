@@ -5,6 +5,8 @@ Content-Type: application/xml; charset=utf-8
 <external_subscriptions type="array">
   <external_subscription href="https://api.recurly.com/v2/external_subscriptions/rjx71rx8gs2m">
     <account href="https://api.recurly.com/v2/accounts/1"/>
+    <external_invoices href="https://api.recurly.com/v2/external_subscriptions/rjx71rx8gs2m/external_invoices"/>
+    <external_payment_phases href="https://api.recurly.com/v2/external_subscriptions/rjx71rx8gs2m/external_payment_phases"/>
     <external_product_reference>
       <id>rauqpcdmxc4a</id>
       <reference_code>1234</reference_code>
@@ -29,6 +31,8 @@ Content-Type: application/xml; charset=utf-8
   </external_subscription>
   <external_subscription href="https://api.recurly.com/v2/external_subscriptions/rbf29tck8hpo">
     <account href="https://api.recurly.com/v2/accounts/2"/>
+    <external_invoices href="https://api.recurly.com/v2/external_subscriptions/rbf29tck8hpo/external_invoices"/>
+    <external_payment_phases href="https://api.recurly.com/v2/external_subscriptions/rbf29tck8hpo/external_payment_phases"/>
     <external_product_reference>
       <id>rauqpcdmxc4b</id>
       <reference_code>5678</reference_code>
