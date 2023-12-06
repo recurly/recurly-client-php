@@ -89,6 +89,7 @@ class Recurly_Client
   const PATH_EXTERNAL_SUBSCRIPTIONS = 'external_subscriptions';
   const PATH_EXTERNAL_PRODUCTS = 'external_products';
   const PATH_EXTERNAL_PRODUCT_REFERENCES = 'external_product_references';
+  const PATH_EXTERNAL_PAYMENT_PHASES = 'external_payment_phases';
   const PATH_EXTERNAL_INVOICES = 'external_invoices';
   const PATH_EXTERNAL_ACCOUNTS = 'external_accounts';
   const PATH_BUSINESS_ENTITIES = 'business_entities';

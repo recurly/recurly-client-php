@@ -15,6 +15,8 @@ class Recurly_ExternalSubscriptionListTest extends Recurly_TestCase
     $external_subscription = $external_subscriptions->current();
     $this->assertInstanceOf('Recurly_ExternalSubscription', $external_subscription);
     $this->assertInstanceOf('Recurly_Stub', $external_subscription->account);
+    $this->assertEquals('https://api.recurly.com/v2/external_subscriptions/rjx71rx8gs2m/external_invoices', $external_subscription->external_invoices->getHref());
+    $this->assertEquals('https://api.recurly.com/v2/external_subscriptions/rjx71rx8gs2m/external_payment_phases', $external_subscription->external_payment_phases->getHref());
     $this->assertInstanceOf('DateTime', $external_subscription->created_at);
     $this->assertInstanceOf('DateTime', $external_subscription->updated_at);
     $this->assertEquals($external_subscription->quantity, 18);

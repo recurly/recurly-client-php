@@ -12,6 +12,8 @@ class Recurly_ExternalInvoiceTest extends Recurly_TestCase
     $this->assertEquals($external_invoice->account->getHref(), 'https://api.recurly.com/v2/accounts/1');
     $this->assertInstanceOf('Recurly_Stub', $external_invoice->external_subscription);
     $this->assertEquals($external_invoice->external_subscription->getHref(), 'https://api.recurly.com/v2/external_subscriptions/1');
+    $this->assertInstanceOf('Recurly_Stub', $external_invoice->external_payment_phase);
+    $this->assertEquals($external_invoice->external_payment_phase->getHref(), 'https://api.recurly.com/v2/external_payment_phases/pexv3leeop4w');
     $this->assertEquals($external_invoice->external_id, 'external-id');
     $this->assertEquals($external_invoice->state, 'paid');
     $this->assertEquals($external_invoice->currency, 'USD');

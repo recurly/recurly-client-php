@@ -3,6 +3,7 @@
  * class Recurly_ExternalSubscription
  * @property Recurly_Stub $account
  * @property Recurly_ExternalProductReference $external_product_reference
+ * @property Recurly_ExternalPaymentPhase[] $external_payment_phases
  * @property DateTime $last_purchased
  * @property boolean $auto_renew
  * @property boolean $in_grace_period
@@ -30,8 +31,23 @@ class Recurly_ExternalSubscription extends Recurly_Resource
     return Recurly_Base::_get(Recurly_ExternalSubscription::uriForExternalSubscription($uuid), $client);
   }
 
+  public function getExternalPaymentPhase($external_payment_phase_uuid, $client = null) {
+    return Recurly_Base::_get($this->uriForExternalPaymentPhase() . '/' . $external_payment_phase_uuid, $client);
+  }
+
+  protected function uri() {
+    if (!empty($this->_href))
+      return $this->getHref();
+    else
+      return Recurly_ExternalSubscription::uriForExternalSubscription($this->uuid);
+  }
+
   protected static function uriForExternalSubscription($uuid) {
     return self::_safeUri(Recurly_Client::PATH_EXTERNAL_SUBSCRIPTIONS, $uuid);
+  }
+
+  protected function uriForExternalPaymentPhase() {
+    return $this->uri() . '/' . Recurly_Client::PATH_EXTERNAL_PAYMENT_PHASES;
   }
 
   protected function getNodeName() {

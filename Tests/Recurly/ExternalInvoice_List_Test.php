@@ -16,6 +16,7 @@ class Recurly_ExternalInvoiceListTest extends Recurly_TestCase
     $this->assertInstanceOf('Recurly_ExternalInvoice', $external_invoice);
     $this->assertInstanceOf('Recurly_Stub', $external_invoice->account);
     $this->assertInstanceOf('Recurly_Stub', $external_invoice->external_subscription);
+    $this->assertInstanceOf('Recurly_Stub', $external_invoice->external_payment_phase);
     $this->assertEquals($external_invoice->external_id, 'external-id');
     $this->assertEquals($external_invoice->state, 'paid');
     $this->assertEquals($external_invoice->currency, 'USD');
