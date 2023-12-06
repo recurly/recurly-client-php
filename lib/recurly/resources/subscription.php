@@ -1059,7 +1059,7 @@ This field is only available when the EOM Net Terms feature is enabled.
 
     /**
     * Getter method for the tax attribute.
-    * Estimated tax
+    * Only for merchants using Recurly's In-The-Box taxes.
     *
     * @return ?float
     */
@@ -1105,7 +1105,7 @@ This field is only available when the EOM Net Terms feature is enabled.
 
     /**
     * Getter method for the tax_info attribute.
-    * Tax info
+    * Only for merchants using Recurly's In-The-Box taxes.
     *
     * @return ?\Recurly\Resources\TaxInfo
     */

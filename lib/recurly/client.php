@@ -3325,6 +3325,45 @@ endpoint to obtain only the newly generated `UniqueCouponCodes`.
     }
   
     /**
+     * List the external payment phases on an external subscription
+     *
+     * @param string $external_subscription_id External subscription id
+     * @param array  $options                  Associative array of optional parameters
+     *
+     * Supported optional query string parameters:
+     *
+     * - $options['params']['sort'] (string): Sort field. You *really* only want to sort by `updated_at` in ascending
+     *        order. In descending order updated records will move behind the cursor and could
+     *        prevent some records from being returned.
+     * - $options['params']['limit'] (int): Limit number of records 1-200.
+     * - $options['params']['order'] (string): Sort order.
+     *
+     * @return \Recurly\Pager A list of the the external_payment_phases on a site.
+     * @link   https://developers.recurly.com/api/v2021-02-25#operation/list_external_subscription_external_payment_phases
+     */
+    public function listExternalSubscriptionExternalPaymentPhases(string $external_subscription_id, array $options = []): \Recurly\Pager
+    {
+        $path = $this->interpolatePath("/external_subscriptions/{external_subscription_id}/external_payment_phases", ['external_subscription_id' => $external_subscription_id]);
+        return new \Recurly\Pager($this, $path, $options);
+    }
+  
+    /**
+     * Fetch an external payment_phase
+     *
+     * @param string $external_subscription_id  External subscription id
+     * @param string $external_payment_phase_id External payment phase ID, e.g. `a34ypb2ef9w1`.
+     * @param array  $options                   Associative array of optional parameters
+     *
+     * @return \Recurly\Resources\ExternalPaymentPhase Details for an external payment_phase.
+     * @link   https://developers.recurly.com/api/v2021-02-25#operation/get_external_subscription_external_payment_phase
+     */
+    public function getExternalSubscriptionExternalPaymentPhase(string $external_subscription_id, string $external_payment_phase_id, array $options = []): \Recurly\Resources\ExternalPaymentPhase
+    {
+        $path = $this->interpolatePath("/external_subscriptions/{external_subscription_id}/external_payment_phases/{external_payment_phase_id}", ['external_subscription_id' => $external_subscription_id, 'external_payment_phase_id' => $external_payment_phase_id]);
+        return $this->makeRequest('GET', $path, [], $options);
+    }
+  
+    /**
      * List entitlements granted to an account
      *
      * @param string $account_id Account ID or code. For ID no prefix is used e.g. `e28zov4fw0v2`. For code use prefix `code-`, e.g. `code-bob`.

@@ -1136,7 +1136,7 @@ class LineItem extends RecurlyResource
 
     /**
     * Getter method for the tax_info attribute.
-    * Tax info
+    * Only for merchants using Recurly's In-The-Box taxes.
     *
     * @return ?\Recurly\Resources\TaxInfo
     */
