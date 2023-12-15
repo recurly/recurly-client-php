@@ -134,14 +134,17 @@ class Recurly_Client
    */
   public static function disableXmlEntityLoading()
   {
-    $disable = getenv('RECURLY_DISABLE_ENTITY_LOADING');
-    if ($disable === false) {
-        $disable = true;
-    } else {
-        $disable = (bool)$disable;
-    }
+      // As of libxml 2.9.0 entity substitution is disabled by default, so there is no need to disable the loading of external entities
+    if (LIBXML_VERSION < 20900) {
+        $disable = getenv('RECURLY_DISABLE_ENTITY_LOADING');
+        if ($disable === false) {
+            $disable = true;
+        } else {
+            $disable = (bool)$disable;
+        }
 
-    libxml_disable_entity_loader($disable);
+        libxml_disable_entity_loader($disable);
+    }
   }
 
   /**
