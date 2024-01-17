@@ -25,6 +25,7 @@ class Transaction extends RecurlyResource
     private $_customer_message;
     private $_customer_message_locale;
     private $_cvv_check;
+    private $_fraud_info;
     private $_gateway_approval_code;
     private $_gateway_message;
     private $_gateway_reference;
@@ -355,6 +356,29 @@ class Transaction extends RecurlyResource
     public function setCvvCheck(string $cvv_check): void
     {
         $this->_cvv_check = $cvv_check;
+    }
+
+    /**
+    * Getter method for the fraud_info attribute.
+    * Fraud information
+    *
+    * @return ?\Recurly\Resources\TransactionFraudInfo
+    */
+    public function getFraudInfo(): ?\Recurly\Resources\TransactionFraudInfo
+    {
+        return $this->_fraud_info;
+    }
+
+    /**
+    * Setter method for the fraud_info attribute.
+    *
+    * @param \Recurly\Resources\TransactionFraudInfo $fraud_info
+    *
+    * @return void
+    */
+    public function setFraudInfo(\Recurly\Resources\TransactionFraudInfo $fraud_info): void
+    {
+        $this->_fraud_info = $fraud_info;
     }
 
     /**
