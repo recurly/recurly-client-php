@@ -16,15 +16,19 @@ class ExternalSubscription extends RecurlyResource
     private $_activated_at;
     private $_app_identifier;
     private $_auto_renew;
+    private $_canceled_at;
     private $_created_at;
     private $_expires_at;
     private $_external_id;
     private $_external_product_reference;
     private $_id;
+    private $_in_grace_period;
     private $_last_purchased;
     private $_object;
     private $_quantity;
     private $_state;
+    private $_trial_ends_at;
+    private $_trial_started_at;
     private $_updated_at;
 
     protected static $array_hints = [
@@ -121,6 +125,29 @@ class ExternalSubscription extends RecurlyResource
     public function setAutoRenew(bool $auto_renew): void
     {
         $this->_auto_renew = $auto_renew;
+    }
+
+    /**
+    * Getter method for the canceled_at attribute.
+    * When the external subscription was canceled in the external platform.
+    *
+    * @return ?string
+    */
+    public function getCanceledAt(): ?string
+    {
+        return $this->_canceled_at;
+    }
+
+    /**
+    * Setter method for the canceled_at attribute.
+    *
+    * @param string $canceled_at
+    *
+    * @return void
+    */
+    public function setCanceledAt(string $canceled_at): void
+    {
+        $this->_canceled_at = $canceled_at;
     }
 
     /**
@@ -239,6 +266,29 @@ class ExternalSubscription extends RecurlyResource
     }
 
     /**
+    * Getter method for the in_grace_period attribute.
+    * An indication of whether or not the external subscription is in a grace period.
+    *
+    * @return ?bool
+    */
+    public function getInGracePeriod(): ?bool
+    {
+        return $this->_in_grace_period;
+    }
+
+    /**
+    * Setter method for the in_grace_period attribute.
+    *
+    * @param bool $in_grace_period
+    *
+    * @return void
+    */
+    public function setInGracePeriod(bool $in_grace_period): void
+    {
+        $this->_in_grace_period = $in_grace_period;
+    }
+
+    /**
     * Getter method for the last_purchased attribute.
     * When a new billing event occurred on the external subscription in conjunction with a recent billing period, reactivation or upgrade/downgrade.
     *
@@ -309,7 +359,7 @@ class ExternalSubscription extends RecurlyResource
 
     /**
     * Getter method for the state attribute.
-    * External subscriptions can be active, canceled, expired, or future.
+    * External subscriptions can be active, canceled, expired, or past_due.
     *
     * @return ?string
     */
@@ -328,6 +378,52 @@ class ExternalSubscription extends RecurlyResource
     public function setState(string $state): void
     {
         $this->_state = $state;
+    }
+
+    /**
+    * Getter method for the trial_ends_at attribute.
+    * When the external subscription trial period ends in the external platform.
+    *
+    * @return ?string
+    */
+    public function getTrialEndsAt(): ?string
+    {
+        return $this->_trial_ends_at;
+    }
+
+    /**
+    * Setter method for the trial_ends_at attribute.
+    *
+    * @param string $trial_ends_at
+    *
+    * @return void
+    */
+    public function setTrialEndsAt(string $trial_ends_at): void
+    {
+        $this->_trial_ends_at = $trial_ends_at;
+    }
+
+    /**
+    * Getter method for the trial_started_at attribute.
+    * When the external subscription trial period started in the external platform.
+    *
+    * @return ?string
+    */
+    public function getTrialStartedAt(): ?string
+    {
+        return $this->_trial_started_at;
+    }
+
+    /**
+    * Setter method for the trial_started_at attribute.
+    *
+    * @param string $trial_started_at
+    *
+    * @return void
+    */
+    public function setTrialStartedAt(string $trial_started_at): void
+    {
+        $this->_trial_started_at = $trial_started_at;
     }
 
     /**

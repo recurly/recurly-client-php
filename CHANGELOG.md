@@ -1,5 +1,72 @@
 # Changelog
 
+## [4.43.0](https://github.com/recurly/recurly-client-php/tree/4.43.0) (2023-12-06)
+
+[Full Changelog](https://github.com/recurly/recurly-client-php/compare/4.42.0...4.43.0)
+
+
+**Merged Pull Requests**
+
+- Generated Latest Changes for v2021-02-25 (External Payment Phases) [#785](https://github.com/recurly/recurly-client-php/pull/785) ([recurly-integrations](https://github.com/recurly-integrations))
+
+
+
+## [4.42.0](https://github.com/recurly/recurly-client-php/tree/4.42.0) (2023-11-07)
+
+[Full Changelog](https://github.com/recurly/recurly-client-php/compare/4.41.0...4.42.0)
+
+
+**Merged Pull Requests**
+
+- Generated Latest Changes for v2021-02-25 [#783](https://github.com/recurly/recurly-client-php/pull/783) ([recurly-integrations](https://github.com/recurly-integrations))
+
+
+
+## [4.41.0](https://github.com/recurly/recurly-client-php/tree/4.41.0) (2023-08-29)
+
+[Full Changelog](https://github.com/recurly/recurly-client-php/compare/4.40.0...4.41.0)
+
+
+**Merged Pull Requests**
+
+- Generated Latest Changes for v2021-02-25 (`VATNumber`, `LifecycleDecline`) [#782](https://github.com/recurly/recurly-client-php/pull/782) ([recurly-integrations](https://github.com/recurly-integrations))
+
+
+
+## [4.40.0](https://github.com/recurly/recurly-client-php/tree/4.40.0) (2023-08-10)
+
+[Full Changelog](https://github.com/recurly/recurly-client-php/compare/4.39.0...4.40.0)
+
+
+**Merged Pull Requests**
+
+- Generated Latest Changes for v2021-02-25 (action_result) [#781](https://github.com/recurly/recurly-client-php/pull/781) ([recurly-integrations](https://github.com/recurly-integrations))
+
+
+
+## [4.39.0](https://github.com/recurly/recurly-client-php/tree/4.39.0) (2023-07-27)
+
+[Full Changelog](https://github.com/recurly/recurly-client-php/compare/4.37.0...4.39.0)
+
+
+**Merged Pull Requests**
+
+- Generated Latest Changes for v2021-02-25 (Ramp Dates, Net Terms, Invoice Business Entity) [#779](https://github.com/recurly/recurly-client-php/pull/779) ([recurly-integrations](https://github.com/recurly-integrations))
+- Generated Latest Changes for v2021-02-25 (App Management - External Subscriptions) [#777](https://github.com/recurly/recurly-client-php/pull/777) ([recurly-integrations](https://github.com/recurly-integrations))
+
+
+
+## [4.37.0](https://github.com/recurly/recurly-client-php/tree/4.37.0) (2023-06-01)
+
+[Full Changelog](https://github.com/recurly/recurly-client-php/compare/4.36.0...4.37.0)
+
+
+**Merged Pull Requests**
+
+- Generated Latest Changes for v2021-02-25 (Multiple Business Entities) [#769](https://github.com/recurly/recurly-client-php/pull/769) ([recurly-integrations](https://github.com/recurly-integrations))
+
+
+
 ## [4.36.0](https://github.com/recurly/recurly-client-php/tree/4.36.0) (2023-05-24)
 
 [Full Changelog](https://github.com/recurly/recurly-client-php/compare/4.35.0...4.36.0)

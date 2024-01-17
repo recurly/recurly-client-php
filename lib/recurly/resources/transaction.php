@@ -13,6 +13,7 @@ use Recurly\RecurlyResource;
 class Transaction extends RecurlyResource
 {
     private $_account;
+    private $_action_result;
     private $_amount;
     private $_avs_check;
     private $_backup_payment_method_used;
@@ -48,6 +49,7 @@ class Transaction extends RecurlyResource
     private $_type;
     private $_updated_at;
     private $_uuid;
+    private $_vat_number;
     private $_voided_at;
     private $_voided_by_invoice;
 
@@ -77,6 +79,29 @@ class Transaction extends RecurlyResource
     public function setAccount(\Recurly\Resources\AccountMini $account): void
     {
         $this->_account = $account;
+    }
+
+    /**
+    * Getter method for the action_result attribute.
+    * Action result params to be used in Recurly-JS to complete a payment when using asynchronous payment methods, e.g., Boleto, iDEAL and Sofort.
+    *
+    * @return ?object
+    */
+    public function getActionResult(): ?object
+    {
+        return $this->_action_result;
+    }
+
+    /**
+    * Setter method for the action_result attribute.
+    *
+    * @param object $action_result
+    *
+    * @return void
+    */
+    public function setActionResult(object $action_result): void
+    {
+        $this->_action_result = $action_result;
     }
 
     /**
@@ -892,6 +917,29 @@ class Transaction extends RecurlyResource
     public function setUuid(string $uuid): void
     {
         $this->_uuid = $uuid;
+    }
+
+    /**
+    * Getter method for the vat_number attribute.
+    * VAT number for the customer on this transaction. If the customer's Billing Info country is BR or AR, then this will be their Tax Identifier. For all other countries this will come from the VAT Number field in the Billing Info.
+    *
+    * @return ?string
+    */
+    public function getVatNumber(): ?string
+    {
+        return $this->_vat_number;
+    }
+
+    /**
+    * Setter method for the vat_number attribute.
+    *
+    * @param string $vat_number
+    *
+    * @return void
+    */
+    public function setVatNumber(string $vat_number): void
+    {
+        $this->_vat_number = $vat_number;
     }
 
     /**

@@ -37,6 +37,7 @@ class Account extends RecurlyResource
     private $_invoice_template_id;
     private $_last_name;
     private $_object;
+    private $_override_business_entity_id;
     private $_parent_account_id;
     private $_preferred_locale;
     private $_preferred_time_zone;
@@ -562,7 +563,7 @@ class Account extends RecurlyResource
 
     /**
     * Getter method for the invoice_template_id attribute.
-    * Unique ID to identify an invoice template. Available when the site is on a Pro or Enterprise plan. Used to specify if a non-default invoice template will be used to generate invoices for the account. For sites without multiple invoice templates enabled, the default template will always be used.
+    * Unique ID to identify an invoice template. Available when the site is on a Pro or Elite plan. Used to specify if a non-default invoice template will be used to generate invoices for the account. For sites without multiple invoice templates enabled, the default template will always be used.
     *
     * @return ?string
     */
@@ -627,6 +628,29 @@ class Account extends RecurlyResource
     public function setObject(string $object): void
     {
         $this->_object = $object;
+    }
+
+    /**
+    * Getter method for the override_business_entity_id attribute.
+    * Unique ID to identify the business entity assigned to the account. Available when the `Multiple Business Entities` feature is enabled.
+    *
+    * @return ?string
+    */
+    public function getOverrideBusinessEntityId(): ?string
+    {
+        return $this->_override_business_entity_id;
+    }
+
+    /**
+    * Setter method for the override_business_entity_id attribute.
+    *
+    * @param string $override_business_entity_id
+    *
+    * @return void
+    */
+    public function setOverrideBusinessEntityId(string $override_business_entity_id): void
+    {
+        $this->_override_business_entity_id = $override_business_entity_id;
     }
 
     /**

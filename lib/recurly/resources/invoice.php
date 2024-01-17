@@ -16,6 +16,7 @@ class Invoice extends RecurlyResource
     private $_address;
     private $_balance;
     private $_billing_info_id;
+    private $_business_entity_id;
     private $_closed_at;
     private $_collection_method;
     private $_created_at;
@@ -31,6 +32,7 @@ class Invoice extends RecurlyResource
     private $_id;
     private $_line_items;
     private $_net_terms;
+    private $_net_terms_type;
     private $_number;
     private $_object;
     private $_origin;
@@ -152,6 +154,29 @@ class Invoice extends RecurlyResource
     public function setBillingInfoId(string $billing_info_id): void
     {
         $this->_billing_info_id = $billing_info_id;
+    }
+
+    /**
+    * Getter method for the business_entity_id attribute.
+    * Unique ID to identify the business entity assigned to the invoice. Available when the `Multiple Business Entities` feature is enabled.
+    *
+    * @return ?string
+    */
+    public function getBusinessEntityId(): ?string
+    {
+        return $this->_business_entity_id;
+    }
+
+    /**
+    * Setter method for the business_entity_id attribute.
+    *
+    * @param string $business_entity_id
+    *
+    * @return void
+    */
+    public function setBusinessEntityId(string $business_entity_id): void
+    {
+        $this->_business_entity_id = $business_entity_id;
     }
 
     /**
@@ -478,7 +503,19 @@ class Invoice extends RecurlyResource
 
     /**
     * Getter method for the net_terms attribute.
-    * Integer representing the number of days after an invoice's creation that the invoice will become past due. If an invoice's net terms are set to '0', it is due 'On Receipt' and will become past due 24 hours after it’s created. If an invoice is due net 30, it will become past due at 31 days exactly.
+    * Integer paired with `Net Terms Type` and representing the number
+of days past the current date (for `net` Net Terms Type) or days after
+the last day of the current month (for `eom` Net Terms Type) that the
+invoice will become past due. For any value, an additional 24 hours is
+added to ensure the customer has the entire last day to make payment before
+becoming past due.  For example:
+
+If an invoice is due `net 0`, it is due 'On Receipt' and will become past due 24 hours after it's created.
+If an invoice is due `net 30`, it will become past due at 31 days exactly.
+If an invoice is due `eom 30`, it will become past due 31 days from the last day of the current month.
+
+When `eom` Net Terms Type is passed, the value for `Net Terms` is restricted to `0, 15, 30, 45, 60, or 90`.
+For more information please visit our docs page (https://docs.recurly.com/docs/manual-payments#section-collection-terms)
     *
     * @return ?int
     */
@@ -497,6 +534,34 @@ class Invoice extends RecurlyResource
     public function setNetTerms(int $net_terms): void
     {
         $this->_net_terms = $net_terms;
+    }
+
+    /**
+    * Getter method for the net_terms_type attribute.
+    * Optionally supplied string that may be either `net` or `eom` (end-of-month).
+When `net`, an invoice becomes past due the specified number of `Net Terms` days from the current date.
+When `eom` an invoice becomes past due the specified number of `Net Terms` days from the last day of the current month.
+
+This field is only available when the EOM Net Terms feature is enabled.
+
+    *
+    * @return ?string
+    */
+    public function getNetTermsType(): ?string
+    {
+        return $this->_net_terms_type;
+    }
+
+    /**
+    * Setter method for the net_terms_type attribute.
+    *
+    * @param string $net_terms_type
+    *
+    * @return void
+    */
+    public function setNetTermsType(string $net_terms_type): void
+    {
+        $this->_net_terms_type = $net_terms_type;
     }
 
     /**
@@ -777,7 +842,7 @@ class Invoice extends RecurlyResource
 
     /**
     * Getter method for the tax_info attribute.
-    * Tax info
+    * Only for merchants using Recurly's In-The-Box taxes.
     *
     * @return ?\Recurly\Resources\TaxInfo
     */

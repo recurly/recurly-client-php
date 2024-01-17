@@ -207,6 +207,7 @@ x-tagGroups:
   - external_products
   - external_accounts
   - external_product_references
+  - external_payment_phases
 - name: Products and Promotions
   tags:
   - item
@@ -228,6 +229,7 @@ x-tagGroups:
   - custom_field_definition
   - shipping_method
   - dunning_campaigns
+  - business_entities
 tags:
 - name: site
   x-displayName: Site
@@ -365,6 +367,11 @@ tags:
   x-displayName: External Product Reference
   description: Associates an external product to a corresponding resource on an external
     platform like the Apple App Store or Google Play Store.
+- name: external_payment_phases
+  x-displayName: External Payment Phase
+  description: Details of payments in the lifecycle of a subscription from an external
+    resource that is not managed by the Recurly platform, e.g. App Store or Google
+    Play Store.
 - name: gift_cards
   x-displayName: Gift Cards
   description: Add gift card purchases to your checkout and allow gift card recipients
@@ -374,6 +381,10 @@ tags:
   description: An account from an external resource that is not managed by the Recurly
     platform and instead is managed by third-party platforms like Apple App Store
     and Google Play Store.
+- name: business_entities
+  x-displayName: Business Entities
+  description: Describes the business address that will be used for invoices and taxes
+    depending on settings and subscriber location.
 paths:
   "/sites":
     get:
@@ -15197,7 +15208,7 @@ paths:
 
         Use for **Adyen HPP** and **Online Banking** transaction requests.
         This runs the validations but not the transactions.
-        The API request allows the inclusion of one of the following fields: **external_hpp_type** with `'adyen'` and **online_banking_payment_type** with `'ideal'` or `'sofort'` in the **billing_info** object.
+        The API request allows the inclusion of the following field: **external_hpp_type** with `'adyen'` in the **billing_info** object.
 
         For additional information regarding shipping fees, please see https://docs.recurly.com/docs/shipping
 
@@ -15913,6 +15924,69 @@ paths:
               schema:
                 "$ref": "#/components/schemas/Error"
       x-code-samples: []
+  "/external_subscriptions/{external_subscription_id}/external_payment_phases":
+    parameters:
+    - "$ref": "#/components/parameters/external_subscription_id"
+    get:
+      tags:
+      - external_subscriptions
+      operationId: list_external_subscription_external_payment_phases
+      summary: List the external payment phases on an external subscription
+      description: See the [Pagination Guide](/developers/guides/pagination.html)
+        to learn how to use pagination in the API and Client Libraries.
+      parameters:
+      - "$ref": "#/components/parameters/sort_dates"
+      - "$ref": "#/components/parameters/limit"
+      - "$ref": "#/components/parameters/order"
+      responses:
+        '200':
+          description: A list of the the external_payment_phases on a site.
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/ExternalPaymentPhaseList"
+        '404':
+          description: Incorrect site.
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/Error"
+        default:
+          description: Unexpected error.
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/Error"
+      x-code-samples: []
+  "/external_subscriptions/{external_subscription_id}/external_payment_phases/{external_payment_phase_id}":
+    parameters:
+    - "$ref": "#/components/parameters/external_subscription_id"
+    - "$ref": "#/components/parameters/external_payment_phase_id"
+    get:
+      tags:
+      - external_payment_phases
+      operationId: get_external_subscription_external_payment_phase
+      summary: Fetch an external payment_phase
+      responses:
+        '200':
+          description: Details for an external payment_phase.
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/ExternalPaymentPhase"
+        '404':
+          description: Incorrect site or external subscription ID.
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/Error"
+        default:
+          description: Unexpected error.
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/Error"
+      x-code-samples: []
   "/accounts/{account_id}/entitlements":
     parameters:
     - "$ref": "#/components/parameters/account_id"
@@ -15963,6 +16037,60 @@ paths:
                 "$ref": "#/components/schemas/ExternalSubscriptionList"
         '404':
           description: Incorrect account.
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/Error"
+        default:
+          description: Unexpected error.
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/Error"
+      x-code-samples: []
+  "/business_entities/{business_entity_id}":
+    parameters:
+    - "$ref": "#/components/parameters/business_entity_id"
+    get:
+      tags:
+      - business_entities
+      operationId: get_business_entity
+      summary: Fetch a business entity
+      responses:
+        '200':
+          description: Business entity details
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/BusinessEntity"
+        '404':
+          description: Incorrect site or business entity ID.
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/Error"
+        default:
+          description: Unexpected error.
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/Error"
+      x-code-samples: []
+  "/business_entities":
+    get:
+      tags:
+      - business_entities
+      operationId: list_business_entities
+      summary: List business entities
+      responses:
+        '200':
+          description: List of all business entities on your site.
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/BusinessEntityList"
+        '404':
+          description: Incorrect site.
           content:
             application/json:
               schema:
@@ -16143,6 +16271,49 @@ paths:
               schema:
                 "$ref": "#/components/schemas/Error"
       x-code-samples: []
+  "/business_entities/{business_entity_id}/invoices":
+    get:
+      tags:
+      - invoice
+      operationId: list_business_entity_invoices
+      summary: List a business entity's invoices
+      description: See the [Pagination Guide](/developers/guides/pagination.html)
+        to learn how to use pagination in the API and Client Libraries.
+      parameters:
+      - "$ref": "#/components/parameters/business_entity_id"
+      - "$ref": "#/components/parameters/ids"
+      - "$ref": "#/components/parameters/limit"
+      - "$ref": "#/components/parameters/order"
+      - "$ref": "#/components/parameters/sort_dates"
+      - "$ref": "#/components/parameters/filter_begin_time"
+      - "$ref": "#/components/parameters/filter_end_time"
+      - "$ref": "#/components/parameters/filter_invoice_type"
+      responses:
+        '200':
+          description: A list of the business entity's invoices.
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/InvoiceList"
+        '400':
+          description: Invalid or unpermitted parameter.
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/Error"
+        '404':
+          description: Incorrect site or business entity ID.
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/Error"
+        default:
+          description: Unexpected error.
+          content:
+            application/json:
+              schema:
+                "$ref": "#/components/schemas/Error"
+      x-code-samples: []
 servers:
 - url: https://v3.recurly.com
 - url: https://v3.eu.recurly.com
@@ -16177,6 +16348,14 @@ components:
       in: path
       description: Billing Info ID. Can ONLY be used for sites utilizing the Wallet
         feature.
+      required: true
+      schema:
+        type: string
+    business_entity_id:
+      name: business_entity_id
+      in: path
+      description: Business Entity ID. For ID no prefix is used e.g. `e28zov4fw0v2`.
+        For code use prefix `code-`, e.g. `code-entity1`.
       required: true
       schema:
         type: string
@@ -16242,6 +16421,13 @@ components:
       name: external_subscription_id
       in: path
       description: External subscription id
+      required: true
+      schema:
+        type: string
+    external_payment_phase_id:
+      name: external_payment_phase_id
+      in: path
+      description: External payment phase ID, e.g. `a34ypb2ef9w1`.
       required: true
       schema:
         type: string
@@ -17101,6 +17287,11 @@ components:
             merchant has an integration for the Vertex tax provider, this optional
             value will be sent in any tax calculation requests for the account.
           maxLength: 30
+        override_business_entity_id:
+          type: string
+          title: Override Business Entity ID
+          description: Unique ID to identify the business entity assigned to the account.
+            Available when the `Multiple Business Entities` feature is enabled.
         parent_account_code:
           type: string
           maxLength: 50
@@ -17141,8 +17332,8 @@ components:
           type: string
           title: Invoice Template ID
           description: Unique ID to identify an invoice template.  Available when
-            the site is on a Pro or Enterprise plan.  Used to specify which invoice
-            template, if any, should be used to generate invoices for the account.
+            the site is on a Pro or Elite plan.  Used to specify which invoice template,
+            if any, should be used to generate invoices for the account.
         address:
           "$ref": "#/components/schemas/Address"
         billing_info:
@@ -17169,6 +17360,11 @@ components:
             The customer will also use this email address to log into your hosted
             account management pages. This value does not need to be unique.
           maxLength: 255
+        override_business_entity_id:
+          type: string
+          title: Override Business Entity ID
+          description: Unique ID to identify the business entity assigned to the account.
+            Available when the `Multiple Business Entities` feature is enabled.
         preferred_locale:
           description: Used to determine the language and locale of emails sent on
             behalf of the merchant to the customer.
@@ -17235,10 +17431,10 @@ components:
           type: string
           title: Invoice Template ID
           description: Unique ID to identify an invoice template. Available when the
-            site is on a Pro or Enterprise plan. Used to specify if a non-default
-            invoice template will be used to generate invoices for the account. For
-            sites without multiple invoice templates enabled, the default template
-            will always be used.
+            site is on a Pro or Elite plan. Used to specify if a non-default invoice
+            template will be used to generate invoices for the account. For sites
+            without multiple invoice templates enabled, the default template will
+            always be used.
         address:
           "$ref": "#/components/schemas/Address"
         billing_info:
@@ -17391,6 +17587,11 @@ components:
           type: string
           title: Country
           description: Country, 2-letter ISO 3166-1 alpha-2 code.
+        geo_code:
+          type: string
+          maxLength: 20
+          description: Code that represents a geographic entity (location or object).
+            Only returned for Sling Vertex Integration
     AddressWithName:
       allOf:
       - "$ref": "#/components/schemas/Address"
@@ -18084,9 +18285,10 @@ components:
           properties:
             account_reference:
               type: string
-              description: Used by Adyen gateways. The Shopper Reference value used
-                when the external token was created. Must be used in conjunction with
-                gateway_token and gateway_code.
+              description: Used by Adyen and Braintree gateways. For Adyen the Shopper
+                Reference value used when the external token was created. Must be
+                used in conjunction with gateway_token and gateway_code. For Braintree
+                the PayPal PayerID is populated in the response.
               maxLength: 264
         amazon_billing_agreement_id:
           type: string
@@ -18094,6 +18296,9 @@ components:
         paypal_billing_agreement_id:
           type: string
           title: PayPal billing agreement ID
+        roku_billing_agreement_id:
+          type: string
+          title: Roku's CIB if billing through Roku
         fraud_session_id:
           type: string
           title: Fraud Session ID
@@ -18171,6 +18376,7 @@ components:
           "$ref": "#/components/schemas/ExternalHppTypeEnum"
         online_banking_payment_type:
           "$ref": "#/components/schemas/OnlineBankingPaymentTypeEnum"
+          deprecated: true
         card_type:
           "$ref": "#/components/schemas/CardTypeEnum"
     BillingInfoVerify:
@@ -19212,13 +19418,24 @@ components:
         net_terms:
           type: integer
           title: Net terms
-          description: Integer representing the number of days after an invoice's
-            creation that the invoice will become past due. If an invoice's net terms
-            are set to '0', it is due 'On Receipt' and will become past due 24 hours
-            after it’s created. If an invoice is due net 30, it will become past due
-            at 31 days exactly.
+          description: |-
+            Integer paired with `Net Terms Type` and representing the number
+            of days past the current date (for `net` Net Terms Type) or days after
+            the last day of the current month (for `eom` Net Terms Type) that the
+            invoice will become past due. For any value, an additional 24 hours is
+            added to ensure the customer has the entire last day to make payment before
+            becoming past due.  For example:
+
+            If an invoice is due `net 0`, it is due 'On Receipt' and will become past due 24 hours after it's created.
+            If an invoice is due `net 30`, it will become past due at 31 days exactly.
+            If an invoice is due `eom 30`, it will become past due 31 days from the last day of the current month.
+
+            When `eom` Net Terms Type is passed, the value for `Net Terms` is restricted to `0, 15, 30, 45, 60, or 90`.
+            For more information please visit our docs page (https://docs.recurly.com/docs/manual-payments#section-collection-terms)
           minimum: 0
           default: 0
+        net_terms_type:
+          "$ref": "#/components/schemas/NetTermsTypeEnum"
         address:
           "$ref": "#/components/schemas/InvoiceAddress"
         shipping_address:
@@ -19358,6 +19575,11 @@ components:
           type: boolean
           title: Final Dunning Event
           description: Last communication attempt.
+        business_entity_id:
+          type: string
+          title: Business Entity ID
+          description: Unique ID to identify the business entity assigned to the invoice.
+            Available when the `Multiple Business Entities` feature is enabled.
     InvoiceCreate:
       type: object
       properties:
@@ -19391,13 +19613,24 @@ components:
         net_terms:
           type: integer
           title: Net terms
-          description: Integer representing the number of days after an invoice's
-            creation that the invoice will become past due. If an invoice's net terms
-            are set to '0', it is due 'On Receipt' and will become past due 24 hours
-            after it’s created. If an invoice is due net 30, it will become past due
-            at 31 days exactly.
-          default: 0
+          description: |-
+            Integer paired with `Net Terms Type` and representing the number
+            of days past the current date (for `net` Net Terms Type) or days after
+            the last day of the current month (for `eom` Net Terms Type) that the
+            invoice will become past due. For any value, an additional 24 hours is
+            added to ensure the customer has the entire last day to make payment before
+            becoming past due.  For example:
+
+            If an invoice is due `net 0`, it is due 'On Receipt' and will become past due 24 hours after it's created.
+            If an invoice is due `net 30`, it will become past due at 31 days exactly.
+            If an invoice is due `eom 30`, it will become past due 31 days from the last day of the current month.
+
+            When `eom` Net Terms Type is passed, the value for `Net Terms` is restricted to `0, 15, 30, 45, 60, or 90`.
+            For more information please visit our docs page (https://docs.recurly.com/docs/manual-payments#section-collection-terms)
           minimum: 0
+          default: 0
+        net_terms_type:
+          "$ref": "#/components/schemas/NetTermsTypeEnum"
         po_number:
           type: string
           title: Purchase order number
@@ -19504,6 +19737,11 @@ components:
         number:
           type: string
           title: Invoice number
+        business_entity_id:
+          type: string
+          title: Business Entity ID
+          description: Unique ID to identify the business entity assigned to the invoice.
+            Available when the `Multiple Business Entities` feature is enabled.
         type:
           title: Invoice type
           "$ref": "#/components/schemas/InvoiceTypeEnum"
@@ -20953,6 +21191,11 @@ components:
           type: string
           maxLength: 50
           description: Country, 2-letter ISO 3166-1 alpha-2 code.
+        geo_code:
+          type: string
+          maxLength: 20
+          description: Code that represents a geographic entity (location or object).
+            Only returned for Sling Vertex Integration
         created_at:
           type: string
           title: Created at
@@ -21004,6 +21247,11 @@ components:
           type: string
           maxLength: 20
           description: Zip or postal code.
+        geo_code:
+          type: string
+          maxLength: 20
+          description: Code that represents a geographic entity (location or object).
+            Only returned for Sling Vertex Integration
         country:
           type: string
           maxLength: 50
@@ -21258,6 +21506,11 @@ components:
           type: string
           maxLength: 50
           description: Country, 2-letter ISO 3166-1 alpha-2 code.
+        geo_code:
+          type: string
+          maxLength: 20
+          description: Code that represents a geographic entity (location or object).
+            Only returned for Sling Vertex Integration
     Site:
       type: object
       properties:
@@ -21456,6 +21709,7 @@ components:
           type: number
           format: float
           title: Estimated tax
+          description: Only for merchants using Recurly's In-The-Box taxes.
         tax_info:
           "$ref": "#/components/schemas/TaxInfo"
         total:
@@ -21475,13 +21729,24 @@ components:
         net_terms:
           type: integer
           title: Net terms
-          description: Integer representing the number of days after an invoice's
-            creation that the invoice will become past due. If an invoice's net terms
-            are set to '0', it is due 'On Receipt' and will become past due 24 hours
-            after it’s created. If an invoice is due net 30, it will become past due
-            at 31 days exactly.
+          description: |-
+            Integer paired with `Net Terms Type` and representing the number
+            of days past the current date (for `net` Net Terms Type) or days after
+            the last day of the current month (for `eom` Net Terms Type) that the
+            invoice will become past due. For any value, an additional 24 hours is
+            added to ensure the customer has the entire last day to make payment before
+            becoming past due.  For example:
+
+            If an invoice is due `net 0`, it is due 'On Receipt' and will become past due 24 hours after it's created.
+            If an invoice is due `net 30`, it will become past due at 31 days exactly.
+            If an invoice is due `eom 30`, it will become past due 31 days from the last day of the current month.
+
+            When `eom` Net Terms Type is passed, the value for `Net Terms` is restricted to `0, 15, 30, 45, 60, or 90`.
+            For more information please visit our docs page (https://docs.recurly.com/docs/manual-payments#section-collection-terms)
           minimum: 0
           default: 0
+        net_terms_type:
+          "$ref": "#/components/schemas/NetTermsTypeEnum"
         terms_and_conditions:
           type: string
           title: Terms and conditions
@@ -21548,6 +21813,12 @@ components:
           format: date-time
           description: When the subscription was converted from a gift card.
           title: Converted at
+        action_result:
+          type: object
+          description: Action result params to be used in Recurly-JS to complete a
+            payment when using asynchronous payment methods, e.g., Boleto, iDEAL and
+            Sofort.
+          title: Action result
     SubscriptionAddOn:
       type: object
       title: Subscription Add-on
@@ -22037,13 +22308,17 @@ components:
         net_terms:
           type: integer
           title: Net terms
-          description: Integer representing the number of days after an invoice's
-            creation that the invoice will become past due. If an invoice's net terms
-            are set to '0', it is due 'On Receipt' and will become past due 24 hours
-            after it’s created. If an invoice is due net 30, it will become past due
-            at 31 days exactly.
+          description: |-
+            Integer normally paired with `Net Terms Type` and representing the number of days past
+            the current date (for `net` Net Terms Type) or days after the last day of the current
+            month (for `eom` Net Terms Type) that the invoice will become past due. During a subscription
+            change, it's not necessary to provide both the `Net Terms Type` and `Net Terms` parameters.
+
+            For more information please visit our docs page (https://docs.recurly.com/docs/manual-payments#section-collection-terms)
           minimum: 0
           default: 0
+        net_terms_type:
+          "$ref": "#/components/schemas/NetTermsTypeEnum"
         transaction_type:
           description: An optional type designation for the payment gateway transaction
             created by this request. Supports 'moto' value, which is the acronym for
@@ -22248,13 +22523,30 @@ components:
         net_terms:
           type: integer
           title: Net terms
-          description: Integer representing the number of days after an invoice's
-            creation that the invoice will become past due. If an invoice's net terms
-            are set to '0', it is due 'On Receipt' and will become past due 24 hours
-            after it’s created. If an invoice is due net 30, it will become past due
-            at 31 days exactly.
+          description: |-
+            Integer paired with `Net Terms Type` and representing the number
+            of days past the current date (for `net` Net Terms Type) or days after
+            the last day of the current month (for `eom` Net Terms Type) that the
+            invoice will become past due. For any value, an additional 24 hours is
+            added to ensure the customer has the entire last day to make payment before
+            becoming past due.  For example:
+
+            If an invoice is due `net 0`, it is due 'On Receipt' and will become past due 24 hours after it's created.
+            If an invoice is due `net 30`, it will become past due at 31 days exactly.
+            If an invoice is due `eom 30`, it will become past due 31 days from the last day of the current month.
+
+            When `eom` Net Terms Type is passed, the value for `Net Terms` is restricted to `0, 15, 30, 45, 60, or 90`.
+            For more information please visit our docs page (https://docs.recurly.com/docs/manual-payments#section-collection-terms)
           minimum: 0
           default: 0
+        net_terms_type:
+          "$ref": "#/components/schemas/NetTermsTypeEnum"
+        gateway_code:
+          type: string
+          title: Gateway Code
+          description: If present, this subscription's transactions will use the payment
+            gateway with this code.
+          maxLength: 13
         transaction_type:
           description: An optional type designation for the payment gateway transaction
             created by this request. Supports 'moto' value, which is the acronym for
@@ -22424,13 +22716,24 @@ components:
         net_terms:
           type: integer
           title: Terms that the subscription is due on
-          description: Integer representing the number of days after an invoice's
-            creation that the invoice will become past due. If an invoice's net terms
-            are set to '0', it is due 'On Receipt' and will become past due 24 hours
-            after it’s created. If an invoice is due net 30, it will become past due
-            at 31 days exactly.
+          description: |-
+            Integer paired with `Net Terms Type` and representing the number
+            of days past the current date (for `net` Net Terms Type) or days after
+            the last day of the current month (for `eom` Net Terms Type) that the
+            invoice will become past due. For any value, an additional 24 hours is
+            added to ensure the customer has the entire last day to make payment before
+            becoming past due.  For example:
+
+            If an invoice is due `net 0`, it is due 'On Receipt' and will become past due 24 hours after it's created.
+            If an invoice is due `net 30`, it will become past due at 31 days exactly.
+            If an invoice is due `eom 30`, it will become past due 31 days from the last day of the current month.
+
+            When `eom` Net Terms Type is passed, the value for `Net Terms` is restricted to `0, 15, 30, 45, 60, or 90`.
+            For more information please visit our docs page (https://docs.recurly.com/docs/manual-payments#section-collection-terms)
           minimum: 0
           default: 0
+        net_terms_type:
+          "$ref": "#/components/schemas/NetTermsTypeEnum"
         gateway_code:
           type: string
           title: Gateway Code
@@ -22569,6 +22872,14 @@ components:
         remaining_billing_cycles:
           type: integer
           description: Represents how many billing cycles are left in a ramp interval.
+        starting_on:
+          type: string
+          format: date-time
+          title: Date the ramp interval starts
+        ending_on:
+          type: string
+          format: date-time
+          title: Date the ramp interval ends
         unit_amount:
           type: number
           format: float
@@ -22577,6 +22888,7 @@ components:
     TaxInfo:
       type: object
       title: Tax info
+      description: Only for merchants using Recurly's In-The-Box taxes.
       properties:
         type:
           type: string
@@ -22829,6 +23141,19 @@ components:
           format: date-time
           title: Collected at, or if not collected yet, the time the transaction was
             created.
+        action_result:
+          type: object
+          description: Action result params to be used in Recurly-JS to complete a
+            payment when using asynchronous payment methods, e.g., Boleto, iDEAL and
+            Sofort.
+          title: Action result
+        vat_number:
+          type: string
+          description: VAT number for the customer on this transaction. If the customer's
+            Billing Info country is BR or AR, then this will be their Tax Identifier.
+            For all other countries this will come from the VAT Number field in the
+            Billing Info.
+          title: VAT Number
     ExternalTransaction:
       type: object
       properties:
@@ -23128,13 +23453,24 @@ components:
         net_terms:
           type: integer
           title: Net terms
-          description: Integer representing the number of days after an invoice's
-            creation that the invoice will become past due. If an invoice's net terms
-            are set to '0', it is due 'On Receipt' and will become past due 24 hours
-            after it’s created. If an invoice is due net 30, it will become past due
-            at 31 days exactly.
+          description: |-
+            Integer paired with `Net Terms Type` and representing the number
+            of days past the current date (for `net` Net Terms Type) or days after
+            the last day of the current month (for `eom` Net Terms Type) that the
+            invoice will become past due. For any value, an additional 24 hours is
+            added to ensure the customer has the entire last day to make payment before
+            becoming past due.  For example:
+
+            If an invoice is due `net 0`, it is due 'On Receipt' and will become past due 24 hours after it's created.
+            If an invoice is due `net 30`, it will become past due at 31 days exactly.
+            If an invoice is due `eom 30`, it will become past due 31 days from the last day of the current month.
+
+            When `eom` Net Terms Type is passed, the value for `Net Terms` is restricted to `0, 15, 30, 45, 60, or 90`.
+            For more information please visit our docs page (https://docs.recurly.com/docs/manual-payments#section-collection-terms)
           minimum: 0
           default: 0
+        net_terms_type:
+          "$ref": "#/components/schemas/NetTermsTypeEnum"
         terms_and_conditions:
           type: string
           title: Terms and conditions
@@ -23394,6 +23730,90 @@ components:
           type: string
           format: date-time
           description: Time the object was last updated
+    ExternalPaymentPhase:
+      type: object
+      description: Details of payments in the lifecycle of a subscription from an
+        external resource that is not managed by the Recurly platform, e.g. App Store
+        or Google Play Store.
+      properties:
+        id:
+          type: string
+          title: External payment phase ID
+          description: System-generated unique identifier for an external payment
+            phase ID, e.g. `e28zov4fw0v2`.
+        object:
+          type: string
+          title: Object type
+        external_subscription:
+          "$ref": "#/components/schemas/ExternalSubscription"
+        started_at:
+          type: string
+          format: date-time
+          title: Started At
+        ends_at:
+          type: string
+          format: date-time
+          title: Ends At
+        starting_billing_period_index:
+          type: integer
+          title: Starting Billing Period Index
+        ending_billing_period_index:
+          type: integer
+          title: Ending Billing Period Index
+        offer_type:
+          type: string
+          title: Offer Type
+          description: Type of discount offer given, e.g. "FREE_TRIAL"
+        offer_name:
+          type: string
+          title: Offer Name
+          description: Name of the discount offer given, e.g. "introductory"
+        period_count:
+          type: integer
+          title: Period Count
+          description: Number of billing periods
+        period_length:
+          type: string
+          title: Period Length
+          description: Billing cycle length
+        amount:
+          type: string
+          format: decimal
+          title: Amount
+          minimum: 0
+          description: Allows up to 9 decimal places
+        currency:
+          type: string
+          title: Currency
+          description: 3-letter ISO 4217 currency code.
+          maxLength: 3
+        created_at:
+          type: string
+          format: date-time
+          title: Created at
+          description: When the external subscription was created in Recurly.
+        updated_at:
+          type: string
+          format: date-time
+          title: Updated at
+          description: When the external subscription was updated in Recurly.
+    ExternalPaymentPhaseList:
+      type: object
+      properties:
+        object:
+          type: string
+          title: Object type
+          description: Will always be List.
+        has_more:
+          type: boolean
+          description: Indicates there are more results on subsequent pages.
+        next:
+          type: string
+          description: Path to subsequent page of results.
+        data:
+          type: array
+          items:
+            "$ref": "#/components/schemas/ExternalPaymentPhase"
     ExternalProduct:
       type: object
       description: Product from an external resource such as Apple App Store or Google
@@ -23640,6 +24060,12 @@ components:
           description: An indication of whether or not the external subscription will
             auto-renew at the expiration date.
           default: false
+        in_grace_period:
+          type: boolean
+          title: In grace period
+          description: An indication of whether or not the external subscription is
+            in a grace period.
+          default: false
         app_identifier:
           type: string
           title: App identifier
@@ -23653,18 +24079,37 @@ components:
         state:
           type: string
           description: External subscriptions can be active, canceled, expired, or
-            future.
+            past_due.
+          default: active
         activated_at:
           type: string
           format: date-time
           title: Activated at
           description: When the external subscription was activated in the external
             platform.
+        canceled_at:
+          type: string
+          format: date-time
+          title: Canceled at
+          description: When the external subscription was canceled in the external
+            platform.
         expires_at:
           type: string
           format: date-time
           title: Expires at
           description: When the external subscription expires in the external platform.
+        trial_started_at:
+          type: string
+          format: date-time
+          title: Trial started at
+          description: When the external subscription trial period started in the
+            external platform.
+        trial_ends_at:
+          type: string
+          format: date-time
+          title: Trial ends at
+          description: When the external subscription trial period ends in the external
+            platform.
         created_at:
           type: string
           format: date-time
@@ -23915,8 +24360,9 @@ components:
           properties:
             account_reference:
               type: string
-              description: Used by Adyen gateways. The Shopper Reference value used
-                when the external token was created.
+              description: Used by Adyen and Braintree gateways. For Adyen the Shopper
+                Reference value used when the external token was created. For Braintree
+                the PayPal PayerID is populated in the response.
               maxLength: 264
         billing_agreement_id:
           type: string
@@ -23939,6 +24385,84 @@ components:
           type: string
           description: Username of the associated payment method. Currently only associated
             with Venmo.
+    BusinessEntityList:
+      type: object
+      properties:
+        object:
+          type: string
+          title: Object type
+          description: Will always be List.
+        has_more:
+          type: boolean
+          description: Indicates there are more results on subsequent pages.
+        next:
+          type: string
+          description: Path to subsequent page of results.
+        data:
+          type: array
+          items:
+            "$ref": "#/components/schemas/BusinessEntity"
+    BusinessEntity:
+      type: object
+      description: Business entity details
+      properties:
+        id:
+          title: Business entity ID
+          type: string
+          maxLength: 13
+          readOnly: true
+        object:
+          title: Object type
+          type: string
+          readOnly: true
+        code:
+          title: Business entity code
+          type: string
+          maxLength: 50
+          description: The entity code of the business entity.
+        name:
+          type: string
+          title: Name
+          description: This name describes your business entity and will appear on
+            the invoice.
+          maxLength: 255
+        invoice_display_address:
+          title: Invoice display address
+          description: Address information for the business entity that will appear
+            on the invoice.
+          "$ref": "#/components/schemas/Address"
+        tax_address:
+          title: Tax address
+          description: Address information for the business entity that will be used
+            for calculating taxes.
+          "$ref": "#/components/schemas/Address"
+        default_vat_number:
+          type: string
+          title: Default VAT number
+          description: VAT number for the customer used on the invoice.
+          maxLength: 20
+        default_registration_number:
+          type: string
+          title: Default registration number
+          description: Registration number for the customer used on the invoice.
+          maxLength: 30
+        subscriber_location_countries:
+          type: array
+          title: Subscriber location countries
+          description: List of countries for which the business entity will be used.
+          items:
+            type: string
+            title: Country code
+        created_at:
+          type: string
+          format: date-time
+          title: Created at
+          readOnly: true
+        updated_at:
+          type: string
+          format: date-time
+          title: Last updated at
+          readOnly: true
     GiftCardList:
       type: object
       properties:
@@ -24570,6 +25094,19 @@ components:
       - at_range_start
       - evenly
       - never
+    NetTermsTypeEnum:
+      type: string
+      title: Net Terms Type
+      description: |
+        Optionally supplied string that may be either `net` or `eom` (end-of-month).
+        When `net`, an invoice becomes past due the specified number of `Net Terms` days from the current date.
+        When `eom` an invoice becomes past due the specified number of `Net Terms` days from the last day of the current month.
+
+        This field is only available when the EOM Net Terms feature is enabled.
+      enum:
+      - net
+      - eom
+      default: net
     InvoiceTypeEnum:
       type: string
       enum:
@@ -24633,6 +25170,7 @@ components:
       - check
       - credit_card
       - eft
+      - google_pay
       - money_order
       - other
       - paypal
@@ -24826,6 +25364,7 @@ components:
       - credit_card
       - eft
       - gateway_token
+      - google_pay
       - iban_bank_account
       - money_order
       - other
@@ -24836,6 +25375,7 @@ components:
       - venmo
       - wire_transfer
       - braintree_v_zero
+      - boleto
     CardTypeEnum:
       type: string
       enum:
@@ -24996,6 +25536,7 @@ components:
       - invalid_payment_method_hard
       - invalid_transaction
       - issuer_unavailable
+      - lifecycle_decline
       - merch_max_transaction_limit_exceeded
       - moneybot_disconnect
       - moneybot_unavailable
