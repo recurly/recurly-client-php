@@ -15,6 +15,7 @@ class TransactionError extends RecurlyResource
     private $_category;
     private $_code;
     private $_decline_code;
+    private $_fraud_info;
     private $_merchant_advice;
     private $_message;
     private $_object;
@@ -92,6 +93,29 @@ class TransactionError extends RecurlyResource
     public function setDeclineCode(string $decline_code): void
     {
         $this->_decline_code = $decline_code;
+    }
+
+    /**
+    * Getter method for the fraud_info attribute.
+    * Fraud information
+    *
+    * @return ?\Recurly\Resources\TransactionFraudInfo
+    */
+    public function getFraudInfo(): ?\Recurly\Resources\TransactionFraudInfo
+    {
+        return $this->_fraud_info;
+    }
+
+    /**
+    * Setter method for the fraud_info attribute.
+    *
+    * @param \Recurly\Resources\TransactionFraudInfo $fraud_info
+    *
+    * @return void
+    */
+    public function setFraudInfo(\Recurly\Resources\TransactionFraudInfo $fraud_info): void
+    {
+        $this->_fraud_info = $fraud_info;
     }
 
     /**
