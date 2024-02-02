@@ -63,6 +63,8 @@ require_once(__DIR__ . '/recurly/external_payment_phase.php');
 require_once(__DIR__ . '/recurly/external_payment_phase_list.php');
 require_once(__DIR__ . '/recurly/external_subscription.php');
 require_once(__DIR__ . '/recurly/external_subscription_list.php');
+require_once(__DIR__ . '/recurly/general_ledger_account.php');
+require_once(__DIR__ . '/recurly/general_ledger_account_list.php');
 require_once(__DIR__ . '/recurly/invoice.php');
 require_once(__DIR__ . '/recurly/invoice_collection.php');
 require_once(__DIR__ . '/recurly/invoice_list.php');
