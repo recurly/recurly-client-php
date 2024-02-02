@@ -93,6 +93,8 @@ class XmlTools
     'measured_units' => 'Recurly_MeasuredUnitList',
     'note' => 'Recurly_Note',
     'notes' => 'Recurly_NoteList',
+    'performance_obligation' => 'Recurly_PerformanceObligation',
+    'performance_obligations' => 'Recurly_PerformanceObligationList',
     'plan' => 'Recurly_Plan',
     'plans' => 'Recurly_PlanList',
     'plan_code' => 'string',

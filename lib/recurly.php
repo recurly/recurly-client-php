@@ -77,6 +77,8 @@ require_once(__DIR__ . '/recurly/measured_unit_list.php');
 require_once(__DIR__ . '/recurly/note.php');
 require_once(__DIR__ . '/recurly/note_list.php');
 require_once(__DIR__ . '/recurly/percentage_tier.php');
+require_once(__DIR__ . '/recurly/performance_obligation.php');
+require_once(__DIR__ . '/recurly/performance_obligation_list.php');
 require_once(__DIR__ . '/recurly/plan.php');
 require_once(__DIR__ . '/recurly/plan_list.php');
 require_once(__DIR__ . '/recurly/ramp_interval.php');
