@@ -94,6 +94,7 @@ class Recurly_Client
   const PATH_EXTERNAL_ACCOUNTS = 'external_accounts';
   const PATH_BUSINESS_ENTITIES = 'business_entities';
   const PATH_GENERAL_LEDGER_ACCOUNTS = 'general_ledger_accounts';
+  const PATH_PERFORMANCE_OBLIGATIONS = 'performance_obligations';
 
   /**
    * Create a new Recurly Client
