@@ -31,6 +31,8 @@ Content-Type: application/xml; charset=utf-8
   </subscriber_location_countries>
   <default_vat_number>1234</default_vat_number>
   <default_registration_number>5678</default_registration_number>
+  <default_liability_gl_account_id>12345</default_liability_gl_account_id>
+  <default_revenue_gl_account_id>56789</default_revenue_gl_account_id>
   <created_at type="datetime">2023-05-04T17:45:43Z</created_at>
   <updated_at type="datetime">2023-05-04T17:45:43Z</updated_at>
 </business_entity>
