@@ -6,6 +6,8 @@
  * @property string $id
  * @property string $code
  * @property string $name
+ * @property string $default_revenue_gl_account_id
+ * @property string $default_liability_gl_account_id
  * @property Recurly_Address $invoice_display_address The nested invoice address information of the business entity: address1, address2, city, state, zip, country, phone.
  * @property Recurly_Address $tax_address The nested tax address information of the business entity: address1, address2, city, state, zip, country, phone.
  * @property Recurly_SubscriberLocationCountry[] $subscriber_location_countries
