@@ -36,6 +36,12 @@
  * @property boolean $auto_renew Determines whether subscriptions to this plan should auto-renew term at the end of the current term or expire. Defaults to true.
  * @property boolean $allow_any_item_on_subscriptions Used to determine whether items can be assigned as add-ons to individual subscriptions. If `true`, items can be assigned as add-ons to individual subscription add-ons. If `false`, only plan add-ons can be used.
  * @property string $dunning_campaign_id Unique ID to identify the dunning campaign used when dunning the invoice.
+ * @property string $liability_gl_account_id The ID of the liability general ledger account associated with the plan.
+ * @property string $revenue_gl_account_id The ID of the revenue general ledger account associated with the plan.
+ * @property string $setup_fee_liability_gl_account_id The ID of the liability general ledger account associated with the plan setup fee.
+ * @property string $setup_fee_revenue_gl_account_id The ID of the revenue general ledger account associated with the plan setup fee.
+ * @property string $performance_obligation_id The ID of the performance obligation associated with the plan.
+ * @property string $setup_fee_performance_obligation_id The ID of the performance obligation associated with the plan setup fee.
  */
 class Recurly_Plan extends Recurly_Resource
 {
@@ -125,16 +131,22 @@ class Recurly_Plan extends Recurly_Resource
       'display_phone_number',
       'display_quantity',
       'dunning_campaign_id',
+      'liability_gl_account_id',
       'name',
       'payment_page_tos_link',
+      'performance_obligation_id',
       'plan_code',
       'plan_interval_length',
       'plan_interval_unit',
       'pricing_model',
       'ramp_intervals',
+      'revenue_gl_account_id',
       'revenue_schedule_type',
       'setup_fee_accounting_code',
       'setup_fee_in_cents',
+      'setup_fee_liability_gl_account_id',
+      'setup_fee_performance_obligation_id',
+      'setup_fee_revenue_gl_account_id',
       'setup_fee_revenue_schedule_type',
       'success_url',
       'tax_code',
