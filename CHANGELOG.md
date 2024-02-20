@@ -1,5 +1,16 @@
 # Changelog
 
+## [4.46.0](https://github.com/recurly/recurly-client-php/tree/4.46.0) (2024-02-20)
+
+[Full Changelog](https://github.com/recurly/recurly-client-php/compare/4.45.0...4.46.0)
+
+
+**Merged Pull Requests**
+
+- Add invoice state param for v2021-02-25 [#799](https://github.com/recurly/recurly-client-php/pull/799) ([recurly-integrations](https://github.com/recurly-integrations))
+
+
+
 ## [4.45.0](https://github.com/recurly/recurly-client-php/tree/4.45.0) (2024-01-24)
 
 [Full Changelog](https://github.com/recurly/recurly-client-php/compare/4.44.0...4.45.0)
