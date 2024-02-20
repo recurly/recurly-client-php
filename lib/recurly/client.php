@@ -658,6 +658,7 @@ class Client extends BaseClient
      *          results correspond to your request.
      *        * Records are returned in an arbitrary order. Since results are all
      *          returned at once you can sort the records yourself.
+     * - $options['params']['state'] (string): Invoice state.
      * - $options['params']['limit'] (int): Limit number of records 1-200.
      * - $options['params']['order'] (string): Sort order.
      * - $options['params']['sort'] (string): Sort field. You *really* only want to sort by `updated_at` in ascending
@@ -1826,6 +1827,7 @@ endpoint to obtain only the newly generated `UniqueCouponCodes`.
      *          results correspond to your request.
      *        * Records are returned in an arbitrary order. Since results are all
      *          returned at once you can sort the records yourself.
+     * - $options['params']['state'] (string): Invoice state.
      * - $options['params']['limit'] (int): Limit number of records 1-200.
      * - $options['params']['order'] (string): Sort order.
      * - $options['params']['sort'] (string): Sort field. You *really* only want to sort by `updated_at` in ascending
@@ -2824,6 +2826,7 @@ endpoint to obtain only the newly generated `UniqueCouponCodes`.
      *          results correspond to your request.
      *        * Records are returned in an arbitrary order. Since results are all
      *          returned at once you can sort the records yourself.
+     * - $options['params']['state'] (string): Invoice state.
      * - $options['params']['limit'] (int): Limit number of records 1-200.
      * - $options['params']['order'] (string): Sort order.
      * - $options['params']['sort'] (string): Sort field. You *really* only want to sort by `updated_at` in ascending
@@ -3529,6 +3532,7 @@ endpoint to obtain only the newly generated `UniqueCouponCodes`.
      *          results correspond to your request.
      *        * Records are returned in an arbitrary order. Since results are all
      *          returned at once you can sort the records yourself.
+     * - $options['params']['state'] (string): Invoice state.
      * - $options['params']['limit'] (int): Limit number of records 1-200.
      * - $options['params']['order'] (string): Sort order.
      * - $options['params']['sort'] (string): Sort field. You *really* only want to sort by `updated_at` in ascending
