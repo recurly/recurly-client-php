@@ -9,6 +9,9 @@
  * @property string $accounting_code Accounting code for invoice line items.
  * @property string $revenue_schedule_type The revenue schedule type for the item.
  * @property string $state The state of the item.
+ * @property string $liability_gl_account_id The ID of the liability general ledger account associated with the item.
+ * @property string $revenue_gl_account_id The ID of the revenue general ledger account associated with the item.
+ * @property string $performance_obligation_id The ID of the performance obligation associated with the item.
  * @property Recurly_CustomFieldList $custom_fields Optional custom fields for the item.
  */
 
@@ -71,7 +74,8 @@ class Recurly_Item extends Recurly_Resource
   protected function getWriteableAttributes() {
     return array(
       'item_code', 'name', 'description', 'external_sku', 
-      'accounting_code', 'revenue', 'state', 'custom_fields'
+      'accounting_code', 'revenue', 'state', 'custom_fields',
+      'liability_gl_account_id', 'revenue_gl_account_id', 'performance_obligation_id'
     );
   }
 }

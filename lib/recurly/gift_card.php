@@ -14,6 +14,9 @@
  * @property string $currency The currency of the unit_amount_in_cents and balance_in_cents.
  * @property string $product_code The product code or SKU of the gift card product.
  * @property int $unit_amount_in_cents The amount of the gift card, which is the amount of the charge to the gifter_account and the amount of credit that is applied to the recipient_account upon successful redemption.
+ * @property string $liability_gl_account_id The ID of the liability general ledger account associated with the gift card product.
+ * @property string $revenue_gl_account_id The ID of the revenue general ledger account associated with the gift card product.
+ * @property string $performance_obligation_id The ID of the performance obligation associated with the gift card product.
  * @property Recurly_Delivery $delivery Block of delivery information.
  * @property DateTime $created_at The date and time the gift card was created in Recurly.
  * @property DateTime $updated_at The date and time the gift card was last updated.
