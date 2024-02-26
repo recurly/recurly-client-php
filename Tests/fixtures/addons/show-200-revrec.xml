@@ -1,0 +1,22 @@
+HTTP/1.1 200 OK
+Content-Type: application/xml; charset=utf-8
+ETag: "a81253e90a4f16089b951028675c58d2"
+
+<?xml version="1.0" encoding="UTF-8"?>
+<add_on href="https://api.recurly.com/v2/plans/gold/add_ons/ipaddresses_revrec">
+  <plan href="https://api.recurly.com/v2/plans/gold"/>
+  <add_on_code>ipaddresses_revrec</add_on_code>
+  <name>IP Addresses</name>
+  <display_quantity_on_hosted_page type="boolean">false</display_quantity_on_hosted_page>
+  <default_quantity type="integer">1</default_quantity>
+  <unit_amount_in_cents>
+    <USD type="integer">200</USD>
+  </unit_amount_in_cents>
+  <measured_unit_id>123456</measured_unit_id>
+  <add_on_type>usage</add_on_type>
+  <usage_type>price</usage_type>
+  <liability_gl_account_id>udexyr9hjgkc</liability_gl_account_id>
+  <revenue_gl_account_id>uelq7rzkydlu</revenue_gl_account_id>
+  <performance_obligation_id>6</performance_obligation_id>
+  <created_at type="datetime">2011-06-28T12:34:56Z</created_at>
+</add_on>

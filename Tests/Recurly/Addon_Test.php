@@ -5,7 +5,8 @@ class Recurly_AddonTest extends Recurly_TestCase
 {
   function defaultResponses() {
     return array(
-      array('GET', '/plans/gold/add_ons/ipaddresses', 'addons/show-200.xml')
+      array('GET', '/plans/gold/add_ons/ipaddresses', 'addons/show-200.xml'),
+      array('GET', '/plans/gold/add_ons/ipaddresses_revrec', 'addons/show-200-revrec.xml'),
     );
   }
 
@@ -17,6 +18,18 @@ class Recurly_AddonTest extends Recurly_TestCase
     $prop->setAccessible(true);
 
     $this->assertSame($client, $prop->getValue($plan));
+  }
+
+  public function testGetAddonWithRevRec() {
+    $addon = Recurly_Addon::get('gold', 'ipaddresses_revrec', $this->client);
+    $this->assertInstanceOf('Recurly_Addon', $addon);
+    $this->assertSame('ipaddresses_revrec', $addon->add_on_code);
+    $this->assertSame('IP Addresses', $addon->name);
+    $this->assertSame(200, $addon->unit_amount_in_cents->USD->amount_in_cents);
+    $this->assertSame(1, $addon->default_quantity);
+    $this->assertSame('udexyr9hjgkc', $addon->liability_gl_account_id);
+    $this->assertSame('uelq7rzkydlu', $addon->revenue_gl_account_id);
+    $this->assertSame('6', $addon->performance_obligation_id);
   }
 
   public function testDelete() {
@@ -45,6 +58,29 @@ class Recurly_AddonTest extends Recurly_TestCase
         <unit_amount_in_cents>
           <USD>400</USD>
         </unit_amount_in_cents>
+      </add_on>", $addon->xml());
+  }
+
+  public function testCreateXmlItemBackedAddOnWithRevRec() {
+    $item = new Recurly_Item();
+    $item->item_code = 'little_llama';
+    $addon = new Recurly_Addon();
+    $addon->plan_code = 'gold';
+    $addon->item_code = $item->item_code;
+    $addon->unit_amount_in_cents->addCurrency('USD', 400);
+    $addon->liability_gl_account_id = 'udexyr9hjgkc';
+    $addon->revenue_gl_account_id = 'uelq7rzkydlu';
+    $addon->performance_obligation_id = '6';
+
+    $this->assertXmlStringEqualsXmlString("
+      <add_on>
+        <item_code>little_llama</item_code>
+        <unit_amount_in_cents>
+          <USD>400</USD>
+        </unit_amount_in_cents>
+        <liability_gl_account_id>udexyr9hjgkc</liability_gl_account_id>
+        <revenue_gl_account_id>uelq7rzkydlu</revenue_gl_account_id>
+        <performance_obligation_id>6</performance_obligation_id>
       </add_on>", $addon->xml());
   }
 
