@@ -41,9 +41,16 @@ abstract class BaseClient
             $this->baseUrl = BaseClient::API_HOSTS[$options['region']];
         }
 
-        $this->http = new HttpAdapter;
+        if (!isset($options['http_adapter'])) {
+            $options['http_adapter'] = new HttpAdapter;
+        }
+        if (!($options['http_adapter'] instanceof HttpAdapterInterface)) {
+		throw new \TypeError("http_adapter option must implement HttpAdapterInterface");
+        }
+        $this->http = $options['http_adapter'];
+
         if (is_null($logger)) {
-            $logger = new \Recurly\Logger('Recurly', LogLevel::WARNING);
+			$logger = new \Recurly\Logger('Recurly', LogLevel::WARNING);
         }
         $this->_logger = $logger;
 
@@ -126,6 +133,7 @@ abstract class BaseClient
             'response_headers' => $response->getHeaders()
             ]
         );
+        $response->assertValid(); // throws \Recurly\RecurlyError if response is bad
 
         return $response;
     }
