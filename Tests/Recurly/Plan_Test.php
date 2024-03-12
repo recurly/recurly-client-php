@@ -45,6 +45,12 @@ class Recurly_PlanTest extends Recurly_TestCase
     $this->assertTrue($plan->tax_exempt);
     $this->assertEquals('1234abcd', $plan->dunning_campaign_id);
     $this->assertEquals('fixed', $plan->pricing_model);
+    $this->assertEquals('twrbsq39zvo5', $plan->liability_gl_account_id);
+    $this->assertEquals('bwrks63lznoi', $plan->revenue_gl_account_id);
+    $this->assertEquals('rkslzn', $plan->performance_obligation_id);
+    $this->assertEquals('twrisqjjzvo5', $plan->setup_fee_liability_gl_account_id);
+    $this->assertEquals('dlrk123lzabc', $plan->setup_fee_revenue_gl_account_id);
+    $this->assertEquals('bks6noi', $plan->setup_fee_performance_obligation_id);
   }
 
   public function testGetPlanWithRamps() {

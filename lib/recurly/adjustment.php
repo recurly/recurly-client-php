@@ -35,6 +35,11 @@
  * @property string $credit_reason_code Can be set if adjustment is a credit (unit_amount_in_cents < 0). Allowed values: [general, service, promotional, refund, gift_card, write_off]. Defaults to "general".
  * @property Recurly_ShippingAddress $shipping_address The Recurly_ShippingAddress object associated with this adjustment.
  * @property string $shipping_address_id The id of Recurly_ShippingAddress object associated with this adjustment.
+ * @property string (SET) $liability_gl_account_id The ID of the liability general ledger account associated with the adjustment to be created. Its associated code will be stored on the adjustment.
+ * @property string (SET) $revenue_gl_account_id The ID of the revenue general ledger account associated with the adjustment to be created. Its associated code will be stored on the adjustment.
+ * @property string $performance_obligation_id The ID of the performance obligation associated with the adjustment.
+ * @property string (GET) $liability_gl_account_code The code of the liability general ledger account associated with the adjustment. Once it is determined from the general ledger account specified in the request, it cannot be changed.
+ * @property string (GET) $revenue_gl_account_code The code of the revenue general ledger account associated with the adjustment. Once it is determined from the general ledger account specified in the request, it cannot be changed.
  * @property DateTime $start_date A timestamp associated with when the adjustment began.
  * @property DateTime $end_date A timestamp associated with when the adjustment ended.
  * @property DateTime $created_at A timestamp associated with when the adjustment was created.
@@ -128,7 +133,8 @@ class Recurly_Adjustment extends Recurly_Resource
       'currency', 'unit_amount_in_cents', 'quantity', 'quantity_decimal', 'description',
       'accounting_code', 'tax_exempt', 'tax_inclusive', 'tax_code', 'start_date', 'end_date',
       'revenue_schedule_type', 'origin', 'product_code', 'credit_reason_code',
-      'shipping_address', 'shipping_address_id', 'item_code', 'external_sku', 'custom_fields'
+      'shipping_address', 'shipping_address_id', 'item_code', 'external_sku', 'custom_fields',
+      'revenue_gl_account_id', 'liability_gl_account_id', 'performance_obligation_id'
     );
   }
 }

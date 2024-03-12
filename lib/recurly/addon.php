@@ -21,6 +21,9 @@
  * @property float $usage_percentage If add_on_type = usage and usage_type = percentage, you must set a usage_percentage. Must be between 0.0000 and 100.0000. If item_code is present, usage_percentage must be absent.
  * @property string $usage_calculation_type The method of calculation used for usage-based add-ons with type 'price'.  Can be 'cumulative' or 'last_in_period'.  If no type is selected, type 'cumulative' will apply.
  * @property string $revenue_schedule_type Optional field for setting a revenue schedule type. This will determine how revenue for the associated Plan should be recognized. When creating a Plan, if you supply an end_date and end_date available schedule types are never, evenly, at_range_start, or at_range_end. If item_code is present, revenue_schedule_type must be absent.
+ * @property string $liability_gl_account_id The ID of the liability general ledger account associated with the add on.
+ * @property string $revenue_gl_account_id The ID of the revenue general ledger account associated with the add on.
+ * @property string $performance_obligation_id The ID of the performance obligation associated with the add on.
  * @property DateTime $created_at The date and time the add-on was created.
  * @property DateTime $updated_at The date and time the add-on was last updated.
  * @property string $plan_code Unique code to identify the plan.
@@ -70,7 +73,8 @@ class Recurly_Addon extends Recurly_Resource
       'add_on_code', 'item_code', 'name', 'display_quantity', 'default_quantity',
       'unit_amount_in_cents', 'accounting_code', 'tax_code', 'usage_timeframe', 'usage_calculation_type',
       'measured_unit_id', 'usage_type', 'usage_percentage', 'add_on_type', 'revenue_schedule_type',
-      'optional', 'display_quantity_on_hosted_page', 'tier_type', 'tiers', 'percentage_tiers'
+      'optional', 'display_quantity_on_hosted_page', 'tier_type', 'tiers', 'percentage_tiers', 'liability_gl_account_id',
+      'revenue_gl_account_id', 'performance_obligation_id'
     );
   }
 }

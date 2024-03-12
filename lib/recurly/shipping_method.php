@@ -6,6 +6,9 @@
  * @property string $name The name of the shipping method.
  * @property string $accounting_code The accounting code of the shipping method.
  * @property string $tax_code The tax code of the shipping method.
+ * @property string $liability_gl_account_id The ID of the liability general ledger account associated with the plan.
+ * @property string $revenue_gl_account_id The ID of the revenue general ledger account associated with the plan.
+ * @property string $performance_obligation_id The ID of the performance obligation associated with the plan.
  * @property DateTime $created_at The date and time the shipping method was created.
  * @property DateTime $updated_at The date and time the shipping method was last updated.
  */

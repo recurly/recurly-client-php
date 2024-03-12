@@ -27,6 +27,19 @@ class Recurly_ItemTest extends Recurly_TestCase
     $this->assertEquals('Sleek Plastic', $item->description);
   }
 
+  public function testGetItemWithRevRec() {
+    $this->client->addResponse('GET', '/items/plastic_gloves', 'items/show-200-revrec.xml');
+    $item = Recurly_Item::get('plastic_gloves', $this->client);
+
+    $this->assertInstanceOf('Recurly_Item', $item);
+    $this->assertEquals('plastic_gloves', $item->item_code);
+    $this->assertEquals('Awesome Plastic Gloves', $item->name);
+    $this->assertEquals('Sleek Plastic', $item->description);
+    $this->assertEquals($item->liability_gl_account_id,'t5ejtge1xw0x');
+    $this->assertEquals($item->revenue_gl_account_id,'t5ejtgf1vxh1');
+    $this->assertEquals($item->performance_obligation_id,'5');
+  }
+
   public function testNestedCustomFields() {
     $item = Recurly_Item::get('plastic_gloves', $this->client);
     $item->custom_fields[] = new Recurly_CustomField('size', 'small');
@@ -72,9 +85,12 @@ class Recurly_ItemTest extends Recurly_TestCase
     $item->name = 'Little Llama';
     $item->description = 'A description about llamas';
     $item->custom_fields[] = new Recurly_CustomField('size', 'small');
+    $item->liability_gl_account_id = 't5ejtge1xw0x';
+    $item->revenue_gl_account_id = 't5ejtgf1vxh1';
+    $item->performance_obligation_id = '5';
 
     $this->assertEquals(
-      "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n<item><item_code>little_llama</item_code><name>Little Llama</name><description>A description about llamas</description><custom_fields><custom_field><name>size</name><value>small</value></custom_field></custom_fields></item>\n",
+      "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n<item><item_code>little_llama</item_code><name>Little Llama</name><description>A description about llamas</description><custom_fields><custom_field><name>size</name><value>small</value></custom_field></custom_fields><liability_gl_account_id>t5ejtge1xw0x</liability_gl_account_id><revenue_gl_account_id>t5ejtgf1vxh1</revenue_gl_account_id><performance_obligation_id>5</performance_obligation_id></item>\n",
       $item->xml()
     );
   }

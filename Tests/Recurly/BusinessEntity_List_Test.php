@@ -40,5 +40,7 @@ class Recurly_BusinessEntityListTest extends Recurly_TestCase
     $this->assertEquals(2, count($subscriber_location_countries));
     $this->assertInstanceOf('Recurly_SubscriberLocationCountry', $subscriber_location_countries[0]);
     $this->assertInstanceOf('Recurly_SubscriberLocationCountry', $subscriber_location_countries[1]);
+    $this->assertEquals($business_entity->default_liability_gl_account_id, '12345');
+    $this->assertEquals($business_entity->default_revenue_gl_account_id, '56789');
   }
 }
