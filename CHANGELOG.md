@@ -1,5 +1,25 @@
 # Changelog
 
+## [2.14.8](https://github.com/recurly/recurly-client-php/tree/2.14.8) (2024-03-13)
+
+[Full Changelog](https://github.com/recurly/recurly-client-php/compare/2.14.7...2.14.8)
+
+
+**Merged Pull Requests**
+
+- Add RevRec to adjustments/purchases [#802](https://github.com/recurly/recurly-client-php/pull/802) ([faiberrec](https://github.com/faiberrec))
+- Add revrec attributes to add ons [#801](https://github.com/recurly/recurly-client-php/pull/801) ([faiberrec](https://github.com/faiberrec))
+- Add revrec attributes to items and giftcards [#798](https://github.com/recurly/recurly-client-php/pull/798) ([faiberrec](https://github.com/faiberrec))
+- Add RevRec attributes to shipping methods [#796](https://github.com/recurly/recurly-client-php/pull/796) ([faiberrec](https://github.com/faiberrec))
+- Add revrec attributes to plans [#795](https://github.com/recurly/recurly-client-php/pull/795) ([faiberrec](https://github.com/faiberrec))
+- Add default glas to Business Entities [#794](https://github.com/recurly/recurly-client-php/pull/794) ([faiberrec](https://github.com/faiberrec))
+- Add revrec support to php [#793](https://github.com/recurly/recurly-client-php/pull/793) ([faiberrec](https://github.com/faiberrec))
+- Add RevRec POBs support [#792](https://github.com/recurly/recurly-client-php/pull/792) ([faiberrec](https://github.com/faiberrec))
+- Add GeneralLdegerAccounts(glas) resources [#791](https://github.com/recurly/recurly-client-php/pull/791) ([faiberrec](https://github.com/faiberrec))
+- add external payment phases [#784](https://github.com/recurly/recurly-client-php/pull/784) ([amandamfielding](https://github.com/amandamfielding))
+
+
+
 ## [2.14.7](https://github.com/recurly/recurly-client-php/tree/2.14.7) (2023-08-10)
 
 [Full Changelog](https://github.com/recurly/recurly-client-php/compare/2.14.6...2.14.7)
@@ -690,7 +710,7 @@
 - Warn on API deprecation [#250](https://github.com/recurly/recurly-client-php/pull/250) ([drewish](https://github.com/drewish))
 - Add support for new pagination [#249](https://github.com/recurly/recurly-client-php/pull/249) ([drewish](https://github.com/drewish))
 - Changes for API 2.3  [#246](https://github.com/recurly/recurly-client-php/pull/246) ([drewish](https://github.com/drewish))
-- Adding closed_at account tag to fixtures [#170](https://github.com/recurly/recurly-client-php/pull/170) ([rafdizzle86](https://github.com/rafdizzle86))
+- Adding closed_at account tag to fixtures [#170](https://github.com/recurly/recurly-client-php/pull/170) ([rafiyagi](https://github.com/rafiyagi))
 
 **Closed Issues**
 
@@ -787,7 +807,7 @@
 - Parse Fraud object when available [#228](https://github.com/recurly/recurly-client-php/pull/228) ([bhelx](https://github.com/bhelx))
 - Usage Based Billing [#227](https://github.com/recurly/recurly-client-php/pull/227) ([bhelx](https://github.com/bhelx))
 - updates Recurly_Coupon for free trial coupons [#224](https://github.com/recurly/recurly-client-php/pull/224) ([lmnleaf](https://github.com/lmnleaf))
-- Add a note about supporting TLS in the README.md [#217](https://github.com/recurly/recurly-client-php/pull/217) ([rafdizzle86](https://github.com/rafdizzle86))
+- Add a note about supporting TLS in the README.md [#217](https://github.com/recurly/recurly-client-php/pull/217) ([rafiyagi](https://github.com/rafiyagi))
 
 **Closed Issues**
 
@@ -1869,7 +1889,7 @@
 - Warn on API deprecation [#250](https://github.com/recurly/recurly-client-php/pull/250) ([drewish](https://github.com/drewish))
 - Add support for new pagination [#249](https://github.com/recurly/recurly-client-php/pull/249) ([drewish](https://github.com/drewish))
 - Changes for API 2.3  [#246](https://github.com/recurly/recurly-client-php/pull/246) ([drewish](https://github.com/drewish))
-- Adding closed_at account tag to fixtures [#170](https://github.com/recurly/recurly-client-php/pull/170) ([rafdizzle86](https://github.com/rafdizzle86))
+- Adding closed_at account tag to fixtures [#170](https://github.com/recurly/recurly-client-php/pull/170) ([rafiyagi](https://github.com/rafiyagi))
 
 **Closed Issues**
 
@@ -1928,7 +1948,7 @@
 - fix for add charge. start_date and end_date was not getting set [#229](https://github.com/recurly/recurly-client-php/pull/229) ([imsagar](https://github.com/imsagar))
 - Parse Fraud object when available [#228](https://github.com/recurly/recurly-client-php/pull/228) ([bhelx](https://github.com/bhelx))
 - Usage Based Billing [#227](https://github.com/recurly/recurly-client-php/pull/227) ([bhelx](https://github.com/bhelx))
-- Add a note about supporting TLS in the README.md [#217](https://github.com/recurly/recurly-client-php/pull/217) ([rafdizzle86](https://github.com/rafdizzle86))
+- Add a note about supporting TLS in the README.md [#217](https://github.com/recurly/recurly-client-php/pull/217) ([rafiyagi](https://github.com/rafiyagi))
 
 **Closed Issues**
 
