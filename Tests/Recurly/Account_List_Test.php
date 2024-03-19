@@ -3,7 +3,7 @@
 
 class Recurly_AccountListTest extends Recurly_TestCase
 {
-  function defaultResponses() {
+  function defaultResponses(): array {
     return array(
       array('GET', '/accounts', 'accounts/index-200.xml')
     );

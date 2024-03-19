@@ -2,7 +2,7 @@
 
 class Recurly_CreditPaymentListTest extends Recurly_TestCase
 {
-  function defaultResponses() {
+  function defaultResponses(): array {
     return array(
       array('GET', '/credit_payments', 'credit_payments/index-200.xml')
     );

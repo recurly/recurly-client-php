@@ -3,7 +3,7 @@
 
 class Recurly_AddonTest extends Recurly_TestCase
 {
-  function defaultResponses() {
+  function defaultResponses(): array {
     return array(
       array('GET', '/plans/gold/add_ons/ipaddresses', 'addons/show-200.xml'),
       array('GET', '/plans/gold/add_ons/ipaddresses_revrec', 'addons/show-200-revrec.xml'),
@@ -96,8 +96,8 @@ class Recurly_AddonTest extends Recurly_TestCase
     $tier1->ending_quantity = 800;
     $tier2 = new Recurly_Tier();
     $tier2->unit_amount_in_cents->addCurrency('USD', 200);
-  
-    $addon->tiers = array($tier1, $tier2);  
+
+    $addon->tiers = array($tier1, $tier2);
 
     $this->assertXmlStringEqualsXmlString("
       <add_on>

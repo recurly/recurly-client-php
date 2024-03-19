@@ -2,7 +2,7 @@
 
 class Recurly_AccountBalanceTest extends Recurly_TestCase
 {
-  function defaultResponses() {
+  function defaultResponses(): array {
     return array(
       array('GET', '/accounts/abcdef1234567890/balance', 'balance/show-200.xml'),
     );

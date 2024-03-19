@@ -2,7 +2,7 @@
 
 class Recurly_AccountAcquisitionTest extends Recurly_TestCase
 {
-  function defaultResponses() {
+  function defaultResponses(): array {
     return array(
       array('GET', '/accounts/abcdef1234567890/acquisition', 'account_acquisition/show-200.xml'),
       array('PUT', '/accounts/abcdef1234567890/acquisition', 'account_acquisition/create-201.xml'),

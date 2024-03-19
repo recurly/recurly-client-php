@@ -2,7 +2,7 @@
 
 class Recurly_ItemTest extends Recurly_TestCase
 {
-  function defaultResponses() {
+  function defaultResponses(): array {
     return array(
       array('GET', '/items/plastic_gloves', 'items/show-200.xml'),
     );
@@ -17,7 +17,7 @@ class Recurly_ItemTest extends Recurly_TestCase
 
     $this->assertSame($client, $prop->getValue($item));
   }
-  
+
   public function testGetItem() {
     $item = Recurly_Item::get('plastic_gloves', $this->client);
 

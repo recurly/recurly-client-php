@@ -2,7 +2,7 @@
 
 class Recurly_PurchaseTest extends Recurly_TestCase
 {
-  function defaultResponses() {
+  function defaultResponses(): array {
     return array(
       array('POST', '/purchases', 'purchases/create-201.xml'),
       array('POST', '/purchases', 'purchases/create-with-action-result-201.xml'),

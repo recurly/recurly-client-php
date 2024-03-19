@@ -2,7 +2,7 @@
 
 class Recurly_InvoiceTemplateTest extends Recurly_TestCase
 {
-  function defaultResponses() {
+  function defaultResponses(): array {
     return array(
       array('GET', '/invoice_templates/q0tzf7o7fpbl', 'invoice_templates/show-200.xml'),
     );

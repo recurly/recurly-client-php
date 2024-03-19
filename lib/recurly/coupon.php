@@ -122,7 +122,7 @@ class Recurly_Coupon extends Recurly_Resource
         $val = $val->format('c');
       }
 
-      $root->appendChild($doc->createElement($attr, $val));
+      $root->appendChild($doc->createElement($attr, $val ?? ''));
     }
 
     return XmlTools::renderXML($doc);

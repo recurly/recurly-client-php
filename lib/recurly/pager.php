@@ -18,6 +18,7 @@ abstract class Recurly_Pager extends Recurly_Base implements Iterator, Countable
    * @return integer number of records in list
    * @throws Recurly_Error
    */
+  #[ReturnTypeWillChange]
   public function count() {
     if (isset($this->_href)) {
       $headers = Recurly_Base::_head($this->_href, $this->_client);
@@ -47,7 +48,7 @@ abstract class Recurly_Pager extends Recurly_Base implements Iterator, Countable
    *
    * @throws Recurly_Error
    */
-  public function rewind() {
+  public function rewind(): void {
     $this->_loadFrom($this->_href);
     $this->_position = 0;
   }
@@ -58,6 +59,7 @@ abstract class Recurly_Pager extends Recurly_Base implements Iterator, Countable
    * @return Recurly_Resource the current object
    * @throws Recurly_Error
    */
+  #[ReturnTypeWillChange]
   public function current()
   {
     // Work around pre-PHP 5.5 issue that prevents `empty($this->count())`:
@@ -84,6 +86,7 @@ abstract class Recurly_Pager extends Recurly_Base implements Iterator, Countable
   /**
    * @return integer current position within the current page
    */
+  #[ReturnTypeWillChange]
   public function key() {
     return $this->_position;
   }
@@ -91,14 +94,14 @@ abstract class Recurly_Pager extends Recurly_Base implements Iterator, Countable
   /**
    * Increments the position to the next element
    */
-  public function next() {
+  public function next(): void {
     ++$this->_position;
   }
 
   /**
    * @return boolean True if the current position is valid.
    */
-  public function valid() {
+  public function valid(): bool {
     return (isset($this->_objects[$this->_position]) || isset($this->_links['next']));
   }
 

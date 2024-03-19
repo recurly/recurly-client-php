@@ -3,7 +3,7 @@
 
 class Recurly_AdjustmentTest extends Recurly_TestCase
 {
-  function defaultResponses() {
+  function defaultResponses(): array {
     return array(
       array('GET', '/adjustments/abcdef1234567890', 'adjustments/show-200.xml'),
       array('GET', '/adjustments/abcdef1234567890_revrec', 'adjustments/show-200-revrec.xml'),

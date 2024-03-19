@@ -10,7 +10,7 @@ class Recurly_CustomFieldList extends ArrayObject
    * @param object $value Must be instance of Recurly_CustomField
    * @throws Exception
    */
-  public function offsetSet($index, $value) {
+  public function offsetSet($index, $value): void {
     if (!$value instanceof Recurly_CustomField) {
       throw new Exception("value must be an instance of Recurly_CustomField");
     }
@@ -25,7 +25,7 @@ class Recurly_CustomFieldList extends ArrayObject
     parent::offsetSet($index, $value);
   }
 
-  public function offsetUnset($index) {
+  public function offsetUnset($index): void {
     parent::offsetSet($index, new Recurly_CustomField($index, null));
   }
 

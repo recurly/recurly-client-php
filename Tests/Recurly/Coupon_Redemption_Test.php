@@ -3,7 +3,7 @@
 
 class Recurly_CouponRedemptionTest extends Recurly_TestCase
 {
-  function defaultResponses() {
+  function defaultResponses(): array {
     return array(
       array('GET', '/accounts/abcdef1234567890/redemption', 'accounts/redemption/show-200.xml')
     );
