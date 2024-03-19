@@ -14,6 +14,7 @@ class PaymentMethod extends RecurlyResource
 {
     private $_account_type;
     private $_billing_agreement_id;
+    private $_card_network_preference;
     private $_card_type;
     private $_cc_bin_country;
     private $_exp_month;
@@ -77,6 +78,29 @@ class PaymentMethod extends RecurlyResource
     public function setBillingAgreementId(string $billing_agreement_id): void
     {
         $this->_billing_agreement_id = $billing_agreement_id;
+    }
+
+    /**
+    * Getter method for the card_network_preference attribute.
+    * Represents the card network preference associated with the billing info for dual badged cards. Must be a supported card network.
+    *
+    * @return ?string
+    */
+    public function getCardNetworkPreference(): ?string
+    {
+        return $this->_card_network_preference;
+    }
+
+    /**
+    * Setter method for the card_network_preference attribute.
+    *
+    * @param string $card_network_preference
+    *
+    * @return void
+    */
+    public function setCardNetworkPreference(string $card_network_preference): void
+    {
+        $this->_card_network_preference = $card_network_preference;
     }
 
     /**
