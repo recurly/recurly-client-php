@@ -27,6 +27,7 @@ class ExternalSubscription extends RecurlyResource
     private $_object;
     private $_quantity;
     private $_state;
+    private $_test;
     private $_trial_ends_at;
     private $_trial_started_at;
     private $_updated_at;
@@ -378,6 +379,29 @@ class ExternalSubscription extends RecurlyResource
     public function setState(string $state): void
     {
         $this->_state = $state;
+    }
+
+    /**
+    * Getter method for the test attribute.
+    * An indication of whether or not the external subscription was purchased in a sandbox environment.
+    *
+    * @return ?bool
+    */
+    public function getTest(): ?bool
+    {
+        return $this->_test;
+    }
+
+    /**
+    * Setter method for the test attribute.
+    *
+    * @param bool $test
+    *
+    * @return void
+    */
+    public function setTest(bool $test): void
+    {
+        $this->_test = $test;
     }
 
     /**
