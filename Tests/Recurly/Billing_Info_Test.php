@@ -229,4 +229,16 @@ class Recurly_BillingInfoTest extends Recurly_TestCase
     );
   }
 
+  public function testForCardNetworkPreference() {
+    $billing_info = new Recurly_BillingInfo(null, $this->client);
+    $billing_info->card_network_preference = 'Cartes Bancaires';
+    $billing_info->month = '11';
+    $billing_info->year = '2025';
+
+    $this->assertInstanceOf('Recurly_BillingInfo', $billing_info);
+    $this->assertEquals(
+      $billing_info->xml(),
+      "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n<billing_info><month>11</month><year>2025</year><card_network_preference>Cartes Bancaires</card_network_preference></billing_info>\n"
+    );
+  }
 }
