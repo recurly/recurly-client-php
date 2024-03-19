@@ -1,5 +1,16 @@
 # Changelog
 
+## [2.14.9](https://github.com/recurly/recurly-client-php/tree/2.14.9) (2024-03-19)
+
+[Full Changelog](https://github.com/recurly/recurly-client-php/compare/2.14.8...2.14.9)
+
+
+**Merged Pull Requests**
+
+- Add card_network_preference field to v2 [#805](https://github.com/recurly/recurly-client-php/pull/805) ([gilv93](https://github.com/gilv93))
+
+
+
 ## [2.14.8](https://github.com/recurly/recurly-client-php/tree/2.14.8) (2024-03-13)
 
 [Full Changelog](https://github.com/recurly/recurly-client-php/compare/2.14.7...2.14.8)
