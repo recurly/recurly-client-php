@@ -51,6 +51,7 @@
  * @property string $tax_identifier_type This field and a value of 'cpf' are required if adding a billing info that is an elo or hipercard type in Brazil.
  * @property boolean $primary_payment_method Primary payment method
  * @property boolean $backup_payment_method Backup payment method
+ * @property string $card_network_preference Visa, MasterCard, Cartes Bancaires, etc
  */
 class Recurly_BillingInfo extends Recurly_Resource
 {
@@ -151,7 +152,7 @@ class Recurly_BillingInfo extends Recurly_Resource
       'braintree_payment_nonce', 'roku_billing_agreement_id',
       'three_d_secure_action_result_token_id', 'transaction_type', 'iban', 'sort_code', 'bsb_code', 'type',
       'tax_identifier', 'tax_identifier_type', 'primary_payment_method', 'backup_payment_method',
-      'online_banking_payment_type', 'username'
+      'online_banking_payment_type', 'username', 'card_network_preference'
     );
   }
 }
