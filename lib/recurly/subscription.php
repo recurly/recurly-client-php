@@ -22,6 +22,7 @@
  * @property float $tax_rate Tax rate that will be applied to this subscription
  * @property string $collection_method Optional field to set the collection for an invoice as automatic or manual. The default is automatic if it's not set.
  * @property integer $net_terms Integer representing the number of days after an invoice's creation that the invoice will become past due. If an invoice's net terms are set to 0, it is due 'On Receipt' and will become past due 24 hours after it’s created. If an invoice is due net 30, it will become past due at 31 days exactly. Defaults to 0.
+ * @property string $net_terms_type The net terms type of the invoice. accepted_values: "net", "eom".
  * @property string $po_number Optional notes field. Attach a PO number to the invoice.
  * @property boolean $bulk Optional field to be used only when needing to bypass the 60 second limit on creating subscriptions. Should only be used when creating subscriptions in bulk from the API. Set to 'true' or 'false'. Defaults to 'false'.
  * @property string $terms_and_conditions Optional notes field. This will default to the Terms and Conditions text specified on the Invoice Settings page in your Recurly admin. Specify custom notes with this tag to add or override Terms and Conditions. Custom notes will stay with a subscription on all renewals.
@@ -332,7 +333,7 @@ class Recurly_Subscription extends Recurly_Resource
       'account', 'billing_info', 'plan_code', 'coupon_code', 'coupon_codes',
       'unit_amount_in_cents', 'quantity', 'billing_info_uuid', 'currency', 'starts_at',
       'trial_ends_at', 'total_billing_cycles', 'first_renewal_date',
-      'timeframe', 'subscription_add_ons', 'net_terms', 'po_number',
+      'timeframe', 'subscription_add_ons', 'net_terms', 'net_terms_type', 'po_number',
       'collection_method', 'cost_in_cents', 'remaining_billing_cycles', 'bulk',
       'terms_and_conditions', 'customer_notes', 'vat_reverse_charge_notes',
       'bank_account_authorized_at', 'revenue_schedule_type', 'gift_card',

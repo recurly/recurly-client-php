@@ -169,9 +169,21 @@ class Recurly_PurchaseTest extends Recurly_TestCase
 
   public function testPurchaseIncludesTransactionActionResultResponse(){
     $this->client->addResponse('POST', '/purchases', 'purchases/create-with-action-result-201.xml');
-    
+
     $purchase = new Recurly_Purchase(null, $this->client);
     $collection = Recurly_Purchase::invoice($purchase, $this->client);
     $this->assertEquals('example', $collection->charge_invoice->transactions->current()->action_result);
+  }
+
+  public function testPurchaseWithEomNetTerms(){
+    $this->client->addResponse('POST', '/purchases', 'purchases/create-201-with-eom-net-terms.xml');
+
+    $purchase = $this->mockPurchase();
+    $purchase->net_terms = 30;
+    $purchase->net_terms_type = "eom";
+    $collection = Recurly_Purchase::invoice($purchase, $this->client);
+
+    $this->assertInstanceOf('Recurly_InvoiceCollection', $collection);
+    $this->assertInstanceOf('Recurly_Invoice', $collection->charge_invoice);
   }
 }
