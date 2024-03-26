@@ -630,7 +630,7 @@ class Recurly_SubscriptionTest extends Recurly_TestCase
   }
 
   public function testPreviewNewSubscriptionWithActionResult(){
-  
+
     $this->client->addResponse('POST', '/subscriptions/preview', 'subscriptions/preview-200-new-with-action-result.xml');
     $subscription = new Recurly_Subscription(null, $this->client);
 
@@ -640,5 +640,37 @@ class Recurly_SubscriptionTest extends Recurly_TestCase
     $subscription->account->billing_info->token_id = 'abc123';
     $subscription->preview();
     $this->assertEquals('example', $subscription->action_result);
+  }
+
+  public function testSubscriptionWithEomNetTerms() {
+    $subscription = new Recurly_Subscription();
+    $subscription->plan_code = 'gold';
+    $subscription->currency = 'USD';
+    $subscription->net_terms = 10;
+    $subscription->net_terms_type = 'eom';
+    $subscription->collection_method = 'automatic';
+    $subscription->po_number = '1000';
+    $subscription->imported_trial = true;
+
+    $account = new Recurly_Account();
+    $account->account_code = '123';
+
+    $subscription->account = $account;
+
+    $this->assertXmlStringEqualsXmlString(
+      "<subscription>
+        <account>
+          <account_code>123</account_code>
+        </account>
+        <plan_code>gold</plan_code>
+        <currency>USD</currency>
+        <subscription_add_ons></subscription_add_ons>
+        <net_terms>10</net_terms>
+        <net_terms_type>eom</net_terms_type>
+        <po_number>1000</po_number>
+        <collection_method>automatic</collection_method>
+        <imported_trial>true</imported_trial>
+      </subscription>", $subscription->xml());
+
   }
 }

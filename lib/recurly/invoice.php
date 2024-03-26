@@ -36,7 +36,8 @@
  * @property string $tax_type
  * @property string $tax_region
  * @property float $tax_rate
- * @property int $net_terms
+ * @property int $net_terms The net terms of the invoice.
+ * @property string $net_terms_type The net terms type of the invoice. accepted_values: "net", "eom".
  * @property string $collection_method
  * @property Recurly_Stub $redemptions
  * @property Recurly_Adjustment[] $line_items
@@ -246,7 +247,7 @@ class Recurly_Invoice extends Recurly_Resource
   protected function getWriteableAttributes() {
     return array(
       'address', 'billing_info', 'billing_info_uuid', 'terms_and_conditions', 'customer_notes', 'vat_reverse_charge_notes',
-      'collection_method', 'net_terms', 'po_number', 'currency', 'credit_customer_notes',
+      'collection_method', 'net_terms', 'net_terms_type', 'po_number', 'currency', 'credit_customer_notes',
       'gateway_code'
     );
   }

@@ -219,4 +219,22 @@ class Recurly_InvoiceTest extends Recurly_TestCase
       $this->assertEquals(sizeof($line_item->custom_fields), 1);
     }
   }
+
+  public function testInvoiceWithEomNetTerms() {
+    $this->client->addResponse('POST', '/accounts/abcdef1234567890/invoices', 'invoices/create-201-with-eom-net-terms.xml');
+
+    $invoice = Recurly_Invoice::invoicePendingCharges('abcdef1234567890', array("net_terms" => 60), $this->client);
+
+    $this->assertInstanceOf('Recurly_Invoice', $invoice);
+    $this->assertInstanceOf('Recurly_Stub', $invoice->account);
+    $this->assertEquals($invoice->uuid, '012345678901234567890123456789ab');
+    $this->assertEquals($invoice->currency, 'USD');
+    $this->assertEquals($invoice->total_in_cents, 300);
+    $this->assertEquals($invoice->getHref(),'https://api.recurly.com/v2/invoices/012345678901234567890123456789ab');
+    $this->assertEquals($invoice->terms_and_conditions, 'Some Terms and Conditions');
+    $this->assertEquals($invoice->customer_notes, 'Some Customer Notes');
+    $this->assertEquals($invoice->vat_reverse_charge_notes, 'Some VAT Notes');
+    $this->assertEquals($invoice->net_terms, 60);
+    $this->assertEquals($invoice->net_terms_type, 'eom');
+  }
 }
