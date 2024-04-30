@@ -693,8 +693,6 @@ or visit (https://docs.recurly.com/docs/automatic-invoicing-terms#section-collec
 When `net`, an invoice becomes past due the specified number of `Net Terms` days from the current date.
 When `eom` an invoice becomes past due the specified number of `Net Terms` days from the last day of the current month.
 
-This field is only available when the EOM Net Terms feature is enabled.
-
     *
     * @return ?string
     */
