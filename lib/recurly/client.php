@@ -518,6 +518,7 @@ class Client extends BaseClient
      *          results correspond to your request.
      *        * Records are returned in an arbitrary order. Since results are all
      *          returned at once you can sort the records yourself.
+     * - $options['state'] (string): Invoice state.
      * - $options['limit'] (int): Limit number of records 1-200.
      * - $options['order'] (string): Sort order.
      * - $options['sort'] (string): Sort field. You *really* only want to sort by `updated_at` in ascending
@@ -1394,6 +1395,7 @@ class Client extends BaseClient
      *          results correspond to your request.
      *        * Records are returned in an arbitrary order. Since results are all
      *          returned at once you can sort the records yourself.
+     * - $options['state'] (string): Invoice state.
      * - $options['limit'] (int): Limit number of records 1-200.
      * - $options['order'] (string): Sort order.
      * - $options['sort'] (string): Sort field. You *really* only want to sort by `updated_at` in ascending
@@ -2352,6 +2354,7 @@ class Client extends BaseClient
      *          results correspond to your request.
      *        * Records are returned in an arbitrary order. Since results are all
      *          returned at once you can sort the records yourself.
+     * - $options['state'] (string): Invoice state.
      * - $options['limit'] (int): Limit number of records 1-200.
      * - $options['order'] (string): Sort order.
      * - $options['sort'] (string): Sort field. You *really* only want to sort by `updated_at` in ascending
