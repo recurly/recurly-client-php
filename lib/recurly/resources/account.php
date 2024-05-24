@@ -23,6 +23,7 @@ class Account extends RecurlyResource
     private $_deleted_at;
     private $_dunning_campaign_id;
     private $_email;
+    private $_entity_use_code;
     private $_exemption_certificate;
     private $_first_name;
     private $_has_active_subscription;
@@ -302,6 +303,29 @@ class Account extends RecurlyResource
     public function setEmail(string $email): void
     {
         $this->_email = $email;
+    }
+
+    /**
+    * Getter method for the entity_use_code attribute.
+    * The Avalara AvaTax value that can be passed to identify the customer type for tax purposes. The range of values can be A - R (more info at Avalara). Value is case-sensitive.
+    *
+    * @return ?string
+    */
+    public function getEntityUseCode(): ?string
+    {
+        return $this->_entity_use_code;
+    }
+
+    /**
+    * Setter method for the entity_use_code attribute.
+    *
+    * @param string $entity_use_code
+    *
+    * @return void
+    */
+    public function setEntityUseCode(string $entity_use_code): void
+    {
+        $this->_entity_use_code = $entity_use_code;
     }
 
     /**
