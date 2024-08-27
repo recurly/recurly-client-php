@@ -33,6 +33,7 @@ class ExternalSubscription extends RecurlyResource
     private $_trial_ends_at;
     private $_trial_started_at;
     private $_updated_at;
+    private $_uuid;
 
     protected static $array_hints = [
         'setExternalPaymentPhases' => '\Recurly\Resources\ExternalPaymentPhase',
@@ -520,5 +521,28 @@ class ExternalSubscription extends RecurlyResource
     public function setUpdatedAt(string $updated_at): void
     {
         $this->_updated_at = $updated_at;
+    }
+
+    /**
+    * Getter method for the uuid attribute.
+    * Universally Unique Identifier created automatically.
+    *
+    * @return ?string
+    */
+    public function getUuid(): ?string
+    {
+        return $this->_uuid;
+    }
+
+    /**
+    * Setter method for the uuid attribute.
+    *
+    * @param string $uuid
+    *
+    * @return void
+    */
+    public function setUuid(string $uuid): void
+    {
+        $this->_uuid = $uuid;
     }
 }
