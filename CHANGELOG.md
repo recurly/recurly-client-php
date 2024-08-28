@@ -1,5 +1,16 @@
 # Changelog
 
+## [4.54.0](https://github.com/recurly/recurly-client-php/tree/4.54.0) (2024-08-28)
+
+[Full Changelog](https://github.com/recurly/recurly-client-php/compare/4.53.0...4.54.0)
+
+
+**Merged Pull Requests**
+
+- Generated Latest Changes for v2021-02-25 (add UUID to external subscriptions) [#823](https://github.com/recurly/recurly-client-php/pull/823) ([recurly-integrations](https://github.com/recurly-integrations))
+
+
+
 ## [4.53.0](https://github.com/recurly/recurly-client-php/tree/4.53.0) (2024-08-21)
 
 [Full Changelog](https://github.com/recurly/recurly-client-php/compare/4.52.0...4.53.0)
