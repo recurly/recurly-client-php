@@ -24,6 +24,7 @@
  * @property string $cancel_url Deprecated URL to redirect to on canceled signup on the hosted payment pages.
  * @property boolean $tax_exempt true exempts tax on the plan, false applies tax on the plan. If not defined, then defaults to the Plan and Site settings.
  * @property string $tax_code Optional field for EU VAT merchants and Avalara AvaTax Pro merchants. If you are using Recurly's EU VAT feature, you can use values of unknown, physical, or digital. If you have your own AvaTax account configured, you can use Avalara tax codes to assign custom tax rules.
+ * @property string $vertex_transaction_type Optional field for Vertex merchants. The Vertex "transaction type" input contributes towards accurate tax calculation by identifying the transaction as a standard sale, a rental, or a lease. Either 'sale', 'rental', or 'lease'.
  * @property string $add_on_code Add-on code. Max of 50 characters.
  * @property string $add_on_type Whether the add-on is Fixed-Price (fixed), or Usage-Based (usage).
  * @property integer $default_quantity Default quantity for the hosted pages.
@@ -150,6 +151,7 @@ class Recurly_Plan extends Recurly_Resource
       'setup_fee_revenue_schedule_type',
       'success_url',
       'tax_code',
+      'vertex_transaction_type',
       'tax_exempt',
       'total_billing_cycles',
       'trial_interval_length',
