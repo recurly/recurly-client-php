@@ -43,6 +43,7 @@ class Plan extends RecurlyResource
     private $_trial_requires_billing_info;
     private $_trial_unit;
     private $_updated_at;
+    private $_vertex_transaction_type;
 
     protected static $array_hints = [
         'setCurrencies' => '\Recurly\Resources\PlanPricing',
@@ -768,5 +769,28 @@ a specified cadence of billing periods. The price change could be an increase or
     public function setUpdatedAt(string $updated_at): void
     {
         $this->_updated_at = $updated_at;
+    }
+
+    /**
+    * Getter method for the vertex_transaction_type attribute.
+    * Used by Vertex for tax calculations. Possible values are `sale`, `rental`, `lease`.
+    *
+    * @return ?string
+    */
+    public function getVertexTransactionType(): ?string
+    {
+        return $this->_vertex_transaction_type;
+    }
+
+    /**
+    * Setter method for the vertex_transaction_type attribute.
+    *
+    * @param string $vertex_transaction_type
+    *
+    * @return void
+    */
+    public function setVertexTransactionType(string $vertex_transaction_type): void
+    {
+        $this->_vertex_transaction_type = $vertex_transaction_type;
     }
 }
