@@ -1861,7 +1861,22 @@ endpoint to obtain only the newly generated `UniqueCouponCodes`.
     }
   
     /**
-     * List a site's external subscriptions
+     * Create an external subscription
+     *
+     * @param array $body    The body of the request.
+     * @param array $options Associative array of optional parameters
+     *
+     * @return \Recurly\Resources\ExternalSubscription Returns the external subscription
+     * @link   https://developers.recurly.com/api/v2021-02-25#operation/create_external_subscription
+     */
+    public function createExternalSubscription(array $body, array $options = []): \Recurly\Resources\ExternalSubscription
+    {
+        $path = $this->interpolatePath("/external_subscriptions", []);
+        return $this->makeRequest('POST', $path, $body, $options);
+    }
+  
+    /**
+     * List the external subscriptions on a site
      *
      * @param array $options Associative array of optional parameters
      *
@@ -1893,6 +1908,22 @@ endpoint to obtain only the newly generated `UniqueCouponCodes`.
     {
         $path = $this->interpolatePath("/external_subscriptions/{external_subscription_id}", ['external_subscription_id' => $external_subscription_id]);
         return $this->makeRequest('GET', $path, [], $options);
+    }
+  
+    /**
+     * Update an external subscription
+     *
+     * @param string $external_subscription_id External subscription id
+     * @param array  $body                     The body of the request.
+     * @param array  $options                  Associative array of optional parameters
+     *
+     * @return \Recurly\Resources\ExternalSubscription Settings for an external subscription.
+     * @link   https://developers.recurly.com/api/v2021-02-25#operation/put_external_subscription
+     */
+    public function putExternalSubscription(string $external_subscription_id, array $body = [], array $options = []): \Recurly\Resources\ExternalSubscription
+    {
+        $path = $this->interpolatePath("/external_subscriptions/{external_subscription_id}", ['external_subscription_id' => $external_subscription_id]);
+        return $this->makeRequest('PUT', $path, $body, $options);
     }
   
     /**
