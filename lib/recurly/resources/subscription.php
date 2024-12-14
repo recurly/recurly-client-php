@@ -21,6 +21,7 @@ class Subscription extends RecurlyResource
     private $_auto_renew;
     private $_bank_account_authorized_at;
     private $_billing_info_id;
+    private $_business_entity_id;
     private $_canceled_at;
     private $_collection_method;
     private $_converted_at;
@@ -279,6 +280,29 @@ class Subscription extends RecurlyResource
     public function setBillingInfoId(string $billing_info_id): void
     {
         $this->_billing_info_id = $billing_info_id;
+    }
+
+    /**
+    * Getter method for the business_entity_id attribute.
+    * The ID of the business entity associated with the subscription. This will be `null` if the subscription relies on resolving the business entity during renewal.
+    *
+    * @return ?string
+    */
+    public function getBusinessEntityId(): ?string
+    {
+        return $this->_business_entity_id;
+    }
+
+    /**
+    * Setter method for the business_entity_id attribute.
+    *
+    * @param string $business_entity_id
+    *
+    * @return void
+    */
+    public function setBusinessEntityId(string $business_entity_id): void
+    {
+        $this->_business_entity_id = $business_entity_id;
     }
 
     /**

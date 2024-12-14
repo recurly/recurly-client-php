@@ -16,6 +16,7 @@ class SubscriptionChange extends RecurlyResource
     private $_activated;
     private $_add_ons;
     private $_billing_info;
+    private $_business_entity;
     private $_created_at;
     private $_custom_fields;
     private $_deleted_at;
@@ -129,6 +130,29 @@ class SubscriptionChange extends RecurlyResource
     public function setBillingInfo(\Recurly\Resources\SubscriptionChangeBillingInfo $billing_info): void
     {
         $this->_billing_info = $billing_info;
+    }
+
+    /**
+    * Getter method for the business_entity attribute.
+    * Business entity details
+    *
+    * @return ?\Recurly\Resources\BusinessEntityMini
+    */
+    public function getBusinessEntity(): ?\Recurly\Resources\BusinessEntityMini
+    {
+        return $this->_business_entity;
+    }
+
+    /**
+    * Setter method for the business_entity attribute.
+    *
+    * @param \Recurly\Resources\BusinessEntityMini $business_entity
+    *
+    * @return void
+    */
+    public function setBusinessEntity(\Recurly\Resources\BusinessEntityMini $business_entity): void
+    {
+        $this->_business_entity = $business_entity;
     }
 
     /**
