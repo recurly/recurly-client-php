@@ -22,6 +22,7 @@ class BillingInfo extends RecurlyResource
     private $_id;
     private $_last_name;
     private $_object;
+    private $_payment_gateway_references;
     private $_payment_method;
     private $_primary_payment_method;
     private $_updated_at;
@@ -30,6 +31,7 @@ class BillingInfo extends RecurlyResource
     private $_vat_number;
 
     protected static $array_hints = [
+        'setPaymentGatewayReferences' => '\Recurly\Resources\PaymentGatewayReferences',
     ];
 
     
@@ -261,6 +263,29 @@ class BillingInfo extends RecurlyResource
     public function setObject(string $object): void
     {
         $this->_object = $object;
+    }
+
+    /**
+    * Getter method for the payment_gateway_references attribute.
+    * Array of Payment Gateway References, each a reference to a third-party gateway object of varying types.
+    *
+    * @return array
+    */
+    public function getPaymentGatewayReferences(): array
+    {
+        return $this->_payment_gateway_references ?? [] ;
+    }
+
+    /**
+    * Setter method for the payment_gateway_references attribute.
+    *
+    * @param array $payment_gateway_references
+    *
+    * @return void
+    */
+    public function setPaymentGatewayReferences(array $payment_gateway_references): void
+    {
+        $this->_payment_gateway_references = $payment_gateway_references;
     }
 
     /**

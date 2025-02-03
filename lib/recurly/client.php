@@ -1242,6 +1242,7 @@ endpoint to obtain only the newly generated `UniqueCouponCodes`.
      *        **Note:** this value is an ISO8601 timestamp. A partial timestamp that does not include a time zone will default to UTC.
      * - $options['params']['end_time'] (string): Inclusively filter by end_time when `sort=created_at` or `sort=updated_at`.
      *        **Note:** this value is an ISO8601 timestamp. A partial timestamp that does not include a time zone will default to UTC.
+     * - $options['params']['redeemed'] (string): Filter unique coupon codes by redemption status. `true` for redeemed, `false` for not redeemed.
      *
      * @return \Recurly\Pager A list of unique coupon codes that were generated
      * @link   https://developers.recurly.com/api/v2021-02-25#operation/list_unique_coupon_codes
