@@ -20,6 +20,7 @@ class PaymentMethod extends RecurlyResource
     private $_exp_month;
     private $_exp_year;
     private $_first_six;
+    private $_funding_source;
     private $_gateway_attributes;
     private $_gateway_code;
     private $_gateway_token;
@@ -129,7 +130,7 @@ class PaymentMethod extends RecurlyResource
 
     /**
     * Getter method for the cc_bin_country attribute.
-    * The 2-letter ISO 3166-1 alpha-2 country code associated with the credit card BIN, if known by Recurly. Available on the BillingInfo object only. Available when the BIN country lookup feature is enabled.
+    * The 2-letter ISO 3166-1 alpha-2 country code associated with the card's issuer, if known.
     *
     * @return ?string
     */
@@ -217,6 +218,29 @@ class PaymentMethod extends RecurlyResource
     public function setFirstSix(string $first_six): void
     {
         $this->_first_six = $first_six;
+    }
+
+    /**
+    * Getter method for the funding_source attribute.
+    * The funding source of the card, if known.
+    *
+    * @return ?string
+    */
+    public function getFundingSource(): ?string
+    {
+        return $this->_funding_source;
+    }
+
+    /**
+    * Setter method for the funding_source attribute.
+    *
+    * @param string $funding_source
+    *
+    * @return void
+    */
+    public function setFundingSource(string $funding_source): void
+    {
+        $this->_funding_source = $funding_source;
     }
 
     /**
