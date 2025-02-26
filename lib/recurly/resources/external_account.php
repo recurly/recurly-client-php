@@ -71,7 +71,7 @@ class ExternalAccount extends RecurlyResource
 
     /**
     * Getter method for the external_connection_type attribute.
-    * Represents the connection type. `AppleAppStore` or `GooglePlayStore`
+    * Represents the connection type. One of the connection types of your enabled App Connectors
     *
     * @return ?string
     */
