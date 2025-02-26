@@ -1,5 +1,17 @@
 # Changelog
 
+## [4.57.0](https://github.com/recurly/recurly-client-php/tree/4.57.0) (2025-02-26)
+
+[Full Changelog](https://github.com/recurly/recurly-client-php/compare/4.56.0...4.57.0)
+
+
+**Merged Pull Requests**
+
+- Add `funding_source` to `BillingInfo` and `Transaction` [#834](https://github.com/recurly/recurly-client-php/pull/834) ([recurly-integrations](https://github.com/recurly-integrations))
+- Generated Latest Changes for v2021-02-25 [#831](https://github.com/recurly/recurly-client-php/pull/831) ([recurly-integrations](https://github.com/recurly-integrations))
+
+
+
 ## [4.56.0](https://github.com/recurly/recurly-client-php/tree/4.56.0) (2024-12-17)
 
 [Full Changelog](https://github.com/recurly/recurly-client-php/compare/4.55.0...4.56.0)
