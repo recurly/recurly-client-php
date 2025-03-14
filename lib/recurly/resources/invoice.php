@@ -39,6 +39,7 @@ class Invoice extends RecurlyResource
     private $_paid;
     private $_po_number;
     private $_previous_invoice_id;
+    private $_reference_only_currency_conversion;
     private $_refundable_amount;
     private $_shipping_address;
     private $_state;
@@ -701,6 +702,29 @@ When `eom` an invoice becomes past due the specified number of `Net Terms` days 
     public function setPreviousInvoiceId(string $previous_invoice_id): void
     {
         $this->_previous_invoice_id = $previous_invoice_id;
+    }
+
+    /**
+    * Getter method for the reference_only_currency_conversion attribute.
+    * Reference Only Currency Conversion
+    *
+    * @return ?\Recurly\Resources\ReferenceOnlyCurrencyConversion
+    */
+    public function getReferenceOnlyCurrencyConversion(): ?\Recurly\Resources\ReferenceOnlyCurrencyConversion
+    {
+        return $this->_reference_only_currency_conversion;
+    }
+
+    /**
+    * Setter method for the reference_only_currency_conversion attribute.
+    *
+    * @param \Recurly\Resources\ReferenceOnlyCurrencyConversion $reference_only_currency_conversion
+    *
+    * @return void
+    */
+    public function setReferenceOnlyCurrencyConversion(\Recurly\Resources\ReferenceOnlyCurrencyConversion $reference_only_currency_conversion): void
+    {
+        $this->_reference_only_currency_conversion = $reference_only_currency_conversion;
     }
 
     /**
