@@ -1951,6 +1951,22 @@ endpoint to obtain only the newly generated `UniqueCouponCodes`.
     }
   
     /**
+     * Create an external invoice
+     *
+     * @param string $external_subscription_id External subscription id
+     * @param array  $body                     The body of the request.
+     * @param array  $options                  Associative array of optional parameters
+     *
+     * @return \Recurly\Resources\ExternalInvoice Returns the external invoice
+     * @link   https://developers.recurly.com/api/v2021-02-25#operation/create_external_invoice
+     */
+    public function createExternalInvoice(string $external_subscription_id, array $body, array $options = []): \Recurly\Resources\ExternalInvoice
+    {
+        $path = $this->interpolatePath("/external_subscriptions/{external_subscription_id}/external_invoices", ['external_subscription_id' => $external_subscription_id]);
+        return $this->makeRequest('POST', $path, $body, $options);
+    }
+  
+    /**
      * List a site's invoices
      *
      * @param array $options Associative array of optional parameters
