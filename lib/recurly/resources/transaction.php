@@ -33,7 +33,7 @@ class Transaction extends RecurlyResource
     private $_gateway_response_time;
     private $_gateway_response_values;
     private $_id;
-    private $_indicator;
+    private $_initiator;
     private $_invoice;
     private $_ip_address_country;
     private $_ip_address_v4;
@@ -545,26 +545,26 @@ class Transaction extends RecurlyResource
     }
 
     /**
-    * Getter method for the indicator attribute.
+    * Getter method for the initiator attribute.
     * Must be sent for one-time transactions in order to provide context on which entity is submitting the transaction to ensure proper fraud checks are observed, such as 3DS. If the customer is in session, send `customer`. If this is a merchant initiated one-time transaction, send `merchant`.
     *
     * @return ?string
     */
-    public function getIndicator(): ?string
+    public function getInitiator(): ?string
     {
-        return $this->_indicator;
+        return $this->_initiator;
     }
 
     /**
-    * Setter method for the indicator attribute.
+    * Setter method for the initiator attribute.
     *
-    * @param string $indicator
+    * @param string $initiator
     *
     * @return void
     */
-    public function setIndicator(string $indicator): void
+    public function setInitiator(string $initiator): void
     {
-        $this->_indicator = $indicator;
+        $this->_initiator = $initiator;
     }
 
     /**
