@@ -45,6 +45,7 @@ class Invoice extends RecurlyResource
     private $_state;
     private $_subscription_ids;
     private $_subtotal;
+    private $_subtotal_after_discount;
     private $_tax;
     private $_tax_info;
     private $_terms_and_conditions;
@@ -840,6 +841,29 @@ When `eom` an invoice becomes past due the specified number of `Net Terms` days 
     public function setSubtotal(float $subtotal): void
     {
         $this->_subtotal = $subtotal;
+    }
+
+    /**
+    * Getter method for the subtotal_after_discount attribute.
+    * The summation of charges and credits, after discounts applied.
+    *
+    * @return ?float
+    */
+    public function getSubtotalAfterDiscount(): ?float
+    {
+        return $this->_subtotal_after_discount;
+    }
+
+    /**
+    * Setter method for the subtotal_after_discount attribute.
+    *
+    * @param float $subtotal_after_discount
+    *
+    * @return void
+    */
+    public function setSubtotalAfterDiscount(float $subtotal_after_discount): void
+    {
+        $this->_subtotal_after_discount = $subtotal_after_discount;
     }
 
     /**

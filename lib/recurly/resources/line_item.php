@@ -170,7 +170,7 @@ class LineItem extends RecurlyResource
 
     /**
     * Getter method for the amount attribute.
-    * `(quantity * unit_amount) - (discount + tax)`
+    * `(quantity * unit_amount) - discount + tax`
     *
     * @return ?float
     */
