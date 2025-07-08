@@ -13,6 +13,7 @@ use Recurly\RecurlyResource;
 class AccountAcquisition extends RecurlyResource
 {
     private $_account;
+    private $_acquired_at;
     private $_campaign;
     private $_channel;
     private $_cost;
@@ -47,6 +48,29 @@ class AccountAcquisition extends RecurlyResource
     public function setAccount(\Recurly\Resources\AccountMini $account): void
     {
         $this->_account = $account;
+    }
+
+    /**
+    * Getter method for the acquired_at attribute.
+    * Date the account was first created if different than the account.created_at. ie Importing accounts.
+    *
+    * @return ?string
+    */
+    public function getAcquiredAt(): ?string
+    {
+        return $this->_acquired_at;
+    }
+
+    /**
+    * Setter method for the acquired_at attribute.
+    *
+    * @param string $acquired_at
+    *
+    * @return void
+    */
+    public function setAcquiredAt(string $acquired_at): void
+    {
+        $this->_acquired_at = $acquired_at;
     }
 
     /**
