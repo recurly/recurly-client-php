@@ -1,5 +1,17 @@
 # Changelog
 
+## [4.62.1](https://github.com/recurly/recurly-client-php/tree/4.62.1) (2025-07-18)
+
+[Full Changelog](https://github.com/recurly/recurly-client-php/compare/4.62.0...4.62.1)
+
+
+**Merged Pull Requests**
+
+- Correct implicit null parameter types which are deprecated in PHP 8.4 [#832](https://github.com/recurly/recurly-client-php/pull/832) ([signe](https://github.com/signe))
+- PHP8: Avoids a warning about the undefined variable in the case file_get_contents fails [#822](https://github.com/recurly/recurly-client-php/pull/822) ([Chikashi-Kato](https://github.com/Chikashi-Kato))
+
+
+
 ## [4.62.0](https://github.com/recurly/recurly-client-php/tree/4.62.0) (2025-07-09)
 
 [Full Changelog](https://github.com/recurly/recurly-client-php/compare/4.61.0...4.62.0)
