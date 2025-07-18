@@ -52,6 +52,6 @@ class HttpAdapter
                 }
             }
         }
-        return [$result, $http_response_header];
+        return [$result, $http_response_header ?? null];
     }
 }
