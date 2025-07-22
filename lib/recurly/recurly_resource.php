@@ -73,9 +73,10 @@ abstract class RecurlyResource
     /**
      * Converts a Recurly response object into a \Recurly\RecurlyResource.
      *
-     * @param \Recurly\Response  $response The Recurly HTTP Response
-     * @param ?object            $json     (optional) JSON payload to use instead of
-     *                                    the $response's. Primarily used for errors
+     * @param \Recurly\Response $response The Recurly HTTP Response
+     * @param ?object           $json     (optional) JSON payload to use instead of
+     *                                    the $response's. Primarily used for
+     *                                    errors
      *
      * @return \Recurly\RecurlyResource An instance of a Recurly Resource
      */
