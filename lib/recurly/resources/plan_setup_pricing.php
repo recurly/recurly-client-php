@@ -10,10 +10,9 @@ namespace Recurly\Resources;
 use Recurly\RecurlyResource;
 
 // phpcs:disable
-class Pricing extends RecurlyResource
+class PlanSetupPricing extends RecurlyResource
 {
     private $_currency;
-    private $_tax_inclusive;
     private $_unit_amount;
 
     protected static $array_hints = [
@@ -44,31 +43,8 @@ class Pricing extends RecurlyResource
     }
 
     /**
-    * Getter method for the tax_inclusive attribute.
-    * This field is deprecated. Please do not use it.
-    *
-    * @return ?bool
-    */
-    public function getTaxInclusive(): ?bool
-    {
-        return $this->_tax_inclusive;
-    }
-
-    /**
-    * Setter method for the tax_inclusive attribute.
-    *
-    * @param bool $tax_inclusive
-    *
-    * @return void
-    */
-    public function setTaxInclusive(bool $tax_inclusive): void
-    {
-        $this->_tax_inclusive = $tax_inclusive;
-    }
-
-    /**
     * Getter method for the unit_amount attribute.
-    * 
+    * Amount of one-time setup fee automatically charged at the beginning of a subscription billing cycle. For subscription plans with a trial, the setup fee will be charged at the time of signup. Setup fees do not increase with the quantity of a subscription plan.
     *
     * @return ?float
     */

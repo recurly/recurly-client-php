@@ -28,13 +28,20 @@ class Plan extends RecurlyResource
     private $_id;
     private $_interval_length;
     private $_interval_unit;
+    private $_liability_gl_account_id;
     private $_name;
     private $_object;
+    private $_performance_obligation_id;
     private $_pricing_model;
     private $_ramp_intervals;
+    private $_revenue_gl_account_id;
     private $_revenue_schedule_type;
     private $_setup_fee_accounting_code;
+    private $_setup_fee_liability_gl_account_id;
+    private $_setup_fee_performance_obligation_id;
+    private $_setup_fee_revenue_gl_account_id;
     private $_setup_fee_revenue_schedule_type;
+    private $_setup_fees;
     private $_state;
     private $_tax_code;
     private $_tax_exempt;
@@ -49,6 +56,7 @@ class Plan extends RecurlyResource
         'setCurrencies' => '\Recurly\Resources\PlanPricing',
         'setCustomFields' => '\Recurly\Resources\CustomField',
         'setRampIntervals' => '\Recurly\Resources\PlanRampInterval',
+        'setSetupFees' => '\Recurly\Resources\PlanSetupPricing',
     ];
 
     
@@ -218,7 +226,7 @@ If `false`, only plan add-ons can be used.
 
     /**
     * Getter method for the currencies attribute.
-    * Pricing
+    * Present only when `pricing_model` is `'fixed'`.
     *
     * @return array
     */
@@ -424,6 +432,32 @@ If `false`, only plan add-ons can be used.
     }
 
     /**
+    * Getter method for the liability_gl_account_id attribute.
+    * The ID of a general ledger account. General ledger accounts are
+only accessible as a part of the Recurly RevRec Standard and
+Recurly RevRec Advanced features.
+
+    *
+    * @return ?string
+    */
+    public function getLiabilityGlAccountId(): ?string
+    {
+        return $this->_liability_gl_account_id;
+    }
+
+    /**
+    * Setter method for the liability_gl_account_id attribute.
+    *
+    * @param string $liability_gl_account_id
+    *
+    * @return void
+    */
+    public function setLiabilityGlAccountId(string $liability_gl_account_id): void
+    {
+        $this->_liability_gl_account_id = $liability_gl_account_id;
+    }
+
+    /**
     * Getter method for the name attribute.
     * This name describes your plan and will appear on the Hosted Payment Page and the subscriber's invoice.
     *
@@ -467,6 +501,32 @@ If `false`, only plan add-ons can be used.
     public function setObject(string $object): void
     {
         $this->_object = $object;
+    }
+
+    /**
+    * Getter method for the performance_obligation_id attribute.
+    * The ID of a performance obligation. Performance obligations are
+only accessible as a part of the Recurly RevRec Standard and
+Recurly RevRec Advanced features.
+
+    *
+    * @return ?string
+    */
+    public function getPerformanceObligationId(): ?string
+    {
+        return $this->_performance_obligation_id;
+    }
+
+    /**
+    * Setter method for the performance_obligation_id attribute.
+    *
+    * @param string $performance_obligation_id
+    *
+    * @return void
+    */
+    public function setPerformanceObligationId(string $performance_obligation_id): void
+    {
+        $this->_performance_obligation_id = $performance_obligation_id;
     }
 
     /**
@@ -519,6 +579,32 @@ a specified cadence of billing periods. The price change could be an increase or
     }
 
     /**
+    * Getter method for the revenue_gl_account_id attribute.
+    * The ID of a general ledger account. General ledger accounts are
+only accessible as a part of the Recurly RevRec Standard and
+Recurly RevRec Advanced features.
+
+    *
+    * @return ?string
+    */
+    public function getRevenueGlAccountId(): ?string
+    {
+        return $this->_revenue_gl_account_id;
+    }
+
+    /**
+    * Setter method for the revenue_gl_account_id attribute.
+    *
+    * @param string $revenue_gl_account_id
+    *
+    * @return void
+    */
+    public function setRevenueGlAccountId(string $revenue_gl_account_id): void
+    {
+        $this->_revenue_gl_account_id = $revenue_gl_account_id;
+    }
+
+    /**
     * Getter method for the revenue_schedule_type attribute.
     * Revenue schedule type
     *
@@ -565,6 +651,84 @@ a specified cadence of billing periods. The price change could be an increase or
     }
 
     /**
+    * Getter method for the setup_fee_liability_gl_account_id attribute.
+    * The ID of a general ledger account. General ledger accounts are
+only accessible as a part of the Recurly RevRec Standard and
+Recurly RevRec Advanced features.
+
+    *
+    * @return ?string
+    */
+    public function getSetupFeeLiabilityGlAccountId(): ?string
+    {
+        return $this->_setup_fee_liability_gl_account_id;
+    }
+
+    /**
+    * Setter method for the setup_fee_liability_gl_account_id attribute.
+    *
+    * @param string $setup_fee_liability_gl_account_id
+    *
+    * @return void
+    */
+    public function setSetupFeeLiabilityGlAccountId(string $setup_fee_liability_gl_account_id): void
+    {
+        $this->_setup_fee_liability_gl_account_id = $setup_fee_liability_gl_account_id;
+    }
+
+    /**
+    * Getter method for the setup_fee_performance_obligation_id attribute.
+    * The ID of a performance obligation. Performance obligations are
+only accessible as a part of the Recurly RevRec Standard and
+Recurly RevRec Advanced features.
+
+    *
+    * @return ?string
+    */
+    public function getSetupFeePerformanceObligationId(): ?string
+    {
+        return $this->_setup_fee_performance_obligation_id;
+    }
+
+    /**
+    * Setter method for the setup_fee_performance_obligation_id attribute.
+    *
+    * @param string $setup_fee_performance_obligation_id
+    *
+    * @return void
+    */
+    public function setSetupFeePerformanceObligationId(string $setup_fee_performance_obligation_id): void
+    {
+        $this->_setup_fee_performance_obligation_id = $setup_fee_performance_obligation_id;
+    }
+
+    /**
+    * Getter method for the setup_fee_revenue_gl_account_id attribute.
+    * The ID of a general ledger account. General ledger accounts are
+only accessible as a part of the Recurly RevRec Standard and
+Recurly RevRec Advanced features.
+
+    *
+    * @return ?string
+    */
+    public function getSetupFeeRevenueGlAccountId(): ?string
+    {
+        return $this->_setup_fee_revenue_gl_account_id;
+    }
+
+    /**
+    * Setter method for the setup_fee_revenue_gl_account_id attribute.
+    *
+    * @param string $setup_fee_revenue_gl_account_id
+    *
+    * @return void
+    */
+    public function setSetupFeeRevenueGlAccountId(string $setup_fee_revenue_gl_account_id): void
+    {
+        $this->_setup_fee_revenue_gl_account_id = $setup_fee_revenue_gl_account_id;
+    }
+
+    /**
     * Getter method for the setup_fee_revenue_schedule_type attribute.
     * Setup fee revenue schedule type
     *
@@ -585,6 +749,29 @@ a specified cadence of billing periods. The price change could be an increase or
     public function setSetupFeeRevenueScheduleType(string $setup_fee_revenue_schedule_type): void
     {
         $this->_setup_fee_revenue_schedule_type = $setup_fee_revenue_schedule_type;
+    }
+
+    /**
+    * Getter method for the setup_fees attribute.
+    * Setup Fees
+    *
+    * @return array
+    */
+    public function getSetupFees(): array
+    {
+        return $this->_setup_fees ?? [] ;
+    }
+
+    /**
+    * Setter method for the setup_fees attribute.
+    *
+    * @param array $setup_fees
+    *
+    * @return void
+    */
+    public function setSetupFees(array $setup_fees): void
+    {
+        $this->_setup_fees = $setup_fees;
     }
 
     /**
