@@ -45,6 +45,7 @@ class Subscription extends RecurlyResource
     private $_pending_change;
     private $_plan;
     private $_po_number;
+    private $_price_segment_id;
     private $_quantity;
     private $_ramp_intervals;
     private $_remaining_billing_cycles;
@@ -850,6 +851,29 @@ When `eom` an invoice becomes past due the specified number of `Net Terms` days 
     public function setPoNumber(string $po_number): void
     {
         $this->_po_number = $po_number;
+    }
+
+    /**
+    * Getter method for the price_segment_id attribute.
+    * The price segment ID or code. For ID no prefix is used e.g. `e28zov4fw0v2`. For requests, the code can also be used. Use prefix `code-`, e.g. `code-gold`.
+    *
+    * @return ?string
+    */
+    public function getPriceSegmentId(): ?string
+    {
+        return $this->_price_segment_id;
+    }
+
+    /**
+    * Setter method for the price_segment_id attribute.
+    *
+    * @param string $price_segment_id
+    *
+    * @return void
+    */
+    public function setPriceSegmentId(string $price_segment_id): void
+    {
+        $this->_price_segment_id = $price_segment_id;
     }
 
     /**

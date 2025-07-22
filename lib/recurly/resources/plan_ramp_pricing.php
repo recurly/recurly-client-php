@@ -13,6 +13,7 @@ use Recurly\RecurlyResource;
 class PlanRampPricing extends RecurlyResource
 {
     private $_currency;
+    private $_price_segment_id;
     private $_unit_amount;
 
     protected static $array_hints = [
@@ -40,6 +41,29 @@ class PlanRampPricing extends RecurlyResource
     public function setCurrency(string $currency): void
     {
         $this->_currency = $currency;
+    }
+
+    /**
+    * Getter method for the price_segment_id attribute.
+    * The price segment ID or code. For ID no prefix is used e.g. `e28zov4fw0v2`. For requests, the code can also be used. Use prefix `code-`, e.g. `code-gold`.
+    *
+    * @return ?string
+    */
+    public function getPriceSegmentId(): ?string
+    {
+        return $this->_price_segment_id;
+    }
+
+    /**
+    * Setter method for the price_segment_id attribute.
+    *
+    * @param string $price_segment_id
+    *
+    * @return void
+    */
+    public function setPriceSegmentId(string $price_segment_id): void
+    {
+        $this->_price_segment_id = $price_segment_id;
     }
 
     /**

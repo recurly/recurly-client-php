@@ -2046,7 +2046,7 @@ endpoint to obtain only the newly generated `UniqueCouponCodes`.
     /**
      * Fetch an invoice
      *
-     * @param string $invoice_id Invoice ID or number. For ID no prefix is used e.g. `e28zov4fw0v2`. For number use prefix `number-`, e.g. `number-1000`.
+     * @param string $invoice_id Invoice ID or number. For ID no prefix is used e.g. `e28zov4fw0v2`. For number use prefix `number-`, e.g. `number-1000`. For number with prefix or country code, use `number-` and `prefix`, e.g. `number-TEST-FR1001`
      * @param array  $options    Associative array of optional parameters
      *
      * @return \Recurly\Resources\Invoice An invoice.
@@ -2061,7 +2061,7 @@ endpoint to obtain only the newly generated `UniqueCouponCodes`.
     /**
      * Update an invoice
      *
-     * @param string $invoice_id Invoice ID or number. For ID no prefix is used e.g. `e28zov4fw0v2`. For number use prefix `number-`, e.g. `number-1000`.
+     * @param string $invoice_id Invoice ID or number. For ID no prefix is used e.g. `e28zov4fw0v2`. For number use prefix `number-`, e.g. `number-1000`. For number with prefix or country code, use `number-` and `prefix`, e.g. `number-TEST-FR1001`
      * @param array  $body       The body of the request.
      * @param array  $options    Associative array of optional parameters
      *
@@ -2077,7 +2077,7 @@ endpoint to obtain only the newly generated `UniqueCouponCodes`.
     /**
      * Fetch an invoice as a PDF
      *
-     * @param string $invoice_id Invoice ID or number. For ID no prefix is used e.g. `e28zov4fw0v2`. For number use prefix `number-`, e.g. `number-1000`.
+     * @param string $invoice_id Invoice ID or number. For ID no prefix is used e.g. `e28zov4fw0v2`. For number use prefix `number-`, e.g. `number-1000`. For number with prefix or country code, use `number-` and `prefix`, e.g. `number-TEST-FR1001`
      * @param array  $options    Associative array of optional parameters
      *
      * @return \Recurly\Resources\BinaryFile An invoice as a PDF.
@@ -2092,7 +2092,7 @@ endpoint to obtain only the newly generated `UniqueCouponCodes`.
     /**
      * Apply available credit to a pending or past due charge invoice
      *
-     * @param string $invoice_id Invoice ID or number. For ID no prefix is used e.g. `e28zov4fw0v2`. For number use prefix `number-`, e.g. `number-1000`.
+     * @param string $invoice_id Invoice ID or number. For ID no prefix is used e.g. `e28zov4fw0v2`. For number use prefix `number-`, e.g. `number-1000`. For number with prefix or country code, use `number-` and `prefix`, e.g. `number-TEST-FR1001`
      * @param array  $options    Associative array of optional parameters
      *
      * @return \Recurly\Resources\Invoice The updated invoice.
@@ -2107,7 +2107,7 @@ endpoint to obtain only the newly generated `UniqueCouponCodes`.
     /**
      * Collect a pending or past due, automatic invoice
      *
-     * @param string $invoice_id Invoice ID or number. For ID no prefix is used e.g. `e28zov4fw0v2`. For number use prefix `number-`, e.g. `number-1000`.
+     * @param string $invoice_id Invoice ID or number. For ID no prefix is used e.g. `e28zov4fw0v2`. For number use prefix `number-`, e.g. `number-1000`. For number with prefix or country code, use `number-` and `prefix`, e.g. `number-TEST-FR1001`
      * @param array  $body       The body of the request.
      * @param array  $options    Associative array of optional parameters
      *
@@ -2123,7 +2123,7 @@ endpoint to obtain only the newly generated `UniqueCouponCodes`.
     /**
      * Mark an open invoice as failed
      *
-     * @param string $invoice_id Invoice ID or number. For ID no prefix is used e.g. `e28zov4fw0v2`. For number use prefix `number-`, e.g. `number-1000`.
+     * @param string $invoice_id Invoice ID or number. For ID no prefix is used e.g. `e28zov4fw0v2`. For number use prefix `number-`, e.g. `number-1000`. For number with prefix or country code, use `number-` and `prefix`, e.g. `number-TEST-FR1001`
      * @param array  $options    Associative array of optional parameters
      *
      * @return \Recurly\Resources\Invoice The updated invoice.
@@ -2138,7 +2138,7 @@ endpoint to obtain only the newly generated `UniqueCouponCodes`.
     /**
      * Mark an open invoice as successful
      *
-     * @param string $invoice_id Invoice ID or number. For ID no prefix is used e.g. `e28zov4fw0v2`. For number use prefix `number-`, e.g. `number-1000`.
+     * @param string $invoice_id Invoice ID or number. For ID no prefix is used e.g. `e28zov4fw0v2`. For number use prefix `number-`, e.g. `number-1000`. For number with prefix or country code, use `number-` and `prefix`, e.g. `number-TEST-FR1001`
      * @param array  $options    Associative array of optional parameters
      *
      * @return \Recurly\Resources\Invoice The updated invoice.
@@ -2153,7 +2153,7 @@ endpoint to obtain only the newly generated `UniqueCouponCodes`.
     /**
      * Reopen a closed, manual invoice
      *
-     * @param string $invoice_id Invoice ID or number. For ID no prefix is used e.g. `e28zov4fw0v2`. For number use prefix `number-`, e.g. `number-1000`.
+     * @param string $invoice_id Invoice ID or number. For ID no prefix is used e.g. `e28zov4fw0v2`. For number use prefix `number-`, e.g. `number-1000`. For number with prefix or country code, use `number-` and `prefix`, e.g. `number-TEST-FR1001`
      * @param array  $options    Associative array of optional parameters
      *
      * @return \Recurly\Resources\Invoice The updated invoice.
@@ -2168,7 +2168,7 @@ endpoint to obtain only the newly generated `UniqueCouponCodes`.
     /**
      * Void a credit invoice.
      *
-     * @param string $invoice_id Invoice ID or number. For ID no prefix is used e.g. `e28zov4fw0v2`. For number use prefix `number-`, e.g. `number-1000`.
+     * @param string $invoice_id Invoice ID or number. For ID no prefix is used e.g. `e28zov4fw0v2`. For number use prefix `number-`, e.g. `number-1000`. For number with prefix or country code, use `number-` and `prefix`, e.g. `number-TEST-FR1001`
      * @param array  $options    Associative array of optional parameters
      *
      * @return \Recurly\Resources\Invoice The updated invoice.
@@ -2183,7 +2183,7 @@ endpoint to obtain only the newly generated `UniqueCouponCodes`.
     /**
      * Record an external payment for a manual invoices.
      *
-     * @param string $invoice_id Invoice ID or number. For ID no prefix is used e.g. `e28zov4fw0v2`. For number use prefix `number-`, e.g. `number-1000`.
+     * @param string $invoice_id Invoice ID or number. For ID no prefix is used e.g. `e28zov4fw0v2`. For number use prefix `number-`, e.g. `number-1000`. For number with prefix or country code, use `number-` and `prefix`, e.g. `number-TEST-FR1001`
      * @param array  $body       The body of the request.
      * @param array  $options    Associative array of optional parameters
      *
@@ -2199,7 +2199,7 @@ endpoint to obtain only the newly generated `UniqueCouponCodes`.
     /**
      * List an invoice's line items
      *
-     * @param string $invoice_id Invoice ID or number. For ID no prefix is used e.g. `e28zov4fw0v2`. For number use prefix `number-`, e.g. `number-1000`.
+     * @param string $invoice_id Invoice ID or number. For ID no prefix is used e.g. `e28zov4fw0v2`. For number use prefix `number-`, e.g. `number-1000`. For number with prefix or country code, use `number-` and `prefix`, e.g. `number-TEST-FR1001`
      * @param array  $options    Associative array of optional parameters
      *
      * Supported optional query string parameters:
@@ -2240,7 +2240,7 @@ endpoint to obtain only the newly generated `UniqueCouponCodes`.
     /**
      * List the coupon redemptions applied to an invoice
      *
-     * @param string $invoice_id Invoice ID or number. For ID no prefix is used e.g. `e28zov4fw0v2`. For number use prefix `number-`, e.g. `number-1000`.
+     * @param string $invoice_id Invoice ID or number. For ID no prefix is used e.g. `e28zov4fw0v2`. For number use prefix `number-`, e.g. `number-1000`. For number with prefix or country code, use `number-` and `prefix`, e.g. `number-TEST-FR1001`
      * @param array  $options    Associative array of optional parameters
      *
      * Supported optional query string parameters:
@@ -2276,7 +2276,7 @@ endpoint to obtain only the newly generated `UniqueCouponCodes`.
     /**
      * List an invoice's related credit or charge invoices
      *
-     * @param string $invoice_id Invoice ID or number. For ID no prefix is used e.g. `e28zov4fw0v2`. For number use prefix `number-`, e.g. `number-1000`.
+     * @param string $invoice_id Invoice ID or number. For ID no prefix is used e.g. `e28zov4fw0v2`. For number use prefix `number-`, e.g. `number-1000`. For number with prefix or country code, use `number-` and `prefix`, e.g. `number-TEST-FR1001`
      * @param array  $options    Associative array of optional parameters
      *
      * @return \Recurly\Pager A list of the credit or charge invoices associated with the invoice.
@@ -2291,7 +2291,7 @@ endpoint to obtain only the newly generated `UniqueCouponCodes`.
     /**
      * Refund an invoice
      *
-     * @param string $invoice_id Invoice ID or number. For ID no prefix is used e.g. `e28zov4fw0v2`. For number use prefix `number-`, e.g. `number-1000`.
+     * @param string $invoice_id Invoice ID or number. For ID no prefix is used e.g. `e28zov4fw0v2`. For number use prefix `number-`, e.g. `number-1000`. For number with prefix or country code, use `number-` and `prefix`, e.g. `number-TEST-FR1001`
      * @param array  $body       The body of the request.
      * @param array  $options    Associative array of optional parameters
      *
@@ -2575,6 +2575,51 @@ endpoint to obtain only the newly generated `UniqueCouponCodes`.
     {
         $path = $this->interpolatePath("/plans/{plan_id}/add_ons/{add_on_id}", ['plan_id' => $plan_id, 'add_on_id' => $add_on_id]);
         return $this->makeRequest('DELETE', $path, [], $options);
+    }
+  
+    /**
+     * List a site's price segments
+     *
+     * @param array $options Associative array of optional parameters
+     *
+     * Supported optional query string parameters:
+     *
+     * - $options['params']['ids'] (array): Filter results by their IDs. Up to 200 IDs can be passed at once using
+     *        commas as separators, e.g. `ids=h1at4d57xlmy,gyqgg0d3v9n1,jrsm5b4yefg6`.
+     *        
+     *        **Important notes:**
+     *        
+     *        * The `ids` parameter cannot be used with any other ordering or filtering
+     *          parameters (`limit`, `order`, `sort`, `begin_time`, `end_time`, etc)
+     *        * Invalid or unknown IDs will be ignored, so you should check that the
+     *          results correspond to your request.
+     *        * Records are returned in an arbitrary order. Since results are all
+     *          returned at once you can sort the records yourself.
+     * - $options['params']['limit'] (int): Limit number of records 1-200.
+     * - $options['params']['order'] (string): Sort order.
+     *
+     * @return \Recurly\Pager A list of price segments.
+     * @link   https://developers.recurly.com/api/v2021-02-25#operation/list_price_segments
+     */
+    public function listPriceSegments(array $options = []): \Recurly\Pager
+    {
+        $path = $this->interpolatePath("/price_segments", []);
+        return new \Recurly\Pager($this, $path, $options);
+    }
+  
+    /**
+     * Fetch a price segment
+     *
+     * @param string $price_segment_id The price segment ID or code. For ID no prefix is used e.g. `e28zov4fw0v2`. For code use prefix `code-`, e.g. `code-gold`.
+     * @param array  $options          Associative array of optional parameters
+     *
+     * @return \Recurly\Resources\PriceSegment A price segment.
+     * @link   https://developers.recurly.com/api/v2021-02-25#operation/get_price_segment
+     */
+    public function getPriceSegment(string $price_segment_id, array $options = []): \Recurly\Resources\PriceSegment
+    {
+        $path = $this->interpolatePath("/price_segments/{price_segment_id}", ['price_segment_id' => $price_segment_id]);
+        return $this->makeRequest('GET', $path, [], $options);
     }
   
     /**

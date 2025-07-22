@@ -13,6 +13,7 @@ use Recurly\RecurlyResource;
 class PlanPricing extends RecurlyResource
 {
     private $_currency;
+    private $_price_segment_id;
     private $_setup_fee;
     private $_tax_inclusive;
     private $_unit_amount;
@@ -45,8 +46,31 @@ class PlanPricing extends RecurlyResource
     }
 
     /**
+    * Getter method for the price_segment_id attribute.
+    * The price segment ID or code. For ID no prefix is used e.g. `e28zov4fw0v2`. For requests, the code can also be used. Use prefix `code-`, e.g. `code-gold`.
+    *
+    * @return ?string
+    */
+    public function getPriceSegmentId(): ?string
+    {
+        return $this->_price_segment_id;
+    }
+
+    /**
+    * Setter method for the price_segment_id attribute.
+    *
+    * @param string $price_segment_id
+    *
+    * @return void
+    */
+    public function setPriceSegmentId(string $price_segment_id): void
+    {
+        $this->_price_segment_id = $price_segment_id;
+    }
+
+    /**
     * Getter method for the setup_fee attribute.
-    * Amount of one-time setup fee automatically charged at the beginning of a subscription billing cycle. For subscription plans with a trial, the setup fee will be charged at the time of signup. Setup fees do not increase with the quantity of a subscription plan.
+    * This field is deprecated, please use top level `setup_fees` instead. Amount of one-time setup fee automatically charged at the beginning of a subscription billing cycle. For subscription plans with a trial, the setup fee will be charged at the time of signup. Setup fees do not increase with the quantity of a subscription plan.
     *
     * @return ?float
     */
@@ -92,7 +116,7 @@ class PlanPricing extends RecurlyResource
 
     /**
     * Getter method for the unit_amount attribute.
-    * This field should not be sent when the pricing model is 'ramp'.
+    * This field should not be sent when the pricing model is `'ramp'`.
     *
     * @return ?float
     */

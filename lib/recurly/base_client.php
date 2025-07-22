@@ -26,11 +26,18 @@ abstract class BaseClient
      * Constructor
      *
      * @param string           $api_key The API key to use when making requests
-     * @param ?LoggerInterface $logger Logger
-     * @param string $options  initialize options
-     *
-     * In addition to the options managed by BaseClient, it accepts the following options:
-     *  - "region" to define the Data Center connection - defaults to "us";
+     * @param ?LoggerInterface $logger  Logger
+     * @param string           $options initialize options
+     *                                  In addition to the
+     *                                  options managed by
+     *                                  BaseClient, it
+     *                                  accepts the
+     *                                  following options:
+     *                                  - "region" to
+     *                                  define the Data
+     *                                  Center connection
+     *                                  - defaults to
+     *                                  "us";
      */
     public function __construct(string $api_key, ?LoggerInterface $logger = null, array $options = [])
     {
