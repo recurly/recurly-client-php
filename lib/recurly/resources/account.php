@@ -13,6 +13,7 @@ use Recurly\RecurlyResource;
 class Account extends RecurlyResource
 {
     private $_address;
+    private $_bill_date;
     private $_bill_to;
     private $_billing_info;
     private $_cc_emails;
@@ -77,6 +78,29 @@ class Account extends RecurlyResource
     public function setAddress(\Recurly\Resources\Address $address): void
     {
         $this->_address = $address;
+    }
+
+    /**
+    * Getter method for the bill_date attribute.
+    * The preferred billing date for the account. This date will be used as the billing date for when activating new subscriptions on the account.
+    *
+    * @return ?string
+    */
+    public function getBillDate(): ?string
+    {
+        return $this->_bill_date;
+    }
+
+    /**
+    * Setter method for the bill_date attribute.
+    *
+    * @param string $bill_date
+    *
+    * @return void
+    */
+    public function setBillDate(string $bill_date): void
+    {
+        $this->_bill_date = $bill_date;
     }
 
     /**

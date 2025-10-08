@@ -23,6 +23,7 @@ class AddOn extends RecurlyResource
     private $_deleted_at;
     private $_display_quantity;
     private $_external_sku;
+    private $_harmonized_system_code;
     private $_id;
     private $_item;
     private $_liability_gl_account_id;
@@ -303,6 +304,29 @@ class AddOn extends RecurlyResource
     public function setExternalSku(string $external_sku): void
     {
         $this->_external_sku = $external_sku;
+    }
+
+    /**
+    * Getter method for the harmonized_system_code attribute.
+    * The Harmonized System (HS) code is an internationally standardized system of names and numbers to classify traded products. The HS code, sometimes called Commodity Code, is used by customs authorities around the world to identify products when assessing duties and taxes. The HS code may also be referred to as the tariff code or customs code. Values should contain only digits and decimals.
+    *
+    * @return ?string
+    */
+    public function getHarmonizedSystemCode(): ?string
+    {
+        return $this->_harmonized_system_code;
+    }
+
+    /**
+    * Setter method for the harmonized_system_code attribute.
+    *
+    * @param string $harmonized_system_code
+    *
+    * @return void
+    */
+    public function setHarmonizedSystemCode(string $harmonized_system_code): void
+    {
+        $this->_harmonized_system_code = $harmonized_system_code;
     }
 
     /**
