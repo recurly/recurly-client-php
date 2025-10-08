@@ -836,6 +836,22 @@ class Client extends BaseClient
     }
   
     /**
+     * Create an account note
+     *
+     * @param string $account_id Account ID or code. For ID no prefix is used e.g. `e28zov4fw0v2`. For code use prefix `code-`, e.g. `code-bob`.
+     * @param array  $body       The body of the request.
+     * @param array  $options    Associative array of optional parameters
+     *
+     * @return \Recurly\Resources\AccountNote An account note.
+     * @link   https://developers.recurly.com/api/v2021-02-25#operation/create_account_note
+     */
+    public function createAccountNote(string $account_id, array $body, array $options = []): \Recurly\Resources\AccountNote
+    {
+        $path = $this->interpolatePath("/accounts/{account_id}/notes", ['account_id' => $account_id]);
+        return $this->makeRequest('POST', $path, $body, $options);
+    }
+  
+    /**
      * Fetch an account note
      *
      * @param string $account_id      Account ID or code. For ID no prefix is used e.g. `e28zov4fw0v2`. For code use prefix `code-`, e.g. `code-bob`.
@@ -849,6 +865,22 @@ class Client extends BaseClient
     {
         $path = $this->interpolatePath("/accounts/{account_id}/notes/{account_note_id}", ['account_id' => $account_id, 'account_note_id' => $account_note_id]);
         return $this->makeRequest('GET', $path, [], $options);
+    }
+  
+    /**
+     * Delete an account note
+     *
+     * @param string $account_id      Account ID or code. For ID no prefix is used e.g. `e28zov4fw0v2`. For code use prefix `code-`, e.g. `code-bob`.
+     * @param string $account_note_id Account Note ID.
+     * @param array  $options         Associative array of optional parameters
+     *
+     * @return \Recurly\EmptyResource Account note deleted.
+     * @link   https://developers.recurly.com/api/v2021-02-25#operation/remove_account_note
+     */
+    public function removeAccountNote(string $account_id, string $account_note_id, array $options = []): \Recurly\EmptyResource
+    {
+        $path = $this->interpolatePath("/accounts/{account_id}/notes/{account_note_id}", ['account_id' => $account_id, 'account_note_id' => $account_note_id]);
+        return $this->makeRequest('DELETE', $path, [], $options);
     }
   
     /**
