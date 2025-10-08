@@ -296,6 +296,21 @@ class Client extends BaseClient
     }
   
     /**
+     * Verify an account's credit card billing cvv
+     *
+     * @param string $account_id Account ID or code. For ID no prefix is used e.g. `e28zov4fw0v2`. For code use prefix `code-`, e.g. `code-bob`.
+     * @param array  $body       The body of the request.
+     *
+     * @return \Recurly\Resources\Transaction Transaction information from verify.
+     * @link   https://developers.recurly.com/api/v2019-10-10#operation/verify_billing_info_cvv
+     */
+    public function verifyBillingInfoCvv(string $account_id, array $body): \Recurly\Resources\Transaction
+    {
+        $path = $this->interpolatePath("/accounts/{account_id}/billing_info/verify_cvv", ['account_id' => $account_id]);
+        return $this->makeRequest('POST', $path, $body, null);
+    }
+  
+    /**
      * Get the list of billing information associated with an account
      *
      * @param string $account_id Account ID or code. For ID no prefix is used e.g. `e28zov4fw0v2`. For code use prefix `code-`, e.g. `code-bob`.
@@ -390,6 +405,38 @@ class Client extends BaseClient
     {
         $path = $this->interpolatePath("/accounts/{account_id}/billing_infos/{billing_info_id}", ['account_id' => $account_id, 'billing_info_id' => $billing_info_id]);
         return $this->makeRequest('DELETE', $path, null, null);
+    }
+  
+    /**
+     * Verify a billing information's credit card
+     *
+     * @param string $account_id      Account ID or code. For ID no prefix is used e.g. `e28zov4fw0v2`. For code use prefix `code-`, e.g. `code-bob`.
+     * @param string $billing_info_id Billing Info ID. Can ONLY be used for sites utilizing the Wallet feature.
+     * @param array  $body            The body of the request.
+     *
+     * @return \Recurly\Resources\Transaction Transaction information from verify.
+     * @link   https://developers.recurly.com/api/v2019-10-10#operation/verify_billing_infos
+     */
+    public function verifyBillingInfos(string $account_id, string $billing_info_id, array $body = []): \Recurly\Resources\Transaction
+    {
+        $path = $this->interpolatePath("/accounts/{account_id}/billing_infos/{billing_info_id}/verify", ['account_id' => $account_id, 'billing_info_id' => $billing_info_id]);
+        return $this->makeRequest('POST', $path, $body, null);
+    }
+  
+    /**
+     * Verify a billing information's credit card cvv
+     *
+     * @param string $account_id      Account ID or code. For ID no prefix is used e.g. `e28zov4fw0v2`. For code use prefix `code-`, e.g. `code-bob`.
+     * @param string $billing_info_id Billing Info ID. Can ONLY be used for sites utilizing the Wallet feature.
+     * @param array  $body            The body of the request.
+     *
+     * @return \Recurly\Resources\Transaction Transaction information from verify.
+     * @link   https://developers.recurly.com/api/v2019-10-10#operation/verify_billing_infos_cvv
+     */
+    public function verifyBillingInfosCvv(string $account_id, string $billing_info_id, array $body): \Recurly\Resources\Transaction
+    {
+        $path = $this->interpolatePath("/accounts/{account_id}/billing_infos/{billing_info_id}/verify_cvv", ['account_id' => $account_id, 'billing_info_id' => $billing_info_id]);
+        return $this->makeRequest('POST', $path, $body, null);
     }
   
     /**
@@ -1423,7 +1470,7 @@ class Client extends BaseClient
     /**
      * Fetch an invoice
      *
-     * @param string $invoice_id Invoice ID or number. For ID no prefix is used e.g. `e28zov4fw0v2`. For number use prefix `number-`, e.g. `number-1000`.
+     * @param string $invoice_id Invoice ID or number. For ID no prefix is used e.g. `e28zov4fw0v2`. For number use prefix `number-`, e.g. `number-1000`. For number with prefix or country code, use `number-` and `prefix`, e.g. `number-TEST-FR1001`
      *
      * @return \Recurly\Resources\Invoice An invoice.
      * @link   https://developers.recurly.com/api/v2019-10-10#operation/get_invoice
@@ -1437,7 +1484,7 @@ class Client extends BaseClient
     /**
      * Update an invoice
      *
-     * @param string $invoice_id Invoice ID or number. For ID no prefix is used e.g. `e28zov4fw0v2`. For number use prefix `number-`, e.g. `number-1000`.
+     * @param string $invoice_id Invoice ID or number. For ID no prefix is used e.g. `e28zov4fw0v2`. For number use prefix `number-`, e.g. `number-1000`. For number with prefix or country code, use `number-` and `prefix`, e.g. `number-TEST-FR1001`
      * @param array  $body       The body of the request.
      *
      * @return \Recurly\Resources\Invoice An invoice.
@@ -1452,7 +1499,7 @@ class Client extends BaseClient
     /**
      * Fetch an invoice as a PDF
      *
-     * @param string $invoice_id Invoice ID or number. For ID no prefix is used e.g. `e28zov4fw0v2`. For number use prefix `number-`, e.g. `number-1000`.
+     * @param string $invoice_id Invoice ID or number. For ID no prefix is used e.g. `e28zov4fw0v2`. For number use prefix `number-`, e.g. `number-1000`. For number with prefix or country code, use `number-` and `prefix`, e.g. `number-TEST-FR1001`
      *
      * @return \Recurly\Resources\BinaryFile An invoice as a PDF.
      * @link   https://developers.recurly.com/api/v2019-10-10#operation/get_invoice_pdf
@@ -1466,7 +1513,7 @@ class Client extends BaseClient
     /**
      * Apply available credit to a pending or past due charge invoice
      *
-     * @param string $invoice_id Invoice ID or number. For ID no prefix is used e.g. `e28zov4fw0v2`. For number use prefix `number-`, e.g. `number-1000`.
+     * @param string $invoice_id Invoice ID or number. For ID no prefix is used e.g. `e28zov4fw0v2`. For number use prefix `number-`, e.g. `number-1000`. For number with prefix or country code, use `number-` and `prefix`, e.g. `number-TEST-FR1001`
      *
      * @return \Recurly\Resources\Invoice The updated invoice.
      * @link   https://developers.recurly.com/api/v2019-10-10#operation/apply_credit_balance
@@ -1480,7 +1527,7 @@ class Client extends BaseClient
     /**
      * Collect a pending or past due, automatic invoice
      *
-     * @param string $invoice_id Invoice ID or number. For ID no prefix is used e.g. `e28zov4fw0v2`. For number use prefix `number-`, e.g. `number-1000`.
+     * @param string $invoice_id Invoice ID or number. For ID no prefix is used e.g. `e28zov4fw0v2`. For number use prefix `number-`, e.g. `number-1000`. For number with prefix or country code, use `number-` and `prefix`, e.g. `number-TEST-FR1001`
      * @param array  $body       The body of the request.
      *
      * @return \Recurly\Resources\Invoice The updated invoice.
@@ -1495,7 +1542,7 @@ class Client extends BaseClient
     /**
      * Mark an open invoice as failed
      *
-     * @param string $invoice_id Invoice ID or number. For ID no prefix is used e.g. `e28zov4fw0v2`. For number use prefix `number-`, e.g. `number-1000`.
+     * @param string $invoice_id Invoice ID or number. For ID no prefix is used e.g. `e28zov4fw0v2`. For number use prefix `number-`, e.g. `number-1000`. For number with prefix or country code, use `number-` and `prefix`, e.g. `number-TEST-FR1001`
      *
      * @return \Recurly\Resources\Invoice The updated invoice.
      * @link   https://developers.recurly.com/api/v2019-10-10#operation/fail_invoice
@@ -1509,7 +1556,7 @@ class Client extends BaseClient
     /**
      * Mark an open invoice as successful
      *
-     * @param string $invoice_id Invoice ID or number. For ID no prefix is used e.g. `e28zov4fw0v2`. For number use prefix `number-`, e.g. `number-1000`.
+     * @param string $invoice_id Invoice ID or number. For ID no prefix is used e.g. `e28zov4fw0v2`. For number use prefix `number-`, e.g. `number-1000`. For number with prefix or country code, use `number-` and `prefix`, e.g. `number-TEST-FR1001`
      *
      * @return \Recurly\Resources\Invoice The updated invoice.
      * @link   https://developers.recurly.com/api/v2019-10-10#operation/mark_invoice_successful
@@ -1523,7 +1570,7 @@ class Client extends BaseClient
     /**
      * Reopen a closed, manual invoice
      *
-     * @param string $invoice_id Invoice ID or number. For ID no prefix is used e.g. `e28zov4fw0v2`. For number use prefix `number-`, e.g. `number-1000`.
+     * @param string $invoice_id Invoice ID or number. For ID no prefix is used e.g. `e28zov4fw0v2`. For number use prefix `number-`, e.g. `number-1000`. For number with prefix or country code, use `number-` and `prefix`, e.g. `number-TEST-FR1001`
      *
      * @return \Recurly\Resources\Invoice The updated invoice.
      * @link   https://developers.recurly.com/api/v2019-10-10#operation/reopen_invoice
@@ -1537,7 +1584,7 @@ class Client extends BaseClient
     /**
      * Void a credit invoice.
      *
-     * @param string $invoice_id Invoice ID or number. For ID no prefix is used e.g. `e28zov4fw0v2`. For number use prefix `number-`, e.g. `number-1000`.
+     * @param string $invoice_id Invoice ID or number. For ID no prefix is used e.g. `e28zov4fw0v2`. For number use prefix `number-`, e.g. `number-1000`. For number with prefix or country code, use `number-` and `prefix`, e.g. `number-TEST-FR1001`
      *
      * @return \Recurly\Resources\Invoice The updated invoice.
      * @link   https://developers.recurly.com/api/v2019-10-10#operation/void_invoice
@@ -1551,7 +1598,7 @@ class Client extends BaseClient
     /**
      * Record an external payment for a manual invoices.
      *
-     * @param string $invoice_id Invoice ID or number. For ID no prefix is used e.g. `e28zov4fw0v2`. For number use prefix `number-`, e.g. `number-1000`.
+     * @param string $invoice_id Invoice ID or number. For ID no prefix is used e.g. `e28zov4fw0v2`. For number use prefix `number-`, e.g. `number-1000`. For number with prefix or country code, use `number-` and `prefix`, e.g. `number-TEST-FR1001`
      * @param array  $body       The body of the request.
      *
      * @return \Recurly\Resources\Transaction The recorded transaction.
@@ -1566,7 +1613,7 @@ class Client extends BaseClient
     /**
      * List an invoice's line items
      *
-     * @param string $invoice_id Invoice ID or number. For ID no prefix is used e.g. `e28zov4fw0v2`. For number use prefix `number-`, e.g. `number-1000`.
+     * @param string $invoice_id Invoice ID or number. For ID no prefix is used e.g. `e28zov4fw0v2`. For number use prefix `number-`, e.g. `number-1000`. For number with prefix or country code, use `number-` and `prefix`, e.g. `number-TEST-FR1001`
      * @param array  $options    Associative array of optional parameters
      *
      * Supported optional query string parameters:
@@ -1607,7 +1654,7 @@ class Client extends BaseClient
     /**
      * List the coupon redemptions applied to an invoice
      *
-     * @param string $invoice_id Invoice ID or number. For ID no prefix is used e.g. `e28zov4fw0v2`. For number use prefix `number-`, e.g. `number-1000`.
+     * @param string $invoice_id Invoice ID or number. For ID no prefix is used e.g. `e28zov4fw0v2`. For number use prefix `number-`, e.g. `number-1000`. For number with prefix or country code, use `number-` and `prefix`, e.g. `number-TEST-FR1001`
      * @param array  $options    Associative array of optional parameters
      *
      * Supported optional query string parameters:
@@ -1643,7 +1690,7 @@ class Client extends BaseClient
     /**
      * List an invoice's related credit or charge invoices
      *
-     * @param string $invoice_id Invoice ID or number. For ID no prefix is used e.g. `e28zov4fw0v2`. For number use prefix `number-`, e.g. `number-1000`.
+     * @param string $invoice_id Invoice ID or number. For ID no prefix is used e.g. `e28zov4fw0v2`. For number use prefix `number-`, e.g. `number-1000`. For number with prefix or country code, use `number-` and `prefix`, e.g. `number-TEST-FR1001`
      *
      * @return \Recurly\Pager A list of the credit or charge invoices associated with the invoice.
      * @link   https://developers.recurly.com/api/v2019-10-10#operation/list_related_invoices
@@ -1657,7 +1704,7 @@ class Client extends BaseClient
     /**
      * Refund an invoice
      *
-     * @param string $invoice_id Invoice ID or number. For ID no prefix is used e.g. `e28zov4fw0v2`. For number use prefix `number-`, e.g. `number-1000`.
+     * @param string $invoice_id Invoice ID or number. For ID no prefix is used e.g. `e28zov4fw0v2`. For number use prefix `number-`, e.g. `number-1000`. For number with prefix or country code, use `number-` and `prefix`, e.g. `number-TEST-FR1001`
      * @param array  $body       The body of the request.
      *
      * @return \Recurly\Resources\Invoice Returns the new credit invoice.
