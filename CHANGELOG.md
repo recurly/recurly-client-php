@@ -1,5 +1,16 @@
 # Changelog
 
+## [4.65.0](https://github.com/recurly/recurly-client-php/tree/4.65.0) (2025-10-09)
+
+[Full Changelog](https://github.com/recurly/recurly-client-php/compare/4.64.0...4.65.0)
+
+
+**Merged Pull Requests**
+
+- Generated Latest Changes for v2021-02-25 [#847](https://github.com/recurly/recurly-client-php/pull/847) ([recurly-integrations](https://github.com/recurly-integrations))
+
+
+
 ## [4.64.0](https://github.com/recurly/recurly-client-php/tree/4.64.0) (2025-08-13)
 
 [Full Changelog](https://github.com/recurly/recurly-client-php/compare/4.63.0...4.64.0)
