@@ -38,6 +38,7 @@ class Transaction extends RecurlyResource
     private $_ip_address_country;
     private $_ip_address_v4;
     private $_merchant_reason_code;
+    private $_next_action;
     private $_object;
     private $_origin;
     private $_original_transaction_id;
@@ -671,6 +672,29 @@ Only use this if the initiator value is "merchant". Otherwise, it will be ignore
     public function setMerchantReasonCode(string $merchant_reason_code): void
     {
         $this->_merchant_reason_code = $merchant_reason_code;
+    }
+
+    /**
+    * Getter method for the next_action attribute.
+    * Next action values are used for any required customer follow-up action. Currently, this is supported for Ebanx when using Pix Automatico.
+    *
+    * @return ?\Recurly\Resources\TransactionNextAction
+    */
+    public function getNextAction(): ?\Recurly\Resources\TransactionNextAction
+    {
+        return $this->_next_action;
+    }
+
+    /**
+    * Setter method for the next_action attribute.
+    *
+    * @param \Recurly\Resources\TransactionNextAction $next_action
+    *
+    * @return void
+    */
+    public function setNextAction(\Recurly\Resources\TransactionNextAction $next_action): void
+    {
+        $this->_next_action = $next_action;
     }
 
     /**
