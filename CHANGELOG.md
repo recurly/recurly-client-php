@@ -1,5 +1,13 @@
 # Changelog
 
+## [4.67.0](https://github.com/recurly/recurly-client-php/tree/4.67.0) (2025-11-05)
+
+[Full Changelog](https://github.com/recurly/recurly-client-php/compare/4.66.0...4.67.0)
+
+
+
+
+
 ## [4.66.0](https://github.com/recurly/recurly-client-php/tree/4.66.0) (2025-11-03)
 
 [Full Changelog](https://github.com/recurly/recurly-client-php/compare/4.65.0...4.66.0)
