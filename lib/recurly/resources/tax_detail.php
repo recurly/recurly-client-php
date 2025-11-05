@@ -26,7 +26,7 @@ class TaxDetail extends RecurlyResource
     
     /**
     * Getter method for the billable attribute.
-    * Whether or not the line item is taxable. Only populated for a single LineItem fetch when Avalara for Communications is enabled.
+    * Whether or not the line item is taxable. Only populated for a single LineItem fetch when Avalara for Communications or Vertex is enabled.
     *
     * @return ?bool
     */
@@ -49,7 +49,7 @@ class TaxDetail extends RecurlyResource
 
     /**
     * Getter method for the level attribute.
-    * Provides the jurisdiction level for the Communications tax applied. Example values include city, state and federal. Present only when Avalara for Communications is enabled.
+    * Provides the jurisdiction level for the Communications tax applied. Example values include city, state and federal. Present only when Avalara for Communications or Vertex is enabled.
     *
     * @return ?string
     */
@@ -72,7 +72,7 @@ class TaxDetail extends RecurlyResource
 
     /**
     * Getter method for the name attribute.
-    * Provides the name of the Communications tax applied. Present only when Avalara for Communications is enabled.
+    * Provides the name of the Communications tax applied. Present only when Avalara for Communications or Vertex is enabled.
     *
     * @return ?string
     */
@@ -164,7 +164,7 @@ class TaxDetail extends RecurlyResource
 
     /**
     * Getter method for the type attribute.
-    * Provides the tax type for the region or type of Comminications tax when Avalara for Communications is enabled. For Canadian Sales Tax, this will be GST, HST, QST or PST.
+    * Provides the tax type for the region or type of Comminications tax when Avalara for Communications or Vertex is enabled. For Canadian Sales Tax, this will be GST, HST, QST or PST.
     *
     * @return ?string
     */
