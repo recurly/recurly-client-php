@@ -13,6 +13,9 @@ use Recurly\RecurlyResource;
 class ReferenceOnlyCurrencyConversion extends RecurlyResource
 {
     private $_currency;
+    private $_date;
+    private $_rate;
+    private $_source;
     private $_subtotal_in_cents;
     private $_tax_in_cents;
 
@@ -41,6 +44,75 @@ class ReferenceOnlyCurrencyConversion extends RecurlyResource
     public function setCurrency(string $currency): void
     {
         $this->_currency = $currency;
+    }
+
+    /**
+    * Getter method for the date attribute.
+    * The date of the conversion rate.
+    *
+    * @return ?string
+    */
+    public function getDate(): ?string
+    {
+        return $this->_date;
+    }
+
+    /**
+    * Setter method for the date attribute.
+    *
+    * @param string $date
+    *
+    * @return void
+    */
+    public function setDate(string $date): void
+    {
+        $this->_date = $date;
+    }
+
+    /**
+    * Getter method for the rate attribute.
+    * The conversion rate to the currency.
+    *
+    * @return ?string
+    */
+    public function getRate(): ?string
+    {
+        return $this->_rate;
+    }
+
+    /**
+    * Setter method for the rate attribute.
+    *
+    * @param string $rate
+    *
+    * @return void
+    */
+    public function setRate(string $rate): void
+    {
+        $this->_rate = $rate;
+    }
+
+    /**
+    * Getter method for the source attribute.
+    * The source of the conversion rate.
+    *
+    * @return ?string
+    */
+    public function getSource(): ?string
+    {
+        return $this->_source;
+    }
+
+    /**
+    * Setter method for the source attribute.
+    *
+    * @param string $source
+    *
+    * @return void
+    */
+    public function setSource(string $source): void
+    {
+        $this->_source = $source;
     }
 
     /**
