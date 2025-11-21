@@ -27,6 +27,7 @@ class Subscription extends RecurlyResource
     private $_converted_at;
     private $_coupon_redemptions;
     private $_created_at;
+    private $_credit_application_policy;
     private $_currency;
     private $_current_period_ends_at;
     private $_current_period_started_at;
@@ -419,6 +420,31 @@ class Subscription extends RecurlyResource
     public function setCreatedAt(string $created_at): void
     {
         $this->_created_at = $created_at;
+    }
+
+    /**
+    * Getter method for the credit_application_policy attribute.
+    * Controls whether credit invoices are automatically applied to new invoices.
+The `mode` field determines the application behavior.
+
+    *
+    * @return ?\Recurly\Resources\CreditApplicationPolicy
+    */
+    public function getCreditApplicationPolicy(): ?\Recurly\Resources\CreditApplicationPolicy
+    {
+        return $this->_credit_application_policy;
+    }
+
+    /**
+    * Setter method for the credit_application_policy attribute.
+    *
+    * @param \Recurly\Resources\CreditApplicationPolicy $credit_application_policy
+    *
+    * @return void
+    */
+    public function setCreditApplicationPolicy(\Recurly\Resources\CreditApplicationPolicy $credit_application_policy): void
+    {
+        $this->_credit_application_policy = $credit_application_policy;
     }
 
     /**
