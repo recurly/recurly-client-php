@@ -20,6 +20,7 @@
  * @property string $gateway_code Optional base36 encoded id for the gateway you wish to use for this transaction.
  * @property Recurly_ShippingFee[] $shipping_fees Optional array of shipping fees to apply to the purchase.
  * @property string $transaction_type Indicates type of resulting transaction. accepted_values: "moto".
+ * @property string $vertex_transaction_type Optional field for Vertex merchants. The Vertex "transaction type" input contributes towards accurate tax calculation by identifying the transaction as a standard sale, a rental, or a lease. Either 'sale', 'rental', or 'lease'.
  */
 class Recurly_Purchase extends Recurly_Resource
 {
@@ -120,7 +121,7 @@ class Recurly_Purchase extends Recurly_Resource
       'account', 'adjustments', 'billing_info_uuid', 'collection_method', 'currency', 'po_number',
       'net_terms', 'net_terms_type', 'subscriptions', 'gift_card', 'coupon_codes', 'customer_notes',
       'terms_and_conditions', 'vat_reverse_charge_notes', 'shipping_address', 'shipping_address_id',
-      'gateway_code', 'shipping_fees', 'transaction_type'
+      'gateway_code', 'shipping_fees', 'transaction_type', 'vertex_transaction_type'
     );
   }
 }

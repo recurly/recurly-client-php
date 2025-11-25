@@ -47,6 +47,7 @@
  * @property int $credit_customer_notes Allows merchant to set customer notes on a credit invoice. Will only be rejected if type is set to "charge", otherwise will be ignored if no credit invoice is created.
  * @property string $dunning_campaign_id Unique ID to identify the dunning campaign used when dunning the invoice.
  * @property boolean $used_tax_service If taxes are enabled for the site, it will be true when the invoice had a successful response from the tax service and `false` when the invoice was not sent to tax service due to a lack of address or enabled jurisdiction or was processed without tax due to a non-blocking error returned from the tax service.
+ * @property string $vertex_transaction_type Optional field for Vertex merchants. The Vertex "transaction type" input contributes towards accurate tax calculation by identifying the transaction as a standard sale, a rental, or a lease. Either 'sale', 'rental', or 'lease'.
  */
 class Recurly_Invoice extends Recurly_Resource
 {
@@ -267,7 +268,7 @@ class Recurly_Invoice extends Recurly_Resource
     return array(
       'address', 'billing_info', 'billing_info_uuid', 'terms_and_conditions', 'customer_notes', 'vat_reverse_charge_notes',
       'collection_method', 'net_terms', 'net_terms_type', 'po_number', 'currency', 'credit_customer_notes',
-      'gateway_code'
+      'gateway_code', 'vertex_transaction_type'
     );
   }
 
