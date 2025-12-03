@@ -46,6 +46,7 @@
  * @property DateTime $end_date A timestamp associated with when the adjustment ended.
  * @property DateTime $created_at A timestamp associated with when the adjustment was created.
  * @property Recurly_CustomFieldList $custom_fields Optional custom fields for the adjustment.
+ * @property string $vertex_transaction_type Optional field for Vertex merchants. The Vertex "transaction type" input contributes towards accurate tax calculation by identifying the transaction as a standard sale, a rental, or a lease. Either 'sale', 'rental', or 'lease'.
  */
 class Recurly_Adjustment extends Recurly_Resource
 {
@@ -160,7 +161,7 @@ class Recurly_Adjustment extends Recurly_Resource
       'revenue_schedule_type', 'origin', 'product_code', 'credit_reason_code',
       'shipping_address', 'shipping_address_id', 'item_code', 'external_sku', 'custom_fields',
       'revenue_gl_account_id', 'liability_gl_account_id', 'performance_obligation_id',
-      'origin_tax_address_source', 'destination_tax_address_source'
+      'origin_tax_address_source', 'destination_tax_address_source', 'vertex_transaction_type'
     );
   }
 }
