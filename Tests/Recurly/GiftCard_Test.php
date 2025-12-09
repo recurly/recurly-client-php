@@ -60,9 +60,6 @@ class Recurly_GiftCardTest extends Recurly_TestCase
     $this->assertInstanceOf('Recurly_Delivery', $giftCard->delivery);
   }
 
-  // AC1: GIVEN I am creating a gift card purchase via the v2 /gift_cards endpoint
-  // WHEN I pass in a value of true for tax_service_opt_out attribute
-  // THEN I bypass the tax integration.
   public function testCreateGiftCardWithTaxServiceOptOutTrue() {
     $this->client->addResponse('POST', '/gift_cards', 'gift_cards/create-with-tax-opt-out-201.xml');
 
@@ -90,9 +87,6 @@ class Recurly_GiftCardTest extends Recurly_TestCase
     $this->assertEquals($giftCard->unit_amount_in_cents, '3000');
   }
 
-  // AC2: GIVEN I am creating a gift card purchase via the v2 /gift_cards endpoint
-  // WHEN I pass in a value of false for tax_service_opt_out attribute
-  // THEN send to the tax integration.
   public function testCreateGiftCardWithTaxServiceOptOutFalse() {
     $this->client->addResponse('POST', '/gift_cards', 'gift_cards/create-201.xml');
 
@@ -120,9 +114,6 @@ class Recurly_GiftCardTest extends Recurly_TestCase
     $this->assertEquals($giftCard->unit_amount_in_cents, '5000');
   }
 
-  // AC3: GIVEN I am creating a gift card via the v2 /gift_cards endpoint
-  // WHEN I don't pass a value for tax_service_opt_out attribute
-  // THEN send to the tax integration.
   public function testCreateGiftCardWithoutTaxServiceOptOut() {
     $this->client->addResponse('POST', '/gift_cards', 'gift_cards/create-201.xml');
 
@@ -149,9 +140,6 @@ class Recurly_GiftCardTest extends Recurly_TestCase
     $this->assertEquals($giftCard->redemption_code, 'TEST123CODE4567');
   }
 
-  // AC4: GIVEN I am creating a gift card purchase via the v2 /gift_cards endpoint
-  // WHEN I pass in a tax_service_opt_out value that isn't accepted
-  // THEN I receive an API error response.
   public function testCreateGiftCardWithInvalidTaxServiceOptOut() {
     $this->client->addResponse('POST', '/gift_cards', 'gift_cards/create-invalid-tax-opt-out-422.xml');
 
