@@ -18,6 +18,7 @@
  * @property string $revenue_gl_account_id The ID of the revenue general ledger account associated with the gift card product.
  * @property string $performance_obligation_id The ID of the performance obligation associated with the gift card product.
  * @property Recurly_Delivery $delivery Block of delivery information.
+ * @property boolean $tax_service_opt_out Optional. If true, bypasses the tax integration for this gift card purchase. If false or omitted, the purchase is sent to the tax integration.
  * @property DateTime $created_at The date and time the gift card was created in Recurly.
  * @property DateTime $updated_at The date and time the gift card was last updated.
  * @property DateTime $delivered_at When the gift card was sent to the recipient by Recurly via email, if method was email and the "Gift Card Delivery" email template was enabled. This will be empty for post delivery or email delivery where the email template was disabled.
@@ -88,7 +89,7 @@ class Recurly_GiftCard extends Recurly_Resource
       return array(
         'product_code','unit_amount_in_cents','delivery',
         'gifter_account','currency',
-        'billing_info'
+        'billing_info','tax_service_opt_out'
       );
     }
   }
