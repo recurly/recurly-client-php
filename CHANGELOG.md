@@ -1,5 +1,16 @@
 # Changelog
 
+## [2.14.15](https://github.com/recurly/recurly-client-php/tree/2.14.15) (2025-12-10)
+
+[Full Changelog](https://github.com/recurly/recurly-client-php/compare/2.14.14...2.14.15)
+
+
+**Merged Pull Requests**
+
+- Update tests and models to include vertex_transaction_type for accurate tax calculations in adjustments, invoices, and purchases. [#853](https://github.com/recurly/recurly-client-php/pull/853) ([d14z-tech](https://github.com/d14z-tech))
+
+
+
 ## [2.14.14](https://github.com/recurly/recurly-client-php/tree/2.14.14) (2024-11-13)
 
 [Full Changelog](https://github.com/recurly/recurly-client-php/compare/2.14.13...2.14.14)
