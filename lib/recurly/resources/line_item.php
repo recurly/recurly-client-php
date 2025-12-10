@@ -71,6 +71,7 @@ class LineItem extends RecurlyResource
     private $_unit_amount_decimal;
     private $_updated_at;
     private $_uuid;
+    private $_vertex_transaction_type;
 
     protected static $array_hints = [
         'setCustomFields' => '\Recurly\Resources\CustomField',
@@ -1446,5 +1447,28 @@ allowed: `-_.,:`
     public function setUuid(string $uuid): void
     {
         $this->_uuid = $uuid;
+    }
+
+    /**
+    * Getter method for the vertex_transaction_type attribute.
+    * Used by Vertex for tax calculations. Possible values are sale, rental, lease.
+    *
+    * @return ?string
+    */
+    public function getVertexTransactionType(): ?string
+    {
+        return $this->_vertex_transaction_type;
+    }
+
+    /**
+    * Setter method for the vertex_transaction_type attribute.
+    *
+    * @param string $vertex_transaction_type
+    *
+    * @return void
+    */
+    public function setVertexTransactionType(string $vertex_transaction_type): void
+    {
+        $this->_vertex_transaction_type = $vertex_transaction_type;
     }
 }
