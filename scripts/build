@@ -1,7 +1,4 @@
 #!/usr/bin/env bash
 set -e
 
-composer update --dev
-
-rm -rf ./docs
-./vendor/bin/phpdoc -d ./lib/recurly -t ./docs/ --title "Recurly v3 API"
+composer update
