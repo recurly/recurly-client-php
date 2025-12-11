@@ -13,11 +13,11 @@ jobs:
       # Using tag 2.10.0
     - uses: shivammathur/setup-php@e9a7adef28d778846228a0d481e041db73bd6db2
       with:
-        php-version: '7.4'
+        php-version: '8.0'
         coverage: xdebug2
 
     - name: Build Library and Docs
-      run: ./scripts/build
+      run: ./scripts/docs
 
     - name: Deploy
       if: success()
