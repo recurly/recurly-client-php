@@ -22,6 +22,7 @@ class SubscriptionChange extends RecurlyResource
     private $_deleted_at;
     private $_id;
     private $_invoice_collection;
+    private $_next_bill_date;
     private $_object;
     private $_plan;
     private $_quantity;
@@ -268,6 +269,29 @@ class SubscriptionChange extends RecurlyResource
     public function setInvoiceCollection(\Recurly\Resources\InvoiceCollection $invoice_collection): void
     {
         $this->_invoice_collection = $invoice_collection;
+    }
+
+    /**
+    * Getter method for the next_bill_date attribute.
+    * If present, this sets the date the subscription's next billing period will start (`current_period_ends_at`). When combined with proration_settings, proration calculation should occur, only supported when timeframe is now.
+    *
+    * @return ?string
+    */
+    public function getNextBillDate(): ?string
+    {
+        return $this->_next_bill_date;
+    }
+
+    /**
+    * Setter method for the next_bill_date attribute.
+    *
+    * @param string $next_bill_date
+    *
+    * @return void
+    */
+    public function setNextBillDate(string $next_bill_date): void
+    {
+        $this->_next_bill_date = $next_bill_date;
     }
 
     /**
