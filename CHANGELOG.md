@@ -1,5 +1,16 @@
 # Changelog
 
+## [2.14.16](https://github.com/recurly/recurly-client-php/tree/2.14.16) (2025-12-17)
+
+[Full Changelog](https://github.com/recurly/recurly-client-php/compare/2.14.15...2.14.16)
+
+
+**Merged Pull Requests**
+
+- Adds tax_service_opt_out to gift cards [#854](https://github.com/recurly/recurly-client-php/pull/854) ([sunnyw1212](https://github.com/sunnyw1212))
+
+
+
 ## [2.14.15](https://github.com/recurly/recurly-client-php/tree/2.14.15) (2025-12-10)
 
 [Full Changelog](https://github.com/recurly/recurly-client-php/compare/2.14.14...2.14.15)
