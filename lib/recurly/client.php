@@ -544,6 +544,38 @@ class Client extends BaseClient
     }
   
     /**
+     * Show the coupon redemption
+     *
+     * @param string $account_id           Account ID or code. For ID no prefix is used e.g. `e28zov4fw0v2`. For code use prefix `code-`, e.g. `code-bob`.
+     * @param string $coupon_redemption_id Coupon Redemption ID or UUID. For ID no prefix is used e.g. `e28zov4fw0v2`. For UUID use prefix `uuid-`, e.g. `uuid-123457890`.
+     * @param array  $options              Associative array of optional parameters
+     *
+     * @return \Recurly\Resources\CouponRedemption A coupon redemption.
+     * @link   https://developers.recurly.com/api/v2021-02-25#operation/get_coupon_redemption
+     */
+    public function getCouponRedemption(string $account_id, string $coupon_redemption_id, array $options = []): \Recurly\Resources\CouponRedemption
+    {
+        $path = $this->interpolatePath("/accounts/{account_id}/coupon_redemptions/{coupon_redemption_id}", ['account_id' => $account_id, 'coupon_redemption_id' => $coupon_redemption_id]);
+        return $this->makeRequest('GET', $path, [], $options);
+    }
+  
+    /**
+     * Delete the coupon redemption
+     *
+     * @param string $account_id           Account ID or code. For ID no prefix is used e.g. `e28zov4fw0v2`. For code use prefix `code-`, e.g. `code-bob`.
+     * @param string $coupon_redemption_id Coupon Redemption ID or UUID. For ID no prefix is used e.g. `e28zov4fw0v2`. For UUID use prefix `uuid-`, e.g. `uuid-123457890`.
+     * @param array  $options              Associative array of optional parameters
+     *
+     * @return \Recurly\Resources\CouponRedemption Coupon redemption deleted.
+     * @link   https://developers.recurly.com/api/v2021-02-25#operation/remove_coupon_redemption_by_id
+     */
+    public function removeCouponRedemptionById(string $account_id, string $coupon_redemption_id, array $options = []): \Recurly\Resources\CouponRedemption
+    {
+        $path = $this->interpolatePath("/accounts/{account_id}/coupon_redemptions/{coupon_redemption_id}", ['account_id' => $account_id, 'coupon_redemption_id' => $coupon_redemption_id]);
+        return $this->makeRequest('DELETE', $path, [], $options);
+    }
+  
+    /**
      * List an account's credit payments
      *
      * @param string $account_id Account ID or code. For ID no prefix is used e.g. `e28zov4fw0v2`. For code use prefix `code-`, e.g. `code-bob`.
@@ -3194,6 +3226,38 @@ endpoint to obtain only the newly generated `UniqueCouponCodes`.
     {
         $path = $this->interpolatePath("/subscriptions/{subscription_id}/coupon_redemptions", ['subscription_id' => $subscription_id]);
         return new \Recurly\Pager($this, $path, $options);
+    }
+  
+    /**
+     * Show the coupon redemption for a subscription
+     *
+     * @param string $subscription_id      Subscription ID or UUID. For ID no prefix is used e.g. `e28zov4fw0v2`. For UUID use prefix `uuid-`, e.g. `uuid-123457890`.
+     * @param string $coupon_redemption_id Coupon Redemption ID or UUID. For ID no prefix is used e.g. `e28zov4fw0v2`. For UUID use prefix `uuid-`, e.g. `uuid-123457890`.
+     * @param array  $options              Associative array of optional parameters
+     *
+     * @return \Recurly\Resources\CouponRedemption The coupon redemption on a subscription.
+     * @link   https://developers.recurly.com/api/v2021-02-25#operation/get_subscription_coupon_redemption
+     */
+    public function getSubscriptionCouponRedemption(string $subscription_id, string $coupon_redemption_id, array $options = []): \Recurly\Resources\CouponRedemption
+    {
+        $path = $this->interpolatePath("/subscriptions/{subscription_id}/coupon_redemptions/{coupon_redemption_id}", ['subscription_id' => $subscription_id, 'coupon_redemption_id' => $coupon_redemption_id]);
+        return $this->makeRequest('GET', $path, [], $options);
+    }
+  
+    /**
+     * Delete the coupon redemption from a subscription
+     *
+     * @param string $subscription_id      Subscription ID or UUID. For ID no prefix is used e.g. `e28zov4fw0v2`. For UUID use prefix `uuid-`, e.g. `uuid-123457890`.
+     * @param string $coupon_redemption_id Coupon Redemption ID or UUID. For ID no prefix is used e.g. `e28zov4fw0v2`. For UUID use prefix `uuid-`, e.g. `uuid-123457890`.
+     * @param array  $options              Associative array of optional parameters
+     *
+     * @return \Recurly\Resources\CouponRedemption Coupon redemption deleted.
+     * @link   https://developers.recurly.com/api/v2021-02-25#operation/remove_subscription_coupon_redemption
+     */
+    public function removeSubscriptionCouponRedemption(string $subscription_id, string $coupon_redemption_id, array $options = []): \Recurly\Resources\CouponRedemption
+    {
+        $path = $this->interpolatePath("/subscriptions/{subscription_id}/coupon_redemptions/{coupon_redemption_id}", ['subscription_id' => $subscription_id, 'coupon_redemption_id' => $coupon_redemption_id]);
+        return $this->makeRequest('DELETE', $path, [], $options);
     }
   
     /**

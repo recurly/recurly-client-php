@@ -15,9 +15,11 @@ class InvoiceCollection extends RecurlyResource
     private $_charge_invoice;
     private $_credit_invoices;
     private $_object;
+    private $_verification_transactions;
 
     protected static $array_hints = [
         'setCreditInvoices' => '\Recurly\Resources\Invoice',
+        'setVerificationTransactions' => '\Recurly\Resources\Transaction',
     ];
 
     
@@ -88,5 +90,28 @@ class InvoiceCollection extends RecurlyResource
     public function setObject(string $object): void
     {
         $this->_object = $object;
+    }
+
+    /**
+    * Getter method for the verification_transactions attribute.
+    * Verification transactions (used for free trial payment method validation)
+    *
+    * @return array
+    */
+    public function getVerificationTransactions(): array
+    {
+        return $this->_verification_transactions ?? [] ;
+    }
+
+    /**
+    * Setter method for the verification_transactions attribute.
+    *
+    * @param array $verification_transactions
+    *
+    * @return void
+    */
+    public function setVerificationTransactions(array $verification_transactions): void
+    {
+        $this->_verification_transactions = $verification_transactions;
     }
 }
