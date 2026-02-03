@@ -23,6 +23,7 @@ class CouponRedemption extends RecurlyResource
     private $_state;
     private $_subscription_id;
     private $_updated_at;
+    private $_uuid;
 
     protected static $array_hints = [
     ];
@@ -279,5 +280,28 @@ class CouponRedemption extends RecurlyResource
     public function setUpdatedAt(string $updated_at): void
     {
         $this->_updated_at = $updated_at;
+    }
+
+    /**
+    * Getter method for the uuid attribute.
+    * The UUID is useful for matching data with the CSV exports and building URLs into Recurly's UI.
+    *
+    * @return ?string
+    */
+    public function getUuid(): ?string
+    {
+        return $this->_uuid;
+    }
+
+    /**
+    * Setter method for the uuid attribute.
+    *
+    * @param string $uuid
+    *
+    * @return void
+    */
+    public function setUuid(string $uuid): void
+    {
+        $this->_uuid = $uuid;
     }
 }

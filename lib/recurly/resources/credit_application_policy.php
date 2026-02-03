@@ -12,12 +12,40 @@ use Recurly\RecurlyResource;
 // phpcs:disable
 class CreditApplicationPolicy extends RecurlyResource
 {
+    private $_allowed_origins;
     private $_mode;
 
     protected static $array_hints = [
+        'setAllowedOrigins' => 'string',
     ];
 
     
+    /**
+    * Getter method for the allowed_origins attribute.
+    * Optional array of credit invoice origin types to allow when mode is `all`.
+If not specified when mode is `all`, credits from all origins are applied.
+Only valid when mode is `all`.
+
+    *
+    * @return array
+    */
+    public function getAllowedOrigins(): array
+    {
+        return $this->_allowed_origins ?? [] ;
+    }
+
+    /**
+    * Setter method for the allowed_origins attribute.
+    *
+    * @param array $allowed_origins
+    *
+    * @return void
+    */
+    public function setAllowedOrigins(array $allowed_origins): void
+    {
+        $this->_allowed_origins = $allowed_origins;
+    }
+
     /**
     * Getter method for the mode attribute.
     * Determines which credit invoices are applied to invoices:

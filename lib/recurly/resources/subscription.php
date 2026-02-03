@@ -425,7 +425,9 @@ class Subscription extends RecurlyResource
     /**
     * Getter method for the credit_application_policy attribute.
     * Controls whether credit invoices are automatically applied to new invoices.
-The `mode` field determines the application behavior.
+The `mode` field determines the application behavior. When mode is `all`,
+the optional `allowed_origins` array can restrict which credit invoice origins
+are applied.
 
     *
     * @return ?\Recurly\Resources\CreditApplicationPolicy
