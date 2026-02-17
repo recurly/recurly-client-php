@@ -283,7 +283,6 @@ class Recurly_SubscriptionTest extends Recurly_TestCase
           <quantity>1</quantity>
         </subscription_add_on>
         <subscription_add_on>
-          <item>&lt;Recurly_Stub[item] href=https://api.recurlyqa.com/v2/items/mockitem&gt;</item>
           <external_sku>tester-sku</external_sku>
           <add_on_code>mockitem</add_on_code>
           <unit_amount_in_cents>199</unit_amount_in_cents>
@@ -465,7 +464,6 @@ class Recurly_SubscriptionTest extends Recurly_TestCase
           <quantity>1</quantity>
         </subscription_add_on>
         <subscription_add_on>
-          <item>&lt;Recurly_Stub[item] href=https://api.recurlyqa.com/v2/items/mockitem&gt;</item>
           <external_sku>tester-sku</external_sku>
           <add_on_code>mockitem</add_on_code>
           <unit_amount_in_cents>199</unit_amount_in_cents>
@@ -518,7 +516,6 @@ class Recurly_SubscriptionTest extends Recurly_TestCase
           <quantity>1</quantity>
         </subscription_add_on>
         <subscription_add_on>
-          <item>&lt;Recurly_Stub[item] href=https://api.recurlyqa.com/v2/items/mockitem&gt;</item>
           <external_sku>tester-sku</external_sku>
           <add_on_code>mockitem</add_on_code>
           <unit_amount_in_cents>199</unit_amount_in_cents>
