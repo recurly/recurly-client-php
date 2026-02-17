@@ -178,6 +178,8 @@ trait XmlDoc {
       // doesn't extend Recurly_Resource we should add an interface for this.
       if ($val instanceof Recurly_CurrencyList || $val instanceof Recurly_CustomFieldList) {
         $val->populateXmlDoc($doc, $node);
+      } else if ($val instanceof Recurly_Stub) {
+        continue;
       } else if ($val instanceof Recurly_Resource) {
         $attribute_node = $node->appendChild($doc->createElement($key));
         $this->populateXmlDoc($doc, $attribute_node, $val, true);
