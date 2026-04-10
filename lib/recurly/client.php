@@ -162,6 +162,10 @@ class Client extends BaseClient
      * @param string $account_id Account ID or code. For ID no prefix is used e.g. `e28zov4fw0v2`. For code use prefix `code-`, e.g. `code-bob`.
      * @param array  $options    Associative array of optional parameters
      *
+     * Supported optional query string parameters:
+     *
+     * - $options['params']['redact'] (bool): Permanently removes all personally identifiable information (PII) from this account after it has been deactivated, to fulfill a data subject's right to erasure under GDPR and similar privacy regulations (e.g. CCPA). Cannot be undone.
+     *
      * @return \Recurly\Resources\Account An account.
      * @link   https://developers.recurly.com/api/v2021-02-25#operation/deactivate_account
      */
@@ -169,6 +173,21 @@ class Client extends BaseClient
     {
         $path = $this->interpolatePath("/accounts/{account_id}", ['account_id' => $account_id]);
         return $this->makeRequest('DELETE', $path, [], $options);
+    }
+  
+    /**
+     * Redact an account (GDPR Right to Erasure)
+     *
+     * @param string $account_id Account ID or code. For ID no prefix is used e.g. `e28zov4fw0v2`. For code use prefix `code-`, e.g. `code-bob`.
+     * @param array  $options    Associative array of optional parameters
+     *
+     * @return \Recurly\Resources\Account Account has been accepted for redaction and will be processed asynchronously.
+     * @link   https://developers.recurly.com/api/v2021-02-25#operation/redact_account
+     */
+    public function redactAccount(string $account_id, array $options = []): \Recurly\Resources\Account
+    {
+        $path = $this->interpolatePath("/accounts/{account_id}/redact", ['account_id' => $account_id]);
+        return $this->makeRequest('PUT', $path, [], $options);
     }
   
     /**
