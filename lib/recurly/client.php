@@ -172,6 +172,21 @@ class Client extends BaseClient
     }
   
     /**
+     * Redact an account (GDPR Right to Erasure)
+     *
+     * @param string $account_id Account ID or code. For ID no prefix is used e.g. `e28zov4fw0v2`. For code use prefix `code-`, e.g. `code-bob`.
+     * @param array  $options    Associative array of optional parameters
+     *
+     * @return \Recurly\Resources\Account Account has been accepted for redaction and will be processed asynchronously.
+     * @link   https://developers.recurly.com/api/v2021-02-25#operation/redact_account
+     */
+    public function redactAccount(string $account_id, array $options = []): \Recurly\Resources\Account
+    {
+        $path = $this->interpolatePath("/accounts/{account_id}/redact", ['account_id' => $account_id]);
+        return $this->makeRequest('PUT', $path, [], $options);
+    }
+  
+    /**
      * Fetch an account's acquisition data
      *
      * @param string $account_id Account ID or code. For ID no prefix is used e.g. `e28zov4fw0v2`. For code use prefix `code-`, e.g. `code-bob`.
@@ -1293,6 +1308,22 @@ endpoint to obtain only the newly generated `UniqueCouponCodes`.
     public function generateUniqueCouponCodes(string $coupon_id, array $body, array $options = []): \Recurly\Resources\UniqueCouponCodeParams
     {
         $path = $this->interpolatePath("/coupons/{coupon_id}/generate", ['coupon_id' => $coupon_id]);
+        return $this->makeRequest('POST', $path, $body, $options);
+    }
+  
+    /**
+     * Generate unique coupon codes synchronously
+     *
+     * @param string $coupon_id Coupon ID or code. For ID no prefix is used e.g. `e28zov4fw0v2`. For code use prefix `code-`, e.g. `code-10off`.
+     * @param array  $body      The body of the request.
+     * @param array  $options   Associative array of optional parameters
+     *
+     * @return \Recurly\Resources\UniqueCouponCodeGenerationResponse The newly generated unique coupon codes.
+     * @link   https://developers.recurly.com/api/v2021-02-25#operation/generate_unique_coupon_codes_sync
+     */
+    public function generateUniqueCouponCodesSync(string $coupon_id, array $body, array $options = []): \Recurly\Resources\UniqueCouponCodeGenerationResponse
+    {
+        $path = $this->interpolatePath("/coupons/{coupon_id}/generate_sync", ['coupon_id' => $coupon_id]);
         return $this->makeRequest('POST', $path, $body, $options);
     }
   
