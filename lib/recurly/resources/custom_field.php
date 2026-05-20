@@ -13,6 +13,8 @@ use Recurly\RecurlyResource;
 class CustomField extends RecurlyResource
 {
     private $_name;
+    private $_source_record_id;
+    private $_source_record_type;
     private $_value;
 
     protected static $array_hints = [
@@ -40,6 +42,52 @@ class CustomField extends RecurlyResource
     public function setName(string $name): void
     {
         $this->_name = $name;
+    }
+
+    /**
+    * Getter method for the source_record_id attribute.
+    * The UUID of the record this custom field was automatically copied from. Only present when the field was copied from another record.
+    *
+    * @return ?string
+    */
+    public function getSourceRecordId(): ?string
+    {
+        return $this->_source_record_id;
+    }
+
+    /**
+    * Setter method for the source_record_id attribute.
+    *
+    * @param string $source_record_id
+    *
+    * @return void
+    */
+    public function setSourceRecordId(string $source_record_id): void
+    {
+        $this->_source_record_id = $source_record_id;
+    }
+
+    /**
+    * Getter method for the source_record_type attribute.
+    * The type of record this custom field was automatically copied from. Only present when the field was copied from another record.
+    *
+    * @return ?string
+    */
+    public function getSourceRecordType(): ?string
+    {
+        return $this->_source_record_type;
+    }
+
+    /**
+    * Setter method for the source_record_type attribute.
+    *
+    * @param string $source_record_type
+    *
+    * @return void
+    */
+    public function setSourceRecordType(string $source_record_type): void
+    {
+        $this->_source_record_type = $source_record_type;
     }
 
     /**

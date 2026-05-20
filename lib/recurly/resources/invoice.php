@@ -22,6 +22,7 @@ class Invoice extends RecurlyResource
     private $_created_at;
     private $_credit_payments;
     private $_currency;
+    private $_custom_fields;
     private $_customer_notes;
     private $_discount;
     private $_due_at;
@@ -60,6 +61,7 @@ class Invoice extends RecurlyResource
 
     protected static $array_hints = [
         'setCreditPayments' => '\Recurly\Resources\CreditPayment',
+        'setCustomFields' => '\Recurly\Resources\CustomField',
         'setLineItems' => '\Recurly\Resources\LineItem',
         'setSubscriptionIds' => 'string',
         'setTransactions' => '\Recurly\Resources\Transaction',
@@ -294,6 +296,29 @@ class Invoice extends RecurlyResource
     public function setCurrency(string $currency): void
     {
         $this->_currency = $currency;
+    }
+
+    /**
+    * Getter method for the custom_fields attribute.
+    * A list of custom fields that were on the account at the time of invoice creation and were marked to be displayed on invoices. Read-only; cannot be set directly on the invoice.
+    *
+    * @return array
+    */
+    public function getCustomFields(): array
+    {
+        return $this->_custom_fields ?? [] ;
+    }
+
+    /**
+    * Setter method for the custom_fields attribute.
+    *
+    * @param array $custom_fields
+    *
+    * @return void
+    */
+    public function setCustomFields(array $custom_fields): void
+    {
+        $this->_custom_fields = $custom_fields;
     }
 
     /**

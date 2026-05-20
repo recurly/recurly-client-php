@@ -98,7 +98,7 @@ class AddressWithName extends RecurlyResource
 
     /**
     * Getter method for the geo_code attribute.
-    * Code that represents a geographic entity (location or object). Only returned for Sling Vertex Integration
+    * Code that represents a geographic entity (location or object). Only returned when Vertex or Avalara for Communications is enabled.
     *
     * @return ?string
     */
