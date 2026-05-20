@@ -587,7 +587,7 @@ property and one of the following properties: `percent`, `fixed`, `trial`.
 
     /**
     * Getter method for the temporal_amount attribute.
-    * If `duration` is "temporal" than `temporal_amount` is an integer which is multiplied by `temporal_unit` to define the duration that the coupon will be applied to invoices for.
+    * If `duration` is "temporal" than `temporal_amount` is an integer which is multiplied by `temporal_unit` to define the duration that the coupon will be applied to invoices for. When `temporal_unit` is "billing_period", this is the number of complete billing cycles.
     *
     * @return ?int
     */
@@ -610,7 +610,7 @@ property and one of the following properties: `percent`, `fixed`, `trial`.
 
     /**
     * Getter method for the temporal_unit attribute.
-    * If `duration` is "temporal" than `temporal_unit` is multiplied by `temporal_amount` to define the duration that the coupon will be applied to invoices for.
+    * If `duration` is "temporal" than `temporal_unit` is multiplied by `temporal_amount` to define the duration that the coupon will be applied to invoices for. Use "billing_period" to apply the coupon for a fixed number of billing cycles. Requires `redemption_resource=subscription`.
     *
     * @return ?string
     */
