@@ -11,10 +11,10 @@ jobs:
       matrix:
         php: [7.2, 7.3, 7.4, 8.0, 8.1]
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v6.0.3
       - name: Setup PHP
-        # Using tag 2.10.0
-        uses: shivammathur/setup-php@e9a7adef28d778846228a0d481e041db73bd6db2
+        # Using tag 2.37.1
+        uses: shivammathur/setup-php@7c071dfe9dc99bdf297fa79cb49ea005b9fcadbc
         with:
           php-version: ${{ matrix.php }}
           coverage: xdebug2
