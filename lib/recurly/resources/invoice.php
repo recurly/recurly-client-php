@@ -19,6 +19,7 @@ class Invoice extends RecurlyResource
     private $_business_entity_id;
     private $_closed_at;
     private $_collection_method;
+    private $_coupon_redemptions;
     private $_created_at;
     private $_credit_payments;
     private $_currency;
@@ -60,6 +61,7 @@ class Invoice extends RecurlyResource
     private $_vat_reverse_charge_notes;
 
     protected static $array_hints = [
+        'setCouponRedemptions' => '\Recurly\Resources\CouponRedemptionMini',
         'setCreditPayments' => '\Recurly\Resources\CreditPayment',
         'setCustomFields' => '\Recurly\Resources\CustomField',
         'setLineItems' => '\Recurly\Resources\LineItem',
@@ -227,6 +229,29 @@ class Invoice extends RecurlyResource
     public function setCollectionMethod(string $collection_method): void
     {
         $this->_collection_method = $collection_method;
+    }
+
+    /**
+    * Getter method for the coupon_redemptions attribute.
+    * The coupon redemptions applied to this invoice.
+    *
+    * @return array
+    */
+    public function getCouponRedemptions(): array
+    {
+        return $this->_coupon_redemptions ?? [] ;
+    }
+
+    /**
+    * Setter method for the coupon_redemptions attribute.
+    *
+    * @param array $coupon_redemptions
+    *
+    * @return void
+    */
+    public function setCouponRedemptions(array $coupon_redemptions): void
+    {
+        $this->_coupon_redemptions = $coupon_redemptions;
     }
 
     /**
