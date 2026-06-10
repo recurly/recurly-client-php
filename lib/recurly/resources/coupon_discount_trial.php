@@ -44,7 +44,7 @@ class CouponDiscountTrial extends RecurlyResource
 
     /**
     * Getter method for the unit attribute.
-    * Temporal unit of the free trial
+    * Temporal unit of the free trial. When `billing_period`, `length` represents the number of billing cycles.
     *
     * @return ?string
     */

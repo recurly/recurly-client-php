@@ -28,6 +28,7 @@ class LineItem extends RecurlyResource
     private $_description;
     private $_destination_tax_address_source;
     private $_discount;
+    private $_discounts;
     private $_end_date;
     private $_external_sku;
     private $_harmonized_system_code;
@@ -75,6 +76,7 @@ class LineItem extends RecurlyResource
 
     protected static $array_hints = [
         'setCustomFields' => '\Recurly\Resources\CustomField',
+        'setDiscounts' => '\Recurly\Resources\LineItemDiscount',
     ];
 
     
@@ -425,7 +427,7 @@ class LineItem extends RecurlyResource
 
     /**
     * Getter method for the discount attribute.
-    * The discount applied to the line item.
+    * The sum of all discounts applied to the line item.
     *
     * @return ?float
     */
@@ -444,6 +446,29 @@ class LineItem extends RecurlyResource
     public function setDiscount(float $discount): void
     {
         $this->_discount = $discount;
+    }
+
+    /**
+    * Getter method for the discounts attribute.
+    * The breakdown of discounts applied to the line item by coupon redemption.
+    *
+    * @return array
+    */
+    public function getDiscounts(): array
+    {
+        return $this->_discounts ?? [] ;
+    }
+
+    /**
+    * Setter method for the discounts attribute.
+    *
+    * @param array $discounts
+    *
+    * @return void
+    */
+    public function setDiscounts(array $discounts): void
+    {
+        $this->_discounts = $discounts;
     }
 
     /**

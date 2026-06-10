@@ -17,6 +17,7 @@ class CouponRedemptionMini extends RecurlyResource
     private $_discounted;
     private $_id;
     private $_object;
+    private $_remaining_duration;
     private $_state;
 
     protected static $array_hints = [
@@ -139,8 +140,31 @@ class CouponRedemptionMini extends RecurlyResource
     }
 
     /**
+    * Getter method for the remaining_duration attribute.
+    * 
+    *
+    * @return ?\Recurly\Resources\CouponRedemptionRemainingDuration
+    */
+    public function getRemainingDuration(): ?\Recurly\Resources\CouponRedemptionRemainingDuration
+    {
+        return $this->_remaining_duration;
+    }
+
+    /**
+    * Setter method for the remaining_duration attribute.
+    *
+    * @param \Recurly\Resources\CouponRedemptionRemainingDuration $remaining_duration
+    *
+    * @return void
+    */
+    public function setRemainingDuration(\Recurly\Resources\CouponRedemptionRemainingDuration $remaining_duration): void
+    {
+        $this->_remaining_duration = $remaining_duration;
+    }
+
+    /**
     * Getter method for the state attribute.
-    * Invoice state
+    * Coupon Redemption state
     *
     * @return ?string
     */

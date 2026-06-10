@@ -2400,6 +2400,21 @@ endpoint to obtain only the newly generated `UniqueCouponCodes`.
     }
   
     /**
+     * Create an invoice for revenue recovery
+     *
+     * @param array $body    The body of the request.
+     * @param array $options Associative array of optional parameters
+     *
+     * @return \Recurly\Resources\InvoiceCollection Returns the new invoices.
+     * @link   https://developers.recurly.com/api/v2021-02-25#operation/create_invoice_retry
+     */
+    public function createInvoiceRetry(array $body, array $options = []): \Recurly\Resources\InvoiceCollection
+    {
+        $path = $this->interpolatePath("/invoices/recovery", []);
+        return $this->makeRequest('POST', $path, $body, $options);
+    }
+  
+    /**
      * List a site's line items
      *
      * @param array $options Associative array of optional parameters
