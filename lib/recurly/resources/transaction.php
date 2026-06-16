@@ -25,6 +25,7 @@ class Transaction extends RecurlyResource
     private $_customer_message;
     private $_customer_message_locale;
     private $_cvv_check;
+    private $_description;
     private $_fraud_info;
     private $_gateway_approval_code;
     private $_gateway_message;
@@ -359,6 +360,29 @@ class Transaction extends RecurlyResource
     public function setCvvCheck(string $cvv_check): void
     {
         $this->_cvv_check = $cvv_check;
+    }
+
+    /**
+    * Getter method for the description attribute.
+    * The description that gets sent to the gateway.
+    *
+    * @return ?string
+    */
+    public function getDescription(): ?string
+    {
+        return $this->_description;
+    }
+
+    /**
+    * Setter method for the description attribute.
+    *
+    * @param string $description
+    *
+    * @return void
+    */
+    public function setDescription(string $description): void
+    {
+        $this->_description = $description;
     }
 
     /**

@@ -52,6 +52,7 @@ class Subscription extends RecurlyResource
     private $_remaining_billing_cycles;
     private $_remaining_pause_cycles;
     private $_renewal_billing_cycles;
+    private $_resume_at;
     private $_revenue_schedule_type;
     private $_shipping;
     private $_started_with_gift;
@@ -1017,6 +1018,29 @@ When `eom` an invoice becomes past due the specified number of `Net Terms` days 
     public function setRenewalBillingCycles(int $renewal_billing_cycles): void
     {
         $this->_renewal_billing_cycles = $renewal_billing_cycles;
+    }
+
+    /**
+    * Getter method for the resume_at attribute.
+    * The date the subscription billing resumes following a pause. Null unless the subscription is paused or scheduled to be paused.
+    *
+    * @return ?string
+    */
+    public function getResumeAt(): ?string
+    {
+        return $this->_resume_at;
+    }
+
+    /**
+    * Setter method for the resume_at attribute.
+    *
+    * @param string $resume_at
+    *
+    * @return void
+    */
+    public function setResumeAt(string $resume_at): void
+    {
+        $this->_resume_at = $resume_at;
     }
 
     /**
