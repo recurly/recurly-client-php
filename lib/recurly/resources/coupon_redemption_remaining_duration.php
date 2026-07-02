@@ -13,6 +13,7 @@ use Recurly\RecurlyResource;
 class CouponRedemptionRemainingDuration extends RecurlyResource
 {
     private $_expires_at;
+    private $_redemptions_remaining;
     private $_type;
 
     protected static $array_hints = [
@@ -43,8 +44,31 @@ class CouponRedemptionRemainingDuration extends RecurlyResource
     }
 
     /**
+    * Getter method for the redemptions_remaining attribute.
+    * The number of redemption periods remaining for which this coupon will still apply.
+    *
+    * @return ?int
+    */
+    public function getRedemptionsRemaining(): ?int
+    {
+        return $this->_redemptions_remaining;
+    }
+
+    /**
+    * Setter method for the redemptions_remaining attribute.
+    *
+    * @param int $redemptions_remaining
+    *
+    * @return void
+    */
+    public function setRedemptionsRemaining(int $redemptions_remaining): void
+    {
+        $this->_redemptions_remaining = $redemptions_remaining;
+    }
+
+    /**
     * Getter method for the type attribute.
-    * The coupon's duration type. `temporal` includes an `expires_at` timestamp. `forever` and `single_use` have no additional fields.
+    * The coupon's duration type. `temporal` includes an `expires_at` timestamp. `billing_periods` includes a `redemptions_remaining` count of billing cycles. `forever` and `single_use` have no additional fields.
     *
     * @return ?string
     */
