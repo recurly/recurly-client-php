@@ -68,7 +68,7 @@ class TierPricing extends RecurlyResource
 
     /**
     * Getter method for the unit_amount_decimal attribute.
-    * Allows up to 9 decimal places. Only supported when `add_on_type` = `usage`.
+    * Allows up to 9 decimal places.
 If `unit_amount_decimal` is provided, `unit_amount` cannot be provided.
 
     *
