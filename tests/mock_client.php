@@ -14,7 +14,7 @@ class MockClient extends BaseClient
     public function __construct($logger, $options = [])
     {
         parent::__construct("apikey", $logger, $options);
-        $this->http = (new Generator())->getMock(HttpAdapter::class);
+        $this->http = $options['http_adapter'] ?: (new Generator())->getMock(HttpAdapter::class);
     }
 
     protected function apiVersion(): string
