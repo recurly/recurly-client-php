@@ -44,6 +44,7 @@ class Transaction extends RecurlyResource
     private $_origin;
     private $_original_transaction_id;
     private $_payment_gateway;
+    private $_payment_gateway_references;
     private $_payment_method;
     private $_refunded;
     private $_status;
@@ -59,6 +60,7 @@ class Transaction extends RecurlyResource
     private $_voided_by_invoice;
 
     protected static $array_hints = [
+        'setPaymentGatewayReferences' => '\Recurly\Resources\PaymentGatewayReferences',
         'setSubscriptionIds' => 'string',
     ];
 
@@ -811,6 +813,29 @@ Only use this if the initiator value is "merchant". Otherwise, it will be ignore
     public function setPaymentGateway(\Recurly\Resources\TransactionPaymentGateway $payment_gateway): void
     {
         $this->_payment_gateway = $payment_gateway;
+    }
+
+    /**
+    * Getter method for the payment_gateway_references attribute.
+    * Array of Payment Gateway References captured at transaction time, each a reference to a third-party gateway object of varying types.
+    *
+    * @return array
+    */
+    public function getPaymentGatewayReferences(): array
+    {
+        return $this->_payment_gateway_references ?? [] ;
+    }
+
+    /**
+    * Setter method for the payment_gateway_references attribute.
+    *
+    * @param array $payment_gateway_references
+    *
+    * @return void
+    */
+    public function setPaymentGatewayReferences(array $payment_gateway_references): void
+    {
+        $this->_payment_gateway_references = $payment_gateway_references;
     }
 
     /**
