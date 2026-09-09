@@ -19,6 +19,7 @@ class UniqueCouponCode extends RecurlyResource
     private $_expired_at;
     private $_id;
     private $_object;
+    private $_redeem_by_date;
     private $_redeemed_at;
     private $_state;
     private $_updated_at;
@@ -186,6 +187,29 @@ class UniqueCouponCode extends RecurlyResource
     public function setObject(string $object): void
     {
         $this->_object = $object;
+    }
+
+    /**
+    * Getter method for the redeem_by_date attribute.
+    * Absolute expiry computed and stored at code-generation time. Set only for Window (relative redeem-by) coupons. Null for Anytime coupons and Specific Date coupons — those resolve expiry from the parent coupon's redeem_by at redemption time, not at code-generation time.
+    *
+    * @return ?string
+    */
+    public function getRedeemByDate(): ?string
+    {
+        return $this->_redeem_by_date;
+    }
+
+    /**
+    * Setter method for the redeem_by_date attribute.
+    *
+    * @param string $redeem_by_date
+    *
+    * @return void
+    */
+    public function setRedeemByDate(string $redeem_by_date): void
+    {
+        $this->_redeem_by_date = $redeem_by_date;
     }
 
     /**

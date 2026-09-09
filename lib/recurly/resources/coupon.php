@@ -33,6 +33,8 @@ class Coupon extends RecurlyResource
     private $_object;
     private $_plans;
     private $_redeem_by;
+    private $_redeem_by_interval_amount;
+    private $_redeem_by_interval_unit;
     private $_redemption_resource;
     private $_state;
     private $_temporal_amount;
@@ -518,7 +520,7 @@ property and one of the following properties: `percent`, `fixed`, `trial`.
 
     /**
     * Getter method for the redeem_by attribute.
-    * The date and time the coupon will expire and can no longer be redeemed. Time is always 11:59:59, the end-of-day Pacific time.
+    * The date and time the coupon will expire and can no longer be redeemed. Time is always 11:59:59, the end-of-day Pacific time. Null for bulk coupons configured with a relative redeem-by interval (see redeem_by_interval_unit and redeem_by_interval_amount).
     *
     * @return ?string
     */
@@ -537,6 +539,52 @@ property and one of the following properties: `percent`, `fixed`, `trial`.
     public function setRedeemBy(string $redeem_by): void
     {
         $this->_redeem_by = $redeem_by;
+    }
+
+    /**
+    * Getter method for the redeem_by_interval_amount attribute.
+    * For a bulk coupon with a relative redeem-by, the number of redeem_by_interval_unit intervals after a code's generation that it remains redeemable. Null unless the coupon uses a relative redeem-by.
+    *
+    * @return ?int
+    */
+    public function getRedeemByIntervalAmount(): ?int
+    {
+        return $this->_redeem_by_interval_amount;
+    }
+
+    /**
+    * Setter method for the redeem_by_interval_amount attribute.
+    *
+    * @param int $redeem_by_interval_amount
+    *
+    * @return void
+    */
+    public function setRedeemByIntervalAmount(int $redeem_by_interval_amount): void
+    {
+        $this->_redeem_by_interval_amount = $redeem_by_interval_amount;
+    }
+
+    /**
+    * Getter method for the redeem_by_interval_unit attribute.
+    * For a bulk coupon with a relative redeem-by, the unit of the interval after which each generated unique code expires. Null unless the coupon uses a relative redeem-by.
+    *
+    * @return ?string
+    */
+    public function getRedeemByIntervalUnit(): ?string
+    {
+        return $this->_redeem_by_interval_unit;
+    }
+
+    /**
+    * Setter method for the redeem_by_interval_unit attribute.
+    *
+    * @param string $redeem_by_interval_unit
+    *
+    * @return void
+    */
+    public function setRedeemByIntervalUnit(string $redeem_by_interval_unit): void
+    {
+        $this->_redeem_by_interval_unit = $redeem_by_interval_unit;
     }
 
     /**

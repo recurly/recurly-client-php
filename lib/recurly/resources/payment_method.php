@@ -200,6 +200,11 @@ class PaymentMethod extends RecurlyResource
     /**
     * Getter method for the first_six attribute.
     * Credit card number's first six digits.
+
+For a tokenized wallet payment (`apple_pay`, `google_pay`, or
+`google_pay_device_pan`), this is the DPAN's (the wallet/device token's own
+number) first six digits, not the underlying card's (FPAN).
+
     *
     * @return ?string
     */
@@ -314,7 +319,13 @@ class PaymentMethod extends RecurlyResource
 
     /**
     * Getter method for the last_four attribute.
-    * Credit card number's last four digits. Will refer to bank account if payment method is ACH.
+    * Credit card number's last four digits. Will refer to bank account if payment
+method is ACH.
+
+For a tokenized wallet payment (`apple_pay`, `google_pay`, or
+`google_pay_device_pan`), this is the DPAN's last four digits, not the
+underlying card's (FPAN).
+
     *
     * @return ?string
     */
