@@ -54,13 +54,17 @@ class RecurlyError extends \Error
                 $api_error = \Recurly\Resources\ErrorMayHaveTransaction::fromResponse($response, $error);
                 return new $klass($error->message, $api_error);
             }
-        } else {
-            $error_type = static::errorFromStatus($response->getStatusCode());
-            $klass = static::titleize($error_type, '\\Recurly\\Errors\\');
-            if (class_exists($klass)) {
-                return new $klass('An unexpected error has occurred');
-            }
         }
+
+        // "Content-type: application/json" may appear without a body after a HEAD request.
+        // If the above failed, try guessing from the status code.
+        $error_type = static::errorFromStatus($response->getStatusCode());
+        $klass = static::titleize($error_type, '\\Recurly\\Errors\\');
+        if (class_exists($klass)) {
+            return new $klass('An unexpected error has occurred');
+        }
+
+        // No valid error type was found, sorry.
         $klass = static::_defaultErrorType($response);
         return new $klass('An unexpected error has occurred');
 
