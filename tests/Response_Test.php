@@ -175,12 +175,12 @@ final class ResponseTest extends RecurlyTestCase
         $this->assertInstanceOf(\Recurly\EmptyResource::class, $result);
     }
 
-    public function testToResourceError(): void
+    public function testAssertValid(): void
     {
         $this->expectException(\Recurly\RecurlyError::class);
         $response = new Response('', $this->request);
         $response->setHeaders(['HTTP/1.1 403 Forbidden']);
-        $result = $response->toResource();
+        $result = $response->assertValid();
     }
 
     public function testGetRawResponse(): void
