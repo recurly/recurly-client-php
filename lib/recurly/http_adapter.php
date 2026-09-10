@@ -11,7 +11,7 @@ namespace Recurly;
 /**
  * @codeCoverageIgnore
  */
-class HttpAdapter
+class HttpAdapter implements HttpAdapterInterface
 {
     private static $_default_options = [
         'ignore_errors' => true
@@ -44,7 +44,7 @@ class HttpAdapter
         $options['header'] = $headers_str;
         $context = stream_context_create(['http' => $options]);
         $result = file_get_contents($url, false, $context);
-
+	
         if (!empty($result)) {
             foreach($http_response_header as $h) {
                 if(preg_match('/Content-Encoding:.*gzip/i', $h)) {
