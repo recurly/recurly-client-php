@@ -54,22 +54,28 @@ class Response
     }
 
     /**
+     * Makes sure the response is valid. Throws RecurlyError otherwise.
+     */
+    public function assertValid(): void
+    {
+        if ($this->_status_code < 200 || $this->_status_code >= 300) {
+            throw \Recurly\RecurlyError::fromResponse($this);
+        }
+    }
+
+    /**
      * Converts the Response into a \Recurly\RecurlyResource
      * 
      * @return \Recurly\RecurlyResource
      */
     public function toResource(): \Recurly\RecurlyResource
     {
-        if ($this->_status_code >= 200 && $this->_status_code < 300) {
-            if (empty($this->_response)) {
-                return \Recurly\RecurlyResource::fromEmpty($this);
-            } elseif (in_array($this->getContentType(), static::BINARY_TYPES)) {
-                return \Recurly\RecurlyResource::fromBinary($this->_response, $this);
-            } else {
-                return \Recurly\RecurlyResource::fromResponse($this);
-            }
+        if (empty($this->_response)) {
+            return \Recurly\RecurlyResource::fromEmpty($this);
+        } elseif (in_array($this->getContentType(), static::BINARY_TYPES)) {
+            return \Recurly\RecurlyResource::fromBinary($this->_response, $this);
         } else {
-            throw \Recurly\RecurlyError::fromResponse($this);
+            return \Recurly\RecurlyResource::fromResponse($this);
         }
     }
 
