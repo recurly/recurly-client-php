@@ -14,6 +14,7 @@ class DunningInterval extends RecurlyResource
 {
     private $_days;
     private $_email_template;
+    private $_email_template_id;
 
     protected static $array_hints = [
     ];
@@ -63,5 +64,28 @@ class DunningInterval extends RecurlyResource
     public function setEmailTemplate(string $email_template): void
     {
         $this->_email_template = $email_template;
+    }
+
+    /**
+    * Getter method for the email_template_id attribute.
+    * The id of the custom email template assigned to this interval, from `GET /dunning_campaigns/email_templates`. `null` means the system default template for this interval. Accepted on write; round-tripped on read.
+    *
+    * @return ?string
+    */
+    public function getEmailTemplateId(): ?string
+    {
+        return $this->_email_template_id;
+    }
+
+    /**
+    * Setter method for the email_template_id attribute.
+    *
+    * @param string $email_template_id
+    *
+    * @return void
+    */
+    public function setEmailTemplateId(string $email_template_id): void
+    {
+        $this->_email_template_id = $email_template_id;
     }
 }
