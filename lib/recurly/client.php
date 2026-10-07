@@ -3652,6 +3652,21 @@ endpoint to obtain only the newly generated `UniqueCouponCodes`.
     }
   
     /**
+     * Create a new dunning campaign
+     *
+     * @param array $body    The body of the request.
+     * @param array $options Associative array of optional parameters
+     *
+     * @return \Recurly\Resources\DunningCampaign A new dunning campaign.
+     * @link   https://developers.recurly.com/api/v2021-02-25#operation/create_dunning_campaign
+     */
+    public function createDunningCampaign(array $body, array $options = []): \Recurly\Resources\DunningCampaign
+    {
+        $path = $this->interpolatePath("/dunning_campaigns", []);
+        return $this->makeRequest('POST', $path, $body, $options);
+    }
+  
+    /**
      * Fetch a dunning campaign
      *
      * @param string $dunning_campaign_id Dunning Campaign ID, e.g. `e28zov4fw0v2`.
@@ -3664,6 +3679,51 @@ endpoint to obtain only the newly generated `UniqueCouponCodes`.
     {
         $path = $this->interpolatePath("/dunning_campaigns/{dunning_campaign_id}", ['dunning_campaign_id' => $dunning_campaign_id]);
         return $this->makeRequest('GET', $path, [], $options);
+    }
+  
+    /**
+     * Update a dunning campaign
+     *
+     * @param string $dunning_campaign_id Dunning Campaign ID, e.g. `e28zov4fw0v2`.
+     * @param array  $body                The body of the request.
+     * @param array  $options             Associative array of optional parameters
+     *
+     * @return \Recurly\Resources\DunningCampaign The updated dunning campaign.
+     * @link   https://developers.recurly.com/api/v2021-02-25#operation/update_dunning_campaign
+     */
+    public function updateDunningCampaign(string $dunning_campaign_id, array $body, array $options = []): \Recurly\Resources\DunningCampaign
+    {
+        $path = $this->interpolatePath("/dunning_campaigns/{dunning_campaign_id}", ['dunning_campaign_id' => $dunning_campaign_id]);
+        return $this->makeRequest('PUT', $path, $body, $options);
+    }
+  
+    /**
+     * Deactivate a dunning campaign
+     *
+     * @param string $dunning_campaign_id Dunning Campaign ID, e.g. `e28zov4fw0v2`.
+     * @param array  $options             Associative array of optional parameters
+     *
+     * @return \Recurly\Resources\DunningCampaign The deactivated dunning campaign.
+     * @link   https://developers.recurly.com/api/v2021-02-25#operation/deactivate_dunning_campaign
+     */
+    public function deactivateDunningCampaign(string $dunning_campaign_id, array $options = []): \Recurly\Resources\DunningCampaign
+    {
+        $path = $this->interpolatePath("/dunning_campaigns/{dunning_campaign_id}", ['dunning_campaign_id' => $dunning_campaign_id]);
+        return $this->makeRequest('DELETE', $path, [], $options);
+    }
+  
+    /**
+     * List the custom email templates assignable to a dunning campaign interval
+     *
+     * @param array $options Associative array of optional parameters
+     *
+     * @return \Recurly\Pager A list of the site's assignable custom email templates.
+     * @link   https://developers.recurly.com/api/v2021-02-25#operation/list_dunning_campaign_email_templates
+     */
+    public function listDunningCampaignEmailTemplates(array $options = []): \Recurly\Pager
+    {
+        $path = $this->interpolatePath("/dunning_campaigns/email_templates", []);
+        return new \Recurly\Pager($this, $path, $options);
     }
   
     /**
