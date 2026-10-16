@@ -21,12 +21,14 @@ class ExternalSubscription extends RecurlyResource
     private $_expires_at;
     private $_external_id;
     private $_external_payment_phases;
+    private $_external_product;
     private $_external_product_reference;
     private $_id;
     private $_imported;
     private $_in_grace_period;
     private $_last_purchased;
     private $_object;
+    private $_plan;
     private $_quantity;
     private $_state;
     private $_test;
@@ -248,6 +250,29 @@ class ExternalSubscription extends RecurlyResource
     }
 
     /**
+    * Getter method for the external_product attribute.
+    * Just the important parts.
+    *
+    * @return ?\Recurly\Resources\ExternalProductMini
+    */
+    public function getExternalProduct(): ?\Recurly\Resources\ExternalProductMini
+    {
+        return $this->_external_product;
+    }
+
+    /**
+    * Setter method for the external_product attribute.
+    *
+    * @param \Recurly\Resources\ExternalProductMini $external_product
+    *
+    * @return void
+    */
+    public function setExternalProduct(\Recurly\Resources\ExternalProductMini $external_product): void
+    {
+        $this->_external_product = $external_product;
+    }
+
+    /**
     * Getter method for the external_product_reference attribute.
     * External Product Reference details
     *
@@ -383,6 +408,29 @@ class ExternalSubscription extends RecurlyResource
     public function setObject(string $object): void
     {
         $this->_object = $object;
+    }
+
+    /**
+    * Getter method for the plan attribute.
+    * Just the important parts.
+    *
+    * @return ?\Recurly\Resources\PlanMini
+    */
+    public function getPlan(): ?\Recurly\Resources\PlanMini
+    {
+        return $this->_plan;
+    }
+
+    /**
+    * Setter method for the plan attribute.
+    *
+    * @param \Recurly\Resources\PlanMini $plan
+    *
+    * @return void
+    */
+    public function setPlan(\Recurly\Resources\PlanMini $plan): void
+    {
+        $this->_plan = $plan;
     }
 
     /**
