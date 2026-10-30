@@ -25,6 +25,7 @@ class SubscriptionChange extends RecurlyResource
     private $_next_bill_date;
     private $_object;
     private $_plan;
+    private $_price_segment_id;
     private $_quantity;
     private $_ramp_intervals;
     private $_revenue_schedule_type;
@@ -338,6 +339,29 @@ class SubscriptionChange extends RecurlyResource
     public function setPlan(\Recurly\Resources\PlanMini $plan): void
     {
         $this->_plan = $plan;
+    }
+
+    /**
+    * Getter method for the price_segment_id attribute.
+    * The price segment ID, e.g. `e28zov4fw0v2`.
+    *
+    * @return ?string
+    */
+    public function getPriceSegmentId(): ?string
+    {
+        return $this->_price_segment_id;
+    }
+
+    /**
+    * Setter method for the price_segment_id attribute.
+    *
+    * @param string $price_segment_id
+    *
+    * @return void
+    */
+    public function setPriceSegmentId(string $price_segment_id): void
+    {
+        $this->_price_segment_id = $price_segment_id;
     }
 
     /**

@@ -21,7 +21,7 @@ class PaymentGatewayReferences extends RecurlyResource
     
     /**
     * Getter method for the reference_type attribute.
-    * The type of reference token. Required if token is passed in for Stripe Gateway or Ebanx UPI.
+    * The type of reference token. The value can be omitted for gateways that only support one type of token.
     *
     * @return ?string
     */
